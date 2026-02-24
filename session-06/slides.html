@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 6: Same Space, Different Worlds</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/night.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/monokai.min.css">
+<style>
+  :root {
+    --r-heading-font: 'Georgia', serif;
+    --r-main-font: 'Segoe UI', 'Helvetica Neue', sans-serif;
+    --r-heading-color: #fbbf24;
+    --r-link-color: #60a5fa;
+    --r-link-color-hover: #93c5fd;
+  }
+  .reveal { font-size: 32px; }
+  .reveal h1, .reveal h2, .reveal h3 { text-transform: none; }
+  .reveal h1 { font-size: 2.2em; }
+  .reveal h2 { font-size: 1.5em; color: #fbbf24; }
+  .reveal h3 { font-size: 1.1em; color: #9ca3af; }
+
+  .reveal .slides section { text-align: left; }
+  .reveal .slides section.center-slide { text-align: center; }
+
+  .concept-box {
+    background: linear-gradient(135deg, #1e3a5f, #1a1a2e);
+    border: 2px solid #fbbf24;
+    border-radius: 12px;
+    padding: 1em 1.5em;
+    margin: 0.8em 0;
+    text-align: center;
+    font-size: 1.3em;
+    letter-spacing: 0.05em;
+  }
+  .concept-box .arrow { color: #fbbf24; font-weight: bold; }
+
+  .vocab-term {
+    color: #fbbf24;
+    font-weight: bold;
+  }
+
+  .emoji-label { font-size: 1.4em; margin-right: 0.3em; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5em;
+    align-items: start;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 0.8em 1em;
+    margin: 0.4em 0;
+  }
+
+  .highlight-yellow { color: #fbbf24; }
+  .highlight-blue { color: #60a5fa; }
+  .highlight-green { color: #34d399; }
+  .highlight-pink { color: #f472b6; }
+
+  .small { font-size: 0.7em; color: #9ca3af; }
+
+  code {
+    background: rgba(255,255,255,0.1);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+  .reveal pre code {
+    max-height: 500px;
+    font-size: 0.65em;
+    line-height: 1.5;
+    padding: 1em;
+  }
+
+  .observation-card {
+    background: rgba(251,191,36,0.1);
+    border-left: 4px solid #fbbf24;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .try-it {
+    background: rgba(52,211,153,0.1);
+    border-left: 4px solid #34d399;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .fragment.current-visible.visible:not(.current-fragment) {
+    display: none;
+  }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ========== TITLE ========== -->
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
+  <h1 style="font-size:2.5em;">Same Space, Different Worlds</h1>
+  <h3 style="color:#fbbf24;">Session 6</h3>
+  <p style="margin-top:1.5em; color:#94a3b8;">Roots &middot; Iterative Space Building</p>
+</section>
+
+<!-- ========== TONIGHT'S GOAL ========== -->
+<section>
+  <h2>Tonight's Goal</h2>
+  <p style="font-size:1.2em; text-align:center; margin:1em 0;">
+    Take models <span class="highlight-yellow">out of their comfort zone</span>.<br>
+    Watch them struggle.
+  </p>
+  <div class="concept-box">
+    No new build tonight &mdash; we reuse Sentiment Showdown
+  </div>
+  <p style="text-align:center; color:#9ca3af;">Same Space, new questions. Different text &rarr; different problems.</p>
+</section>
+
+<!-- ========== SHOW AND TELL ========== -->
+<section>
+  <h2>Show-and-Tell</h2>
+  <div class="observation-card">
+    What <strong>settings recipes</strong> did you find?
+  </div>
+  <div class="observation-card">
+    What worked best for what task?
+  </div>
+</section>
+
+<!-- ========== THE HOOK ========== -->
+<section>
+  <section>
+    <h2>Remember These Models?</h2>
+    <p>Three models from Session 4. Same weights. Same training. Nothing changed.</p>
+    <div class="card">
+      <span class="emoji-label">🎬</span>
+      <strong>Movie Review Model</strong> &mdash; trained on movie reviews
+    </div>
+    <div class="card">
+      <span class="emoji-label">🐦</span>
+      <strong>Twitter Model</strong> &mdash; trained on tweets
+    </div>
+    <div class="card">
+      <span class="emoji-label">⭐</span>
+      <strong>Product Review Model</strong> &mdash; trained on product reviews
+    </div>
+    <p class="fragment" style="margin-top:0.8em; color:#fbbf24; font-size:1.1em;">
+      "If the movie-review model has only ever read movie reviews,<br>what happens when we give it a poem?"
+    </p>
+  </section>
+</section>
+
+<!-- ========== DOMAIN SAFARI ========== -->
+<section>
+  <section>
+    <h2>Domain Safari</h2>
+    <p>For each domain, we'll do three things:</p>
+    <div class="card"><strong>1. Predict</strong> &mdash; which model handles this best?</div>
+    <div class="card"><strong>2. Test</strong> &mdash; paste it in. Run all three models.</div>
+    <div class="card"><strong>3. React</strong> &mdash; were you right? What surprised you?</div>
+  </section>
+
+  <section>
+    <h2>Domain: News Articles</h2>
+    <div class="try-it">
+      "The Federal Reserve announced a quarter-point interest rate cut on Wednesday, signaling confidence that inflation is moving sustainably toward its 2 percent target."
+    </div>
+    <div class="observation-card fragment">
+      This is neutral/factual. The movie model has to pick POSITIVE or NEGATIVE &mdash; it has no neutral option. What does it do?
+    </div>
+  </section>
+
+  <section>
+    <h2>Domain: Tweets</h2>
+    <div class="try-it">
+      "ngl this new update is mid at best. they really thought they did something"
+    </div>
+    <div class="observation-card fragment">
+      Which model handles slang best? Has the product review model ever seen this kind of language?
+    </div>
+  </section>
+
+  <section>
+    <h2>Domain: Song Lyrics</h2>
+    <div class="try-it">
+      "Dancing on the ceiling, burning down the walls, laughing at the wreckage as the empire falls. We'll celebrate the ending with confetti made of ash."
+    </div>
+    <div class="observation-card fragment">
+      Sounds upbeat (dancing, laughing, celebrating) but it's about destruction. Can the models tell?
+    </div>
+  </section>
+
+  <section>
+    <h2>More Domains to Test</h2>
+    <div class="two-col">
+      <div>
+        <div class="card"><span class="emoji-label">📝</span> Student essays</div>
+        <div class="card"><span class="emoji-label">⚖️</span> Legal text</div>
+        <div class="card"><span class="emoji-label">📜</span> Poetry</div>
+      </div>
+      <div>
+        <div class="card"><span class="emoji-label">💬</span> Text messages</div>
+        <div class="card"><span class="emoji-label">🏥</span> Medical notes</div>
+        <div class="card"><span class="emoji-label">💻</span> Code comments</div>
+      </div>
+    </div>
+    <p class="fragment" style="margin-top:0.8em; color:#f472b6;">Which domain makes <em>all three</em> models struggle?</p>
+  </section>
+</section>
+
+<!-- ========== PATTERN RECOGNITION ========== -->
+<section>
+  <h2>What Patterns Did We Find?</h2>
+  <div class="observation-card">
+    Which model worked best across the most domains?
+  </div>
+  <div class="observation-card">
+    Were there domains where ALL models struggled?
+  </div>
+  <div class="observation-card">
+    What makes a domain "hard" for these models?
+  </div>
+  <p class="fragment" style="margin-top:0.8em; color:#fbbf24; font-size:1.1em;">
+    Model card &rarr; training data &rarr; domain performance.<br>
+    It all connects.
+  </p>
+</section>
+
+<!-- ========== ANALOGIES ========== -->
+<section>
+  <h2>Two Analogies</h2>
+  <div class="two-col">
+    <div class="card" style="text-align:center;">
+      <p style="font-size:1.8em;">📝</p>
+      <strong class="highlight-blue">Studying for Tests</strong><br>
+      You only study one teacher's test style.<br>
+      You ace their tests &mdash; then bomb a different teacher's exam.
+    </div>
+    <div class="card" style="text-align:center;">
+      <p style="font-size:1.8em;">🚗</p>
+      <strong class="highlight-yellow">Learning to Drive</strong><br>
+      You learn in a small town.<br>
+      Then someone puts you on a six-lane highway in another country.
+    </div>
+  </div>
+  <p class="fragment" style="margin-top:1em; text-align:center; color:#9ca3af;">
+    Same skill. Completely different domain.
+  </p>
+</section>
+
+<!-- ========== NAME THE CONCEPT ========== -->
+<section class="center-slide">
+  <h2>Name the Concept</h2>
+  <div class="concept-box" style="font-size:1.2em;">
+    <span class="highlight-blue">MODEL</span> trained on <span class="highlight-green">DOMAIN A</span>
+    <span class="arrow"> &rarr; </span>
+    works great on <span class="highlight-green">DOMAIN A</span><br>
+    <span class="arrow">&rarr;</span> struggles on <span class="highlight-pink">DOMAIN B</span>
+    <span class="arrow"> &rarr; </span>
+    that's <span class="highlight-yellow">DOMAIN SHIFT</span>
+  </div>
+  <p class="fragment" style="margin-top:1em; font-size:0.95em;">
+    <strong class="highlight-yellow">Overfitting:</strong> the model got SO good at its training data that it can't handle anything else.<br>
+    <strong class="highlight-yellow">Domain shift:</strong> the real world is different from the training world.
+  </p>
+  <p class="fragment" style="margin-top:0.5em; color:#fbbf24; font-size:1.1em;">
+    "Which model is best?" &rarr; "Best <em>for what?</em>"
+  </p>
+</section>
+
+<!-- ========== VOCABULARY ========== -->
+<section>
+  <h2>Vocabulary</h2>
+  <div class="card">
+    <span class="vocab-term">Overfitting</span> &mdash; when a model is too specialized in its training data to handle new situations
+  </div>
+  <div class="card">
+    <span class="vocab-term">Domain shift</span> &mdash; when the real-world data is different from the training data
+  </div>
+  <div class="card">
+    <span class="vocab-term">Generalization</span> &mdash; a model's ability to work well on data it hasn't seen before
+  </div>
+  <div class="card">
+    <span class="vocab-term">Domain</span> &mdash; a category of text (tweets, legal documents, poetry, product reviews, etc.)
+  </div>
+</section>
+
+<!-- ========== NOTEBOOK TIME ========== -->
+<section>
+  <h2>Notebook Time</h2>
+  <p>Open today's notebook and run the first few cells together.</p>
+  <div class="try-it" style="margin-top:1em;">
+    <strong>Link in the Zoom chat!</strong>
+  </div>
+  <div class="card" style="margin-top:0.8em;">
+    <strong>1.</strong> Click the link &rarr; it opens in Google Colab<br>
+    <strong>2.</strong> Hit the <span class="highlight-yellow">play button &#9654;</span> on the first cell<br>
+    <strong>3.</strong> Run the setup cell, then try the experiments
+  </div>
+  <div class="card" style="margin-top:0.5em;">
+    <strong>New skill:</strong> Record your observations in markdown cells &mdash; double-click to edit!
+  </div>
+  <p class="small" style="margin-top:0.8em;">Finish the experiments on your own before next week</p>
+</section>
+
+<!-- ========== BETWEEN SESSIONS ========== -->
+<section>
+  <h2>Between Sessions</h2>
+  <p><strong>Challenge:</strong> Find a domain that <span class="highlight-pink">breaks all three models</span>.</p>
+  <div class="card" style="margin-top:0.8em;">
+    <strong>1.</strong> Think of a type of text none of the models were trained on<br>
+    <strong>2.</strong> Paste it into Sentiment Showdown<br>
+    <strong>3.</strong> See if all three models get confused
+  </div>
+  <div class="try-it" style="margin-top:0.8em;">
+    <strong>Hints:</strong> Try mixing languages, heavy sarcasm, text with no sentiment at all (recipes, math problems), or formats the models have never seen (memes, code).
+  </div>
+</section>
+
+<!-- ========== NEXT WEEK ========== -->
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
+  <h2>Next Week</h2>
+  <p style="font-size:1.3em;">Who gets hurt?</p>
+  <p style="color:#9ca3af; margin-top:0.5em;">When the model treats people differently,<br>it matters.</p>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/highlight.min.js"></script>
+<script>
+Reveal.initialize({
+  hash: true,
+  slideNumber: true,
+  transition: 'slide',
+  plugins: [RevealHighlight],
+  width: 1280,
+  height: 720,
+  margin: 0.08
+});
+</script>
+</body>
+</html>

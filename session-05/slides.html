@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 5: Add Controls</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/night.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/monokai.min.css">
+<style>
+  :root {
+    --r-heading-font: 'Georgia', serif;
+    --r-main-font: 'Segoe UI', 'Helvetica Neue', sans-serif;
+    --r-heading-color: #fbbf24;
+    --r-link-color: #60a5fa;
+    --r-link-color-hover: #93c5fd;
+  }
+  .reveal { font-size: 32px; }
+  .reveal h1, .reveal h2, .reveal h3 { text-transform: none; }
+  .reveal h1 { font-size: 2.2em; }
+  .reveal h2 { font-size: 1.5em; color: #fbbf24; }
+  .reveal h3 { font-size: 1.1em; color: #9ca3af; }
+
+  .reveal .slides section { text-align: left; }
+  .reveal .slides section.center-slide { text-align: center; }
+
+  .concept-box {
+    background: linear-gradient(135deg, #1e3a5f, #1a1a2e);
+    border: 2px solid #fbbf24;
+    border-radius: 12px;
+    padding: 1em 1.5em;
+    margin: 0.8em 0;
+    text-align: center;
+    font-size: 1.3em;
+    letter-spacing: 0.05em;
+  }
+  .concept-box .arrow { color: #fbbf24; font-weight: bold; }
+
+  .vocab-term {
+    color: #fbbf24;
+    font-weight: bold;
+  }
+
+  .emoji-label { font-size: 1.4em; margin-right: 0.3em; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5em;
+    align-items: start;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 0.8em 1em;
+    margin: 0.4em 0;
+  }
+
+  .highlight-yellow { color: #fbbf24; }
+  .highlight-blue { color: #60a5fa; }
+  .highlight-green { color: #34d399; }
+  .highlight-pink { color: #f472b6; }
+
+  .small { font-size: 0.7em; color: #9ca3af; }
+
+  code {
+    background: rgba(255,255,255,0.1);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+  .reveal pre code {
+    max-height: 500px;
+    font-size: 0.65em;
+    line-height: 1.5;
+    padding: 1em;
+  }
+
+  .observation-card {
+    background: rgba(251,191,36,0.1);
+    border-left: 4px solid #fbbf24;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .try-it {
+    background: rgba(52,211,153,0.1);
+    border-left: 4px solid #34d399;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .fragment.current-visible.visible:not(.current-fragment) {
+    display: none;
+  }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ========== TITLE ========== -->
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
+  <h1 style="font-size:2.5em;">Add Controls</h1>
+  <h3 style="color:#fbbf24;">Session 5</h3>
+  <p style="margin-top:1.5em; color:#94a3b8;">Roots &middot; Iterative Space Building</p>
+</section>
+
+<!-- ========== TONIGHT'S GOAL ========== -->
+<section>
+  <h2>Tonight's Goal</h2>
+  <p style="font-size:1.2em; text-align:center; margin:1em 0;">
+    Same model, same prompt &mdash; <span class="highlight-yellow">different output</span>.<br>
+    Control the chaos with sliders.
+  </p>
+  <div class="concept-box">
+    Text Playground
+  </div>
+  <p style="text-align:center; color:#9ca3af;">Type a prompt &rarr; adjust sliders &rarr; watch the AI write differently every time</p>
+</section>
+
+<!-- ========== SHOW AND TELL ========== -->
+<section>
+  <h2>Show-and-Tell</h2>
+  <div class="observation-card">
+    Did anyone add a fourth model or find <strong>maximum disagreement</strong>?
+  </div>
+  <p class="fragment" style="margin-top:1em;">What text made the three models disagree the most?</p>
+</section>
+
+<!-- ========== THE HOOK ========== -->
+<section>
+  <section>
+    <h2>The Hook</h2>
+    <p>Same prompt. Same model. Watch.</p>
+    <div class="try-it" style="margin-top:1em;">
+      <strong>Prompt:</strong> "Once upon a time in a school where robots"
+    </div>
+    <div class="two-col" style="margin-top:1em;">
+      <div class="card">
+        <strong class="highlight-blue">Temperature = 0.1</strong><br>
+        Safe, predictable, boring
+      </div>
+      <div class="card">
+        <strong class="highlight-pink">Temperature = 1.5</strong><br>
+        Wild, chaotic, surprising
+      </div>
+    </div>
+    <p class="fragment" style="margin-top:1em; color:#fbbf24; font-size:1.1em;">
+      Nothing changed except one slider. Why is the output so different?
+    </p>
+  </section>
+</section>
+
+<!-- ========== BUILD: SETUP ========== -->
+<section>
+  <h2>Let's Build It</h2>
+  <p>Creating a new Space on Hugging Face:</p>
+  <div class="card">
+    <strong>1.</strong> Click <span class="highlight-yellow">New Space</span>
+  </div>
+  <div class="card">
+    <strong>2.</strong> Name it <code>text-playground</code>
+  </div>
+  <div class="card">
+    <strong>3.</strong> SDK: <span class="highlight-blue">Gradio</span>
+  </div>
+  <div class="card">
+    <strong>4.</strong> Visibility: <span class="highlight-green">Public</span> &bull; Hardware: <span class="highlight-green">Free CPU</span>
+  </div>
+</section>
+
+<!-- ========== BUILD: CODE ========== -->
+<section>
+  <section>
+    <h2>The Code: Load the Model</h2>
+    <pre><code class="language-python">from transformers import pipeline
+import gradio as gr
+
+print("Loading distilgpt2...")
+generator = pipeline("text-generation", model="distilgpt2")
+print("Model loaded!")</code></pre>
+    <p style="margin-top:0.8em;">
+      <code class="highlight-yellow">distilgpt2</code> is a text generation model &mdash; ~80MB, fast on free CPU.<br>
+      <span class="small">It's tiny compared to ChatGPT, but the same controls work on both.</span>
+    </p>
+  </section>
+
+  <section>
+    <h2>The Code: Generate Function</h2>
+    <pre><code class="language-python">def generate_text(prompt, temperature, top_p, max_length):
+    if not prompt or not prompt.strip():
+        return "Type a prompt above first!"
+
+    result = generator(
+        prompt,
+        temperature=max(temperature, 0.01),
+        top_p=top_p,
+        max_length=int(max_length),
+        do_sample=True,
+        num_return_sequences=1,
+    )
+    return result[0]["generated_text"]</code></pre>
+    <p>Three sliders feed into one function. Each one changes how the AI writes.</p>
+  </section>
+
+  <section>
+    <h2>The Code: Sliders</h2>
+    <pre><code class="language-python">demo = gr.Interface(
+    fn=generate_text,
+    inputs=[
+        gr.Textbox(lines=3, placeholder="Start your text here...",
+                   label="Prompt"),
+        gr.Slider(minimum=0.1, maximum=2.0, value=0.7,
+                  step=0.1, label="Temperature (creativity)"),
+        gr.Slider(minimum=0.1, maximum=1.0, value=0.9,
+                  step=0.05, label="Top-p (diversity)"),
+        gr.Slider(minimum=20, maximum=200, value=100,
+                  step=10, label="Max Length (words-ish)"),
+    ],
+    outputs=gr.Textbox(label="Generated Text", lines=10),
+    title="Text Playground",
+)</code></pre>
+    <p><code>gr.Slider</code> &mdash; each one is a knob we hand to the user.</p>
+  </section>
+
+  <section>
+    <h2>requirements.txt</h2>
+    <pre><code>transformers
+torch
+gradio</code></pre>
+    <p>Same three packages. Commit both files and watch it build.</p>
+  </section>
+</section>
+
+<!-- ========== SYSTEMATIC EXPERIMENTS ========== -->
+<section>
+  <section>
+    <h2>Experiment Rules</h2>
+    <p style="font-size:1.1em;">Change <span class="highlight-yellow">ONE</span> slider at a time.</p>
+    <div class="observation-card">
+      "If you change two sliders at once, can you tell which one caused the change?"
+    </div>
+    <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
+      No &mdash; this is why scientists change one variable at a time.
+    </p>
+  </section>
+
+  <section>
+    <h2>Experiment 1: Temperature</h2>
+    <div class="try-it">
+      <strong>Prompt:</strong> "The secret ingredient in the recipe was"
+    </div>
+    <div class="two-col" style="margin-top:0.8em;">
+      <div>
+        <div class="card"><strong>0.1</strong> &mdash; repetitive, safe</div>
+        <div class="card"><strong>0.5</strong> &mdash; sensible, focused</div>
+        <div class="card"><strong>0.7</strong> &mdash; balanced</div>
+      </div>
+      <div>
+        <div class="card"><strong>1.0</strong> &mdash; creative</div>
+        <div class="card"><strong>1.5</strong> &mdash; chaotic</div>
+        <div class="card"><strong>2.0</strong> &mdash; gibberish?</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Experiment 2: Top-p</h2>
+    <div class="try-it">
+      <strong>Same prompt, temperature fixed at 0.7</strong>
+    </div>
+    <div class="card" style="margin-top:0.8em;"><strong>Top-p = 0.1</strong> &mdash; only the top 1&ndash;3 most likely words considered</div>
+    <div class="card"><strong>Top-p = 0.5</strong> &mdash; moderate vocabulary</div>
+    <div class="card"><strong>Top-p = 0.9</strong> &mdash; most words in play</div>
+    <div class="card"><strong>Top-p = 1.0</strong> &mdash; everything is possible</div>
+  </section>
+
+  <section>
+    <h2>Experiment 3: Max Length</h2>
+    <div class="try-it">
+      <strong>Same prompt, same settings &mdash; change only length</strong>
+    </div>
+    <div class="card" style="margin-top:0.8em;"><strong>20 tokens</strong> &mdash; barely a sentence</div>
+    <div class="card"><strong>50 tokens</strong> &mdash; a short paragraph</div>
+    <div class="card"><strong>100 tokens</strong> &mdash; getting longer</div>
+    <div class="card"><strong>200 tokens</strong> &mdash; does it stay coherent?</div>
+    <p class="fragment" style="margin-top:0.5em; color:#f472b6;">Longer isn't always better. Models can lose the thread.</p>
+  </section>
+</section>
+
+<!-- ========== THE GUITAR ANALOGY ========== -->
+<section>
+  <h2>The Guitar Analogy</h2>
+  <div class="two-col">
+    <div class="card" style="text-align:center;">
+      <p style="font-size:1.8em;">🎸</p>
+      <strong class="highlight-blue">The Guitar</strong><br>
+      Wood, strings, shape<br>
+      <span class="small">= the model's weights (fixed)</span>
+    </div>
+    <div class="card" style="text-align:center;">
+      <p style="font-size:1.8em;">🎛</p>
+      <strong class="highlight-yellow">How You Play</strong><br>
+      How hard you strum, where you pick, capo position<br>
+      <span class="small">= hyperparameters (you control these)</span>
+    </div>
+  </div>
+  <p class="fragment" style="margin-top:1em; text-align:center; color:#9ca3af;">
+    Same guitar, different sound &mdash; depending on how you play it.
+  </p>
+</section>
+
+<!-- ========== NAME THE CONCEPT ========== -->
+<section class="center-slide">
+  <h2>Name the Concept</h2>
+  <div class="concept-box" style="font-size:1.3em;">
+    same <span class="highlight-blue">MODEL</span>
+    + same <span class="highlight-green">PROMPT</span>
+    + different <span class="highlight-yellow">HYPERPARAMETERS</span><br>
+    <span class="arrow">&rarr;</span> different <span class="highlight-pink">OUTPUT</span>
+  </div>
+  <p class="fragment" style="margin-top:1em; font-size:0.95em;">
+    "Hyper" = above/beyond. These are parameters that sit <em>above</em> the model's learned weights.<br>
+    The model has millions of internal parameters we can't change.<br>
+    <span class="highlight-yellow">Hyperparameters</span> are the knobs <strong>we</strong> control.
+  </p>
+</section>
+
+<!-- ========== BEST SETTINGS FOR THE JOB ========== -->
+<section>
+  <h2>Best Settings for the Job</h2>
+  <p>There's no single "best" setting. It depends on the task.</p>
+  <div class="card"><strong>Scary story opening</strong> &mdash; <span class="highlight-pink">high creativity</span>, medium length</div>
+  <div class="card"><strong>Formal email to a teacher</strong> &mdash; <span class="highlight-blue">low creativity</span>, controlled length</div>
+  <div class="card"><strong>Funny random story</strong> &mdash; <span class="highlight-pink">high creativity</span>, longer length</div>
+  <div class="card"><strong>News headline continuation</strong> &mdash; <span class="highlight-blue">low creativity</span>, short length</div>
+  <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
+    You're learning the <strong>universal remote</strong>, not just one TV.
+  </p>
+</section>
+
+<!-- ========== VOCABULARY ========== -->
+<section>
+  <h2>Vocabulary</h2>
+  <div class="card">
+    <span class="vocab-term">Temperature</span> &mdash; controls randomness; low = predictable, high = creative/chaotic
+  </div>
+  <div class="card">
+    <span class="vocab-term">Top-p (nucleus sampling)</span> &mdash; limits which words the model considers; low = only top picks
+  </div>
+  <div class="card">
+    <span class="vocab-term">Max tokens</span> &mdash; how much text the model generates (tokens &asymp; words, roughly)
+  </div>
+  <div class="card">
+    <span class="vocab-term">Sampling</span> &mdash; the process of randomly picking the next word from a probability distribution
+  </div>
+  <div class="card">
+    <span class="vocab-term">Hyperparameter</span> &mdash; a setting we control at runtime (not learned during training)
+  </div>
+</section>
+
+<!-- ========== NOTEBOOK TIME ========== -->
+<section>
+  <h2>Notebook Time</h2>
+  <p>Open today's notebook and run the first few cells together.</p>
+  <div class="try-it" style="margin-top:1em;">
+    <strong>Link in the Zoom chat!</strong>
+  </div>
+  <div class="card" style="margin-top:0.8em;">
+    <strong>1.</strong> Click the link &rarr; it opens in Google Colab<br>
+    <strong>2.</strong> Hit the <span class="highlight-yellow">play button &#9654;</span> on the first cell<br>
+    <strong>3.</strong> Run the setup cell, then try the experiments
+  </div>
+  <div class="card" style="margin-top:0.5em;">
+    <strong>New skill:</strong> Change the slider values in the code and see different outputs!
+  </div>
+  <p class="small" style="margin-top:0.8em;">Finish the experiments on your own before next week</p>
+</section>
+
+<!-- ========== BETWEEN SESSIONS ========== -->
+<section>
+  <h2>Between Sessions</h2>
+  <p><strong>Challenge:</strong> Create "settings recipe cards" &mdash; best settings for different writing tasks.</p>
+  <div class="card" style="margin-top:0.8em;">
+    <strong>1.</strong> Pick a task (scary story, formal email, haiku, news report)<br>
+    <strong>2.</strong> Experiment with sliders until you find the best combo<br>
+    <strong>3.</strong> Write down: task name, temperature, top-p, max length
+  </div>
+  <div class="observation-card" style="margin-top:0.8em;">
+    How many different "recipe cards" can you create?
+  </div>
+</section>
+
+<!-- ========== NEXT WEEK ========== -->
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
+  <h2>Next Week</h2>
+  <p style="font-size:1.3em;">Same models, brand new worlds of text.</p>
+  <p style="color:#9ca3af; margin-top:0.5em;">What happens when you take a model<br>out of its comfort zone?</p>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/highlight.min.js"></script>
+<script>
+Reveal.initialize({
+  hash: true,
+  slideNumber: true,
+  transition: 'slide',
+  plugins: [RevealHighlight],
+  width: 1280,
+  height: 720,
+  margin: 0.08
+});
+</script>
+</body>
+</html>

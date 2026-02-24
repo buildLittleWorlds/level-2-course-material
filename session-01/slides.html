@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 1: Your First Space</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/night.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/monokai.min.css">
+<style>
+  :root {
+    --r-heading-font: 'Georgia', serif;
+    --r-main-font: 'Segoe UI', 'Helvetica Neue', sans-serif;
+    --r-heading-color: #fbbf24;
+    --r-link-color: #60a5fa;
+    --r-link-color-hover: #93c5fd;
+  }
+  .reveal { font-size: 32px; }
+  .reveal h1, .reveal h2, .reveal h3 { text-transform: none; }
+  .reveal h1 { font-size: 2.2em; }
+  .reveal h2 { font-size: 1.5em; color: #fbbf24; }
+  .reveal h3 { font-size: 1.1em; color: #9ca3af; }
+
+  .reveal .slides section { text-align: left; }
+  .reveal .slides section.center-slide { text-align: center; }
+
+  .concept-box {
+    background: linear-gradient(135deg, #1e3a5f, #1a1a2e);
+    border: 2px solid #fbbf24;
+    border-radius: 12px;
+    padding: 1em 1.5em;
+    margin: 0.8em 0;
+    text-align: center;
+    font-size: 1.3em;
+    letter-spacing: 0.05em;
+  }
+  .concept-box .arrow { color: #fbbf24; font-weight: bold; }
+
+  .vocab-term {
+    color: #fbbf24;
+    font-weight: bold;
+  }
+
+  .emoji-label { font-size: 1.4em; margin-right: 0.3em; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5em;
+    align-items: start;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 0.8em 1em;
+    margin: 0.4em 0;
+  }
+
+  .highlight-yellow { color: #fbbf24; }
+  .highlight-blue { color: #60a5fa; }
+  .highlight-green { color: #34d399; }
+  .highlight-pink { color: #f472b6; }
+
+  .small { font-size: 0.7em; color: #9ca3af; }
+
+  code {
+    background: rgba(255,255,255,0.1);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+  .reveal pre code {
+    max-height: 500px;
+    font-size: 0.65em;
+    line-height: 1.5;
+    padding: 1em;
+  }
+
+  .observation-card {
+    background: rgba(251,191,36,0.1);
+    border-left: 4px solid #fbbf24;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .try-it {
+    background: rgba(52,211,153,0.1);
+    border-left: 4px solid #34d399;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .fragment.current-visible.visible:not(.current-fragment) {
+    display: none;
+  }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ========== TITLE ========== -->
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
+  <h1 style="font-size:2.5em;">Your First Space</h1>
+  <h3 style="color:#fbbf24;">Session 1</h3>
+  <p style="margin-top:1.5em; color:#94a3b8;">Roots &middot; Iterative Space Building</p>
+</section>
+
+<!-- ========== WHAT WE'RE BUILDING ========== -->
+<section>
+  <h2>Tonight's Goal</h2>
+  <p style="font-size:1.2em; text-align:center; margin:1em 0;">
+    Build and deploy an AI-powered web app<br>
+    that <span class="highlight-yellow">anyone on the internet</span> can use.
+  </p>
+  <div class="concept-box">
+    Silly Phrase Finder
+  </div>
+  <p style="text-align:center; color:#9ca3af;">Paste any text &rarr; the AI picks the silliest sentence</p>
+</section>
+
+<!-- ========== SPACE TOUR ========== -->
+<section>
+  <section>
+    <h2>Space Tour</h2>
+    <p>Let's look at what people have built on Hugging Face.</p>
+    <div class="card">
+      <span class="emoji-label">🖼</span>
+      <strong>Background Removal</strong> &mdash; upload a photo, background vanishes
+    </div>
+    <div class="card">
+      <span class="emoji-label">🎵</span>
+      <strong>ACE-Step Music Gen</strong> &mdash; generate a short music clip
+    </div>
+    <div class="card">
+      <span class="emoji-label">😊</span>
+      <strong>Text to Emotion</strong> &mdash; type a sentence, see the emotion
+    </div>
+    <div class="card">
+      <span class="emoji-label">📝</span>
+      <strong>DeepSeek OCR</strong> &mdash; upload a photo of text, get text back
+    </div>
+  </section>
+
+  <section>
+    <h2>Observation Card</h2>
+    <p>For each Space, ask yourself:</p>
+    <div class="observation-card">
+      <strong>1.</strong> What goes <em>in</em>? &nbsp;(text, image, audio?)
+    </div>
+    <div class="observation-card">
+      <strong>2.</strong> What comes <em>out</em>?
+    </div>
+    <div class="observation-card">
+      <strong>3.</strong> What happens with <em>weird</em> input?
+    </div>
+  </section>
+</section>
+
+<!-- ========== ACCOUNT SETUP ========== -->
+<section>
+  <h2>Account Setup</h2>
+  <p>Head to <a href="https://huggingface.co">huggingface.co</a> and create a free account.</p>
+  <div class="two-col" style="margin-top:1em;">
+    <div>
+      <div class="card">
+        <strong class="highlight-yellow">Spaces</strong><br>
+        Browse what people have built
+      </div>
+      <div class="card">
+        <strong class="highlight-blue">Models</strong><br>
+        The library of AI models &mdash; all free, all open-source
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <strong class="highlight-green">Your Profile</strong><br>
+        This is your AI portfolio. Everything you build here is public and yours.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== DEMO ========== -->
+<section>
+  <section>
+    <h2>Demo: Silly Phrase Finder</h2>
+    <p>Let's try the finished version.</p>
+    <div class="try-it" style="margin-top:1em;">
+      <strong>Try this input:</strong><br>
+      <em>"The quarterly budget report is due on Friday. My cat learned to open the refrigerator and now judges my food choices. Please remember to submit your timesheets."</em>
+    </div>
+    <p class="fragment" style="margin-top:1em; color:#f472b6; font-size:1.1em;">
+      How does it know what's "silly"?<br>
+      Nobody taught it that word.
+    </p>
+  </section>
+
+  <section>
+    <h2>Your Turn to Suggest</h2>
+    <p>Give me a sentence or paragraph to try.</p>
+    <div class="try-it">
+      <strong>Ideas:</strong><br>
+      A news paragraph &bull; A children's book excerpt &bull;
+      A mix of serious and absurd sentences
+    </div>
+  </section>
+</section>
+
+<!-- ========== BUILD IT: SETUP ========== -->
+<section>
+  <h2>Let's Build It</h2>
+  <p>Creating a new Space on Hugging Face:</p>
+  <div class="card">
+    <strong>1.</strong> Click <span class="highlight-yellow">New Space</span>
+  </div>
+  <div class="card">
+    <strong>2.</strong> Name it <code>silly-phrase-finder</code>
+  </div>
+  <div class="card">
+    <strong>3.</strong> SDK: <span class="highlight-blue">Gradio</span>
+  </div>
+  <div class="card">
+    <strong>4.</strong> Visibility: <span class="highlight-green">Public</span> &bull; Hardware: <span class="highlight-green">Free CPU</span>
+  </div>
+  <div class="card">
+    <strong>5.</strong> Click <span class="highlight-yellow">Create Space</span>
+  </div>
+</section>
+
+<!-- ========== BUILD IT: CODE ========== -->
+<section>
+  <section>
+    <h2>The Code: Imports</h2>
+    <pre><code class="language-python">import gradio as gr
+from transformers import pipeline
+import re</code></pre>
+    <div class="two-col" style="margin-top:0.8em;">
+      <div class="card"><code class="highlight-yellow">gradio</code><br>Builds the web interface</div>
+      <div class="card"><code class="highlight-blue">transformers</code><br>Loads the AI model</div>
+    </div>
+    <div class="card" style="width:fit-content;"><code class="highlight-green">re</code><br>Splits text into sentences</div>
+  </section>
+
+  <section>
+    <h2>The Code: Load the Model</h2>
+    <pre><code class="language-python">classifier = pipeline(
+    "zero-shot-classification",
+    model="valhalla/distilbart-mnli-12-3"
+)</code></pre>
+    <p style="margin-top:0.8em;">
+      One line loads the AI model.<br>
+      <code>pipeline</code> handles all the complicated stuff.<br>
+      <span class="highlight-yellow">"zero-shot-classification"</span> is the task.<br>
+      The model name tells it which brain to download.
+    </p>
+  </section>
+
+  <section>
+    <h2>The Code: The Function</h2>
+    <pre><code class="language-python">def find_silliest(text):
+    if not text or not text.strip():
+        return "Paste some text above first!"
+
+    sentences = [s.strip() for s in
+        re.split(r'(?<=[.!?])\s+(?=[A-Z"])', text)
+        if len(s.strip()) > 30]
+
+    if len(sentences) == 0:
+        return "I need at least a couple of sentences..."</code></pre>
+    <p>Text goes in. We chop it into sentences, then compare them.</p>
+  </section>
+
+  <section>
+    <h2>The Code: Score Each Sentence</h2>
+    <pre><code class="language-python">    labels = ["silly and ridiculous",
+               "serious and important",
+               "ordinary and boring"]
+    results = classifier(sentences, candidate_labels=labels)
+
+    best_phrase = ""
+    best_score = 0
+    for sentence, result in zip(sentences, results):
+        silly_idx = result["labels"].index("silly and ridiculous")
+        score = result["scores"][silly_idx]
+        if score > best_score:
+            best_score = score
+            best_phrase = sentence
+
+    return f'"{best_phrase}"\n\nSilliness score: {best_score:.0%}'</code></pre>
+  </section>
+
+  <section>
+    <h2>The Code: The Web Interface</h2>
+    <pre><code class="language-python">demo = gr.Interface(
+    fn=find_silliest,
+    inputs=gr.Textbox(lines=10,
+        placeholder="Paste a paragraph or two here..."),
+    outputs=gr.Textbox(label="The Silliest Phrase"),
+    title="Silly Phrase Finder",
+    description="Paste any text and this AI will pick out "
+                "the silliest phrase..."
+)
+demo.launch()</code></pre>
+    <p>
+      <code>fn</code> = your function &bull;
+      <code>inputs</code> = what the user types &bull;
+      <code>outputs</code> = what they see
+    </p>
+  </section>
+
+  <section>
+    <h2>requirements.txt</h2>
+    <pre><code>transformers
+torch
+gradio</code></pre>
+    <p>This tells Hugging Face what packages to install.<br>
+    Without it, the Space won't know it needs <code>transformers</code>.</p>
+  </section>
+</section>
+
+<!-- ========== DEPLOY & TEST ========== -->
+<section>
+  <section>
+    <h2>Deploy!</h2>
+    <p style="font-size:1.2em; text-align:center;">Commit your files and watch the Space build.</p>
+    <div class="card" style="text-align:center; margin-top:1em;">
+      <span class="small">It takes 3&ndash;5 minutes. The platform is downloading the model and installing packages.</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Test It</h2>
+    <div class="try-it">
+      <strong>Inputs to try:</strong>
+    </div>
+    <div class="card">A news article paragraph <span class="small">(serious)</span></div>
+    <div class="card">A children's book paragraph <span class="small">(should find something silly)</span></div>
+    <div class="card">"The meeting is at 3pm. A duck wearing sunglasses walked into the boardroom. Please bring your laptops." <span class="small">(mixed)</span></div>
+    <div class="card" style="border:1px solid #fbbf24;">Your suggestions!</div>
+    <p class="fragment" style="margin-top:0.5em; color:#f472b6;">When does the model get it "wrong"?</p>
+  </section>
+</section>
+
+<!-- ========== THE BIG CONCEPT ========== -->
+<section class="center-slide">
+  <h2>The Pattern</h2>
+  <div class="concept-box" style="font-size:1.5em;">
+    <span class="highlight-blue">INPUT</span>
+    <span class="arrow"> &rarr; </span>
+    <span class="highlight-yellow">MODEL</span>
+    <span class="arrow"> &rarr; </span>
+    <span class="highlight-green">OUTPUT</span>
+  </div>
+  <p style="margin-top:1em; font-size:0.95em;">
+    Every AI tool you've ever used follows this pattern.
+  </p>
+  <p class="fragment" style="color:#9ca3af;">
+    ChatGPT: your prompt goes in, text comes out.<br>
+    Image generators: a description goes in, a picture comes out.<br>
+    Our Space: text goes in, the silliest phrase comes out.
+  </p>
+</section>
+
+<!-- ========== ZERO-SHOT ========== -->
+<section>
+  <h2>What's "Zero-Shot"?</h2>
+  <p>The model <code>valhalla/distilbart-mnli-12-3</code> was
+  <span class="highlight-pink">never trained on the word "silly."</span></p>
+  <p class="fragment" style="margin-top:0.8em;">It was trained to understand whether two sentences are related &mdash;
+  and that general language understanding is enough for it to figure out what "silly" means on its own.</p>
+  <p class="fragment" style="margin-top:0.8em; color:#fbbf24; font-size:1.1em;">
+    No custom training needed.
+  </p>
+</section>
+
+<!-- ========== OUR SPACE BREAKDOWN ========== -->
+<section class="center-slide">
+  <h2>Our Space, Broken Down</h2>
+  <div class="concept-box" style="font-size:1.2em;">
+    <span class="highlight-blue">TEXT</span>
+    <span class="arrow"> &rarr; </span>
+    <span class="highlight-yellow">ZERO-SHOT MODEL</span>
+    <span class="arrow"> &rarr; </span>
+    <span class="highlight-green">SILLIEST PHRASE</span>
+  </div>
+  <div class="fragment" style="margin-top:1.5em;">
+    <p>Quick check: can you name the <span class="highlight-blue">input</span>,
+    <span class="highlight-yellow">model</span>, and
+    <span class="highlight-green">output</span> for the Background Removal Space?</p>
+  </div>
+</section>
+
+<!-- ========== VOCABULARY ========== -->
+<section>
+  <h2>Vocabulary</h2>
+  <div class="card">
+    <span class="vocab-term">Space</span> &mdash; a web app on Hugging Face
+  </div>
+  <div class="card">
+    <span class="vocab-term">Model</span> &mdash; an AI brain trained on data
+  </div>
+  <div class="card">
+    <span class="vocab-term">Pipeline</span> &mdash; a shortcut that loads a model and makes it easy to use
+  </div>
+  <div class="card">
+    <span class="vocab-term">Zero-shot</span> &mdash; the model can do tasks it was never specifically trained for
+  </div>
+  <div class="card">
+    <span class="vocab-term">Gradio</span> &mdash; the Python library that builds the web interface
+  </div>
+</section>
+
+<!-- ========== NOTEBOOK TIME ========== -->
+<section>
+  <h2>Notebook Time</h2>
+  <p>Let's try something new — you're going to run code yourself!</p>
+  <div class="try-it" style="margin-top:1em;">
+    <strong>Link in the Zoom chat!</strong>
+  </div>
+  <div class="card" style="margin-top:0.8em;">
+    <strong>1.</strong> Click the link → it opens in Google Colab<br>
+    <strong>2.</strong> You'll see cells with code — hit the <span class="highlight-yellow">play button ▶</span> on the left<br>
+    <strong>3.</strong> Wait for the first cell to finish (you'll see a green check ✓)<br>
+    <strong>4.</strong> Then run the next cell
+  </div>
+  <p class="small" style="margin-top:0.8em;">Finish the experiments on your own before next week</p>
+</section>
+
+<!-- ========== BETWEEN SESSIONS ========== -->
+<section>
+  <h2>Between Sessions</h2>
+  <p><strong>Challenge:</strong> Duplicate the Silly Phrase Finder and change the labels.</p>
+  <div class="card" style="margin-top:0.8em;">
+    <strong>1.</strong> Go to the Space &rarr; click <strong>&#8943;</strong> &rarr; <strong>Duplicate this Space</strong><br>
+    <strong>2.</strong> Open <code>app.py</code> in the Files tab<br>
+    <strong>3.</strong> Find the <code>labels</code> line and change it
+  </div>
+  <div style="margin-top:0.8em;">
+    <p><strong>Ideas:</strong></p>
+    <div class="card"><code>["scariest", "funniest", "most boring"]</code></div>
+    <div class="card"><code>["most dramatic", "most chill", "most confusing"]</code></div>
+    <div class="card"><code>["sounds like a villain", "sounds like a hero", "sounds like a side character"]</code></div>
+  </div>
+</section>
+
+<!-- ========== WHAT TO NOTICE ========== -->
+<section>
+  <h2>What to Notice</h2>
+  <div class="observation-card">
+    Did the model "understand" your new labels?
+  </div>
+  <div class="observation-card">
+    Which labels work well? Which ones confuse the model?
+  </div>
+  <div class="observation-card">
+    Try the same text with different label sets &mdash; does the winner change?
+  </div>
+  <p style="margin-top:1em; color:#9ca3af;">
+    Bring your result to Session 2. Be ready to share what you tried and what surprised you.
+  </p>
+</section>
+
+<!-- ========== NEXT WEEK ========== -->
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
+  <h2>Next Week</h2>
+  <p style="font-size:1.3em;">We swap the engine.</p>
+  <p style="color:#9ca3af; margin-top:0.5em;">Same Space, different model.<br>Things will get weird.</p>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/highlight.min.js"></script>
+<script>
+Reveal.initialize({
+  hash: true,
+  slideNumber: true,
+  transition: 'slide',
+  plugins: [RevealHighlight],
+  width: 1280,
+  height: 720,
+  margin: 0.08
+});
+</script>
+</body>
+</html>

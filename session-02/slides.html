@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 2: Swap the Engine</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/night.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/monokai.min.css">
+<style>
+  :root {
+    --r-heading-font: 'Georgia', serif;
+    --r-main-font: 'Segoe UI', 'Helvetica Neue', sans-serif;
+    --r-heading-color: #fbbf24;
+    --r-link-color: #60a5fa;
+    --r-link-color-hover: #93c5fd;
+  }
+  .reveal { font-size: 32px; }
+  .reveal h1, .reveal h2, .reveal h3 { text-transform: none; }
+  .reveal h1 { font-size: 2.2em; }
+  .reveal h2 { font-size: 1.5em; color: #fbbf24; }
+  .reveal h3 { font-size: 1.1em; color: #9ca3af; }
+
+  .reveal .slides section { text-align: left; }
+  .reveal .slides section.center-slide { text-align: center; }
+
+  .concept-box {
+    background: linear-gradient(135deg, #1e3a5f, #1a1a2e);
+    border: 2px solid #fbbf24;
+    border-radius: 12px;
+    padding: 1em 1.5em;
+    margin: 0.8em 0;
+    text-align: center;
+    font-size: 1.3em;
+    letter-spacing: 0.05em;
+  }
+  .concept-box .arrow { color: #fbbf24; font-weight: bold; }
+
+  .vocab-term {
+    color: #fbbf24;
+    font-weight: bold;
+  }
+
+  .emoji-label { font-size: 1.4em; margin-right: 0.3em; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5em;
+    align-items: start;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 0.8em 1em;
+    margin: 0.4em 0;
+  }
+
+  .highlight-yellow { color: #fbbf24; }
+  .highlight-blue { color: #60a5fa; }
+  .highlight-green { color: #34d399; }
+  .highlight-pink { color: #f472b6; }
+
+  .small { font-size: 0.7em; color: #9ca3af; }
+
+  code {
+    background: rgba(255,255,255,0.1);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+  .reveal pre code {
+    max-height: 500px;
+    font-size: 0.65em;
+    line-height: 1.5;
+    padding: 1em;
+  }
+
+  .observation-card {
+    background: rgba(251,191,36,0.1);
+    border-left: 4px solid #fbbf24;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .try-it {
+    background: rgba(52,211,153,0.1);
+    border-left: 4px solid #34d399;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .fragment.current-visible.visible:not(.current-fragment) {
+    display: none;
+  }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ========== TITLE ========== -->
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
+  <h1 style="font-size:2.5em;">Swap the Engine</h1>
+  <h3 style="color:#fbbf24;">Session 2</h3>
+  <p style="margin-top:1.5em; color:#94a3b8;">Roots &middot; Iterative Space Building</p>
+</section>
+
+<!-- ========== TONIGHT'S GOAL ========== -->
+<section>
+  <h2>Tonight's Goal</h2>
+  <p style="font-size:1.2em; text-align:center; margin:1em 0;">
+    Same Space, different model.<br>
+    See how <span class="highlight-yellow">training data</span> changes everything.
+  </p>
+  <div class="concept-box">
+    Emotion Detector
+  </div>
+  <p style="text-align:center; color:#9ca3af;">Same text in &rarr; three different models &rarr; three different answers</p>
+</section>
+
+<!-- ========== SHOW AND TELL ========== -->
+<section>
+  <h2>Show-and-Tell</h2>
+  <div class="observation-card" style="font-size:1.1em;">
+    Did anyone modify their Space between sessions?
+  </div>
+  <div style="margin-top:1em;">
+    <p>If you changed the labels:</p>
+    <div class="card">What labels did you try?</div>
+    <div class="card">Did the model "understand" them?</div>
+    <div class="card">Anything surprising?</div>
+  </div>
+</section>
+
+<!-- ========== THE SWAP: DEMO ========== -->
+<section>
+  <section>
+    <h2>What If We Swap the Engine?</h2>
+    <p>Our Silly Phrase Finder uses <span class="highlight-blue">one model</span>.<br>
+    What happens if we give it a <span class="highlight-pink">completely different brain</span>?</p>
+    <div class="two-col" style="margin-top:1em;">
+      <div class="card">
+        <strong class="highlight-yellow">Model 1</strong><br>
+        Zero-shot (Session 1)<br>
+        <span class="small">Trained on: general language understanding</span>
+      </div>
+      <div class="card">
+        <strong class="highlight-blue">Model 2</strong><br>
+        Sentiment<br>
+        <span class="small">Trained on: 50,000 movie reviews</span>
+      </div>
+    </div>
+    <div class="card" style="width:fit-content;">
+      <strong class="highlight-green">Model 3</strong><br>
+      Emotion<br>
+      <span class="small">Trained on: tweets labeled with 7 emotions</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Swap 1: Sentiment Model</h2>
+    <p>Change one line in <code>app.py</code>:</p>
+    <p class="small" style="margin-bottom:0.3em;">Before:</p>
+    <pre><code class="language-python">classifier = pipeline(
+    "zero-shot-classification",
+    model="valhalla/distilbart-mnli-12-3"
+)</code></pre>
+    <p class="small" style="margin-bottom:0.3em;">After:</p>
+    <pre><code class="language-python">classifier = pipeline(
+    "sentiment-analysis",
+    model="distilbert-base-uncased-finetuned-sst-2-english"
+)</code></pre>
+    <p class="fragment" style="color:#f472b6;">This model only knows two words: POSITIVE and NEGATIVE.</p>
+  </section>
+
+  <section>
+    <h2>Swap 2: Emotion Model</h2>
+    <pre><code class="language-python">classifier = pipeline(
+    "text-classification",
+    model="j-hartmann/emotion-english-distilroberta-base"
+)</code></pre>
+    <p style="margin-top:0.8em;">This model knows <span class="highlight-yellow">7 emotions</span>:</p>
+    <div class="two-col">
+      <div>
+        <div class="card">anger</div>
+        <div class="card">disgust</div>
+        <div class="card">fear</div>
+        <div class="card">joy</div>
+      </div>
+      <div>
+        <div class="card">neutral</div>
+        <div class="card">sadness</div>
+        <div class="card">surprise</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Same Text, Three Answers</h2>
+    <div class="try-it">
+      <strong>Try this input with all three models:</strong><br>
+      <em>"The food was terrible but the service was excellent."</em>
+    </div>
+    <div class="fragment">
+      <div class="card"><strong class="highlight-yellow">Zero-shot:</strong> scores for silly / serious / ordinary</div>
+      <div class="card"><strong class="highlight-blue">Sentiment:</strong> POSITIVE or NEGATIVE?</div>
+      <div class="card"><strong class="highlight-green">Emotion:</strong> which of 7 emotions?</div>
+    </div>
+    <p class="fragment" style="color:#f472b6; margin-top:0.5em;">
+      Why do they disagree? They read the same words.
+    </p>
+  </section>
+</section>
+
+<!-- ========== MODEL CARD ACTIVITY ========== -->
+<section>
+  <section>
+    <h2>Read the Model Cards</h2>
+    <p>Every model on Hugging Face has a <span class="highlight-yellow">model card</span> &mdash; a page that explains what it does and how it was trained.</p>
+    <div class="card" style="margin-top:1em;">
+      <table style="width:100%; font-size:0.75em;">
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.2);">
+          <td style="padding:0.5em;"><strong>Question</strong></td>
+          <td style="padding:0.5em;"><strong>Zero-shot</strong></td>
+          <td style="padding:0.5em;"><strong>Sentiment</strong></td>
+          <td style="padding:0.5em;"><strong>Emotion</strong></td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+          <td style="padding:0.5em;">What was it trained on?</td>
+          <td style="padding:0.5em;">?</td>
+          <td style="padding:0.5em;">?</td>
+          <td style="padding:0.5em;">?</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+          <td style="padding:0.5em;">How many examples?</td>
+          <td style="padding:0.5em;">?</td>
+          <td style="padding:0.5em;">?</td>
+          <td style="padding:0.5em;">?</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+          <td style="padding:0.5em;">What task does it do?</td>
+          <td style="padding:0.5em;">?</td>
+          <td style="padding:0.5em;">?</td>
+          <td style="padding:0.5em;">?</td>
+        </tr>
+        <tr>
+          <td style="padding:0.5em;">Who made it?</td>
+          <td style="padding:0.5em;">?</td>
+          <td style="padding:0.5em;">?</td>
+          <td style="padding:0.5em;">?</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>The Punchline</h2>
+    <p style="font-size:1.1em;">The training data determines what the model can see.</p>
+    <div class="observation-card">
+      The sentiment model was trained on <strong>movie reviews</strong>.<br>
+      So it thinks everything is either a good movie or a bad movie.
+    </div>
+    <div class="observation-card">
+      The emotion model was trained on <strong>tweets</strong>.<br>
+      It understands internet language &mdash; but struggles with formal text.
+    </div>
+    <div class="observation-card">
+      The zero-shot model was trained on <strong>general language</strong>.<br>
+      It can handle anything you throw at it &mdash; but less precisely.
+    </div>
+  </section>
+</section>
+
+<!-- ========== LABELING CHALLENGE ========== -->
+<section>
+  <section>
+    <h2>Labeling Challenge</h2>
+    <p>I'll show you some tweets. <span class="highlight-yellow">Call out the emotion.</span></p>
+    <p class="small">Spoiler: you're going to disagree with each other.</p>
+  </section>
+
+  <section>
+    <h2>What emotion is this?</h2>
+    <div class="card" style="font-size:1.2em; text-align:center; padding:1em;">
+      "Just got my test results back... I literally can't even right now"
+    </div>
+    <div class="fragment">
+      <p style="margin-top:0.8em;">Could be: <span class="highlight-green">joy</span> (good results), <span class="highlight-blue">fear</span> (bad results), <span class="highlight-pink">surprise</span> (unexpected)</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>What emotion is this?</h2>
+    <div class="card" style="font-size:1.2em; text-align:center; padding:1em;">
+      "lol my flight got cancelled for the third time this week"
+    </div>
+    <div class="fragment">
+      <p style="margin-top:0.8em;">Could be: <span class="highlight-pink">anger</span> (frustrated), <span class="highlight-green">joy</span> (sarcastic), <span class="highlight-blue">sadness</span></p>
+    </div>
+  </section>
+
+  <section>
+    <h2>The Point</h2>
+    <div class="observation-card" style="font-size:1.05em;">
+      You all disagreed on at least some of these.<br><br>
+      The people who <strong>labeled the training data</strong> disagreed too.<br><br>
+      When the model gets it "wrong," sometimes it's because the humans who taught it couldn't agree either.
+    </div>
+  </section>
+</section>
+
+<!-- ========== BUILD: FINAL CODE ========== -->
+<section>
+  <section>
+    <h2>The Code: Emotion Detector</h2>
+    <pre><code class="language-python">import gradio as gr
+from transformers import pipeline
+import re
+
+# Load the emotion model (trained on tweets)
+classifier = pipeline(
+    "text-classification",
+    model="j-hartmann/emotion-english-distilroberta-base"
+)</code></pre>
+    <p style="margin-top:0.8em;">
+      <span class="highlight-yellow">One line</span> changes the entire behavior.<br>
+      Different pipeline type, different model, different output.
+    </p>
+  </section>
+
+  <section>
+    <h2>The Code: Analyze Each Sentence</h2>
+    <pre><code class="language-python">def analyze_text(text):
+    if not text or not text.strip():
+        return "Type or paste some text above first!"
+
+    sentences = [s.strip() for s in
+        re.split(r'(?<=[.!?])\s+(?=[A-Z"])', text)
+        if len(s.strip()) > 10]
+
+    if len(sentences) == 0:
+        return "I need at least one full sentence."
+
+    output_lines = []
+    for sentence in sentences:
+        result = classifier(sentence)[0]
+        label = result["label"]
+        score = result["score"]
+        output_lines.append(
+            f"{label.upper()} ({score:.0%}): {sentence}"
+        )
+
+    return "\n\n".join(output_lines)</code></pre>
+  </section>
+
+  <section>
+    <h2>The Code: Interface</h2>
+    <pre><code class="language-python">demo = gr.Interface(
+    fn=analyze_text,
+    inputs=gr.Textbox(lines=8,
+        placeholder="Type or paste some text here..."),
+    outputs=gr.Textbox(label="Emotion Analysis", lines=12),
+    title="Emotion Detector",
+    description="Paste any text and see what emotion "
+                "the AI detects in each sentence.",
+)
+demo.launch()</code></pre>
+    <p>Same structure as Session 1 &mdash; just a different engine inside.</p>
+  </section>
+</section>
+
+<!-- ========== NAME THE CONCEPT ========== -->
+<section class="center-slide">
+  <h2>Name the Concept</h2>
+  <h3 style="color:#fbbf24; font-size:1.3em;">TRAINING DATA AND REPRESENTATION</h3>
+  <div class="concept-box" style="font-size:1.3em;">
+    same <span class="highlight-blue">INPUT</span>
+    <span class="arrow"> + </span>
+    different <span class="highlight-yellow">TRAINING DATA</span>
+    <span class="arrow"> &rarr; </span>
+    different <span class="highlight-green">OUTPUT</span>
+  </div>
+  <p class="fragment" style="margin-top:1em;">
+    "Training data is the textbook the model studied from.<br>
+    It can only know what it's been shown."
+  </p>
+  <p class="fragment" style="color:#9ca3af;">
+    <strong>Representation</strong> = the categories the data uses.<br>
+    Positive/negative is one representation. Seven emotions is another.
+  </p>
+</section>
+
+<!-- ========== VOCABULARY ========== -->
+<section>
+  <h2>Vocabulary</h2>
+  <div class="card">
+    <span class="vocab-term">Training data</span> &mdash; the examples a model learned from
+  </div>
+  <div class="card">
+    <span class="vocab-term">Representation</span> &mdash; the categories or labels the training data uses
+  </div>
+  <div class="card">
+    <span class="vocab-term">Sentiment</span> &mdash; positive or negative feeling
+  </div>
+  <div class="card">
+    <span class="vocab-term">Model card</span> &mdash; documentation that describes what a model does and how it was trained
+  </div>
+  <div class="card">
+    <span class="vocab-term">Fine-tuned</span> &mdash; a model further trained on specific data for a specific task
+  </div>
+</section>
+
+<!-- ========== NOTEBOOK TIME ========== -->
+<section>
+  <h2>Notebook Time</h2>
+  <p>Open today's notebook and run the first few cells together.</p>
+  <div class="try-it" style="margin-top:1em;">
+    <strong>Link in the Zoom chat!</strong>
+  </div>
+  <div class="card" style="margin-top:0.8em;">
+    <strong>1.</strong> Click the link → it opens in Google Colab<br>
+    <strong>2.</strong> Hit the <span class="highlight-yellow">play button ▶</span> on the first cell<br>
+    <strong>3.</strong> Run the setup cell, then try the experiments
+  </div>
+  <p class="small" style="margin-top:0.8em;">Finish the experiments on your own before next week</p>
+</section>
+
+<!-- ========== BETWEEN SESSIONS ========== -->
+<section>
+  <h2>Between Sessions</h2>
+  <p><strong>Challenge:</strong> Find a fourth model on the Hugging Face Hub.</p>
+  <div class="card" style="margin-top:0.8em;">
+    <strong>1.</strong> Go to <a href="https://huggingface.co/models">huggingface.co/models</a><br>
+    <strong>2.</strong> Filter by task: <span class="highlight-yellow">Text Classification</span><br>
+    <strong>3.</strong> Find a model that looks interesting<br>
+    <strong>4.</strong> Try swapping it into your Space
+  </div>
+  <div class="observation-card" style="margin-top:0.8em;">
+    <strong>What to notice:</strong><br>
+    Does it work? Does the output format match? What was it trained on?
+  </div>
+</section>
+
+<!-- ========== NEXT WEEK ========== -->
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
+  <h2>Next Week</h2>
+  <p style="font-size:1.3em;">We're going to break it &mdash; on purpose.</p>
+  <p style="color:#9ca3af; margin-top:0.5em;">Messy input. Weird text. Emoji storms.<br>Then we'll write code to fix it.</p>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/highlight.min.js"></script>
+<script>
+Reveal.initialize({
+  hash: true,
+  slideNumber: true,
+  transition: 'slide',
+  plugins: [RevealHighlight],
+  width: 1280,
+  height: 720,
+  margin: 0.08
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 12: Demo Day</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/night.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/monokai.min.css">
+<style>
+  :root {
+    --r-heading-font: 'Georgia', serif;
+    --r-main-font: 'Segoe UI', 'Helvetica Neue', sans-serif;
+    --r-heading-color: #fbbf24;
+    --r-link-color: #60a5fa;
+    --r-link-color-hover: #93c5fd;
+  }
+  .reveal { font-size: 32px; }
+  .reveal h1, .reveal h2, .reveal h3 { text-transform: none; }
+  .reveal h1 { font-size: 2.2em; }
+  .reveal h2 { font-size: 1.5em; color: #fbbf24; }
+  .reveal h3 { font-size: 1.1em; color: #9ca3af; }
+
+  .reveal .slides section { text-align: left; }
+  .reveal .slides section.center-slide { text-align: center; }
+
+  .concept-box {
+    background: linear-gradient(135deg, #1e3a5f, #1a1a2e);
+    border: 2px solid #fbbf24;
+    border-radius: 12px;
+    padding: 1em 1.5em;
+    margin: 0.8em 0;
+    text-align: center;
+    font-size: 1.3em;
+    letter-spacing: 0.05em;
+  }
+  .concept-box .arrow { color: #fbbf24; font-weight: bold; }
+
+  .vocab-term {
+    color: #fbbf24;
+    font-weight: bold;
+  }
+
+  .emoji-label { font-size: 1.4em; margin-right: 0.3em; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5em;
+    align-items: start;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 0.8em 1em;
+    margin: 0.4em 0;
+  }
+
+  .highlight-yellow { color: #fbbf24; }
+  .highlight-blue { color: #60a5fa; }
+  .highlight-green { color: #34d399; }
+  .highlight-pink { color: #f472b6; }
+
+  .small { font-size: 0.7em; color: #9ca3af; }
+
+  code {
+    background: rgba(255,255,255,0.1);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+  .reveal pre code {
+    max-height: 500px;
+    font-size: 0.65em;
+    line-height: 1.5;
+    padding: 1em;
+  }
+
+  .observation-card {
+    background: rgba(251,191,36,0.1);
+    border-left: 4px solid #fbbf24;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .try-it {
+    background: rgba(52,211,153,0.1);
+    border-left: 4px solid #34d399;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .fragment.current-visible.visible:not(.current-fragment) {
+    display: none;
+  }
+
+  .concept-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 4px;
+    font-size: 0.72em;
+  }
+  .concept-table th {
+    color: #fbbf24;
+    text-align: left;
+    padding: 0.4em 0.6em;
+    border-bottom: 2px solid #fbbf24;
+  }
+  .concept-table td {
+    padding: 0.35em 0.6em;
+    background: rgba(255,255,255,0.04);
+    border-radius: 4px;
+  }
+  .concept-table tr:nth-child(even) td {
+    background: rgba(255,255,255,0.07);
+  }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ========== TITLE ========== -->
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
+  <h1 style="font-size:2.5em;">Demo Day</h1>
+  <h3 style="color:#fbbf24;">Session 12</h3>
+  <p style="margin-top:1.5em; color:#94a3b8;">Roots &middot; Iterative Space Building</p>
+</section>
+
+<!-- ========== TONIGHT'S GOAL ========== -->
+<section>
+  <h2>Tonight's Goal</h2>
+  <p style="font-size:1.2em; text-align:center; margin:1em 0;">
+    Show what you built.<br>
+    Share what you learned.
+  </p>
+  <div class="card" style="text-align:center; margin-top:1em;">
+    Each of you has a <span class="highlight-yellow">public URL</span> that anyone in the world can visit.
+  </div>
+</section>
+
+<!-- ========== TECH CHECK ========== -->
+<section>
+  <h2>Tech Check</h2>
+  <p>Quick check before we start:</p>
+  <div class="card" style="margin-top:0.8em;">
+    <strong class="highlight-green">Does your Space load?</strong>
+  </div>
+  <div class="card">
+    <strong class="highlight-blue">Are you ready to present?</strong>
+  </div>
+  <div class="card">
+    <strong class="highlight-yellow">Do you have your demo inputs ready?</strong>
+  </div>
+  <p class="fragment" style="margin-top:1em; color:#9ca3af;">
+    If something won't load, don't worry &mdash; we have backups.<br>
+    The story matters more than a live demo.
+  </p>
+</section>
+
+<!-- ========== TONIGHT IS YOUR NIGHT ========== -->
+<section class="center-slide">
+  <h2 style="font-size:1.8em;">Tonight is your night.</h2>
+  <p style="margin-top:1em; font-size:1.1em; color:#94a3b8;">
+    Each of you built something that lives on the internet &mdash;<br>
+    a real AI tool with a real URL.
+  </p>
+  <p class="fragment" style="margin-top:1em; color:#fbbf24; font-size:1.2em;">
+    Let's see what you made.
+  </p>
+</section>
+
+<!-- ========== PRESENTATION FORMAT ========== -->
+<section>
+  <h2>Presentation Format</h2>
+  <p>5&ndash;7 minutes each.</p>
+  <div class="card" style="margin-top:0.6em;">
+    <strong class="highlight-yellow">1. What it does</strong> <span class="small">&mdash; one sentence, who is it for? (30 sec)</span>
+  </div>
+  <div class="card">
+    <strong class="highlight-blue">2. Live demo</strong> <span class="small">&mdash; 2&ndash;3 inputs, one that works great, one that struggles (2 min)</span>
+  </div>
+  <div class="card">
+    <strong class="highlight-green">3. Under the hood</strong> <span class="small">&mdash; what model, what Gradio pattern? (1 min)</span>
+  </div>
+  <div class="card">
+    <strong class="highlight-pink">4. The hard part</strong> <span class="small">&mdash; what broke, how you fixed it (1&ndash;2 min)</span>
+  </div>
+  <div class="card">
+    <strong class="highlight-yellow">5. What's next</strong> <span class="small">&mdash; if you had another month (30 sec)</span>
+  </div>
+</section>
+
+<!-- ========== AFTER EACH DEMO ========== -->
+<section class="center-slide">
+  <h2>After Each Presentation</h2>
+  <div class="try-it" style="text-align:left; max-width:600px; margin:1em auto;">
+    <strong>1.</strong> Everyone tries the Space with their own inputs<br>
+    <strong>2.</strong> Round of applause <span class="small">&mdash; you built this</span><br>
+    <strong>3.</strong> One highlight from the group
+  </div>
+</section>
+
+<!-- ========== PRESENTATIONS ========== -->
+<section class="center-slide">
+  <h2 style="font-size:2em;">Presentations</h2>
+  <p style="color:#9ca3af; font-size:1.1em; margin-top:1em;">
+    5&ndash;7 minutes each &bull; demo &bull; questions &bull; applause
+  </p>
+</section>
+
+<!-- ========== 10 CONCEPTS RECAP (vertical stack) ========== -->
+<section>
+  <section>
+    <h2>The 10 Concepts You Learned</h2>
+    <p style="color:#9ca3af;">Not from a textbook. By building things and hitting problems.</p>
+    <table class="concept-table" style="margin-top:0.8em;">
+      <thead>
+        <tr><th>#</th><th>Concept</th><th>Session</th><th>How You Learned It</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="highlight-yellow">1</td>
+          <td>Input &rarr; Model &rarr; Output</td>
+          <td>1</td>
+          <td>Built your first Space</td>
+        </tr>
+        <tr>
+          <td class="highlight-yellow">2</td>
+          <td>Training Data &amp; Representation</td>
+          <td>2</td>
+          <td>Swapped models, got different answers</td>
+        </tr>
+        <tr>
+          <td class="highlight-yellow">3</td>
+          <td>Data Cleaning</td>
+          <td>3</td>
+          <td>Broke the Space on purpose, then fixed it</td>
+        </tr>
+        <tr>
+          <td class="highlight-yellow">4</td>
+          <td>Model Evaluation</td>
+          <td>4</td>
+          <td>Ran 3 models on the same input</td>
+        </tr>
+        <tr>
+          <td class="highlight-yellow">5</td>
+          <td>Hyperparameters</td>
+          <td>5</td>
+          <td>Added sliders, saw output change</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>The 10 Concepts <span class="small">(continued)</span></h2>
+    <table class="concept-table" style="margin-top:0.8em;">
+      <thead>
+        <tr><th>#</th><th>Concept</th><th>Session</th><th>How You Learned It</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="highlight-yellow">6</td>
+          <td>Overfitting &amp; Domain Shift</td>
+          <td>6</td>
+          <td>Same model, different text types</td>
+        </tr>
+        <tr>
+          <td class="highlight-yellow">7</td>
+          <td>Bias in AI</td>
+          <td>7</td>
+          <td>Paired sentences, different scores</td>
+        </tr>
+        <tr>
+          <td class="highlight-yellow">8</td>
+          <td>Multi-Model Systems</td>
+          <td>8</td>
+          <td>Chained image captioning + sentiment</td>
+        </tr>
+        <tr>
+          <td class="highlight-yellow">9</td>
+          <td>Prompt Engineering &amp; UX</td>
+          <td>9</td>
+          <td>Redesigned a Space for a real audience</td>
+        </tr>
+        <tr>
+          <td class="highlight-yellow">10</td>
+          <td>Supervised Learning &amp; Task Design</td>
+          <td>10</td>
+          <td>Built from scratch, chose your own model</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="fragment" style="margin-top:0.8em; text-align:center; color:#fbbf24;">
+      You didn't learn these from a textbook.<br>
+      You learned them by running into them.
+    </p>
+  </section>
+</section>
+
+<!-- ========== NOTEBOOK TIME ========== -->
+<section>
+  <h2>Reflection Notebook</h2>
+  <p>Open the reflection notebook and fill in your portfolio.</p>
+  <div class="try-it" style="margin-top:1em;">
+    <strong>Link in the Zoom chat!</strong>
+  </div>
+  <div class="card" style="margin-top:0.8em;">
+    <strong>1.</strong> Click the link &rarr; it opens in Google Colab<br>
+    <strong>2.</strong> Fill in your <span class="highlight-yellow">portfolio table</span><br>
+    <strong>3.</strong> Answer the reflection questions
+  </div>
+  <p class="small" style="margin-top:0.8em;">This is your keepsake from the course</p>
+</section>
+
+<!-- ========== REFLECTION ========== -->
+<section>
+  <h2>Reflection</h2>
+  <div class="observation-card">
+    <strong>What concept surprised you most?</strong><br>
+    <span class="small">We covered 10 concepts &mdash; which one changed how you think about AI?</span>
+  </div>
+  <div class="observation-card">
+    <strong>What was the hardest thing you built?</strong><br>
+    <span class="small">Not just code &mdash; the hardest decision, bug, or design choice.</span>
+  </div>
+  <div class="observation-card">
+    <strong>How has your understanding of AI changed since Session 1?</strong><br>
+    <span class="small">Remember the first night? You didn't know how any of those Spaces worked.</span>
+  </div>
+  <div class="observation-card">
+    <strong>What would you build next?</strong><br>
+    <span class="small">Unlimited time, any model on the Hub &mdash; what Space would you create?</span>
+  </div>
+</section>
+
+<!-- ========== PORTFOLIO ========== -->
+<section>
+  <h2>Your Portfolio</h2>
+  <p>Let's collect what you've built.</p>
+  <div class="card" style="margin-top:0.8em;">
+    <strong class="highlight-yellow">1.</strong> Your HF profile URL <span class="small">(huggingface.co/username)</span>
+  </div>
+  <div class="card">
+    <strong class="highlight-blue">2.</strong> URLs for every Space you built or forked
+  </div>
+  <div class="card">
+    <strong class="highlight-green">3.</strong> One-sentence description of your final project
+  </div>
+  <div class="card">
+    <strong class="highlight-pink">4.</strong> Your favorite concept from the 10
+  </div>
+</section>
+
+<!-- ========== WHAT YOU KNOW NOW ========== -->
+<section class="center-slide">
+  <h2>What You Know Now</h2>
+  <div class="concept-box" style="font-size:1.2em;">
+    What <span class="highlight-blue">goes in</span>.
+    What <span class="highlight-yellow">model runs</span>.
+    What <span class="highlight-green">comes out</span>.
+    What could <span class="highlight-pink">go wrong</span>.
+  </div>
+  <p class="fragment" style="margin-top:1em; color:#9ca3af;">
+    The next time someone shows you an AI tool,<br>
+    you'll know what's happening under the hood.
+  </p>
+</section>
+
+<!-- ========== THESE ARE YOURS ========== -->
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
+  <h2 style="font-size:2em;">These are yours.</h2>
+  <p style="margin-top:1em; font-size:1.1em; color:#94a3b8;">
+    Public URLs that anyone in the world can visit.
+  </p>
+  <p style="margin-top:0.8em; font-size:1.0em; color:#94a3b8;">
+    10 real ML concepts &mdash; learned by building, not by lecture.
+  </p>
+  <p class="fragment" style="margin-top:1.5em; color:#fbbf24; font-size:1.2em;">
+    You didn't just learn about AI.<br>
+    You built with it.
+  </p>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/highlight.min.js"></script>
+<script>
+Reveal.initialize({
+  hash: true,
+  slideNumber: true,
+  transition: 'slide',
+  plugins: [RevealHighlight],
+  width: 1280,
+  height: 720,
+  margin: 0.08
+});
+</script>
+</body>
+</html>

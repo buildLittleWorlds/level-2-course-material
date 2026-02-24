@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 9: Make It Actually Useful</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/night.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/monokai.min.css">
+<style>
+  :root {
+    --r-heading-font: 'Georgia', serif;
+    --r-main-font: 'Segoe UI', 'Helvetica Neue', sans-serif;
+    --r-heading-color: #fbbf24;
+    --r-link-color: #60a5fa;
+    --r-link-color-hover: #93c5fd;
+  }
+  .reveal { font-size: 32px; }
+  .reveal h1, .reveal h2, .reveal h3 { text-transform: none; }
+  .reveal h1 { font-size: 2.2em; }
+  .reveal h2 { font-size: 1.5em; color: #fbbf24; }
+  .reveal h3 { font-size: 1.1em; color: #9ca3af; }
+
+  .reveal .slides section { text-align: left; }
+  .reveal .slides section.center-slide { text-align: center; }
+
+  .concept-box {
+    background: linear-gradient(135deg, #1e3a5f, #1a1a2e);
+    border: 2px solid #fbbf24;
+    border-radius: 12px;
+    padding: 1em 1.5em;
+    margin: 0.8em 0;
+    text-align: center;
+    font-size: 1.3em;
+    letter-spacing: 0.05em;
+  }
+  .concept-box .arrow { color: #fbbf24; font-weight: bold; }
+
+  .vocab-term {
+    color: #fbbf24;
+    font-weight: bold;
+  }
+
+  .emoji-label { font-size: 1.4em; margin-right: 0.3em; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5em;
+    align-items: start;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 0.8em 1em;
+    margin: 0.4em 0;
+  }
+
+  .highlight-yellow { color: #fbbf24; }
+  .highlight-blue { color: #60a5fa; }
+  .highlight-green { color: #34d399; }
+  .highlight-pink { color: #f472b6; }
+
+  .small { font-size: 0.7em; color: #9ca3af; }
+
+  code {
+    background: rgba(255,255,255,0.1);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+  .reveal pre code {
+    max-height: 500px;
+    font-size: 0.65em;
+    line-height: 1.5;
+    padding: 1em;
+  }
+
+  .observation-card {
+    background: rgba(251,191,36,0.1);
+    border-left: 4px solid #fbbf24;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .try-it {
+    background: rgba(52,211,153,0.1);
+    border-left: 4px solid #34d399;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .fragment.current-visible.visible:not(.current-fragment) {
+    display: none;
+  }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ========== TITLE ========== -->
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
+  <h1 style="font-size:2.5em;">Make It Actually Useful</h1>
+  <h3 style="color:#fbbf24;">Session 9</h3>
+  <p style="margin-top:1.5em; color:#94a3b8;">Roots &middot; Iterative Space Building</p>
+</section>
+
+<!-- ========== TONIGHT'S GOAL ========== -->
+<section>
+  <h2>Tonight's Goal</h2>
+  <p style="font-size:1.2em; text-align:center; margin:1em 0;">
+    Same model, new frame.<br>
+    Turn a demo into a tool someone would <span class="highlight-yellow">actually use</span>.
+  </p>
+  <div class="concept-box">
+    The model doesn't change. The interface changes everything.
+  </div>
+</section>
+
+<!-- ========== SHOW AND TELL ========== -->
+<section>
+  <h2>Show-and-Tell: Demo vs. Tool</h2>
+  <div class="two-col">
+    <div>
+      <div class="card" style="border:1px solid #60a5fa;">
+        <strong class="highlight-blue">Sentiment Showdown</strong><br>
+        <span class="small">(Session 4)</span><br><br>
+        Input: any text<br>
+        Output: <code>POSITIVE 0.97</code><br><br>
+        <span class="small">...so what?</span>
+      </div>
+    </div>
+    <div>
+      <div class="card" style="border:1px solid #34d399;">
+        <strong class="highlight-green">Restaurant Review Analyzer</strong><br>
+        <span class="small">(same model)</span><br><br>
+        Input: customer review<br>
+        Output: <code>Happy Customer</code> + advice<br><br>
+        <span class="small">Actionable.</span>
+      </div>
+    </div>
+  </div>
+  <p class="fragment" style="margin-top:1em; text-align:center; color:#f472b6;">
+    Same model underneath. Zero new AI knowledge needed.
+  </p>
+</section>
+
+<!-- ========== LIVE REDESIGN ========== -->
+<section>
+  <section>
+    <h2>The Redesign Steps</h2>
+    <div class="card">
+      <strong>1. Title:</strong> "Sentiment Analysis" <span class="arrow">&rarr;</span> <span class="highlight-yellow">"Restaurant Review Analyzer"</span>
+    </div>
+    <div class="card fragment">
+      <strong>2. Description:</strong> technical jargon <span class="arrow">&rarr;</span> <span class="highlight-yellow">plain English for a restaurant owner</span>
+    </div>
+    <div class="card fragment">
+      <strong>3. Examples:</strong> random sentences <span class="arrow">&rarr;</span> <span class="highlight-yellow">real restaurant reviews</span>
+    </div>
+    <div class="card fragment">
+      <strong>4. Output:</strong> "POSITIVE / NEGATIVE" <span class="arrow">&rarr;</span> <span class="highlight-yellow">"Happy Customer / Unhappy Customer" + advice</span>
+    </div>
+    <div class="card fragment">
+      <strong>5. Visual:</strong> bare decimal <span class="arrow">&rarr;</span> <span class="highlight-yellow">confidence bar</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>The Output Transformation</h2>
+    <pre><code class="language-python">    if label == "POSITIVE":
+        mood = "Happy Customer"
+        if score > 0.95:
+            advice = ("This customer loved the experience! "
+                      "Consider thanking them publicly.")
+        else:
+            advice = ("This customer had a good experience. "
+                      "A simple thank-you goes a long way.")
+
+    confidence_bar = "█" * int(score * 20) + "░" * (20 - int(score * 20))
+    return (
+        f"Overall Impression:  {mood}\n"
+        f"Confidence: {confidence_bar} {score:.0%}\n"
+        f"\nSuggested Action:\n{advice}"
+    )</code></pre>
+    <p class="small">Same <code>pipeline("sentiment-analysis")</code> underneath. All the changes are in presentation.</p>
+  </section>
+</section>
+
+<!-- ========== STUDENT BRAINSTORM ========== -->
+<section>
+  <h2>Your Turn: Three Questions</h2>
+  <div class="observation-card" style="font-size:1.1em;">
+    <strong>1.</strong> <span class="highlight-yellow">Who</span> is this for? <span class="small">(a specific person, not "everyone")</span>
+  </div>
+  <div class="observation-card" style="font-size:1.1em;">
+    <strong>2.</strong> What <span class="highlight-blue">problem</span> does it solve? <span class="small">(one sentence)</span>
+  </div>
+  <div class="observation-card" style="font-size:1.1em;">
+    <strong>3.</strong> What should the <span class="highlight-green">output</span> say? <span class="small">(not labels &mdash; advice)</span>
+  </div>
+</section>
+
+<!-- ========== TEMPLATE OPTIONS ========== -->
+<section>
+  <section>
+    <h2>Pick a Template (or Invent Your Own)</h2>
+    <div class="two-col">
+      <div>
+        <div class="card" style="border-left:3px solid #fbbf24;">
+          <strong class="highlight-yellow">Restaurant Review Analyzer</strong><br>
+          <span class="small">Audience: restaurant owners</span><br>
+          "Happy Customer" + suggested response
+        </div>
+        <div class="card" style="border-left:3px solid #60a5fa;">
+          <strong class="highlight-blue">Email Tone Checker</strong><br>
+          <span class="small">Audience: students / professionals</span><br>
+          "Professional" or "May Need Revision" + tip
+        </div>
+      </div>
+      <div>
+        <div class="card" style="border-left:3px solid #34d399;">
+          <strong class="highlight-green">Journal Mood Tracker</strong><br>
+          <span class="small">Audience: daily journalers</span><br>
+          "Upbeat" or "Rough Day" + reflection prompt
+        </div>
+        <div class="card" style="border-left:3px solid #f472b6;">
+          <strong class="highlight-pink">Social Media Vibe Check</strong><br>
+          <span class="small">Audience: social media posters</span><br>
+          "Positive Energy" or "Might Start Drama" + advice
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Example Inputs Are the Design</h2>
+    <p>If you can write three good examples, the Space is 80% designed.</p>
+    <div class="try-it" style="margin-top:1em;">
+      <strong>Restaurant:</strong><br>
+      <em>"The pasta was absolutely divine and the service was impeccable."</em>
+    </div>
+    <div class="try-it">
+      <strong>Email:</strong><br>
+      <em>"Per my last email, the deadline was yesterday. Please advise."</em>
+    </div>
+    <div class="try-it">
+      <strong>Journal:</strong><br>
+      <em>"I can't believe what happened today. Everything went wrong."</em>
+    </div>
+    <div class="try-it">
+      <strong>Social:</strong><br>
+      <em>"Honestly can't believe people think this is okay. We need to do better."</em>
+    </div>
+  </section>
+</section>
+
+<!-- ========== BUILD TIME ========== -->
+<section>
+  <h2>Build Time</h2>
+  <p>Fork the Sentiment Showdown (or start fresh) and redesign it.</p>
+  <div class="card">
+    <strong class="highlight-yellow">Title + Description</strong> &mdash; who is this for?
+  </div>
+  <div class="card">
+    <strong class="highlight-blue">Example inputs</strong> &mdash; real scenarios for your audience
+  </div>
+  <div class="card">
+    <strong class="highlight-green">Output labels</strong> &mdash; not "POSITIVE" &mdash; what does your audience need to hear?
+  </div>
+  <div class="card">
+    <strong class="highlight-pink">Suggested action</strong> &mdash; what should they <em>do</em> with the result?
+  </div>
+  <p class="small" style="margin-top:0.8em;">
+    I'll cycle through each of you. ~5 minutes per student.
+  </p>
+</section>
+
+<!-- ========== TEST WITH AUDIENCE ========== -->
+<section>
+  <h2>Test with Audience in Mind</h2>
+  <p>Read your Space's description aloud. We'll answer:</p>
+  <div class="observation-card">
+    Would a <em>[restaurant owner / email writer / journal keeper]</em> understand this?
+  </div>
+  <div class="observation-card fragment">
+    What's confusing?
+  </div>
+  <div class="observation-card fragment">
+    What's missing?
+  </div>
+  <div class="try-it fragment" style="font-size:1.1em;">
+    <strong>The real test:</strong> If you handed this to someone who doesn't know what AI is, could they use it?
+  </div>
+</section>
+
+<!-- ========== NAME THE CONCEPT ========== -->
+<section class="center-slide">
+  <h2>Name the Concept</h2>
+  <div class="concept-box" style="font-size:1.1em;">
+    PROMPT ENGINEERING<br>AND HUMAN-AI INTERACTION
+  </div>
+  <div style="margin-top:1em; text-align:left; max-width:850px; margin-left:auto; margin-right:auto;">
+    <div class="card fragment">
+      <span class="vocab-term">Prompt Engineering</span><br>
+      Designing inputs and framing to get useful outputs from a model.<br>
+      <span class="small">We changed examples, descriptions, and output labels.</span>
+    </div>
+    <div class="card fragment">
+      <span class="vocab-term">Human-AI Interaction</span><br>
+      Designing how humans and AI systems communicate.<br>
+      <span class="small">We made output actionable, added confidence bars, wrote for a specific audience.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== VOCABULARY ========== -->
+<section>
+  <h2>Vocabulary</h2>
+  <div class="card">
+    <span class="vocab-term">Prompt engineering</span> &mdash; designing the entire experience around an AI model, not just the chat prompt
+  </div>
+  <div class="card">
+    <span class="vocab-term">UX (user experience)</span> &mdash; how a person experiences and interacts with a tool
+  </div>
+  <div class="card">
+    <span class="vocab-term">Audience</span> &mdash; the specific person you're designing for
+  </div>
+  <div class="card">
+    <span class="vocab-term">Human-AI interaction</span> &mdash; the design of how people and AI systems work together
+  </div>
+  <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
+    Real AI products spend more time on UX than on the model.<br>
+    This is why AI companies hire designers, not just engineers.
+  </p>
+</section>
+
+<!-- ========== NOTEBOOK TIME ========== -->
+<section>
+  <h2>Notebook Time</h2>
+  <p>Open the design worksheet and run the setup cell together.</p>
+  <div class="try-it" style="margin-top:1em;">
+    <strong>Link in the Zoom chat!</strong>
+  </div>
+  <div class="card" style="margin-top:0.8em;">
+    <strong>1.</strong> Click the link &rarr; it opens in Google Colab<br>
+    <strong>2.</strong> Hit the <span class="highlight-yellow">play button &#9654;</span> on the setup cell<br>
+    <strong>3.</strong> Fill in the design worksheet for your audience
+  </div>
+  <p class="small" style="margin-top:0.8em;">Finish the design worksheet on your own before next week</p>
+</section>
+
+<!-- ========== BETWEEN SESSIONS ========== -->
+<section>
+  <h2>Between Sessions</h2>
+  <p><strong>Challenge:</strong> Give your Space URL to someone who didn't build it.</p>
+  <div class="card" style="margin-top:0.8em;">
+    <strong>1.</strong> Don't explain it &mdash; just share the link<br>
+    <strong>2.</strong> Watch what they do<br>
+    <strong>3.</strong> Note what <span class="highlight-yellow">confuses</span> them
+  </div>
+  <div class="observation-card" style="margin-top:0.8em;">
+    The parts that confuse them are the parts you need to redesign.
+  </div>
+</section>
+
+<!-- ========== NEXT WEEK ========== -->
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
+  <h2>Next Week</h2>
+  <p style="font-size:1.3em;">You build your own from scratch.</p>
+  <p style="color:#9ca3af; margin-top:0.5em;">Pick a model. Pick a task. Build the whole thing.<br>No templates. No guides. Just you.</p>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/highlight.min.js"></script>
+<script>
+Reveal.initialize({
+  hash: true,
+  slideNumber: true,
+  transition: 'slide',
+  plugins: [RevealHighlight],
+  width: 1280,
+  height: 720,
+  margin: 0.08
+});
+</script>
+</body>
+</html>

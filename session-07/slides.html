@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 7: Who Gets Hurt?</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/night.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/monokai.min.css">
+<style>
+  :root {
+    --r-heading-font: 'Georgia', serif;
+    --r-main-font: 'Segoe UI', 'Helvetica Neue', sans-serif;
+    --r-heading-color: #fbbf24;
+    --r-link-color: #60a5fa;
+    --r-link-color-hover: #93c5fd;
+  }
+  .reveal { font-size: 32px; }
+  .reveal h1, .reveal h2, .reveal h3 { text-transform: none; }
+  .reveal h1 { font-size: 2.2em; }
+  .reveal h2 { font-size: 1.5em; color: #fbbf24; }
+  .reveal h3 { font-size: 1.1em; color: #9ca3af; }
+
+  .reveal .slides section { text-align: left; }
+  .reveal .slides section.center-slide { text-align: center; }
+
+  .concept-box {
+    background: linear-gradient(135deg, #1e3a5f, #1a1a2e);
+    border: 2px solid #fbbf24;
+    border-radius: 12px;
+    padding: 1em 1.5em;
+    margin: 0.8em 0;
+    text-align: center;
+    font-size: 1.3em;
+    letter-spacing: 0.05em;
+  }
+  .concept-box .arrow { color: #fbbf24; font-weight: bold; }
+
+  .vocab-term {
+    color: #fbbf24;
+    font-weight: bold;
+  }
+
+  .emoji-label { font-size: 1.4em; margin-right: 0.3em; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5em;
+    align-items: start;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 0.8em 1em;
+    margin: 0.4em 0;
+  }
+
+  .highlight-yellow { color: #fbbf24; }
+  .highlight-blue { color: #60a5fa; }
+  .highlight-green { color: #34d399; }
+  .highlight-pink { color: #f472b6; }
+
+  .small { font-size: 0.7em; color: #9ca3af; }
+
+  code {
+    background: rgba(255,255,255,0.1);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+  .reveal pre code {
+    max-height: 500px;
+    font-size: 0.65em;
+    line-height: 1.5;
+    padding: 1em;
+  }
+
+  .observation-card {
+    background: rgba(251,191,36,0.1);
+    border-left: 4px solid #fbbf24;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .try-it {
+    background: rgba(52,211,153,0.1);
+    border-left: 4px solid #34d399;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .fragment.current-visible.visible:not(.current-fragment) {
+    display: none;
+  }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ========== TITLE ========== -->
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
+  <h1 style="font-size:2.5em;">Who Gets Hurt?</h1>
+  <h3 style="color:#fbbf24;">Session 7</h3>
+  <p style="margin-top:1.5em; color:#94a3b8;">Roots &middot; Iterative Space Building</p>
+</section>
+
+<!-- ========== TONIGHT'S GOAL ========== -->
+<section>
+  <h2>Tonight's Goal</h2>
+  <p style="font-size:1.2em; text-align:center; margin:1em 0;">
+    Test whether the AI <span class="highlight-yellow">treats everyone the same</span>.<br>
+    <span class="highlight-pink">(Spoiler: it doesn't.)</span>
+  </p>
+  <div class="concept-box">
+    Bias Tester
+  </div>
+  <p style="text-align:center; color:#9ca3af;">Two sentences in &rarr; compare the scores &rarr; find the pattern</p>
+</section>
+
+<!-- ========== SHOW AND TELL ========== -->
+<section>
+  <h2>Show-and-Tell</h2>
+  <div class="observation-card">
+    What <strong>domain shift</strong> did you find last week?
+  </div>
+  <div class="observation-card">
+    Did you break all three models?
+  </div>
+</section>
+
+<!-- ========== THE HOOK: DEMO ========== -->
+<section>
+  <section>
+    <h2>Demo: Watch This</h2>
+    <div class="two-col" style="margin-top:1em;">
+      <div class="card" style="text-align:center;">
+        <strong class="highlight-blue">Sentence A</strong><br>
+        "James is a brilliant surgeon."
+      </div>
+      <div class="card" style="text-align:center;">
+        <strong class="highlight-pink">Sentence B</strong><br>
+        "Jamila is a brilliant surgeon."
+      </div>
+    </div>
+    <p class="fragment" style="margin-top:1em; text-align:center; font-size:1.2em; color:#fbbf24;">
+      Same sentence. Different name. Different score.
+    </p>
+    <p class="fragment" style="text-align:center; color:#9ca3af;">
+      Why?
+    </p>
+  </section>
+
+  <section>
+    <h2>One More Pair</h2>
+    <div class="two-col" style="margin-top:1em;">
+      <div class="card" style="text-align:center;">
+        <strong class="highlight-blue">"He is a natural leader."</strong>
+      </div>
+      <div class="card" style="text-align:center;">
+        <strong class="highlight-pink">"She is a natural leader."</strong>
+      </div>
+    </div>
+    <p class="fragment" style="margin-top:1em; text-align:center; color:#fbbf24; font-size:1.1em;">
+      Today we build a tool that tests for this &mdash;<br>
+      and figure out where these differences come from.
+    </p>
+  </section>
+</section>
+
+<!-- ========== BUILD: WHY BLOCKS ========== -->
+<section>
+  <h2>New Tool: gr.Blocks</h2>
+  <p>Until now we've used <code>gr.Interface</code> &mdash; one input, one output, done.</p>
+  <p style="margin-top:0.5em;">Today we need <span class="highlight-yellow">two inputs side by side</span>. <code>gr.Blocks</code> lets us design the layout.</p>
+  <div class="two-col" style="margin-top:1em;">
+    <div class="card">
+      <strong class="highlight-blue">gr.Interface</strong><br>
+      Automatic layout<br>
+      Built-in button<br>
+      Simple: fn + inputs + outputs
+    </div>
+    <div class="card">
+      <strong class="highlight-yellow">gr.Blocks</strong><br>
+      You design the layout<br>
+      You add the button<br>
+      You wire the click event
+    </div>
+  </div>
+</section>
+
+<!-- ========== BUILD: CODE ========== -->
+<section>
+  <section>
+    <h2>The Code: Load the Model</h2>
+    <pre><code class="language-python">import gradio as gr
+from transformers import pipeline
+
+classifier = pipeline(
+    "sentiment-analysis",
+    model="distilbert-base-uncased-finetuned-sst-2-english",
+)</code></pre>
+    <p style="margin-top:0.8em;">
+      Same model from Session 4 &mdash; the movie review sentiment model.<br>
+      Students already know this one.
+    </p>
+  </section>
+
+  <section>
+    <h2>The Code: Analyze a Pair</h2>
+    <pre><code class="language-python">def analyze_pair(sentence_a, sentence_b):
+    if not sentence_a or not sentence_a.strip():
+        return "Enter Sentence A first!", "", ""
+    if not sentence_b or not sentence_b.strip():
+        return "", "Enter Sentence B first!", ""
+
+    result_a = classifier(sentence_a[:512])[0]
+    result_b = classifier(sentence_b[:512])[0]
+
+    output_a = f"{result_a['label']} ({result_a['score']:.1%} confidence)"
+    output_b = f"{result_b['label']} ({result_b['score']:.1%} confidence)"</code></pre>
+    <p>Two sentences in, two results out. Then we compare.</p>
+  </section>
+
+  <section>
+    <h2>The Code: The Comparison</h2>
+    <pre><code class="language-python">    if result_a["label"] != result_b["label"]:
+        diff = (
+            f"Different predictions!\n"
+            f"  A: {result_a['label']} ({result_a['score']:.1%})\n"
+            f"  B: {result_b['label']} ({result_b['score']:.1%})"
+        )
+    else:
+        score_diff = abs(result_a["score"] - result_b["score"])
+        if score_diff > 0.05:
+            diff = (
+                f"Same label ({result_a['label']}), but confidence "
+                f"differs by {score_diff:.1%}."
+            )
+        else:
+            diff = f"Similar predictions — both {result_a['label']}."
+
+    return output_a, output_b, diff</code></pre>
+  </section>
+
+  <section>
+    <h2>The Code: Blocks Layout</h2>
+    <pre><code class="language-python">with gr.Blocks(title="Bias Tester") as demo:
+    gr.Markdown("# Bias Tester\n"
+        "Type two sentences that are identical except for "
+        "a name, gender, or demographic detail.")
+
+    with gr.Row():
+        with gr.Column():
+            input_a = gr.Textbox(label="Sentence A", lines=3,
+                placeholder="James is a brilliant surgeon.")
+            output_a = gr.Textbox(label="Result A", interactive=False)
+        with gr.Column():
+            input_b = gr.Textbox(label="Sentence B", lines=3,
+                placeholder="Jamila is a brilliant surgeon.")
+            output_b = gr.Textbox(label="Result B", interactive=False)</code></pre>
+    <p><code>gr.Row()</code> = side by side. <code>gr.Column()</code> = stacked inside a row.</p>
+  </section>
+
+  <section>
+    <h2>The Code: Button Wiring</h2>
+    <pre><code class="language-python">    diff_output = gr.Textbox(label="Comparison", interactive=False)
+    btn = gr.Button("Compare", variant="primary")
+    btn.click(
+        fn=analyze_pair,
+        inputs=[input_a, input_b],
+        outputs=[output_a, output_b, diff_output],
+    )
+
+demo.launch()</code></pre>
+    <p>
+      <code>btn.click</code> &mdash; when someone clicks Compare,<br>
+      run <code>analyze_pair</code> with these inputs, show results in these outputs.
+    </p>
+  </section>
+</section>
+
+<!-- ========== TESTING ========== -->
+<section>
+  <section>
+    <h2>Test: Name Swaps</h2>
+    <div class="card">"James applied for the job." vs. "Jamila applied for the job."</div>
+    <div class="card">"Emily got into medical school." vs. "Lakisha got into medical school."</div>
+    <div class="card">"John is an excellent student." vs. "Juan is an excellent student."</div>
+    <p class="fragment" style="margin-top:0.8em; color:#f472b6;">Same structure. Same meaning. Different scores.</p>
+  </section>
+
+  <section>
+    <h2>Test: Gender Swaps</h2>
+    <div class="card">"He is a natural leader." vs. "She is a natural leader."</div>
+    <div class="card">"His work ethic is impressive." vs. "Her work ethic is impressive."</div>
+    <div class="card">"The boy was adventurous and brave." vs. "The girl was adventurous and brave."</div>
+  </section>
+
+  <section>
+    <h2>Test: Role Swaps</h2>
+    <div class="card">"The doctor made a confident decision." vs. "The nurse made a confident decision."</div>
+    <div class="card">"The CEO presented the results." vs. "The secretary presented the results."</div>
+    <div class="card">"The software engineer solved the problem." vs. "The cashier solved the problem."</div>
+    <p class="fragment" style="margin-top:0.8em; color:#fbbf24;">Your turn &mdash; suggest a pair.</p>
+  </section>
+</section>
+
+<!-- ========== THIS MATTERS ========== -->
+<section>
+  <h2>"This Matters"</h2>
+  <div class="observation-card">
+    Companies use AI to screen resumes. If the model associates certain names with lower scores, those resumes get ranked lower. No human made that decision &mdash; but it still happened.
+  </div>
+  <div class="observation-card fragment">
+    AI in healthcare: models trained on data from hospitals that historically underserved certain communities will continue to underserve those communities.
+  </div>
+  <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
+    The bias isn't a bug in the code. The code does exactly what it was told: learn patterns from data.<br>
+    The problem is the <strong>data reflects a world that isn't fair</strong>.
+  </p>
+</section>
+
+<!-- ========== THE MIRROR ========== -->
+<section class="center-slide">
+  <h2>AI Is a Mirror</h2>
+  <p style="font-size:1.2em; margin:1em 0;">
+    "Bias in AI isn't about AI being evil.<br>
+    It's about AI being a <span class="highlight-yellow">mirror</span>."
+  </p>
+  <p class="fragment" style="color:#9ca3af;">
+    It reflects whatever patterns exist in the data it was trained on &mdash;<br>
+    including patterns we might not want to reproduce.
+  </p>
+</section>
+
+<!-- ========== NAME THE CONCEPT ========== -->
+<section class="center-slide">
+  <h2>Name the Concept</h2>
+  <div class="concept-box" style="font-size:1.3em;">
+    <span class="highlight-blue">BIASED TRAINING DATA</span>
+    <span class="arrow"> &rarr; </span>
+    <span class="highlight-yellow">BIASED MODEL</span>
+    <span class="arrow"> &rarr; </span>
+    <span class="highlight-pink">BIASED OUTCOMES</span>
+  </div>
+  <p class="fragment" style="margin-top:1em; font-size:0.95em;">
+    The model didn't invent these patterns.<br>
+    It learned them from text written by humans.
+  </p>
+  <p class="fragment" style="color:#fbbf24;">
+    What we just did &mdash; systematically testing whether a model treats<br>
+    different groups equally &mdash; is called <strong>fairness testing</strong>.
+  </p>
+</section>
+
+<!-- ========== VOCABULARY ========== -->
+<section>
+  <h2>Vocabulary</h2>
+  <div class="card">
+    <span class="vocab-term">Bias</span> &mdash; when a model treats similar inputs differently based on demographic details
+  </div>
+  <div class="card">
+    <span class="vocab-term">Training data bias</span> &mdash; unfair patterns in the data the model learned from
+  </div>
+  <div class="card">
+    <span class="vocab-term">Fairness testing</span> &mdash; systematically checking whether a model treats different groups equally
+  </div>
+  <div class="card">
+    <span class="vocab-term">gr.Blocks</span> &mdash; Gradio's flexible layout mode (vs. gr.Interface)
+  </div>
+  <div class="card">
+    <span class="vocab-term">gr.Row / gr.Column</span> &mdash; layout containers for side-by-side and stacked elements
+  </div>
+</section>
+
+<!-- ========== NOTEBOOK TIME ========== -->
+<section>
+  <h2>Notebook Time</h2>
+  <p>Open today's notebook and run the first few cells together.</p>
+  <div class="try-it" style="margin-top:1em;">
+    <strong>Link in the Zoom chat!</strong>
+  </div>
+  <div class="card" style="margin-top:0.8em;">
+    <strong>1.</strong> Click the link &rarr; it opens in Google Colab<br>
+    <strong>2.</strong> Hit the <span class="highlight-yellow">play button &#9654;</span> on the first cell<br>
+    <strong>3.</strong> Run the setup cell, then try the experiments
+  </div>
+  <div class="card" style="margin-top:0.5em;">
+    <strong>New skill:</strong> Compare outputs side by side &mdash; the code prints both results for easy comparison!
+  </div>
+  <p class="small" style="margin-top:0.8em;">Finish the experiments on your own before next week</p>
+</section>
+
+<!-- ========== BETWEEN SESSIONS ========== -->
+<section>
+  <h2>Between Sessions</h2>
+  <p><strong>Challenge:</strong> Design <span class="highlight-yellow">5 paired-sentence tests</span> of your own.</p>
+  <div class="card" style="margin-top:0.8em;">
+    <strong>1.</strong> Write two sentences that differ by only one word or name<br>
+    <strong>2.</strong> Predict what the model will do<br>
+    <strong>3.</strong> Test it and note the result
+  </div>
+  <div class="try-it" style="margin-top:0.8em;">
+    <strong>Ideas:</strong> Try age swaps, nationality swaps, job title swaps &mdash; or invent your own category.
+  </div>
+</section>
+
+<!-- ========== NEXT WEEK ========== -->
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
+  <h2>Next Week</h2>
+  <p style="font-size:1.3em;">Chain two models together.</p>
+  <p style="color:#9ca3af; margin-top:0.5em;">What one model gets wrong,<br>the next model has to live with.</p>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/highlight.min.js"></script>
+<script>
+Reveal.initialize({
+  hash: true,
+  slideNumber: true,
+  transition: 'slide',
+  plugins: [RevealHighlight],
+  width: 1280,
+  height: 720,
+  margin: 0.08
+});
+</script>
+</body>
+</html>

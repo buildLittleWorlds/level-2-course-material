@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 11: Iterate and Polish</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/night.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/monokai.min.css">
+<style>
+  :root {
+    --r-heading-font: 'Georgia', serif;
+    --r-main-font: 'Segoe UI', 'Helvetica Neue', sans-serif;
+    --r-heading-color: #fbbf24;
+    --r-link-color: #60a5fa;
+    --r-link-color-hover: #93c5fd;
+  }
+  .reveal { font-size: 32px; }
+  .reveal h1, .reveal h2, .reveal h3 { text-transform: none; }
+  .reveal h1 { font-size: 2.2em; }
+  .reveal h2 { font-size: 1.5em; color: #fbbf24; }
+  .reveal h3 { font-size: 1.1em; color: #9ca3af; }
+
+  .reveal .slides section { text-align: left; }
+  .reveal .slides section.center-slide { text-align: center; }
+
+  .concept-box {
+    background: linear-gradient(135deg, #1e3a5f, #1a1a2e);
+    border: 2px solid #fbbf24;
+    border-radius: 12px;
+    padding: 1em 1.5em;
+    margin: 0.8em 0;
+    text-align: center;
+    font-size: 1.3em;
+    letter-spacing: 0.05em;
+  }
+  .concept-box .arrow { color: #fbbf24; font-weight: bold; }
+
+  .vocab-term {
+    color: #fbbf24;
+    font-weight: bold;
+  }
+
+  .emoji-label { font-size: 1.4em; margin-right: 0.3em; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5em;
+    align-items: start;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 0.8em 1em;
+    margin: 0.4em 0;
+  }
+
+  .highlight-yellow { color: #fbbf24; }
+  .highlight-blue { color: #60a5fa; }
+  .highlight-green { color: #34d399; }
+  .highlight-pink { color: #f472b6; }
+
+  .small { font-size: 0.7em; color: #9ca3af; }
+
+  code {
+    background: rgba(255,255,255,0.1);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+  .reveal pre code {
+    max-height: 500px;
+    font-size: 0.65em;
+    line-height: 1.5;
+    padding: 1em;
+  }
+
+  .observation-card {
+    background: rgba(251,191,36,0.1);
+    border-left: 4px solid #fbbf24;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .try-it {
+    background: rgba(52,211,153,0.1);
+    border-left: 4px solid #34d399;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .fragment.current-visible.visible:not(.current-fragment) {
+    display: none;
+  }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ========== TITLE ========== -->
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
+  <h1 style="font-size:2.5em;">Iterate and Polish</h1>
+  <h3 style="color:#fbbf24;">Session 11</h3>
+  <p style="margin-top:1.5em; color:#94a3b8;">Roots &middot; Iterative Space Building</p>
+</section>
+
+<!-- ========== TONIGHT'S GOAL ========== -->
+<section>
+  <h2>Tonight's Goal</h2>
+  <p style="font-size:1.2em; text-align:center; margin:1em 0;">
+    Make your Space <span class="highlight-yellow">better</span> through<br>
+    feedback and real testing.
+  </p>
+  <div class="card" style="text-align:center; margin-top:1em;">
+    No new build tonight. We improve what you already have.
+  </div>
+</section>
+
+<!-- ========== SHOW AND TELL ========== -->
+<section>
+  <h2>Show and Tell</h2>
+  <p>Each person: ~2 minutes. Quick and proud.</p>
+  <div class="card" style="margin-top:0.8em;">
+    <strong>1.</strong> What does it do? <span class="small">(one sentence)</span>
+  </div>
+  <div class="card">
+    <strong>2.</strong> Show it working <span class="small">(one example input)</span>
+  </div>
+  <div class="card">
+    <strong>3.</strong> What's one thing you'd improve?
+  </div>
+  <p class="fragment" style="margin-top:1em; color:#9ca3af;">
+    After each demo: one compliment and one suggestion from the group.
+  </p>
+</section>
+
+<!-- ========== 1-ON-1 ROTATION ========== -->
+<section>
+  <h2>1-on-1 Improvement Time</h2>
+  <p>~10 minutes per student. We'll screen-share and fix things together.</p>
+  <div class="try-it" style="margin-top:1em;">
+    <strong>While you wait:</strong> Open another student's Space and start testing it.
+  </div>
+  <p class="fragment" style="margin-top:1em; color:#f472b6;">
+    Your turn is coming &mdash; use the wait time to find bugs in someone else's Space.
+  </p>
+</section>
+
+<!-- ========== IMPROVEMENT CHECKLIST ========== -->
+<section>
+  <h2>Improvement Checklist</h2>
+  <div class="two-col">
+    <div>
+      <div class="card">
+        <span class="highlight-yellow">Title &amp; Description</span><br>
+        Does it make sense to a stranger?
+      </div>
+      <div class="card">
+        <span class="highlight-blue">Examples</span><br>
+        At least 2&ndash;3 that show it off
+      </div>
+      <div class="card">
+        <span class="highlight-green">Output Formatting</span><br>
+        Is the result easy to read?
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <span class="highlight-pink">Input Validation</span><br>
+        What happens with empty or weird input?
+      </div>
+      <div class="card">
+        <span class="highlight-yellow">Model Choice</span><br>
+        Right model? Fast enough on free CPU?
+      </div>
+      <div class="card">
+        <span class="highlight-blue">Model Card Link</span><br>
+        Help users learn about the model
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== COMMON FIXES ========== -->
+<section>
+  <h2>Common Quick Fixes</h2>
+  <div class="card">
+    <span class="emoji-label">1.</span>
+    Better <code>placeholder</code> text to guide users
+  </div>
+  <div class="card">
+    <span class="emoji-label">2.</span>
+    More <code>examples</code> in the interface
+  </div>
+  <div class="card">
+    <span class="emoji-label">3.</span>
+    Input length cap <span class="small">(<code>text[:512]</code> to prevent timeouts)</span>
+  </div>
+  <div class="card">
+    <span class="emoji-label">4.</span>
+    Better return strings &mdash; more human, less raw data
+  </div>
+  <div class="card">
+    <span class="emoji-label">5.</span>
+    Fix the README to actually describe the Space
+  </div>
+</section>
+
+<!-- ========== PEER TESTING ========== -->
+<section>
+  <section>
+    <h2>Peer Testing</h2>
+    <p>Open another student's Space and try it for real.</p>
+    <div class="try-it" style="margin-top:1em;">
+      <strong>Try 3&ndash;4 inputs:</strong>
+    </div>
+    <div class="card">
+      <span class="highlight-green">One normal input</span> &mdash; the kind the builder expected
+    </div>
+    <div class="card">
+      <span class="highlight-pink">One weird input</span> &mdash; something unexpected or tricky
+    </div>
+    <div class="card">
+      <span class="highlight-blue">One edge case</span> &mdash; empty text, one word, something very long
+    </div>
+  </section>
+
+  <section>
+    <h2>Good Feedback vs. Vague Feedback</h2>
+    <div class="two-col" style="margin-top:1em;">
+      <div>
+        <div class="observation-card">
+          <strong style="color:#ef4444;">Vague:</strong><br>
+          "It's good"
+        </div>
+        <div class="observation-card">
+          <strong style="color:#ef4444;">Vague:</strong><br>
+          "The output was confusing"
+        </div>
+      </div>
+      <div>
+        <div class="try-it">
+          <strong style="color:#34d399;">Specific:</strong><br>
+          "The examples show different use cases &mdash; nice"
+        </div>
+        <div class="try-it">
+          <strong style="color:#34d399;">Specific:</strong><br>
+          "I didn't know what POSITIVE (87%) meant"
+        </div>
+      </div>
+    </div>
+    <p class="fragment" style="margin-top:1em; color:#9ca3af;">
+      Specific feedback is a gift. Vague feedback is just noise.
+    </p>
+  </section>
+</section>
+
+<!-- ========== THE EXPERIMENTATION LOOP ========== -->
+<section class="center-slide">
+  <h2>The Experimentation Loop</h2>
+  <div class="concept-box" style="font-size:1.3em;">
+    <span class="highlight-blue">TEST</span>
+    <span class="arrow"> &rarr; </span>
+    <span class="highlight-yellow">GET FEEDBACK</span>
+    <span class="arrow"> &rarr; </span>
+    <span class="highlight-green">IMPROVE</span>
+    <span class="arrow"> &rarr; </span>
+    <span class="highlight-pink">REPEAT</span>
+  </div>
+  <p class="fragment" style="margin-top:1.2em;">
+    This is how every real product gets better.<br>
+    <span class="small">Apps, games, websites, AI tools &mdash; they all go through this loop.</span>
+  </p>
+</section>
+
+<!-- ========== DEMO DAY PREP ========== -->
+<section>
+  <h2>Demo Day Prep</h2>
+  <p>Next week, you present. Here's the format:</p>
+  <div class="card" style="margin-top:0.8em;">
+    <strong class="highlight-yellow">1. What it does</strong> <span class="small">&mdash; one sentence, who is it for?</span>
+  </div>
+  <div class="card">
+    <strong class="highlight-blue">2. Live demo</strong> <span class="small">&mdash; show it working with 2&ndash;3 inputs</span>
+  </div>
+  <div class="card">
+    <strong class="highlight-green">3. What model</strong> <span class="small">&mdash; which model and why?</span>
+  </div>
+  <div class="card">
+    <strong class="highlight-pink">4. What went wrong</strong> <span class="small">&mdash; the hardest part, what broke</span>
+  </div>
+  <div class="card">
+    <strong class="highlight-yellow">5. What's next</strong> <span class="small">&mdash; if you had another month</span>
+  </div>
+</section>
+
+<!-- ========== DEMO TIPS ========== -->
+<section>
+  <h2>Tips for Presenting</h2>
+  <div class="observation-card">
+    Have your inputs ready &mdash; don't search for examples during the demo.
+  </div>
+  <div class="observation-card">
+    It's okay to show something that doesn't work perfectly.
+  </div>
+  <div class="observation-card">
+    Talking about what <em>broke</em> is more interesting than a flawless demo.
+  </div>
+  <div class="observation-card">
+    You're not being graded. This is about showing what you built and what you learned.
+  </div>
+  <p class="fragment" style="margin-top:0.8em; text-align:center; color:#fbbf24; font-size:1.1em;">
+    5&ndash;7 minutes. Practice it out loud.
+  </p>
+</section>
+
+<!-- ========== VOCABULARY ========== -->
+<section>
+  <h2>Vocabulary</h2>
+  <div class="card">
+    <span class="vocab-term">Iteration</span> &mdash; improving something through repeated cycles of testing and fixing
+  </div>
+  <div class="card">
+    <span class="vocab-term">User Testing</span> &mdash; having someone who didn't build it try to use it
+  </div>
+  <div class="card">
+    <span class="vocab-term">Edge Case</span> &mdash; an unusual input that the builder didn't think of
+  </div>
+  <div class="card">
+    <span class="vocab-term">UX</span> &mdash; user experience &mdash; how easy and clear the Space is to use
+  </div>
+</section>
+
+<!-- ========== NOTEBOOK TIME ========== -->
+<section>
+  <h2>Notebook Time</h2>
+  <p>Open today's notebook and try the debug challenges.</p>
+  <div class="try-it" style="margin-top:1em;">
+    <strong>Link in the Zoom chat!</strong>
+  </div>
+  <div class="card" style="margin-top:0.8em;">
+    <strong>1.</strong> Click the link &rarr; it opens in Google Colab<br>
+    <strong>2.</strong> Hit the <span class="highlight-yellow">play button &#9654;</span> on the setup cell<br>
+    <strong>3.</strong> Try to find and fix both bugs
+  </div>
+  <p class="small" style="margin-top:0.8em;">Fix both debug challenges before next week if you can</p>
+</section>
+
+<!-- ========== BETWEEN SESSIONS ========== -->
+<section>
+  <h2>Between Sessions</h2>
+  <p>This is the last between-session before Demo Day.</p>
+  <div class="try-it" style="margin-top:1em;">
+    <strong>Final Polish:</strong><br>
+    If there's one thing you want to fix, now's the time.
+  </div>
+  <div class="card" style="margin-top:0.8em;">
+    <strong>Practice your demo:</strong><br>
+    5&ndash;7 minutes, out loud, to yourself or someone else.
+  </div>
+</section>
+
+<!-- ========== NEXT WEEK ========== -->
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
+  <h2>Next Week</h2>
+  <p style="font-size:1.3em;">Demo Day.</p>
+  <p style="color:#9ca3af; margin-top:0.5em;">
+    Bring your best inputs<br>
+    and your best story about what went wrong.
+  </p>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/highlight.min.js"></script>
+<script>
+Reveal.initialize({
+  hash: true,
+  slideNumber: true,
+  transition: 'slide',
+  plugins: [RevealHighlight],
+  width: 1280,
+  height: 720,
+  margin: 0.08
+});
+</script>
+</body>
+</html>

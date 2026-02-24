@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 8: Chain Two Models</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/night.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/monokai.min.css">
+<style>
+  :root {
+    --r-heading-font: 'Georgia', serif;
+    --r-main-font: 'Segoe UI', 'Helvetica Neue', sans-serif;
+    --r-heading-color: #fbbf24;
+    --r-link-color: #60a5fa;
+    --r-link-color-hover: #93c5fd;
+  }
+  .reveal { font-size: 32px; }
+  .reveal h1, .reveal h2, .reveal h3 { text-transform: none; }
+  .reveal h1 { font-size: 2.2em; }
+  .reveal h2 { font-size: 1.5em; color: #fbbf24; }
+  .reveal h3 { font-size: 1.1em; color: #9ca3af; }
+
+  .reveal .slides section { text-align: left; }
+  .reveal .slides section.center-slide { text-align: center; }
+
+  .concept-box {
+    background: linear-gradient(135deg, #1e3a5f, #1a1a2e);
+    border: 2px solid #fbbf24;
+    border-radius: 12px;
+    padding: 1em 1.5em;
+    margin: 0.8em 0;
+    text-align: center;
+    font-size: 1.3em;
+    letter-spacing: 0.05em;
+  }
+  .concept-box .arrow { color: #fbbf24; font-weight: bold; }
+
+  .vocab-term {
+    color: #fbbf24;
+    font-weight: bold;
+  }
+
+  .emoji-label { font-size: 1.4em; margin-right: 0.3em; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5em;
+    align-items: start;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 0.8em 1em;
+    margin: 0.4em 0;
+  }
+
+  .highlight-yellow { color: #fbbf24; }
+  .highlight-blue { color: #60a5fa; }
+  .highlight-green { color: #34d399; }
+  .highlight-pink { color: #f472b6; }
+
+  .small { font-size: 0.7em; color: #9ca3af; }
+
+  code {
+    background: rgba(255,255,255,0.1);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+  .reveal pre code {
+    max-height: 500px;
+    font-size: 0.65em;
+    line-height: 1.5;
+    padding: 1em;
+  }
+
+  .observation-card {
+    background: rgba(251,191,36,0.1);
+    border-left: 4px solid #fbbf24;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .try-it {
+    background: rgba(52,211,153,0.1);
+    border-left: 4px solid #34d399;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .fragment.current-visible.visible:not(.current-fragment) {
+    display: none;
+  }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ========== TITLE ========== -->
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
+  <h1 style="font-size:2.5em;">Chain Two Models</h1>
+  <h3 style="color:#fbbf24;">Session 8</h3>
+  <p style="margin-top:1.5em; color:#94a3b8;">Roots &middot; Iterative Space Building</p>
+</section>
+
+<!-- ========== TONIGHT'S GOAL ========== -->
+<section>
+  <h2>Tonight's Goal</h2>
+  <p style="font-size:1.2em; text-align:center; margin:1em 0;">
+    Image in, caption out, mood judged.<br>
+    <span class="highlight-yellow">Two models, one pipeline.</span>
+  </p>
+  <div class="concept-box">
+    Image Story Pipeline
+  </div>
+  <p style="text-align:center; color:#9ca3af;">Upload a photo &rarr; AI describes it &rarr; AI judges the mood</p>
+</section>
+
+<!-- ========== SHOW AND TELL ========== -->
+<section>
+  <h2>Show-and-Tell</h2>
+  <div class="observation-card">
+    What bias pairs did you find?
+  </div>
+  <div class="observation-card">
+    Which sentence swaps surprised you most?
+  </div>
+  <p style="margin-top:1em; color:#9ca3af;">
+    Quick share &mdash; 1&ndash;2 minutes each.
+  </p>
+</section>
+
+<!-- ========== DEMO ========== -->
+<section>
+  <section>
+    <h2>Demo: Image Story Pipeline</h2>
+    <p>Let's try the finished version.</p>
+    <div class="try-it" style="margin-top:1em;">
+      <strong>Upload 1:</strong> A clear, easy photo &mdash; dog in a park, a plate of food
+    </div>
+    <p class="fragment" style="margin-top:0.8em;">
+      Two models just worked together.<br>
+      <span class="highlight-blue">Model 1</span> looked at the picture and wrote a sentence.<br>
+      <span class="highlight-green">Model 2</span> read that sentence and told us the mood.<br>
+      <span class="highlight-pink">Neither model knows the other exists.</span>
+    </p>
+  </section>
+
+  <section>
+    <h2>Now Break It</h2>
+    <div class="try-it">
+      <strong>Upload 2:</strong> Something ambiguous &mdash; abstract art, a blurry photo, a meme
+    </div>
+    <p class="fragment" style="margin-top:0.8em;">
+      The caption is off. And the sentiment is analyzing<br>
+      <span class="highlight-pink">a wrong description</span>.
+    </p>
+    <p class="fragment" style="color:#fbbf24; font-size:1.1em; margin-top:0.5em;">
+      If the first model is wrong, everything after it is wrong too.
+    </p>
+  </section>
+</section>
+
+<!-- ========== PIPELINE DIAGRAM ========== -->
+<section class="center-slide">
+  <h2>The Pipeline</h2>
+  <div class="concept-box" style="font-size:1.2em;">
+    <span class="highlight-blue">IMAGE</span>
+    <span class="arrow"> &rarr; </span>
+    <span class="highlight-yellow">BLIP</span>
+    <span class="arrow"> &rarr; </span>
+    <span class="highlight-green">CAPTION</span>
+    <span class="arrow"> &rarr; </span>
+    <span class="highlight-yellow">DistilBERT</span>
+    <span class="arrow"> &rarr; </span>
+    <span class="highlight-pink">SENTIMENT</span>
+  </div>
+  <p class="fragment" style="margin-top:1em; font-size:0.95em;">
+    What could go wrong at <em>each</em> arrow?
+  </p>
+</section>
+
+<!-- ========== BUILD IT: CODE ========== -->
+<section>
+  <section>
+    <h2>The Code: Imports</h2>
+    <pre><code class="language-python">import gradio as gr
+from transformers import pipeline, BlipProcessor, BlipForConditionalGeneration
+from PIL import Image</code></pre>
+    <div class="two-col" style="margin-top:0.8em;">
+      <div class="card"><code class="highlight-yellow">BlipProcessor</code><br>Converts images to numbers the model understands</div>
+      <div class="card"><code class="highlight-blue">BlipForConditionalGeneration</code><br>The captioning model itself</div>
+    </div>
+    <div class="card" style="width:fit-content;"><code class="highlight-green">PIL</code><br>Python Imaging Library &mdash; handles image files</div>
+  </section>
+
+  <section>
+    <h2>The Code: Load Two Models</h2>
+    <pre><code class="language-python">processor = BlipProcessor.from_pretrained(
+    "Salesforce/blip-image-captioning-base")
+caption_model = BlipForConditionalGeneration.from_pretrained(
+    "Salesforce/blip-image-captioning-base")
+
+sentiment = pipeline("sentiment-analysis",
+    model="distilbert-base-uncased-finetuned-sst-2-english")</code></pre>
+    <p style="margin-top:0.8em;">
+      <span class="highlight-yellow">BLIP</span> is ~1GB &mdash; that's why this Space takes a while to start.<br>
+      <span class="highlight-blue">DistilBERT</span> is the same sentiment model from Session 4.
+    </p>
+  </section>
+
+  <section>
+    <h2>The Code: Step 1 &mdash; Caption</h2>
+    <pre><code class="language-python">def analyze_image(image):
+    if image is None:
+        return "Upload an image first!", "", ""
+
+    # Step 1: Generate caption
+    inputs = processor(image, return_tensors="pt")
+    out = caption_model.generate(**inputs, max_length=50)
+    caption = processor.decode(out[0], skip_special_tokens=True)</code></pre>
+    <p style="margin-top:0.8em;">
+      Image goes in as pixels.<br>
+      Processor converts to numbers. Model generates words.<br>
+      <span class="highlight-green">Three lines, but a lot happening.</span>
+    </p>
+  </section>
+
+  <section>
+    <h2>The Code: Step 2 &mdash; Sentiment</h2>
+    <pre><code class="language-python">    # Step 2: Analyze caption sentiment
+    result = sentiment(caption)[0]
+    sentiment_text = f"{result['label']} ({result['score']:.1%} confidence)"
+
+    # Step 3: Show the pipeline
+    pipeline_view = (
+        f"IMAGE\n"
+        f"  -> Model 1 (BLIP captioner): \"{caption}\"\n"
+        f"  -> Model 2 (sentiment): {result['label']} ({result['score']:.1%})"
+    )
+    return caption, sentiment_text, pipeline_view</code></pre>
+    <p style="margin-top:0.8em;">
+      The caption &mdash; a string of text &mdash; goes into the sentiment model.<br>
+      <span class="highlight-yellow">Output of Model 1 becomes input of Model 2.</span>
+    </p>
+  </section>
+
+  <section>
+    <h2>The Code: Blocks Layout</h2>
+    <pre><code class="language-python">with gr.Blocks(title="Image Story Pipeline") as demo:
+    gr.Markdown("# Image Story Pipeline\n...")
+    with gr.Row():
+        with gr.Column():
+            image_input = gr.Image(type="pil", label="Upload an Image")
+            btn = gr.Button("Analyze", variant="primary")
+        with gr.Column():
+            caption_output = gr.Textbox(label="Step 1: Caption (BLIP)")
+            sentiment_output = gr.Textbox(label="Step 2: Sentiment of Caption")
+            pipeline_output = gr.Textbox(label="Full Pipeline View", lines=4)
+
+    btn.click(fn=analyze_image, inputs=image_input,
+              outputs=[caption_output, sentiment_output, pipeline_output])</code></pre>
+    <p><code>gr.Image(type="pil")</code> gives BLIP the image format it expects.</p>
+  </section>
+
+  <section>
+    <h2>requirements.txt</h2>
+    <pre><code>transformers
+torch
+gradio
+Pillow</code></pre>
+    <p>New this time: <code class="highlight-yellow">Pillow</code>.<br>
+    Without it, the Space can't read image files.</p>
+  </section>
+</section>
+
+<!-- ========== TEST ========== -->
+<section>
+  <h2>Test with Different Images</h2>
+  <div class="card"><span class="emoji-label">&#x1F436;</span> <strong>Happy scene</strong> &mdash; dog, birthday party <span class="small">(baseline)</span></div>
+  <div class="card"><span class="emoji-label">&#x1F327;</span> <strong>Somber scene</strong> &mdash; rain, empty room <span class="small">(negative caption?)</span></div>
+  <div class="card"><span class="emoji-label">&#x1F611;</span> <strong>Ambiguous</strong> &mdash; person with neutral expression <span class="small">(caption guesses wrong?)</span></div>
+  <div class="card"><span class="emoji-label">&#x1F3A8;</span> <strong>Abstract art</strong> &mdash; BLIP wasn't trained on this <span class="small">(outside its world)</span></div>
+  <div class="card"><span class="emoji-label">&#x1F4AC;</span> <strong>Image with text</strong> &mdash; meme, sign <span class="small">(BLIP may ignore text)</span></div>
+  <div class="observation-card fragment">
+    For each: Is the caption accurate? Does the sentiment make sense <em>given that caption</em>?
+  </div>
+</section>
+
+<!-- ========== ERROR CASCADE ========== -->
+<section>
+  <section>
+    <h2>Error Cascade</h2>
+    <p>Find an image where <span class="highlight-blue">the captioner is wrong</span>.</p>
+    <div class="observation-card">
+      <strong>1.</strong> What does this image <em>actually</em> show?
+    </div>
+    <div class="observation-card fragment">
+      <strong>2.</strong> What did BLIP <em>say</em>? Is that right?
+    </div>
+    <div class="observation-card fragment">
+      <strong>3.</strong> The sentiment model says POSITIVE. But is the image positive?
+    </div>
+    <p class="fragment" style="margin-top:0.8em; color:#f472b6; font-size:1.1em;">
+      The sentiment model <strong>never saw the image</strong>.<br>It only read the caption.
+    </p>
+  </section>
+
+  <section class="center-slide">
+    <h2>Where the Error Starts</h2>
+    <div class="concept-box" style="font-size:1.1em; text-align:left; padding:1.2em 1.5em;">
+      <span class="highlight-blue">Wrong image description</span>
+      <span class="arrow"> &rarr; </span>
+      <span class="highlight-pink">Wrong sentiment</span><br><br>
+      <span class="small" style="font-size:0.65em;">
+        &uarr; Error starts here &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &uarr; Error cascades here
+      </span>
+    </div>
+    <p class="fragment" style="margin-top:1em;">
+      The sentiment model <span class="highlight-green">did its job perfectly</span>.<br>
+      The error started <span class="highlight-yellow">upstream</span>.
+    </p>
+  </section>
+</section>
+
+<!-- ========== REAL-WORLD EXAMPLES ========== -->
+<section>
+  <h2>Pipelines in the Real World</h2>
+  <div class="card">
+    <span class="emoji-label">&#x1F697;</span>
+    <strong>Self-driving cars</strong><br>
+    Detect objects &rarr; predict paths &rarr; decide to brake<br>
+    <span class="small">Where's the most dangerous place for an error?</span>
+  </div>
+  <div class="card fragment">
+    <span class="emoji-label">&#x1F4AC;</span>
+    <strong>ChatGPT</strong><br>
+    Retrieve info &rarr; reason about it &rarr; generate response<br>
+    <span class="small">If it retrieves wrong info, does the reasoning fix it?</span>
+  </div>
+  <div class="card fragment">
+    <span class="emoji-label">&#x1F3A4;</span>
+    <strong>Siri / Alexa</strong><br>
+    Speech-to-text &rarr; understand intent &rarr; generate reply<br>
+    <span class="small">Misheard words cascade through every step.</span>
+  </div>
+</section>
+
+<!-- ========== NAME THE CONCEPT ========== -->
+<section class="center-slide">
+  <h2>Name the Concept</h2>
+  <div class="concept-box" style="font-size:1.1em;">
+    MULTI-MODEL SYSTEMS<br>AND ERROR CASCADES
+  </div>
+  <div style="margin-top:1em; text-align:left; max-width:800px; margin-left:auto; margin-right:auto;">
+    <div class="card fragment">
+      <span class="highlight-yellow">MODEL 1</span> output
+      <span class="arrow"> &rarr; </span>
+      <span class="highlight-blue">MODEL 2</span> input
+    </div>
+    <div class="card fragment">
+      If Step 1 is wrong, Step 2 is wrong.<br>
+      <span class="small">Garbage in, garbage out &mdash; at every step.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== VOCABULARY ========== -->
+<section>
+  <h2>Vocabulary</h2>
+  <div class="card">
+    <span class="vocab-term">Pipeline</span> &mdash; connecting models so the output of one feeds the input of the next
+  </div>
+  <div class="card">
+    <span class="vocab-term">Error cascade</span> &mdash; when one model's mistake causes every model after it to be wrong
+  </div>
+  <div class="card">
+    <span class="vocab-term">Caption</span> &mdash; a text description of an image, generated by a vision model
+  </div>
+  <div class="card">
+    <span class="vocab-term">BLIP</span> &mdash; Bootstrapping Language-Image Pre-training, the captioning model
+  </div>
+  <div class="card">
+    <span class="vocab-term">Pillow</span> &mdash; Python library for working with image files
+  </div>
+  <div class="card">
+    <span class="vocab-term">Cold start</span> &mdash; the delay when a model loads for the first time
+  </div>
+</section>
+
+<!-- ========== NOTEBOOK TIME ========== -->
+<section>
+  <h2>Notebook Time</h2>
+  <p>Open today's notebook and run the first few cells together.</p>
+  <div class="try-it" style="margin-top:1em;">
+    <strong>Link in the Zoom chat!</strong>
+  </div>
+  <div class="card" style="margin-top:0.8em;">
+    <strong>1.</strong> Click the link &rarr; it opens in Google Colab<br>
+    <strong>2.</strong> Hit the <span class="highlight-yellow">play button &#9654;</span> on the first cell<br>
+    <strong>3.</strong> Run the setup cell, then try the experiments
+  </div>
+  <div class="card" style="margin-top:0.5em;">
+    <strong>New skill:</strong> You'll upload images directly in Colab!
+  </div>
+  <p class="small" style="margin-top:0.8em;">Finish the experiments on your own before next week</p>
+</section>
+
+<!-- ========== BETWEEN SESSIONS ========== -->
+<section>
+  <h2>Between Sessions</h2>
+  <p><strong>Challenge:</strong> Find an image that breaks the pipeline.</p>
+  <div class="card" style="margin-top:0.8em;">
+    <strong>1.</strong> Upload different kinds of images<br>
+    <strong>2.</strong> Find one where the <span class="highlight-blue">caption is wrong</span><br>
+    <strong>3.</strong> Figure out: which step failed &mdash; the caption or the sentiment?
+  </div>
+  <div style="margin-top:0.8em;">
+    <p><strong>Ideas:</strong></p>
+    <div class="card">Abstract art <span class="small">(outside BLIP's training data)</span></div>
+    <div class="card">Memes with text <span class="small">(BLIP ignores words in images)</span></div>
+    <div class="card">Dark or blurry photos <span class="small">(hard to describe accurately)</span></div>
+  </div>
+</section>
+
+<!-- ========== NEXT WEEK ========== -->
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
+  <h2>Next Week</h2>
+  <p style="font-size:1.3em;">Make it actually useful.</p>
+  <p style="color:#9ca3af; margin-top:0.5em;">Same model, new frame.<br>We turn a demo into a tool someone would actually use.</p>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/highlight.min.js"></script>
+<script>
+Reveal.initialize({
+  hash: true,
+  slideNumber: true,
+  transition: 'slide',
+  plugins: [RevealHighlight],
+  width: 1280,
+  height: 720,
+  margin: 0.08
+});
+</script>
+</body>
+</html>

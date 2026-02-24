@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 4: Sentiment Showdown</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/night.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/monokai.min.css">
+<style>
+  :root {
+    --r-heading-font: 'Georgia', serif;
+    --r-main-font: 'Segoe UI', 'Helvetica Neue', sans-serif;
+    --r-heading-color: #fbbf24;
+    --r-link-color: #60a5fa;
+    --r-link-color-hover: #93c5fd;
+  }
+  .reveal { font-size: 32px; }
+  .reveal h1, .reveal h2, .reveal h3 { text-transform: none; }
+  .reveal h1 { font-size: 2.2em; }
+  .reveal h2 { font-size: 1.5em; color: #fbbf24; }
+  .reveal h3 { font-size: 1.1em; color: #9ca3af; }
+
+  .reveal .slides section { text-align: left; }
+  .reveal .slides section.center-slide { text-align: center; }
+
+  .concept-box {
+    background: linear-gradient(135deg, #1e3a5f, #1a1a2e);
+    border: 2px solid #fbbf24;
+    border-radius: 12px;
+    padding: 1em 1.5em;
+    margin: 0.8em 0;
+    text-align: center;
+    font-size: 1.3em;
+    letter-spacing: 0.05em;
+  }
+  .concept-box .arrow { color: #fbbf24; font-weight: bold; }
+
+  .vocab-term {
+    color: #fbbf24;
+    font-weight: bold;
+  }
+
+  .emoji-label { font-size: 1.4em; margin-right: 0.3em; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5em;
+    align-items: start;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 0.8em 1em;
+    margin: 0.4em 0;
+  }
+
+  .highlight-yellow { color: #fbbf24; }
+  .highlight-blue { color: #60a5fa; }
+  .highlight-green { color: #34d399; }
+  .highlight-pink { color: #f472b6; }
+
+  .small { font-size: 0.7em; color: #9ca3af; }
+
+  code {
+    background: rgba(255,255,255,0.1);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+  .reveal pre code {
+    max-height: 500px;
+    font-size: 0.65em;
+    line-height: 1.5;
+    padding: 1em;
+  }
+
+  .observation-card {
+    background: rgba(251,191,36,0.1);
+    border-left: 4px solid #fbbf24;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .try-it {
+    background: rgba(52,211,153,0.1);
+    border-left: 4px solid #34d399;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .fragment.current-visible.visible:not(.current-fragment) {
+    display: none;
+  }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ========== TITLE ========== -->
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
+  <h1 style="font-size:2.5em;">Sentiment Showdown</h1>
+  <h3 style="color:#fbbf24;">Session 4</h3>
+  <p style="margin-top:1.5em; color:#94a3b8;">Roots &middot; Iterative Space Building</p>
+</section>
+
+<!-- ========== TONIGHT'S GOAL ========== -->
+<section>
+  <h2>Tonight's Goal</h2>
+  <p style="font-size:1.2em; text-align:center; margin:1em 0;">
+    Three models read the same text.<br>
+    Which one is <span class="highlight-yellow">right</span>?
+  </p>
+  <div class="concept-box">
+    Sentiment Showdown
+  </div>
+  <p style="text-align:center; color:#9ca3af;">One input &rarr; three models &rarr; three answers &rarr; who wins?</p>
+</section>
+
+<!-- ========== SHOW AND TELL ========== -->
+<section>
+  <h2>Show-and-Tell</h2>
+  <div class="observation-card" style="font-size:1.1em;">
+    Did anyone try the between-session challenge from last time?
+  </div>
+  <div style="margin-top:1em;">
+    <div class="card">Did you use CLEAR to ask an AI for help?</div>
+    <div class="card">What cleaning step did you add?</div>
+    <div class="card">Did it actually help?</div>
+  </div>
+</section>
+
+<!-- ========== DEMO: WATCH THEM DISAGREE ========== -->
+<section>
+  <section>
+    <h2>Watch Models Disagree</h2>
+    <p>Let's try the finished Sentiment Showdown Space.</p>
+    <div class="try-it" style="margin-top:1em;">
+      <strong>Try this input:</strong><br>
+      <em>"The service was slow but the food was amazing."</em>
+    </div>
+    <div class="fragment" style="margin-top:0.8em;">
+      <div class="card"><strong class="highlight-yellow">Movie Review Model:</strong> ???</div>
+      <div class="card"><strong class="highlight-blue">Twitter Model:</strong> ???</div>
+      <div class="card"><strong class="highlight-green">Product Review Model:</strong> ???</div>
+    </div>
+    <p class="fragment" style="color:#f472b6; margin-top:0.5em;">Which model is "right"?</p>
+  </section>
+
+  <section>
+    <h2>More Inputs to Try</h2>
+    <div class="card" style="font-size:0.9em;">
+      <em>"lol this is SO bad it's actually good"</em>
+      <span class="small">&mdash; sarcasm breaks everything</span>
+    </div>
+    <div class="card" style="font-size:0.9em;">
+      <em>"The movie was fine. Nothing special but not bad either."</em>
+      <span class="small">&mdash; the movie model has no "neutral" label!</span>
+    </div>
+    <div class="card" style="font-size:0.9em;">
+      <em>"I can't believe how terrible this is. Just kidding, it's great!"</em>
+      <span class="small">&mdash; negation + reversal</span>
+    </div>
+    <div class="card" style="font-size:0.9em;">
+      <em>"10/10 would not recommend"</em>
+      <span class="small">&mdash; internet sarcasm</span>
+    </div>
+    <p class="fragment" style="margin-top:0.5em;">
+      <span class="highlight-yellow">Your turn:</span> suggest an input. Chase the disagreements.
+    </p>
+  </section>
+</section>
+
+<!-- ========== BUILD IT ========== -->
+<section>
+  <section>
+    <h2>Let's Build It</h2>
+    <p>This is the most complex build so far: <span class="highlight-yellow">three models</span> in one Space.</p>
+    <div class="card">
+      <strong>1.</strong> Create a new Space &mdash; <code>sentiment-showdown</code>
+    </div>
+    <div class="card">
+      <strong>2.</strong> SDK: <span class="highlight-blue">Gradio</span> &bull; Hardware: <span class="highlight-green">Free CPU</span>
+    </div>
+    <div class="card">
+      <strong>3.</strong> Add <code>requirements.txt</code>: <code>transformers</code>, <code>torch</code>, <code>gradio</code>
+    </div>
+    <div class="card">
+      <strong>4.</strong> Build <code>app.py</code> step by step
+    </div>
+  </section>
+
+  <section>
+    <h2>The Code: Load Three Models</h2>
+    <pre><code class="language-python">from transformers import pipeline
+import gradio as gr
+
+# Load all 3 sentiment models at startup
+print("Loading Movie Review model...")
+model_movie = pipeline(
+    "sentiment-analysis",
+    model="distilbert-base-uncased-finetuned-sst-2-english",
+)
+
+print("Loading Twitter model...")
+model_twitter = pipeline(
+    "sentiment-analysis",
+    model="cardiffnlp/twitter-roberta-base-sentiment-latest",
+)
+
+print("Loading Product Review model...")
+model_product = pipeline(
+    "sentiment-analysis",
+    model="nlptown/bert-base-multilingual-uncased-sentiment",
+)</code></pre>
+  </section>
+
+  <section>
+    <h2>The Code: Compare Function</h2>
+    <pre><code class="language-python">def format_result(result):
+    """Format a single model result."""
+    label = result["label"]
+    score = result["score"]
+    return f"{label} ({score:.0%} confidence)"
+
+
+def compare_sentiment(text):
+    if not text or not text.strip():
+        return ("Enter some text first!",
+                "Enter some text first!",
+                "Enter some text first!")
+
+    text = text[:512]  # Truncate to model limits
+
+    r1 = model_movie(text)[0]
+    r2 = model_twitter(text)[0]
+    r3 = model_product(text)[0]
+
+    return (format_result(r1),
+            format_result(r2),
+            format_result(r3))</code></pre>
+  </section>
+
+  <section>
+    <h2>The Code: Three Output Boxes</h2>
+    <pre><code class="language-python">demo = gr.Interface(
+    fn=compare_sentiment,
+    inputs=gr.Textbox(
+        lines=5,
+        placeholder="Type or paste text to analyze...",
+        label="Text to Analyze",
+    ),
+    outputs=[
+        gr.Textbox(label="Movie Review Model"),
+        gr.Textbox(label="Twitter Model"),
+        gr.Textbox(label="Product Review Model"),
+    ],
+    title="Sentiment Showdown",
+    description="Three AI models read the same text. "
+                "Do they agree?",
+)
+demo.launch()</code></pre>
+    <p style="margin-top:0.5em;">
+      <span class="highlight-yellow">Key difference:</span> <code>outputs</code> is a <strong>list</strong> of three boxes, and the function returns <strong>three values</strong>.
+    </p>
+  </section>
+</section>
+
+<!-- ========== SPAM DETECTOR THOUGHT EXPERIMENT ========== -->
+<section>
+  <section>
+    <h2>Thought Experiment: Spam Detector</h2>
+    <p>Imagine you built a spam detector for email.</p>
+    <div class="card" style="margin-top:0.8em;">
+      You test it on <strong>1,000 emails</strong>.<br>
+      <span class="highlight-blue">950</span> are real mail. <span class="highlight-pink">50</span> are spam.
+    </div>
+    <div class="card">
+      Your model predicts <strong>"NOT SPAM"</strong> for <em>every single email</em> &mdash; all 1,000.
+    </div>
+    <div class="observation-card fragment" style="font-size:1.1em; margin-top:0.8em;">
+      <strong>Question 1:</strong> What's the accuracy?
+    </div>
+  </section>
+
+  <section>
+    <h2>The Accuracy Trap</h2>
+    <div class="concept-box" style="font-size:1.5em;">
+      95% accurate!
+    </div>
+    <p style="text-align:center; margin-top:0.8em;">It got 950 out of 1,000 correct.</p>
+    <div class="observation-card fragment" style="margin-top:1em;">
+      <strong>Question 2:</strong> Is this a good spam detector?
+    </div>
+    <p class="fragment" style="color:#f472b6; font-size:1.1em; text-align:center; margin-top:0.5em;">
+      No! It never catches any spam.
+    </p>
+    <p class="fragment" style="color:#9ca3af; text-align:center;">
+      Accuracy alone can be misleading.
+    </p>
+  </section>
+
+  <section>
+    <h2>False Positives vs. False Negatives</h2>
+    <div class="two-col">
+      <div>
+        <div class="card" style="border-left:3px solid #f472b6;">
+          <strong class="highlight-pink">False Positive</strong><br>
+          Real email marked as spam<br>
+          <span class="small">Annoying &mdash; you miss a real email</span>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="border-left:3px solid #60a5fa;">
+          <strong class="highlight-blue">False Negative</strong><br>
+          Spam that gets through<br>
+          <span class="small">Also bad &mdash; spam fills your inbox</span>
+        </div>
+      </div>
+    </div>
+    <div class="observation-card fragment" style="margin-top:1em;">
+      Which is worse? <strong>It depends on the task.</strong><br>
+      A missed spam email is annoying.<br>
+      A missed fraud alert is dangerous.
+    </div>
+  </section>
+</section>
+
+<!-- ========== MODEL CARDS ========== -->
+<section>
+  <h2>Model Card Comparison</h2>
+  <p>Why do these three models disagree? Check their model cards.</p>
+  <div class="two-col" style="margin-top:0.8em;">
+    <div>
+      <div class="card">
+        <strong class="highlight-yellow">Movie Review Model</strong><br>
+        Trained on: movie reviews<br>
+        Labels: POSITIVE / NEGATIVE<br>
+        <span class="small">No "neutral" option!</span>
+      </div>
+      <div class="card">
+        <strong class="highlight-blue">Twitter Model</strong><br>
+        Trained on: 124M tweets<br>
+        Labels: positive / neutral / negative<br>
+        <span class="small">Understands internet language</span>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <strong class="highlight-green">Product Review Model</strong><br>
+        Trained on: product reviews<br>
+        Labels: 1 star to 5 stars<br>
+        <span class="small">More granular &mdash; five levels</span>
+      </div>
+      <div class="observation-card">
+        They disagree because they learned language from <strong>different worlds</strong>.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== NAME THE CONCEPT ========== -->
+<section class="center-slide">
+  <h2>Name the Concept</h2>
+  <h3 style="color:#fbbf24; font-size:1.3em;">MODEL EVALUATION</h3>
+  <div class="concept-box" style="font-size:1.2em;">
+    same <span class="highlight-blue">INPUT</span>
+    <span class="arrow"> &rarr; </span>
+    <span class="highlight-yellow">MODEL A</span> vs
+    <span class="highlight-green">MODEL B</span> vs
+    <span class="highlight-pink">MODEL C</span><br>
+    <span style="font-size:0.8em; margin-top:0.5em; display:inline-block;">
+      which is "right" depends on the <span class="highlight-yellow">TASK</span>
+    </span>
+  </div>
+  <p class="fragment" style="margin-top:1em;">
+    Evaluation isn't just "is it right?"<br>
+    It's "right <span class="highlight-yellow">for what</span>? For <span class="highlight-blue">whom</span>? Measured <span class="highlight-green">how</span>?"
+  </p>
+</section>
+
+<!-- ========== VOCABULARY ========== -->
+<section>
+  <h2>Vocabulary</h2>
+  <div class="card">
+    <span class="vocab-term">Accuracy</span> &mdash; percentage of correct predictions (but can be misleading!)
+  </div>
+  <div class="card">
+    <span class="vocab-term">False positive</span> &mdash; model says YES when the answer is actually NO
+  </div>
+  <div class="card">
+    <span class="vocab-term">False negative</span> &mdash; model says NO when the answer is actually YES
+  </div>
+  <div class="card">
+    <span class="vocab-term">Context-dependent</span> &mdash; whether a model is "good" depends on what you're using it for
+  </div>
+  <div class="card">
+    <span class="vocab-term">Model evaluation</span> &mdash; the process of measuring how well a model performs on a specific task
+  </div>
+</section>
+
+<!-- ========== NOTEBOOK TIME ========== -->
+<section>
+  <h2>Notebook Time</h2>
+  <p>Open today's notebook and run the first few cells together.</p>
+  <div class="try-it" style="margin-top:1em;">
+    <strong>Link in the Zoom chat!</strong>
+  </div>
+  <div class="card" style="margin-top:0.8em;">
+    <strong>1.</strong> Click the link → it opens in Google Colab<br>
+    <strong>2.</strong> Hit the <span class="highlight-yellow">play button ▶</span> on the first cell<br>
+    <strong>3.</strong> Run the setup cell, then try the experiments
+  </div>
+  <p class="small" style="margin-top:0.8em;">Finish the experiments on your own before next week</p>
+</section>
+
+<!-- ========== BETWEEN SESSIONS ========== -->
+<section>
+  <h2>Between Sessions</h2>
+  <p><strong>Challenge:</strong> Find maximum disagreement.</p>
+  <div class="card" style="margin-top:0.8em;">
+    Find <strong>one input</strong> where all three models give <strong>different answers</strong>.
+  </div>
+  <div style="margin-top:0.8em;">
+    <p><strong>Ideas to try:</strong></p>
+    <div class="card">Sarcasm &mdash; <em>"Oh great, another Monday"</em></div>
+    <div class="card">Mixed sentiment &mdash; <em>"Terrible weather but amazing company"</em></div>
+    <div class="card">Internet slang &mdash; <em>"meh whatever lol"</em></div>
+  </div>
+  <div class="observation-card" style="margin-top:0.8em;">
+    Bring your best disagreement to share next week!
+  </div>
+</section>
+
+<!-- ========== NEXT WEEK ========== -->
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
+  <h2>Next Week</h2>
+  <p style="font-size:1.3em;">We add controls.</p>
+  <p style="color:#9ca3af; margin-top:0.5em;">Same model, same prompt &mdash; different output.<br>What happens when you give the user knobs to turn?</p>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/highlight.min.js"></script>
+<script>
+Reveal.initialize({
+  hash: true,
+  slideNumber: true,
+  transition: 'slide',
+  plugins: [RevealHighlight],
+  width: 1280,
+  height: 720,
+  margin: 0.08
+});
+</script>
+</body>
+</html>

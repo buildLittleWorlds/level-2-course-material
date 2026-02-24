@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 10: Build Your Own</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/night.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/monokai.min.css">
+<style>
+  :root {
+    --r-heading-font: 'Georgia', serif;
+    --r-main-font: 'Segoe UI', 'Helvetica Neue', sans-serif;
+    --r-heading-color: #fbbf24;
+    --r-link-color: #60a5fa;
+    --r-link-color-hover: #93c5fd;
+  }
+  .reveal { font-size: 32px; }
+  .reveal h1, .reveal h2, .reveal h3 { text-transform: none; }
+  .reveal h1 { font-size: 2.2em; }
+  .reveal h2 { font-size: 1.5em; color: #fbbf24; }
+  .reveal h3 { font-size: 1.1em; color: #9ca3af; }
+
+  .reveal .slides section { text-align: left; }
+  .reveal .slides section.center-slide { text-align: center; }
+
+  .concept-box {
+    background: linear-gradient(135deg, #1e3a5f, #1a1a2e);
+    border: 2px solid #fbbf24;
+    border-radius: 12px;
+    padding: 1em 1.5em;
+    margin: 0.8em 0;
+    text-align: center;
+    font-size: 1.3em;
+    letter-spacing: 0.05em;
+  }
+  .concept-box .arrow { color: #fbbf24; font-weight: bold; }
+
+  .vocab-term {
+    color: #fbbf24;
+    font-weight: bold;
+  }
+
+  .emoji-label { font-size: 1.4em; margin-right: 0.3em; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5em;
+    align-items: start;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 0.8em 1em;
+    margin: 0.4em 0;
+  }
+
+  .highlight-yellow { color: #fbbf24; }
+  .highlight-blue { color: #60a5fa; }
+  .highlight-green { color: #34d399; }
+  .highlight-pink { color: #f472b6; }
+
+  .small { font-size: 0.7em; color: #9ca3af; }
+
+  code {
+    background: rgba(255,255,255,0.1);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+  .reveal pre code {
+    max-height: 500px;
+    font-size: 0.65em;
+    line-height: 1.5;
+    padding: 1em;
+  }
+
+  .observation-card {
+    background: rgba(251,191,36,0.1);
+    border-left: 4px solid #fbbf24;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .try-it {
+    background: rgba(52,211,153,0.1);
+    border-left: 4px solid #34d399;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .fragment.current-visible.visible:not(.current-fragment) {
+    display: none;
+  }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ========== TITLE ========== -->
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
+  <h1 style="font-size:2.5em;">Build Your Own</h1>
+  <h3 style="color:#fbbf24;">Session 10</h3>
+  <p style="margin-top:1.5em; color:#94a3b8;">Roots &middot; Iterative Space Building</p>
+</section>
+
+<!-- ========== TONIGHT'S GOAL ========== -->
+<section>
+  <h2>Tonight's Goal</h2>
+  <p style="font-size:1.2em; text-align:center; margin:1em 0;">
+    Pick a model. Pick a task. Build the whole thing.<br>
+    <span class="highlight-yellow">From scratch.</span>
+  </p>
+  <div class="concept-box">
+    You've built 9 Spaces with me. Now you build your own.
+  </div>
+</section>
+
+<!-- ========== SHOW AND TELL: RECAP ========== -->
+<section>
+  <h2>Everything We've Built</h2>
+  <div style="font-size:0.75em;">
+    <div class="card" style="display:grid; grid-template-columns:auto 1fr 1fr; gap:0.5em; padding:0.4em 0.8em;">
+      <strong>#</strong><strong>Space</strong><strong class="highlight-blue">Task Type</strong>
+    </div>
+    <div class="card" style="display:grid; grid-template-columns:auto 1fr 1fr; gap:0.5em; padding:0.4em 0.8em;">
+      <span>1</span><span>Silly Phrase Finder</span><span class="small">Zero-shot classification</span>
+    </div>
+    <div class="card" style="display:grid; grid-template-columns:auto 1fr 1fr; gap:0.5em; padding:0.4em 0.8em;">
+      <span>2</span><span>Model Swap</span><span class="small">Sentiment analysis</span>
+    </div>
+    <div class="card" style="display:grid; grid-template-columns:auto 1fr 1fr; gap:0.5em; padding:0.4em 0.8em;">
+      <span>3</span><span>Break It on Purpose</span><span class="small">Data cleaning</span>
+    </div>
+    <div class="card" style="display:grid; grid-template-columns:auto 1fr 1fr; gap:0.5em; padding:0.4em 0.8em;">
+      <span>4</span><span>Sentiment Showdown</span><span class="small">Model evaluation</span>
+    </div>
+    <div class="card" style="display:grid; grid-template-columns:auto 1fr 1fr; gap:0.5em; padding:0.4em 0.8em;">
+      <span>5</span><span>Slider Space</span><span class="small">Hyperparameters</span>
+    </div>
+    <div class="card" style="display:grid; grid-template-columns:auto 1fr 1fr; gap:0.5em; padding:0.4em 0.8em;">
+      <span>6</span><span>Domain Shift Tester</span><span class="small">Overfitting</span>
+    </div>
+    <div class="card" style="display:grid; grid-template-columns:auto 1fr 1fr; gap:0.5em; padding:0.4em 0.8em;">
+      <span>7</span><span>Bias Detective</span><span class="small">Fairness</span>
+    </div>
+    <div class="card" style="display:grid; grid-template-columns:auto 1fr 1fr; gap:0.5em; padding:0.4em 0.8em;">
+      <span>8</span><span>Image Story Pipeline</span><span class="small">Multi-model systems</span>
+    </div>
+    <div class="card" style="display:grid; grid-template-columns:auto 1fr 1fr; gap:0.5em; padding:0.4em 0.8em;">
+      <span>9</span><span>Restaurant Review Analyzer</span><span class="small">Prompt engineering</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== HUB BROWSING ========== -->
+<section>
+  <section>
+    <h2>Browsing the Hub</h2>
+    <p>Go to <a href="https://huggingface.co/models">huggingface.co/models</a></p>
+    <div class="card">
+      <strong>1.</strong> <span class="highlight-yellow">Filter by task</span> &mdash; use the left sidebar
+    </div>
+    <div class="card">
+      <strong>2.</strong> <span class="highlight-blue">Sort by downloads</span> &mdash; popular models work
+    </div>
+    <div class="card">
+      <strong>3.</strong> <span class="highlight-green">Check the model card</span> &mdash; task, training data, labels, size
+    </div>
+    <div class="card">
+      <strong>4.</strong> <span class="highlight-pink">Look at Spaces using this model</span> &mdash; examples on the model page
+    </div>
+    <div class="card">
+      <strong>5.</strong> <span class="highlight-yellow">Test before building</span> &mdash; try the Inference API widget first
+    </div>
+  </section>
+
+  <section>
+    <h2>Pre-Screened Models</h2>
+    <p class="small">All tested on free CPU. All work with <code>pipeline()</code>.</p>
+    <div class="two-col" style="font-size:0.8em;">
+      <div>
+        <div class="card" style="border-left:3px solid #fbbf24;">
+          <strong class="highlight-yellow">Text Classification</strong><br>
+          <code class="small">distilbert-...-sst-2-english</code><br>
+          <code class="small">j-hartmann/emotion-...-distilroberta</code>
+        </div>
+        <div class="card" style="border-left:3px solid #60a5fa;">
+          <strong class="highlight-blue">Zero-Shot</strong><br>
+          <code class="small">valhalla/distilbart-mnli-12-3</code><br>
+          <span class="small">You pick the labels</span>
+        </div>
+        <div class="card" style="border-left:3px solid #f472b6;">
+          <strong class="highlight-pink">NER</strong><br>
+          <code class="small">dslim/bert-base-NER</code><br>
+          <span class="small">Person, Org, Location, Misc</span>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="border-left:3px solid #34d399;">
+          <strong class="highlight-green">Text Generation</strong><br>
+          <code class="small">distilgpt2</code><br>
+          <span class="small">Fast, short outputs</span>
+        </div>
+        <div class="card" style="border-left:3px solid #fbbf24;">
+          <strong class="highlight-yellow">Summarization</strong><br>
+          <code class="small">sshleifer/distilbart-cnn-12-6</code><br>
+          <span class="small">Good for news and articles</span>
+        </div>
+        <div class="card" style="border-left:3px solid #60a5fa;">
+          <strong class="highlight-blue">Translation</strong><br>
+          <code class="small">Helsinki-NLP/opus-mt-en-fr</code><br>
+          <span class="small">EN&rarr;FR, EN&rarr;ES, EN&rarr;DE</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ========== STUDENT PITCH ========== -->
+<section>
+  <h2>Your Pitch</h2>
+  <div class="concept-box" style="font-size:1.1em;">
+    "I want to build a <span class="highlight-blue">_____</span><br>
+    that uses <span class="highlight-yellow">_____</span> model."
+  </div>
+  <div style="margin-top:1em;">
+    <div class="observation-card">
+      Too ambitious? &rarr; "Start with text classification, add features later."
+    </div>
+    <div class="observation-card">
+      Can't find a model? &rarr; Check the pre-screened list.
+    </div>
+    <div class="observation-card">
+      Stuck on ideas? &rarr; Grab a rescue template.
+    </div>
+  </div>
+</section>
+
+<!-- ========== BUILD TIME ========== -->
+<section>
+  <section>
+    <h2>Build Time</h2>
+    <p>The basic pattern you already know:</p>
+    <pre><code class="language-python">import gradio as gr
+from transformers import pipeline
+
+model = pipeline("your-task", model="your-model-name")
+
+def analyze(text):
+    if not text or not text.strip():
+        return "Enter some text above!"
+    result = model(text[:512])[0]
+    return f"{result['label']} ({result['score']:.1%} confidence)"
+
+demo = gr.Interface(
+    fn=analyze,
+    inputs=gr.Textbox(lines=5, placeholder="Type or paste text here..."),
+    outputs=gr.Textbox(label="Result"),
+    title="My AI Tool",
+    description="Description here.",
+)
+demo.launch()</code></pre>
+  </section>
+
+  <section>
+    <h2>Build Checklist</h2>
+    <div class="card">
+      <strong class="highlight-yellow">1.</strong> Create a new Space on Hugging Face
+    </div>
+    <div class="card">
+      <strong class="highlight-blue">2.</strong> Get <code>pipeline()</code> working with your model
+    </div>
+    <div class="card">
+      <strong class="highlight-green">3.</strong> Write the Gradio interface &mdash; inputs, outputs, title, description
+    </div>
+    <div class="card">
+      <strong class="highlight-pink">4.</strong> Create <code>requirements.txt</code> with all dependencies
+    </div>
+    <div class="card">
+      <strong class="highlight-yellow">5.</strong> Test with one example &mdash; does it produce reasonable output?
+    </div>
+    <p class="small" style="margin-top:0.8em;">
+      I'll cycle through each of you. ~8 minutes per student.
+    </p>
+  </section>
+
+  <section>
+    <h2>Rescue Templates</h2>
+    <p>Stuck after 10 minutes? Grab one of these and customize it.</p>
+    <div class="two-col">
+      <div>
+        <div class="card">
+          <strong class="highlight-yellow">Emotion Detector</strong><br>
+          <span class="small">Text in &rarr; 7 emotions out</span><br>
+          <code class="small">j-hartmann/emotion-...</code>
+        </div>
+        <div class="card">
+          <strong class="highlight-blue">Text Generator</strong><br>
+          <span class="small">Prompt in &rarr; story out</span><br>
+          <code class="small">distilgpt2</code>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <strong class="highlight-green">Zero-Shot Classifier</strong><br>
+          <span class="small">Text + your labels &rarr; category</span><br>
+          <code class="small">valhalla/distilbart-mnli-12-3</code>
+        </div>
+        <div class="card">
+          <strong class="highlight-pink">Summarizer</strong><br>
+          <span class="small">Long text in &rarr; summary out</span><br>
+          <code class="small">sshleifer/distilbart-cnn-12-6</code>
+        </div>
+      </div>
+    </div>
+    <p class="small" style="margin-top:0.5em;">These are starting points, not failure. Everyone uses references.</p>
+  </section>
+</section>
+
+<!-- ========== PEER TESTING ========== -->
+<section>
+  <h2>Peer Testing</h2>
+  <div class="try-it">
+    <strong>Try the Space of the person next to you.</strong>
+  </div>
+  <div class="observation-card" style="margin-top:0.5em;">
+    Try 5 different inputs.
+  </div>
+  <div class="observation-card">
+    Find one that breaks or gives a weird result.
+  </div>
+  <div class="observation-card">
+    Tell them: what worked, what didn't, and what confused you.
+  </div>
+</section>
+
+<!-- ========== NAME THE CONCEPT ========== -->
+<section class="center-slide">
+  <h2>Name the Concept</h2>
+  <div class="concept-box" style="font-size:1.05em;">
+    SUPERVISED LEARNING<br>AND TASK DESIGN
+  </div>
+  <div style="margin-top:1em; text-align:left; max-width:850px; margin-left:auto; margin-right:auto;">
+    <div class="card fragment">
+      <span class="highlight-yellow">SOMEONE</span> chose the <strong>labels</strong>
+    </div>
+    <div class="card fragment">
+      <span class="highlight-blue">SOMEONE</span> chose the <strong>data</strong>
+    </div>
+    <div class="card fragment">
+      <span class="highlight-green">SOMEONE</span> chose the <strong>task</strong>
+    </div>
+    <div class="card fragment" style="border:1px solid #fbbf24;">
+      When you pick a model, you <span class="highlight-pink">inherit those choices</span>.
+      <span class="small"><br>That's supervised learning.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONCEPT CARD ========== -->
+<section>
+  <h2>Concept Card</h2>
+  <div class="card" style="margin-bottom:0.8em;">
+    <span class="vocab-term">Supervised Learning</span><br>
+    Training a model on labeled examples &mdash; input paired with the "correct" output.<br>
+    <span class="small">What we did: used models trained on human-labeled datasets.</span>
+  </div>
+  <div class="card">
+    <span class="vocab-term">Task Design</span><br>
+    Choosing what question to ask and what categories or outputs to support.<br>
+    <span class="small">What we did: picked a task type, chose a model, designed the interface.</span>
+  </div>
+  <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
+    Every model was trained on data where humans provided the "right answers."<br>
+    When you pick a model, you inherit those choices.
+  </p>
+</section>
+
+<!-- ========== VOCABULARY ========== -->
+<section>
+  <h2>Vocabulary</h2>
+  <div class="card">
+    <span class="vocab-term">Supervised learning</span> &mdash; training with labeled examples where humans provide the correct answers
+  </div>
+  <div class="card">
+    <span class="vocab-term">Task design</span> &mdash; deciding what question to ask and what answers are possible
+  </div>
+  <div class="card">
+    <span class="vocab-term">Labels</span> &mdash; the categories or answers a model was trained to produce
+  </div>
+  <div class="card">
+    <span class="vocab-term">Model Hub</span> &mdash; the Hugging Face library of open-source models, searchable by task
+  </div>
+</section>
+
+<!-- ========== NOTEBOOK TIME ========== -->
+<section>
+  <h2>Notebook Time</h2>
+  <p>Open today's notebook and start your own experiment.</p>
+  <div class="try-it" style="margin-top:1em;">
+    <strong>Link in the Zoom chat!</strong>
+  </div>
+  <div class="card" style="margin-top:0.8em;">
+    <strong>1.</strong> Click the link &rarr; it opens in Google Colab<br>
+    <strong>2.</strong> Hit the <span class="highlight-yellow">play button &#9654;</span> on the setup cell<br>
+    <strong>3.</strong> Choose a model from the list and load it
+  </div>
+  <p class="small" style="margin-top:0.8em;">Keep experimenting on your own &mdash; push the notebook to your GitHub repo!</p>
+</section>
+
+<!-- ========== BETWEEN SESSIONS ========== -->
+<section>
+  <h2>Between Sessions</h2>
+  <p><strong>Challenge:</strong> Test your Space with 5 inputs. Fix the one that works worst.</p>
+  <div class="card" style="margin-top:0.8em;">
+    <strong>1.</strong> Try 5 different inputs &mdash; vary length, tone, and topic<br>
+    <strong>2.</strong> Find the one that gives the <span class="highlight-pink">weirdest result</span><br>
+    <strong>3.</strong> Can you fix it? Change the code, the examples, or the description.
+  </div>
+  <div class="observation-card" style="margin-top:0.8em;">
+    If you can't fix it, that's interesting too. Bring it to next session.
+  </div>
+</section>
+
+<!-- ========== NEXT WEEK ========== -->
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
+  <h2>Next Week</h2>
+  <p style="font-size:1.3em;">Iterate and polish.</p>
+  <p style="color:#9ca3af; margin-top:0.5em;">Take what you built and make it better.<br>Peer feedback, refinement, and preparation for demo day.</p>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/highlight.min.js"></script>
+<script>
+Reveal.initialize({
+  hash: true,
+  slideNumber: true,
+  transition: 'slide',
+  plugins: [RevealHighlight],
+  width: 1280,
+  height: 720,
+  margin: 0.08
+});
+</script>
+</body>
+</html>
