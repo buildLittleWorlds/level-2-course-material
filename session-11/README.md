@@ -1,12 +1,3 @@
----
-title: Session 11 — Iterate and Polish
-emoji: ✨
----
+# Session 11: Iterate and Polish
 
-# Session 11 — Iterate and Polish
-
-No new Space this session. Students improve their Session 10 Spaces through peer feedback and 1-on-1 instructor time.
-
-**Concept reinforcement:** THE EXPERIMENTATION LOOP
-
-Part of **Level 2: Building with AI** course.
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-11/notebook.ipynb)

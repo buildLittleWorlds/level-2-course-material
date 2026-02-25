@@ -1,12 +1,3 @@
----
-title: Session 12 — Demo Day
-emoji: 🎓
----
+# Session 12: Demo Day
 
-# Session 12 — Demo Day
-
-No new Space this session. Students present their projects, reflect on the course, and compile their portfolios.
-
-**Concept:** REFLECTION AND PORTFOLIO
-
-Part of **Level 2: Building with AI** course.
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-12/notebook.ipynb)
