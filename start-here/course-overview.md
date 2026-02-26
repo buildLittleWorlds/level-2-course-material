@@ -52,7 +52,7 @@ By the end of this course, you'll be able to:
 - Use GitHub to manage and share your projects
 - Explain core ML concepts — zero-shot learning, fine-tuning, overfitting, evaluation metrics — in your own words, because you've seen them in action
 
-These aren't just academic skills. They're the same skills that data scientists, ML engineers, and AI researchers use every day. The difference is that you're learning them at 15 or 16 instead of 22.
+These aren't just academic skills. They're the same skills that data scientists, ML engineers, and AI researchers use every day. The difference is that you're learning them now instead of at the end of years of computer science coursework.
 
 ## What You Don't Need to Know Coming In
 
