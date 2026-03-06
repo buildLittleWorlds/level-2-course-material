@@ -4,9 +4,9 @@ Course notebooks for Level 2.
 
 | # | Session | Notebook |
 |---|---------|----------|
-| 01 | Your First Space | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-01/notebook.ipynb) |
-| 02 | Swap the Engine | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-02/notebook.ipynb) |
-| 03 | Break It on Purpose | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-03/notebook.ipynb) |
+| 01 | Can a Computer Tell How You Feel? | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-01/notebook.ipynb) |
+| 02 | Not All Feelings Are the Same | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-02/notebook.ipynb) |
+| 03 | When Sarcasm Breaks Everything | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-03/notebook.ipynb) |
 | 04 | Sentiment Showdown | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-04/notebook.ipynb) |
 | 05 | Text Playground | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-05/notebook.ipynb) |
 | 06 | Domain Safari | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-06/notebook.ipynb) |

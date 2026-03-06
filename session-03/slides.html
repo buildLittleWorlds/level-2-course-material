@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Session 3: Break It on Purpose</title>
+<title>Session 3: When Sarcasm Breaks Everything</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/night.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/monokai.min.css">
@@ -93,6 +93,14 @@
     border-radius: 0 8px 8px 0;
   }
 
+  .big-question {
+    background: rgba(244,114,182,0.1);
+    border-left: 4px solid #f472b6;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
   .fragment.current-visible.visible:not(.current-fragment) {
     display: none;
   }
@@ -104,20 +112,20 @@
 
 <!-- ========== TITLE ========== -->
 <section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
-  <h1 style="font-size:2.5em;">Break It on Purpose</h1>
+  <h1 style="font-size:2.5em;">When Sarcasm Breaks<br>Everything</h1>
   <h3 style="color:#fbbf24;">Session 3</h3>
-  <p style="margin-top:1.5em; color:#94a3b8;">Roots &middot; Iterative Space Building</p>
+  <p style="margin-top:1.5em; color:#94a3b8;">Roots &middot; Can Machines Understand Feelings?</p>
 </section>
 
 <!-- ========== TONIGHT'S GOAL ========== -->
 <section>
   <h2>Tonight's Goal</h2>
   <p style="font-size:1.2em; text-align:center; margin:1em 0;">
-    Find what <span class="highlight-pink">breaks</span> the AI,<br>
-    then write code to <span class="highlight-green">fix it</span>.
+    Feed the Mood Meter <span class="highlight-pink">sarcasm and irony</span>,<br>
+    then write code to <span class="highlight-green">clean the input</span>.
   </p>
   <div class="concept-box">
-    Silly Phrase Finder &mdash; with Cleaning
+    Sarcasm Breaker
   </div>
   <p style="text-align:center; color:#9ca3af;">Same model as Session 1. New superpower: input cleaning.</p>
 </section>
@@ -126,11 +134,11 @@
 <section>
   <h2>Show-and-Tell</h2>
   <div class="observation-card" style="font-size:1.1em;">
-    Did anyone try swapping a model into their Space?
+    Did anyone find a model that recognizes feelings our three models couldn't see?
   </div>
   <div style="margin-top:1em;">
     <div class="card">What model did you find?</div>
-    <div class="card">Did it work? Did it break?</div>
+    <div class="card">What emotions could it detect that ours couldn't?</div>
     <div class="card">What was surprising?</div>
   </div>
 </section>
@@ -139,73 +147,77 @@
 <section>
   <section>
     <h2>Let's Break It</h2>
-    <p>Open the original Silly Phrase Finder. Feed it the <span class="highlight-pink">worst text you can think of</span>.</p>
+    <p>Open the Mood Meter. Feed it the <span class="highlight-pink">most confusing tone you can think of</span>.</p>
     <div class="try-it" style="margin-top:1em;">
-      <strong>Adversarial inputs to try:</strong>
+      <strong>Sarcasm and irony:</strong>
     </div>
     <div class="card" style="font-size:0.85em;">
-      <span class="emoji-label">😂</span>
-      <code>🎉🎉🎉 THIS IS THE BEST DAY EVER 😂😂😂 I literally can't even rn</code>
+      <span class="emoji-label">😏</span>
+      <code>Oh GREAT, another Monday. Just what I needed.</code>
     </div>
     <div class="card" style="font-size:0.85em;">
-      <span class="emoji-label">🔤</span>
-      <code>THIS IS ABSOLUTELY THE MOST RIDICULOUS THING I HAVE EVER SEEN</code>
+      <span class="emoji-label">🎓</span>
+      <code>I suppose getting into Harvard is okay. Not a big deal or anything.</code>
     </div>
     <div class="card" style="font-size:0.85em;">
-      <span class="emoji-label">📎</span>
-      <code>Rep. Johnson and Dr. Smith met with Gov. Williams at St. Mary's.</code>
+      <span class="emoji-label">📧</span>
+      <code>Per my last email, as I mentioned before, I'm happy to clarify AGAIN.</code>
     </div>
   </section>
 
   <section>
     <h2>More Ways to Break It</h2>
     <div class="card" style="font-size:0.85em;">
-      <span class="emoji-label">〰️</span>
-      <code>The&nbsp;&nbsp;&nbsp;&nbsp;food&nbsp;&nbsp;&nbsp;was&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;really&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;good</code>
+      <span class="emoji-label">💀</span>
+      <code>no literally I'm deceased this is the funniest thing</code>
     </div>
     <div class="card" style="font-size:0.85em;">
-      <span class="emoji-label">🔁</span>
-      <code>soooooooo boooooored nothing ever happens in this townnnnnn</code>
+      <span class="emoji-label">🔥</span>
+      <code>I'm fine. Everything is fine. This is fine.</code>
     </div>
     <div class="card" style="font-size:0.85em;">
-      <span class="emoji-label">🚫</span>
-      <code>no caps no punctuation just vibes honestly the whole thing was wild</code>
+      <span class="emoji-label">😂</span>
+      <code>Worst day ever 😂🎉💀 but honestly who cares anymore</code>
     </div>
     <div class="card" style="font-size:0.85em;">
-      <span class="emoji-label">😉</span>
-      <code>I'm not NOT having a good time (if you know what I mean)</code>
+      <span class="emoji-label">😊</span>
+      <code>Thanks for getting back to me :)</code>
     </div>
-    <p class="fragment" style="margin-top:0.8em; color:#f472b6;">For each one: What did you <em>expect</em>? What <em>actually</em> happened?</p>
+    <p class="fragment" style="margin-top:0.8em; color:#f472b6;">For each one: How would <em>you</em> read the tone? What did the <em>model</em> say?</p>
   </section>
 </section>
 
 <!-- ========== CATEGORIZE FAILURES ========== -->
 <section>
   <h2>Name the Failures</h2>
-  <p>These aren't bugs in our code. The code works fine.<br>The <span class="highlight-pink">input</span> is the problem.</p>
+  <p>These aren't bugs in our code. The code works fine.<br>The <span class="highlight-pink">tone</span> is the problem.</p>
   <div class="two-col" style="margin-top:0.8em;">
     <div>
       <div class="card" style="border-left:3px solid #34d399;">
-        <strong class="highlight-green">Noise</strong><br>
-        <span class="small" style="font-size:0.85em;">emoji, extra spaces, repeated characters</span>
+        <strong class="highlight-green">Sarcasm</strong><br>
+        <span class="small" style="font-size:0.85em;">words say one thing, meaning is the opposite</span>
       </div>
       <div class="card" style="border-left:3px solid #34d399;">
-        <strong class="highlight-green">Domain mismatch</strong><br>
-        <span class="small" style="font-size:0.85em;">slang, mixed languages, abbreviations</span>
+        <strong class="highlight-green">Passive aggression</strong><br>
+        <span class="small" style="font-size:0.85em;">polite words, hostile intent</span>
       </div>
       <div class="card" style="border-left:3px solid #34d399;">
-        <strong class="highlight-green">Insufficient signal</strong><br>
-        <span class="small" style="font-size:0.85em;">too short, no sentence boundaries</span>
+        <strong class="highlight-green">Gen-Z irony</strong><br>
+        <span class="small" style="font-size:0.85em;">"deceased" means laughing, "literally can't" means delighted</span>
       </div>
     </div>
     <div>
       <div class="card" style="border-left:3px solid #f472b6;">
-        <strong class="highlight-pink">Ambiguity</strong><br>
-        <span class="small" style="font-size:0.85em;">sarcasm, double negatives, context</span>
+        <strong class="highlight-pink">Emoji contradictions</strong><br>
+        <span class="small" style="font-size:0.85em;">text and emoji tell different stories</span>
       </div>
       <div class="card" style="border-left:3px solid #f472b6;">
-        <strong class="highlight-pink">Adversarial input</strong><br>
-        <span class="small" style="font-size:0.85em;">deliberately confusing text</span>
+        <strong class="highlight-pink">Understatement</strong><br>
+        <span class="small" style="font-size:0.85em;">downplaying something huge</span>
+      </div>
+      <div class="card" style="border-left:3px solid #f472b6;">
+        <strong class="highlight-pink">Context collapse</strong><br>
+        <span class="small" style="font-size:0.85em;">words make sense only if you know the backstory</span>
       </div>
     </div>
   </div>
@@ -216,23 +228,25 @@
   <h2>What Can We Fix?</h2>
   <div class="two-col">
     <div>
-      <h3 style="color:#34d399;">We CAN fix</h3>
+      <h3 style="color:#34d399;">We CAN fix (noise)</h3>
       <div class="card">Extra spaces</div>
       <div class="card">Repeated characters</div>
-      <div class="card">Abbreviations</div>
-      <div class="card">Emoji</div>
+      <div class="card">Emoji (strip them)</div>
       <div class="card">ALL CAPS</div>
     </div>
     <div>
-      <h3 style="color:#f472b6;">We CAN'T fix</h3>
+      <h3 style="color:#f472b6;">We CAN'T fix (tone)</h3>
       <div class="card">Sarcasm</div>
-      <div class="card">Cultural context</div>
-      <div class="card">Meaning / intent</div>
-      <div class="card">Mixed languages</div>
-      <div class="card">Ambiguity</div>
+      <div class="card">Irony</div>
+      <div class="card">Passive aggression</div>
+      <div class="card">Context / backstory</div>
     </div>
   </div>
-  <p class="fragment small" style="text-align:center; margin-top:0.5em;">The left column? That's <span class="highlight-yellow">data cleaning</span>. Let's build it.</p>
+  <p class="fragment small" style="text-align:center; margin-top:0.5em;">The left column is <span class="highlight-yellow">noise</span>. The right column is <span class="highlight-pink">meaning</span>. Let's clean the noise.</p>
+  <div class="fragment observation-card" style="margin-top:0.5em;">
+    But wait &mdash; say <em>"Oh GREAT"</em> out loud sincerely, then sarcastically.<br>
+    Your <span class="highlight-blue">ears</span> catch what the model can't. Later we'll build something that <strong>listens</strong>.
+  </div>
 </section>
 
 <!-- ========== BUILD: CLEAN_TEXT ========== -->
@@ -253,44 +267,35 @@
   </section>
 
   <section>
-    <h2>The Code: Abbreviations + Emoji</h2>
-    <pre><code class="language-python">    # 4. Expand common abbreviations
-    abbreviations = {
-        "Rep.": "Representative",
-        "Dr.": "Doctor",
-        "Mr.": "Mister",
-        "Gov.": "Governor",
-        "St.": "Saint",
-    }
-    for abbr, full in abbreviations.items():
-        text = text.replace(abbr, full)
-
-    # 5. Remove emoji
+    <h2>The Code: Emoji + ALL CAPS</h2>
+    <pre><code class="language-python">    # 4. Remove emoji
     text = re.sub(
         r'[\U0001F600-\U0001F64F'
         r'\U0001F300-\U0001F5FF'
         r'\U0001F680-\U0001F6FF'
         r'\U00002600-\U000026FF]+',
         ' ', text
-    )</code></pre>
-  </section>
+    )
 
-  <section>
-    <h2>The Code: Normalize ALL CAPS</h2>
-    <pre><code class="language-python">    # 6. Normalize ALL CAPS to Title Case
+    # 5. Normalize ALL CAPS to Title Case
     words = text.split()
     caps_count = sum(1 for w in words
                      if w.isupper() and len(w) > 1)
     if caps_count > 3:
-        text = text.title()
+        text = text.title()</code></pre>
+    <p style="margin-top:0.5em;">When you text 💀💀💀, that IS the meaning. Removing it doesn't help the model — it removes information the model never had.</p>
+  </section>
 
-    # Clean up extra spaces from cleaning
-    text = re.sub(r' {2,}', ' ', text).strip()
+  <section>
+    <h2>Before vs. After</h2>
+    <p>Run the <span class="highlight-yellow">same text</span> through the model — with and without cleaning.</p>
+    <pre><code class="language-python">    cleaned, has_sarcasm = clean_text(text)
 
-    return text</code></pre>
-    <p style="margin-top:0.5em;">Then one line in <code>find_silliest()</code>:</p>
-    <pre><code class="language-python">    cleaned = clean_text(text)</code></pre>
-    <p>Use <code>cleaned</code> instead of <code>text</code> from here on.</p>
+    result_original = analyzer(original)[0]
+    result_cleaned = analyzer(cleaned)[0]</code></pre>
+    <p style="margin-top:0.5em;">Compare the two results.<br>
+    Did cleaning change the model's mind?<br>
+    Or is the problem <span class="highlight-pink">deeper than formatting</span>?</p>
   </section>
 </section>
 
@@ -305,9 +310,58 @@
   <div class="card fragment">Which ones are <strong>still broken</strong>?</div>
   <div class="card fragment">What's in the "can't fix" column that no amount of cleaning will help with?</div>
   <div class="observation-card fragment" style="margin-top:0.5em;">
-    "Data scientists spend a huge amount of time cleaning data before models ever see it.<br>
-    Garbage in, garbage out."
+    "Data cleaning is a real job. But <span class="highlight-pink">tone</span> is information that gets lost when you strip text down to words."
   </div>
+</section>
+
+<!-- ========== BIG QUESTION ========== -->
+<section>
+  <section>
+    <h2>The Big Question</h2>
+    <div class="big-question" style="font-size:1.2em; margin-top:1em;">
+      How do <em>you</em> detect sarcasm in a text message?
+    </div>
+  </section>
+
+  <section>
+    <h2>What You Know That the Model Doesn't</h2>
+    <div class="card fragment"><strong>Who</strong> sent it &mdash; your best friend vs. your teacher</div>
+    <div class="card fragment"><strong>What happened before</strong> &mdash; the conversation, the context</div>
+    <div class="card fragment"><strong>How they usually talk</strong> &mdash; their voice, their patterns</div>
+    <div class="card fragment"><strong>Punctuation clues</strong> &mdash; "fine." is very different from "fine!"</div>
+    <p class="fragment" style="margin-top:0.8em; color:#f472b6;">
+      The model has <em>none</em> of this. It just has the words.
+    </p>
+  </section>
+
+  <section>
+    <h2>The Same Problem</h2>
+    <div class="observation-card" style="font-size:1.05em;">
+      How many fights have started because someone<br>misread the tone of a text?
+    </div>
+    <p class="fragment" style="margin-top:1em;">
+      The model has the same problem you do &mdash;<br>
+      it just doesn't <em>know</em> it.
+    </p>
+    <p class="fragment" style="color:#9ca3af; margin-top:0.8em;">
+      You at least know you <em>might</em> be misreading the tone.<br>
+      The model gives you 97% confidence and moves on.
+    </p>
+  </section>
+
+  <section>
+    <h2>Is Tone in the Words?</h2>
+    <div class="big-question" style="font-size:1.1em;">
+      Is tone <em>in</em> the words, or <em>between</em> the words?
+    </div>
+    <p class="fragment" style="margin-top:1em;">
+      The model only has the words.<br>
+      You have everything else &mdash; the relationship, the context, the history, the vibe.
+    </p>
+    <p class="fragment" style="color:#9ca3af;">
+      Can a machine ever read between the lines?
+    </p>
+  </section>
 </section>
 
 <!-- ========== CLEAR FRAMEWORK ========== -->
@@ -316,11 +370,11 @@
     <h2>CLEAR Framework</h2>
     <p>A structure for writing good prompts to AI coding assistants.</p>
     <div style="margin-top:0.8em;">
-      <div class="card"><strong class="highlight-yellow">C</strong> &mdash; <strong>Context</strong> &mdash; "I have a Gradio app that uses a zero-shot classifier..."</div>
+      <div class="card"><strong class="highlight-yellow">C</strong> &mdash; <strong>Context</strong> &mdash; "I have a Gradio app that uses a sentiment model..."</div>
       <div class="card"><strong class="highlight-blue">L</strong> &mdash; <strong>Language</strong> &mdash; "The code is in Python, using the transformers library..."</div>
-      <div class="card"><strong class="highlight-green">E</strong> &mdash; <strong>Explain</strong> &mdash; "When I paste text with emoji and ALL CAPS, the model gives bad results..."</div>
+      <div class="card"><strong class="highlight-green">E</strong> &mdash; <strong>Explain</strong> &mdash; "When I paste sarcastic text, the model misreads the tone..."</div>
       <div class="card"><strong class="highlight-pink">A</strong> &mdash; <strong>Ask</strong> &mdash; "Can you add a text cleaning function that..."</div>
-      <div class="card"><strong class="highlight-yellow">R</strong> &mdash; <strong>Requirements</strong> &mdash; "It should handle emoji, repeated characters, and abbreviations."</div>
+      <div class="card"><strong class="highlight-yellow">R</strong> &mdash; <strong>Requirements</strong> &mdash; "It should handle emoji, repeated characters, and ALL CAPS."</div>
     </div>
   </section>
 
@@ -328,11 +382,11 @@
     <h2>CLEAR in Action</h2>
     <p>Let's try it live with Claude or ChatGPT:</p>
     <div class="card" style="font-size:0.8em; line-height:1.6;">
-      <strong class="highlight-yellow">Context:</strong> I have a Hugging Face Space that uses a zero-shot classifier to find the silliest phrase in a text passage.<br><br>
+      <strong class="highlight-yellow">Context:</strong> I have a Hugging Face Space that uses a sentiment model to read the mood of text.<br><br>
       <strong class="highlight-blue">Language:</strong> Python, using gradio, transformers, and re.<br><br>
-      <strong class="highlight-green">Explain:</strong> When users paste messy text (emoji, ALL CAPS, repeated characters), the model gives unreliable results.<br><br>
+      <strong class="highlight-green">Explain:</strong> When users paste sarcastic or messy text (emoji, ALL CAPS, mixed signals), the model misreads the tone.<br><br>
       <strong class="highlight-pink">Ask:</strong> Add a <code>clean_text()</code> function that preprocesses the input.<br><br>
-      <strong class="highlight-yellow">Requirements:</strong> Strip whitespace, collapse repeated characters, expand abbreviations, remove emoji, normalize ALL CAPS.
+      <strong class="highlight-yellow">Requirements:</strong> Strip whitespace, collapse repeated characters, remove emoji, normalize ALL CAPS. Show before and after.
     </div>
   </section>
 </section>
@@ -356,6 +410,10 @@
     The model didn't get smarter.<br>
     We just gave it <span class="highlight-yellow">better input to work with</span>.
   </p>
+  <p class="fragment" style="color:#9ca3af;">
+    But tone is not noise. <span class="highlight-pink">Tone is meaning.</span><br>
+    You can clean noise. You can't clean meaning.
+  </p>
 </section>
 
 <!-- ========== VOCABULARY ========== -->
@@ -371,10 +429,10 @@
     <span class="vocab-term">Adversarial input</span> &mdash; text deliberately designed to confuse or break a model
   </div>
   <div class="card">
-    <span class="vocab-term">Feature engineering</span> &mdash; transforming raw input into something a model can work with better
+    <span class="vocab-term">Tone</span> &mdash; the way something is said &mdash; meaning that lives between the words
   </div>
   <div class="card">
-    <span class="vocab-term">Preprocessing</span> &mdash; any transformation applied to data before the model processes it
+    <span class="vocab-term">Feature engineering</span> &mdash; transforming raw input into something a model can work with better
   </div>
   <div class="card">
     <span class="vocab-term">CLEAR Framework</span> &mdash; a structure for writing good prompts to AI coding assistants
@@ -389,8 +447,8 @@
     <strong>Link in the Zoom chat!</strong>
   </div>
   <div class="card" style="margin-top:0.8em;">
-    <strong>1.</strong> Click the link → it opens in Google Colab<br>
-    <strong>2.</strong> Hit the <span class="highlight-yellow">play button ▶</span> on the first cell<br>
+    <strong>1.</strong> Click the link &rarr; it opens in Google Colab<br>
+    <strong>2.</strong> Hit the <span class="highlight-yellow">play button &#9654;</span> on the first cell<br>
     <strong>3.</strong> Run the setup cell, then try the experiments
   </div>
   <p class="small" style="margin-top:0.8em;">Finish the experiments on your own before next week</p>
@@ -399,25 +457,25 @@
 <!-- ========== BETWEEN SESSIONS ========== -->
 <section>
   <h2>Between Sessions</h2>
-  <p><strong>Challenge:</strong> Use CLEAR to ask Claude or ChatGPT to add more cleaning steps.</p>
+  <p><strong>Challenge:</strong> Find a text where the model completely <span class="highlight-pink">misreads the tone</span>.</p>
   <div class="card" style="margin-top:0.8em;">
-    <strong>1.</strong> Paste your Space's <code>app.py</code> into the chat<br>
-    <strong>2.</strong> Write a CLEAR prompt asking for a new cleaning step<br>
+    <strong>1.</strong> Use CLEAR to describe the failure to Claude or ChatGPT<br>
+    <strong>2.</strong> Ask for a fix<br>
     <strong>3.</strong> Try the suggestion in your Space
   </div>
   <div style="margin-top:0.8em;">
-    <p><strong>Ideas for new cleaning steps:</strong></p>
-    <div class="card">Handle hashtags (<code>#blessed</code> &rarr; <code>blessed</code>)</div>
-    <div class="card">Expand contractions (<code>can't</code> &rarr; <code>cannot</code>)</div>
-    <div class="card">Remove URLs</div>
+    <p><strong>Ideas for confusing tone:</strong></p>
+    <div class="card">A sarcastic text you'd send a friend</div>
+    <div class="card">A passive-aggressive email</div>
+    <div class="card">A song lyric that sounds happy but isn't</div>
   </div>
 </section>
 
 <!-- ========== NEXT WEEK ========== -->
 <section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
   <h2>Next Week</h2>
-  <p style="font-size:1.3em;">Two models, head-to-head.</p>
-  <p style="color:#9ca3af; margin-top:0.5em;">Three models read the same text.<br>We'll need to figure out how to keep score.</p>
+  <p style="font-size:1.3em;">Three judges, three verdicts.</p>
+  <p style="color:#9ca3af; margin-top:0.5em;">Three models read the same text.<br>When they disagree about how it feels, who's right?</p>
 </section>
 
 </div>

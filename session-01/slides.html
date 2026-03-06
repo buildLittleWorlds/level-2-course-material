@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Session 1: Your First Space</title>
+<title>Session 1: Can a Computer Tell How You Feel?</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/night.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/monokai.min.css">
@@ -93,6 +93,14 @@
     border-radius: 0 8px 8px 0;
   }
 
+  .big-question {
+    background: rgba(244,114,182,0.1);
+    border-left: 4px solid #f472b6;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
   .fragment.current-visible.visible:not(.current-fragment) {
     display: none;
   }
@@ -104,9 +112,9 @@
 
 <!-- ========== TITLE ========== -->
 <section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
-  <h1 style="font-size:2.5em;">Your First Space</h1>
+  <h1 style="font-size:2.5em;">Can a Computer Tell<br>How You Feel?</h1>
   <h3 style="color:#fbbf24;">Session 1</h3>
-  <p style="margin-top:1.5em; color:#94a3b8;">Roots &middot; Iterative Space Building</p>
+  <p style="margin-top:1.5em; color:#94a3b8;">Roots &middot; Can Machines Understand Feelings?</p>
 </section>
 
 <!-- ========== WHAT WE'RE BUILDING ========== -->
@@ -114,12 +122,12 @@
   <h2>Tonight's Goal</h2>
   <p style="font-size:1.2em; text-align:center; margin:1em 0;">
     Build and deploy an AI-powered web app<br>
-    that <span class="highlight-yellow">anyone on the internet</span> can use.
+    that tries to <span class="highlight-yellow">read how text feels</span>.
   </p>
   <div class="concept-box">
-    Silly Phrase Finder
+    Mood Meter
   </div>
-  <p style="text-align:center; color:#9ca3af;">Paste any text &rarr; the AI picks the silliest sentence</p>
+  <p style="text-align:center; color:#9ca3af;">Paste any text &rarr; the AI tells you if it feels positive or negative</p>
 </section>
 
 <!-- ========== SPACE TOUR ========== -->
@@ -128,20 +136,20 @@
     <h2>Space Tour</h2>
     <p>Let's look at what people have built on Hugging Face.</p>
     <div class="card">
-      <span class="emoji-label">🖼</span>
-      <strong>Background Removal</strong> &mdash; upload a photo, background vanishes
+      <span class="emoji-label">😊</span>
+      <strong>Text to Emotion</strong> &mdash; type a sentence, see the emotion
+    </div>
+    <div class="card">
+      <span class="emoji-label">📊</span>
+      <strong>Sentiment Analysis</strong> &mdash; paste a tweet, see positive/negative/neutral
     </div>
     <div class="card">
       <span class="emoji-label">🎵</span>
       <strong>ACE-Step Music Gen</strong> &mdash; generate a short music clip
     </div>
     <div class="card">
-      <span class="emoji-label">😊</span>
-      <strong>Text to Emotion</strong> &mdash; type a sentence, see the emotion
-    </div>
-    <div class="card">
-      <span class="emoji-label">📝</span>
-      <strong>DeepSeek OCR</strong> &mdash; upload a photo of text, get text back
+      <span class="emoji-label">🖼</span>
+      <strong>Background Removal</strong> &mdash; upload a photo, background vanishes
     </div>
   </section>
 
@@ -157,6 +165,10 @@
     <div class="observation-card">
       <strong>3.</strong> What happens with <em>weird</em> input?
     </div>
+    <p class="fragment" style="margin-top:0.8em; color:#9ca3af; font-size:0.9em;">
+      Feelings don't just live in text. Music, voices, and faces carry emotion too.<br>
+      We start with words &mdash; by the end of this course, we'll read feelings from <span class="highlight-pink">voices</span> and <span class="highlight-blue">faces</span>.
+    </p>
   </section>
 </section>
 
@@ -187,15 +199,14 @@
 <!-- ========== DEMO ========== -->
 <section>
   <section>
-    <h2>Demo: Silly Phrase Finder</h2>
+    <h2>Demo: Mood Meter</h2>
     <p>Let's try the finished version.</p>
     <div class="try-it" style="margin-top:1em;">
       <strong>Try this input:</strong><br>
-      <em>"The quarterly budget report is due on Friday. My cat learned to open the refrigerator and now judges my food choices. Please remember to submit your timesheets."</em>
+      <em>"I can't believe how lucky I am to have friends like you. Every day feels like an adventure and I wouldn't trade it for anything in the world."</em>
     </div>
     <p class="fragment" style="margin-top:1em; color:#f472b6; font-size:1.1em;">
-      How does it know what's "silly"?<br>
-      Nobody taught it that word.
+      Does the model agree with how <em>you</em> feel about this text?
     </p>
   </section>
 
@@ -204,8 +215,8 @@
     <p>Give me a sentence or paragraph to try.</p>
     <div class="try-it">
       <strong>Ideas:</strong><br>
-      A news paragraph &bull; A children's book excerpt &bull;
-      A mix of serious and absurd sentences
+      A song lyric &bull; A text you sent a friend &bull;
+      Something from a diary or journal &bull; Something sarcastic
     </div>
   </section>
 </section>
@@ -218,7 +229,7 @@
     <strong>1.</strong> Click <span class="highlight-yellow">New Space</span>
   </div>
   <div class="card">
-    <strong>2.</strong> Name it <code>silly-phrase-finder</code>
+    <strong>2.</strong> Name it <code>mood-meter</code>
   </div>
   <div class="card">
     <strong>3.</strong> SDK: <span class="highlight-blue">Gradio</span>
@@ -236,73 +247,58 @@
   <section>
     <h2>The Code: Imports</h2>
     <pre><code class="language-python">import gradio as gr
-from transformers import pipeline
-import re</code></pre>
+from transformers import pipeline</code></pre>
     <div class="two-col" style="margin-top:0.8em;">
       <div class="card"><code class="highlight-yellow">gradio</code><br>Builds the web interface</div>
       <div class="card"><code class="highlight-blue">transformers</code><br>Loads the AI model</div>
     </div>
-    <div class="card" style="width:fit-content;"><code class="highlight-green">re</code><br>Splits text into sentences</div>
+    <p style="margin-top:0.5em; color:#9ca3af;">Two imports. That's it.</p>
   </section>
 
   <section>
     <h2>The Code: Load the Model</h2>
-    <pre><code class="language-python">classifier = pipeline(
-    "zero-shot-classification",
-    model="valhalla/distilbart-mnli-12-3"
+    <pre><code class="language-python">analyzer = pipeline(
+    "sentiment-analysis",
+    model="distilbert-base-uncased-finetuned-sst-2-english"
 )</code></pre>
     <p style="margin-top:0.8em;">
       One line loads the AI model.<br>
       <code>pipeline</code> handles all the complicated stuff.<br>
-      <span class="highlight-yellow">"zero-shot-classification"</span> is the task.<br>
+      <span class="highlight-yellow">"sentiment-analysis"</span> is the task &mdash; reading feelings.<br>
       The model name tells it which brain to download.
     </p>
   </section>
 
   <section>
     <h2>The Code: The Function</h2>
-    <pre><code class="language-python">def find_silliest(text):
+    <pre><code class="language-python">def check_mood(text):
     if not text or not text.strip():
         return "Paste some text above first!"
 
-    sentences = [s.strip() for s in
-        re.split(r'(?<=[.!?])\s+(?=[A-Z"])', text)
-        if len(s.strip()) > 30]
+    result = analyzer(text)[0]
+    label = result["label"]
+    score = result["score"]
 
-    if len(sentences) == 0:
-        return "I need at least a couple of sentences..."</code></pre>
-    <p>Text goes in. We chop it into sentences, then compare them.</p>
-  </section>
+    if label == "POSITIVE":
+        emoji = "😊" if score > 0.9 else "🙂"
+    else:
+        emoji = "😢" if score > 0.9 else "😐"
 
-  <section>
-    <h2>The Code: Score Each Sentence</h2>
-    <pre><code class="language-python">    labels = ["silly and ridiculous",
-               "serious and important",
-               "ordinary and boring"]
-    results = classifier(sentences, candidate_labels=labels)
-
-    best_phrase = ""
-    best_score = 0
-    for sentence, result in zip(sentences, results):
-        silly_idx = result["labels"].index("silly and ridiculous")
-        score = result["scores"][silly_idx]
-        if score > best_score:
-            best_score = score
-            best_phrase = sentence
-
-    return f'"{best_phrase}"\n\nSilliness score: {best_score:.0%}'</code></pre>
+    return f"{emoji} {label}\n\nConfidence: {score:.0%}"</code></pre>
+    <p>Text goes in. The model reads it. A mood comes out.</p>
   </section>
 
   <section>
     <h2>The Code: The Web Interface</h2>
     <pre><code class="language-python">demo = gr.Interface(
-    fn=find_silliest,
-    inputs=gr.Textbox(lines=10,
-        placeholder="Paste a paragraph or two here..."),
-    outputs=gr.Textbox(label="The Silliest Phrase"),
-    title="Silly Phrase Finder",
-    description="Paste any text and this AI will pick out "
-                "the silliest phrase..."
+    fn=check_mood,
+    inputs=gr.Textbox(lines=8,
+        placeholder="Paste any text here..."),
+    outputs=gr.Textbox(label="Mood Reading"),
+    title="Mood Meter",
+    description="Paste any text and this AI will "
+                "tell you whether it feels POSITIVE "
+                "or NEGATIVE..."
 )
 demo.launch()</code></pre>
     <p>
@@ -337,11 +333,12 @@ gradio</code></pre>
     <div class="try-it">
       <strong>Inputs to try:</strong>
     </div>
-    <div class="card">A news article paragraph <span class="small">(serious)</span></div>
-    <div class="card">A children's book paragraph <span class="small">(should find something silly)</span></div>
-    <div class="card">"The meeting is at 3pm. A duck wearing sunglasses walked into the boardroom. Please bring your laptops." <span class="small">(mixed)</span></div>
+    <div class="card">Something clearly happy <span class="small">(should be POSITIVE)</span></div>
+    <div class="card">Something clearly sad <span class="small">(should be NEGATIVE)</span></div>
+    <div class="card">A song lyric <span class="small">(does the model agree with how the song feels?)</span></div>
+    <div class="card">"Thanks for letting me know." <span class="small">(positive or passive-aggressive?)</span></div>
     <div class="card" style="border:1px solid #fbbf24;">Your suggestions!</div>
-    <p class="fragment" style="margin-top:0.5em; color:#f472b6;">When does the model get it "wrong"?</p>
+    <p class="fragment" style="margin-top:0.5em; color:#f472b6;">When does the model disagree with you?</p>
   </section>
 </section>
 
@@ -361,19 +358,7 @@ gradio</code></pre>
   <p class="fragment" style="color:#9ca3af;">
     ChatGPT: your prompt goes in, text comes out.<br>
     Image generators: a description goes in, a picture comes out.<br>
-    Our Space: text goes in, the silliest phrase comes out.
-  </p>
-</section>
-
-<!-- ========== ZERO-SHOT ========== -->
-<section>
-  <h2>What's "Zero-Shot"?</h2>
-  <p>The model <code>valhalla/distilbart-mnli-12-3</code> was
-  <span class="highlight-pink">never trained on the word "silly."</span></p>
-  <p class="fragment" style="margin-top:0.8em;">It was trained to understand whether two sentences are related &mdash;
-  and that general language understanding is enough for it to figure out what "silly" means on its own.</p>
-  <p class="fragment" style="margin-top:0.8em; color:#fbbf24; font-size:1.1em;">
-    No custom training needed.
+    Our Space: text goes in, a feeling comes out.
   </p>
 </section>
 
@@ -383,15 +368,63 @@ gradio</code></pre>
   <div class="concept-box" style="font-size:1.2em;">
     <span class="highlight-blue">TEXT</span>
     <span class="arrow"> &rarr; </span>
-    <span class="highlight-yellow">ZERO-SHOT MODEL</span>
+    <span class="highlight-yellow">SENTIMENT MODEL</span>
     <span class="arrow"> &rarr; </span>
-    <span class="highlight-green">SILLIEST PHRASE</span>
+    <span class="highlight-green">MOOD READING</span>
   </div>
   <div class="fragment" style="margin-top:1.5em;">
     <p>Quick check: can you name the <span class="highlight-blue">input</span>,
     <span class="highlight-yellow">model</span>, and
-    <span class="highlight-green">output</span> for the Background Removal Space?</p>
+    <span class="highlight-green">output</span> for the Emotion Classifier Space?</p>
   </div>
+</section>
+
+<!-- ========== SENTIMENT ANALYSIS ========== -->
+<section>
+  <h2>What's "Sentiment Analysis"?</h2>
+  <p>The model <code>distilbert-base-uncased-finetuned-sst-2-english</code> was
+  <span class="highlight-pink">trained on movie reviews.</span></p>
+  <p class="fragment" style="margin-top:0.8em;">Someone labeled thousands of movie reviews as POSITIVE or NEGATIVE. The model learned the patterns of each.</p>
+  <p class="fragment" style="margin-top:0.8em; color:#fbbf24; font-size:1.1em;">
+    Now it reads <em>any</em> text through that lens &mdash;<br>even diary entries, song lyrics, and text messages.
+  </p>
+</section>
+
+<!-- ========== BIG QUESTION ========== -->
+<section>
+  <section>
+    <h2>The Big Question</h2>
+    <div class="big-question" style="font-size:1.2em; margin-top:1em;">
+      Can a machine <em>actually feel</em>, or is it just matching patterns?
+    </div>
+  </section>
+
+  <section>
+    <h2>The Chinese Room</h2>
+    <p>Imagine you're locked in a room. You don't speak Chinese.</p>
+    <p class="fragment">But you have a giant rulebook.</p>
+    <p class="fragment">Someone slides a Chinese sentence under the door.</p>
+    <p class="fragment">You look it up. You slide the right response back.</p>
+    <p class="fragment" style="margin-top:0.8em; color:#fbbf24; font-size:1.1em;">
+      The person outside thinks you understand Chinese.<br>
+      <em>But do you?</em>
+    </p>
+  </section>
+
+  <section>
+    <h2>Our Mood Meter</h2>
+    <p style="font-size:1.1em;">
+      It says that diary entry is <span class="highlight-pink">NEGATIVE, 97% confident</span>.
+    </p>
+    <p class="fragment" style="margin-top:1em;">
+      It gave the right answer.<br>
+      But does it <em>know</em> what sadness is?<br>
+      Has it ever <em>been</em> sad?
+    </p>
+    <p class="fragment" style="margin-top:1em; color:#9ca3af;">
+      We'll carry this question through the whole course.
+    </p>
+  </section>
 </section>
 
 <!-- ========== VOCABULARY ========== -->
@@ -407,7 +440,10 @@ gradio</code></pre>
     <span class="vocab-term">Pipeline</span> &mdash; a shortcut that loads a model and makes it easy to use
   </div>
   <div class="card">
-    <span class="vocab-term">Zero-shot</span> &mdash; the model can do tasks it was never specifically trained for
+    <span class="vocab-term">Sentiment analysis</span> &mdash; the task of reading whether text feels positive or negative
+  </div>
+  <div class="card">
+    <span class="vocab-term">Confidence score</span> &mdash; how sure the model is (0&ndash;100%)
   </div>
   <div class="card">
     <span class="vocab-term">Gradio</span> &mdash; the Python library that builds the web interface
@@ -417,14 +453,14 @@ gradio</code></pre>
 <!-- ========== NOTEBOOK TIME ========== -->
 <section>
   <h2>Notebook Time</h2>
-  <p>Let's try something new — you're going to run code yourself!</p>
+  <p>Let's try something new &mdash; you're going to run code yourself!</p>
   <div class="try-it" style="margin-top:1em;">
     <strong>Link in the Zoom chat!</strong>
   </div>
   <div class="card" style="margin-top:0.8em;">
-    <strong>1.</strong> Click the link → it opens in Google Colab<br>
-    <strong>2.</strong> You'll see cells with code — hit the <span class="highlight-yellow">play button ▶</span> on the left<br>
-    <strong>3.</strong> Wait for the first cell to finish (you'll see a green check ✓)<br>
+    <strong>1.</strong> Click the link &rarr; it opens in Google Colab<br>
+    <strong>2.</strong> You'll see cells with code &mdash; hit the <span class="highlight-yellow">play button &#9654;</span> on the left<br>
+    <strong>3.</strong> Wait for the first cell to finish (you'll see a green check &#10003;)<br>
     <strong>4.</strong> Then run the next cell
   </div>
   <p class="small" style="margin-top:0.8em;">Finish the experiments on your own before next week</p>
@@ -433,17 +469,17 @@ gradio</code></pre>
 <!-- ========== BETWEEN SESSIONS ========== -->
 <section>
   <h2>Between Sessions</h2>
-  <p><strong>Challenge:</strong> Duplicate the Silly Phrase Finder and change the labels.</p>
+  <p><strong>Challenge:</strong> Try the Mood Meter with text you actually care about.</p>
   <div class="card" style="margin-top:0.8em;">
     <strong>1.</strong> Go to the Space &rarr; click <strong>&#8943;</strong> &rarr; <strong>Duplicate this Space</strong><br>
-    <strong>2.</strong> Open <code>app.py</code> in the Files tab<br>
-    <strong>3.</strong> Find the <code>labels</code> line and change it
+    <strong>2.</strong> Feed it text that matters to you
   </div>
   <div style="margin-top:0.8em;">
     <p><strong>Ideas:</strong></p>
-    <div class="card"><code>["scariest", "funniest", "most boring"]</code></div>
-    <div class="card"><code>["most dramatic", "most chill", "most confusing"]</code></div>
-    <div class="card"><code>["sounds like a villain", "sounds like a hero", "sounds like a side character"]</code></div>
+    <div class="card">A song lyric you've been listening to</div>
+    <div class="card">A paragraph from a book you're reading</div>
+    <div class="card">A text you sent or received recently</div>
+    <div class="card">Something you'd write in a journal</div>
   </div>
 </section>
 
@@ -451,13 +487,13 @@ gradio</code></pre>
 <section>
   <h2>What to Notice</h2>
   <div class="observation-card">
-    Did the model "understand" your new labels?
+    Does the model agree with how <em>you</em> felt reading the text?
   </div>
   <div class="observation-card">
-    Which labels work well? Which ones confuse the model?
+    When it says 97% confident &mdash; do you trust it?
   </div>
   <div class="observation-card">
-    Try the same text with different label sets &mdash; does the winner change?
+    Can you find text where the model is clearly wrong about the feeling?
   </div>
   <p style="margin-top:1em; color:#9ca3af;">
     Bring your result to Session 2. Be ready to share what you tried and what surprised you.
@@ -467,8 +503,8 @@ gradio</code></pre>
 <!-- ========== NEXT WEEK ========== -->
 <section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
   <h2>Next Week</h2>
-  <p style="font-size:1.3em;">We swap the engine.</p>
-  <p style="color:#9ca3af; margin-top:0.5em;">Same Space, different model.<br>Things will get weird.</p>
+  <p style="font-size:1.3em;">Not all feelings are the same.</p>
+  <p style="color:#9ca3af; margin-top:0.5em;">Same text, three different models.<br>Three completely different answers about how it feels.</p>
 </section>
 
 </div>

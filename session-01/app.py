@@ -1,49 +1,35 @@
 import gradio as gr
 from transformers import pipeline
-import re
 
-# Load a zero-shot classification model (works on free CPU)
-classifier = pipeline("zero-shot-classification", model="valhalla/distilbart-mnli-12-3")
+# Load a sentiment analysis model (works on free CPU)
+analyzer = pipeline("sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english")
 
-def find_silliest(text):
+def check_mood(text):
     if not text or not text.strip():
         return "Paste some text above first!"
 
-    # Split on sentence-ending punctuation followed by whitespace
-    sentences = [s.strip() for s in re.split(r'(?<=[.!?])\s+(?=[A-Z"])', text) if len(s.strip()) > 30]
+    result = analyzer(text)[0]
+    label = result["label"]
+    score = result["score"]
 
-    if len(sentences) == 0:
-        return "I need at least a couple of sentences to compare. Paste a longer passage!"
+    if label == "POSITIVE":
+        emoji = "😊" if score > 0.9 else "🙂"
+    else:
+        emoji = "😢" if score > 0.9 else "😐"
 
-    # Score every sentence for "silly" vs "serious" vs "ordinary"
-    labels = ["silly and ridiculous", "serious and important", "ordinary and boring"]
-    results = classifier(sentences, candidate_labels=labels)
-
-    # Handle single sentence (returns dict instead of list)
-    if isinstance(results, dict):
-        results = [results]
-
-    # Find the sentence with the highest "silly" score
-    best_phrase = ""
-    best_score = 0
-    for sentence, result in zip(sentences, results):
-        silly_idx = result["labels"].index("silly and ridiculous")
-        score = result["scores"][silly_idx]
-        if score > best_score:
-            best_score = score
-            best_phrase = sentence
-
-    return f'"{best_phrase}"\n\nSilliness score: {best_score:.0%}'
+    return f"{emoji} {label}\n\nConfidence: {score:.0%}"
 
 demo = gr.Interface(
-    fn=find_silliest,
-    inputs=gr.Textbox(lines=10, placeholder="Paste a paragraph or two here..."),
-    outputs=gr.Textbox(label="The Silliest Phrase"),
-    title="Silly Phrase Finder",
-    description="Paste any text and this AI will pick out the silliest phrase. It uses a zero-shot classifier — no one ever trained it on 'silly,' it just figures it out!",
+    fn=check_mood,
+    inputs=gr.Textbox(lines=8, placeholder="Paste any text here — a song lyric, a diary entry, a text from a friend..."),
+    outputs=gr.Textbox(label="Mood Reading"),
+    title="Mood Meter",
+    description="Paste any text and this AI will tell you whether it feels POSITIVE or NEGATIVE — and how confident it is. Does the model agree with how YOU feel about the text?",
     examples=[
-        ["The quarterly budget report is due on Friday. My cat learned to open the refrigerator and now judges my food choices. Please remember to submit your timesheets. The printer on the third floor is out of toner again."],
-        ["The sun rose over the mountains. A penguin wearing a tiny hat skateboarded through the library. Students studied quietly. The teacher handed out assignments."],
+        ["I can't believe how lucky I am to have friends like you. Every day feels like an adventure and I wouldn't trade it for anything in the world."],
+        ["I don't know why I even bother anymore. Nothing I do seems to matter and nobody notices when I try my hardest."],
+        ["Dear future me, I hope you figured it out. I hope you're not still lying awake at 2am wondering if you made the right choice."],
+        ["Walking into school on the first day felt like stepping onto another planet. Everyone already knew each other and I just stood there holding my backpack straps."],
     ],
 )
 

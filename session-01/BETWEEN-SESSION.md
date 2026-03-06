@@ -2,33 +2,29 @@
 
 ## Your Challenge
 
-**Duplicate the Silly Phrase Finder and change the labels.**
+**Try the Mood Meter with text you actually care about.**
 
 ### Steps
 
-1. Go to [profplate/silly-phrase-finder](https://huggingface.co/spaces/profplate/silly-phrase-finder) (or your own if you built one)
-2. Click the **three dots menu** (⋯) in the top right → **Duplicate this Space**
+1. Go to [profplate/mood-meter](https://huggingface.co/spaces/profplate/mood-meter) (or your own if you built one)
+2. Click the **three dots menu** (...) in the top right → **Duplicate this Space**
 3. It will create a copy under your account
-4. Open the **Files** tab → click on `app.py`
-5. Find the line that says:
-   ```python
-   labels = ["silly and ridiculous", "serious and important", "ordinary and boring"]
-   ```
-6. Change those labels to anything you want! Ideas:
-   - `["scariest", "funniest", "most boring"]`
-   - `["most dramatic", "most chill", "most confusing"]`
-   - `["sounds like a villain", "sounds like a hero", "sounds like a side character"]`
-7. Commit the change and wait for the Space to rebuild
+4. Now try feeding it text that matters to you:
+   - A lyric from a song you've been listening to
+   - A paragraph from a book you're reading
+   - A text you sent or received recently (change the names if you want)
+   - Something you'd write in a journal
 
 ### What to Notice
 
-- Did the model "understand" your new labels?
-- Which labels work well? Which ones confuse the model?
-- Try the same text with different label sets — does the winner change?
+- Does the model agree with how YOU felt reading the text?
+- When the model says POSITIVE — do you feel positive about it too?
+- When it says 97% confident — does that change how you trust the result?
+- Can you find text where the model is clearly wrong about the feeling?
 
 ### Bring It Back
 
-Next session, be ready to share: what labels did you try, and what surprised you?
+Next session, be ready to share: what text did you try, and did the model agree with you?
 
 ---
 
