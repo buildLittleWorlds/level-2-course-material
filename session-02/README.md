@@ -4,7 +4,7 @@
 
 ## What This Session Covers
 
-Students compare three sentiment models (binary, 7-emotion, and zero-shot) using the Sentiment Battle Arena Space, learn about training data and representation, and start curating a Model Collection. The session introduces model cards, the Inference Widget, and the Model Spectrum from binary to 28-emotion. The Big Question: who decided there are 6 basic emotions?
+Students compare three sentiment models (binary, 7-emotion, and zero-shot) by running the same text through two bonus Spaces — the Emoji Mood Translator (28 emotions) and the Headline Mood Dashboard (7 emotions) — then exploring all three models in the notebook. They learn about training data and representation, and start curating a Model Collection. The session introduces model cards, the Inference Widget, and the Model Spectrum from binary to 28-emotion. The Big Question: who decided there are 6 basic emotions?
 
 ## Session Resources
 

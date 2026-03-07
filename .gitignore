@@ -3,6 +3,7 @@ __pycache__/
 .claude/
 
 # Planning and reference files (not part of the course materials)
+GC-AUDIT.md
 GOOGLE-CLASSROOM-STATUS.md
 NEXT-SESSION-PROMPT.md
 SESSION-STATUS.md

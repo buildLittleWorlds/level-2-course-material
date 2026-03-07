@@ -1,0 +1,4 @@
+gradio>=6.0
+Pillow
+scikit-learn
+numpy

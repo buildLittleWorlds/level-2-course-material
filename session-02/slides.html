@@ -232,7 +232,7 @@
   <section>
     <h2>Same Text, Three Answers</h2>
     <div class="try-it">
-      <strong>Let's try this in the Sentiment Battle Arena:</strong><br>
+      <strong>Let's try this in the Emoji Mood Translator AND the Headline Mood Dashboard:</strong><br>
       <em>"I stayed up until 4am thinking about what I said to her. I keep replaying it."</em>
     </div>
     <div class="fragment">
@@ -248,22 +248,20 @@
 
 <!-- ========== INSIDE THE SPACE ========== -->
 <section>
-  <h2>Inside the Emotion Spectrum</h2>
-  <p>Let's look at the Files tab to see how a Space runs <span class="highlight-yellow">three models</span> at once.</p>
+  <h2>Inside the Spaces</h2>
+  <p>Let's look at the Files tab. Each Space loads a <span class="highlight-yellow">different model</span>.</p>
   <pre><code class="language-python">from transformers import pipeline
 
-# Three models, three ways of seeing feelings
-model_binary = pipeline("sentiment-analysis",
-    model="distilbert-base-uncased-finetuned-sst-2-english")
+# Emoji Mood Translator — 28 emotions (trained on Reddit)
+classifier = pipeline("text-classification",
+    model="SamLowe/roberta-base-go_emotions", top_k=5)
 
-model_emotion = pipeline("text-classification",
-    model="j-hartmann/emotion-english-distilroberta-base")
-
-model_zeroshot = pipeline("zero-shot-classification",
-    model="valhalla/distilbart-mnli-12-3")</code></pre>
+# Headline Mood Dashboard — 7 emotions (trained on tweets)
+classifier = pipeline("text-classification",
+    model="j-hartmann/emotion-english-distilroberta-base")</code></pre>
   <p style="margin-top:0.8em;">
-    Same pattern as the Mood Meter &mdash; just three pipelines instead of one.<br>
-    <span class="highlight-yellow">Same text in, different feelings out.</span>
+    Same pattern as the Mood Meter &mdash; just a different model name.<br>
+    <span class="highlight-yellow">Change the model, change what feelings you can see.</span>
   </p>
 </section>
 

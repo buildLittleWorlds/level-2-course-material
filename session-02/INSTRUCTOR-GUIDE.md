@@ -1,13 +1,13 @@
 # Session 2: Not All Feelings Are the Same
 
 **Concept:** TRAINING DATA AND REPRESENTATION
-**Space:** Sentiment Battle Arena (demo), Emotion Spectrum (reference)
+**Spaces used this session:** Emoji Mood Translator (28 emotions) and Headline Mood Dashboard (7 emotions) for live comparison; Emotion Spectrum (session notebook) for 3-model side-by-side
 **Models used this session:**
 1. `distilbert-base-uncased-finetuned-sst-2-english` (binary: POSITIVE/NEGATIVE — Session 1's model)
 2. `j-hartmann/emotion-english-distilroberta-base` (7 emotions — trained on tweets)
 3. `valhalla/distilbart-mnli-12-3` (zero-shot — students choose their own feeling labels)
 
-**Pre-built Spaces:** [profplate/sentiment-battle-arena](https://huggingface.co/spaces/profplate/sentiment-battle-arena) for live comparison, [profplate/emotion-spectrum](https://huggingface.co/spaces/profplate/emotion-spectrum) as reference
+**Pre-built Spaces:** [profplate/emoji-mood-translator](https://huggingface.co/spaces/profplate/emoji-mood-translator) (28 emotions, GoEmotions), [profplate/headline-mood-dashboard](https://huggingface.co/spaces/profplate/headline-mood-dashboard) (7 emotions, DistilRoBERTa)
 
 ---
 
@@ -38,38 +38,41 @@ If nobody grew their Collection: that's fine. They'll have time to work on it to
 
 ### 0:15–0:35 — "What If We Change the Lens?"
 
-Open the **Sentiment Battle Arena**: [profplate/sentiment-battle-arena](https://huggingface.co/spaces/profplate/sentiment-battle-arena)
+Open two bonus Spaces side by side (two browser tabs):
+- **Emoji Mood Translator**: [profplate/emoji-mood-translator](https://huggingface.co/spaces/profplate/emoji-mood-translator) — uses GoEmotions (28 emotion categories)
+- **Headline Mood Dashboard**: [profplate/headline-mood-dashboard](https://huggingface.co/spaces/profplate/headline-mood-dashboard) — uses DistilRoBERTa (7 emotion categories)
 
-This Space runs the same text through multiple models side by side — it's the perfect tool for tonight's lesson.
+These two Spaces use different models with different emotion taxonomies, so they WILL produce different results on the same text.
 
 **Demo flow:**
-1. Paste a sentence the Mood Meter read last week. Show how the Battle Arena gives you multiple readings at once.
-2. Point out the different model types: rule-based (VADER), binary (DistilBERT), 7-emotion, and 28-emotion (GoEmotions).
-3. Try: "I stayed up until 4am thinking about what I said to her." Watch what each model says. Ask students: "Which model do you agree with? Which one surprised you?"
+1. Paste a sentence the Mood Meter read last week into both Spaces. Show the different readings side by side.
+2. Point out: the Emoji Mood Translator sees 28 emotions (admiration, amusement, annoyance, etc.), while the Headline Dashboard only sees 7 (anger, disgust, fear, joy, neutral, sadness, surprise). Different training data, different categories, different answers.
+3. Try: "I stayed up until 4am thinking about what I said to her." Watch what each Space says. Ask students: "Which one do you agree with? Which one surprised you?"
 
-**Now open the Files tab** of the Battle Arena:
+**Now open the Files tab** of the Emoji Mood Translator:
 
-**Say:** "Let's look at how this works. Same pattern as last week — `app.py` and `requirements.txt`. But this time the app loads multiple models."
+**Say:** "Let's look at how this works. Same pattern as last week — `app.py` and `requirements.txt`. Same structure as the Mood Meter, but with a different model."
 
-Show the code briefly — three `pipeline()` calls, one for each model:
+Show the key difference — a different model in the `pipeline()` call:
 
 ```python
-model_binary = pipeline("sentiment-analysis",
-    model="distilbert-base-uncased-finetuned-sst-2-english")
+# Emoji Mood Translator uses GoEmotions (28 emotions)
+classifier = pipeline("text-classification",
+    model="SamLowe/roberta-base-go_emotions",
+    top_k=5)
 
-model_emotion = pipeline("text-classification",
+# Headline Mood Dashboard uses a different model (7 emotions)
+classifier = pipeline("text-classification",
     model="j-hartmann/emotion-english-distilroberta-base")
-
-model_zeroshot = pipeline("zero-shot-classification",
-    model="valhalla/distilbart-mnli-12-3")
 ```
 
-**Say:** "Same structure as the Mood Meter — we just run the text through three functions instead of one. Three pipelines, three brains, three training histories. Same text in, different feelings out."
+**Say:** "Same structure as the Mood Meter — just a different model name. The model is the lens. Change the lens, change what feelings you can see."
 
 **Talking points:**
-- "The binary model was trained on movie reviews — so it thinks everything is a movie review."
-- "The emotion model was trained on tweets — so it thinks everything is a tweet."
-- "The zero-shot model can look for any feeling you describe — because it was trained on general language, not specific emotion labels."
+- "The Mood Meter's model was trained on movie reviews — so it thinks everything is a movie review, and only knows POSITIVE or NEGATIVE."
+- "The Emoji Mood Translator's model was trained on Reddit comments with 28 emotion labels — so it can see admiration, confusion, gratitude, and more."
+- "The Headline Dashboard's model was trained on tweets with 7 emotion labels — anger, disgust, fear, joy, neutral, sadness, surprise."
+- "Same text in, different feelings out — because they studied different textbooks."
 
 ### 0:35–0:50 — Model Card Reading Activity
 
@@ -126,7 +129,7 @@ After going through them:
 
 **Say:** "You all disagreed on at least some of these. Here's the thing — the people who labeled the training data disagreed too. When the model gets it 'wrong,' sometimes it's because the humans who taught it couldn't agree either."
 
-Then run the same texts through the Battle Arena and compare to student answers. "Which model did you agree with most? Which one surprised you?"
+Then run the same texts through the Emoji Mood Translator and the Headline Mood Dashboard and compare to student answers. "Which Space did you agree with most? Which one surprised you?"
 
 ### 1:15–1:30 — Name the Concept + Big Question
 
@@ -181,7 +184,7 @@ This is the hands-on activity. Students create their second Collection — this 
 **Give students 10 minutes to:**
 - Add at least one model they tested via the Inference Widget
 - Write a tasting note for it
-- Optionally add one of the Spaces from the Battle Arena tour
+- Optionally add one of the bonus Spaces from tonight's demo (Emoji Mood Translator, Headline Mood Dashboard)
 
 **Share and discuss (5 min):**
 - "What model did you find? What does it classify?"
@@ -218,8 +221,8 @@ Share the between-session challenge (see BETWEEN-SESSION.md).
 
 | Problem | Fix |
 |---------|-----|
-| Sentiment Battle Arena is slow to load | Free CPU Spaces take a minute to wake up. Have the Mood Meter open as backup. You can also demo with the Inference Widget on model pages. |
-| Loading three models exceeds free CPU memory | If the Battle Arena struggles, demo models one at a time using the Inference Widget on each model's page. |
+| A bonus Space is slow to load | Free CPU Spaces take a minute to wake up. Have the Mood Meter open as backup. You can also demo with the Inference Widget on model pages. |
+| A bonus Space is down | Use the Colab fallback notebooks in `bonus-hugging-face-spaces/` — each Space has a `colab_demo.ipynb` that runs the same functionality. Or demo models one at a time using the Inference Widget on each model's page. |
 | Model card is too technical | Focus on just the 5 questions in the table. Skip the technical details. |
 | Students can't find the model card | Show them: go to huggingface.co, search the model name, click the model page. The README is the model card. |
 | Students can't find the Inference Widget | It's on the right side of the model page, labeled "Hosted inference API." Not all models have it — if one doesn't, try another. |

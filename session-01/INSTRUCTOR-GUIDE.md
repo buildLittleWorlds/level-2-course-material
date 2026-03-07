@@ -17,9 +17,9 @@ Then tour the five Spaces you built for this course. Share your screen and visit
 
 | Space | URL | What to try |
 |-------|-----|-------------|
-| Sentiment Battle Arena | https://huggingface.co/spaces/profplate/sentiment-battle-arena | Paste a sentence, compare 4 models side by side |
-| Emoji Mood Translator | https://huggingface.co/spaces/profplate/emoji-mood-translator | Type a sentence, see your emotions as emojis |
-| Review Star Guesser | https://huggingface.co/spaces/profplate/review-star-guesser | Guess the star rating before the model does |
+| Image Color Mood Analyzer | https://huggingface.co/spaces/profplate/image-color-mood-analyzer | Upload a photo, see what mood the colors suggest (no ML model — just color science!) |
+| Emoji Mood Translator | https://huggingface.co/spaces/profplate/emoji-mood-translator | Type a sentence, see your emotions as emojis (28 emotions) |
+| Audio Emotion Detector | https://huggingface.co/spaces/profplate/audio-emotion-detector | Record your voice or upload audio, hear how the AI reads your tone |
 | Headline Mood Dashboard | https://huggingface.co/spaces/profplate/headline-mood-dashboard | Paste a few headlines, see the emotional profile |
 | Story Emotion Arc | https://huggingface.co/spaces/profplate/story-emotion-arc | Paste a paragraph, watch the emotional arc |
 
@@ -90,10 +90,11 @@ Walk through the function briefly — input validation, running the model, forma
 
 **Say:** "That's the whole brain of the app. When you clicked 'Submit' a few minutes ago, this is the code that ran. And `requirements.txt` just lists the three packages it needs."
 
-**Then show the Files tab of one of the bonus Spaces** (e.g., Sentiment Battle Arena). Point out:
+**Then show the Files tab of one of the bonus Spaces** (e.g., Emoji Mood Translator). Point out:
 - Same structure: `app.py` + `requirements.txt`
 - Different code inside, but the same pattern: load a model, write a function, build an interface
 - "Every Space you've explored tonight follows this pattern. The code is different, but the architecture is the same."
+- Bonus: if you showed the Image Color Mood Analyzer, point out that it has NO `transformers` import — it uses color science instead of a neural network. "Not all AI analysis requires a neural network."
 
 **Talking point:** "You don't need to write any of this code right now. But when you look at a Space's Files tab, you can start to see how it works — and that makes you a better critic."
 
@@ -111,7 +112,7 @@ TEXT (input) → SENTIMENT MODEL (processing) → MOOD READING (output)
 - "Every AI tool you've ever used follows this pattern. ChatGPT: your prompt goes in, text comes out. Image generators: a description goes in, a picture comes out."
 - "The Mood Meter: text goes in, a feeling comes out. The model is the engine. We didn't build the engine — we just used it."
 
-**Quick check:** "Can someone give me the input, model, and output for the Sentiment Battle Arena?"
+**Quick check:** "Can someone give me the input, model, and output for the Emoji Mood Translator?"
 
 Now show the model card for `distilbert-base-uncased-finetuned-sst-2-english`:
 - https://huggingface.co/distilbert/distilbert-base-uncased-finetuned-sst-2-english
