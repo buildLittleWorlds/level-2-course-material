@@ -31,7 +31,7 @@ The projects get more playful and more sophisticated as the course goes on, but 
 
 The course is organized into four arcs, each building on the one before:
 
-**Exploration (Sessions 1–3):** You build your first Spaces and learn the fundamental pattern of AI tools: input goes in, a model processes it, output comes out. You'll start with a Mood Meter, swap in different emotion models, and discover what happens when sarcasm breaks everything. Along the way, you'll get comfortable with Hugging Face, Colab, and a bit of Python.
+**Exploration (Sessions 1–3):** You build your first Spaces and learn the fundamental pattern of AI tools: input goes in, a model processes it, output comes out. You'll start with a Mood Meter, swap in different emotion models, and discover what happens when sarcasm breaks everything. Along the way, you'll get comfortable with Gradio (the library that turns Python into web apps), Hugging Face, Colab, and a bit of Python.
 
 **Evaluation (Sessions 4–6):** Now that you can build things, you learn to judge them. You'll run three sentiment models side-by-side and watch them disagree. You'll experiment with hyperparameters that control how AI generates text. And you'll discover what happens when you take a model trained on movie reviews and feed it poetry or diary entries. These are the questions that separate someone who can run a model from someone who understands what the model is doing.
 

@@ -6,7 +6,42 @@ GitHub is a website — [github.com](https://github.com) — where people store,
 
 At its core, GitHub is built on a tool called **Git**, which tracks every change made to a set of files. Imagine a version of Google Docs, but for code — where you can see every edit anyone ever made, go back to any previous version, and work on different ideas without messing up what already works. GitHub takes that power and puts it on the web, with a profile page, social features, and a way to share your work publicly.
 
-In this course, GitHub plays two roles. First, it's where all of our course materials live — the notebooks, the code for each session's Space, the slides. When you click a "Open in Colab" link, it's actually pulling the notebook file from our GitHub repository. Second, as the course goes on, you'll start using GitHub yourself to manage your own projects.
+## How GitHub Fits Into This Course
+
+In this course, you build AI-powered apps using **Gradio** and deploy them as **Hugging Face Spaces**. GitHub is the third piece of that puzzle — it's where your code lives as a portfolio and where you learn to manage files like a professional developer.
+
+Here's the flow you'll build toward over the course:
+
+1. **Gradio** — you write a Python function and wrap it in a web interface (that's your `app.py`)
+2. **GitHub** — you store your `app.py` and `requirements.txt` in a repository (your code archive and portfolio)
+3. **Hugging Face Spaces** — you deploy the app so anyone can use it in a browser
+
+In the early sessions, you won't need GitHub at all. You'll work directly on Hugging Face, editing files in the browser and watching your Spaces update. But as the course progresses, GitHub becomes increasingly useful — and by the project phase, you'll be managing your own repositories.
+
+### The Gradio Connection
+
+Every Space you build in this course is a Gradio app. And every Gradio app is really just a small set of files:
+
+- **`app.py`** — your Gradio code (the function + the interface)
+- **`requirements.txt`** — the libraries your app needs
+
+GitHub is where you keep a copy of those files. Why not just keep them on Hugging Face? You can — and you will, at first. But GitHub adds things that Hugging Face doesn't:
+
+- **Version history.** GitHub tracks every change. If you break your `app.py` while experimenting, you can see exactly what you changed and go back to the version that worked. On Hugging Face, you'd have to remember what the old code looked like.
+- **A portfolio.** Your GitHub profile shows every project you've built, organized and browsable. When the course is over, you'll have a collection of repositories — one for each Space — that shows your progression from Session 1's Mood Meter to your final custom project.
+- **Notebooks too.** The Colab notebooks you run in each session? Those are `.ipynb` files, and they can live on GitHub as well. When you upload a notebook to GitHub, anyone can click a badge and open it directly in Colab. That's how the course materials themselves are shared.
+
+### When You'll Use GitHub in This Course
+
+The course introduces GitHub gradually — there's no rush.
+
+**Sessions 1-3:** You don't need GitHub. You'll see that the course materials live on GitHub (that's where the Colab notebook links point), but you'll be focused on building with Gradio on Hugging Face. If you want to explore GitHub on your own, great — but it's not required.
+
+**Sessions 4-6:** You'll start creating your own GitHub repositories. This means: making a repo on the GitHub website, uploading your `app.py` and notebook files, and writing a short README that describes what you built. All through the web interface — no command line.
+
+**Sessions 7-9:** You'll get comfortable with the workflow of keeping your code on GitHub and your live app on Hugging Face. When you make changes, you update both places. You'll also start looking at other people's GitHub repos to see how they organized their code.
+
+**Sessions 10-12:** For your final project, you'll manage the full loop: write your Gradio app, store the code on GitHub, deploy on Hugging Face, and present everything with a polished README. Your GitHub repo becomes the "backstage" of your project — the code and documentation — while your Hugging Face Space is the "front of house" — the live app anyone can try.
 
 ## Why Is It Valuable?
 
@@ -14,27 +49,27 @@ GitHub solves a problem that everyone who writes code eventually runs into: keep
 
 But GitHub is more than a filing system. It's also a **portfolio**. Your GitHub profile shows the projects you've built, the code you've written, and how active you are. For anyone interested in tech, data science, AI, or software — whether you're applying to college, an internship, or a job — a GitHub profile with real projects on it is one of the most valuable things you can have. It's proof that you can build things, not just talk about them.
 
-GitHub is also where open-source software happens. Open-source means the code is public — anyone can read it, use it, suggest improvements, or build on top of it. Most of the AI tools we use in this course (the `transformers` library, Gradio, even many of the models on Hugging Face) are open-source projects hosted on GitHub.
+GitHub is also where open-source software happens. Open-source means the code is public — anyone can read it, use it, suggest improvements, or build on top of it. Most of the AI tools we use in this course — the `transformers` library, Gradio, even many of the models on Hugging Face — are open-source projects hosted on GitHub.
 
 ## Why Is It Worth Learning?
 
 Learning GitHub early gives you a real advantage. Here's why:
 
-It's a universal skill in tech. Whether you end up in computer science, data science, biology research, digital humanities, or any field that touches code or data, you'll encounter Git and GitHub. Learning it now means you won't have to scramble to pick it up later when the stakes are higher.
+**It's a universal skill in tech.** Whether you end up in computer science, data science, biology research, digital humanities, or any field that touches code or data, you'll encounter Git and GitHub. Learning it now means you won't have to scramble to pick it up later when the stakes are higher.
 
-It teaches you to work like a professional. In the real world, nobody codes alone. Teams use GitHub to coordinate: one person works on the user interface, another works on the data processing, and GitHub keeps everything organized. Even in this course, when you duplicate and customize a Space, you're practicing a simplified version of the same workflow that professional teams use every day.
+**It teaches you to work like a professional.** In the real world, nobody codes alone. Teams use GitHub to coordinate: one person works on the user interface, another works on the data processing, and GitHub keeps everything organized. Even in this course, when you duplicate and customize a Space, you're practicing a simplified version of the same workflow.
 
-It's your public record. Every Space you build, every experiment you run, every project you complete — if it's on GitHub, it's visible. Over time, your GitHub profile becomes a living portfolio that grows with you.
+**It's your public record.** Every Space you build, every notebook you upload, every project you complete — if it's on GitHub, it's visible. Over time, your GitHub profile becomes a living portfolio that grows with you.
 
 ## How Important Is It to the AI Community?
 
 GitHub is the backbone of open-source AI development. Here's what that looks like in practice:
 
-Almost every major AI project lives on GitHub. The code for PyTorch (the most popular AI framework), Hugging Face's `transformers` library, Gradio, and thousands of other tools — it's all on GitHub. When researchers release a new model or technique, the code almost always ends up in a GitHub repository.
+**Almost every major AI project lives on GitHub.** The code for PyTorch, Hugging Face's `transformers` library, Gradio, and thousands of other tools — it's all on GitHub. When researchers release a new model or technique, the code almost always ends up in a GitHub repository.
 
-It's how AI research becomes AI practice. A researcher publishes a paper. They post the code on GitHub. Other researchers and engineers read the code, reproduce the results, improve on them, and share their improvements back. This cycle — enabled by GitHub — is a huge part of why AI has advanced so quickly in recent years.
+**It's how AI research becomes AI practice.** A researcher publishes a paper. They post the code on GitHub. Other researchers and engineers read the code, reproduce the results, improve on them, and share their improvements back. This cycle — enabled by GitHub — is a huge part of why AI has advanced so quickly in recent years.
 
-GitHub is also where community happens. People file bug reports, suggest features, ask questions, and contribute code to projects they care about. Some of the most important contributions to major AI tools have come from individual developers who spotted a problem, fixed it, and submitted the fix through GitHub.
+**Gradio itself is open-source on GitHub.** The tool you use to build every Space in this course? Its source code is on GitHub at [github.com/gradio-app/gradio](https://github.com/gradio-app/gradio). That means anyone — including you — can see exactly how it works, report bugs, or suggest improvements.
 
 ## A Bit of History
 
@@ -51,8 +86,8 @@ Creating a GitHub account is free:
 1. Go to [github.com](https://github.com)
 2. Click **Sign up**
 3. Enter your email, create a password, and choose a username
-4. Your username becomes your profile URL (e.g., `github.com/yourusername`), so pick something clean and professional — this could end up on a college application or a résumé someday
+4. Your username becomes your profile URL (e.g., `github.com/yourusername`), so pick something clean and professional — this could end up on a college application or a resume someday
 
-You don't need to know Git commands to get started. In the early sessions of this course, we'll interact with GitHub mostly through the web interface — clicking buttons, not typing commands. As the course progresses, you'll learn more about how Git works under the hood, but there's no rush. The web interface is plenty for now.
+You don't need to know Git commands to get started. In the early sessions of this course, you won't need GitHub at all — you'll be building Gradio apps directly on Hugging Face. When we do start using GitHub, we'll use the web interface — clicking buttons, not typing commands. There's no rush, and the web interface is plenty for everything we do.
 
-One thing to know: GitHub has a generous free tier. Everything we do in this course is completely free. You get unlimited public repositories, which means unlimited projects that anyone can see. There's a paid tier for private repositories and advanced features, but you won't need it.
+One thing to know: GitHub has a generous free tier. Everything we do in this course is completely free. You get unlimited public repositories, which means unlimited projects that anyone can see.
