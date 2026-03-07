@@ -1,16 +1,15 @@
 from transformers import pipeline
 import gradio as gr
-
+ 
 # Load a small text generation model (fast on free CPU)
 print("Loading distilgpt2...")
 generator = pipeline("text-generation", model="distilgpt2")
 print("Model loaded!")
-
-
+ 
 def generate_text(prompt, temperature, top_p, max_length):
     if not prompt or not prompt.strip():
         return "Type a prompt above first!"
-
+ 
     result = generator(
         prompt,
         temperature=max(temperature, 0.01),  # avoid division by zero
@@ -20,8 +19,7 @@ def generate_text(prompt, temperature, top_p, max_length):
         num_return_sequences=1,
     )
     return result[0]["generated_text"]
-
-
+ 
 demo = gr.Interface(
     fn=generate_text,
     inputs=[
@@ -63,5 +61,5 @@ demo = gr.Interface(
         ["The haunted house at the end of the street", 1.5, 0.8, 150],
     ],
 )
-
+ 
 demo.launch()

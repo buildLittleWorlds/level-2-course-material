@@ -1,4 +1,4 @@
-# Roots: Iterative Space Building — Course Overview
+# Roots: Can Machines Understand Feelings? — Course Overview
 
 ## The Big Idea
 
@@ -14,16 +14,16 @@ There's a version of an AI course that starts with theory: "First, let's define 
 
 This course flips that. We start with a working thing — a Space that does something interesting — and then we ask: how does it work? What happens if we change this? Why did the model get that wrong? The concepts emerge from the building, not the other way around.
 
-Here's an example. In Session 1, you build a **Silly Phrase Finder**. It sounds light-hearted, and it is — you paste in a paragraph, and the app finds the silliest sentence. Students laugh, they try weird inputs, they challenge the model with tricky sentences. It's fun.
+Here's an example. In Session 1, you build a **Mood Meter**. You paste in a sentence — something you might write in a journal, text to a friend, or say out loud — and the app tells you whether it reads as positive or negative, with a confidence score. Students try happy sentences, sad ones, angry ones, and ambiguous ones. The gap between what the model thinks and what you actually feel is where the learning starts.
 
-But look at what's actually happening under the hood. You're using **zero-shot classification** — a technique where an AI model categorizes text into labels it was never specifically trained on. That's a real, powerful technique used in industry for things like content moderation, customer feedback analysis, email routing, and document classification. The Silly Phrase Finder and a professional content moderation system use the exact same underlying technology. The difference is just the labels you give the model and the interface you wrap around it.
+But look at what's actually happening under the hood. You're using **sentiment analysis** — a technique where an AI model reads text and classifies its emotional tone. That's a real, powerful technique used in industry for things like customer feedback analysis, social media monitoring, brand reputation tracking, and mental health research tools. The Mood Meter and a professional customer insights platform use the exact same underlying technology. The difference is just the interface you wrap around it.
 
 That pattern repeats throughout the course. Every project teaches a genuine ML concept through something you can actually build, test, and play with:
 
-- **Swapping models** in Session 2 teaches you about training data and why different models behave differently — the same concept behind choosing the right model for a business application.
-- **Breaking things on purpose** in Session 3 teaches data cleaning and preprocessing — the work that takes up most of a real data scientist's time.
-- **Comparing models head-to-head** in Session 4 teaches evaluation — how professionals decide which model to actually deploy.
-- **Testing for bias** in Session 7 is the same work that AI ethics teams do at major tech companies before releasing products to the public.
+- **Swapping models** in Session 2 teaches you about training data and why different models see different emotions — the same concept behind choosing the right model for a business application.
+- **Breaking things with sarcasm** in Session 3 teaches data cleaning and preprocessing — the work that takes up most of a real data scientist's time.
+- **Comparing three models head-to-head** in Session 4 teaches evaluation — how professionals decide which model to actually deploy.
+- **Testing for bias in voice emotion detection** in Session 7 is the same work that AI ethics teams do at major tech companies before releasing products to the public.
 
 The projects get more playful and more sophisticated as the course goes on, but the underlying skills are always real and always transferable.
 
@@ -31,26 +31,27 @@ The projects get more playful and more sophisticated as the course goes on, but 
 
 The course is organized into four arcs, each building on the one before:
 
-**Exploration (Sessions 1–3):** You build your first Spaces and learn the fundamental pattern of AI tools: input goes in, a model processes it, output comes out. You'll get comfortable with the tools — Hugging Face, Colab, a bit of Python — and start developing intuition for how models behave.
+**Exploration (Sessions 1–3):** You build your first Spaces and learn the fundamental pattern of AI tools: input goes in, a model processes it, output comes out. You'll start with a Mood Meter, swap in different emotion models, and discover what happens when sarcasm breaks everything. Along the way, you'll get comfortable with Hugging Face, Colab, and a bit of Python.
 
-**Evaluation (Sessions 4–6):** Now that you can build things, you learn to judge them. Which model is better? What happens when you use a model on data it wasn't designed for? How do you measure whether an AI tool is actually working well? These are the questions that separate someone who can run a model from someone who understands what the model is doing.
+**Evaluation (Sessions 4–6):** Now that you can build things, you learn to judge them. You'll run three sentiment models side-by-side and watch them disagree. You'll experiment with hyperparameters that control how AI generates text. And you'll discover what happens when you take a model trained on movie reviews and feed it poetry or diary entries. These are the questions that separate someone who can run a model from someone who understands what the model is doing.
 
-**Advanced Topics (Sessions 7–8):** You tackle harder questions: bias, fairness, and multi-model systems. These sessions deal with the kinds of challenges that make real AI work complicated and important. You'll build tools that reveal problems most people don't even know to look for.
+**Advanced Topics (Sessions 7–8):** You tackle harder questions: bias, fairness, and multi-modal systems. You'll build a Voice Mood Reader that detects emotion in speech — and test whether it treats all voices fairly. Then you'll build a system that reads both faces and text, and ask: when the face says happy but the words say sad, which one is telling the truth?
 
-**Project (Sessions 9–12):** You design and build your own Space from the ground up. You choose the problem, pick the model, build the interface, test it, improve it, and present it. This is where everything comes together.
+**Project (Sessions 9–12):** You design and build your own emotion tool from the ground up. You choose the modality — text, audio, or images — pick the model, build the interface, test it, improve it, and present it. This is where everything comes together.
 
 ## What You'll Actually Be Able to Do
 
 By the end of this course, you'll be able to:
 
-- Load and use pre-trained AI models for tasks like text classification, sentiment analysis, and image processing
+- Load and use pre-trained AI models for sentiment analysis, emotion detection, speech emotion recognition, and facial emotion recognition
 - Build and deploy web applications powered by AI that anyone can access
 - Read a model card and understand what a model was trained on, what it's good at, and where it might fail
 - Compare models and evaluate their performance on different kinds of data
-- Identify bias in AI systems and articulate why it matters
+- Identify bias in AI systems — including whose voices and faces the models learned from — and articulate why it matters
+- Work across modalities: text, audio, and images — and understand what each one captures that the others miss
 - Write and run Python code in notebooks, experiment with parameters, and interpret the results
 - Use GitHub to manage and share your projects
-- Explain core ML concepts — zero-shot learning, fine-tuning, overfitting, evaluation metrics — in your own words, because you've seen them in action
+- Explain core ML concepts — sentiment analysis, training data, domain shift, hyperparameters, bias, multi-modal systems — in your own words, because you've seen them in action
 
 These aren't just academic skills. They're the same skills that data scientists, ML engineers, and AI researchers use every day. The difference is that you're learning them now instead of at the end of years of computer science coursework.
 

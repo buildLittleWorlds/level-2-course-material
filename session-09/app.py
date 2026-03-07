@@ -1,25 +1,24 @@
 import gradio as gr
 from transformers import pipeline
-
+ 
 # Load the same sentiment model students already know —
 # the magic is in how we PRESENT the results, not in swapping models.
 analyzer = pipeline(
     "sentiment-analysis",
     model="distilbert-base-uncased-finetuned-sst-2-english",
 )
-
-
+ 
 def analyze_review(review):
     """Turn raw sentiment output into advice a restaurant owner can act on."""
     if not review or not review.strip():
         return "Paste a review above to analyze!"
-
+ 
     result = analyzer(review[:512])[0]
     label = result["label"]
     score = result["score"]
-
+ 
     if label == "POSITIVE":
-        mood = "Happy Customer 😊"
+        mood = "Happy Customer \ud83d\ude0a"
         if score > 0.95:
             advice = (
                 "This customer loved the experience! "
@@ -31,7 +30,7 @@ def analyze_review(review):
                 "A simple thank-you response goes a long way."
             )
     else:
-        mood = "Unhappy Customer 😟"
+        mood = "Unhappy Customer \ud83d\ude1f"
         if score > 0.95:
             advice = (
                 "This customer had a very poor experience. "
@@ -42,15 +41,14 @@ def analyze_review(review):
                 "This customer had a mixed-to-negative experience. "
                 "Consider responding with an apology and an offer to make it right."
             )
-
-    confidence_bar = "█" * int(score * 20) + "░" * (20 - int(score * 20))
+ 
+    confidence_bar = "\u2588" * int(score * 20) + "\u2591" * (20 - int(score * 20))
     return (
         f"Overall Impression:  {mood}\n"
         f"Confidence: {confidence_bar} {score:.0%}\n"
         f"\nSuggested Action:\n{advice}"
     )
-
-
+ 
 demo = gr.Interface(
     fn=analyze_review,
     inputs=gr.Textbox(
@@ -59,7 +57,7 @@ demo = gr.Interface(
         label="Customer Review",
     ),
     outputs=gr.Textbox(label="Analysis", lines=6),
-    title="🍽️ Restaurant Review Analyzer",
+    title="Restaurant Review Analyzer",
     description=(
         "Paste a customer review and get instant sentiment analysis. "
         "Built for restaurant owners who want to quickly understand "
@@ -84,5 +82,5 @@ demo = gr.Interface(
         ],
     ],
 )
-
+ 
 demo.launch()
