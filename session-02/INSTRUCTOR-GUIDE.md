@@ -1,20 +1,23 @@
 # Session 2: Not All Feelings Are the Same
 
 **Concept:** TRAINING DATA AND REPRESENTATION
-**Space:** Emotion Spectrum
+**Space:** Sentiment Battle Arena (demo), Emotion Spectrum (reference)
 **Models used this session:**
 1. `distilbert-base-uncased-finetuned-sst-2-english` (binary: POSITIVE/NEGATIVE — Session 1's model)
 2. `j-hartmann/emotion-english-distilroberta-base` (7 emotions — trained on tweets)
 3. `valhalla/distilbart-mnli-12-3` (zero-shot — students choose their own feeling labels)
 
-**Pre-built fallback:** Have the Emotion Spectrum deployed under profplate/ before class.
+**Pre-built Spaces:** [profplate/sentiment-battle-arena](https://huggingface.co/spaces/profplate/sentiment-battle-arena) for live comparison, [profplate/emotion-spectrum](https://huggingface.co/spaces/profplate/emotion-spectrum) as reference
 
 ---
 
 ## Time Breakdown (2 hours)
 
-### 0:00–0:10 — Show-and-Tell
+### 0:00–0:15 — Show-and-Tell
 
+Two rounds of sharing:
+
+**Round 1 — Mood Meter results:**
 Ask: "Last week you tried the Mood Meter with text you actually care about. What did you try? Did the model agree with you?"
 
 If students share: celebrate it. Ask follow-up questions:
@@ -22,54 +25,53 @@ If students share: celebrate it. Ask follow-up questions:
 - "Did the model's reading match how YOU felt?"
 - "Were you surprised by any result?"
 
-If nobody modified anything: that's fine. Show a result you prepared — e.g., a song lyric that the model reads as POSITIVE but is actually from a breakup song. "The model said this is positive. But listen to the context..."
+If nobody tried it: show a result you prepared — e.g., a song lyric that the model reads as POSITIVE but is actually from a breakup song.
+
+**Round 2 — Collections:**
+Ask: "Show us a Space you added to your Collection. What did you write in your note?"
+
+If students share: ask what they noticed. "What made you pick that Space? What surprised you when you tested it?"
+
+If nobody grew their Collection: that's fine. They'll have time to work on it tonight.
 
 **Transition:** "Last week the Mood Meter only knew two feelings: POSITIVE and NEGATIVE. That's like saying music is either loud or quiet. Tonight we're going to see what happens when we give the model more words for feelings."
 
-### 0:10–0:25 — "What If We Change the Lens?"
+### 0:15–0:35 — "What If We Change the Lens?"
 
-Open Session 1's Mood Meter. Remind students how it works — paste text, get POSITIVE or NEGATIVE.
+Open the **Sentiment Battle Arena**: [profplate/sentiment-battle-arena](https://huggingface.co/spaces/profplate/sentiment-battle-arena)
 
-Now the question: "This model sees the world in black and white — good mood or bad mood. But are feelings really that simple? When you're anxious about a test, is that positive or negative? When you're nostalgic about something you lost, which box does that go in?"
+This Space runs the same text through multiple models side by side — it's the perfect tool for tonight's lesson.
 
-Open `app.py` in the Files tab and talk through the change:
+**Demo flow:**
+1. Paste a sentence the Mood Meter read last week. Show how the Battle Arena gives you multiple readings at once.
+2. Point out the different model types: rule-based (VADER), binary (DistilBERT), 7-emotion, and 28-emotion (GoEmotions).
+3. Try: "I stayed up until 4am thinking about what I said to her." Watch what each model says. Ask students: "Which model do you agree with? Which one surprised you?"
 
-**Before (Session 1):**
+**Now open the Files tab** of the Battle Arena:
+
+**Say:** "Let's look at how this works. Same pattern as last week — `app.py` and `requirements.txt`. But this time the app loads multiple models."
+
+Show the code briefly — three `pipeline()` calls, one for each model:
+
 ```python
-analyzer = pipeline("sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english")
+model_binary = pipeline("sentiment-analysis",
+    model="distilbert-base-uncased-finetuned-sst-2-english")
+
+model_emotion = pipeline("text-classification",
+    model="j-hartmann/emotion-english-distilroberta-base")
+
+model_zeroshot = pipeline("zero-shot-classification",
+    model="valhalla/distilbart-mnli-12-3")
 ```
 
-**After (new model):**
-```python
-classifier = pipeline("text-classification", model="j-hartmann/emotion-english-distilroberta-base")
-```
-
-**Say:** "Same structure, different brain. This model was trained on tweets that people labeled with 7 emotions: anger, disgust, fear, joy, neutral, sadness, surprise. Instead of just positive or negative, it has a bigger vocabulary for feelings."
-
-Commit. Wait for rebuild. Try the same text from last week.
+**Say:** "Same structure as the Mood Meter — we just run the text through three functions instead of one. Three pipelines, three brains, three training histories. Same text in, different feelings out."
 
 **Talking points:**
-- "This model was trained on tweets — so it thinks everything is a tweet. That's its whole world."
-- "It knows 7 emotions because someone decided there are 7 emotions worth labeling. We'll come back to that."
-- Try: "I stayed up until 4am thinking about what I said to her." Watch what emotion it picks. Ask students: "Is that the right one? What would YOU call that feeling?"
+- "The binary model was trained on movie reviews — so it thinks everything is a movie review."
+- "The emotion model was trained on tweets — so it thinks everything is a tweet."
+- "The zero-shot model can look for any feeling you describe — because it was trained on general language, not specific emotion labels."
 
-### 0:25–0:40 — Try the Zero-Shot Model
-
-Now swap again:
-
-```python
-classifier = pipeline("zero-shot-classification", model="valhalla/distilbart-mnli-12-3")
-```
-
-**Say:** "This model is different — it doesn't come with pre-set emotion labels. YOU tell it what feelings to look for. You could say 'check for love, grief, anxiety, hope' and it will score each one."
-
-Demo it with student-suggested feeling labels. Ask: "What feelings should we test for? Give me 4-5."
-
-**The punchline:** Same text, three models, three completely different kinds of answers. One says POSITIVE. One says JOY. One says HOPE. "They all read the same words. Why do they see different feelings?"
-
-**Answer to build toward:** They were trained on different data, with different labels. The binary model only learned positive/negative because that's all its training data had. The emotion model learned 7 feelings because that's how the tweets were labeled. The zero-shot model can look for anything because it was trained on general language understanding.
-
-### 0:40–0:55 — Model Card Reading Activity
+### 0:35–0:50 — Model Card Reading Activity
 
 Open the model cards for all three models:
 - https://huggingface.co/distilbert/distilbert-base-uncased-finetuned-sst-2-english
@@ -90,7 +92,7 @@ Go through answers together. Frame the last question: **"Who labeled this traini
 
 **Say:** "The people who labeled 50,000 movie reviews only used two labels: thumbs up, thumbs down. The people who labeled tweets decided there are exactly 7 emotions. That means every feeling that doesn't fit into those 7 boxes is invisible to the model."
 
-### 0:55–1:15 — Labeling Challenge
+### 0:50–1:15 — Labeling Challenge
 
 **The activity:** Show 5–6 emotionally complex texts on screen, one at a time. Students call out what emotion they think each one expresses. Write down their answers.
 
@@ -124,23 +126,9 @@ After going through them:
 
 **Say:** "You all disagreed on at least some of these. Here's the thing — the people who labeled the training data disagreed too. When the model gets it 'wrong,' sometimes it's because the humans who taught it couldn't agree either."
 
-Then run the same texts through all three models and compare to student answers. "Which model did you agree with most? Which one surprised you?"
+Then run the same texts through the Battle Arena and compare to student answers. "Which model did you agree with most? Which one surprised you?"
 
-### 1:15–1:30 — Build the Emotion Spectrum
-
-Now build the final version of the Space together — the `app.py` that compares all three models side by side.
-
-Walk through the key parts:
-- Loading three different pipelines (three different brains, three different training histories)
-- The `analyze_feelings()` function that runs each sentence through all three
-- The custom labels input for the zero-shot model — "this one lets you define the feelings"
-- The Gradio interface with three output boxes
-
-**Say:** "The code is almost the same as last week. We just run the text through three functions instead of one. The structure is identical — `pipeline()` loads a model, a function processes the text, Gradio shows the result."
-
-Commit. Test with student-suggested inputs.
-
-### 1:30–1:45 — Name the Concept + Big Question
+### 1:15–1:30 — Name the Concept + Big Question
 
 #### Name the Concept: TRAINING DATA AND REPRESENTATION (8 min)
 
@@ -155,7 +143,7 @@ Commit. Test with student-suggested inputs.
 
 **Set it up:** "The 7-emotion model uses categories based on a famous theory by Paul Ekman. In the 1960s and 70s, he traveled the world showing people photographs of facial expressions. He concluded that there are 6 basic emotions that every human recognizes: anger, disgust, fear, happiness, sadness, surprise."
 
-**Voice aside** (~30 seconds): "Here's something interesting — Ekman studied facial expressions, not words. And think about this: when someone says 'I'm fine' in a flat voice, you know they're not fine. You're reading tone of voice, not words. A text model only has the words. What if we had a model that could hear the voice? We'll build that in a few weeks."
+**Voice aside** (~30 seconds): "Here's something interesting — Ekman studied facial expressions, not words. And think about this: when someone says 'I'm fine' in a flat voice, you know they're not fine. You're reading tone of voice, not words. A text model only has the words. What if we had a model that could hear the voice? We'll explore that in a few weeks."
 
 "For decades, this was the accepted answer. The tweet model added 'neutral' as a 7th category, but it's basically Ekman's list."
 
@@ -177,6 +165,31 @@ Students from different cultural backgrounds will have different examples. Let t
 
 **Don't resolve this.** Say: "The point isn't whether Ekman was right or wrong. The point is: someone chose the categories. And when you build an AI system, the categories you choose determine what feelings are visible and what feelings are invisible."
 
+### 1:30–1:45 — Curate Your Model Collection
+
+This is the hands-on activity. Students create their second Collection — this time focused on models, not just Spaces.
+
+**Walk through together:**
+1. Go to your HF profile, click **+ New** → **Collection**
+2. Name it "My Sentiment Model Lineup" (or similar)
+3. Go to [huggingface.co/models](https://huggingface.co/models), search for "sentiment" or "emotion"
+4. Click on a model, read the model card briefly
+5. Test it using the **Inference Widget** on the model page (type a sentence, see the result)
+6. Add it to your Collection (three-dot menu → Add to Collection)
+7. Write a tasting note — use the template from the *Model Tasting Notes* handout
+
+**Give students 10 minutes to:**
+- Add at least one model they tested via the Inference Widget
+- Write a tasting note for it
+- Optionally add one of the Spaces from the Battle Arena tour
+
+**Share and discuss (5 min):**
+- "What model did you find? What does it classify?"
+- "Did anyone find a model that detects feelings our three models can't?"
+- "What did you learn from reading the model card?"
+
+**Refer students to the PDFs:** "The *Curate a Model Collection* handout has step-by-step instructions for building your Collection. The *Model Tasting Notes* handout gives you a framework for writing notes — including a template and an example."
+
 ### 1:45–1:55 — Notebook Time
 
 Share the Colab link in the Zoom chat.
@@ -187,17 +200,17 @@ Share the Colab link in the Zoom chat.
 3. Run the cell that loads all three models — point out that this takes a minute
 4. Run the first comparison together and look at the three different outputs
 
-**Say:** "The notebook has all three models you just saw. For each experiment, you'll run the same text through all three and record which one you agree with most. There's a cell at the end where you test your own text."
+**Say:** "The notebook has all three models you just saw. For each experiment, you'll run the same text through all three and record which one you agree with most. Use your results to write better tasting notes for your Collection."
 
 **Notebook skill being introduced:** Running cells in order, reading output from multiple cells, editing code to change inputs
 
-**GitHub skill being introduced:** "Create a repo called `my-ai-portfolio` on GitHub, then upload this notebook to it."
+**GitHub skill being introduced:** "Create a repo called `my-ai-portfolio` on GitHub, then upload this notebook to it. Your public Collections on Hugging Face are part of your portfolio too."
 
 ### 1:55–2:00 — Wrap Up
 
 Share the between-session challenge (see BETWEEN-SESSION.md).
 
-**Say:** "Next week, we're going to find out what happens when the model reads text that means the opposite of what it says. Sarcasm, irony, passive aggression — the stuff that starts fights in your group chat. The model has the same problem you do."
+**Say:** "Before next week: find a model on the Hub that sees feelings the current ones miss. Add it to your Model Collection with a tasting note. Your Collection should have at least 4 models and 2 Spaces by Session 3. Next week, we're going to find out what happens when the model reads text that means the opposite of what it says — sarcasm, irony, passive aggression."
 
 ---
 
@@ -205,14 +218,23 @@ Share the between-session challenge (see BETWEEN-SESSION.md).
 
 | Problem | Fix |
 |---------|-----|
-| Loading three models exceeds free CPU memory | Load models sequentially in the live demo. The deployed Space loads all three at startup — if it fails, reduce to two models and demo the third separately. |
-| Sentiment model output format confuses students | Show the raw output: `[{"label": "POSITIVE", "score": 0.98}]`. Compare to the emotion model output. Point out: same structure, different labels. |
+| Sentiment Battle Arena is slow to load | Free CPU Spaces take a minute to wake up. Have the Mood Meter open as backup. You can also demo with the Inference Widget on model pages. |
+| Loading three models exceeds free CPU memory | If the Battle Arena struggles, demo models one at a time using the Inference Widget on each model's page. |
 | Model card is too technical | Focus on just the 5 questions in the table. Skip the technical details. |
-| Students can't find the model card | Show them: go to huggingface.co, search the model name, click the model page. |
+| Students can't find the model card | Show them: go to huggingface.co, search the model name, click the model page. The README is the model card. |
+| Students can't find the Inference Widget | It's on the right side of the model page, labeled "Hosted inference API." Not all models have it — if one doesn't, try another. |
 | Emotion model gives odd results on long text | It was trained on tweets (short text). That's a feature of this lesson, not a bug. "This model thinks everything is a tweet." |
+| Students struggle with tasting notes | Give them the template from the PDF: model name, what it classifies, trained on, easy test, interesting test, strength, weakness. |
 | Big Question discussion falls flat | Have a backup: ask students to name a feeling they've had this week. Then check if any of the three models have a label for it. |
 | Big Question discussion runs too long | Time-box at 15 min. Say: "We'll come back to this — the question of who defines emotions comes up again when we talk about bias in Session 7." |
-| Zero-shot model is slow | It's the largest of the three. If it takes too long, skip it in the live demo and show it in the notebook instead. |
+| Not enough time for Model Collection activity | Students can finish between sessions. The PDF has complete step-by-step instructions. |
+
+---
+
+## Session Resources (PDFs)
+
+- **Curate a Model Collection** — step-by-step guide to building a model-focused Collection
+- **Model Tasting Notes** — framework for comparing and evaluating sentiment models, with templates and examples
 
 ---
 
@@ -225,3 +247,4 @@ Share the between-session challenge (see BETWEEN-SESSION.md).
 - **Model card** — documentation that describes what a model does and how it was trained
 - **Fine-tuned** — a model further trained on specific data for a specific task
 - **Zero-shot** — a model that can classify text into categories it wasn't specifically trained on
+- **Inference Widget** — the test box on a model's HF page that lets you try it without code

@@ -117,44 +117,56 @@
   <p style="margin-top:1.5em; color:#94a3b8;">Roots &middot; Can Machines Understand Feelings?</p>
 </section>
 
-<!-- ========== WHAT WE'RE BUILDING ========== -->
+<!-- ========== TONIGHT'S GOAL ========== -->
 <section>
   <h2>Tonight's Goal</h2>
   <p style="font-size:1.2em; text-align:center; margin:1em 0;">
-    Build and deploy an AI-powered web app<br>
-    that tries to <span class="highlight-yellow">read how text feels</span>.
+    Explore AI-powered Spaces that try to<br>
+    <span class="highlight-yellow">read how text feels</span> &mdash;<br>
+    and start curating your first <span class="highlight-green">Collection</span>.
   </p>
   <div class="concept-box">
-    Mood Meter
+    Explore &bull; Observe &bull; Curate
   </div>
-  <p style="text-align:center; color:#9ca3af;">Paste any text &rarr; the AI tells you if it feels positive or negative</p>
+  <p style="text-align:center; color:#9ca3af;">Think of yourself as a critic, a taste-tester, a connoisseur of AI.</p>
 </section>
 
 <!-- ========== SPACE TOUR ========== -->
 <section>
   <section>
     <h2>Space Tour</h2>
-    <p>Let's look at what people have built on Hugging Face.</p>
+    <p>These are Spaces I built for this course. Let's explore them together.</p>
     <div class="card">
-      <span class="emoji-label">😊</span>
-      <strong>Text to Emotion</strong> &mdash; type a sentence, see the emotion
+      <span class="emoji-label">&#x2694;&#xFE0F;</span>
+      <strong>Sentiment Battle Arena</strong> &mdash; compare 4 models side by side on the same text
     </div>
     <div class="card">
-      <span class="emoji-label">📊</span>
-      <strong>Sentiment Analysis</strong> &mdash; paste a tweet, see positive/negative/neutral
+      <span class="emoji-label">&#x1F60E;</span>
+      <strong>Emoji Mood Translator</strong> &mdash; turns your sentence into an emoji mood portrait
     </div>
     <div class="card">
-      <span class="emoji-label">🎵</span>
-      <strong>ACE-Step Music Gen</strong> &mdash; generate a short music clip
-    </div>
-    <div class="card">
-      <span class="emoji-label">🖼</span>
-      <strong>Background Removal</strong> &mdash; upload a photo, background vanishes
+      <span class="emoji-label">&#x2B50;</span>
+      <strong>Review Star Guesser</strong> &mdash; guess the star rating before the model does
     </div>
   </section>
 
   <section>
-    <h2>Observation Card</h2>
+    <h2>Space Tour (continued)</h2>
+    <div class="card">
+      <span class="emoji-label">&#x1F4F0;</span>
+      <strong>Headline Mood Dashboard</strong> &mdash; see the emotional tone of news headlines
+    </div>
+    <div class="card">
+      <span class="emoji-label">&#x1F4D6;</span>
+      <strong>Story Emotion Arc</strong> &mdash; plot the emotional journey of a story
+    </div>
+    <p class="fragment" style="margin-top:1em; color:#9ca3af;">
+      By the end of this course, you'll understand every file inside these Spaces.
+    </p>
+  </section>
+
+  <section>
+    <h2>Space Explorer's Field Guide</h2>
     <p>For each Space, ask yourself:</p>
     <div class="observation-card">
       <strong>1.</strong> What goes <em>in</em>? &nbsp;(text, image, audio?)
@@ -163,7 +175,10 @@
       <strong>2.</strong> What comes <em>out</em>?
     </div>
     <div class="observation-card">
-      <strong>3.</strong> What happens with <em>weird</em> input?
+      <strong>3.</strong> What <em>model</em> powers it?
+    </div>
+    <div class="observation-card">
+      <strong>4.</strong> What happens with <em>weird</em> input?
     </div>
     <p class="fragment" style="margin-top:0.8em; color:#9ca3af; font-size:0.9em;">
       Feelings don't just live in text. Music, voices, and faces carry emotion too.<br>
@@ -190,7 +205,11 @@
     <div>
       <div class="card">
         <strong class="highlight-green">Your Profile</strong><br>
-        This is your AI portfolio. Everything you build here is public and yours.
+        This is your AI portfolio. Everything you build and curate here is public and yours.
+      </div>
+      <div class="card">
+        <strong class="highlight-pink">Collections</strong><br>
+        Curated playlists of Spaces and models &mdash; your way of organizing what you find.
       </div>
     </div>
   </div>
@@ -200,7 +219,7 @@
 <section>
   <section>
     <h2>Demo: Mood Meter</h2>
-    <p>Let's try the finished version.</p>
+    <p>Let's try a Space that reads the mood of any text.</p>
     <div class="try-it" style="margin-top:1em;">
       <strong>Try this input:</strong><br>
       <em>"I can't believe how lucky I am to have friends like you. Every day feels like an adventure and I wouldn't trade it for anything in the world."</em>
@@ -221,113 +240,38 @@
   </section>
 </section>
 
-<!-- ========== BUILD IT: SETUP ========== -->
-<section>
-  <h2>Let's Build It</h2>
-  <p>Creating a new Space on Hugging Face:</p>
-  <div class="card">
-    <strong>1.</strong> Click <span class="highlight-yellow">New Space</span>
-  </div>
-  <div class="card">
-    <strong>2.</strong> Name it <code>mood-meter</code>
-  </div>
-  <div class="card">
-    <strong>3.</strong> SDK: <span class="highlight-blue">Gradio</span>
-  </div>
-  <div class="card">
-    <strong>4.</strong> Visibility: <span class="highlight-green">Public</span> &bull; Hardware: <span class="highlight-green">Free CPU</span>
-  </div>
-  <div class="card">
-    <strong>5.</strong> Click <span class="highlight-yellow">Create Space</span>
-  </div>
-</section>
-
-<!-- ========== BUILD IT: CODE ========== -->
+<!-- ========== INSIDE THE SPACE ========== -->
 <section>
   <section>
-    <h2>The Code: Imports</h2>
+    <h2>Inside the Space</h2>
+    <p>Every Space has a <span class="highlight-yellow">Files tab</span>. Let's look at what's inside the Mood Meter.</p>
+    <div class="card" style="margin-top:1em;">
+      <strong>Two files make this whole app work:</strong><br><br>
+      <code class="highlight-blue">app.py</code> &mdash; the code that runs the Space<br>
+      <code class="highlight-green">requirements.txt</code> &mdash; the packages it needs
+    </div>
+    <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
+      That's it. Two files. You don't need to write any code tonight &mdash; but understanding what's inside will make you a sharper critic.
+    </p>
+  </section>
+
+  <section>
+    <h2>What's in app.py?</h2>
     <pre><code class="language-python">import gradio as gr
-from transformers import pipeline</code></pre>
+from transformers import pipeline
+
+analyzer = pipeline("sentiment-analysis",
+    model="distilbert-base-uncased-finetuned-sst-2-english")</code></pre>
     <div class="two-col" style="margin-top:0.8em;">
-      <div class="card"><code class="highlight-yellow">gradio</code><br>Builds the web interface</div>
-      <div class="card"><code class="highlight-blue">transformers</code><br>Loads the AI model</div>
+      <div class="card"><code class="highlight-yellow">gradio</code><br>Builds the web interface &mdash; the page you see</div>
+      <div class="card"><code class="highlight-blue">pipeline</code><br>Loads the AI model &mdash; the brain that reads feelings</div>
     </div>
-    <p style="margin-top:0.5em; color:#9ca3af;">Two imports. That's it.</p>
-  </section>
-
-  <section>
-    <h2>The Code: Load the Model</h2>
-    <pre><code class="language-python">analyzer = pipeline(
-    "sentiment-analysis",
-    model="distilbert-base-uncased-finetuned-sst-2-english"
-)</code></pre>
-    <p style="margin-top:0.8em;">
-      One line loads the AI model.<br>
-      <code>pipeline</code> handles all the complicated stuff.<br>
-      <span class="highlight-yellow">"sentiment-analysis"</span> is the task &mdash; reading feelings.<br>
-      The model name tells it which brain to download.
-    </p>
-  </section>
-
-  <section>
-    <h2>The Code: The Function</h2>
-    <pre><code class="language-python">def check_mood(text):
-    if not text or not text.strip():
-        return "Paste some text above first!"
-
-    result = analyzer(text)[0]
-    label = result["label"]
-    score = result["score"]
-
-    if label == "POSITIVE":
-        emoji = "😊" if score > 0.9 else "🙂"
-    else:
-        emoji = "😢" if score > 0.9 else "😐"
-
-    return f"{emoji} {label}\n\nConfidence: {score:.0%}"</code></pre>
-    <p>Text goes in. The model reads it. A mood comes out.</p>
-  </section>
-
-  <section>
-    <h2>The Code: The Web Interface</h2>
-    <pre><code class="language-python">demo = gr.Interface(
-    fn=check_mood,
-    inputs=gr.Textbox(lines=8,
-        placeholder="Paste any text here..."),
-    outputs=gr.Textbox(label="Mood Reading"),
-    title="Mood Meter",
-    description="Paste any text and this AI will "
-                "tell you whether it feels POSITIVE "
-                "or NEGATIVE..."
-)
-demo.launch()</code></pre>
-    <p>
-      <code>fn</code> = your function &bull;
-      <code>inputs</code> = what the user types &bull;
-      <code>outputs</code> = what they see
-    </p>
-  </section>
-
-  <section>
-    <h2>requirements.txt</h2>
-    <pre><code>transformers
-torch
-gradio</code></pre>
-    <p>This tells Hugging Face what packages to install.<br>
-    Without it, the Space won't know it needs <code>transformers</code>.</p>
+    <p style="margin-top:0.5em; color:#9ca3af;">When you look at any Space's Files tab, you'll see this same pattern.</p>
   </section>
 </section>
 
-<!-- ========== DEPLOY & TEST ========== -->
+<!-- ========== TEST IT ========== -->
 <section>
-  <section>
-    <h2>Deploy!</h2>
-    <p style="font-size:1.2em; text-align:center;">Commit your files and watch the Space build.</p>
-    <div class="card" style="text-align:center; margin-top:1em;">
-      <span class="small">It takes 3&ndash;5 minutes. The platform is downloading the model and installing packages.</span>
-    </div>
-  </section>
-
   <section>
     <h2>Test It</h2>
     <div class="try-it">
@@ -358,13 +302,13 @@ gradio</code></pre>
   <p class="fragment" style="color:#9ca3af;">
     ChatGPT: your prompt goes in, text comes out.<br>
     Image generators: a description goes in, a picture comes out.<br>
-    Our Space: text goes in, a feeling comes out.
+    The Mood Meter: text goes in, a feeling comes out.
   </p>
 </section>
 
 <!-- ========== OUR SPACE BREAKDOWN ========== -->
 <section class="center-slide">
-  <h2>Our Space, Broken Down</h2>
+  <h2>The Mood Meter, Broken Down</h2>
   <div class="concept-box" style="font-size:1.2em;">
     <span class="highlight-blue">TEXT</span>
     <span class="arrow"> &rarr; </span>
@@ -375,7 +319,7 @@ gradio</code></pre>
   <div class="fragment" style="margin-top:1.5em;">
     <p>Quick check: can you name the <span class="highlight-blue">input</span>,
     <span class="highlight-yellow">model</span>, and
-    <span class="highlight-green">output</span> for the Emotion Classifier Space?</p>
+    <span class="highlight-green">output</span> for the Sentiment Battle Arena?</p>
   </div>
 </section>
 
@@ -412,7 +356,7 @@ gradio</code></pre>
   </section>
 
   <section>
-    <h2>Our Mood Meter</h2>
+    <h2>The Mood Meter</h2>
     <p style="font-size:1.1em;">
       It says that diary entry is <span class="highlight-pink">NEGATIVE, 97% confident</span>.
     </p>
@@ -423,6 +367,36 @@ gradio</code></pre>
     </p>
     <p class="fragment" style="margin-top:1em; color:#9ca3af;">
       We'll carry this question through the whole course.
+    </p>
+  </section>
+</section>
+
+<!-- ========== YOUR FIRST COLLECTION ========== -->
+<section>
+  <section>
+    <h2>Your First Collection</h2>
+    <p>A <span class="highlight-yellow">Collection</span> is like a playlist &mdash; but for AI Spaces and models.</p>
+    <div class="card" style="margin-top:1em;">
+      <strong>1.</strong> Go to your profile &rarr; click <span class="highlight-yellow">+ New</span> &rarr; <span class="highlight-yellow">Collection</span><br>
+      <strong>2.</strong> Name it <span class="highlight-green">"My Sentiment Space Collection"</span><br>
+      <strong>3.</strong> Add at least one Space from tonight's tour<br>
+      <strong>4.</strong> Write a short note: what did you notice about this Space?
+    </div>
+  </section>
+
+  <section>
+    <h2>Share What You Found</h2>
+    <div class="observation-card">
+      What Space did you add to your Collection?
+    </div>
+    <div class="observation-card">
+      What did you write in your note?
+    </div>
+    <div class="observation-card">
+      Did you find anything surprising when you explored the Space?
+    </div>
+    <p class="fragment" style="margin-top:0.8em; color:#9ca3af; font-size:0.9em;">
+      Your Collection is public. It's part of your AI portfolio &mdash; a record of what you've explored and what you think about it.
     </p>
   </section>
 </section>
@@ -446,7 +420,7 @@ gradio</code></pre>
     <span class="vocab-term">Confidence score</span> &mdash; how sure the model is (0&ndash;100%)
   </div>
   <div class="card">
-    <span class="vocab-term">Gradio</span> &mdash; the Python library that builds the web interface
+    <span class="vocab-term">Collection</span> &mdash; a curated playlist of Spaces and models on your HF profile
   </div>
 </section>
 
@@ -471,11 +445,12 @@ gradio</code></pre>
   <h2>Between Sessions</h2>
   <p><strong>Challenge:</strong> Try the Mood Meter with text you actually care about.</p>
   <div class="card" style="margin-top:0.8em;">
-    <strong>1.</strong> Go to the Space &rarr; click <strong>&#8943;</strong> &rarr; <strong>Duplicate this Space</strong><br>
-    <strong>2.</strong> Feed it text that matters to you
+    <strong>1.</strong> Visit <a href="https://huggingface.co/spaces/profplate/mood-meter">profplate/mood-meter</a> (or any Space from your Collection)<br>
+    <strong>2.</strong> Feed it text that matters to you<br>
+    <strong>3.</strong> Add at least <span class="highlight-yellow">2 more Spaces</span> to your Collection &mdash; use the Field Guide to write your notes
   </div>
   <div style="margin-top:0.8em;">
-    <p><strong>Ideas:</strong></p>
+    <p><strong>Ideas for testing:</strong></p>
     <div class="card">A song lyric you've been listening to</div>
     <div class="card">A paragraph from a book you're reading</div>
     <div class="card">A text you sent or received recently</div>
@@ -496,7 +471,7 @@ gradio</code></pre>
     Can you find text where the model is clearly wrong about the feeling?
   </div>
   <p style="margin-top:1em; color:#9ca3af;">
-    Bring your result to Session 2. Be ready to share what you tried and what surprised you.
+    Bring your results and your Collection to Session 2. Be ready to share what you tried and what surprised you.
   </p>
 </section>
 

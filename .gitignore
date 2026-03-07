@@ -1,6 +1,12 @@
 .DS_Store
 __pycache__/
+.claude/
+
+# Planning and reference files (not part of the course materials)
 GOOGLE-CLASSROOM-STATUS.md
 NEXT-SESSION-PROMPT.md
 SESSION-STATUS.md
 SLIDES-AND-LINKS-GUIDE.md
+extra/
+reference-guides/
+space-builder-guides/

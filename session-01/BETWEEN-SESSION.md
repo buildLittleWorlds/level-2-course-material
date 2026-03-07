@@ -6,10 +6,8 @@
 
 ### Steps
 
-1. Go to [profplate/mood-meter](https://huggingface.co/spaces/profplate/mood-meter) (or your own if you built one)
-2. Click the **three dots menu** (...) in the top right → **Duplicate this Space**
-3. It will create a copy under your account
-4. Now try feeding it text that matters to you:
+1. Go to [profplate/mood-meter](https://huggingface.co/spaces/profplate/mood-meter) (or any Space from your Collection)
+2. Feed it text that matters to you:
    - A lyric from a song you've been listening to
    - A paragraph from a book you're reading
    - A text you sent or received recently (change the names if you want)
@@ -25,6 +23,19 @@
 ### Bring It Back
 
 Next session, be ready to share: what text did you try, and did the model agree with you?
+
+---
+
+## Grow Your Collection
+
+Add at least **2 more Spaces** to your Collection before next session. Use the **Space Explorer's Field Guide** to write your notes — answer the four questions for each Space you add:
+
+1. What goes in?
+2. What comes out?
+3. What model powers it?
+4. What happens with weird input?
+
+Browse [huggingface.co/spaces](https://huggingface.co/spaces) and search for "sentiment" or "emotion" to find Spaces to try. The five Spaces from class are a good starting point — but try to find at least one you discover on your own.
 
 ---
 

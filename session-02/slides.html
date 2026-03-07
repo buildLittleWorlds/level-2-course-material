@@ -129,10 +129,11 @@
   <h2>Tonight's Goal</h2>
   <p style="font-size:1.2em; text-align:center; margin:1em 0;">
     Same text, three models.<br>
-    Three different kinds of <span class="highlight-yellow">feelings</span>.
+    Three different kinds of <span class="highlight-yellow">feelings</span>.<br>
+    Then curate your own <span class="highlight-green">Model Collection</span>.
   </p>
   <div class="concept-box">
-    Emotion Spectrum
+    Swap the Engine
   </div>
   <p style="text-align:center; color:#9ca3af;">Different models see different kinds of feelings in the same words.</p>
 </section>
@@ -140,7 +141,7 @@
 <!-- ========== SHOW AND TELL ========== -->
 <section>
   <h2>Show-and-Tell</h2>
-  <div class="observation-card" style="font-size:1.1em;">
+  <div class="observation-card" style="font-size:1.05em;">
     Did anyone try the Mood Meter with text they care about?
   </div>
   <div style="margin-top:1em;">
@@ -149,13 +150,18 @@
     <div class="card">Where did it surprise you?</div>
     <div class="card">Did you find text where it got the feeling wrong?</div>
   </div>
+  <div class="fragment" style="margin-top:0.8em;">
+    <div class="observation-card">
+      Show us a Space you added to your Collection. What did you write in your note?
+    </div>
+  </div>
 </section>
 
 <!-- ========== THE THREE MODELS ========== -->
 <section>
   <section>
     <h2>Three Lenses on Feeling</h2>
-    <p>Our Mood Meter sees the world in <span class="highlight-blue">black and white</span>.<br>
+    <p>The Mood Meter sees the world in <span class="highlight-blue">black and white</span>.<br>
     What if we gave it <span class="highlight-pink">more words for feelings</span>?</p>
     <div class="three-col" style="margin-top:1em;">
       <div class="card">
@@ -178,11 +184,12 @@
 
   <section>
     <h2>Model 1: Binary</h2>
+    <p>This is the Mood Meter's model &mdash; the one you already know.</p>
     <pre><code class="language-python">analyzer = pipeline(
     "sentiment-analysis",
     model="distilbert-base-uncased-finetuned-sst-2-english"
 )</code></pre>
-    <p style="margin-top:0.8em;">This model only knows two words: <span class="highlight-yellow">POSITIVE</span> and <span class="highlight-pink">NEGATIVE</span>.</p>
+    <p style="margin-top:0.8em;">It only knows two words: <span class="highlight-yellow">POSITIVE</span> and <span class="highlight-pink">NEGATIVE</span>.</p>
     <p class="fragment" style="color:#9ca3af;">Trained on 50,000 movie reviews. It thinks everything is either a good movie or a bad movie.</p>
   </section>
 
@@ -225,7 +232,7 @@
   <section>
     <h2>Same Text, Three Answers</h2>
     <div class="try-it">
-      <strong>Try this input with all three:</strong><br>
+      <strong>Let's try this in the Sentiment Battle Arena:</strong><br>
       <em>"I stayed up until 4am thinking about what I said to her. I keep replaying it."</em>
     </div>
     <div class="fragment">
@@ -237,6 +244,27 @@
       They all read the same words. Why do they see different feelings?
     </p>
   </section>
+</section>
+
+<!-- ========== INSIDE THE SPACE ========== -->
+<section>
+  <h2>Inside the Emotion Spectrum</h2>
+  <p>Let's look at the Files tab to see how a Space runs <span class="highlight-yellow">three models</span> at once.</p>
+  <pre><code class="language-python">from transformers import pipeline
+
+# Three models, three ways of seeing feelings
+model_binary = pipeline("sentiment-analysis",
+    model="distilbert-base-uncased-finetuned-sst-2-english")
+
+model_emotion = pipeline("text-classification",
+    model="j-hartmann/emotion-english-distilroberta-base")
+
+model_zeroshot = pipeline("zero-shot-classification",
+    model="valhalla/distilbart-mnli-12-3")</code></pre>
+  <p style="margin-top:0.8em;">
+    Same pattern as the Mood Meter &mdash; just three pipelines instead of one.<br>
+    <span class="highlight-yellow">Same text in, different feelings out.</span>
+  </p>
 </section>
 
 <!-- ========== MODEL CARD ACTIVITY ========== -->
@@ -349,48 +377,6 @@
   </section>
 </section>
 
-<!-- ========== BUILD: FINAL CODE ========== -->
-<section>
-  <section>
-    <h2>The Code: Three Models</h2>
-    <pre><code class="language-python">from transformers import pipeline
-
-# Three models, three ways of seeing feelings
-model_binary = pipeline("sentiment-analysis",
-    model="distilbert-base-uncased-finetuned-sst-2-english")
-
-model_emotion = pipeline("text-classification",
-    model="j-hartmann/emotion-english-distilroberta-base")
-
-model_zeroshot = pipeline("zero-shot-classification",
-    model="valhalla/distilbart-mnli-12-3")</code></pre>
-    <p style="margin-top:0.8em;">
-      Three pipelines. Three brains. Three training histories.<br>
-      <span class="highlight-yellow">Same text in, different feelings out.</span>
-    </p>
-  </section>
-
-  <section>
-    <h2>The Code: Interface</h2>
-    <pre><code class="language-python">demo = gr.Interface(
-    fn=analyze_feelings,
-    inputs=[
-        gr.Textbox(lines=6, placeholder="..."),
-        gr.Textbox(lines=1, value="love, grief, ...",
-            label="Custom feeling labels (Model 3)"),
-    ],
-    outputs=[
-        gr.Textbox(label="Binary (Pos / Neg)"),
-        gr.Textbox(label="Seven Emotions"),
-        gr.Textbox(label="YOUR Feeling Labels"),
-    ],
-    title="Emotion Spectrum",
-)
-demo.launch()</code></pre>
-    <p>Same structure as Session 1 &mdash; more outputs, same pattern.</p>
-  </section>
-</section>
-
 <!-- ========== NAME THE CONCEPT ========== -->
 <section class="center-slide">
   <h2>Name the Concept</h2>
@@ -435,7 +421,7 @@ demo.launch()</code></pre>
     </div>
     <p class="fragment small">The tweet model uses Ekman's list + "neutral." That's where the 7 categories come from.</p>
     <p class="fragment" style="margin-top:0.5em; color:#9ca3af; font-size:0.85em;">
-      Ekman studied <em>faces</em>, not words. When someone says "I'm fine" in a flat voice, you know they're not fine &mdash; you're reading <span class="highlight-pink">tone</span>, not text. We'll build a model that hears voices in a few weeks.
+      Ekman studied <em>faces</em>, not words. When someone says "I'm fine" in a flat voice, you know they're not fine &mdash; you're reading <span class="highlight-pink">tone</span>, not text. We'll explore a model that hears voices in a few weeks.
     </p>
   </section>
 
@@ -460,6 +446,31 @@ demo.launch()</code></pre>
     <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
       Can you think of a feeling you've had that doesn't fit into any of the 7 categories?
     </p>
+  </section>
+</section>
+
+<!-- ========== CURATE YOUR MODEL COLLECTION ========== -->
+<section>
+  <section>
+    <h2>Curate Your Model Collection</h2>
+    <p>Last week you collected <span class="highlight-yellow">Spaces</span>. This week: <span class="highlight-green">models</span>.</p>
+    <div class="card" style="margin-top:1em;">
+      <strong>1.</strong> Create a new Collection: <span class="highlight-green">"My Sentiment Model Lineup"</span><br>
+      <strong>2.</strong> Go to <a href="https://huggingface.co/models">huggingface.co/models</a> and search for sentiment models<br>
+      <strong>3.</strong> Test a model using the <span class="highlight-yellow">Inference Widget</span> on its page<br>
+      <strong>4.</strong> Add it to your Collection with a <span class="highlight-blue">tasting note</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>The Model Spectrum</h2>
+    <p>Models range from simple to nuanced:</p>
+    <div class="card"><strong class="highlight-yellow">Binary</strong> &mdash; Positive or Negative</div>
+    <div class="card"><strong class="highlight-blue">Ternary</strong> &mdash; Positive, Negative, or Neutral</div>
+    <div class="card"><strong class="highlight-green">5-Star</strong> &mdash; Rates text 1&ndash;5 (like a review)</div>
+    <div class="card"><strong class="highlight-pink">7 Emotions</strong> &mdash; anger, disgust, fear, joy, neutral, sadness, surprise</div>
+    <div class="card"><strong class="highlight-yellow">28 Emotions</strong> &mdash; multi-label (admiration, amusement, etc.)</div>
+    <p class="fragment small" style="margin-top:0.5em;">More categories doesn't always mean better. The right model depends on the task.</p>
   </section>
 </section>
 
@@ -504,16 +515,15 @@ demo.launch()</code></pre>
 <!-- ========== BETWEEN SESSIONS ========== -->
 <section>
   <h2>Between Sessions</h2>
-  <p><strong>Challenge:</strong> Find a model that recognizes feelings the current ones miss.</p>
+  <p><strong>Challenge:</strong> Find a model on the Hub that sees feelings the current ones miss.</p>
   <div class="card" style="margin-top:0.8em;">
     <strong>1.</strong> Go to <a href="https://huggingface.co/models">huggingface.co/models</a><br>
     <strong>2.</strong> Search for <span class="highlight-yellow">"emotion"</span> or <span class="highlight-yellow">"sentiment"</span><br>
     <strong>3.</strong> Read the model card &mdash; what feelings does it know?<br>
-    <strong>4.</strong> Try swapping it into your Space
+    <strong>4.</strong> Test it with the Inference Widget, then add it to your <span class="highlight-green">Model Collection</span> with a tasting note
   </div>
   <div class="observation-card" style="margin-top:0.8em;">
-    <strong>What to notice:</strong><br>
-    Does this model recognize any feelings that our three models couldn't see?
+    <strong>Goal:</strong> Your Model Collection should have at least <span class="highlight-yellow">4 models</span> and <span class="highlight-yellow">2 Spaces</span> by Session 3.
   </div>
 </section>
 

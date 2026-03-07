@@ -16,22 +16,25 @@
    - What was it trained on?
    - What emotion labels does it use?
    - What feelings are missing from its categories?
-4. Try swapping it into your Space:
-   - Open your Space's `app.py` in the Files tab
-   - Change the model name in the `pipeline()` line
-   - You might need to change the pipeline task too (e.g., `"text-classification"`, `"sentiment-analysis"`)
-5. If it breaks, that's totally fine! Note what happened.
+4. Test it using the **Inference Widget** on the model page — type a sentence and see what it returns.
+5. **Add it to your Model Collection** with a tasting note. Use the template from the *Model Tasting Notes* handout: model name, what it classifies, trained on, easy test, interesting test, strength, weakness.
 
 ### What to Notice
 
 - Does the new model use different feeling categories than the ones we tried tonight?
 - Does it recognize any emotions that our three models couldn't see?
-- Did it need different inputs to work well?
+- Did it need different kinds of input to work well?
 - What kind of training data was it built on? How does that change what it "understands"?
 
 ### Bring It Back
 
-Next session, be ready to share: what model did you try, and what feelings could it see that ours couldn't?
+Next session, be ready to share: what model did you find, and what feelings could it see that ours couldn't?
+
+---
+
+## Grow Your Model Collection
+
+Your Model Collection should have at least **4 models** and **2 Spaces** by Session 3. For each item, write a tasting note explaining what you discovered.
 
 ---
 
@@ -43,6 +46,8 @@ Try to find:
 - Text where all three models agree about the feeling
 - Text where they completely disagree
 - A feeling you've had that none of the three models can name
+
+Use your notebook results to write better tasting notes for your Collection.
 
 ## GitHub
 
