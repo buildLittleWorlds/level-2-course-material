@@ -43,7 +43,7 @@ The course is organized into four arcs, each building on the one before:
 
 By the end of this course, you'll be able to:
 
-- Load and use pre-trained AI models for sentiment analysis, emotion detection, speech emotion recognition, and facial emotion recognition
+- Load and use pre-trained AI models for an amazing variety of uses. We will focus in our sessions on sentiment analysis, emotion detection, speech emotion recognition, and facial emotion recognition, but you will be able to expand to all the powerful uses AI has been trained to accomplish
 - Build and deploy web applications powered by AI that anyone can access
 - Read a model card and understand what a model was trained on, what it's good at, and where it might fail
 - Compare models and evaluate their performance on different kinds of data
