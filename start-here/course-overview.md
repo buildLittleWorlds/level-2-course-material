@@ -14,7 +14,7 @@ There's a version of an AI course that starts with theory: "First, let's define 
 
 This course flips that. We start with a working thing — a Space that does something interesting — and then we ask: how does it work? What happens if we change this? Why did the model get that wrong? The concepts emerge from the building, not the other way around.
 
-Here's an example. In Session 1, you build a **Mood Meter**. You paste in a sentence — something you might write in a journal, text to a friend, or say out loud — and the app tells you whether it reads as positive or negative, with a confidence score. Students try happy sentences, sad ones, angry ones, and ambiguous ones. The gap between what the model thinks and what you actually feel is where the learning starts.
+Here's an example. In Session 1, we will experiment with a simple AI app, a **Mood Meter**. You paste in a sentence — something you might write in a journal, text to a friend, or say out loud — and the app tells you whether it reads as positive or negative, with a confidence score. Students try happy sentences, sad ones, angry ones, and ambiguous ones. The gap between what the model thinks and what you actually feel is where the learning starts.
 
 But look at what's actually happening under the hood. You're using **sentiment analysis** — a technique where an AI model reads text and classifies its emotional tone. That's a real, powerful technique used in industry for things like customer feedback analysis, social media monitoring, brand reputation tracking, and mental health research tools. The Mood Meter and a professional customer insights platform use the exact same underlying technology. The difference is just the interface you wrap around it.
 
