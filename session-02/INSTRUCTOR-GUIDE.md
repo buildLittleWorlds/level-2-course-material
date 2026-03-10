@@ -34,6 +34,11 @@ If students share: ask what they noticed. "What made you pick that Space? What s
 
 If nobody grew their Collection: that's fine. They'll have time to work on it tonight.
 
+**SpaceCraft check-in (2-3 min):**
+Show SpaceCraft on screen. Say: "I've been doing my own version of what I'm asking you to do. Every week I explore Spaces on Hugging Face and rate the ones I think are exceptional — on how they look, what they invent, and how fun they are to use."
+
+Show a Space you added this week — pick one that demonstrates comparative analysis (two Spaces that do the same task differently). For example, show two image generation Spaces and point out: "Same task, different approach. Sound familiar? That's what we're about to do with sentiment models."
+
 **Transition:** "Last week the Mood Meter only knew two feelings: POSITIVE and NEGATIVE. That's like saying music is either loud or quiet. Tonight we're going to see what happens when we give the model more words for feelings."
 
 ### 0:15–0:35 — "What If We Change the Lens?"
@@ -141,6 +146,14 @@ Then run the same texts through the Emoji Mood Translator and the Headline Mood 
 - "Same text, different representation, different answer. The model doesn't 'understand' feelings — it matches patterns from its training data."
 
 **Quick check:** "If you wanted a model that detects nostalgia, what kind of training data would you need? Who would you ask to label it?"
+
+#### Research Lens (5 min)
+
+**Say:** "Let me name what we just did in research terms. We did a **comparative analysis** using different **operationalizations** of emotion. That's a fancy way of saying: we took the same question — 'how does this text feel?' — and tested it with three different tools that each define 'feeling' differently. Binary, seven categories, and open-ended."
+
+**Frame the shared research question:** "Here's the research question we were investigating tonight: *How does the choice of emotion taxonomy affect sentiment classification?* Three models, three taxonomies, three different answers on the same text. That's comparative analysis."
+
+**Bridge to their own work:** "In class, we applied comparative analysis to sentiment. For your homework, you'll apply the same method to your own topic — find two models or Spaces that do similar things but differently, test them on the same inputs, and see where they diverge. Same method, your question."
 
 #### Big Question: Who Decided There Are 6 Basic Emotions? (10–15 min)
 

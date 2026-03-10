@@ -1,10 +1,14 @@
 # Between Sessions 11 & 12
 
-## Final Polish Before Demo Day
+This week's homework has three parts: final polish, a research journal entry, and portfolio prep. Plan for about 1-2 hours total. This is the last between-session — Demo Day is next.
 
-This is it — next session is demo day. Here's how to prepare.
+---
 
-### Fix One Thing
+## Part 1: Hub Challenge — Final Polish + Practice Your Presentation
+
+In class you iterated on your Space with real feedback. Now finish the polish and practice telling your research story.
+
+### Final Polish
 
 Look at the feedback you got from your classmates. Pick the **one suggestion** that would make the biggest difference. Fix it.
 
@@ -14,30 +18,95 @@ Common quick fixes:
 - Improve how the output is displayed
 - Fix an input that causes an error
 
-### Practice Your Demo
+Wake up your Space if you haven't visited it in a few days — free Spaces go to sleep.
 
-You'll have 5-7 minutes. Practice out loud — to yourself, a parent, a sibling, your cat. Cover:
+### Practice Your Presentation
 
-1. **What it does** — one sentence
-2. **Live demo** — show it working (have your inputs ready!)
-3. **What model you used** — and why you picked it
-4. **What went wrong** — the hardest part, the thing that broke
-5. **What you'd improve** — if you had more time
+You'll have 5-7 minutes. Practice out loud — to yourself, a parent, a sibling, anyone. Cover all five parts:
 
-### Wake Up Your Space
+```
+1. MY QUESTION (30 seconds)
+   What topic did you investigate? What question were you circling?
 
-If you haven't visited your Space in a few days, open the URL so it wakes up. Free Spaces go to sleep after a while, and the first load takes a minute.
+2. MY JOURNEY (1-2 minutes)
+   Show your HF Collection. Highlight 2-3 key journal entries.
+   What methods did you use? How did your question evolve?
+
+3. MY ARTIFACT (2 minutes)
+   Live demo of your Space with 2-3 inputs.
+
+4. WHAT I FOUND (1-2 minutes)
+   What did you learn? What surprised you? What are the limitations?
+
+5. WHAT'S NEXT (30 seconds)
+   If you kept going, what would you investigate?
+```
+
+**Tip:** Open your Collection and your `research-journal.md` before you practice. You'll want to show them during parts 1 and 2.
+
+### Checklist
+
+- [ ] Fixed the one thing that matters most
+- [ ] Space loads without errors
+- [ ] Demo inputs ready (no searching during the presentation)
+- [ ] Practiced the full 5-part presentation out loud at least once
+- [ ] Collection and journal ready to show
 
 ### Bring It Back
 
-Next session: your Space, your story, your demo. You built something real that lives on the internet. Show it off.
+Next session: your Space, your Collection, your journal, your story. You built something real. You followed a question for 10 weeks. Show it off.
 
 ---
 
-## Notebook
+## Part 2: Research Journal Entry
 
-Fix both debug challenges if you haven't already. Update your Space's README.
+Add your Week 11 entry to `research-journal.md` in your GitHub repo. This is your final entry — the one that ties the whole narrative together. 300-500 words.
 
-## GitHub
+### Week 11 Entry
 
-Update any files in your repo that need fixing. Practice: edit a file directly on github.com.
+```markdown
+## Week 11 — The Thread
+
+### Looking Back
+(Read through your previous journal entries — all 9 of them. What topic kept coming up? What question were you circling?)
+
+### The Thread
+(What's the connecting thread across your entries? How did your focus narrow from broad exploration to a specific investigation?)
+
+### Methods I Used
+(Which research methods from the course did you actually apply in your own work? Examples: comparative analysis, adversarial testing, baseline comparison, parameter sweep, generalization testing, fairness audit, error propagation, user-centered design, end-to-end system design.)
+
+### What My Collection Shows
+(Look at your HF Collection. How many items? What does the collection say about your interests? Which items were most important to your final project?)
+
+### What My Space Represents
+(Your Space is the artifact that came from 10 weeks of exploration. How does it connect to your journal entries and Collection? What question does it answer — or try to answer?)
+
+### If I Kept Going
+(If this course lasted another 12 weeks, where would your investigation go? What question would you ask next?)
+```
+
+This entry is different from the others — it's not about a single method. It's about the arc. Read your old entries, see the pattern, name it.
+
+---
+
+## Part 3: Collection + GitHub
+
+### Collection
+
+Your Collection should have at least **12 models and 7 Spaces**. This is the final count — make sure your tasting notes are clear enough that someone else could understand why you collected each item.
+
+### Notebook
+
+Fix both debug challenges from the session 11 notebook if you haven't already. Update your Space's README.
+
+### GitHub
+
+Upload this week's notebook to your `my-ai-portfolio` repo:
+
+1. Go to your repo on github.com
+2. Click **Add file** → **Upload files**
+3. Drag the `.ipynb` file and click **Commit changes**
+4. Open `research-journal.md`, click the pencil icon to edit, add your Week 11 entry below the Week 10 entry, and commit
+
+Your GitHub repo should now have: notebooks from most sessions, a `research-journal.md` with up to 11 entries, and a clear README.

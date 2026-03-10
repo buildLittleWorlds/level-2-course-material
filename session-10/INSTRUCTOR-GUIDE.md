@@ -8,9 +8,11 @@
 
 ## Time Breakdown (2 hours)
 
-### 0:00–0:15 — "You've Built 5 Spaces With Me. Now You Build Your Own."
+### 0:00–0:10 — Show-and-Tell + Recap
 
-Quick recap of every Space so far:
+Quick share: who did you redesign for last week? What did you learn from watching someone else try your Space?
+
+Then recap every Space built so far:
 
 | Session | Space | Task Type |
 |---------|-------|-----------|
@@ -26,6 +28,14 @@ Quick recap of every Space so far:
 
 > "Every one of these used a model someone else trained. Today you pick the model, pick the task, and build the whole thing."
 
+### 0:10–0:13 — SpaceCraft Check-In
+
+Pull up SpaceCraft. Show a Space where the builder clearly chose a specific audience and designed everything around that person.
+
+**Say:** "I added this Space to SpaceCraft. Notice how the title tells you exactly what it does. The examples are realistic. The output gives you something to act on. This person didn't just pick a model — they designed a complete experience. That's what you're doing tonight. And look at your Collections — you've been exploring for 9 weeks. The model you pick tonight should come from that exploration."
+
+### 0:13–0:25 — Hub Browsing Demo
+
 **Live demo: Browsing the Hub**
 
 1. Go to [huggingface.co/models](https://huggingface.co/models)
@@ -34,9 +44,9 @@ Quick recap of every Space so far:
 4. Click on a model card — show: task, training data, labels, size
 5. Show how to check if it's free-CPU-compatible (look at model size)
 
-### 0:15–0:40 — Students Browse and Pitch
+### 0:25–0:45 — Students Browse and Pitch
 
-Each student spends 10 minutes browsing, then pitches in 1–2 sentences:
+Each student spends 10 minutes browsing (encourage them to start from their Collection), then pitches in 1–2 sentences:
 
 - "I want to build a _____ that uses _____ model."
 
@@ -45,16 +55,16 @@ Each student spends 10 minutes browsing, then pitches in 1–2 sentences:
 - Can't find a model? → Show the pre-screened list below.
 - Stuck on ideas? → Hand them a rescue template from `templates/`.
 
-### 0:40–1:30 — Build Time (50 minutes)
+### 0:45–1:25 — Build Time (40 minutes)
 
-**Cycling through 5–6 students (~8 min each):**
+**Cycling through 5–6 students (~6 min each):**
 
 | Minute | Focus |
 |--------|-------|
 | 0–2 | Check their model choice. Does it load? Is it CPU-compatible? |
 | 2–4 | Help them get the basic pipeline working (`pipeline("task", model="...")`) |
-| 4–6 | Help with the Gradio interface — inputs, outputs, title, description |
-| 6–8 | Test with one example. Does it produce reasonable output? |
+| 4–5 | Help with the Gradio interface — inputs, outputs, title, description |
+| 5–6 | Test with one example. Does it produce reasonable output? |
 
 **Rescue plan:** If a student can't get their model working after 10 minutes, hand them a rescue template:
 - `templates/text-classifier.py` — emotion detection (always works)
@@ -71,7 +81,7 @@ Each student spends 10 minutes browsing, then pitches in 1–2 sentences:
 | Space won't build | Check `requirements.txt` has all dependencies |
 | Gradio error | Make sure function returns a string |
 
-### 1:30–1:50 — Test and Iterate
+### 1:25–1:40 — Test and Iterate + Peer Testing
 
 Students test their own Spaces:
 - Try 5 different inputs
@@ -80,21 +90,7 @@ Students test their own Spaces:
 
 **Peer quick-test:** Each student tries the Space of the person next to them (or the person before/after in the Zoom gallery).
 
-### 1:30–1:40 — Notebook Time
-
-Share the Colab notebook link in the Zoom chat. Students open it and start experimenting with their chosen model.
-
-**What they do:**
-- Run the setup cell
-- Uncomment the pipeline line that matches their model choice (or write their own)
-- Test with 5 different inputs
-- Fill in the "Plan your Space" section
-
-**Instructor role:** Help anyone whose model isn't loading. If a student can't decide, point them to the pre-screened list in the notebook. The notebook has commented-out lines for each model — they just uncomment one.
-
-**GitHub skill:** Show how to download the notebook from Colab and upload it to their `my-ai-portfolio` repo on GitHub. This is their first time pushing a notebook they wrote.
-
-### 1:50–2:00 — Name the Concept
+### 1:40–1:48 — Name the Concept
 
 > "You just did something specific: you picked a *task*, picked a *model trained on labeled data*, and designed an interface around it. That's **supervised learning** — and the choices you made (what labels? what data? what task?) are **task design**."
 
@@ -109,6 +105,34 @@ Share the Colab notebook link in the Zoom chat. Students open it and start exper
 |---------|--------------|-------------|
 | Supervised Learning | Training a model on labeled examples (input → correct output) | Used models trained on human-labeled datasets |
 | Task Design | Choosing what question to ask and what categories/outputs to support | Picked a task type, chose a model, designed the interface |
+
+### 1:48–1:53 — Research Lens (5 minutes)
+
+**Say:** "Let's name what you just did in research terms."
+
+"You just did **end-to-end system design** — choosing a question, a method, and building a tool to answer it. That's a **research prototype**. In a research lab, you don't just run experiments — you build tools that let you run experiments. That's what you built today."
+
+**Research question:** Each student should be able to articulate their own: "I built a tool that [does what] for [whom] using [which model]. The question I'm investigating is [what]."
+
+**The method (applies to any topic):** Choose a problem, select a model that addresses it, design an interface, and test with real inputs. This is the full research cycle: question → method → prototype → evaluation.
+
+**Bridge to homework:** "Your Research Journal entry this week is the most important one yet. You chose a question, a model, and built something. Write about *why* you made those choices — that's research methodology."
+
+### 1:53–2:00 — Notebook Time + Between-Session Preview
+
+Share the Colab notebook link in the Zoom chat. Students open it and start experimenting with their chosen model.
+
+**What they do:**
+- Run the setup cell
+- Uncomment the pipeline line that matches their model choice (or write their own)
+- Test with 5 different inputs
+- Fill in the "Plan your Space" section
+
+**Instructor role:** Help anyone whose model isn't loading. If a student can't decide, point them to the pre-screened list in the notebook. The notebook has commented-out lines for each model — they just uncomment one.
+
+**GitHub skill:** Show how to download the notebook from Colab and upload it to their `my-ai-portfolio` repo on GitHub. This is their first time pushing a notebook they wrote.
+
+**Say:** "Three things before next session: get your Space working, write your most important Research Journal entry yet, and grow your Collection. Details in the between-session doc. Next week we iterate and polish — take what you built tonight and make it better."
 
 ---
 

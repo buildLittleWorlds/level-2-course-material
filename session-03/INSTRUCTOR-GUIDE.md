@@ -17,6 +17,9 @@ If yes: share it. What model did they find? Did it work? What emotions did it re
 
 If no: quickly show a model you tried between sessions. Keep it to 2 minutes.
 
+**SpaceCraft check-in (2-3 min):**
+Pull up SpaceCraft briefly. Show a Space you added this week and try to break it with an adversarial input — something it wasn't designed for, or an edge case that confuses it. For example, give an OCR Space a blurry photo, or give an image generator a contradictory prompt. Say: "I tried to break this one too. That's what we're about to do with our Mood Meter — adversarial testing."
+
 **Transition:** "Today we're going back to our original Mood Meter from Session 1. But instead of comparing different models, we're going to break it — on purpose. We're going to feed it the kind of text that starts fights in your group chat."
 
 ### 0:10–0:35 — Break It
@@ -198,6 +201,14 @@ MESSY INPUT → clean_text() → CLEANER INPUT → MODEL → OUTPUT
 - "But here's what we learned tonight: cleaning helps with noise — but tone is not noise. Tone is meaning."
 - "Sarcasm, irony, understatement — these aren't formatting problems. They're human problems. And the model has the same problem you do when you misread a text."
 - "In data science, this is called DATA CLEANING — preparing input so the model can do its best work. And FEATURE ENGINEERING — transforming raw input into something the model can actually use."
+
+#### Research Lens (5 min)
+
+**Say:** "Let me name what we just did in research terms. We tested **adversarial inputs** and performed **data preprocessing** — cleaning noise vs. signal. In research, adversarial testing means deliberately trying to break a system to find its limits. And preprocessing means transforming data before the model sees it — exactly what `clean_text()` does."
+
+**Frame the shared research question:** "Here's the research question we were investigating tonight: *What types of text input cause sentiment models to fail, and can preprocessing fix them?* We ran a controlled before/after comparison — same inputs, with and without cleaning — and found that cleaning fixes noise but not meaning."
+
+**Bridge to their own work:** "In class, we applied adversarial testing and preprocessing to sentiment. For your homework, you'll apply the same method to your own topic — find an input that breaks a model in your Collection, figure out whether it's a noise problem or a meaning problem, and try to fix it. Same method, your question."
 
 ### 1:50–2:00 — Notebook Time
 

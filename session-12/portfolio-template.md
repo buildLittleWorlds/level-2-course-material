@@ -13,6 +13,40 @@
 
 ---
 
+### Research Question
+
+What question was this student investigating by the end of the course?
+
+>
+
+---
+
+### HF Collection
+
+**Collection URL:** [link]
+
+**Item count:** ___ models, ___ Spaces
+
+**Focus area:** (What topic does the Collection center on? e.g., emotion detection, translation quality, image classification for animals)
+
+>
+
+---
+
+### Research Journal
+
+**GitHub repo:** [link to my-ai-portfolio repo]
+
+**Research journal:** [link to research-journal.md]
+
+**Number of entries:** ___
+
+**Summary of the investigative thread:** (How did the student's focus evolve from Week 2 to Week 11? What question were they circling?)
+
+>
+
+---
+
 ### Spaces Built
 
 | # | Space Name | URL | What It Does | Session Built |
@@ -47,6 +81,22 @@
 
 ---
 
+### Research Methods Used
+
+Which methods from the course did this student apply in their own investigation? Check all that apply:
+
+- [ ] Comparative Analysis (Session 2) — compared multiple models on same inputs
+- [ ] Adversarial Testing (Session 3) — found inputs that break models
+- [ ] Baseline Comparison (Session 4) — evaluated models side by side with ground truth
+- [ ] Parameter Sweep (Session 5) — systematically changed one variable at a time
+- [ ] Generalization Testing (Session 6) — tested models outside their training domain
+- [ ] Fairness Audit (Session 7) — designed paired tests for algorithmic bias
+- [ ] Error Propagation (Session 8) — measured how errors cascade in multi-model systems
+- [ ] User-Centered Design (Session 9) — shifted from "does it work?" to "can someone use it?"
+- [ ] End-to-End System Design (Session 10) — chose a question, a method, and built a research prototype
+
+---
+
 ### Final Project
 
 **Space name:** ___________________________
@@ -67,11 +117,11 @@
 
 >
 
-**Hardest thing built:**
+**Most useful research method:**
 
 >
 
-**What they'd build next:**
+**What they'd investigate next:**
 
 >
 

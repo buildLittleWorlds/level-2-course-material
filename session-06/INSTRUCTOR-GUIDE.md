@@ -13,16 +13,47 @@
 - Ask: "What settings recipes did you find? What worked best for what task?"
 - Quick share of between-session experiments from the Text Playground.
 
-### 0:05–0:15 — The Hook: "Same Models, Different Worlds"
-- Open the Session 4 Sentiment Showdown Space.
-- Say: "These three models haven't changed. Same weights, same training. But today we're going to give them text they've never seen before."
+### 0:05–0:08 — SpaceCraft Check-In
+
+Pull up SpaceCraft briefly. Show a Space you tested outside its training domain — for example, an English document OCR Space tested with Japanese text, or an image classifier trained on photos tested with drawings.
+
+Say: "I added this to SpaceCraft this week. It works great on what it was trained on. But watch what happens when I give it something from a completely different world — that's domain shift, and that's what we're investigating tonight."
+
+### 0:08–0:23 — Big Question: Is "Positive" the Same Thing Everywhere?
+
+**This is the centerpiece discussion for this session. Run it before the Domain Safari, while energy is high.**
+
+**Do this live:** Open the Session 4 Sentiment Showdown Space. Paste these two inputs one at a time:
+
+> "This phone is great."
+
+Run it. All three models will likely say POSITIVE with high confidence.
+
+> "Shall I compare thee to a summer's day?"
+
+Run it. The models will probably say POSITIVE again — maybe with slightly different confidence.
+
+**Ask:** "Both got POSITIVE. Are they the same kind of positive?"
+
+**Let students respond.** They'll see the difference immediately: one is satisfaction with a purchase, the other is devotion, beauty, longing.
+
+**Push further:**
+- "The model gives both sentences the same label. But 'This phone is great' and 'Shall I compare thee to a summer's day?' are completely different kinds of positive. One is about a product. The other is about love."
+- "Language carries feeling differently in different contexts. A therapist hears 'I'm fine' differently than your friend does. Should the model?"
+- "Here's a harder question: a product review and a love poem exist in completely different domains. The word 'great' means something different in each. Is the model reading the same thing in both?"
+
+**Don't resolve this.** The Domain Safari will bring the question to life with concrete examples.
+
+### 0:23–0:30 — The Hook: "Same Models, Different Worlds"
+- Open the Session 4 Sentiment Showdown Space (or have students open their own duplicates from Session 4).
+- Say: "These three models haven't changed. Same weights, same training. But today we're going to give them text they've never seen before — from worlds they were never trained on."
 - Quick reminder of what each model was trained on:
   - Movie reviews
   - Tweets
   - Product reviews
 - Ask: "If the movie-review model has only ever read movie reviews, what happens when we give it a poem?"
 
-### 0:15–0:50 — Domain Safari (35 minutes)
+### 0:30–1:05 — Domain Safari (35 minutes)
 
 Paste pre-prepared texts from different domains (see full list below). For each one:
 
@@ -34,7 +65,7 @@ Work through at least 5-6 domains. Let students pick which to try if time is tig
 
 **Pacing:** Spend ~5 minutes per domain. Don't rush — the discussion after each test is where learning happens.
 
-### 0:50–1:10 — Pattern Recognition (20 minutes)
+### 1:05–1:20 — Pattern Recognition (15 minutes)
 
 After testing multiple domains, step back and look for patterns:
 
@@ -49,7 +80,7 @@ Pull up the model cards again (from Session 4):
 
 Connect model card → training data → domain performance: "The Twitter model handles slang because it was trained on tweets. The product model handles star ratings because that's what it learned from."
 
-### 1:10–1:30 — Student Challenge: Find a Domain Where ALL Models Fail (20 minutes)
+### 1:20–1:35 — Student Challenge: Find a Domain Where ALL Models Fail (15 minutes)
 
 Students suggest text types to test. The goal: find something that confuses every model.
 
@@ -60,7 +91,7 @@ Students suggest text types to test. The goal: find something that confuses ever
 - Try text with no sentiment at all (a recipe, a math problem)
 - Try text from a domain none of the models ever saw (legal text, medical notes, code)
 
-### 1:30–1:50 — Name the Concept: OVERFITTING AND DOMAIN SHIFT (20 minutes)
+### 1:35–1:48 — Name the Concept: OVERFITTING AND DOMAIN SHIFT (13 minutes)
 
 **Overfitting:**
 - "When a model gets SO good at its training data that it can't handle anything else."
@@ -76,7 +107,19 @@ Students suggest text types to test. The goal: find something that confuses ever
 - "Remember when we asked 'which model is best?' Now we know the answer: best FOR WHAT?"
 - Evaluation must include testing on the DOMAIN you care about, not just any test set.
 
-### 1:50–1:55 — Notebook Time
+### 1:48–1:53 — Research Lens (5 minutes)
+
+**Say:** "Let's name what we just did in research terms."
+
+"We tested **generalization** — whether a model works on data it wasn't trained on. In research, this is called **external validity**: does your finding hold up outside the specific conditions you tested it in?"
+
+**Research question (shared, sentiment):** "How well do sentiment models generalize across domains — reviews, poetry, legal text, therapy transcripts?"
+
+**The method (applies to any topic):** Cross-domain testing. Take a model trained on Domain A and test it on Domain B, C, D. Where it fails tells you about its training data. Where it succeeds tells you what it actually learned versus what it memorized.
+
+**Bridge to homework:** "In class, we applied cross-domain testing to sentiment analysis. For your homework, you'll apply the same method to your own topic. Take a model from your Collection and test it on data from a domain it wasn't designed for. Does it generalize, or does it fall apart?"
+
+### 1:53–2:00 — Notebook Time + Wrap Up
 
 Share the Colab link in the Zoom chat.
 
@@ -89,8 +132,7 @@ Share the Colab link in the Zoom chat.
 
 **Say:** "The notebook has blank tables and observation cells for you to fill in. Double-click any green text cell to edit it. Write down what you noticed about each domain."
 
-### 1:55–2:00 — Between-Session Suggestion
-- Share the between-session challenge (see BETWEEN-SESSION.md).
+Share the between-session challenge (see BETWEEN-SESSION.md).
 
 ---
 

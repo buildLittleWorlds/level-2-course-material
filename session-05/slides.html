@@ -93,6 +93,14 @@
     border-radius: 0 8px 8px 0;
   }
 
+  .big-question {
+    background: rgba(244,114,182,0.1);
+    border-left: 4px solid #f472b6;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
   .fragment.current-visible.visible:not(.current-fragment) {
     display: none;
   }
@@ -126,9 +134,69 @@
 <section>
   <h2>Show-and-Tell</h2>
   <div class="observation-card">
-    Did anyone add a fourth model or find <strong>maximum disagreement</strong>?
+    Did anyone compare models for their own topic? Which one did you trust more?
   </div>
-  <p class="fragment" style="margin-top:1em;">What text made the three models disagree the most?</p>
+  <div style="margin-top:1em;">
+    <div class="card">What did you compare?</div>
+    <div class="card">Where did they disagree?</div>
+    <div class="card">Which model did you trust more, and why?</div>
+  </div>
+</section>
+
+<!-- ========== SPACECRAFT ========== -->
+<section>
+  <h2>SpaceCraft Check-In</h2>
+  <p style="color:#9ca3af;">The instructor's own curation project &mdash; rating HF Spaces on craft, innovation, and delight.</p>
+  <div class="observation-card" style="margin-top:1em;">
+    <strong>This week:</strong> I found a Space with adjustable parameters &mdash; a slider that changes everything.<br>
+    Watch what happens when I change this setting. That's a <span class="highlight-yellow">parameter sweep</span>.
+  </div>
+  <p class="fragment small" style="margin-top:0.8em;">Same model, same input, different settings &mdash; that's what we're about to build.</p>
+</section>
+
+<!-- ========== BIG QUESTION ========== -->
+<section>
+  <section>
+    <h2>The Big Question</h2>
+    <div class="big-question" style="font-size:1.2em; margin-top:1em;">
+      Can a machine write something that makes you <em>feel</em>?
+    </div>
+  </section>
+
+  <section>
+    <h2>The Experiment</h2>
+    <div class="try-it">
+      <strong>Prompt:</strong> "The letter she never sent said"
+    </div>
+    <div class="two-col" style="margin-top:1em;">
+      <div class="card">
+        <strong class="highlight-blue">Temperature = 0.3</strong><br>
+        Flat, predictable, emotionally muted
+      </div>
+      <div class="card">
+        <strong class="highlight-pink">Temperature = 1.2</strong><br>
+        Chaotic, surprising, maybe accidentally moving
+      </div>
+    </div>
+    <p class="fragment" style="margin-top:0.8em; color:#f472b6;">
+      Did either one make you feel anything? Even a little?
+    </p>
+  </section>
+
+  <section>
+    <h2>Where Does Meaning Live?</h2>
+    <div class="observation-card" style="font-size:1.05em;">
+      If AI-generated text makes you feel something, does the machine deserve credit?
+    </div>
+    <p class="fragment" style="margin-top:1em;">
+      The machine doesn't feel anything. But <em>you</em> did.<br>
+      Does meaning live in the writer &mdash; or the reader?
+    </p>
+    <p class="fragment" style="color:#9ca3af; margin-top:0.8em;">
+      When you turn up temperature, you're literally adding randomness.<br>
+      Is creativity just <span class="highlight-yellow">controlled randomness</span>?
+    </p>
+  </section>
 </section>
 
 <!-- ========== THE HOOK ========== -->
@@ -330,6 +398,24 @@ gradio</code></pre>
   </p>
 </section>
 
+<!-- ========== RESEARCH LENS ========== -->
+<section>
+  <h2>Research Lens</h2>
+  <div class="observation-card" style="font-size:1.05em;">
+    We did a <strong class="highlight-yellow">parameter sweep</strong> &mdash; systematically changing one variable while holding others constant. That's <strong class="highlight-blue">experimental design</strong>.
+  </div>
+  <p class="fragment" style="margin-top:1em;">
+    In real research, you never change everything at once &mdash; because you can't tell what caused the change.
+  </p>
+  <div class="fragment card" style="margin-top:0.8em;">
+    <strong>Research question:</strong> <em>How does temperature affect text generation quality for different writing tasks?</em>
+  </div>
+  <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
+    In class we applied <span class="highlight-yellow">experimental design</span> to text generation.<br>
+    For homework, apply the same method to <span class="highlight-green">your own topic</span>.
+  </p>
+</section>
+
 <!-- ========== BEST SETTINGS FOR THE JOB ========== -->
 <section>
   <h2>Best Settings for the Job</h2>
@@ -383,16 +469,43 @@ gradio</code></pre>
 
 <!-- ========== BETWEEN SESSIONS ========== -->
 <section>
-  <h2>Between Sessions</h2>
-  <p><strong>Challenge:</strong> Create "settings recipe cards" &mdash; best settings for different writing tasks.</p>
-  <div class="card" style="margin-top:0.8em;">
-    <strong>1.</strong> Pick a task (scary story, formal email, haiku, news report)<br>
-    <strong>2.</strong> Experiment with sliders until you find the best combo<br>
-    <strong>3.</strong> Write down: task name, temperature, top-p, max length
-  </div>
-  <div class="observation-card" style="margin-top:0.8em;">
-    How many different "recipe cards" can you create?
-  </div>
+  <section>
+    <h2>Between Sessions</h2>
+    <p>Three parts this week. Plan for <span class="highlight-yellow">1&ndash;2 hours</span>.</p>
+    <div class="card" style="margin-top:0.8em;">
+      <strong class="highlight-green">Part 1: Hub Challenge</strong> &mdash; Experiment with settings on your own topic<br>
+      <strong class="highlight-blue">Part 2: Research Journal</strong> &mdash; Week 5 entry in <code>research-journal.md</code><br>
+      <strong class="highlight-pink">Part 3: Collection + GitHub</strong> &mdash; Grow your Collection, upload notebook
+    </div>
+  </section>
+
+  <section>
+    <h2>Part 1: Parameter Sweep</h2>
+    <div class="two-col">
+      <div class="card">
+        <strong class="highlight-yellow">Option A: Text Generation</strong><br>
+        Duplicate the Text Playground. Pick 2&ndash;3 writing tasks. Find the best settings for each. Write recipe cards.
+      </div>
+      <div class="card">
+        <strong class="highlight-green">Option B: Your Topic</strong><br>
+        Find a model/Space with adjustable settings. Sweep one parameter &mdash; try low, medium, high. Document what changes.
+      </div>
+    </div>
+    <div class="observation-card fragment" style="margin-top:0.8em;">
+      The key idea: <strong>change one variable at a time.</strong><br>
+      That's how you learn what each control actually does.
+    </div>
+  </section>
+
+  <section>
+    <h2>Parts 2 &amp; 3</h2>
+    <div class="card">
+      <strong class="highlight-blue">Research Journal (Week 5):</strong> Add your entry to <code>research-journal.md</code>. Write 300&ndash;500 words: what setting you experimented with, what happened, and what surprised you.
+    </div>
+    <div class="card" style="margin-top:0.5em;">
+      <strong class="highlight-pink">Collection + GitHub:</strong> At least <span class="highlight-yellow">7 models</span> and <span class="highlight-yellow">5 Spaces</span> by Session 6. Upload tonight's notebook. Add Week 5 journal entry.
+    </div>
+  </section>
 </section>
 
 <!-- ========== NEXT WEEK ========== -->

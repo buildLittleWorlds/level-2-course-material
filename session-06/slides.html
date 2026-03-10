@@ -133,6 +133,48 @@
   </div>
 </section>
 
+<!-- ========== SPACECRAFT CHECK-IN ========== -->
+<section>
+  <h2>SpaceCraft Check-In</h2>
+  <div class="observation-card">
+    I tested a Space <strong>outside its training domain</strong> this week.
+  </div>
+  <p style="margin-top:0.8em;">It works great on what it was trained on. But watch what happens when the input comes from a <span class="highlight-pink">completely different world</span>.</p>
+  <p class="fragment" style="margin-top:0.8em; color:#fbbf24;">That's <strong>domain shift</strong> &mdash; and it's what we're investigating tonight.</p>
+</section>
+
+<!-- ========== BIG QUESTION ========== -->
+<section>
+  <section class="center-slide">
+    <h2>Big Question</h2>
+    <p style="font-size:1.4em; color:#fbbf24; margin-top:1em;">
+      Is "positive" the same thing<br>in a product review and a love poem?
+    </p>
+  </section>
+
+  <section>
+    <h2>Same Label, Different Worlds</h2>
+    <div class="try-it">
+      <strong>Test 1:</strong> "This phone is great."<br>
+      <strong>Test 2:</strong> "Shall I compare thee to a summer's day?"
+    </div>
+    <p class="fragment" style="margin-top:0.8em;">Both get <span class="highlight-green">POSITIVE</span>. But are they the same kind of positive?</p>
+    <div class="observation-card fragment" style="margin-top:0.8em;">
+      One is satisfaction with a purchase. The other is devotion, beauty, longing.
+    </div>
+  </section>
+
+  <section>
+    <h2>The Deeper Question</h2>
+    <div class="observation-card">
+      Language carries feeling differently in different contexts.
+    </div>
+    <p style="margin-top:0.8em;">A therapist hears "I'm fine" differently than your friend does.</p>
+    <p class="fragment" style="margin-top:0.5em;">A product review and a love poem exist in <span class="highlight-pink">completely different domains</span>. The word "great" means something different in each.</p>
+    <p class="fragment" style="margin-top:0.5em; color:#9ca3af;">Is the model reading the same thing in both?</p>
+  </section>
+</section>
+
 <!-- ========== THE HOOK ========== -->
 <section>
   <section>
@@ -274,6 +316,24 @@
   </p>
 </section>
 
+<!-- ========== RESEARCH LENS ========== -->
+<section>
+  <h2>Research Lens</h2>
+  <div class="observation-card" style="font-size:1.05em;">
+    We tested <strong class="highlight-yellow">generalization</strong> &mdash; whether a model works on data it wasn't trained on. In research, this is called <strong class="highlight-blue">external validity</strong>.
+  </div>
+  <p class="fragment" style="margin-top:1em;">
+    Does your finding hold up outside the specific conditions you tested it in?
+  </p>
+  <div class="fragment card" style="margin-top:0.8em;">
+    <strong>Research question:</strong> <em>How well do sentiment models generalize across domains?</em>
+  </div>
+  <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
+    In class we applied <span class="highlight-yellow">cross-domain testing</span> to sentiment analysis.<br>
+    For homework, apply the same method to <span class="highlight-green">your own topic</span>.
+  </p>
+</section>
+
 <!-- ========== VOCABULARY ========== -->
 <section>
   <h2>Vocabulary</h2>
@@ -288,6 +348,9 @@
   </div>
   <div class="card">
     <span class="vocab-term">Domain</span> &mdash; a category of text (tweets, legal documents, poetry, product reviews, etc.)
+  </div>
+  <div class="card">
+    <span class="vocab-term">External validity</span> &mdash; whether a finding holds up outside the specific conditions it was tested in
   </div>
 </section>
 
@@ -311,16 +374,42 @@
 
 <!-- ========== BETWEEN SESSIONS ========== -->
 <section>
-  <h2>Between Sessions</h2>
-  <p><strong>Challenge:</strong> Find a domain that <span class="highlight-pink">breaks all three models</span>.</p>
-  <div class="card" style="margin-top:0.8em;">
-    <strong>1.</strong> Think of a type of text none of the models were trained on<br>
-    <strong>2.</strong> Paste it into Sentiment Showdown<br>
-    <strong>3.</strong> See if all three models get confused
-  </div>
-  <div class="try-it" style="margin-top:0.8em;">
-    <strong>Hints:</strong> Try mixing languages, heavy sarcasm, text with no sentiment at all (recipes, math problems), or formats the models have never seen (memes, code).
-  </div>
+  <section>
+    <h2>Between Sessions</h2>
+    <p>Three parts this week. Plan for <span class="highlight-yellow">1&ndash;2 hours</span>.</p>
+    <div class="card" style="margin-top:0.8em;">
+      <strong class="highlight-green">Part 1: Hub Challenge</strong> &mdash; Test a model across domains<br>
+      <strong class="highlight-blue">Part 2: Research Journal</strong> &mdash; Week 6 entry in <code>research-journal.md</code><br>
+      <strong class="highlight-pink">Part 3: Collection + GitHub</strong> &mdash; Grow your Collection, upload notebook
+    </div>
+  </section>
+
+  <section>
+    <h2>Part 1: Cross-Domain Testing</h2>
+    <div class="two-col">
+      <div class="card">
+        <strong class="highlight-yellow">Option A: Sentiment</strong><br>
+        Find 2&ndash;3 new domains we didn't test tonight. What text confuses all three models? Can you find a model on the Hub trained on that domain?
+      </div>
+      <div class="card">
+        <strong class="highlight-green">Option B: Your Topic</strong><br>
+        Pick a model from your Collection. Find out what it was trained on. Test it on data from a different domain. Does it generalize or break?
+      </div>
+    </div>
+    <div class="observation-card fragment" style="margin-top:0.8em;">
+      The key idea: <strong>a model's training data defines its world, and the real world is bigger.</strong>
+    </div>
+  </section>
+
+  <section>
+    <h2>Parts 2 &amp; 3</h2>
+    <div class="card">
+      <strong class="highlight-blue">Research Journal (Week 6):</strong> Add your entry to <code>research-journal.md</code>. Write 300&ndash;500 words: what domain you tested, what broke, and why you think it happened.
+    </div>
+    <div class="card" style="margin-top:0.5em;">
+      <strong class="highlight-pink">Collection + GitHub:</strong> At least <span class="highlight-yellow">8 models</span> and <span class="highlight-yellow">5 Spaces</span> by Session 7. Upload tonight's notebook. Add Week 6 journal entry.
+    </div>
+  </section>
 </section>
 
 <!-- ========== NEXT WEEK ========== -->

@@ -133,6 +133,47 @@
   </div>
 </section>
 
+<!-- ========== SPACECRAFT CHECK-IN ========== -->
+<section>
+  <h2>SpaceCraft Check-In</h2>
+  <div class="observation-card">
+    I found a Space this week and asked: <strong>who might it not work for?</strong>
+  </div>
+  <p style="margin-top:0.8em;">This voice cloning Space sounds great with some voices. But whose voice does it handle well? Whose might it <span class="highlight-pink">struggle with</span>?</p>
+  <p class="fragment" style="margin-top:0.8em; color:#fbbf24;">That's <strong>bias</strong> &mdash; and it's what we're investigating tonight.</p>
+</section>
+
+<!-- ========== BIG QUESTION ========== -->
+<section>
+  <section class="center-slide">
+    <h2>Big Question</h2>
+    <p style="font-size:1.4em; color:#fbbf24; margin-top:1em;">
+      If AI screens your application,<br>does your name matter?
+    </p>
+  </section>
+
+  <section>
+    <h2>The Same Essay, Different Names</h2>
+    <div class="try-it">
+      Two people write the <strong>exact same essay</strong>, word for word.<br>
+      Different names at the top.
+    </div>
+    <p class="fragment" style="margin-top:0.8em;">Should the AI give them the same score?</p>
+    <div class="observation-card fragment" style="margin-top:0.8em;">
+      What if the AI was trained on past applications &mdash; and in the past, certain names were accepted more often?
+    </div>
+  </section>
+
+  <section>
+    <h2>The Deeper Question</h2>
+    <div class="observation-card">
+      The AI doesn't know about fairness. It just learned patterns.
+    </div>
+    <p style="margin-top:0.8em;">If "James" appeared more often in accepted applications than "Jamila," the AI learned that pattern too.</p>
+    <p class="fragment" style="margin-top:0.5em; color:#9ca3af;">Would you even know it was happening?</p>
+  </section>
+</section>
+
 <!-- ========== THE HOOK: DEMO ========== -->
 <section>
   <section>
@@ -358,6 +399,24 @@ demo.launch()</code></pre>
   </p>
 </section>
 
+<!-- ========== RESEARCH LENS ========== -->
+<section>
+  <h2>Research Lens</h2>
+  <div class="observation-card" style="font-size:1.05em;">
+    We designed a <strong class="highlight-yellow">fairness audit</strong> &mdash; a systematic test for <strong class="highlight-blue">algorithmic bias</strong>. We held everything constant except one variable and measured whether the output changed.
+  </div>
+  <p class="fragment" style="margin-top:1em;">
+    That's <strong>controlled variable testing</strong> &mdash; the same method scientists use in experiments.
+  </p>
+  <div class="fragment card" style="margin-top:0.8em;">
+    <strong>Research question:</strong> <em>Does this model treat different demographic groups differently when only a name or pronoun changes?</em>
+  </div>
+  <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
+    In class we applied <span class="highlight-yellow">fairness auditing</span> to sentiment analysis.<br>
+    For homework, apply the same method to <span class="highlight-green">your own topic</span>.
+  </p>
+</section>
+
 <!-- ========== VOCABULARY ========== -->
 <section>
   <h2>Vocabulary</h2>
@@ -369,6 +428,9 @@ demo.launch()</code></pre>
   </div>
   <div class="card">
     <span class="vocab-term">Fairness testing</span> &mdash; systematically checking whether a model treats different groups equally
+  </div>
+  <div class="card">
+    <span class="vocab-term">Algorithmic bias</span> &mdash; when an algorithm systematically produces unfair outcomes for certain groups
   </div>
   <div class="card">
     <span class="vocab-term">gr.Blocks</span> &mdash; Gradio's flexible layout mode (vs. gr.Interface)
@@ -398,16 +460,42 @@ demo.launch()</code></pre>
 
 <!-- ========== BETWEEN SESSIONS ========== -->
 <section>
-  <h2>Between Sessions</h2>
-  <p><strong>Challenge:</strong> Design <span class="highlight-yellow">5 paired-sentence tests</span> of your own.</p>
-  <div class="card" style="margin-top:0.8em;">
-    <strong>1.</strong> Write two sentences that differ by only one word or name<br>
-    <strong>2.</strong> Predict what the model will do<br>
-    <strong>3.</strong> Test it and note the result
-  </div>
-  <div class="try-it" style="margin-top:0.8em;">
-    <strong>Ideas:</strong> Try age swaps, nationality swaps, job title swaps &mdash; or invent your own category.
-  </div>
+  <section>
+    <h2>Between Sessions</h2>
+    <p>Three parts this week. Plan for <span class="highlight-yellow">1&ndash;2 hours</span>.</p>
+    <div class="card" style="margin-top:0.8em;">
+      <strong class="highlight-green">Part 1: Hub Challenge</strong> &mdash; Test a model for bias<br>
+      <strong class="highlight-blue">Part 2: Research Journal</strong> &mdash; Week 7 entry in <code>research-journal.md</code><br>
+      <strong class="highlight-pink">Part 3: Collection + GitHub</strong> &mdash; Grow your Collection, upload notebook
+    </div>
+  </section>
+
+  <section>
+    <h2>Part 1: Fairness Audit</h2>
+    <div class="two-col">
+      <div class="card">
+        <strong class="highlight-yellow">Option A: Sentiment</strong><br>
+        Design 5 new paired-sentence tests. Try names from different backgrounds, age references, dialect differences. Can you find a "debiased" model on the Hub?
+      </div>
+      <div class="card">
+        <strong class="highlight-green">Option B: Your Topic</strong><br>
+        Pick a model from your Collection. Design a paired test &mdash; two inputs identical except for one demographic detail. Does the model treat them equally?
+      </div>
+    </div>
+    <div class="observation-card fragment" style="margin-top:0.8em;">
+      The key idea: <strong>models learn patterns from data, and data reflects a world that isn't always fair.</strong>
+    </div>
+  </section>
+
+  <section>
+    <h2>Parts 2 &amp; 3</h2>
+    <div class="card">
+      <strong class="highlight-blue">Research Journal (Week 7):</strong> Add your entry to <code>research-journal.md</code>. Write 300&ndash;500 words: what pairs you tested, what you expected, and what surprised you.
+    </div>
+    <div class="card" style="margin-top:0.5em;">
+      <strong class="highlight-pink">Collection + GitHub:</strong> At least <span class="highlight-yellow">9 models</span> and <span class="highlight-yellow">6 Spaces</span> by Session 8. Upload tonight's notebook. Add Week 7 journal entry.
+    </div>
+  </section>
 </section>
 
 <!-- ========== NEXT WEEK ========== -->

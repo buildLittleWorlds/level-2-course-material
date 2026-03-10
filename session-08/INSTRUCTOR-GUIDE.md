@@ -17,7 +17,32 @@
 
 Anyone try the between-session challenge? What bias pairs did you find? Quick share.
 
-### 0:05–0:15 — Show the Finished Pipeline
+### 0:05–0:08 — SpaceCraft Check-In
+
+Pull up SpaceCraft briefly. Point out a Space that chains multiple models together.
+
+**Say:** "I added this video Space to SpaceCraft. Watch what it does — it runs object detection, then tracking, then annotation. Three models in a pipeline. Each one depends on the one before it. If the detector misses something, the tracker can't track it, and the annotation is wrong. That's error propagation — and that's what we're building tonight."
+
+### 0:08–0:20 — Big Question: Can You Read Emotion from a Photograph?
+
+**This anchors the session's research theme. Run it before the demo, while energy is high.**
+
+**Do this live:** Show the class a photo of a person smiling. (Use a stock photo — any clear smiling face.)
+
+**Ask:** "What is this person feeling?"
+
+They'll say happy. Obviously.
+
+**Push:** "Are you sure? Think about the last selfie you posted. Did it show how you actually felt? Or did you choose the expression you wanted people to see?"
+
+**Let that sit.** Then:
+- "A smile might mean happy. Or it might mean polite. Or performing. Or nervous. Or masking something else entirely."
+- "When you see a face in a photograph, you're seeing a frozen instant — one frame out of a life. How much can you actually know about someone's feelings from one frozen expression?"
+- "Now here's the question for tonight: if we chain a captioning model to a sentiment model, the caption becomes the only thing the sentiment model knows about the image. If the caption says 'a person smiling,' the sentiment model says POSITIVE. But is a smile always positive?"
+
+**Don't resolve this.** The build and error cascade experiments will bring it to life.
+
+### 0:20–0:30 — Show the Finished Pipeline
 
 Open the pre-built Space. Upload a clear, easy photo (a dog in a park, a sunset, a plate of food).
 
@@ -33,7 +58,7 @@ Upload a second image — something more ambiguous (abstract art, a blurry photo
 
 **Landing line:** "Today we're going to build this pipeline and then try to break it."
 
-### 0:15–0:55 — Build It Live
+### 0:30–1:05 — Build It Live
 
 This is the most complex build so far. Two models, image input, multi-step function.
 
@@ -127,7 +152,7 @@ IMAGE → [BLIP: image→text] → CAPTION → [DistilBERT: text→sentiment] �
 ```
 Ask: "What could go wrong at each arrow?"
 
-### 0:55–1:15 — Test with Images
+### 1:05–1:20 — Test with Images
 
 Once the Space is live, test with different image types. Have students suggest images or use these:
 
@@ -146,7 +171,7 @@ Once the Space is live, test with different image types. Have students suggest i
 - "Given that caption, does the sentiment make sense?"
 - "Would the sentiment be different if the caption were more accurate?"
 
-### 1:15–1:35 — Error Cascade Demo
+### 1:20–1:35 — Error Cascade Demo
 
 Now deliberately break the pipeline. This is the core learning moment.
 
@@ -173,11 +198,12 @@ Wrong image description → Wrong sentiment
 - "Self-driving cars chain models: detect objects → predict paths → decide to brake. Where's the most dangerous place for an error?"
 - "ChatGPT chains retrieval → reasoning → response. If it retrieves wrong info, does the reasoning fix it?"
 
-### 1:35–1:50 — Name the Concept: MULTI-MODEL SYSTEMS AND ERROR CASCADES
+### 1:35–1:45 — Name the Concept: MULTI-MODEL SYSTEMS AND ERROR CASCADES
 
 **Key points to name:**
 - **Multi-model system / pipeline** — connecting the output of one model to the input of another
 - **Error cascade** — when an error in an early step causes errors in every later step
+- **Error propagation** — how mistakes travel through a system from one component to the next
 - **Garbage in, garbage out** — at every step, not just the first one
 - **Debugging pipelines** — you have to check each step independently to find where things went wrong
 
@@ -189,7 +215,19 @@ Show the BLIP model card:
 - "What kinds of images are NOT in 'common objects in context'?"
 - Abstract art, medical images, satellite photos, memes with text — all outside BLIP's training domain
 
-### 1:50–1:55 — Notebook Time
+### 1:45–1:50 — Research Lens (5 minutes)
+
+**Say:** "Let's name what we just did in research terms."
+
+"We built a **pipeline** and studied **error propagation** — when one component fails, does the whole system fail? We deliberately injected bad inputs at stage 1 and measured the impact at stage 2. That's a standard technique in **systems testing** — understanding how errors travel through connected components."
+
+**Research question (shared, sentiment):** "How do errors cascade in a multi-model system? If the captioner gets an image wrong, does the sentiment model have any chance of getting it right?"
+
+**The method (applies to any topic):** Build a chain, then break it on purpose. Feed bad input into step 1 and trace the error forward. Where does it amplify? Where (if ever) does a later step accidentally fix it?
+
+**Bridge to homework:** "In class, we applied error propagation analysis to our image-caption-sentiment pipeline. For your homework, think about chaining — can you connect two models from your Collection? What happens when the first one is wrong?"
+
+### 1:50–2:00 — Notebook Time + Wrap Up
 
 Share the Colab link in the Zoom chat.
 
@@ -202,11 +240,9 @@ Share the Colab link in the Zoom chat.
 
 **Say:** "The notebook lets you upload your own images and test the pipeline. Try to find an image that breaks it — is the caption wrong, or the sentiment, or both? Fill in the table in the notebook."
 
-### 1:55–2:00 — Between-Session Suggestion
-
 Share the between-session challenge (see BETWEEN-SESSION.md).
 
-**Say:** "Find an image that breaks the pipeline. Figure out which step failed — the caption or the sentiment. Next week, we're going to think about the people who actually use these tools. We'll redesign a Space for a real audience."
+**Say:** "This week, think about chaining models from your own Collection. Can you connect two models so the output of one feeds the input of the other? What happens when the first one is wrong? Next week, we're going to think about the people who actually use these tools. We'll redesign a Space for a real audience."
 
 ---
 
@@ -250,7 +286,7 @@ Share the between-session challenge (see BETWEEN-SESSION.md).
 ## Key Vocabulary (introduce casually, don't drill)
 
 - **Pipeline / multi-model system** — connecting models so the output of one feeds the input of the next
-- **Error cascade** — when one model's mistake causes every model after it to also be wrong
+- **Error cascade / error propagation** — when one model's mistake causes every model after it to also be wrong
 - **Caption** — a text description of an image, generated by a vision model
 - **BLIP** — Bootstrapping Language-Image Pre-training, the model that generates captions
 - **PIL / Pillow** — Python library for working with image files

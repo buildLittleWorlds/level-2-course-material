@@ -43,6 +43,12 @@ If you could change one thing about this Space, what would it be?
 
 >
 
-## 6. One Word
+## 6. Research Connection
+
+What topic has this person been exploring? Can you tell from their Space?
+
+>
+
+## 7. One Word
 
 Describe this Space in one word: _______________

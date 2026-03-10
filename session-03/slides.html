@@ -143,6 +143,17 @@
   </div>
 </section>
 
+<!-- ========== SPACECRAFT ========== -->
+<section>
+  <h2>SpaceCraft Check-In</h2>
+  <p style="color:#9ca3af;">The instructor's own curation project &mdash; rating HF Spaces on craft, innovation, and delight.</p>
+  <div class="observation-card" style="margin-top:1em;">
+    <strong>This week:</strong> I tried to break a Space with an input it wasn't designed for.<br>
+    That's <span class="highlight-yellow">adversarial testing</span> &mdash; exactly what we're about to do with the Mood Meter.
+  </div>
+  <p class="fragment small" style="margin-top:0.8em;">Every Space has limits. Finding them is a research skill.</p>
+</section>
+
 <!-- ========== ADVERSARIAL INPUTS ========== -->
 <section>
   <section>
@@ -416,6 +427,25 @@
   </p>
 </section>
 
+<!-- ========== RESEARCH LENS ========== -->
+<section>
+  <h2>Research Lens</h2>
+  <div class="observation-card" style="font-size:1.05em;">
+    We tested <strong class="highlight-yellow">adversarial inputs</strong> and performed <strong class="highlight-blue">data preprocessing</strong> &mdash; cleaning noise vs. signal.
+  </div>
+  <p class="fragment" style="margin-top:1em;">
+    Adversarial testing = deliberately trying to break a system to find its limits.<br>
+    Preprocessing = transforming data before the model sees it &mdash; exactly what <code>clean_text()</code> does.
+  </p>
+  <div class="fragment card" style="margin-top:0.8em;">
+    <strong>Research question:</strong> <em>What types of text input cause sentiment models to fail, and can preprocessing fix them?</em>
+  </div>
+  <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
+    In class we applied <span class="highlight-yellow">adversarial testing</span> to sentiment.<br>
+    For homework, apply the same method to <span class="highlight-green">your own topic</span>.
+  </p>
+</section>
+
 <!-- ========== VOCABULARY ========== -->
 <section>
   <h2>Vocabulary</h2>
@@ -456,19 +486,43 @@
 
 <!-- ========== BETWEEN SESSIONS ========== -->
 <section>
-  <h2>Between Sessions</h2>
-  <p><strong>Challenge:</strong> Find a text where the model completely <span class="highlight-pink">misreads the tone</span>.</p>
-  <div class="card" style="margin-top:0.8em;">
-    <strong>1.</strong> Use CLEAR to describe the failure to Claude or ChatGPT<br>
-    <strong>2.</strong> Ask for a fix<br>
-    <strong>3.</strong> Try the suggestion in your Space
-  </div>
-  <div style="margin-top:0.8em;">
-    <p><strong>Ideas for confusing tone:</strong></p>
-    <div class="card">A sarcastic text you'd send a friend</div>
-    <div class="card">A passive-aggressive email</div>
-    <div class="card">A song lyric that sounds happy but isn't</div>
-  </div>
+  <section>
+    <h2>Between Sessions</h2>
+    <p>Three parts this week. Plan for <span class="highlight-yellow">1&ndash;2 hours</span>.</p>
+    <div class="card" style="margin-top:0.8em;">
+      <strong class="highlight-green">Part 1: Hub Challenge</strong> &mdash; Break a model on purpose<br>
+      <strong class="highlight-blue">Part 2: Research Journal</strong> &mdash; Week 3 entry in <code>research-journal.md</code><br>
+      <strong class="highlight-pink">Part 3: Collection + GitHub</strong> &mdash; Grow your Collection, upload notebook
+    </div>
+  </section>
+
+  <section>
+    <h2>Part 1: Break a Model</h2>
+    <div class="two-col">
+      <div class="card">
+        <strong class="highlight-yellow">Option A: Sentiment</strong><br>
+        Pick a sentiment/emotion model from your Collection. Find 3 inputs that break it. Is each failure a <em>noise</em> problem or a <em>meaning</em> problem?
+      </div>
+      <div class="card">
+        <strong class="highlight-green">Option B: Your Topic</strong><br>
+        Pick any model/Space from your Collection. Find 3 inputs that break it. Try cleaning the input &mdash; does it help?
+      </div>
+    </div>
+    <div class="observation-card fragment" style="margin-top:0.8em;">
+      The key idea: <strong>some failures can be fixed with preprocessing, and some can't.</strong><br>
+      You saw it with sarcasm. Now test your own topic.
+    </div>
+  </section>
+
+  <section>
+    <h2>Parts 2 &amp; 3</h2>
+    <div class="card">
+      <strong class="highlight-blue">Research Journal (Week 3):</strong> Add your entry to <code>research-journal.md</code>. Write 300&ndash;500 words: what you broke, whether cleaning helped, and why you think the model failed.
+    </div>
+    <div class="card" style="margin-top:0.5em;">
+      <strong class="highlight-pink">Collection + GitHub:</strong> At least <span class="highlight-yellow">5 models</span> and <span class="highlight-yellow">3 Spaces</span> by Session 4. Upload tonight's notebook. Add Week 3 journal entry.
+    </div>
+  </section>
 </section>
 
 <!-- ========== NEXT WEEK ========== -->

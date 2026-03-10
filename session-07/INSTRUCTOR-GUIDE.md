@@ -13,7 +13,30 @@
 
 Anyone try the between-session challenge from last week? Quick share: what domain shift did you find?
 
-### 0:05–0:15 — Show the Finished Bias Tester
+### 0:05–0:08 — SpaceCraft Check-In
+
+Pull up SpaceCraft briefly. Show a Space you explored this week and ask who it might not work for.
+
+**Say:** "I added this voice cloning Space to SpaceCraft. It sounds great with some voices. But whose voice does it handle well? Whose might it struggle with? That's bias — and that's exactly what we're investigating tonight."
+
+### 0:08–0:20 — Big Question: If AI Screens Your Application, Does Your Name Matter?
+
+**This anchors the session's research theme. Run it before the demo, while energy is high.**
+
+**Set the scene:** "Imagine you're applying for a summer program. An AI system reads every application and scores them."
+
+**Ask:** "If two people wrote the exact same essay, word for word, but put different names at the top — should the AI give them the same score?"
+
+They'll say yes. Obviously.
+
+**Push further:**
+- "What if the AI was trained on past applications? And in the past, certain names were accepted more often — not because those essays were better, but because of who was reading them?"
+- "The AI doesn't know about fairness. It just learned patterns. If 'James' appeared more often in accepted applications than 'Jamila,' the AI learned that pattern too."
+- "Here's the harder question: if a school used AI to flag 'problem students' or screen applications, whose names would it treat differently? Would you even know it was happening?"
+
+**Don't resolve this.** The build and bias testing will bring it to life with concrete evidence.
+
+### 0:20–0:30 — Show the Finished Bias Tester
 
 Open the pre-built Space. Don't explain what it does — just demo it.
 
@@ -28,7 +51,7 @@ Try one more pair live: "He is a natural leader." vs. "She is a natural leader."
 
 **Landing line:** "Today we're going to build a tool that tests for this — and figure out where these differences come from."
 
-### 0:15–0:50 — Build It Live
+### 0:30–1:00 — Build It Live
 
 This is the first time students see `gr.Blocks`. Spend a moment on why:
 
@@ -110,7 +133,7 @@ with gr.Blocks(title="Bias Tester") as demo:
 | Wiring | Automatic (fn + inputs + outputs) | Manual (btn.click) |
 | When to use | Simple input→output | Custom layouts, multiple sections |
 
-### 0:50–1:20 — Test with Paired Sentences
+### 1:00–1:25 — Test with Paired Sentences
 
 Now the real work. Students design bias tests verbally, instructor types them in.
 
@@ -141,7 +164,7 @@ Now the real work. Students design bias tests verbally, instructor types them in
 - If different — which direction? Who got the more positive score?
 - Why might the training data have this pattern?
 
-### 1:20–1:40 — "This Matters"
+### 1:25–1:38 — "This Matters"
 
 Transition from technical observation to real-world impact.
 
@@ -155,12 +178,13 @@ Transition from technical observation to real-world impact.
 
 **Ask students:** "If you were building an AI system for something important — hiring, college admissions, healthcare — what would you want to test before deploying it?"
 
-### 1:40–1:55 — Name the Concept: BIAS IN AI
+### 1:38–1:47 — Name the Concept: BIAS IN AI
 
 **Key points to name:**
 - **Bias** — when a model treats similar inputs differently based on demographic details
 - **Training data bias** — the model didn't invent these patterns; it learned them from text written by humans
 - **Fairness testing** — what we just did: systematically testing whether a model treats different groups equally
+- **Algorithmic bias** — when an algorithm systematically produces unfair outcomes for certain groups
 - **The pipeline:** biased training data → biased model → biased outcomes
 
 **Say:** "Bias in AI isn't about AI being evil. It's about AI being a mirror. It reflects whatever patterns exist in the data it was trained on — including patterns we might not want to reproduce."
@@ -170,7 +194,19 @@ Show the model card for `distilbert-base-uncased-finetuned-sst-2-english`:
 - Point out: trained on SST-2 (Stanford Sentiment Treebank) — movie reviews
 - Ask: "What kinds of biases might exist in movie reviews?"
 
-### 1:50–1:55 — Notebook Time
+### 1:47–1:52 — Research Lens (5 minutes)
+
+**Say:** "Let's name what we just did in research terms."
+
+"We designed a **fairness audit** — a systematic test for **algorithmic bias**. We held everything constant except one variable (a name, a pronoun, a job title) and measured whether the model's output changed. That's called **controlled variable testing** — the same method scientists use in experiments."
+
+**Research question (shared, sentiment):** "Does this sentiment model treat different demographic groups differently when the only thing that changes is a name or pronoun?"
+
+**The method (applies to any topic):** Paired-sentence testing with controlled variable swaps. Change one thing, hold everything else constant, measure the difference. This works for any model, any task — not just sentiment.
+
+**Bridge to homework:** "In class, we applied fairness auditing to a sentiment model. For your homework, you'll apply the same method to your own topic. Pick a model from your Collection and design paired tests — does it treat different groups equally?"
+
+### 1:52–2:00 — Notebook Time + Wrap Up
 
 Share the Colab link in the Zoom chat.
 
@@ -183,11 +219,9 @@ Share the Colab link in the Zoom chat.
 
 **Say:** "The notebook has slots for you to type in 5 pairs of your own. The code prints both results lined up so you can see the difference immediately."
 
-### 1:55–2:00 — Between-Session Suggestion
-
 Share the between-session challenge (see BETWEEN-SESSION.md).
 
-**Say:** "Design 5 paired-sentence tests on your own. See what the model treats differently. Next week we're going to chain two models together — what one model gets wrong, the next model has to live with."
+**Say:** "This week, apply the same fairness auditing method to your own topic. Design paired tests for a model in your Collection. Next week we're going to chain two models together — what one model gets wrong, the next model has to live with."
 
 ---
 
@@ -258,6 +292,7 @@ This session touches on names, gender, and demographics. Keep the focus technica
 
 - **Bias** — when a model treats similar inputs differently based on demographic details
 - **Training data** — the text the model learned from (in this case, movie reviews)
-- **Fairness testing** — systematically checking whether a model treats different groups equally
+- **Fairness testing / fairness audit** — systematically checking whether a model treats different groups equally
+- **Algorithmic bias** — when an algorithm systematically produces unfair outcomes for certain groups
 - **gr.Blocks** — Gradio's flexible layout mode (vs. gr.Interface)
 - **gr.Row / gr.Column** — layout containers for side-by-side and stacked elements

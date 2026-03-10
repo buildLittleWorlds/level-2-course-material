@@ -2,13 +2,19 @@
 
 **Concept reinforcement:** THE EXPERIMENTATION LOOP
 **Space:** No new Space — students improve their Session 10 projects
-**Pre-session prep:** Open each student's Space URL in a browser tab. Have the Session 10 rescue templates ready for anyone who doesn't have a working Space.
+**Pre-session prep:** Open each student's Space URL in a browser tab. Have the Session 10 rescue templates ready for anyone who doesn't have a working Space. Pull up SpaceCraft and pick a Space that improved dramatically between versions (or a polished Space whose quality clearly comes from iteration).
 
 ---
 
 ## Time Breakdown (2 hours)
 
-### 0:00–0:15 — Quick Demos
+### 0:00–0:03 — SpaceCraft Check-In
+
+Pull up SpaceCraft. Show a Space that clearly improved through iteration — either one with visible version history, or a polished Space whose quality comes from many small refinements.
+
+**Say:** "I added this Space to SpaceCraft. Look at the little things — the examples are specific, the output is formatted for humans, there's a clear description of who it's for. This didn't happen in one draft. This is what iteration looks like. That's what tonight is about — taking what you built and making it better through feedback and real testing."
+
+### 0:03–0:18 — Quick Demos
 
 Each student shows their Space to the group. ~2 minutes per student.
 
@@ -28,19 +34,36 @@ Keep it positive and fast. The goal is to give everyone a moment in the spotligh
 - Pair them with the rescue templates from Session 10 (`session-10/templates/`)
 - They'll fork a template and customize it during the 1-on-1 time
 
-### 0:15–1:15 — 1-on-1 Feedback and Improvement
+### 0:18–0:30 — Research Journey Review
 
-~10 minutes per student. Instructor shares screen and works on each student's Space together.
+Before diving into 1-on-1 feedback, have students review their own research artifacts. This prepares them for the research-framed presentation in session 12.
+
+**Say:** "You've written 9 journal entries and collected 12+ models in your HF Collection. Before we polish the Space, let's look at the research journey that got you here."
+
+**Activity (each student, ~2 min):**
+1. Open your HF Collection. How many items? Scroll through — what topic keeps coming back?
+2. Open your `research-journal.md` on GitHub. Skim your entries. What question were you circling by Week 9-10?
+3. Think about the thread: early entries were exploring broadly, later entries were focusing. Where did that shift happen?
+
+**Instructor prompts while students review:**
+- "Look at your Week 2 entry and your Week 10 entry side by side. How different are they?"
+- "Can you name your topic in one sentence now?"
+- "What method did you use most — comparing models? Testing on different data? Breaking things?"
+
+**Say:** "Next week, you're not just showing a Space — you're presenting a research journey. Your Collection shows breadth. Your journal entries tell the story. Your Space is the artifact that came from all of that."
+
+### 0:30–1:10 — 1-on-1 Feedback and Improvement
+
+~8 minutes per student. Instructor shares screen and works on each student's Space together.
 
 **Rotation plan (5 students):**
 | Slot | Time | Student | Others doing... |
 |------|------|---------|----------------|
-| 1 | 0:15–0:25 | Student A | Testing each other's Spaces |
-| 2 | 0:25–0:35 | Student B | Testing each other's Spaces |
-| 3 | 0:35–0:45 | Student C | Testing each other's Spaces |
-| 4 | 0:45–0:55 | Student D | Testing each other's Spaces |
-| 5 | 0:55–1:05 | Student E | Testing each other's Spaces |
-| Buffer | 1:05–1:15 | Catch-up | Finish any incomplete work |
+| 1 | 0:30–0:38 | Student A | Testing each other's Spaces |
+| 2 | 0:38–0:46 | Student B | Testing each other's Spaces |
+| 3 | 0:46–0:54 | Student C | Testing each other's Spaces |
+| 4 | 0:54–1:02 | Student D | Testing each other's Spaces |
+| 5 | 1:02–1:10 | Student E | Testing each other's Spaces |
 
 **For each student, check this improvement list:**
 
@@ -65,7 +88,7 @@ Keep it positive and fast. The goal is to give everyone a moment in the spotligh
 4. Deploy and verify it works
 5. They'll have a working Space for demo day even if it's simpler
 
-### 1:15–1:40 — Peer Testing
+### 1:10–1:25 — Peer Testing
 
 Students swap and try each other's Spaces. Share the peer feedback form (see `peer-feedback-form.md`).
 
@@ -100,28 +123,48 @@ Share the Colab notebook link in the Zoom chat. Students open it and try the deb
 
 ### 1:40–1:55 — Prep for Demo Day
 
-Explain the format for next week:
+Explain the format for next week. This is a research presentation, not just a demo.
+
+**Say:** "Next week isn't just about showing your Space. It's about telling the story of your investigation — the question you were circling, the methods you used, what you found. Your Collection, your journal entries, and your Space all come together."
 
 **Demo Day format (5-7 minutes per student):**
-1. **What it does** — One sentence. Who is it for?
-2. **Live demo** — Show it working with 2-3 inputs
-3. **What model** — Which model did you use and why?
-4. **What went wrong** — What was the hardest part? What broke?
-5. **What you'd improve** — If you had another month, what would you change?
+
+```
+1. MY QUESTION (30 seconds)
+   - What topic did you investigate? What question were you circling?
+
+2. MY JOURNEY (1-2 minutes)
+   - Show your HF Collection — how many items? What's the focus?
+   - Highlight 2-3 key journal entries. What methods did you use?
+   - How did your question evolve from Week 2 to Week 10?
+
+3. MY ARTIFACT (2 minutes)
+   - Live demo of your Space with 2-3 inputs
+   - Show one input where it works great
+   - Show one input where it struggles
+
+4. WHAT I FOUND (1-2 minutes)
+   - What did you learn? What surprised you?
+   - What are the limitations?
+
+5. WHAT'S NEXT (30 seconds)
+   - If you kept going, what would you investigate?
+```
 
 **Tips for presenting:**
 - Practice with a friend or family member before next session
 - Have your inputs ready — don't search for examples during the demo
+- Open your Collection and journal before you start — you'll want to show them
 - It's okay to show something that doesn't work perfectly. Talking about what broke is more interesting than a flawless demo.
 - You're not being graded. This is about showing what you built and what you learned.
 
-**Say:** "You've all built something real that lives on the internet. Next week you get to show it off. Bring your best inputs and your best story about what went wrong."
+**Say:** "You've all built something real that lives on the internet. But you've also done something harder — you followed a question for 10 weeks, documented what you found, and built a tool around it. Next week you get to tell that story."
 
 ### 1:55–2:00 — Between-Session: Final Polish
 
 Share the between-session challenge. This is the one session where between-session work really matters.
 
-**Say:** "This is the last between-session before demo day. If there's one thing you want to fix, now's the time. Practice your demo — 5 to 7 minutes, out loud, to yourself or someone else."
+**Say:** "This is the last between-session before demo day. Three things: polish your Space, practice your research presentation, and write your final journal entry — the one that ties everything together. Details in the between-session doc."
 
 ---
 
@@ -130,11 +173,13 @@ Share the between-session challenge. This is the one session where between-sessi
 | Problem | Fix |
 |---------|-----|
 | Student doesn't have a working Space | Use rescue templates from Session 10. Fork, customize, deploy. |
-| 10 minutes per student isn't enough | Prioritize the biggest impact fix (usually title + description + examples). Save code-level fixes for after session. |
+| 8 minutes per student isn't enough | Prioritize the biggest impact fix (usually title + description + examples). Save code-level fixes for after session. |
+| Research Journey Review feels awkward | Students may not have kept up with journals. Don't shame — just help them see the thread: "Even if you only wrote 3 entries, what topic kept coming up?" |
 | Peer feedback is too vague ("it's good") | Model specific feedback first: "I like that the examples show different use cases. I'd add a line explaining what the confidence percentage means." |
 | Student is discouraged by feedback | Reframe: "Every suggestion is a chance to make it better. Professional developers get code reviews every day." |
 | Spaces are asleep (cold start) | Open all student Space URLs 15 minutes before session to wake them up. |
 | Student finished early during 1-on-1 rotation | Have them help test another student's Space or add more examples to their own. |
+| Students overwhelmed by 5-part presentation | Reassure: "It's 5-7 minutes. Most of it is showing things you already have — your Collection, your journal, your Space." |
 
 ---
 
@@ -144,3 +189,4 @@ Share the between-session challenge. This is the one session where between-sessi
 - **User testing** — having someone who didn't build it try to use it
 - **Edge case** — an unusual input that the builder didn't think of
 - **UX (user experience)** — how easy and clear the Space is to use
+- **Research journey** — the arc from initial exploration to focused investigation to finished artifact

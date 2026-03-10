@@ -93,6 +93,14 @@
     border-radius: 0 8px 8px 0;
   }
 
+  .big-question {
+    background: rgba(244,114,182,0.1);
+    border-left: 4px solid #f472b6;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
   .fragment.current-visible.visible:not(.current-fragment) {
     display: none;
   }
@@ -126,13 +134,61 @@
 <section>
   <h2>Show-and-Tell</h2>
   <div class="observation-card" style="font-size:1.1em;">
-    Did anyone try the between-session challenge from last time?
+    Did anyone find an input that broke a model in a surprising way?
   </div>
   <div style="margin-top:1em;">
-    <div class="card">Did you use CLEAR to ask an AI for help?</div>
-    <div class="card">What cleaning step did you add?</div>
-    <div class="card">Did it actually help?</div>
+    <div class="card">What was the failure?</div>
+    <div class="card">Was it a noise problem or a meaning problem?</div>
+    <div class="card">Did cleaning the input help?</div>
   </div>
+</section>
+
+<!-- ========== SPACECRAFT ========== -->
+<section>
+  <h2>SpaceCraft Check-In</h2>
+  <p style="color:#9ca3af;">The instructor's own curation project &mdash; rating HF Spaces on craft, innovation, and delight.</p>
+  <div class="observation-card" style="margin-top:1em;">
+    <strong>This week:</strong> I found two Spaces that do the same task &mdash; but one is clearly better.<br>
+    Which one is better? How would you decide? That's <span class="highlight-yellow">model evaluation</span>.
+  </div>
+  <p class="fragment small" style="margin-top:0.8em;">Same question we're about to ask with sentiment models: when two tools disagree, how do you judge?</p>
+</section>
+
+<!-- ========== BIG QUESTION ========== -->
+<section>
+  <section>
+    <h2>The Big Question</h2>
+    <div class="big-question" style="font-size:1.2em; margin-top:1em;">
+      When models disagree, who's right?
+    </div>
+  </section>
+
+  <section>
+    <h2>Same Words, Different Feeling</h2>
+    <div class="card" style="font-size:1.2em; text-align:center; padding:1em;">
+      "Thanks for getting back to me."
+    </div>
+    <p class="fragment" style="margin-top:1em;">
+      Read it <span class="highlight-green">sincerely</span> &mdash; warm, grateful.<br>
+      Read it <span class="highlight-pink">passive-aggressively</span> &mdash; clipped, icy.
+    </p>
+    <p class="fragment" style="color:#9ca3af; margin-top:0.8em;">
+      Same words. Completely different feeling. Which is the real meaning?
+    </p>
+  </section>
+
+  <section>
+    <h2>The Deeper Point</h2>
+    <div class="observation-card" style="font-size:1.05em;">
+      If two smart humans can disagree about the feeling behind a sentence, what does it mean for a model to be "wrong"?
+    </div>
+    <p class="fragment" style="margin-top:1em;">
+      This isn't just about feelings. Any time AI classifies something &mdash; spam, images, sentiment &mdash; there are borderline cases where reasonable people disagree.
+    </p>
+    <p class="fragment" style="color:#9ca3af; margin-top:0.8em;">
+      When we put three models side by side today, their disagreement isn't a bug &mdash; it's <span class="highlight-yellow">information</span>.
+    </p>
+  </section>
 </section>
 
 <!-- ========== DEMO: WATCH THEM DISAGREE ========== -->
@@ -384,6 +440,24 @@ demo.launch()</code></pre>
   </p>
 </section>
 
+<!-- ========== RESEARCH LENS ========== -->
+<section>
+  <h2>Research Lens</h2>
+  <div class="observation-card" style="font-size:1.05em;">
+    We ran a <strong class="highlight-yellow">model evaluation</strong> &mdash; same inputs, three judges. This is a <strong class="highlight-blue">baseline comparison</strong>.
+  </div>
+  <p class="fragment" style="margin-top:1em;">
+    In research, when you want to know if a tool works, you don't just test it alone &mdash; you compare it against other tools on the same data.
+  </p>
+  <div class="fragment card" style="margin-top:0.8em;">
+    <strong>Research question:</strong> <em>Which sentiment model is most accurate across diverse inputs?</em>
+  </div>
+  <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
+    In class we applied <span class="highlight-yellow">model evaluation</span> to sentiment.<br>
+    For homework, apply the same method to <span class="highlight-green">your own topic</span>.
+  </p>
+</section>
+
 <!-- ========== VOCABULARY ========== -->
 <section>
   <h2>Vocabulary</h2>
@@ -421,20 +495,42 @@ demo.launch()</code></pre>
 
 <!-- ========== BETWEEN SESSIONS ========== -->
 <section>
-  <h2>Between Sessions</h2>
-  <p><strong>Challenge:</strong> Find maximum disagreement.</p>
-  <div class="card" style="margin-top:0.8em;">
-    Find <strong>one input</strong> where all three models give <strong>different answers</strong>.
-  </div>
-  <div style="margin-top:0.8em;">
-    <p><strong>Ideas to try:</strong></p>
-    <div class="card">Sarcasm &mdash; <em>"Oh great, another Monday"</em></div>
-    <div class="card">Mixed sentiment &mdash; <em>"Terrible weather but amazing company"</em></div>
-    <div class="card">Internet slang &mdash; <em>"meh whatever lol"</em></div>
-  </div>
-  <div class="observation-card" style="margin-top:0.8em;">
-    Bring your best disagreement to share next week!
-  </div>
+  <section>
+    <h2>Between Sessions</h2>
+    <p>Three parts this week. Plan for <span class="highlight-yellow">1&ndash;2 hours</span>.</p>
+    <div class="card" style="margin-top:0.8em;">
+      <strong class="highlight-green">Part 1: Hub Challenge</strong> &mdash; Compare models side by side on your own topic<br>
+      <strong class="highlight-blue">Part 2: Research Journal</strong> &mdash; Week 4 entry in <code>research-journal.md</code><br>
+      <strong class="highlight-pink">Part 3: Collection + GitHub</strong> &mdash; Grow your Collection, upload notebook
+    </div>
+  </section>
+
+  <section>
+    <h2>Part 1: Compare Models</h2>
+    <div class="two-col">
+      <div class="card">
+        <strong class="highlight-yellow">Option A: Sentiment</strong><br>
+        Pick 2+ sentiment models from your Collection. Test them on the same 5 inputs. Which one do you trust most?
+      </div>
+      <div class="card">
+        <strong class="highlight-green">Option B: Your Topic</strong><br>
+        Find 2+ models/Spaces that do similar things. Test them on the same inputs. Which gives better answers?
+      </div>
+    </div>
+    <div class="observation-card fragment" style="margin-top:0.8em;">
+      The key idea: <strong>when multiple models tackle the same task, their disagreement reveals something.</strong>
+    </div>
+  </section>
+
+  <section>
+    <h2>Parts 2 &amp; 3</h2>
+    <div class="card">
+      <strong class="highlight-blue">Research Journal (Week 4):</strong> Add your entry to <code>research-journal.md</code>. Write 300&ndash;500 words: what you compared, which model you trusted more, and why.
+    </div>
+    <div class="card" style="margin-top:0.5em;">
+      <strong class="highlight-pink">Collection + GitHub:</strong> At least <span class="highlight-yellow">6 models</span> and <span class="highlight-yellow">4 Spaces</span> by Session 5. Upload tonight's notebook. Add Week 4 journal entry.
+    </div>
+  </section>
 </section>
 
 <!-- ========== NEXT WEEK ========== -->
