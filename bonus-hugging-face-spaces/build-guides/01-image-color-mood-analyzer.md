@@ -17,10 +17,10 @@ No transformer model. No torch. Just PIL and KMeans clustering. Instant startup,
 ## requirements.txt
 
 ```
-gradio>=6.0
-Pillow
-scikit-learn
-numpy
+gradio==6.8.0
+Pillow==11.1.0
+scikit-learn==1.6.1
+numpy==2.2.3
 ```
 
 ---

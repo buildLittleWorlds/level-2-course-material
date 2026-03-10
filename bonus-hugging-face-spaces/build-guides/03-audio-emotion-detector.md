@@ -17,10 +17,10 @@ Same complexity as the Emoji Translator (one model, one input), but introduces a
 ## requirements.txt
 
 ```
-gradio>=6.0
-transformers
-torch
-librosa
+gradio==6.8.0
+transformers==4.48.0
+torch==2.5.0
+librosa==0.10.2
 ```
 
 > `librosa` handles audio loading and resampling. The wav2vec2 model expects 16kHz audio — librosa handles this conversion automatically when the transformers pipeline processes the file.
@@ -218,7 +218,7 @@ EMOTION_STYLE = {
 
 def analyze(audio_path):
     if audio_path is None:
-        return {"status": "empty"}
+        return None
 
     results = get_classifier()(audio_path)
     top = max(results, key=lambda x: x["score"])
@@ -237,7 +237,6 @@ def analyze(audio_path):
         })
 
     return {
-        "status": "done",
         "top_emoji": top_style["emoji"],
         "top_label": top_label,
         "top_color": top_style["color"],
@@ -251,9 +250,9 @@ with gr.Blocks(title="Audio Emotion Detector") as demo:
                            label="Record or upload audio")
 
     result = gr.HTML(
-        value={"status": "empty"},
+        value=None,
         html_template="""
-            {{#if (eq value.status "done")}}
+            {{#if value}}
                 <div class="hero">
                     <span class="hero-emoji">{{value.top_emoji}}</span>
                     <div class="hero-label" style="color:{{value.top_color}}">{{value.top_label}}</div>
@@ -322,7 +321,7 @@ demo.launch()
 **What's new in Phase 4:**
 - **CSS animations:** The `@keyframes grow` animation makes bars slide out from zero to their target width. The `--target-width` CSS variable is set per-bar via inline style.
 - **`js_on_load`:** The MutationObserver watches for DOM changes (new results) and re-triggers the animation by resetting it. This runs client-side — no round-trip to Python.
-- **Structured data:** `analyze()` returns a dict with `status`, `top_emoji`, `top_label`, and `emotions` list. The template handles all rendering.
+- **Structured data:** `analyze()` returns a dict (or `None` for empty state) with `top_emoji`, `top_label`, and `emotions` list. The template uses `{{#if value}}` to switch between the results view and the empty prompt.
 
 ---
 

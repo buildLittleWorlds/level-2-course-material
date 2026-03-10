@@ -18,18 +18,18 @@ Same model as the Headline Dashboard, but the data transformation is more comple
 
 For the matplotlib version (Phases 1-3):
 ```
-gradio>=6.0
-transformers
-torch
-matplotlib
-numpy
+gradio==6.8.0
+transformers==4.48.0
+torch==2.5.0
+matplotlib==3.10.0
+numpy==2.2.3
 ```
 
 For the pure HTML/SVG version (Phase 4):
 ```
-gradio>=6.0
-transformers
-torch
+gradio==6.8.0
+transformers==4.48.0
+torch==2.5.0
 ```
 
 > Phase 4 drops matplotlib entirely — one less dependency, less memory.

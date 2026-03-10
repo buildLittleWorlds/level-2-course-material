@@ -17,9 +17,9 @@ Same single model as earlier Spaces, but now you're processing **multiple inputs
 ## requirements.txt
 
 ```
-gradio>=6.0
-transformers
-torch
+gradio==6.8.0
+transformers==4.48.0
+torch==2.5.0
 ```
 
 ---

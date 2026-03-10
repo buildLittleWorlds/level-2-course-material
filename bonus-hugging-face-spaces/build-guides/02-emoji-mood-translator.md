@@ -17,8 +17,8 @@ This is your first Space with an ML model. One model, one text input, emoji outp
 ## requirements.txt
 
 ```
-gradio>=6.0
-transformers
+gradio==6.8.0
+transformers==4.48.0
 torch
 ```
 
@@ -226,6 +226,7 @@ with gr.Blocks(title="Emoji Mood Translator") as demo:
 
     text_input = gr.Textbox(label="Type anything", lines=2,
                             placeholder="I can't believe how amazing this turned out!")
+    btn = gr.Button("Analyze")
 
     result = gr.HTML(
         value=[],
@@ -285,7 +286,7 @@ with gr.Blocks(title="Emoji Mood Translator") as demo:
         """
     )
 
-    text_input.submit(fn=analyze, inputs=text_input, outputs=result)
+    btn.click(fn=analyze, inputs=text_input, outputs=result)
 
     gr.Examples(
         examples=[
