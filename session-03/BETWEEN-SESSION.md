@@ -8,7 +8,7 @@ This week's homework has three parts: a challenge using models from your Collect
 
 In class we tested adversarial inputs on a sentiment model and performed data preprocessing — cleaning noise to see if it improved results. That's a research method called **adversarial testing** with a **controlled before/after comparison**.
 
-Now apply that same method to **your own interest**.
+Now apply that same method to **your own interest**. (See `GUIDE-adversarial-testing.md` for a portable reference on this method, the noise vs. meaning distinction, and the CLEAR framework.)
 
 ### Option A: Stay with Sentiment / Emotion
 

@@ -204,7 +204,7 @@ This is the hands-on activity. Students create their second Collection — this 
 - "Did anyone find a model that detects feelings our three models can't?"
 - "What did you learn from reading the model card?"
 
-**Refer students to the PDFs:** "The *Curate a Model Collection* handout has step-by-step instructions for building your Collection. The *Model Tasting Notes* handout gives you a framework for writing notes — including a template and an example."
+**Refer students to the Markdown guides:** "The *Grow Your Collection* guide has step-by-step instructions for building your Collection. The *Research Journal* guide gives you a framework for writing notes and journal entries — including a template and a worked example. And the *Comparative Analysis* method card explains the research method we just used. All three are Markdown files in the session folder on GitHub — you can also paste them into Claude or ChatGPT and ask questions."
 
 ### 1:45–1:55 — Notebook Time
 
@@ -240,17 +240,20 @@ Share the between-session challenge (see BETWEEN-SESSION.md).
 | Students can't find the model card | Show them: go to huggingface.co, search the model name, click the model page. The README is the model card. |
 | Students can't find the Inference Widget | It's on the right side of the model page, labeled "Hosted inference API." Not all models have it — if one doesn't, try another. |
 | Emotion model gives odd results on long text | It was trained on tweets (short text). That's a feature of this lesson, not a bug. "This model thinks everything is a tweet." |
-| Students struggle with tasting notes | Give them the template from the PDF: model name, what it classifies, trained on, easy test, interesting test, strength, weakness. |
+| Students struggle with tasting notes | Point them to GUIDE-research-journal.md — it has the five-step tasting process, a template, and a worked example. |
 | Big Question discussion falls flat | Have a backup: ask students to name a feeling they've had this week. Then check if any of the three models have a label for it. |
 | Big Question discussion runs too long | Time-box at 15 min. Say: "We'll come back to this — the question of who defines emotions comes up again when we talk about bias in Session 7." |
-| Not enough time for Model Collection activity | Students can finish between sessions. The PDF has complete step-by-step instructions. |
+| Not enough time for Model Collection activity | Students can finish between sessions. GUIDE-grow-your-collection.md has complete step-by-step instructions. |
 
 ---
 
-## Session Resources (PDFs)
+## Session Resources (Markdown Guides)
 
-- **Curate a Model Collection** — step-by-step guide to building a model-focused Collection
-- **Model Tasting Notes** — framework for comparing and evaluating sentiment models, with templates and examples
+- **GUIDE-grow-your-collection.md** — step-by-step guide to building and maintaining a model-focused Collection, with growth targets and notes guidance
+- **GUIDE-research-journal.md** — Research Journal companion guide with weekly template, annotated example, five-step tasting process, challenge prompts, and vocabulary
+- **GUIDE-comparative-analysis.md** — research method card for comparative analysis (this session's Research Lens method)
+
+> **Note for instructors:** These guides are Markdown files, not PDFs. Students can open them on GitHub, paste them into an LLM for help, or copy templates directly into their own files. When distributing, point students to the session folder on GitHub.
 
 ---
 

@@ -15,5 +15,5 @@ Students build a Space with temperature, top-p, and max-length sliders to contro
 - **requirements.txt** — Space dependencies
 - **notebook.ipynb** — Google Colab notebook for hands-on hyperparameter experiments
 - **explorer.ipynb** — extended Colab notebook for deeper exploration
-- **SPACE-BUILDER.docx** — step-by-step guide for building the Space on Hugging Face
+- **GUIDE-parameter-sweep.md** — research method card: Parameter Sweep / Experimental Design
 - **BETWEEN-SESSION.md** — challenge and homework for between sessions

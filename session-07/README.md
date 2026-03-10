@@ -13,5 +13,5 @@ Students build a Bias Tester Space that compares paired sentences — swapping n
 - **app.py** — Bias Tester Space (Gradio app)
 - **requirements.txt** — Space dependencies
 - **notebook.ipynb** — Google Colab notebook for hands-on bias-testing experiments
-- **SPACE-BUILDER.docx** — step-by-step guide for building the Space on Hugging Face
+- **GUIDE-fairness-audit.md** — research method card: Fairness Audit / Algorithmic Bias
 - **BETWEEN-SESSION.md** — challenge and homework for between sessions

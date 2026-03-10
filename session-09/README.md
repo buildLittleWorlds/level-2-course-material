@@ -13,5 +13,5 @@ Students redesign a sentiment analysis demo into a tool for a real audience — 
 - **app.py** — Restaurant Review Analyzer Space (Gradio app)
 - **requirements.txt** — Space dependencies
 - **notebook.ipynb** — Google Colab notebook for hands-on redesign experiments
-- **SPACE-BUILDER.docx** — step-by-step guide for building the Space on Hugging Face
+- **GUIDE-user-centered-design.md** — research method card: User-Centered Design / Usability
 - **BETWEEN-SESSION.md** — challenge and homework for between sessions

@@ -15,5 +15,5 @@ Students compare three sentiment models side by side — one trained on movie re
 - **requirements.txt** — Space dependencies
 - **notebook.ipynb** — Google Colab notebook for hands-on model comparison experiments
 - **explorer.ipynb** — extended Colab notebook for deeper exploration
-- **SPACE-BUILDER.docx** — step-by-step guide for building the Space on Hugging Face
+- **GUIDE-baseline-comparison.md** — research method card for baseline comparison, plus evaluation concepts (accuracy, false positives/negatives, confidence scores)
 - **BETWEEN-SESSION.md** — challenge and homework for between sessions

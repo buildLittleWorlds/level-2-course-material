@@ -10,7 +10,8 @@ Students compare three sentiment models (binary, 7-emotion, and zero-shot) by ru
 
 - **slides.html** — presentation slides
 - **INSTRUCTOR-GUIDE.md** — full lesson plan with time breakdown
-- **Session-2-Curate-a-Model-Collection.pdf** — step-by-step guide to building a model-focused Collection
-- **Session-2-Model-Tasting-Notes.pdf** — framework for comparing and evaluating sentiment models
+- **GUIDE-grow-your-collection.md** — step-by-step guide to building and maintaining a model-focused Collection
+- **GUIDE-research-journal.md** — Research Journal companion guide with template, worked example, tasting process, and vocabulary
+- **GUIDE-comparative-analysis.md** — research method card for comparative analysis
 - **notebook.ipynb** — Google Colab notebook for hands-on model comparison experiments
 - **BETWEEN-SESSION.md** — challenge and homework for between sessions

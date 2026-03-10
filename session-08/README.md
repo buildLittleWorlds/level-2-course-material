@@ -13,5 +13,5 @@ Students chain BLIP image captioning with sentiment analysis — upload an image
 - **app.py** — Image Story Pipeline Space (Gradio app)
 - **requirements.txt** — Space dependencies
 - **notebook.ipynb** — Google Colab notebook for hands-on model-chaining experiments
-- **SPACE-BUILDER.docx** — step-by-step guide for building the Space on Hugging Face
+- **GUIDE-error-propagation.md** — research method card: Error Propagation / Systems Testing
 - **BETWEEN-SESSION.md** — challenge and homework for between sessions

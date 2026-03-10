@@ -11,6 +11,7 @@ Students feed sarcastic and adversarial inputs to a sentiment model and watch it
 
 - **slides.html** — presentation slides
 - **INSTRUCTOR-GUIDE.md** — full lesson plan with time breakdown
+- **GUIDE-adversarial-testing.md** — research method card for adversarial testing, plus the noise vs. meaning distinction and the CLEAR framework for prompting AI coding assistants
 - **app.py** — Sarcasm Breaker Space (Gradio app)
 - **requirements.txt** — Space dependencies
 - **notebook.ipynb** — Google Colab notebook for hands-on sarcasm-testing experiments

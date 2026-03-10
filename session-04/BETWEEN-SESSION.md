@@ -8,7 +8,7 @@ This week's homework has three parts: a challenge using models from your Collect
 
 In class we ran a **model evaluation** — putting three sentiment models side by side on the same text and comparing their answers. That's a research method called **baseline comparison** — testing multiple tools on the same data to see which one performs best.
 
-Now apply that same method to **your own interest**.
+Now apply that same method to **your own interest**. (See `GUIDE-baseline-comparison.md` for a portable reference on this method and key evaluation concepts like false positives, false negatives, and why accuracy can be misleading.)
 
 ### Option A: Stay with Sentiment / Emotion
 

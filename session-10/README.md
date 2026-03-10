@@ -14,5 +14,5 @@ Students choose a model, design a task, and build a complete Hugging Face Space 
 - **requirements.txt** — Space dependencies
 - **templates/** — starter templates for different project types
 - **notebook.ipynb** — Google Colab notebook for project scaffolding and testing
-- **SPACE-BUILDER.docx** — step-by-step guide for building the Space on Hugging Face
+- **GUIDE-build-planning.md** — build planning guide: turning your research thread into a Space
 - **BETWEEN-SESSION.md** — challenge and homework for between sessions

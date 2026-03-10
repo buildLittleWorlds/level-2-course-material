@@ -8,7 +8,7 @@ This week's homework has three parts: a challenge using the Hub, a research jour
 
 In class we compared three sentiment models that each "see" feelings differently because of their training data. That's a research method called **comparative analysis** — testing the same question with different tools and observing where they diverge.
 
-Now apply that same method to **your own interest**.
+Now apply that same method to **your own interest**. (See `GUIDE-comparative-analysis.md` for a portable reference on this method, and `GUIDE-grow-your-collection.md` for step-by-step Collection instructions.)
 
 ### Option A: Stay with Sentiment / Emotion
 
@@ -42,7 +42,7 @@ Next session, be ready to share: what did you compare, and where did they disagr
 
 This is new — and you'll do one of these every week. Create a file called `research-journal.md` in your GitHub repo (instructions below). Each week you'll add an entry.
 
-The journal is where you document what YOU are investigating — not just what we did in class, but how you're applying it to your own interests.
+The journal is where you document what YOU are investigating — not just what we did in class, but how you're applying it to your own interests. (See `GUIDE-research-journal.md` for a full guide with section-by-section explanations, a worked example, and the five-step tasting process.)
 
 ### Week 2 Entry
 
