@@ -1,1 +1,5 @@
-Here's my research journal
+# Research Journal
+
+## Week 2 Thoughts about Spaces
+
+I've got lots of thoughts
