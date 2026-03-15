@@ -1,3 +1,5 @@
+Made a change to the file
+
 # Research Journal
 
 ## Week 2 Thoughts about Spaces
