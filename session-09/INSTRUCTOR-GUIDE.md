@@ -36,9 +36,11 @@ Show the Restaurant Review Analyzer side by side. Same model, same review — bu
 
 ### 0:08–0:11 — SpaceCraft Check-In
 
-Pull up SpaceCraft briefly. Show two Spaces that do the same thing — one with great UX, one with confusing UX.
+Pull up SpaceCraft briefly. Show two CPU-only Spaces from the leaderboard that do the same task — one with great UX, one with confusing UX. Compare their Craft scores on the leaderboard.
 
-**Say:** "I added two Spaces to SpaceCraft this week. Both do the same task. One is a joy to use — clear title, good examples, output that makes sense. The other is technically impressive but confusing. Same models, different design. That's user-centered design — and that's what we're doing tonight."
+**Say:** "Look at these two Spaces on SpaceCraft. Both do the same task. One is a joy to use — clear title, good examples, output that makes sense. The other is technically impressive but confusing. Same models, different design. SpaceCraft rates every Space on 'Craft' — and the highest-scoring ones aren't always the most technically complex. They're the ones someone actually thought about designing for a human. That's user-centered design — and that's what we're doing tonight."
+
+> **SpaceCraft textbook link for this session:** On the [SpaceCraft leaderboard](https://buildlittleworlds.github.io/spaceCraft/), sort by "Craft" to see which Spaces score highest on interface design. Students can study what good design looks like before starting their own redesign work.
 
 ### 0:11–0:23 — Big Question: When Is It Helpful vs. Creepy?
 

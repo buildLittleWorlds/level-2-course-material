@@ -23,9 +23,11 @@ Quick share of between-session experiments from the Text Playground.
 
 ### 0:08–0:11 — SpaceCraft Check-In
 
-Pull up SpaceCraft briefly. Show a Space you tested outside its training domain — for example, an English document OCR Space tested with Japanese text, or an image classifier trained on photos tested with drawings.
+Pull up SpaceCraft briefly. Show a CPU-only Space you tested outside its training domain — for example, one of the OCR Spaces on the leaderboard tested with handwritten text, or a translation Space tested with slang.
 
-Say: "I added this to SpaceCraft this week. It works great on what it was trained on. But watch what happens when I give it something from a completely different world — that's domain shift, and that's what we're investigating tonight."
+Say: "I found this on SpaceCraft this week. It works great on what it was trained on. But watch what happens when I give it something from a completely different world — that's domain shift, and that's what we're investigating tonight. Look at the leaderboard's CPU-trick tags: the Spaces that use small specialized models are the ones most vulnerable to this, because specialization means narrow training data."
+
+> **SpaceCraft textbook link for this session:** [Chapter 3: GPU vs CPU](https://buildlittleworlds.github.io/spaceCraft/gpu-vs-cpu.html) — the "Choose Small, Specialized Models" section explains why these models are CPU-friendly but also why they're vulnerable to domain shift.
 
 ### 0:11–0:23 — Big Question: Is "Positive" the Same Thing Everywhere?
 

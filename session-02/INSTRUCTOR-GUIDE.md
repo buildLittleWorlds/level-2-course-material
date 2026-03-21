@@ -35,9 +35,11 @@ If students share: ask what they noticed. "What made you pick that Space? What s
 If nobody grew their Collection: that's fine. They'll have time to work on it tonight.
 
 **SpaceCraft check-in (2-3 min):**
-Show SpaceCraft on screen. Say: "I've been doing my own version of what I'm asking you to do. Every week I explore Spaces on Hugging Face and rate the ones I think are exceptional — on how they look, what they invent, and how fun they are to use."
+Show SpaceCraft on screen ([buildlittleworlds.github.io/spaceCraft](https://buildlittleworlds.github.io/spaceCraft/)). Say: "I've been doing my own version of what I'm asking you to do. Every week I explore Spaces on Hugging Face and rate the ones that do the most with the least — Spaces that run on free CPU and are still genuinely impressive. I rate them on resourcefulness, usefulness, and craft."
 
-Show a Space you added this week — pick one that demonstrates comparative analysis (two Spaces that do the same task differently). For example, show two image generation Spaces and point out: "Same task, different approach. Sound familiar? That's what we're about to do with sentiment models."
+Show two CPU Spaces from the leaderboard that do the same task differently — for example, Kokoro TTS vs. Edge TTS (both do text-to-speech, but one runs a local model and the other calls a free API). Point out: "Same task, completely different approach. Sound familiar? That's what we're about to do with sentiment models."
+
+> **SpaceCraft textbook link for this session:** [Chapter 6: Finding Spaces to Study](https://buildlittleworlds.github.io/spaceCraft/finding-spaces.html) teaches students how to scout for Spaces worth comparing — the same skill they're practicing with their Collections.
 
 **Transition:** "Last week the Mood Meter only knew two feelings: POSITIVE and NEGATIVE. That's like saying music is either loud or quiet. Tonight we're going to see what happens when we give the model more words for feelings."
 

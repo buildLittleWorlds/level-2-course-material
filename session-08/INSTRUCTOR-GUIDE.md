@@ -34,9 +34,11 @@ Anyone try the between-session challenge? What bias pairs did you find? Quick sh
 
 ### 0:08–0:11 — SpaceCraft Check-In
 
-Pull up SpaceCraft briefly. Point out a Space that chains multiple models together.
+Pull up SpaceCraft briefly. Demonstrate the concept of chaining by showing how a CPU Space could combine a free API call with a local model — for example, fetch news headlines from GNews (like we built in Session 3), then run sentiment analysis on each headline. Two steps in a pipeline, both on free CPU.
 
-**Say:** "I added this video Space to SpaceCraft. Watch what it does — it runs object detection, then tracking, then annotation. Three models in a pipeline. Each one depends on the one before it. If the detector misses something, the tracker can't track it, and the annotation is wrong. That's error propagation — and that's what we're building tonight."
+**Say:** "Remember the news Space we built in Session 3? Imagine chaining that with a sentiment model: fetch headlines, then classify each one. If the API returns garbage, the classifier reads garbage. That's error propagation — and that's what we're building tonight, but with images."
+
+> **SpaceCraft textbook link for this session:** [Chapter 4: Free APIs — Combining APIs](https://buildlittleworlds.github.io/spaceCraft/free-apis.html) shows how to chain an API call with a local model in a single Space. The "Combining APIs" section has examples of multi-step pipelines running entirely on free CPU.
 
 ### 0:11–0:23 — Big Question: Can You Read Emotion from a Photograph?
 

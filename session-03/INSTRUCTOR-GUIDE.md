@@ -19,7 +19,9 @@ If yes: share it. What did the model get wrong? Why do they think it happened?
 If no: quickly show a model you tested between sessions. Keep it to 2 minutes.
 
 **SpaceCraft check-in (2-3 min):**
-Pull up SpaceCraft. Show a Space you tried to break with an adversarial input — something it wasn't designed for, or an edge case that confuses it. Say: "I tried to break this one. That's what we're about to do — but with real news."
+Pull up SpaceCraft. Show a CPU-only Space you tried to break with an adversarial input — something it wasn't designed for, or an edge case that confuses it. Say: "I tried to break this one. That's what we're about to do — but with real news."
+
+> **SpaceCraft textbook link for this session:** [Chapter 4: Free APIs](https://buildlittleworlds.github.io/spaceCraft/free-apis.html) covers exactly the pattern we're about to build — using the GNews API from a Gradio Space. After the live build, consider sharing this link with students who want to try other free APIs (weather, dictionaries, translation) in their own Spaces.
 
 **Transition:** "For two weeks we've been feeding text to models and watching what they say. Today we find out what they can't do. And we're going to use real news headlines to do it."
 

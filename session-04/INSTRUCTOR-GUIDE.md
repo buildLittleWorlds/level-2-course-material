@@ -18,7 +18,9 @@ If yes: share it. Which failure mode was it — tone deafness, emotional flatten
 If no: quickly replay one memorable failure from the Session 3 Story Arc demos. Keep it to 2 minutes. The point is to keep the failures fresh — we're about to explain what kind of AI produces them.
 
 **SpaceCraft check-in (2–3 min):**
-Pull up SpaceCraft briefly. This week, feature a *text generation* Space — something that writes, not something that classifies. A story generator, a poem writer, a code completer. Say: "Notice something different about this Space. It doesn't sort your input into a category. It writes something new. That's what today is about."
+Pull up SpaceCraft briefly. This week, feature a *text generation* Space from the CPU-only leaderboard — something that writes, not something that classifies. Say: "Notice something different about this Space. It doesn't sort your input into a category. It writes something new. That's what today is about."
+
+> **SpaceCraft textbook link for this session:** [Chapter 3: GPU vs CPU](https://buildlittleworlds.github.io/spaceCraft/gpu-vs-cpu.html) explains why some models run on free CPU and others need expensive GPUs. The short version: small, specialized models work on CPU. That's why we're using distilgpt2 tonight, not GPT-4.
 
 **Transition:** "For three weeks, we've been feeding text to models and watching them sort it into buckets — positive, negative, angry, joyful. Today we meet a completely different kind of AI. One that doesn't sort. It creates."
 
@@ -265,7 +267,7 @@ Before class, have the following open/ready:
   - Generation: `openai-community/gpt2` or `distilbert/distilgpt2`
 - [ ] Session 4 slides loaded
 - [ ] Colab notebook link ready to paste in Zoom chat
-- [ ] SpaceCraft: one text generation Space bookmarked for the check-in
+- [ ] SpaceCraft: one CPU-only text generation Space bookmarked for the check-in (browse the leaderboard at buildlittleworlds.github.io/spaceCraft/)
 
 ---
 

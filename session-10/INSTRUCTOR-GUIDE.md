@@ -43,9 +43,11 @@ Then recap every Space built so far:
 
 ### 0:10–0:13 — SpaceCraft Check-In
 
-Pull up SpaceCraft. Show a Space where the builder clearly chose a specific audience and designed everything around that person.
+Pull up SpaceCraft. Show a CPU-only Space from the leaderboard where the builder clearly chose a specific audience and designed everything around that person.
 
-**Say:** "I added this Space to SpaceCraft. Notice how the title tells you exactly what it does. The examples are realistic. The output gives you something to act on. This person didn't just pick a model — they designed a complete experience. That's what you're doing tonight. And look at your Collections — you've been exploring for 9 weeks. The model you pick tonight should come from that exploration."
+**Say:** "Look at this Space on SpaceCraft. Notice how the title tells you exactly what it does. The examples are realistic. The output gives you something to act on. This person didn't just pick a model — they designed a complete experience. And they did it on free CPU. That's what you're doing tonight. Look at your Collections — you've been exploring for 9 weeks. The model you pick tonight should come from that exploration."
+
+> **SpaceCraft textbook link for this session:** [Chapter 5: Build Your First Space](https://buildlittleworlds.github.io/spaceCraft/build.html) has three complete starter Spaces — a classifier, an API tool, and a data dashboard. If students get stuck on setup, point them here. They can pick the pattern closest to what they want to build and modify it.
 
 ### 0:13–0:25 — Hub Browsing Demo
 

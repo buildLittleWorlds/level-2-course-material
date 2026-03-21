@@ -33,9 +33,11 @@ Anyone try the between-session challenge from last week? Quick share: what domai
 
 ### 0:08–0:11 — SpaceCraft Check-In
 
-Pull up SpaceCraft briefly. Show a Space you explored this week and ask who it might not work for.
+Pull up SpaceCraft briefly. Show a CPU-only TTS Space from the leaderboard (Kokoro TTS or Chatterbox TTS) and ask who it might not work for.
 
-**Say:** "I added this voice cloning Space to SpaceCraft. It sounds great with some voices. But whose voice does it handle well? Whose might it struggle with? That's bias — and that's exactly what we're investigating tonight."
+**Say:** "I found this text-to-speech Space on SpaceCraft. It sounds great with some voices. But whose voice does it handle well? Whose might it struggle with? That's bias — and that's exactly what we're investigating tonight."
+
+> **SpaceCraft textbook link for this session:** [Chapter 1: Why CPU-Only Matters](https://buildlittleworlds.github.io/spaceCraft/why-cpu.html) — when you choose small models to fit on free CPU, you're forced to think about what's in the training data. That's the same question we're asking tonight about bias.
 
 ### 0:11–0:23 — Big Question: If AI Screens Your Application, Does Your Name Matter?
 

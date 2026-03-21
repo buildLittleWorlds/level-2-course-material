@@ -183,6 +183,9 @@ Share the between-session challenge (see BETWEEN-SESSION.md). Emphasize it's opt
 
 **Say:** "Before next week: try the Mood Meter with text you actually care about, and add at least two more Spaces to your Collection. Use the Field Guide to write your notes. Next week, we're going to discover that not all feelings are the same — same text, three different models, three completely different answers."
 
+**SpaceCraft preview (1 min):**
+If time allows, briefly show the SpaceCraft site: "One more thing — I maintain my own leaderboard of Hugging Face Spaces called SpaceCraft. Every Space on it runs on free CPU, just like the ones you're exploring. It also has a mini textbook that explains how these Spaces were built. Starting next week, I'll show you a new Space from it each session. You can browse it anytime at [buildlittleworlds.github.io/spaceCraft](https://buildlittleworlds.github.io/spaceCraft/)."
+
 ---
 
 ## What Could Go Wrong

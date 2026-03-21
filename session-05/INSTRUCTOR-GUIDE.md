@@ -18,7 +18,9 @@ If yes: share it. What did the classifier do? What did the generator do? Was one
 If no: quickly replay the Session 4 moment — the `pipeline("sentiment-analysis")` → `pipeline("text-generation")` code change. Keep it to 2 minutes. The point is to keep the fork fresh.
 
 **SpaceCraft check-in (2–3 min):**
-Pull up SpaceCraft briefly. Show a Space with adjustable parameters — a slider, a dropdown, anything the user can tweak. For example, an image generator with a guidance scale slider. Say: "Watch what happens when I change this setting. Same model, same input, different output. That's what we're about to build — a Space where the sliders change everything."
+Pull up SpaceCraft briefly. Show a CPU-only Space with adjustable parameters — for example, Edge TTS (voice selection dropdown, speed controls) or Kokoro TTS (multiple voice options) from the leaderboard. Say: "Watch what happens when I change this setting. Same model, same input, different output. That's what we're about to build — a Space where the sliders change everything."
+
+> **SpaceCraft textbook link for this session:** [Chapter 5: Build Your First Space](https://buildlittleworlds.github.io/spaceCraft/build.html) has three complete starter Spaces students can deploy right now, including one with a sentiment classifier. If students want to experiment on their own, this is a good starting point.
 
 **Narrative bridge (2 min — don't skip this):**
 
