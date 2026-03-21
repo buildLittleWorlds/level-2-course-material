@@ -114,7 +114,7 @@
 <section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
   <h1 style="font-size:2.5em;">Add Controls</h1>
   <h3 style="color:#fbbf24;">Session 5</h3>
-  <p style="margin-top:1.5em; color:#94a3b8;">Roots &middot; Iterative Space Building</p>
+  <p style="margin-top:1.5em; color:#94a3b8;">Act II &middot; The Breakthrough</p>
 </section>
 
 <!-- ========== TONIGHT'S GOAL ========== -->
@@ -134,12 +134,12 @@
 <section>
   <h2>Show-and-Tell</h2>
   <div class="observation-card">
-    Did anyone compare models for their own topic? Which one did you trust more?
+    Last week's homework: find a classifier AND a generator, test them on the same input. What happened?
   </div>
   <div style="margin-top:1em;">
-    <div class="card">What did you compare?</div>
-    <div class="card">Where did they disagree?</div>
-    <div class="card">Which model did you trust more, and why?</div>
+    <div class="card">What did the <span class="highlight-blue">classifier</span> do?</div>
+    <div class="card">What did the <span class="highlight-pink">generator</span> do?</div>
+    <div class="card">Which was more useful &mdash; and for what?</div>
   </div>
 </section>
 
@@ -152,6 +152,24 @@
     Watch what happens when I change this setting. That's a <span class="highlight-yellow">parameter sweep</span>.
   </div>
   <p class="fragment small" style="margin-top:0.8em;">Same model, same input, different settings &mdash; that's what we're about to build.</p>
+</section>
+
+<!-- ========== STORY SO FAR ========== -->
+<section>
+  <h2>The Story So Far</h2>
+  <div class="card" style="margin-bottom:0.5em;">
+    <span class="highlight-blue">Sessions 1&ndash;3:</span> Classification &mdash; sorting text into buckets. We hit the wall.
+  </div>
+  <div class="card" style="margin-bottom:0.5em;">
+    <span class="highlight-green">Session 4:</span> The fork &mdash; we built a text <strong>generator</strong>. No controls.
+  </div>
+  <div class="card" style="margin-bottom:0.5em;">
+    <span class="highlight-yellow">Session 5 (tonight):</span> We add the controls.
+  </div>
+  <p class="fragment" style="margin-top:1em; font-size:1.05em;">
+    Right now, somewhere, a developer is setting <code>temperature=0.7</code> on an API call to Claude.<br>
+    <span class="highlight-yellow">That's this slider.</span>
+  </p>
 </section>
 
 <!-- ========== BIG QUESTION ========== -->
@@ -225,19 +243,19 @@
 
 <!-- ========== BUILD: SETUP ========== -->
 <section>
-  <h2>Let's Build It</h2>
-  <p>Creating a new Space on Hugging Face:</p>
+  <h2>Let's Add Controls</h2>
+  <p>Last week we built a text generator. Today we add sliders.</p>
   <div class="card">
-    <strong>1.</strong> Click <span class="highlight-yellow">New Space</span>
+    <strong>1.</strong> Create a new Space: <code>text-playground</code> (or duplicate last week's)
   </div>
   <div class="card">
-    <strong>2.</strong> Name it <code>text-playground</code>
+    <strong>2.</strong> Start from Session 4's code &mdash; the bare generator
   </div>
   <div class="card">
-    <strong>3.</strong> SDK: <span class="highlight-blue">Gradio</span>
+    <strong>3.</strong> Add <span class="highlight-yellow">temperature</span>, <span class="highlight-pink">top-p</span>, and <span class="highlight-green">max-length</span> sliders
   </div>
   <div class="card">
-    <strong>4.</strong> Visibility: <span class="highlight-green">Public</span> &bull; Hardware: <span class="highlight-green">Free CPU</span>
+    <strong>4.</strong> Same model, same prompt &mdash; now <strong>you</strong> control the output
   </div>
 </section>
 
@@ -398,6 +416,26 @@ gradio</code></pre>
   </p>
 </section>
 
+<!-- ========== REAL-WORLD CONNECTION ========== -->
+<section>
+  <h2>Behind the Curtain</h2>
+  <div class="observation-card" style="font-size:1.05em;">
+    Every AI tool you&rsquo;ve ever used has these same controls.
+  </div>
+  <div class="card" style="margin-top:0.8em;">
+    <strong>ChatGPT</strong> &mdash; has a temperature setting behind the scenes
+  </div>
+  <div class="card">
+    <strong>Claude API</strong> &mdash; developers set <code>temperature</code> and <code>top_p</code> on every call
+  </div>
+  <div class="card">
+    <strong>Image generators</strong> &mdash; guidance scale is the same idea
+  </div>
+  <p class="fragment" style="margin-top:1em; color:#fbbf24;">
+    Most products <em>hide</em> the sliders. Today you saw what&rsquo;s behind the curtain.
+  </p>
+</section>
+
 <!-- ========== RESEARCH LENS ========== -->
 <section>
   <h2>Research Lens</h2>
@@ -511,8 +549,11 @@ gradio</code></pre>
 <!-- ========== NEXT WEEK ========== -->
 <section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
   <h2>Next Week</h2>
-  <p style="font-size:1.3em;">Same models, brand new worlds of text.</p>
-  <p style="color:#9ca3af; margin-top:0.5em;">What happens when you take a model<br>out of its comfort zone?</p>
+  <p style="font-size:1.2em;">We&rsquo;ve seen what generation can do.</p>
+  <p style="color:#9ca3af; margin-top:0.5em;">But this model was trained on web text.<br>What happens when you feed it something it&rsquo;s never seen?</p>
+  <p class="fragment" style="margin-top:1em; color:#fbbf24;">
+    That&rsquo;s the wall the field hit next &mdash;<br>and the breakthrough that followed.
+  </p>
 </section>
 
 </div>

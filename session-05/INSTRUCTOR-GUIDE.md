@@ -9,18 +9,24 @@
 
 ## Time Breakdown (2 hours)
 
-### 0:00–0:08 — Show-and-Tell
+### 0:00–0:10 — Show-and-Tell + Story So Far
 
-Ask: "Last week you compared models side by side. Did anyone find two models for their own topic that gave different answers on the same input?"
+Ask: "Last week's homework asked you to find a classifier AND a generator and test them on the same input. Did anyone do that? What happened when you compared them?"
 
-If yes: share it. Which model did they trust more? Why?
+If yes: share it. What did the classifier do? What did the generator do? Was one more useful than the other?
 
-If no: quickly show a comparison you tried between sessions. Keep it to 2 minutes.
+If no: quickly replay the Session 4 moment — the `pipeline("sentiment-analysis")` → `pipeline("text-generation")` code change. Keep it to 2 minutes. The point is to keep the fork fresh.
 
-**SpaceCraft check-in (2-3 min):**
+**SpaceCraft check-in (2–3 min):**
 Pull up SpaceCraft briefly. Show a Space with adjustable parameters — a slider, a dropdown, anything the user can tweak. For example, an image generator with a guidance scale slider. Say: "Watch what happens when I change this setting. Same model, same input, different output. That's what we're about to build — a Space where the sliders change everything."
 
-**Transition:** "Today we're flipping from reading feelings to writing them. We're going to give an AI a prompt and control how it writes with sliders."
+**Narrative bridge (2 min — don't skip this):**
+
+"Last week we crossed the fork. We went from classification — sorting into buckets — to generation — writing something new. We built a text generator. It worked. But we had no control over it. It wrote whatever it wanted."
+
+"Today we put our hands on the steering wheel."
+
+"Here's why this matters beyond our classroom: right now, somewhere, a developer is setting `temperature` to 0.7 on an API call to Claude. A product team at a startup is arguing about whether their chatbot's `top_p` should be 0.9 or 0.95. These are the same sliders we're about to build. The controls on our little distilgpt2 model are the same controls on the most powerful AI systems in the world. The only difference is scale."
 
 ### 0:08–0:20 — Big Question: Can a Machine Write Something That Makes You Feel?
 
@@ -56,23 +62,26 @@ Same prompt. Generate at **temperature 1.2** — read this output aloud. It will
 - Same prompt, **temperature = 1.5** — wild, chaotic output.
 - Ask: "Same model, same prompt. What changed?"
 
-### 0:30–1:05 — Live Build (35 minutes)
+### 0:30–1:05 — Live Build: Add Controls to the Text Generator (35 minutes)
 
-1. **Create new Space on Hugging Face** — "Text Playground"
-2. **Write requirements.txt** — `transformers`, `torch`, `gradio`
-3. **Build app.py step by step:**
-   - Import libraries
-   - Load `distilgpt2`
-   - Write a basic generation function (just prompt → output)
-   - Test it — "it works but we can't control it"
+**The narrative frame:** Last week we built a text generator Space with no controls — just a prompt and whatever the model decided to write. This week we're taking that same Space and adding sliders. The code progression IS the lesson: Session 4 built the generator, Session 5 adds controls. Students should feel this as a natural next step, not a separate project.
+
+> **What we're building and why:** You're going to add temperature, top-p, and max-length sliders to the text generator from last week. The model doesn't change — distilgpt2 is the same. What changes is how much control the user has over the output. The completed code is in `session-05/app.py`.
+
+1. **Start from Session 4's code.** Pull up last week's `app.py` on screen (the simple generator with no sliders). Say: "This is where we left off. A text generator that works but that we can't control. Watch what happens when we add three sliders."
+2. **Create new Space on Hugging Face** — "Text Playground" (or duplicate last week's Space and modify it)
+3. **Write requirements.txt** — `transformers`, `torch`, `gradio` (same as last week — point this out)
+4. **Build app.py step by step:**
+   - Start with Session 4's code (import, load model, basic generate function)
+   - Show that it works — "but we can't control it"
    - Add temperature slider — "now we have a knob"
    - Add top-p slider
    - Add max-length slider
    - Wire up Gradio with all inputs
    - Add examples
-4. **Deploy and test**
+5. **Deploy and test**
 
-**Teaching moment when adding sliders:** "Every slider we add is a hyperparameter. The model's weights are fixed — we're not changing what it knows, we're changing how it behaves."
+**Teaching moment when adding sliders:** "Every slider we add is a hyperparameter. The model's weights are fixed — we're not changing what it knows, we're changing how it behaves. Same model, same prompt, different settings — different output."
 
 ### 1:05–1:30 — Systematic Experimentation (25 minutes)
 
@@ -103,6 +112,10 @@ Guide students through controlled experiments. Use the same prompt each time and
 - The model has millions of internal parameters (weights) learned during training — we can't change those.
 - Hyperparameters are the knobs WE control at runtime.
 - Every AI tool you've ever used has these — ChatGPT, image generators, all of them. Most just hide the sliders.
+
+**The real-world connection (don't skip this):**
+
+"Every AI tool you've ever used has these same controls. When you use ChatGPT, there's a temperature setting behind the scenes. When developers build with Claude's API, they set temperature and top-p on every single call. Most products hide the sliders from you — they pick settings they think work for most people. But the sliders are always there. Today you saw what's behind the curtain."
 
 **Analogy:** "A guitar has fixed properties — the wood, the strings, the shape. Those are like the model's weights. But you control how hard you strum, where you pick, whether you use a capo. Those are hyperparameters."
 
@@ -141,6 +154,16 @@ Share the Colab link in the Zoom chat.
 **Notebook skill being introduced:** Using sliders/widgets in the code — changing parameter values and re-running cells to see different outputs.
 
 **Say:** "The experiments in the notebook let you try all the combinations we didn't have time for. Find the best settings for a scary story — bring your recipe to next session."
+
+### 2:00 — Bridge Forward + Wrap Up
+
+**Bridge to Session 6 (scripted — say something like this):**
+
+"So now we have a text generator with controls. Temperature, top-p, max length — you can dial in exactly the kind of writing you want. But here's the thing: this model was trained on web text. Reddit posts, news articles, Wikipedia entries. It's seen a lot of the internet."
+
+"What happens when you ask it about something it's never seen? What if you feed medical text to a model trained on Reddit? What if you ask it about legal contracts when it's only read blog posts? That's the wall the field hit next — and the breakthrough that solved it is what made ChatGPT and Claude possible. That's next week."
+
+Share the between-session challenge (see BETWEEN-SESSION.md).
 
 ---
 
@@ -194,6 +217,7 @@ Share the Colab link in the Zoom chat.
 
 ## Concept Connections
 
-- **Session 4:** Students compared models (different weights/training data).
-- **Session 5 (this session):** Same model, different settings — hyperparameters.
-- **Together:** Model choice AND hyperparameters both affect output. Evaluation has to account for both.
+- **Sessions 1–3 (Act I):** Classification — sorting into buckets. Students experienced the limits.
+- **Session 4:** The fork. Classification vs. generation. Students built a bare text generator with no controls.
+- **Session 5 (this session):** The controls on generation. Students add temperature/top-p sliders to the Session 4 generator. The real-world connection: these are the same controls on ChatGPT and Claude.
+- **Session 6 (next):** Domain shift — what happens when a model leaves its training world. The breakthrough: "train on everything."

@@ -38,6 +38,8 @@ The key idea is the same either way: **changing one variable at a time while hol
 
 Next session, be ready to share: what setting did you experiment with, and what did you learn?
 
+**Looking ahead:** We've seen what generation can do — and now we know how to control it. But our model was trained on web text. What happens when you feed it something from a world it's never seen? Next session, we'll discover what happens when a model leaves its comfort zone — and why that wall led to the biggest breakthrough in AI.
+
 ---
 
 ## Part 2: Research Journal Entry

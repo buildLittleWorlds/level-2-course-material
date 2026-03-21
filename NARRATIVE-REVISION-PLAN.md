@@ -2,7 +2,7 @@
 
 **Created:** March 20, 2026
 **Last updated:** March 20, 2026
-**Status:** Sessions 3–4 revised. Sessions 5–12 pending.
+**Status:** Sessions 3–5 revised. Sessions 6–12 pending.
 **Context:** This is the first time through the Level 2 course (Spring 2026, Saturday evenings). It will be taught two more times over the summer. The goal is to get the narrative right now so the summer sections benefit from a coherent story arc.
 
 ---
@@ -97,15 +97,20 @@ Students take what they've learned and build. Session 9 is prompt engineering �
 
 **Archived:** Original instructor guide, app.py (Sentiment Showdown), and GUIDE-baseline-comparison.md moved to `_archive/obsolete-session-files/`.
 
-### Session 5: Add Controls — PENDING
+### Session 5: Add Controls — REVISED ✅
 **Concept:** HYPERPARAMETERS
 **Narrative role:** The knobs on the machine. Temperature and top-p are literally the controls on ChatGPT and Claude. Students first touch generative AI directly.
-**What needs to happen:**
-- Add narrative framing to instructor guide: "Right now, somewhere, a developer is setting temperature to 0.7 on an API call to Claude. That's this slider."
-- The session already does a good job with the "is creativity just controlled randomness?" question. Lean into it.
-- Make sure the live build adds temperature/top-p sliders to the text generator from Session 4 (natural progression: Session 4 builds the generator, Session 5 adds controls).
-- Verify app.py and slides match the narrative framing.
-- Bridge forward to Session 6: "We've seen what generation can do. But this model was trained on web text. What happens when you use it on something it's never seen?"
+
+**All files revised:**
+- ✅ `INSTRUCTOR-GUIDE.md` — Narrative framing additions (not a structural rewrite). Updated Show-and-Tell to reference Session 4's classification vs. generation homework. Added "Story So Far" narrative bridge connecting Session 4's generator to Session 5's controls, including the real-world API connection ("Right now, somewhere, a developer is setting temperature to 0.7 on an API call to Claude. That's this slider."). Reframed live build as "adding controls to the Session 4 generator" rather than building from scratch. Added real-world connection beat to Name the Concept section (ChatGPT, Claude API, hidden sliders). Added scripted Bridge Forward to Session 6 (domain shift teaser). Updated Concept Connections to reflect revised Sessions 3–4.
+- ✅ `slides.html` — Matching narrative updates. Updated subtitle to "Act II · The Breakthrough." Updated Show-and-Tell to reference Session 4 homework. Added "Story So Far" slide with real-world API connection. Reframed build slides as "adding controls to last week's generator." Added "Behind the Curtain" real-world connection slide after Name the Concept. Replaced vague "Next Week" with Session 6 domain shift bridge.
+- ✅ `notebook.ipynb` — Updated title cell to "Add Controls" with narrative connection to Session 4. Updated "What We Built Tonight" cell to reference the Session 4 → Session 5 progression and the real-world API connection.
+- ✅ `BETWEEN-SESSION.md` — Added "Looking ahead" forward bridge to Session 6 in the Bring It Back section.
+- ✅ `GUIDE-parameter-sweep.md` — Updated footer from "Text Playground" to "Add Controls."
+- ✅ `README.md` — Rewritten with "Add Controls" title, narrative role section, and updated description connecting hyperparameters to real-world AI tools.
+- ✅ `explorer.ipynb` — No changes needed. Already well-scaffolded.
+- ✅ `app.py` — No changes needed. Already has temperature/top-p/max-length sliders on distilgpt2.
+- ✅ `requirements.txt` — No changes needed.
 
 ### Session 6: Same Space, Different Worlds — PENDING
 **Concept:** OVERFITTING AND DOMAIN SHIFT
@@ -227,6 +232,6 @@ Three adversarial test stories (sarcastic narrator, mixed emotions, nature with 
 3. **Teach Session 3 on Saturday (March 22)** — test the adversarial stories live. Take notes on student topics. Note what works and what doesn't in the new 2-hour structure.
 4. **Rewrite Session 4 notebooks** — notebook.ipynb and explorer.ipynb need to match the new classification vs. generation concept.
 5. **Teach Session 4 the following Saturday** — test the live build (classification → generation code change). Note whether students grasp the fork.
-6. **Revise Session 5** — add narrative framing, verify the Space build (add sliders to Session 4's generator) is a natural progression.
+6. ~~Revise Session 5~~ ✅ Complete. Narrative framing added; live build reframed as Session 4 → Session 5 progression; bridge forward to Session 6 added.
 7. **Incrementally revise Sessions 6–9** as each session approaches. Follow the same pattern: update instructor guide with narrative framing and Space build context, update slides, update between-session homework, update notebooks as needed.
 8. **Rewrite COURSE-STRUCTURE.md** after the first 4–5 sessions are tested live.

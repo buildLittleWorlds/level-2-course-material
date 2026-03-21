@@ -51,4 +51,4 @@ Browse the rows and compare them to the binary SST-2 labels from Session 2. A se
 
 ---
 
-AI + Research Level 2 • Session 5: Text Playground
+AI + Research Level 2 • Session 5: Add Controls
