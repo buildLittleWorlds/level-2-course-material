@@ -163,7 +163,7 @@
   <p style="color:#9ca3af;">The instructor's own curation project &mdash; rating HF Spaces on craft, innovation, and delight.</p>
   <div class="observation-card" style="margin-top:1em;">
     <strong>This week:</strong> I found two Spaces that do the same task differently.<br>
-    Same task, different approach &mdash; <span class="highlight-yellow">comparative analysis</span>.<br>
+    Same task, different approach &mdash; and completely different results.<br>
     Sound familiar? That's what we're about to do with sentiment models.
   </div>
   <p class="fragment small" style="margin-top:0.8em;">You're building your own Collection. I'm building mine. Same idea, bigger ecosystem.</p>
@@ -195,50 +195,19 @@
   </section>
 
   <section>
-    <h2>Model 1: Binary</h2>
-    <p>This is the Mood Meter's model &mdash; the one you already know.</p>
-    <pre><code class="language-python">analyzer = pipeline(
-    "sentiment-analysis",
-    model="distilbert-base-uncased-finetuned-sst-2-english"
-)</code></pre>
-    <p style="margin-top:0.8em;">It only knows two words: <span class="highlight-yellow">POSITIVE</span> and <span class="highlight-pink">NEGATIVE</span>.</p>
-    <p class="fragment" style="color:#9ca3af;">Trained on 50,000 movie reviews. It thinks everything is either a good movie or a bad movie.</p>
-  </section>
+    <h2>One Line of Code, Different Worlds</h2>
+    <p>The only difference between these models? The model name on one line of code.</p>
+    <pre><code class="language-python"># Binary — trained on movie reviews (POSITIVE / NEGATIVE)
+pipeline("sentiment-analysis",
+    model="distilbert-base-uncased-finetuned-sst-2-english")
 
-  <section>
-    <h2>Model 2: Seven Emotions</h2>
-    <pre><code class="language-python">classifier = pipeline(
-    "text-classification",
-    model="j-hartmann/emotion-english-distilroberta-base"
-)</code></pre>
-    <p style="margin-top:0.8em;">This model knows <span class="highlight-yellow">7 emotions</span>:</p>
-    <div class="two-col">
-      <div>
-        <div class="card">anger</div>
-        <div class="card">disgust</div>
-        <div class="card">fear</div>
-        <div class="card">joy</div>
-      </div>
-      <div>
-        <div class="card">neutral</div>
-        <div class="card">sadness</div>
-        <div class="card">surprise</div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Model 3: Your Labels</h2>
-    <pre><code class="language-python">classifier = pipeline(
-    "zero-shot-classification",
-    model="valhalla/distilbart-mnli-12-3"
-)</code></pre>
-    <p style="margin-top:0.8em;">This model uses <span class="highlight-green">whatever feeling words you give it</span>.</p>
-    <div class="try-it">
-      <strong>Try labels like:</strong><br>
-      love, grief, anxiety, hope, anger, confusion, calm
-    </div>
-    <p class="fragment" style="color:#9ca3af;">It wasn't trained on emotions specifically &mdash; it just understands language well enough to match text to concepts.</p>
+# 7 Emotions — trained on tweets (anger, joy, sadness...)
+pipeline("text-classification",
+    model="j-hartmann/emotion-english-distilroberta-base")</code></pre>
+    <p style="margin-top:0.8em;">
+      Same code pattern. Different model. <span class="highlight-yellow">Completely different output.</span>
+    </p>
+    <p class="fragment" style="color:#9ca3af;">Model 3 (zero-shot) goes even further &mdash; you give it whatever feeling words you want, and it matches text to your labels.</p>
   </section>
 
   <section>
@@ -256,25 +225,6 @@
       They all read the same words. Why do they see different feelings?
     </p>
   </section>
-</section>
-
-<!-- ========== INSIDE THE SPACE ========== -->
-<section>
-  <h2>Inside the Spaces</h2>
-  <p>Let's look at the Files tab. Each Space loads a <span class="highlight-yellow">different model</span>.</p>
-  <pre><code class="language-python">from transformers import pipeline
-
-# Emoji Mood Translator — 28 emotions (trained on Reddit)
-classifier = pipeline("text-classification",
-    model="SamLowe/roberta-base-go_emotions", top_k=5)
-
-# Headline Mood Dashboard — 7 emotions (trained on tweets)
-classifier = pipeline("text-classification",
-    model="j-hartmann/emotion-english-distilroberta-base")</code></pre>
-  <p style="margin-top:0.8em;">
-    Same pattern as the Mood Meter &mdash; just a different model name.<br>
-    <span class="highlight-yellow">Change the model, change what feelings you can see.</span>
-  </p>
 </section>
 
 <!-- ========== MODEL CARD ACTIVITY ========== -->
@@ -319,21 +269,18 @@ classifier = pipeline("text-classification",
   </section>
 
   <section>
-    <h2>The Punchline</h2>
+    <h2>Training Data Shapes What Models See</h2>
     <div class="observation-card" style="font-size:1.05em;">
-      The model can only recognize feelings that someone labeled in the training data.
+      Each model learned from different labeled examples &mdash; so each sees different feelings in the same words.
     </div>
     <div class="observation-card">
-      The binary model was trained on <strong>movie reviews</strong>.<br>
-      It only knows thumbs up or thumbs down.
+      The binary model learned from <strong>movie reviews</strong>. Thumbs up or thumbs down.
     </div>
     <div class="observation-card">
-      The emotion model was trained on <strong>tweets</strong>.<br>
-      It knows 7 emotions because someone decided there are exactly 7 worth labeling.
+      The emotion model learned from <strong>tweets</strong>. Seven emotions, because someone chose those seven.
     </div>
     <div class="observation-card">
-      The zero-shot model wasn't trained on emotions at all.<br>
-      It matches text to whatever words you give it.
+      The zero-shot model matches text to whatever words you give it &mdash; no emotion training needed.
     </div>
   </section>
 </section>
@@ -408,38 +355,12 @@ classifier = pipeline("text-classification",
   </p>
 </section>
 
-<!-- ========== RESEARCH LENS ========== -->
-<section>
-  <h2>Research Lens</h2>
-  <div class="observation-card" style="font-size:1.05em;">
-    We just did a <strong class="highlight-yellow">comparative analysis</strong> using different <strong class="highlight-blue">operationalizations</strong> of emotion.
-  </div>
-  <p class="fragment" style="margin-top:1em;">
-    Same question &mdash; "how does this text feel?" &mdash; tested with three tools that each define "feeling" differently.
-  </p>
-  <div class="fragment card" style="margin-top:0.8em;">
-    <strong>Research question:</strong> <em>How does the choice of emotion taxonomy affect sentiment classification?</em>
-  </div>
-  <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
-    In class we applied <span class="highlight-yellow">comparative analysis</span> to sentiment.<br>
-    For homework, apply the same method to <span class="highlight-green">your own topic</span>.
-  </p>
-</section>
-
 <!-- ========== BIG QUESTION ========== -->
 <section>
   <section>
-    <h2>The Big Question</h2>
-    <div class="big-question" style="font-size:1.2em; margin-top:1em;">
-      Who decided there are 6 basic emotions?
-    </div>
-  </section>
-
-  <section>
-    <h2>Ekman's Theory</h2>
-    <p>In the 1960s, Paul Ekman traveled the world showing people photos of facial expressions.</p>
-    <p class="fragment">He concluded there are <span class="highlight-yellow">6 universal emotions</span>:</p>
-    <div class="fragment three-col" style="margin-top:0.5em;">
+    <h2>Where Do These Categories Come From?</h2>
+    <p>In the 1960s, psychologist Paul Ekman studied facial expressions across cultures and proposed <span class="highlight-yellow">6 basic emotions</span>.</p>
+    <div class="three-col" style="margin-top:0.8em;">
       <div class="card" style="text-align:center;">anger</div>
       <div class="card" style="text-align:center;">disgust</div>
       <div class="card" style="text-align:center;">fear</div>
@@ -447,32 +368,19 @@ classifier = pipeline("text-classification",
       <div class="card" style="text-align:center;">sadness</div>
       <div class="card" style="text-align:center;">surprise</div>
     </div>
-    <p class="fragment small">The tweet model uses Ekman's list + "neutral." That's where the 7 categories come from.</p>
-    <p class="fragment" style="margin-top:0.5em; color:#9ca3af; font-size:0.85em;">
-      Ekman studied <em>faces</em>, not words. When someone says "I'm fine" in a flat voice, you know they're not fine &mdash; you're reading <span class="highlight-pink">tone</span>, not text. We'll explore a model that hears voices in a few weeks.
-    </p>
+    <p class="fragment small" style="margin-top:0.5em;">The tweet model uses Ekman's list + "neutral." That's where the 7 categories come from.</p>
   </section>
 
   <section>
-    <h2>But Is He Right?</h2>
-    <p>Some feelings don't have English words:</p>
-    <div class="card"><span class="highlight-yellow">Schadenfreude</span> (German) &mdash; pleasure at someone else's misfortune</div>
-    <div class="card"><span class="highlight-blue">Amae</span> (Japanese) &mdash; the sweetness of depending on someone who loves you</div>
-    <div class="card"><span class="highlight-green">Saudade</span> (Portuguese) &mdash; deep longing for something absent</div>
-    <div class="card"><span class="highlight-pink">Gigil</span> (Filipino) &mdash; the urge to squeeze something unbearably cute</div>
-    <p class="fragment" style="margin-top:0.5em; color:#9ca3af;">
-      If the model was trained on English tweets, what feelings are invisible to it?
-    </p>
-  </section>
-
-  <section>
-    <h2>The Real Question</h2>
+    <h2>Could More Labels Fix It?</h2>
     <div class="big-question" style="font-size:1.05em;">
-      If the people who labeled the training data only recognized 7 emotions, the model can only recognize 7 emotions.<br><br>
-      What feelings are invisible to it?
+      If binary (2 labels) is too simple, and 7 emotions miss things&hellip;<br><br>
+      Would <span class="highlight-yellow">28 emotions</span> be enough?<br>
+      What about <span class="highlight-blue">100</span>?<br><br>
+      <span class="highlight-green">Is there a number that's enough?</span>
     </div>
     <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
-      Can you think of a feeling you've had that doesn't fit into any of the 7 categories?
+      We'll find out next week.
     </p>
   </section>
 </section>
@@ -546,7 +454,7 @@ classifier = pipeline("text-classification",
     <h2>Between Sessions</h2>
     <p>Three parts this week. Plan for <span class="highlight-yellow">1&ndash;2 hours</span>.</p>
     <div class="card" style="margin-top:0.8em;">
-      <strong class="highlight-green">Part 1: Hub Challenge</strong> &mdash; Apply comparative analysis to your own topic<br>
+      <strong class="highlight-green">Part 1: Hub Challenge</strong> &mdash; Test different models on the same question<br>
       <strong class="highlight-blue">Part 2: Research Journal</strong> &mdash; Week 2 entry in <code>research-journal.md</code><br>
       <strong class="highlight-pink">Part 3: Collection + GitHub</strong> &mdash; Grow your Collection, set up your repo
     </div>
@@ -571,6 +479,15 @@ classifier = pipeline("text-classification",
   </section>
 
   <section>
+    <h2>Bridge Challenge</h2>
+    <div class="big-question" style="font-size:1.1em;">
+      Before next week, find a sentence you think <span class="highlight-pink">NO sentiment model could get right</span>.
+    </div>
+    <p style="margin-top:1em;">Sarcasm, irony, mixed feelings, something with no English word for it &mdash; bring your best attempt to break a model.</p>
+    <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">Next week, we'll see if <em>any</em> model can handle the hard cases.</p>
+  </section>
+
+  <section>
     <h2>Parts 2 &amp; 3</h2>
     <div class="card">
       <strong class="highlight-blue">Research Journal (Week 2):</strong> Create <code>research-journal.md</code> in your GitHub repo. Write 300&ndash;500 words: what method you used, what you tested, what you found, why you think it happened.
@@ -585,7 +502,8 @@ classifier = pipeline("text-classification",
 <section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
   <h2>Next Week</h2>
   <p style="font-size:1.3em;">When sarcasm breaks everything.</p>
-  <p style="color:#9ca3af; margin-top:0.5em;">"Oh GREAT, another Monday."<br>The model thinks that's positive. You know better.</p>
+  <p style="color:#9ca3af; margin-top:0.5em;">You've seen that different models see different feelings.<br>
+  Next week we ask: can <em>any</em> model &mdash; no matter how many categories &mdash;<br>handle the hard cases?</p>
 </section>
 
 </div>

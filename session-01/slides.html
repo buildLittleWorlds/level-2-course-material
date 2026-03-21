@@ -117,13 +117,15 @@
   <p style="margin-top:1.5em; color:#94a3b8;">Roots &middot; Can Machines Understand Feelings?</p>
 </section>
 
-<!-- ========== TONIGHT'S GOAL ========== -->
+<!-- ========== THE JOURNEY AHEAD ========== -->
 <section>
-  <h2>Tonight's Goal</h2>
-  <p style="font-size:1.2em; text-align:center; margin:1em 0;">
-    Explore AI-powered Spaces that try to<br>
-    <span class="highlight-yellow">read how text feels</span> &mdash;<br>
-    and start curating your first <span class="highlight-green">Collection</span>.
+  <h2>The Journey Ahead</h2>
+  <p style="font-size:1.15em; text-align:center; margin:1em 0;">
+    By the end of this course, you'll <span class="highlight-yellow">build your own AI-powered Space</span> from scratch.
+  </p>
+  <p style="text-align:center; margin:0.8em 0;">
+    Tonight, we start by seeing what's already out there &mdash;<br>
+    and asking whether any of it <em>actually works</em>.
   </p>
   <div class="concept-box">
     Explore &bull; Observe &bull; Curate
@@ -161,7 +163,7 @@
       <strong>Story Emotion Arc</strong> &mdash; plot the emotional journey of a story
     </div>
     <p class="fragment" style="margin-top:1em; color:#9ca3af;">
-      By the end of this course, you'll understand every file inside these Spaces.
+      Notice: every Space tonight does the same kind of thing &mdash; it takes input and <span class="highlight-yellow">sorts it into a category</span>. That's <strong>classification</strong>. We'll be living with that idea for the next three weeks.
     </p>
   </section>
 
@@ -181,8 +183,7 @@
       <strong>4.</strong> What happens with <em>weird</em> input?
     </div>
     <p class="fragment" style="margin-top:0.8em; color:#9ca3af; font-size:0.9em;">
-      Feelings don't just live in text. Music, voices, and faces carry emotion too.<br>
-      We start with words &mdash; by the end of this course, we'll read feelings from <span class="highlight-pink">voices</span> and <span class="highlight-blue">faces</span>.
+      We start with words &mdash; but feelings live in voices, faces, and music too.
     </p>
   </section>
 </section>
@@ -242,32 +243,15 @@
 
 <!-- ========== INSIDE THE SPACE ========== -->
 <section>
-  <section>
-    <h2>Inside the Space</h2>
-    <p>Every Space has a <span class="highlight-yellow">Files tab</span>. Let's look at what's inside the Mood Meter.</p>
-    <div class="card" style="margin-top:1em;">
-      <strong>Two files make this whole app work:</strong><br><br>
-      <code class="highlight-blue">app.py</code> &mdash; the code that runs the Space<br>
-      <code class="highlight-green">requirements.txt</code> &mdash; the packages it needs
-    </div>
-    <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
-      That's it. Two files. You don't need to write any code tonight &mdash; but understanding what's inside will make you a sharper critic.
-    </p>
-  </section>
-
-  <section>
-    <h2>What's in app.py?</h2>
-    <pre><code class="language-python">import gradio as gr
-from transformers import pipeline
-
-analyzer = pipeline("sentiment-analysis",
-    model="distilbert-base-uncased-finetuned-sst-2-english")</code></pre>
-    <div class="two-col" style="margin-top:0.8em;">
-      <div class="card"><code class="highlight-yellow">gradio</code><br>Builds the web interface &mdash; the page you see</div>
-      <div class="card"><code class="highlight-blue">pipeline</code><br>Loads the AI model &mdash; the brain that reads feelings</div>
-    </div>
-    <p style="margin-top:0.5em; color:#9ca3af;">When you look at any Space's Files tab, you'll see this same pattern.</p>
-  </section>
+  <h2>Inside the Space</h2>
+  <p>Every Space has a <span class="highlight-yellow">Files tab</span> &mdash; that's where the code lives.</p>
+  <div class="card" style="margin-top:1em;">
+    Most Spaces run on surprisingly little code &mdash; often just two files.<br>
+    We'll dig into the details later. For now, just know it's there.
+  </div>
+  <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
+    When you browse a Space tonight, click the Files tab and take a peek. You don't need to understand any of it yet.
+  </p>
 </section>
 
 <!-- ========== TEST IT ========== -->
@@ -366,7 +350,10 @@ analyzer = pipeline("sentiment-analysis",
       Has it ever <em>been</em> sad?
     </p>
     <p class="fragment" style="margin-top:1em; color:#9ca3af;">
-      We'll carry this question through the whole course.
+      For the next two weeks, we're going to push on this question &mdash; testing these models, comparing them, trying to break them.
+    </p>
+    <p class="fragment" style="color:#fbbf24;">
+      And then in Session 4, we'll see what happened when researchers asked: <em>what if we built something completely different?</em>
     </p>
   </section>
 </section>
@@ -426,8 +413,9 @@ analyzer = pipeline("sentiment-analysis",
 
 <!-- ========== NOTEBOOK TIME ========== -->
 <section>
-  <h2>Notebook Time</h2>
-  <p>Let's try something new &mdash; you're going to run code yourself!</p>
+  <h2>Notebook Time: Your First Experiment</h2>
+  <p>You're testing a hypothesis: <em>this model can read how text feels.</em></p>
+  <p style="margin-top:0.5em;">Your job is to find where it's right, where it's wrong, and where you're not sure. <span class="highlight-yellow">You're gathering evidence.</span></p>
   <div class="try-it" style="margin-top:1em;">
     <strong>Link in the Zoom chat!</strong>
   </div>
