@@ -54,6 +54,14 @@ The key idea is the same either way: **the model doesn't change — the design c
 
 Next session, be ready to share your redesign (or your design plan) — who is it for, and what does the output say?
 
+### Looking Ahead
+
+Tonight was the Act III opener. You've now done everything except build your own from scratch.
+
+Think about it: you've explored models that read feelings. Broken them with sarcasm. Crossed the fork from classification to generation. Tuned the controls. Hit the domain wall. Found the cost of scale — bias. Chained models into pipelines. And tonight, you designed for humans.
+
+Next session, you build your own. You pick a model, you pick a task, you design the whole thing, and you deploy it. No templates. No step-by-step guide. Start thinking about what you want to build — your Collection and your research journal are full of ideas by now.
+
 ---
 
 ## Part 2: Research Journal Entry

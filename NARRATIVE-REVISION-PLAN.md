@@ -2,7 +2,7 @@
 
 **Created:** March 20, 2026
 **Last updated:** March 21, 2026
-**Status:** Sessions 3–8 revised. Sessions 9–12 pending.
+**Status:** Sessions 3–9 revised. Sessions 10–12 pending.
 **Context:** This is the first time through the Level 2 course (Spring 2026, Saturday evenings). It will be taught two more times over the summer. The goal is to get the narrative right now so the summer sections benefit from a coherent story arc.
 
 ---
@@ -164,7 +164,7 @@ Students take what they've learned and build. Session 9 is prompt engineering �
 - ✅ `BETWEEN-SESSION.md` — Added "Looking Ahead" section bridging to Session 9's human-centered design concept. Frames the Act II → Act III transition.
 - ✅ `README.md` — Rewritten with "Chain Two Models Together" title, narrative role section, connections section (builds on Session 7, bridges to Session 9, Act II arc summary).
 - ✅ `GUIDE-error-propagation.md` — No changes needed. Footer already correct ("Session 8: Chain Two Models Together").
-- ⬜ Google Classroom — Browser could not load Google Classroom in this session. Topic needs to be renamed from "Session 8: Image Pipeline" to "Session 8: Chain Two Models Together". Material titles need updating to match local files.
+- ✅ Google Classroom — Topic renamed from "Session 8: Image Pipeline" to "Session 8: Chain Two Models Together". Material titles updated: "Session 8 Slides: Chain Two Models Together", "Session 8 Notebook: Chain Two Models Together".
 
 **Unchanged (already strong):**
 - Big Question, demo, live build sequence, error cascade demo
@@ -172,12 +172,25 @@ Students take what they've learned and build. Session 9 is prompt engineering �
 - Memory and Performance Notes, What Could Go Wrong table
 - All code (app.py, notebook experiments, helper function)
 
-### Session 9: Make It Actually Useful — PENDING
+### Session 9: Make It Actually Useful — REVISED ✅
 **Concept:** PROMPT ENGINEERING AND HUMAN-AI INTERACTION
-**Narrative role:** The human layer. After eight sessions understanding the machine, this is about designing the interface.
-**What needs to happen:**
-- Minimal changes. Emphasize that prompt engineering is the most accessible skill in AI.
-- Bridge forward: "You've explored models, broken them, tuned them, tested them for bias, chained them together, and designed how humans interact with them. Now you build your own."
+**Narrative role:** The Act III opener. After eight sessions understanding the machine, this is about designing the interface. The shift from studying models to designing for humans.
+
+**All files revised:**
+- ✅ `INSTRUCTOR-GUIDE.md` — Narrative framing additions (not a structural rewrite). Added Narrative Role to header. Added "Story So Far" narrative bridge at 0:05–0:08 connecting the full Act I / Act II arc to tonight's Act III opener, including the shift from "what's inside the machine" to "who is this for?" Shifted SpaceCraft Check-In to 0:08–0:11 and Big Question to 0:11–0:23 to accommodate Story So Far. Added real-world connection beat to Name the Concept section ("This is the most accessible skill in AI — you can't retrain GPT-4, but you can redesign how people interact with it"). Replaced Between-Session Preview with scripted Bridge Forward to Session 10 ("That's everything except one thing: building your own from scratch"). Updated Concept Review table to match all revised session titles (Sessions 1–9).
+- ✅ `slides.html` — Matching narrative updates. Updated subtitle to "Act III · Building and Reflecting." Added "Story So Far" slide with three-act overview (Act I → Act II → Act III, "Tonight you design for humans"). Replaced "Next Week" slide with Bridge Forward ("Nine Sessions" arc summary, bridge to Session 10).
+- ✅ `notebook.ipynb` — Updated title cell to "Make It Actually Useful" with Act III subtitle and narrative connection to Session 8. Updated "What We Built Tonight" cell with full-arc framing and bridge to Session 10.
+- ✅ `BETWEEN-SESSION.md` — Added "Looking Ahead" section bridging to Session 10's independent build. Frames the nine-session arc and what's left.
+- ✅ `README.md` — Rewritten with "Make It Actually Useful" title, narrative role section, connections section (builds on Session 8, bridges to Session 10).
+- ✅ `GUIDE-user-centered-design.md` — No changes needed. Footer already correct ("Session 9: Make It Actually Useful").
+- ✅ Google Classroom — Topic renamed from "Session 9: Make It Useful" to "Session 9: Make It Actually Useful". Material titles updated: "Session 9 Slides: Make It Actually Useful", "Session 9 Notebook: Make It Actually Useful".
+
+**Unchanged (already strong):**
+- Show-and-Tell, Big Question, live redesign demo, student brainstorm + build
+- Four redesign templates, build time, usability testing segment
+- Research Lens, Notebook Time, all teaching moments
+- All code (app.py, notebook experiments, design worksheet)
+- Pre-session prep, instructor tips, "What Could Go Wrong" content
 
 ### Session 10: Build Your Own from Scratch — PENDING
 **Concept:** SUPERVISED LEARNING AND TASK DESIGN
@@ -271,6 +284,7 @@ Three adversarial test stories (sarcastic narrator, mixed emotions, nature with 
 6. ~~Revise Session 5~~ ✅ Complete. Narrative framing added; live build reframed as Session 4 → Session 5 progression; bridge forward to Session 6 added.
 7. ~~Revise Session 6~~ ✅ Complete. Narrative framing added: "Story So Far" bridge from Session 5, breakthrough moment (pretraining on everything, BERT 2018), bridge forward to Session 7 (bias as cost of scale). Bonus-bert-content-moderation linked as supplementary reading.
 8. ~~Revise Session 7~~ ✅ Complete. Narrative framing added: "Story So Far" bridge from Session 6, breakthrough-cost connection in Name the Concept, bridge forward to Session 8 (error cascades). Google Classroom updated to match local files.
-9. ~~Revise Session 8~~ ✅ Complete. Narrative framing added: "Story So Far" bridge from Session 7, real-world product connection (ChatGPT content filter, Midjourney safety classifier), Act II closer ("You now know what's inside the machine"). Google Classroom needs manual update — rename topic from "Session 8: Image Pipeline" to "Session 8: Chain Two Models Together" and update material titles to match.
-10. **Incrementally revise Session 9** as it approaches. Follow the same pattern: update instructor guide with narrative framing and Space build context, update slides, update between-session homework, update notebooks as needed.
-11. **Rewrite COURSE-STRUCTURE.md** after the first 4–5 sessions are tested live.
+9. ~~Revise Session 8~~ ✅ Complete. Narrative framing added: "Story So Far" bridge from Session 7, real-world product connection (ChatGPT content filter, Midjourney safety classifier), Act II closer ("You now know what's inside the machine"). Google Classroom updated to match local files.
+10. ~~Revise Session 9~~ ✅ Complete. Act III opener framing added: "Story So Far" three-act bridge, real-world connection ("most accessible skill in AI"), Bridge Forward to Session 10. Google Classroom updated to match local files.
+11. **Incrementally revise Session 10** as it approaches. Follow the same pattern: update instructor guide with narrative framing and Space build context, update slides, update between-session homework, update notebooks as needed.
+12. **Rewrite COURSE-STRUCTURE.md** after the first 4–5 sessions are tested live.

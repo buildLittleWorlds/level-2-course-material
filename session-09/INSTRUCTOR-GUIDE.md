@@ -3,6 +3,7 @@
 ## Concept: PROMPT ENGINEERING AND HUMAN-AI INTERACTION
 
 **Key idea:** The same model can be a confusing demo or a useful tool — the difference is design. Today students learn that *how you present AI output* matters as much as the model itself.
+**Narrative Role:** The Act III opener. After eight sessions understanding the machine, this is about designing the interface. The shift from studying models to designing for humans. The most accessible skill in AI — you can't retrain GPT-4, but you can redesign how people interact with it.
 
 ---
 
@@ -21,13 +22,25 @@ Show the Restaurant Review Analyzer side by side. Same model, same review — bu
 - The difference is all in how we frame the input, label the output, and explain the result
 - This is what "prompt engineering" really means: designing the *human* side of AI
 
-### 0:05–0:08 — SpaceCraft Check-In
+### 0:05–0:08 — Story So Far
+
+**Narrative bridge (2–3 min — don't skip this):**
+
+"Let me tell you where we are. We just finished Act II — the eight ideas that got us from 'a computer can sort email' to 'a computer can write a novel.'"
+
+"Act I — Sessions 1 through 3 — we had models that sort text into buckets. They don't understand anything. Sarcasm breaks them, ambiguity confuses them, and they only work on the exact kind of text they were trained on. That was the old way."
+
+"Act II — Sessions 4 through 8 — we found the breakthrough. Session 4, the fork: classification to generation. Session 5, the controls: temperature and top-p — the same sliders on ChatGPT. Session 6, the wall: domain shift — and the breakthrough, train on everything. Session 7, the cost: bias. Session 8, the pipeline: chain two models, watch errors cascade."
+
+"That's what's inside the machine. Tonight we flip the perspective. Same models — but now the question isn't 'how does it work?' The question is 'who is this for?' That's Act III. You know enough to design for humans."
+
+### 0:08–0:11 — SpaceCraft Check-In
 
 Pull up SpaceCraft briefly. Show two Spaces that do the same thing — one with great UX, one with confusing UX.
 
 **Say:** "I added two Spaces to SpaceCraft this week. Both do the same task. One is a joy to use — clear title, good examples, output that makes sense. The other is technically impressive but confusing. Same models, different design. That's user-centered design — and that's what we're doing tonight."
 
-### 0:08–0:20 — Big Question: When Is It Helpful vs. Creepy?
+### 0:11–0:23 — Big Question: When Is It Helpful vs. Creepy?
 
 **This anchors the session's research theme. Run it before the build, while energy is high.**
 
@@ -159,6 +172,8 @@ Each student reads their Space's description aloud. Class answers:
 - Real AI products spend more time on UX than on the model
 - This is why AI companies hire designers, not just engineers
 
+"Here's what I want you to take from tonight: this is the most accessible skill in AI. You can't retrain GPT-4. You can't rebuild Claude's architecture. But you *can* redesign how people interact with them. That's what prompt engineers do. That's what UX designers at AI companies do. And that's what you just did."
+
 **Concept card:**
 | Concept | What It Means | What We Did |
 |---------|--------------|-------------|
@@ -191,9 +206,19 @@ Share the Colab notebook link in the Zoom chat. Students open it and run the set
 
 **If time is short:** Just have them fill in the design worksheet cells (markdown only — no code needed). They can run the code cells between sessions.
 
-### 1:55–2:00 — Between-Session Preview
+### 1:55–2:00 — Bridge Forward
 
-> "Three things this week: a hub challenge about redesigning for a real person, your Research Journal entry, and growing your Collection. Details in the between-session doc."
+**Scripted bridge (say something like this):**
+
+"Let me step back and name what you've done across nine sessions."
+
+"You explored models that read feelings. You broke them with sarcasm and ambiguity. You crossed the fork from classification to generation. You tuned the controls. You hit the domain wall and learned the breakthrough — train on everything. You found the cost — bias. You chained models into pipelines and watched errors cascade. And tonight, you designed for humans."
+
+"That's everything except one thing: building your own from scratch."
+
+"Next week, you pick a model, you pick a task, you design the whole thing, and you deploy it. No templates. No step-by-step guide. Just you and everything you've learned. That's Session 10."
+
+Share the between-session challenge (see BETWEEN-SESSION.md).
 
 ---
 
@@ -216,12 +241,12 @@ Share the Colab notebook link in the Zoom chat. Students open it and run the set
 
 | # | Session | Concept |
 |---|---------|---------|
-| 1 | Deploy First Space | INPUT → MODEL → OUTPUT |
-| 2 | Swap Models | Training Data and Representation |
-| 3 | Break It on Purpose | Data Cleaning and Feature Engineering |
-| 4 | Two Models Disagree | Model Evaluation |
-| 5 | Add Sliders | Hyperparameters |
-| 6 | Same Space, Different Text | Overfitting and Domain Shift |
-| 7 | Paired Sentence Tests | Bias in AI |
-| 8 | Chain Two Models | Multi-Model Systems |
+| 1 | Can a Computer Tell How You Feel? | INPUT → MODEL → OUTPUT |
+| 2 | Not All Feelings Are the Same | Training Data and Representation |
+| 3 | What Models Can't Do | Adversarial Testing and the Limits of Classification |
+| 4 | What If AI Could Create? | Classification vs. Generation |
+| 5 | Add Controls | Hyperparameters |
+| 6 | Same Space, Different Worlds | Overfitting and Domain Shift |
+| 7 | Who Gets Hurt? | Bias in AI |
+| 8 | Chain Two Models Together | Multi-Model Systems and Error Cascades |
 | 9 | Make It Actually Useful | Prompt Engineering and Human-AI Interaction |
