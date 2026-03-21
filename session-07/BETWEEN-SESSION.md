@@ -46,6 +46,12 @@ The key idea is the same either way: **models learn patterns from data, and data
 
 Next session, be ready to share your most surprising finding — either a bias you found or one you expected but didn't see.
 
+### Looking Ahead
+
+Next session, we chain two models together — an image captioning model feeds into a sentiment model. If the first model describes people differently based on who they are, the second model just scores what it's given. Bias doesn't stay contained in one model — it cascades through the pipeline. That's Session 8: error cascades.
+
+If you want a preview, find a multi-model Space on Hugging Face — one where the output of one model feeds into another — and think about what happens when the first model gets something wrong.
+
 ---
 
 ## Part 2: Research Journal Entry

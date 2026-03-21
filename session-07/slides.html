@@ -106,7 +106,7 @@
 <section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
   <h1 style="font-size:2.5em;">Who Gets Hurt?</h1>
   <h3 style="color:#fbbf24;">Session 7</h3>
-  <p style="margin-top:1.5em; color:#94a3b8;">Roots &middot; Iterative Space Building</p>
+  <p style="margin-top:1.5em; color:#94a3b8;">Act II &middot; The Breakthrough</p>
 </section>
 
 <!-- ========== TONIGHT'S GOAL ========== -->
@@ -130,6 +130,23 @@
   </div>
   <div class="observation-card">
     Did you break all three models?
+  </div>
+</section>
+
+<!-- ========== STORY SO FAR ========== -->
+<section>
+  <h2>Story So Far</h2>
+  <div class="card">
+    <strong class="highlight-blue">Sessions 1&ndash;3 (The Old Way):</strong> Models that sort text into buckets. Sarcasm breaks them. They only know their training world.
+  </div>
+  <div class="card fragment">
+    <strong class="highlight-green">Sessions 4&ndash;5:</strong> The fork &mdash; classification to generation. Then we added controls. Same sliders as ChatGPT.
+  </div>
+  <div class="card fragment">
+    <strong class="highlight-yellow">Session 6:</strong> The wall &mdash; domain shift. The breakthrough: train on everything. Pretrain on the whole internet, then fine-tune. (BERT, 2018.)
+  </div>
+  <div class="observation-card fragment">
+    <strong class="highlight-pink">Tonight:</strong> The cost of that breakthrough. Train on everything = train on every bias, stereotype, and inequality in human history.
   </div>
 </section>
 
@@ -397,6 +414,10 @@ demo.launch()</code></pre>
     What we just did &mdash; systematically testing whether a model treats<br>
     different groups equally &mdash; is called <strong>fairness testing</strong>.
   </p>
+  <p class="fragment" style="color:#9ca3af; margin-top:0.8em;">
+    This is the cost of training on everything.<br>
+    The bigger the dataset, the more of the world's unfairness the model absorbs.
+  </p>
 </section>
 
 <!-- ========== RESEARCH LENS ========== -->
@@ -501,8 +522,10 @@ demo.launch()</code></pre>
 <!-- ========== NEXT WEEK ========== -->
 <section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
   <h2>Next Week</h2>
-  <p style="font-size:1.3em;">Chain two models together.</p>
-  <p style="color:#9ca3af; margin-top:0.5em;">What one model gets wrong,<br>the next model has to live with.</p>
+  <p style="font-size:1.2em;">Bias is one cost of scale.<br>
+  <span class="highlight-pink">Error cascades</span> are another.</p>
+  <p style="color:#9ca3af; margin-top:0.8em;">Chain two models together.<br>
+  What one model gets wrong, the next model has to live with.</p>
 </section>
 
 </div>

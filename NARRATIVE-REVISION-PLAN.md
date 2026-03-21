@@ -2,7 +2,7 @@
 
 **Created:** March 20, 2026
 **Last updated:** March 21, 2026
-**Status:** Sessions 3–6 revised. Sessions 7–12 pending.
+**Status:** Sessions 3–7 revised. Sessions 8–12 pending.
 **Context:** This is the first time through the Level 2 course (Spring 2026, Saturday evenings). It will be taught two more times over the summer. The goal is to get the narrative right now so the summer sections benefit from a coherent story arc.
 
 ---
@@ -132,13 +132,26 @@ Students take what they've learned and build. Session 9 is prompt engineering �
 - Notebook experiments and helper function
 - No app.py (correct — no new build this session)
 
-### Session 7: Who Gets Hurt? — PENDING
+### Session 7: Who Gets Hurt? — REVISED ✅
 **Concept:** BIAS IN AI
 **Narrative role:** The cost of scale. Training on everything means training on all of humanity's biases.
-**What needs to happen:**
-- Add narrative framing: "We just learned that the breakthrough was training on everything. But 'everything' includes every bias, stereotype, and inequality in human history. The bigger the model, the bigger the bias problem."
-- Session is already strong. Changes are framing additions, not structural.
-- Bridge forward: "Bias is one cost of scale. Error cascades are another."
+
+**All files revised:**
+- ✅ `INSTRUCTOR-GUIDE.md` — Narrative framing additions (not a structural rewrite). Added "Story So Far" narrative bridge after Show-and-Tell connecting Sessions 1–6 arc to tonight's cost-of-scale theme, including reference to bonus-bert-content-moderation module. Added "Connect back to the breakthrough" beat in Name the Concept section linking bias explicitly to Session 6's pretraining breakthrough. Added scripted Bridge Forward to Session 8 (bias cascading through multi-model pipelines → error cascades). Updated header with Narrative Role. Shifted SpaceCraft to 0:08–0:11 and Big Question to 0:11–0:23 to accommodate Story So Far.
+- ✅ `slides.html` — Matching narrative updates. Updated subtitle to "Act II · The Breakthrough." Added "Story So Far" slide recapping Sessions 1–6 arc. Added breakthrough-cost fragment to Name the Concept slide. Updated "Next Week" slide with bridge forward connecting bias to error cascades.
+- ✅ `notebook.ipynb` — Updated title cell to "Who Gets Hurt?" with Act II subtitle and narrative connection to Session 6's breakthrough. Updated "What We Built Tonight" cell with breakthrough-cost framing. Added "Looking ahead" bridge to Session 8 in Challenge cell.
+- ✅ `BETWEEN-SESSION.md` — Added "Looking Ahead" section bridging to Session 8's error cascades concept.
+- ✅ `README.md` — Rewritten with "Who Gets Hurt?" title, narrative role section, connections section (builds on Session 6, bridges to Session 8, links to bonus module).
+- ✅ `GUIDE-fairness-audit.md` — No changes needed. Footer already correct ("Session 7: Who Gets Hurt?").
+- ✅ `app.py` — No changes needed. Space name "Bias Tester" is correct (it's the Space name, not the session name).
+- ✅ `requirements.txt` — No changes needed.
+- ✅ Google Classroom — Topic renamed from "Session 7: Bias Tester" to "Session 7: Who Gets Hurt?". Material titles updated: "Session 7 Slides: Who Gets Hurt?", "Session 7 Notebook: Who Gets Hurt?".
+
+**Unchanged (already strong):**
+- Big Question, demo, live build sequence, paired-sentence testing activity
+- "This Matters" segment, Research Lens, teaching sensitivity notes
+- Pre-tested paired sentences and "What Could Go Wrong" table
+- All code (app.py, notebook experiments, helper function)
 
 ### Session 8: Chain Two Models Together — PENDING
 **Concept:** MULTI-MODEL SYSTEMS AND ERROR CASCADES
@@ -245,5 +258,6 @@ Three adversarial test stories (sarcastic narrator, mixed emotions, nature with 
 5. **Teach Session 4 the following Saturday** — test the live build (classification → generation code change). Note whether students grasp the fork.
 6. ~~Revise Session 5~~ ✅ Complete. Narrative framing added; live build reframed as Session 4 → Session 5 progression; bridge forward to Session 6 added.
 7. ~~Revise Session 6~~ ✅ Complete. Narrative framing added: "Story So Far" bridge from Session 5, breakthrough moment (pretraining on everything, BERT 2018), bridge forward to Session 7 (bias as cost of scale). Bonus-bert-content-moderation linked as supplementary reading.
-8. **Incrementally revise Sessions 7–9** as each session approaches. Follow the same pattern: update instructor guide with narrative framing and Space build context, update slides, update between-session homework, update notebooks as needed.
-9. **Rewrite COURSE-STRUCTURE.md** after the first 4–5 sessions are tested live.
+8. ~~Revise Session 7~~ ✅ Complete. Narrative framing added: "Story So Far" bridge from Session 6, breakthrough-cost connection in Name the Concept, bridge forward to Session 8 (error cascades). Google Classroom updated to match local files.
+9. **Incrementally revise Sessions 8–9** as each session approaches. Follow the same pattern: update instructor guide with narrative framing and Space build context, update slides, update between-session homework, update notebooks as needed.
+10. **Rewrite COURSE-STRUCTURE.md** after the first 4–5 sessions are tested live.

@@ -1,9 +1,11 @@
-# Session 7: Who Gets Hurt?
+# Session 7: Who Gets Hurt? — Instructor Guide
 
-**Concept:** BIAS IN AI
+## Concept: BIAS IN AI
+
 **Space:** Bias Tester
 **Model:** `distilbert-base-uncased-finetuned-sst-2-english` (sentiment model — it will show bias)
 **Pre-built fallback:** Deploy at profplate/bias-tester on HF before session
+**Narrative Role:** The cost of scale. Training on everything means training on all of humanity's biases. This is the darker side of the breakthrough from Session 6.
 
 ---
 
@@ -13,13 +15,29 @@
 
 Anyone try the between-session challenge from last week? Quick share: what domain shift did you find?
 
-### 0:05–0:08 — SpaceCraft Check-In
+### 0:05–0:08 — Story So Far
+
+**Narrative bridge (2–3 min — don't skip this):**
+
+"Let me tell you where we are in the bigger story. Sessions 1 through 3 — the Old Way — we had models that sort text into buckets. They don't understand anything. Sarcasm breaks them, ambiguity confuses them, and they only work on the exact kind of text they were trained on."
+
+"Session 4, we crossed the fork — from classification to generation. Session 5, we added controls — the same temperature and top-p sliders that are on ChatGPT and Claude right now. Session 6, we hit the wall: domain shift. Models trapped in their training worlds."
+
+"And then we learned about the breakthrough. Train on everything. Don't build a hundred tiny specialized models — build one massive model, pretrain it on the entire internet, then fine-tune it for whatever you need. That's BERT in 2018. That's the idea that led to GPT, to ChatGPT, to every AI tool you use today."
+
+"But tonight is about the cost of that breakthrough. When you train on the entire internet, you train on every bias, stereotype, and inequality in human history. Every pattern in the data gets learned — including the harmful ones. The bigger the model, the bigger the problem."
+
+"If anyone read the bonus BERT content moderation module between sessions — you already saw a hint of this. BERT was powerful enough that Twitter used it to moderate content at scale. But the same power that lets it understand language also means it absorbed every pattern in that language — including who gets talked about positively and who doesn't."
+
+"So tonight's question: who gets hurt?"
+
+### 0:08–0:11 — SpaceCraft Check-In
 
 Pull up SpaceCraft briefly. Show a Space you explored this week and ask who it might not work for.
 
 **Say:** "I added this voice cloning Space to SpaceCraft. It sounds great with some voices. But whose voice does it handle well? Whose might it struggle with? That's bias — and that's exactly what we're investigating tonight."
 
-### 0:08–0:20 — Big Question: If AI Screens Your Application, Does Your Name Matter?
+### 0:11–0:23 — Big Question: If AI Screens Your Application, Does Your Name Matter?
 
 **This anchors the session's research theme. Run it before the demo, while energy is high.**
 
@@ -189,6 +207,10 @@ Transition from technical observation to real-world impact.
 
 **Say:** "Bias in AI isn't about AI being evil. It's about AI being a mirror. It reflects whatever patterns exist in the data it was trained on — including patterns we might not want to reproduce."
 
+**Connect back to the breakthrough:**
+
+**Say:** "Remember Session 6 — the breakthrough was training on everything. Pretraining on the whole internet. This is the cost. Every pattern in the data gets amplified, including the ones we don't want. Bias isn't a bug that snuck in. It's a feature of scale. The bigger the dataset, the more of the world's unfairness the model absorbs."
+
 Show the model card for `distilbert-base-uncased-finetuned-sst-2-english`:
 - https://huggingface.co/distilbert/distilbert-base-uncased-finetuned-sst-2-english
 - Point out: trained on SST-2 (Stanford Sentiment Treebank) — movie reviews
@@ -221,7 +243,15 @@ Share the Colab link in the Zoom chat.
 
 Share the between-session challenge (see BETWEEN-SESSION.md).
 
-**Say:** "This week, apply the same fairness auditing method to your own topic. Design paired tests for a model in your Collection. Next week we're going to chain two models together — what one model gets wrong, the next model has to live with."
+**Say:** "This week, apply the same fairness auditing method to your own topic. Design paired tests for a model in your Collection."
+
+**Bridge forward to Session 8 (scripted — say something like this):**
+
+"So tonight we found one cost of scale: bias. When you train on everything, you train on every unfairness in the data. But there's another cost. What happens when you take a biased model and connect it to a second model? What happens when one model's output becomes the next model's input?"
+
+"Next week, we chain two models together. An image captioning model writes a description, and a sentiment model reads it. If the captioning model describes two people differently — if it calls one person 'professional' and another person 'aggressive' — the sentiment model doesn't question that. It just scores what it's given. The bias from model one cascades into model two."
+
+"Bias is one cost of scale. Error cascades are another. That's next week."
 
 ---
 
