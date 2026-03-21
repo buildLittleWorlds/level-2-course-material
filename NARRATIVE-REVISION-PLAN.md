@@ -2,7 +2,7 @@
 
 **Created:** March 20, 2026
 **Last updated:** March 21, 2026
-**Status:** Sessions 3–7 revised. Sessions 8–12 pending.
+**Status:** Sessions 3–8 revised. Sessions 9–12 pending.
 **Context:** This is the first time through the Level 2 course (Spring 2026, Saturday evenings). It will be taught two more times over the summer. The goal is to get the narrative right now so the summer sections benefit from a coherent story arc.
 
 ---
@@ -153,12 +153,24 @@ Students take what they've learned and build. Session 9 is prompt engineering �
 - Pre-tested paired sentences and "What Could Go Wrong" table
 - All code (app.py, notebook experiments, helper function)
 
-### Session 8: Chain Two Models Together — PENDING
+### Session 8: Chain Two Models Together — REVISED ✅
 **Concept:** MULTI-MODEL SYSTEMS AND ERROR CASCADES
-**Narrative role:** How modern AI products actually work. Not one model — a pipeline.
-**What needs to happen:**
-- Make the connection to real products explicit: "When you use ChatGPT and it refuses to answer something, that's a content filter — a separate model — making a decision before the language model even sees your input."
-- Bridge forward: "You've seen what's inside the machine. Next week: what's outside it."
+**Narrative role:** The final piece of Act II. How modern AI products actually work — not one model, but a pipeline. This is the culmination: students now know classification, generation, controls, domain shift, bias, and pipelines.
+
+**All files revised:**
+- ✅ `INSTRUCTOR-GUIDE.md` — Narrative framing additions (not a structural rewrite). Added Narrative Role to header. Added "Story So Far" narrative bridge after Show-and-Tell connecting Sessions 1–7 arc to tonight's pipeline concept, including recap of Session 7's bias cost. Shifted SpaceCraft Check-In to 0:08–0:11 and Big Question to 0:11–0:23 to accommodate Story So Far. Added real-world product connection to Name the Concept section (ChatGPT content filter, Midjourney safety classifier — "Every AI product you use is a pipeline like this one"). Replaced generic wrap-up with scripted Act II closer: "You now know what's inside the machine. Next week: what's outside it. That's Act III."
+- ✅ `slides.html` — Matching narrative updates. Updated subtitle to "Act II · The Breakthrough." Added "Story So Far" slide recapping Sessions 1–7 arc. Added real-world product connection fragment to Name the Concept slide. Replaced "Next Week" slide with Act II closer: "The Full Stack" concept chain, "You now know what's inside the machine," bridge to Act III.
+- ✅ `notebook.ipynb` — Updated title cell to "Chain Two Models Together" with Act II subtitle and narrative connection to Session 7's bias cost. Updated "What We Built Tonight" cell with pipeline-as-product framing. Added "What You Know Now" section to Challenge cell with Act II summary and bridge to Session 9.
+- ✅ `BETWEEN-SESSION.md` — Added "Looking Ahead" section bridging to Session 9's human-centered design concept. Frames the Act II → Act III transition.
+- ✅ `README.md` — Rewritten with "Chain Two Models Together" title, narrative role section, connections section (builds on Session 7, bridges to Session 9, Act II arc summary).
+- ✅ `GUIDE-error-propagation.md` — No changes needed. Footer already correct ("Session 8: Chain Two Models Together").
+- ⬜ Google Classroom — Browser could not load Google Classroom in this session. Topic needs to be renamed from "Session 8: Image Pipeline" to "Session 8: Chain Two Models Together". Material titles need updating to match local files.
+
+**Unchanged (already strong):**
+- Big Question, demo, live build sequence, error cascade demo
+- Test with Images segment, Research Lens, all teaching moments
+- Memory and Performance Notes, What Could Go Wrong table
+- All code (app.py, notebook experiments, helper function)
 
 ### Session 9: Make It Actually Useful — PENDING
 **Concept:** PROMPT ENGINEERING AND HUMAN-AI INTERACTION
@@ -259,5 +271,6 @@ Three adversarial test stories (sarcastic narrator, mixed emotions, nature with 
 6. ~~Revise Session 5~~ ✅ Complete. Narrative framing added; live build reframed as Session 4 → Session 5 progression; bridge forward to Session 6 added.
 7. ~~Revise Session 6~~ ✅ Complete. Narrative framing added: "Story So Far" bridge from Session 5, breakthrough moment (pretraining on everything, BERT 2018), bridge forward to Session 7 (bias as cost of scale). Bonus-bert-content-moderation linked as supplementary reading.
 8. ~~Revise Session 7~~ ✅ Complete. Narrative framing added: "Story So Far" bridge from Session 6, breakthrough-cost connection in Name the Concept, bridge forward to Session 8 (error cascades). Google Classroom updated to match local files.
-9. **Incrementally revise Sessions 8–9** as each session approaches. Follow the same pattern: update instructor guide with narrative framing and Space build context, update slides, update between-session homework, update notebooks as needed.
-10. **Rewrite COURSE-STRUCTURE.md** after the first 4–5 sessions are tested live.
+9. ~~Revise Session 8~~ ✅ Complete. Narrative framing added: "Story So Far" bridge from Session 7, real-world product connection (ChatGPT content filter, Midjourney safety classifier), Act II closer ("You now know what's inside the machine"). Google Classroom needs manual update — rename topic from "Session 8: Image Pipeline" to "Session 8: Chain Two Models Together" and update material titles to match.
+10. **Incrementally revise Session 9** as it approaches. Follow the same pattern: update instructor guide with narrative framing and Space build context, update slides, update between-session homework, update notebooks as needed.
+11. **Rewrite COURSE-STRUCTURE.md** after the first 4–5 sessions are tested live.

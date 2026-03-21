@@ -6,6 +6,7 @@
 - `Salesforce/blip-image-captioning-base` (~1GB, image → caption)
 - `distilbert-base-uncased-finetuned-sst-2-english` (caption → sentiment)
 **Pre-built fallback:** Deploy at profplate/image-story-pipeline on HF before session
+**Narrative Role:** The final piece of Act II. How modern AI products actually work — not one model, but a pipeline. This is the culmination: students now know classification, generation, controls, domain shift, bias, and pipelines. That's the full stack of ideas that make generative AI work.
 
 **Pre-warm:** Wake the Space at least 30 minutes before session. BLIP takes ~30–60 seconds to load on cold start from free CPU. Visit the Space URL and wait for it to load fully.
 
@@ -17,13 +18,27 @@
 
 Anyone try the between-session challenge? What bias pairs did you find? Quick share.
 
-### 0:05–0:08 — SpaceCraft Check-In
+### 0:05–0:08 — Story So Far
+
+**Narrative bridge (2–3 min — don't skip this):**
+
+"Let me tell you where we are. We're almost at the end of Act II — the part of this course about the ideas that made generative AI possible."
+
+"Sessions 1 through 3 — the Old Way — we had models that sort text into buckets. They don't understand anything. Sarcasm breaks them. They only know their training world."
+
+"Session 4, we crossed the fork — classification to generation. Session 5, we added controls — the same temperature and top-p sliders on ChatGPT and Claude. Session 6, we hit the wall: domain shift. And then the breakthrough — train on everything. One massive model, pretrained on the whole internet."
+
+"Last week, we found the cost of that breakthrough: bias. When you train on everything, you train on every unfairness in the data. You saw it — change a name, and the score changes."
+
+"Tonight is the last piece of the puzzle. What happens when you take that biased model — or any model — and connect it to a second model? What happens when one model's output becomes the next model's input? That's what we're building tonight: a pipeline. And we're going to watch errors cascade through it."
+
+### 0:08–0:11 — SpaceCraft Check-In
 
 Pull up SpaceCraft briefly. Point out a Space that chains multiple models together.
 
 **Say:** "I added this video Space to SpaceCraft. Watch what it does — it runs object detection, then tracking, then annotation. Three models in a pipeline. Each one depends on the one before it. If the detector misses something, the tracker can't track it, and the annotation is wrong. That's error propagation — and that's what we're building tonight."
 
-### 0:08–0:20 — Big Question: Can You Read Emotion from a Photograph?
+### 0:11–0:23 — Big Question: Can You Read Emotion from a Photograph?
 
 **This anchors the session's research theme. Run it before the demo, while energy is high.**
 
@@ -209,6 +224,8 @@ Wrong image description → Wrong sentiment
 
 **Say:** "Almost every AI product you use is actually multiple models working together. Siri chains speech-to-text → language understanding → response generation. Each step depends on the one before it. When it misunderstands you, the error cascades through every step after."
 
+"When you use ChatGPT and it refuses to answer something, that's a content filter — a separate model — making a decision before the language model even sees your input. When you ask Midjourney for an image, a safety classifier checks your prompt before the image model runs. Every AI product you use is a pipeline like this one."
+
 Show the BLIP model card:
 - https://huggingface.co/Salesforce/blip-image-captioning-base
 - Point out: trained on COCO dataset (Common Objects in Context) — everyday photos
@@ -242,7 +259,15 @@ Share the Colab link in the Zoom chat.
 
 Share the between-session challenge (see BETWEEN-SESSION.md).
 
-**Say:** "This week, think about chaining models from your own Collection. Can you connect two models so the output of one feeds the input of the other? What happens when the first one is wrong? Next week, we're going to think about the people who actually use these tools. We'll redesign a Space for a real audience."
+**Act II closer (scripted — say something like this):**
+
+"Let me take a step back. Think about how far we've come."
+
+"Session 1, we had one model that reads a sentence and says 'positive' or 'negative.' That's it. Session 3, we broke it with sarcasm and realized the old way has limits. Session 4, we crossed the fork from sorting to creating. Session 5, we learned the controls. Session 6, we hit the domain wall and found the breakthrough — train on everything. Session 7, we found the cost — bias. And tonight, we chained two models together and watched errors cascade through the pipeline."
+
+"That's the full stack. Classification, generation, controls, domain shift, pretraining, bias, and pipelines. Those are the ideas that got us from 'a computer can sort email' to 'a computer can write a novel and generate an image.' You now know what's inside the machine."
+
+"Next week: what's outside it. You've been studying the models. Session 9, you design for the humans. Same sentiment model — but you'll redesign it into a tool that a restaurant owner, or a teacher, or a therapist would actually use. The models don't change. The interface does. That's Act III."
 
 ---
 

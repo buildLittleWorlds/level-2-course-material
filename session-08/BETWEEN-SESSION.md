@@ -53,6 +53,12 @@ The key idea is the same either way: **when models are connected, errors don't j
 
 Next session, be ready to share either your best broken pipeline result or your idea for chaining two models from your Collection.
 
+### Looking Ahead
+
+Tonight was the last piece of Act II. You've now seen the full set of ideas behind modern AI: classification, generation, controls, domain shift, pretraining, bias, and pipelines.
+
+Next session, we shift from what's inside the machine to what's outside it. You'll take a sentiment analysis demo — something like what we've been building all course — and redesign it into a tool for a real audience. A restaurant owner reading reviews. A teacher analyzing student feedback. A therapist monitoring journal entries. The model stays the same. The design around it changes everything. That's Session 9: prompt engineering and human-AI interaction.
+
 ---
 
 ## Part 2: Research Journal Entry

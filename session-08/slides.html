@@ -106,7 +106,7 @@
 <section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
   <h1 style="font-size:2.5em;">Chain Two Models</h1>
   <h3 style="color:#fbbf24;">Session 8</h3>
-  <p style="margin-top:1.5em; color:#94a3b8;">Roots &middot; Iterative Space Building</p>
+  <p style="margin-top:1.5em; color:#94a3b8;">Act II &middot; The Breakthrough</p>
 </section>
 
 <!-- ========== TONIGHT'S GOAL ========== -->
@@ -134,6 +134,23 @@
   <p style="margin-top:1em; color:#9ca3af;">
     Quick share &mdash; 1&ndash;2 minutes each.
   </p>
+</section>
+
+<!-- ========== STORY SO FAR ========== -->
+<section>
+  <h2>Story So Far</h2>
+  <div class="card">
+    <strong class="highlight-blue">Sessions 1&ndash;3 (The Old Way):</strong> Models that sort text into buckets. Sarcasm breaks them. They only know their training world.
+  </div>
+  <div class="card fragment">
+    <strong class="highlight-green">Sessions 4&ndash;6:</strong> The fork &mdash; classification to generation. Controls (temperature, top-p). The wall &mdash; domain shift. The breakthrough: train on everything. (BERT, 2018.)
+  </div>
+  <div class="card fragment">
+    <strong class="highlight-pink">Session 7:</strong> The cost &mdash; bias. Train on everything = train on every unfairness in the data.
+  </div>
+  <div class="observation-card fragment">
+    <strong class="highlight-yellow">Tonight:</strong> The final piece. What happens when you connect a biased model to a second model? Errors don't stay contained &mdash; they cascade.
+  </div>
 </section>
 
 <!-- ========== SPACECRAFT CHECK-IN ========== -->
@@ -411,6 +428,10 @@ Pillow</code></pre>
       If Step 1 is wrong, Step 2 is wrong.<br>
       <span class="small">Garbage in, garbage out &mdash; at every step.</span>
     </div>
+    <div class="card fragment">
+      Every AI product you use is a pipeline like this.<br>
+      <span class="small">ChatGPT's content filter, Midjourney's safety classifier, Siri's speech chain &mdash; all pipelines.</span>
+    </div>
   </div>
 </section>
 
@@ -516,11 +537,26 @@ Pillow</code></pre>
   </section>
 </section>
 
-<!-- ========== NEXT WEEK ========== -->
+<!-- ========== ACT II CLOSER ========== -->
 <section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
-  <h2>Next Week</h2>
-  <p style="font-size:1.3em;">Make it actually useful.</p>
-  <p style="color:#9ca3af; margin-top:0.5em;">Same model, new frame.<br>We turn a demo into a tool someone would actually use.</p>
+  <h2>The Full Stack</h2>
+  <div class="card" style="text-align:left; max-width:700px; margin:0.8em auto;">
+    <span class="highlight-blue">Classification</span> &rarr;
+    <span class="highlight-green">Generation</span> &rarr;
+    <span class="highlight-yellow">Controls</span> &rarr;
+    <span class="highlight-pink">Domain shift</span> &rarr;
+    <span class="highlight-yellow">Pretraining</span> &rarr;
+    <span class="highlight-pink">Bias</span> &rarr;
+    <span class="highlight-green">Pipelines</span>
+  </div>
+  <p class="fragment" style="font-size:1.3em; margin-top:1em; color:#fbbf24;">
+    You now know what's inside the machine.
+  </p>
+  <p class="fragment" style="color:#9ca3af; margin-top:0.5em;">
+    Next week: what's outside it.<br>
+    You've been studying the models. Now you design for the humans.<br>
+    <strong>That's Act III.</strong>
+  </p>
 </section>
 
 </div>
