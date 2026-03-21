@@ -102,6 +102,10 @@ Finish the experiments in the Session 7 notebook:
 - Run Experiment 2 (find the biggest bias gap)
 - Try at least one new category of swap in Experiment 3
 
+### SpaceCraft Resource
+
+This week you learned **Fairness Auditing** — designing paired inputs to check whether a model treats different groups equally. SpaceCraft has a dedicated page for this method with steps, paired-input examples, and an exercise: [Fairness Audit method card](https://buildlittleworlds.github.io/spaceCraft/methods/fairness-audit.html)
+
 ### GitHub
 
 Upload this week's notebook to your `my-ai-portfolio` repo:

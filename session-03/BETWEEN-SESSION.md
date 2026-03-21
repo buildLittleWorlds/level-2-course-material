@@ -76,6 +76,8 @@ Write a Week 3 entry using this template:
 
 **Notebook:** Finish experiments. Try different zero-shot categories on the pre-selected headlines. Key question: "Can better categories solve what classification can't?"
 
+**SpaceCraft Resource:** This week you learned **Adversarial Testing** — deliberately trying to break a system to find its limits. SpaceCraft has a dedicated page for this method: [Adversarial Testing method card](https://buildlittleworlds.github.io/spaceCraft/methods/adversarial-testing.html)
+
 **GitHub:** Upload notebook to `my-ai-portfolio` repo. Edit `research-journal.md` to add your Week 3 entry.
 
 **Explorer Notebook (Optional):** Link to `explorer.ipynb` with Colab badge. "Apply this week's method to a model from your own Collection."

@@ -93,6 +93,10 @@ Try to find:
 - Text where they completely disagree
 - A feeling you've had that none of the three models can name
 
+### SpaceCraft Resource
+
+This week you learned **Comparative Analysis** — testing the same question with different tools and studying where they disagree. SpaceCraft has a dedicated page for this method with steps, examples, and exercises you can try on leaderboard Spaces: [Comparative Analysis method card](https://buildlittleworlds.github.io/spaceCraft/methods/comparative-analysis.html)
+
 ### GitHub
 
 1. Create a new repository called `my-ai-portfolio`

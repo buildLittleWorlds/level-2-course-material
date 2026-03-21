@@ -90,6 +90,10 @@ Finish the experiments in the Session 5 notebook:
 - Try Experiment 2 (same settings, different prompts) and Experiment 3 (extreme settings)
 - Write down any surprising results
 
+### SpaceCraft Resource
+
+This week you learned **Parameter Sweep** — changing one setting at a time while holding everything else constant. SpaceCraft has a dedicated page for this method with steps, examples on TTS Spaces, and an exercise: [Parameter Sweep method card](https://buildlittleworlds.github.io/spaceCraft/methods/parameter-sweep.html)
+
 ### GitHub
 
 Upload this week's notebook to your `my-ai-portfolio` repo:

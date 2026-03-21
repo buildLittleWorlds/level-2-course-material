@@ -56,6 +56,14 @@ The key idea is the same either way: **you chose a question, a model, and a desi
 
 Next session, bring your working Space URL, one thing you're proud of, and one thing you want to improve.
 
+### SpaceCraft Resources
+
+Now that you're building your own Space, three parts of SpaceCraft are especially useful:
+
+- **[Build Guides](https://buildlittleworlds.github.io/spaceCraft/guides.html)** — Annotated walkthroughs of three leaderboard Spaces showing how they're built. If you're stuck on architecture decisions, study the one closest to your pattern (API wrapper, specialized model, or data dashboard).
+- **[Student Showcase](https://buildlittleworlds.github.io/spaceCraft/showcase.html)** — Where the best student Spaces from each cohort are featured. Your Space could end up here after Demo Day.
+- **[Chapter 8: Designing for Your Audience](https://buildlittleworlds.github.io/spaceCraft/design.html)** — The craft checklist at the bottom is a pre-flight check for your Space before you share it.
+
 ### Looking Ahead
 
 You just did the synthesis — every concept from the course embedded in one build. But a first draft is just a first draft.

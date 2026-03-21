@@ -109,6 +109,10 @@ Finish the experiments in the Session 8 notebook:
 - Fill in the error tracking table in Experiment 3
 - Try the "corrected caption" test — does fixing the caption change the sentiment?
 
+### SpaceCraft Resource
+
+This week you learned **Error Propagation** — tracing how mistakes cascade through multi-model pipelines. SpaceCraft has a dedicated page for this method with steps, pipeline diagrams, and an exercise: [Error Propagation method card](https://buildlittleworlds.github.io/spaceCraft/methods/error-propagation.html)
+
 ### GitHub
 
 Upload this week's notebook to your `my-ai-portfolio` repo:

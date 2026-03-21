@@ -95,6 +95,10 @@ Finish the experiments in the Session 6 notebook:
 - Fill in the observation table for Experiment 3
 - Write your observations in the "My Observations" markdown cell (double-click to edit)
 
+### SpaceCraft Resource
+
+This week you learned **External Validity** — testing whether a model works outside the domain it was trained on. SpaceCraft has a dedicated page for this method with steps, examples on OCR and translation Spaces, and an exercise: [External Validity method card](https://buildlittleworlds.github.io/spaceCraft/methods/external-validity.html)
+
 ### GitHub
 
 Upload this week's notebook to your `my-ai-portfolio` repo:
