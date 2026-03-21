@@ -3,30 +3,43 @@
 ## Concept: SUPERVISED LEARNING AND TASK DESIGN
 
 **Key idea:** Students choose a task, pick a model, and build a complete Space from scratch. The act of choosing — *what task? what model? what audience?* — teaches how supervised learning works: someone decided what the labels should be, what the training data looked like, and what "correct" means.
+**Narrative Role:** The synthesis. Students build something using everything they've learned. Session 9 ended with "Next week, you pick a model, you pick a task, you design the whole thing, and you deploy it." This is that week. Every concept from Sessions 1–9 is embedded in the choices students make: what task (classification vs. generation), what model (training data, labels), what audience (human-AI interaction), what could go wrong (bias, domain shift, error cascades).
 
 ---
 
 ## Time Breakdown (2 hours)
 
-### 0:00–0:10 — Show-and-Tell + Recap
+### 0:00–0:07 — Show-and-Tell + Recap
 
 Quick share: who did you redesign for last week? What did you learn from watching someone else try your Space?
 
 Then recap every Space built so far:
 
-| Session | Space | Task Type |
-|---------|-------|-----------|
-| 1 | Silly Phrase Finder | Zero-shot classification |
-| 2 | Model Swap | Sentiment analysis |
-| 3 | Break It on Purpose | Data cleaning |
-| 4 | Sentiment Showdown | Model evaluation |
-| 5 | Slider Space | Hyperparameters |
-| 6 | Domain Shift Tester | Overfitting |
-| 7 | Bias Detective | Fairness |
-| 8 | Two-Model Pipeline | Multi-model systems |
-| 9 | Restaurant Review Analyzer | UX/prompt engineering |
+| Session | Title | Space | Concept |
+|---------|-------|-------|---------|
+| 1 | Can a Computer Tell How You Feel? | Mood Meter | Input → Model → Output |
+| 2 | Not All Feelings Are the Same | Emotion Spectrum | Training data and representation |
+| 3 | What Models Can't Do | Sarcasm Breaker | Adversarial testing / limits of classification |
+| 4 | What If AI Could Create? | Text Generator | Classification vs. generation |
+| 5 | Add Controls | Text Playground | Hyperparameters |
+| 6 | Same Space, Different Worlds | *(no Space — Domain Safari)* | Overfitting and domain shift |
+| 7 | Who Gets Hurt? | Bias Tester | Bias in AI |
+| 8 | Chain Two Models Together | Image Story Pipeline | Multi-model systems and error cascades |
+| 9 | Make It Actually Useful | Restaurant Review Analyzer | Prompt engineering and human-AI interaction |
 
-> "Every one of these used a model someone else trained. Today you pick the model, pick the task, and build the whole thing."
+> "Eight Spaces. Nine concepts. Every one used a model someone else trained, with labels someone else chose, on data someone else collected. Today you make those choices yourself."
+
+### 0:07–0:10 — Story So Far
+
+**Narrative bridge (~3 min — don't skip this):**
+
+"Let me tell you where we are in the story."
+
+"Act I — Sessions 1 through 3 — we had models that sort text into buckets. They were impressive but brittle. Sarcasm broke them. Ambiguity confused them. They only worked on the exact kind of text they were trained on. That was the old way."
+
+"Act II — Sessions 4 through 8 — we traced the breakthrough. The fork from classification to generation. The controls — temperature, top-p. The wall — domain shift — and the answer: train on everything. The cost — bias. The pipeline — chain models together, watch errors cascade."
+
+"Act III started last week. You designed for humans. Tonight is the synthesis. You pick a model, you pick a task, you build the whole thing. Every choice you make tonight — what task, what model, what audience, what could go wrong — comes from something we learned in those nine sessions."
 
 ### 0:10–0:13 — SpaceCraft Check-In
 
@@ -100,6 +113,8 @@ Students test their own Spaces:
 - When you picked a model, you inherited those choices
 - Task design = deciding what question to ask and what answers are possible
 
+**Real-world connection:** "Here's the thing: every AI product you've ever used started exactly like this. Someone chose a task, chose a model trained on labeled data, and designed an interface. The person who built the autocomplete on your phone made these same choices — what should the labels be, what data to train on, who's going to use it. You just did what they did."
+
 **Concept card:**
 | Concept | What It Means | What We Did |
 |---------|--------------|-------------|
@@ -118,7 +133,7 @@ Students test their own Spaces:
 
 **Bridge to homework:** "Your Research Journal entry this week is the most important one yet. You chose a question, a model, and built something. Write about *why* you made those choices — that's research methodology."
 
-### 1:53–2:00 — Notebook Time + Between-Session Preview
+### 1:53–1:57 — Notebook Time
 
 Share the Colab notebook link in the Zoom chat. Students open it and start experimenting with their chosen model.
 
@@ -132,7 +147,15 @@ Share the Colab notebook link in the Zoom chat. Students open it and start exper
 
 **GitHub skill:** Show how to download the notebook from Colab and upload it to their `my-ai-portfolio` repo on GitHub. This is their first time pushing a notebook they wrote.
 
-**Say:** "Three things before next session: get your Space working, write your most important Research Journal entry yet, and grow your Collection. Details in the between-session doc. Next week we iterate and polish — take what you built tonight and make it better."
+### 1:57–2:00 — Bridge Forward
+
+**Scripted bridge (say something like this):**
+
+"You just built something from scratch. And right now, it works — mostly. Some inputs give weird results. Some outputs don't quite make sense for your audience. That's normal. That's exactly where every real AI product starts."
+
+"Next week is about making it better. You'll swap Spaces with someone else. They'll try to break yours — the way we broke models back in Session 3. You'll get feedback you didn't expect. And then you'll iterate. Build, test, improve. That's the experimentation loop — and it's the difference between a prototype and a product."
+
+"Three things before next session: get your Space working, write your most important Research Journal entry yet, and grow your Collection. Details in the between-session doc."
 
 ---
 
@@ -219,3 +242,18 @@ Share the Colab notebook link in the Zoom chat. Students open it and start exper
 - **The rescue templates are not failure.** Frame them as "starting points everyone can use."
 - **Image models are harder.** If a student wants image classification/captioning, help them add `Pillow` to requirements.txt and use `gr.Image()` input — but only if they're comfortable.
 - **"It doesn't work" is the lesson.** When a model doesn't do what they expected, that's task design in action. The model was trained for a specific task — using it for something else won't work.
+
+## Concept Review (Sessions 1–10)
+
+| # | Session | Concept |
+|---|---------|---------|
+| 1 | Can a Computer Tell How You Feel? | Input → Model → Output |
+| 2 | Not All Feelings Are the Same | Training Data and Representation |
+| 3 | What Models Can't Do | Adversarial Testing and the Limits of Classification |
+| 4 | What If AI Could Create? | Classification vs. Generation |
+| 5 | Add Controls | Hyperparameters |
+| 6 | Same Space, Different Worlds | Overfitting and Domain Shift |
+| 7 | Who Gets Hurt? | Bias in AI |
+| 8 | Chain Two Models Together | Multi-Model Systems and Error Cascades |
+| 9 | Make It Actually Useful | Prompt Engineering and Human-AI Interaction |
+| 10 | Build Your Own from Scratch | Supervised Learning and Task Design |

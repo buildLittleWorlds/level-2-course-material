@@ -2,7 +2,7 @@
 
 **Created:** March 20, 2026
 **Last updated:** March 21, 2026
-**Status:** Sessions 3–9 revised. Sessions 10–12 pending.
+**Status:** Sessions 3–10 revised. Sessions 11–12 pending.
 **Context:** This is the first time through the Level 2 course (Spring 2026, Saturday evenings). It will be taught two more times over the summer. The goal is to get the narrative right now so the summer sections benefit from a coherent story arc.
 
 ---
@@ -192,12 +192,25 @@ Students take what they've learned and build. Session 9 is prompt engineering �
 - All code (app.py, notebook experiments, design worksheet)
 - Pre-session prep, instructor tips, "What Could Go Wrong" content
 
-### Session 10: Build Your Own from Scratch — PENDING
+### Session 10: Build Your Own from Scratch — REVISED ✅
 **Concept:** SUPERVISED LEARNING AND TASK DESIGN
-**Narrative role:** The synthesis. Students build something using everything they've learned.
-**What needs to happen:**
-- Open with a narrative recap: "We started with a model that reads one sentence and says 'positive' or 'negative.' We broke it with sarcasm. We discovered the fork between classification and generation. We learned about temperature, domain shift, bias, and pipelines. Now you build."
-- Make sure the build workflow (app.py + requirements.txt → deploy to HF) is consistent with what students have been watching throughout the course.
+**Narrative role:** The synthesis. Students build something using everything they've learned. Every choice they make — what task, what model, what audience, what could go wrong — embeds a concept from Sessions 1–9.
+
+**All files revised:**
+- ✅ `INSTRUCTOR-GUIDE.md` — Narrative framing additions (not a structural rewrite). Added Narrative Role to header. Added "Story So Far" narrative bridge at 0:07–0:10 connecting the full three-act arc to tonight's synthesis. Shifted SpaceCraft Check-In to 0:10–0:13 to accommodate. Updated recap table at 0:00–0:07 with correct revised Space names (Mood Meter, Emotion Spectrum, Sarcasm Breaker, Text Generator, Text Playground, Bias Tester, Image Story Pipeline, Restaurant Review Analyzer) and session concepts. Added real-world connection beat to Name the Concept ("Every AI product you've ever used started exactly like this"). Replaced generic wrap-up with scripted Bridge Forward to Session 11 (the experimentation loop — swap, break, iterate). Added Concept Review table (Sessions 1–10).
+- ✅ `slides.html` — Matching narrative updates. Updated title to "Build Your Own from Scratch." Updated subtitle to "Act III · Building and Reflecting." Updated "Everything We've Built" slide with correct Space names and concepts. Added "Story So Far" slide with three-act overview (matching Session 9 pattern). Added real-world connection fragment to Name the Concept slide. Replaced "Next Week" slide with Bridge Forward ("The Experimentation Loop").
+- ✅ `notebook.ipynb` — Updated title cell to "Build Your Own from Scratch" with Act III subtitle and narrative connection to Sessions 1–9. Updated framing cell with Space build progression. Added "Looking ahead" bridge to Session 11 in Challenge cell.
+- ✅ `BETWEEN-SESSION.md` — Added "Looking Ahead" section bridging to Session 11's experimentation loop concept.
+- ✅ `README.md` — Rewritten with "Build Your Own from Scratch" title, narrative role section, connections section (builds on Session 9, bridges to Session 11).
+- ✅ `GUIDE-build-planning.md` — No changes needed. Footer already correct ("Session 10: Build Your Own from Scratch").
+- ⏳ Google Classroom — Page failed to load during revision session. **Manual update needed:** Rename topic to "Session 10: Build Your Own from Scratch." Update material titles: "Session 10 Slides: Build Your Own from Scratch", "Session 10 Notebook: Build Your Own from Scratch".
+
+**Unchanged (already strong):**
+- Hub Browsing Demo, Students Browse and Pitch, Build Time, Peer Testing
+- Pre-Screened Models list, rescue templates, common issues table
+- Research Lens, Notebook Time, all teaching moments
+- All code (app.py, templates/, requirements.txt)
+- Pre-session prep, instructor tips, Hub browsing tips
 
 ### Sessions 11-12: Iterate, Polish, Present — PENDING
 **What needs to happen:**
@@ -286,5 +299,7 @@ Three adversarial test stories (sarcastic narrator, mixed emotions, nature with 
 8. ~~Revise Session 7~~ ✅ Complete. Narrative framing added: "Story So Far" bridge from Session 6, breakthrough-cost connection in Name the Concept, bridge forward to Session 8 (error cascades). Google Classroom updated to match local files.
 9. ~~Revise Session 8~~ ✅ Complete. Narrative framing added: "Story So Far" bridge from Session 7, real-world product connection (ChatGPT content filter, Midjourney safety classifier), Act II closer ("You now know what's inside the machine"). Google Classroom updated to match local files.
 10. ~~Revise Session 9~~ ✅ Complete. Act III opener framing added: "Story So Far" three-act bridge, real-world connection ("most accessible skill in AI"), Bridge Forward to Session 10. Google Classroom updated to match local files.
-11. **Incrementally revise Session 10** as it approaches. Follow the same pattern: update instructor guide with narrative framing and Space build context, update slides, update between-session homework, update notebooks as needed.
-12. **Rewrite COURSE-STRUCTURE.md** after the first 4–5 sessions are tested live.
+11. ~~Revise Session 10~~ ✅ Complete. Synthesis framing added: "Story So Far" three-act bridge, updated recap table with correct Space names, real-world connection ("every AI product started like this"), Bridge Forward to Session 11 (experimentation loop). Google Classroom needs manual update (page failed to load during revision).
+12. **Revise Sessions 11–12** — Add narrative framing to iteration and presentation sessions. Add one prompt to presentation format: "How does your project connect to the bigger story?"
+13. **Update Google Classroom for Session 10** — Rename topic to "Session 10: Build Your Own from Scratch." Update material titles to match.
+14. **Rewrite COURSE-STRUCTURE.md** after the first 4–5 sessions are tested live.

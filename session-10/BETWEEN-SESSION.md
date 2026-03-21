@@ -56,6 +56,14 @@ The key idea is the same either way: **you chose a question, a model, and a desi
 
 Next session, bring your working Space URL, one thing you're proud of, and one thing you want to improve.
 
+### Looking Ahead
+
+You just did the synthesis — every concept from the course embedded in one build. But a first draft is just a first draft.
+
+Next session is about the experimentation loop. You'll swap Spaces with classmates. They'll try inputs you never thought of — the way we broke models back in Session 3 with sarcasm and ambiguity. You'll get feedback, and then you'll iterate. Build, test, improve.
+
+Before next session, ask yourself: what's the one input that breaks my Space? If you can find it before your classmates do, you're already iterating.
+
 ---
 
 ## Part 2: Research Journal Entry

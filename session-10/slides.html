@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Session 10: Build Your Own</title>
+<title>Session 10: Build Your Own from Scratch</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/night.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/monokai.min.css">
@@ -104,9 +104,9 @@
 
 <!-- ========== TITLE ========== -->
 <section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
-  <h1 style="font-size:2.5em;">Build Your Own</h1>
+  <h1 style="font-size:2.5em;">Build Your Own from Scratch</h1>
   <h3 style="color:#fbbf24;">Session 10</h3>
-  <p style="margin-top:1.5em; color:#94a3b8;">Roots &middot; Iterative Space Building</p>
+  <p style="margin-top:1.5em; color:#94a3b8;">Act III &middot; Building and Reflecting</p>
 </section>
 
 <!-- ========== TONIGHT'S GOAL ========== -->
@@ -126,36 +126,56 @@
   <h2>Everything We've Built</h2>
   <div style="font-size:0.75em;">
     <div class="card" style="display:grid; grid-template-columns:auto 1fr 1fr; gap:0.5em; padding:0.4em 0.8em;">
-      <strong>#</strong><strong>Space</strong><strong class="highlight-blue">Task Type</strong>
+      <strong>#</strong><strong>Space</strong><strong class="highlight-blue">Concept</strong>
     </div>
     <div class="card" style="display:grid; grid-template-columns:auto 1fr 1fr; gap:0.5em; padding:0.4em 0.8em;">
-      <span>1</span><span>Silly Phrase Finder</span><span class="small">Zero-shot classification</span>
+      <span>1</span><span>Mood Meter</span><span class="small">Input &rarr; Model &rarr; Output</span>
     </div>
     <div class="card" style="display:grid; grid-template-columns:auto 1fr 1fr; gap:0.5em; padding:0.4em 0.8em;">
-      <span>2</span><span>Model Swap</span><span class="small">Sentiment analysis</span>
+      <span>2</span><span>Emotion Spectrum</span><span class="small">Training data and representation</span>
     </div>
     <div class="card" style="display:grid; grid-template-columns:auto 1fr 1fr; gap:0.5em; padding:0.4em 0.8em;">
-      <span>3</span><span>Break It on Purpose</span><span class="small">Data cleaning</span>
+      <span>3</span><span>Sarcasm Breaker</span><span class="small">Adversarial testing / limits of classification</span>
     </div>
     <div class="card" style="display:grid; grid-template-columns:auto 1fr 1fr; gap:0.5em; padding:0.4em 0.8em;">
-      <span>4</span><span>Sentiment Showdown</span><span class="small">Model evaluation</span>
+      <span>4</span><span>Text Generator</span><span class="small">Classification vs. generation</span>
     </div>
     <div class="card" style="display:grid; grid-template-columns:auto 1fr 1fr; gap:0.5em; padding:0.4em 0.8em;">
-      <span>5</span><span>Slider Space</span><span class="small">Hyperparameters</span>
+      <span>5</span><span>Text Playground</span><span class="small">Hyperparameters</span>
     </div>
     <div class="card" style="display:grid; grid-template-columns:auto 1fr 1fr; gap:0.5em; padding:0.4em 0.8em;">
-      <span>6</span><span>Domain Shift Tester</span><span class="small">Overfitting</span>
+      <span>6</span><span class="small" style="color:#9ca3af;">(no Space &mdash; Domain Safari)</span><span class="small">Overfitting and domain shift</span>
     </div>
     <div class="card" style="display:grid; grid-template-columns:auto 1fr 1fr; gap:0.5em; padding:0.4em 0.8em;">
-      <span>7</span><span>Bias Detective</span><span class="small">Fairness</span>
+      <span>7</span><span>Bias Tester</span><span class="small">Bias in AI</span>
     </div>
     <div class="card" style="display:grid; grid-template-columns:auto 1fr 1fr; gap:0.5em; padding:0.4em 0.8em;">
-      <span>8</span><span>Image Story Pipeline</span><span class="small">Multi-model systems</span>
+      <span>8</span><span>Image Story Pipeline</span><span class="small">Multi-model systems and error cascades</span>
     </div>
     <div class="card" style="display:grid; grid-template-columns:auto 1fr 1fr; gap:0.5em; padding:0.4em 0.8em;">
-      <span>9</span><span>Restaurant Review Analyzer</span><span class="small">Prompt engineering</span>
+      <span>9</span><span>Restaurant Review Analyzer</span><span class="small">Prompt engineering and human-AI interaction</span>
     </div>
   </div>
+</section>
+
+<!-- ========== STORY SO FAR ========== -->
+<section>
+  <h2>The Story So Far</h2>
+  <div class="card" style="margin-bottom:0.5em;">
+    <strong class="highlight-yellow">Act I &mdash; The Old Way</strong> (Sessions 1&ndash;3)<br>
+    <span class="small">Models that sort text into buckets. They don't understand anything.</span>
+  </div>
+  <div class="card fragment" style="margin-bottom:0.5em;">
+    <strong class="highlight-blue">Act II &mdash; The Breakthrough</strong> (Sessions 4&ndash;8)<br>
+    <span class="small">The fork. The controls. The wall. The breakthrough. The cost. The pipeline.</span>
+  </div>
+  <div class="card fragment" style="border:2px solid #fbbf24;">
+    <strong class="highlight-green">Act III &mdash; Building and Reflecting</strong> (Sessions 9&ndash;12)<br>
+    <span class="small">Last week you designed for humans. Tonight: the synthesis.</span>
+  </div>
+  <p class="fragment" style="margin-top:0.8em; text-align:center; color:#fbbf24;">
+    Every choice you make tonight comes from something you learned.
+  </p>
 </section>
 
 <!-- ========== SPACECRAFT CHECK-IN ========== -->
@@ -371,6 +391,9 @@ demo.launch()</code></pre>
       When you pick a model, you <span class="highlight-pink">inherit those choices</span>.
       <span class="small"><br>That's supervised learning.</span>
     </div>
+    <div class="card fragment" style="margin-top:0.5em;">
+      <span class="small" style="color:#94a3b8;">Every AI product you've ever used started exactly like this. Someone chose a task, a model, and an audience. You just did what they did.</span>
+    </div>
   </div>
 </section>
 
@@ -467,11 +490,19 @@ demo.launch()</code></pre>
   </section>
 </section>
 
-<!-- ========== NEXT WEEK ========== -->
+<!-- ========== BRIDGE FORWARD ========== -->
 <section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
-  <h2>Next Week</h2>
-  <p style="font-size:1.3em;">Iterate and polish.</p>
-  <p style="color:#9ca3af; margin-top:0.5em;">Take what you built and make it better.<br>Peer feedback, refinement, and preparation for demo day.</p>
+  <h2>The Experimentation Loop</h2>
+  <p style="font-size:1.05em; color:#94a3b8;">
+    You built something from scratch. Right now, it works &mdash; mostly.
+  </p>
+  <p class="fragment" style="font-size:1.3em; margin-top:1em; color:#fbbf24;">
+    Next week: swap Spaces. Break each other's work.<br>Get feedback. Iterate.
+  </p>
+  <p class="fragment" style="color:#94a3b8; margin-top:0.5em;">
+    Build &rarr; Test &rarr; Improve.<br>
+    That's the difference between a prototype and a product.
+  </p>
 </section>
 
 </div>
