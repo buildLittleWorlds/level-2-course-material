@@ -14,46 +14,68 @@ There's a version of an AI course that starts with theory: "First, let's define 
 
 This course flips that. We start with a working thing — a Space that does something interesting — and then we ask: how does it work? What happens if we change this? Why did the model get that wrong? The concepts emerge from the building, not the other way around.
 
-Here's an example. In Session 1, we will experiment with a simple AI app, a **Mood Meter**. You paste in a sentence — something you might write in a journal, text to a friend, or say out loud — and the app tells you whether it reads as positive or negative, with a confidence score. Students try happy sentences, sad ones, angry ones, and ambiguous ones. The gap between what the model thinks and what you actually feel is where the learning starts.
+Here's an example. In Session 1, you'll experiment with a simple AI app called a **Mood Meter**. You paste in a sentence — something you might write in a journal, text to a friend, or say out loud — and the app tells you whether it reads as positive or negative, with a confidence score. Students try happy sentences, sad ones, angry ones, and ambiguous ones. The gap between what the model thinks and what you actually feel is where the learning starts.
 
 But look at what's actually happening under the hood. You're using **sentiment analysis** — a technique where an AI model reads text and classifies its emotional tone. That's a real, powerful technique used in industry for things like customer feedback analysis, social media monitoring, brand reputation tracking, and mental health research tools. The Mood Meter and a professional customer insights platform use the exact same underlying technology. The difference is just the interface you wrap around it.
 
-That pattern repeats throughout the course. Every project teaches a genuine ML concept through something you can actually build, test, and play with:
+That pattern repeats throughout the course. Every project teaches a genuine ML concept through something you can actually build, test, and play with.
 
-- **Swapping models** in Session 2 teaches you about training data and why different models see different emotions — the same concept behind choosing the right model for a business application.
-- **Breaking things with sarcasm** in Session 3 teaches data cleaning and preprocessing — the work that takes up most of a real data scientist's time.
-- **Comparing three models head-to-head** in Session 4 teaches evaluation — how professionals decide which model to actually deploy.
-- **Testing for bias in voice emotion detection** in Session 7 is the same work that AI ethics teams do at major tech companies before releasing products to the public.
+## The Story This Course Tells
 
-The projects get more playful and more sophisticated as the course goes on, but the underlying skills are always real and always transferable.
+The course isn't just a sequence of lessons — it's a story with a beginning, a middle, and a turn that changes how you think about what AI can do.
 
-## The Four Arcs
+### Act I: The Old Way (Sessions 1–3)
 
-The course is organized into four arcs, each building on the one before:
+You start by exploring AI tools that **classify** — they read text and sort it into categories like "positive" or "sad" or "angry." In Session 1, you'll tour AI-powered Spaces, test a Mood Meter, and start gathering evidence about whether a model can really read feelings. In Session 2, you'll swap in different models and discover that the same text gets completely different emotion readings depending on what training data the model learned from. You'll leave Session 2 wondering: if 7 emotion categories miss things, would 28 be enough? Would 100?
 
-**Exploration (Sessions 1–3):** You build your first Spaces and learn the fundamental pattern of AI tools: input goes in, a model processes it, output comes out. You'll start with a Mood Meter, swap in different emotion models, and discover what happens when sarcasm breaks everything. Along the way, you'll get comfortable with Gradio (the library that turns Python into web apps), Hugging Face, Colab, and a bit of Python.
+Session 3 answers that question — and the answer isn't what you expect. You'll try to break models with sarcasm, mixed feelings, and text that has no human characters at all. You'll discover that no amount of labels fixes the fundamental problem. Classification has a ceiling. That's the wall.
 
-**Evaluation (Sessions 4–6):** Now that you can build things, you learn to judge them. You'll run three sentiment models side-by-side and watch them disagree. You'll experiment with hyperparameters that control how AI generates text. And you'll discover what happens when you take a model trained on movie reviews and feed it poetry or diary entries. These are the questions that separate someone who can run a model from someone who understands what the model is doing.
+The emotional arc of Act I: **curiosity → hope → wall.**
 
-**Advanced Topics (Sessions 7–8):** You tackle harder questions: bias, fairness, and multi-modal systems. You'll build a Voice Mood Reader that detects emotion in speech — and test whether it treats all voices fairly. Then you'll build a system that reads both faces and text, and ask: when the face says happy but the words say sad, which one is telling the truth?
+### Act II: The Breakthrough (Sessions 4–8)
 
-**Project (Sessions 9–12):** You design and build your own emotion tool from the ground up. You choose the modality — text, audio, or images — pick the model, build the interface, test it, improve it, and present it. This is where everything comes together.
+Session 4 is the turn. You'll see what happened when researchers stopped asking "which bucket does this belong in?" and started asking "what comes next?" That single shift — from classification to generation, from sorting to creating — is the biggest idea in modern AI. A model that predicts the next word can write essays, answer questions, translate languages, and do things nobody explicitly trained it to do.
+
+From there, the course opens up. In Session 5, you'll build a text playground with sliders that control how creative or predictable the model is — and discover that "creativity" might just be controlled randomness. In Session 6, you'll take models trained on one kind of text and test them on something completely different, watching them fail in revealing ways. Session 7 is where you ask: if these models learned from human data, did they also learn human biases? (The answer is yes, and you'll build a tool to prove it.) Session 8 chains two models together — one that sees images and one that reads text — and you'll watch what happens when the first model makes a mistake and everything downstream breaks.
+
+The emotional arc of Act II: **breakthrough → power → cost.**
+
+### Act III: Building (Sessions 9–12)
+
+Now you build your own. In Session 9, you'll learn that the same model becomes a completely different tool depending on who you design it for — a restaurant owner, a student, a social media manager. Session 10 is where you choose your own model from Hugging Face and build a Space from scratch. Session 11 is peer testing and iteration — the same loop that professional product teams use. And Session 12 is Demo Day: you present not just your Space, but the entire research journey that got you there.
+
+The emotional arc of Act III: **agency → craft → ownership.**
 
 ## What You'll Actually Be Able to Do
 
 By the end of this course, you'll be able to:
 
-- Load and use pre-trained AI models for an amazing variety of uses. We will focus in our sessions on sentiment analysis, emotion detection, speech emotion recognition, and facial emotion recognition, but you will be able to expand to all the powerful uses AI has been trained to accomplish
+- Load and use pre-trained AI models for sentiment analysis, emotion detection, text generation, image captioning, and more — and know how to find models for tasks we never covered in class
 - Build and deploy web applications powered by AI that anyone can access
 - Read a model card and understand what a model was trained on, what it's good at, and where it might fail
-- Compare models and evaluate their performance on different kinds of data
-- Identify bias in AI systems — including whose voices and faces the models learned from — and articulate why it matters
-- Work across modalities: text, audio, and images — and understand what each one captures that the others miss
+- Compare models, test them across domains, and evaluate their performance on different kinds of data
+- Identify bias in AI systems and articulate why it matters
+- Chain models together into pipelines and understand how errors propagate
+- Design AI tools for specific audiences — not just "does it work?" but "does it work for this person?"
 - Write and run Python code in notebooks, experiment with parameters, and interpret the results
 - Use GitHub to manage and share your projects
-- Explain core ML concepts — sentiment analysis, training data, domain shift, hyperparameters, bias, multi-modal systems — in your own words, because you've seen them in action
+- Explain core ML concepts — classification, generation, training data, hyperparameters, domain shift, bias, pipelines, user-centered design — in your own words, because you've seen them in action
 
 These aren't just academic skills. They're the same skills that data scientists, ML engineers, and AI researchers use every day. The difference is that you're learning them now instead of at the end of years of computer science coursework.
+
+## The Tools
+
+You'll use four platforms throughout the course. Each one plays a specific role in the story:
+
+**Hugging Face** is your home base — where you find models, build Spaces, and curate your Collection. Your Collection starts as a list of interesting things you've found and gradually becomes a research portfolio that documents your journey from Act I to Act III.
+
+**Google Colab** is your lab notebook — where you run experiments, test hypotheses, and gather evidence. Every session has a companion notebook where you push models further than the slides go.
+
+**Gradio** is your interface builder — the Python library that turns a function into a web app. In Act I, Gradio wraps classification models. In Act II, it wraps generation models. By Act III, you're designing Gradio interfaces for specific audiences.
+
+**GitHub** is your portfolio and archive — where your code lives, your progress accumulates, and your work becomes visible to the world.
+
+Each tool has its own Start Here guide with more detail. You don't need to master any of them before Session 1 — you'll pick them up as you go.
 
 ## What You Don't Need to Know Coming In
 

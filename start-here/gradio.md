@@ -4,7 +4,7 @@
 
 Gradio is a Python library that turns a regular Python function into a web app. You write a function that takes some input and returns some output — and Gradio wraps it in a nice interface with text boxes, buttons, and a layout that anyone can use in a browser. No HTML, no CSS, no JavaScript. Just Python.
 
-That's the core idea, and it's what makes everything in this course possible. Every Space you build — from the Mood Meter in Session 1 to the custom emotion tool you design at the end — is a Gradio app. When you see a text box where you paste a sentence and a button that says "Submit," that's Gradio. When you see the output appear below with a label and a confidence score, that's Gradio too.
+That's the core idea, and it's what makes everything in this course possible. Every Space you build — from the Mood Meter in Session 1 to the custom tool you design at the end — is a Gradio app. When you see a text box where you paste a sentence and a button that says "Submit," that's Gradio. When you see the output appear below with a label and a confidence score, that's Gradio too.
 
 Here's what a minimal Gradio app looks like:
 
@@ -20,19 +20,31 @@ demo.launch()
 
 That's it. Five lines of code, and you have a working web app with a text box, a submit button, and an output area. Gradio handles all the web stuff — you just write the function.
 
-## Why Does This Course Use It?
+## How Gradio Follows the Course Arc
 
-Gradio is the bridge between "I wrote some Python code" and "I built something anyone can use." Without Gradio, running an AI model means writing code in a notebook and looking at raw output — useful for learning, but not something you'd show someone. With Gradio, the same model becomes an app with a real interface.
+Gradio isn't just a utility you use in every session — it's the surface where you *see* the course's central ideas play out. The same library wraps completely different kinds of AI as the story progresses.
 
-In Session 1, you'll see this in action. The Mood Meter is a Gradio app: it has a text box for input, runs a sentiment analysis model on whatever you paste in, and displays the result with an animated gauge, emoji, and confidence score. The AI model does the thinking, but Gradio is what makes it usable.
+### Act I: Wrapping Classification (Sessions 1–3)
 
-As the course goes on, you'll see Gradio do more:
+In the first three sessions, every Gradio app does the same kind of thing: text goes in, a label comes out. The Mood Meter takes a sentence and returns "POSITIVE" or "NEGATIVE." The Emoji Mood Translator takes a sentence and returns emotion labels. The Story Emotion Arc takes a paragraph and plots a chart. Under the hood, they're all classification — the model reads input and sorts it into a category.
 
-- **Session 1:** A text box in, a visual gauge out — built with `gr.Blocks`, Gradio's flexible layout system
-- **Session 2:** Multiple outputs side by side — three models reading the same text, each with its own output box, using `gr.Interface`
-- **Later sessions:** Dropdowns, sliders, audio uploads, image displays, and layouts you design yourself
+You won't build Gradio apps from scratch in Act I. Instead, you'll *use* them, poke at their edges, and start noticing the pattern: input, model, output. Every Space you test on Hugging Face is a Gradio app, even if you don't look at the code yet. By Session 3, when you're deliberately breaking models with sarcasm, you'll have a feel for what these interfaces can and can't show you.
 
-Each session introduces a little more of what Gradio can do, but you're always building on the same basic pattern: write a Python function, wrap it in a Gradio interface, launch it.
+### Act II: Wrapping Generation (Sessions 4–8)
+
+Session 4 is where Gradio shows you something new. The same `gr.Interface` pattern — input, function, output — now wraps a *generation* model instead of a classification model. Text goes in, and *new text comes out*. Not a label. Not a category. Something the model wrote.
+
+In Session 5, Gradio adds sliders. You'll build a text playground where you control temperature, top-p, and max tokens — hyperparameters that determine whether the model writes something predictable or something wild. Same interface library, but now you're adjusting dials on a creative engine.
+
+Session 7 introduces `gr.Blocks`, Gradio's flexible layout mode. Instead of a single input-output pair, you'll build interfaces with rows, columns, and multiple model outputs side by side — perfect for a Bias Tester that compares how a model treats different demographic groups. Session 8 chains two models together in a single Gradio app: one that captions images and one that reads the sentiment of the caption.
+
+The Gradio code gets more sophisticated, but the core pattern stays the same: write a Python function, wrap it in an interface, launch it.
+
+### Act III: Designing for an Audience (Sessions 9–12)
+
+In the final act, Gradio becomes a design tool. Session 9's key insight is that the *same model* becomes a completely different product depending on how you wrap it. A sentiment model behind a Gradio interface designed for a restaurant owner looks and feels nothing like the same model designed for a student or a social media manager. The model doesn't change — the Gradio code does.
+
+By Sessions 10–12, you're designing your own Gradio interface from scratch: choosing the inputs and outputs, writing the function, picking the layout, and testing it with real users. Everything you've learned about Gradio across the course comes together in your final project.
 
 ## How Does It Connect to Hugging Face?
 
@@ -57,7 +69,7 @@ The flow looks like this:
 2. **Push** the files to GitHub (your code archive and portfolio)
 3. **Deploy** on Hugging Face Spaces (where the app actually runs)
 
-You don't need to understand all three steps right now. In Session 1, you'll just see the Gradio app running on Hugging Face. By Session 3 or 4, you'll start connecting the dots between the code, GitHub, and the live Space. By the project phase, you'll be doing the full loop yourself.
+You don't need to understand all three steps right now. In Session 1, you'll just see the Gradio app running on Hugging Face. By Session 4 or 5, you'll start connecting the dots between the code, GitHub, and the live Space. By the project phase, you'll be doing the full loop yourself.
 
 ## Why Is It Worth Learning?
 
@@ -82,4 +94,4 @@ You don't need to install Gradio on your own computer. In this course, Gradio ru
 1. **On Hugging Face Spaces** — when you build and deploy a Space, Hugging Face installs Gradio automatically based on your `requirements.txt`
 2. **In Google Colab** — when you run the companion notebooks, you'll install Gradio with `!pip install gradio` at the top of the notebook
 
-In Session 1, you'll see your first Gradio app running live on Hugging Face. You'll read through the `app.py` code and see how a Python function becomes a web app. By Session 2, you'll be changing the code and watching the interface update. No special setup needed — just a browser and curiosity.
+In Session 1, you'll see your first Gradio app running live on Hugging Face. You won't need to look at the code yet — just notice the pattern: a text box, a button, and an output. That pattern will carry you through the entire course, from classification to generation to your own custom project.

@@ -16,7 +16,17 @@ Here's the flow you'll build toward over the course:
 2. **GitHub** — you store your `app.py` and `requirements.txt` in a repository (your code archive and portfolio)
 3. **Hugging Face Spaces** — you deploy the app so anyone can use it in a browser
 
-In the early sessions, you won't need GitHub at all. You'll work directly on Hugging Face, editing files in the browser and watching your Spaces update. But as the course progresses, GitHub becomes increasingly useful — and by the project phase, you'll be managing your own repositories.
+### Your Portfolio Grows with the Story
+
+GitHub isn't just a filing cabinet — it's a record of your journey through the course. What accumulates there maps directly to the three-act arc:
+
+**After Act I (Sessions 1–3),** your GitHub has your first notebooks — the ones where you tested sentiment models, compared three different emotion classifiers, and tried to break models with sarcasm. These are your evidence files. They document the wall you hit: classification has limits.
+
+**After Act II (Sessions 4–8),** your repository grows with experiments in text generation, hyperparameter tuning, cross-domain testing, bias auditing, and multi-model pipelines. Each notebook and each Space's `app.py` captures a different concept you encountered after the breakthrough.
+
+**After Act III (Sessions 9–12),** your GitHub contains a complete project: a Space you designed for a specific audience, built from a model you chose, tested with real users, and iterated on. Your README tells the story of what you built and why.
+
+By Demo Day, your GitHub profile is a portfolio that shows not just what you built, but how your understanding developed over twelve weeks.
 
 ### The Gradio Connection
 
@@ -28,20 +38,20 @@ Every Space you build in this course is a Gradio app. And every Gradio app is re
 GitHub is where you keep a copy of those files. Why not just keep them on Hugging Face? You can — and you will, at first. But GitHub adds things that Hugging Face doesn't:
 
 - **Version history.** GitHub tracks every change. If you break your `app.py` while experimenting, you can see exactly what you changed and go back to the version that worked. On Hugging Face, you'd have to remember what the old code looked like.
-- **A portfolio.** Your GitHub profile shows every project you've built, organized and browsable. When the course is over, you'll have a collection of repositories — one for each Space — that shows your progression from Session 1's Mood Meter to your final custom project.
+- **A portfolio.** Your GitHub profile shows every project you've built, organized and browsable. When the course is over, you'll have a collection of repositories that shows your progression from Session 1's Mood Meter to your final custom project.
 - **Notebooks too.** The Colab notebooks you run in each session? Those are `.ipynb` files, and they can live on GitHub as well. When you upload a notebook to GitHub, anyone can click a badge and open it directly in Colab. That's how the course materials themselves are shared.
 
 ### When You'll Use GitHub in This Course
 
 The course introduces GitHub gradually — there's no rush.
 
-**Sessions 1-3:** You don't need GitHub. You'll see that the course materials live on GitHub (that's where the Colab notebook links point), but you'll be focused on building with Gradio on Hugging Face. If you want to explore GitHub on your own, great — but it's not required.
+**Sessions 1–3 (Act I):** You don't need GitHub. You'll see that the course materials live on GitHub (that's where the Colab notebook links point), but you'll be focused on exploring Spaces and gathering evidence about classification models. If you want to explore GitHub on your own, great — but it's not required.
 
-**Sessions 4-6:** You'll start creating your own GitHub repositories. This means: making a repo on the GitHub website, uploading your `app.py` and notebook files, and writing a short README that describes what you built. All through the web interface — no command line.
+**Sessions 4–6 (early Act II):** You'll start creating your own GitHub repositories. This means: making a repo on the GitHub website, uploading your `app.py` and notebook files, and writing a short README that describes what you built. All through the web interface — no command line. By Session 6, when you're testing models across different domains, having your code on GitHub means you can track what you changed and when.
 
-**Sessions 7-9:** You'll get comfortable with the workflow of keeping your code on GitHub and your live app on Hugging Face. When you make changes, you update both places. You'll also start looking at other people's GitHub repos to see how they organized their code.
+**Sessions 7–9 (late Act II into Act III):** You'll get comfortable with the workflow of keeping your code on GitHub and your live app on Hugging Face. When you make changes, you update both places. You'll also start looking at other people's GitHub repos to see how they organized their code.
 
-**Sessions 10-12:** For your final project, you'll manage the full loop: write your Gradio app, store the code on GitHub, deploy on Hugging Face, and present everything with a polished README. Your GitHub repo becomes the "backstage" of your project — the code and documentation — while your Hugging Face Space is the "front of house" — the live app anyone can try.
+**Sessions 10–12 (Act III):** For your final project, you'll manage the full loop: write your Gradio app, store the code on GitHub, deploy on Hugging Face, and present everything with a polished README. Your GitHub repo becomes the "backstage" of your project — the code and documentation — while your Hugging Face Space is the "front of house" — the live app anyone can try.
 
 ## Why Is It Valuable?
 
@@ -88,6 +98,6 @@ Creating a GitHub account is free:
 3. Enter your email, create a password, and choose a username
 4. Your username becomes your profile URL (e.g., `github.com/yourusername`), so pick something clean and professional — this could end up on a college application or a resume someday
 
-You don't need to know Git commands to get started. In the early sessions of this course, you won't need GitHub at all — you'll be building Gradio apps directly on Hugging Face. When we do start using GitHub, we'll use the web interface — clicking buttons, not typing commands. There's no rush, and the web interface is plenty for everything we do.
+You don't need to know Git commands to get started. In the early sessions of this course, you won't need GitHub at all — you'll be exploring Spaces and gathering evidence about classification models on Hugging Face. When we do start using GitHub, we'll use the web interface — clicking buttons, not typing commands. There's no rush, and the web interface is plenty for everything we do.
 
 One thing to know: GitHub has a generous free tier. Everything we do in this course is completely free. You get unlimited public repositories, which means unlimited projects that anyone can see.

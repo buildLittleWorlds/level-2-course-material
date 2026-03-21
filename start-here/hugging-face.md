@@ -6,9 +6,35 @@ Hugging Face is a website — [huggingface.co](https://huggingface.co) — where
 
 When you build something on Hugging Face, it's called a **Space**. A Space is a small web app that runs in your browser. You write a bit of Python code, Hugging Face hosts it for free, and suddenly anyone with an internet connection can try your creation. The Spaces you build in this course will live on your Hugging Face profile — they're yours to keep, share, and put on a résumé.
 
+## How Hugging Face Tells the Course Story
+
+Hugging Face isn't just a tool you use in this course — it's the platform where the entire story unfolds. Every major concept you encounter lives here somewhere, and the features you'll use change as the course arc progresses.
+
+### Act I: Exploring and Curating (Sessions 1–3)
+
+In the first three sessions, you're a critic and a collector. You'll tour Spaces that classify text into emotion categories, test them with your own input, and start noticing where they succeed and where they fail. The Hugging Face features that matter most here are:
+
+**Spaces** — Every app you test in Act I is a Space. You'll visit them, try them, poke at their edges, and start building intuition for what classification models can and can't do. In Session 1, you'll explore five instructor-built Spaces. By Session 3, you'll be deliberately trying to break them.
+
+**Collections** — A Collection is like a playlist, but for AI Spaces and models. You start curating your first Collection in Session 1, and it becomes your running record of what you've tested and what you think about it. By the end of the course, your Collection is a research portfolio documenting your entire journey.
+
+**Model Cards** — In Session 2, you'll read model cards for the first time. A model card is a page that explains what a model was trained on, how many categories it knows, and what data it learned from. This is where you'll discover that different training data produces completely different emotion readings — and start wondering whether more categories would fix the problem.
+
+**`pipeline()`** — This one-liner from Hugging Face's `transformers` library is the most important piece of code in the first three weeks. With `pipeline("sentiment-analysis", model="...")`, you can load a sentiment model in one line. In Session 2, you'll see that changing just the model name on that line produces completely different results. That's the first crack in the wall.
+
+### Act II: The Breakthrough (Sessions 4–8)
+
+In Session 4, you'll discover that Hugging Face hosts a completely different kind of model — one that doesn't just classify input into buckets, but **generates new text**. The same `pipeline()` call, the same platform, but the model does something fundamentally different. That shift — from classification to generation — is the central turn of the course.
+
+From there, you'll use Hugging Face to explore hyperparameters (Session 5), test models across different domains (Session 6), investigate bias (Session 7), and chain models together (Session 8). Your Collection grows from a list of sentiment models into a diverse toolkit that spans text, images, and audio.
+
+### Act III: Building (Sessions 9–12)
+
+In the final act, you stop browsing other people's work and build your own. You'll choose a model from Hugging Face's Model Hub, design a Space around it, deploy it, and present it. Your Hugging Face profile becomes a portfolio — Spaces you built, models you tested, a Collection that traces your path from Session 1's Mood Meter to your own custom project.
+
 ## Why Is It Valuable?
 
-Before Hugging Face existed, using AI models required serious technical setup: downloading huge files, configuring servers, and writing hundreds of lines of code just to get something running. Hugging Face changed all of that. With a tool called `pipeline`, you can load a powerful AI model in a single line of Python. That's not an exaggeration — one line.
+Before Hugging Face existed, using AI models required serious technical setup: downloading huge files, configuring servers, and writing hundreds of lines of code just to get something running. Hugging Face changed all of that. With `pipeline`, you can load a powerful AI model in a single line of Python. That's not an exaggeration — one line.
 
 The platform also makes AI **open**. Most of the models on Hugging Face are free and open-source, meaning anyone can use them, study them, and build on top of them. This is a big deal. It means that AI isn't locked behind the walls of a few giant companies. A high school student with a free account has access to the same models that researchers at universities and engineers at startups use every day.
 

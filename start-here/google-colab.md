@@ -8,6 +8,28 @@ The key idea: you don't install anything. No downloading Python, no configuring 
 
 Colab uses something called a **notebook**. A notebook is a document that mixes regular text (explanations, instructions, questions) with blocks of code you can run. You read a bit, run a code block, see what happens, read the next bit, run the next block. It's like a lab worksheet that actually does things.
 
+## Your Lab Notebook for the Course
+
+In this course, Colab notebooks aren't just "the place where you run code." They're your **lab notebooks** — where you run experiments, gather evidence, test hypotheses, and record what surprises you.
+
+Every session has a companion Colab notebook, and the role those notebooks play shifts as the course story develops.
+
+### Act I: Gathering Evidence (Sessions 1–3)
+
+In Session 1, your notebook frames the very first experiment: you're testing a hypothesis — *this model can read how text feels* — and your job is to find where it's right, where it's wrong, and where you're not sure. You're gathering evidence.
+
+Session 2's notebook puts three models side by side so you can watch them disagree on the same text. Session 3's notebook gives you tools to deliberately break models — sarcasm, mixed feelings, text with no human characters. By the end of Act I, your notebooks contain a growing body of evidence that classification models have a ceiling.
+
+### Act II: Experimenting with Power (Sessions 4–8)
+
+When the course pivots from classification to generation in Session 4, the notebooks pivot too. Now you're not just testing whether a model gets the right label — you're watching a model *create text* and adjusting sliders that control how creative or predictable it is (Session 5). You're testing what happens when a model trained on tweets tries to read poetry (Session 6). You're running fairness audits to see if a model treats all voices equally (Session 7). You're chaining models together and watching errors cascade (Session 8).
+
+The experiments get more sophisticated, but the posture is the same: try something, observe what happens, record what surprises you.
+
+### Act III: Building and Iterating (Sessions 9–12)
+
+In the final act, your notebooks become design documents and testing logs. You use them to prototype ideas, test your own Space with different inputs, and document the iteration cycle — what broke, what you fixed, and why.
+
 ## Why Is It Valuable?
 
 Running AI models takes computing power — sometimes a lot of it. If you tried to run some of these models on a regular laptop, it might take forever or just crash. Colab gives you access to Google's servers for free, including GPUs (specialized chips that are really good at the math AI models need). This means you can experiment with real AI models without buying expensive hardware.
@@ -21,8 +43,6 @@ And because Colab notebooks live in your Google Drive, they're always backed up,
 Notebooks aren't just a teaching tool — they're how real data science and AI work gets done. Researchers at universities write their experiments in notebooks. Data scientists at companies use notebooks to explore data and build models. When someone publishes a new AI paper, they often release a Colab notebook so other people can reproduce their results.
 
 By learning to use Colab now, you're picking up a skill that translates directly into college coursework, internships, and professional work. The interface you'll use in this course is the same interface used by engineers at Google, researchers at MIT, and data analysts at startups.
-
-In this course, every session has a companion Colab notebook. These notebooks are where you'll experiment on your own — changing parameters, testing different inputs, and breaking things on purpose to see what happens. The notebooks are designed to be exploratory. There's no single right answer. The goal is to try things and notice what changes.
 
 ## How Important Is It to the AI Community?
 
