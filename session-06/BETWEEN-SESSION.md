@@ -39,7 +39,11 @@ The key idea is the same either way: **a model's training data defines its world
 
 ### Bring It Back
 
-Next session, be ready to share: what domain did you test, and what did the model miss?
+Next session, be ready to share: what domain did you test, and what did the model miss? Your domain-shift findings set up the next problem — what happens when the solution to domain shift (training on everything) brings its own costs.
+
+### Looking Ahead
+
+**Optional deeper reading:** The `bonus-bert-content-moderation` module explains how BERT was trained, why pretraining + fine-tuning was a breakthrough, and how Twitter used BERT-style models for content moderation. It bridges the domain-shift problem from this session into Session 7's topic: bias. If you're curious about the breakthrough we discussed at the end of class, start there.
 
 ---
 
@@ -50,7 +54,7 @@ Add your Week 6 entry to `research-journal.md` in your GitHub repo. Same format 
 ### Week 6 Entry
 
 ```markdown
-## Week 6 — Domain Shift and Generalization
+## Week 6 — Same Space, Different Worlds
 
 ### This Week's Method
 (What research method did we learn? Hint: cross-domain testing — taking a model out of its training domain to see if it generalizes.)

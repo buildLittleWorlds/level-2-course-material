@@ -4,22 +4,30 @@
 
 **Space:** Reuses Session 4 Sentiment Showdown (no new build this session)
 **Key Idea:** Models trained on one type of text struggle with another type. The "world" the model learned from shapes what it can understand.
+**Narrative Role:** The wall that classification couldn't get past — and the breakthrough that solved it. This is the pivot point of Act II.
 
 ---
 
 ## Time Breakdown (2 hours)
 
-### 0:00–0:05 — Show-and-Tell
-- Ask: "What settings recipes did you find? What worked best for what task?"
-- Quick share of between-session experiments from the Text Playground.
+### 0:00–0:08 — Show-and-Tell + Story So Far
 
-### 0:05–0:08 — SpaceCraft Check-In
+Ask: "What settings recipes did you find? What worked best for what task?"
+Quick share of between-session experiments from the Text Playground.
+
+**Narrative bridge (2 min — don't skip this):**
+
+"Last week we added controls to our generator — temperature, top-p, max length. You now know the same knobs that developers set on ChatGPT and Claude. But I ended last session with a question: what happens when you ask a model about something it's never seen? What if you feed medical text to a model trained on Reddit? What if you ask it about legal contracts when it's only read blog posts?"
+
+"Every model we've seen so far — the classifiers from Sessions 1–3, the generator from Sessions 4–5 — they all share the same limitation. They only know what they were trained on. Tonight we hit that wall."
+
+### 0:08–0:11 — SpaceCraft Check-In
 
 Pull up SpaceCraft briefly. Show a Space you tested outside its training domain — for example, an English document OCR Space tested with Japanese text, or an image classifier trained on photos tested with drawings.
 
 Say: "I added this to SpaceCraft this week. It works great on what it was trained on. But watch what happens when I give it something from a completely different world — that's domain shift, and that's what we're investigating tonight."
 
-### 0:08–0:23 — Big Question: Is "Positive" the Same Thing Everywhere?
+### 0:11–0:23 — Big Question: Is "Positive" the Same Thing Everywhere?
 
 **This is the centerpiece discussion for this session. Run it before the Domain Safari, while energy is high.**
 
@@ -107,11 +115,23 @@ Students suggest text types to test. The goal: find something that confuses ever
 - "Remember when we asked 'which model is best?' Now we know the answer: best FOR WHAT?"
 - Evaluation must include testing on the DOMAIN you care about, not just any test set.
 
+**The Breakthrough (scripted — this is the narrative pivot point, don't skip it):**
+
+"So here's the thing. For years, every model had this problem. A movie review model couldn't understand tweets. A medical model couldn't read poetry. Every model was trapped in its training world. And the solution was always: build another specialized model. Need to analyze tweets? Train a tweet model. Need to read legal documents? Train a legal model. It was expensive, slow, and it never ended."
+
+"Then someone asked a different question: what if the training domain was... everything? What if instead of training on movie reviews or tweets or medical notes, you trained on the whole internet — books, Wikipedia, news, forums, all of it? Not to do one task, but to learn language itself?"
+
+"In 2018, a model called BERT showed that this could work. You pretrain on massive general text, and then fine-tune on your specific task. A single model that starts with general knowledge of language and then specializes. That's the idea behind every modern AI system — ChatGPT, Claude, Gemini, all of them. The domain wall we hit tonight? That's exactly what pretraining was designed to break through."
+
+**Note:** You don't need to go deep on BERT's architecture. The point is the idea: pretrain on everything, then fine-tune. Students who want more can read the bonus-bert-content-moderation module.
+
 ### 1:48–1:53 — Research Lens (5 minutes)
 
 **Say:** "Let's name what we just did in research terms."
 
 "We tested **generalization** — whether a model works on data it wasn't trained on. In research, this is called **external validity**: does your finding hold up outside the specific conditions you tested it in?"
+
+"Think about it this way: BERT's breakthrough was essentially an answer to the external validity problem. Instead of building a model that only works in one domain, build one that starts with general knowledge of language. Pretraining on everything is how you build external validity into the model itself."
 
 **Research question (shared, sentiment):** "How well do sentiment models generalize across domains — reviews, poetry, legal text, therapy transcripts?"
 
@@ -119,7 +139,7 @@ Students suggest text types to test. The goal: find something that confuses ever
 
 **Bridge to homework:** "In class, we applied cross-domain testing to sentiment analysis. For your homework, you'll apply the same method to your own topic. Take a model from your Collection and test it on data from a domain it wasn't designed for. Does it generalize, or does it fall apart?"
 
-### 1:53–2:00 — Notebook Time + Wrap Up
+### 1:53–1:58 — Notebook Time
 
 Share the Colab link in the Zoom chat.
 
@@ -132,7 +152,17 @@ Share the Colab link in the Zoom chat.
 
 **Say:** "The notebook has blank tables and observation cells for you to fill in. Double-click any green text cell to edit it. Write down what you noticed about each domain."
 
+### 1:58–2:00 — Bridge Forward + Wrap Up
+
+**Bridge to Session 7 (scripted — say something like this):**
+
+"So tonight we hit the wall. Models trapped in their training worlds. And we learned about the breakthrough that solved it: train on everything. Pretrain on the whole internet, then fine-tune."
+
+"But training on everything solved one problem and created another. When you train on the entire internet, you train on every bias, stereotype, and inequality in human history. Every pattern in the data gets amplified — including the harmful ones. The bigger the model, the bigger the bias problem. That's next week."
+
 Share the between-session challenge (see BETWEEN-SESSION.md).
+
+**Optional supplementary reading:** For students who want to go deeper on the BERT breakthrough, point them to the `bonus-bert-content-moderation` module. It explains how BERT was trained, why pretraining + fine-tuning was powerful, and how Twitter used BERT-style models for content moderation. It bridges naturally into Session 7's bias discussion.
 
 ---
 
@@ -299,6 +329,9 @@ Share the between-session challenge (see BETWEEN-SESSION.md).
 
 ## Concept Connections
 
-- **Session 4:** Introduced model comparison and evaluation — "which model is best?"
-- **Session 6 (this session):** The answer is "best FOR WHAT DOMAIN?" — models are products of their training data.
-- **Session 7 (upcoming):** Bias and fairness — training data doesn't just affect domain, it affects who the model works well for.
+- **Sessions 1–3 (Act I):** Classification — sorting into buckets. Students experienced the limits of narrow models.
+- **Session 4:** The fork. Classification vs. generation. Introduced model comparison — "which model is best?"
+- **Session 5:** The controls on generation. Temperature and top-p. Closed with the domain shift teaser.
+- **Session 6 (this session):** The answer to "which model is best?" is "best FOR WHAT DOMAIN?" Models are products of their training data. The breakthrough: pretraining on everything. BERT (2018) showed it could work.
+- **Session 7 (next):** The cost of scale. Training on everything means training on every bias in human history.
+- **Bonus module:** `bonus-bert-content-moderation` — optional deeper dive on how BERT works and how Twitter used BERT-style models for content moderation. Fits naturally as supplementary reading between Sessions 6 and 7.

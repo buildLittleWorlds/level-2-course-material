@@ -1,8 +1,8 @@
 # Narrative Revision Plan: How We Got to Generative AI
 
 **Created:** March 20, 2026
-**Last updated:** March 20, 2026
-**Status:** Sessions 3–5 revised. Sessions 6–12 pending.
+**Last updated:** March 21, 2026
+**Status:** Sessions 3–6 revised. Sessions 7–12 pending.
 **Context:** This is the first time through the Level 2 course (Spring 2026, Saturday evenings). It will be taught two more times over the summer. The goal is to get the narrative right now so the summer sections benefit from a coherent story arc.
 
 ---
@@ -112,14 +112,25 @@ Students take what they've learned and build. Session 9 is prompt engineering �
 - ✅ `app.py` — No changes needed. Already has temperature/top-p/max-length sliders on distilgpt2.
 - ✅ `requirements.txt` — No changes needed.
 
-### Session 6: Same Space, Different Worlds — PENDING
+### Session 6: Same Space, Different Worlds — REVISED ✅
 **Concept:** OVERFITTING AND DOMAIN SHIFT
 **Narrative role:** The wall that classification couldn't get past. This is the narrative pivot point — the breakthrough: "train on everything."
-**What needs to happen:**
-- This is where the narrative should explicitly name the breakthrough. After students experience domain shift firsthand: "For years, every model had this problem. A movie review model couldn't understand tweets. Every model was trapped in its training world. The breakthrough was: what if the training domain was... everything?"
-- Add the BERT bridge: mention that BERT (2018) was the first model to show that pretraining on general text and then fine-tuning on specific tasks could work across domains.
-- The bonus-bert-content-moderation module fits naturally here or between Sessions 6 and 7 as supplementary reading.
-- Bridge forward: "Training on everything solved the domain problem. But it created a new one."
+
+**All files revised:**
+- ✅ `INSTRUCTOR-GUIDE.md` — Narrative framing additions (not a structural rewrite). Added "Story So Far" narrative bridge connecting Session 5's controls to Session 6's domain wall. Added scripted "Breakthrough" moment in Name the Concept section: the pivot from specialized models to pretraining on everything, naming BERT (2018). Added BERT connection to Research Lens (pretraining as solving external validity). Added scripted Bridge Forward to Session 7 (bias as the cost of scale). Updated Concept Connections to reflect revised Sessions 3–5 and bonus-bert-content-moderation module. Added note pointing interested students to bonus module.
+- ✅ `slides.html` — Matching narrative updates. Updated subtitle to "Act II · The Breakthrough." Added "Story So Far" slide recapping Sessions 1–5. Added two-slide "The Wall / The Breakthrough" sequence after Name the Concept (domain wall → pretraining on everything → BERT 2018). Added "Pretraining" to Vocabulary slide. Replaced vague "Next Week" with scripted bridge forward connecting training on everything to bias.
+- ✅ `notebook.ipynb` — Updated title cell to "Same Space, Different Worlds" with narrative connection to Session 5. Updated "What We Built Tonight" cell with breakthrough narrative (pretraining on everything, BERT). Added "Pretraining" to Vocabulary table.
+- ✅ `BETWEEN-SESSION.md` — Updated "Bring It Back" with forward bridge to Session 7's bias topic. Added "Looking Ahead" section pointing to bonus-bert-content-moderation as optional deeper reading. Updated journal heading to match session title.
+- ✅ `README.md` — Rewritten with "Same Space, Different Worlds" title, narrative role section, connections section (builds on Session 5, bridges to Session 7, links to bonus module).
+- ✅ `GUIDE-external-validity.md` — Updated footer from "Domain Safari" to "Same Space, Different Worlds."
+- ✅ `notebook.ipynb` — No structural changes to experiments. Framing updates only.
+
+**Unchanged (already strong):**
+- Domain Safari activity and all 11 domain text samples
+- Big Question ("Is positive the same thing everywhere?")
+- Pattern Recognition and Student Challenge segments
+- Notebook experiments and helper function
+- No app.py (correct — no new build this session)
 
 ### Session 7: Who Gets Hurt? — PENDING
 **Concept:** BIAS IN AI
@@ -233,5 +244,6 @@ Three adversarial test stories (sarcastic narrator, mixed emotions, nature with 
 4. **Rewrite Session 4 notebooks** — notebook.ipynb and explorer.ipynb need to match the new classification vs. generation concept.
 5. **Teach Session 4 the following Saturday** — test the live build (classification → generation code change). Note whether students grasp the fork.
 6. ~~Revise Session 5~~ ✅ Complete. Narrative framing added; live build reframed as Session 4 → Session 5 progression; bridge forward to Session 6 added.
-7. **Incrementally revise Sessions 6–9** as each session approaches. Follow the same pattern: update instructor guide with narrative framing and Space build context, update slides, update between-session homework, update notebooks as needed.
-8. **Rewrite COURSE-STRUCTURE.md** after the first 4–5 sessions are tested live.
+7. ~~Revise Session 6~~ ✅ Complete. Narrative framing added: "Story So Far" bridge from Session 5, breakthrough moment (pretraining on everything, BERT 2018), bridge forward to Session 7 (bias as cost of scale). Bonus-bert-content-moderation linked as supplementary reading.
+8. **Incrementally revise Sessions 7–9** as each session approaches. Follow the same pattern: update instructor guide with narrative framing and Space build context, update slides, update between-session homework, update notebooks as needed.
+9. **Rewrite COURSE-STRUCTURE.md** after the first 4–5 sessions are tested live.

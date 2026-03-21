@@ -51,4 +51,4 @@ Same word, different world. That's domain shift in three datasets.
 
 ---
 
-AI + Research Level 2 • Session 6: Domain Safari
+AI + Research Level 2 • Session 6: Same Space, Different Worlds

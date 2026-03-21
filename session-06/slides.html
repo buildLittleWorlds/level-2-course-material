@@ -106,7 +106,7 @@
 <section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
   <h1 style="font-size:2.5em;">Same Space, Different Worlds</h1>
   <h3 style="color:#fbbf24;">Session 6</h3>
-  <p style="margin-top:1.5em; color:#94a3b8;">Roots &middot; Iterative Space Building</p>
+  <p style="margin-top:1.5em; color:#94a3b8;">Act II &middot; The Breakthrough</p>
 </section>
 
 <!-- ========== TONIGHT'S GOAL ========== -->
@@ -131,6 +131,28 @@
   <div class="observation-card">
     What worked best for what task?
   </div>
+</section>
+
+<!-- ========== STORY SO FAR ========== -->
+<section>
+  <h2>Story So Far</h2>
+  <div class="card">
+    <span class="emoji-label">🪣</span>
+    <strong>Sessions 1&ndash;3:</strong> Classification &mdash; sorting text into buckets. Impressive but limited.
+  </div>
+  <div class="card">
+    <span class="emoji-label">🔀</span>
+    <strong>Session 4:</strong> The fork &mdash; from classification to generation. A model that writes.
+  </div>
+  <div class="card">
+    <span class="emoji-label">🎛️</span>
+    <strong>Session 5:</strong> Controls &mdash; temperature and top-p. The same knobs on ChatGPT and Claude.
+  </div>
+  <p class="fragment" style="margin-top:1em; color:#fbbf24; font-size:1.1em;">
+    "Every model we've seen shares the same limitation.<br>
+    They only know what they were trained on.<br>
+    Tonight we hit that wall."
+  </p>
 </section>
 
 <!-- ========== SPACECRAFT CHECK-IN ========== -->
@@ -316,6 +338,42 @@
   </p>
 </section>
 
+<!-- ========== THE BREAKTHROUGH ========== -->
+<section>
+  <section class="center-slide">
+    <h2>The Wall</h2>
+    <p style="font-size:1.15em; margin-top:1em;">
+      For years, every model had this problem.<br>
+      A movie review model couldn't understand tweets.<br>
+      A medical model couldn't read poetry.<br>
+      <span class="highlight-pink">Every model was trapped in its training world.</span>
+    </p>
+    <p class="fragment" style="margin-top:1em; color:#9ca3af;">
+      The solution was always: build another specialized model.<br>
+      Need tweets? Train a tweet model. Need legal text? Train a legal model.<br>
+      Expensive. Slow. Never-ending.
+    </p>
+  </section>
+
+  <section class="center-slide">
+    <h2>The Breakthrough</h2>
+    <p style="font-size:1.2em; margin-top:1em; color:#fbbf24;">
+      "What if the training domain was&hellip; <em>everything?</em>"
+    </p>
+    <p class="fragment" style="margin-top:1em; font-size:1.05em;">
+      Books. Wikipedia. News. Forums. The whole internet.<br>
+      Not to do one task &mdash; but to <span class="highlight-green">learn language itself</span>.
+    </p>
+    <div class="concept-box fragment" style="margin-top:1em;">
+      <strong>BERT (2018)</strong> showed this could work.<br>
+      <span class="highlight-yellow">Pretrain</span> on massive general text &rarr; <span class="highlight-blue">fine-tune</span> on your specific task.
+    </div>
+    <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
+      That's the idea behind ChatGPT, Claude, Gemini &mdash; all of them.
+    </p>
+  </section>
+</section>
+
 <!-- ========== RESEARCH LENS ========== -->
 <section>
   <h2>Research Lens</h2>
@@ -351,6 +409,9 @@
   </div>
   <div class="card">
     <span class="vocab-term">External validity</span> &mdash; whether a finding holds up outside the specific conditions it was tested in
+  </div>
+  <div class="card">
+    <span class="vocab-term">Pretraining</span> &mdash; training a model on a massive general dataset before fine-tuning it for a specific task
   </div>
 </section>
 
@@ -415,8 +476,9 @@
 <!-- ========== NEXT WEEK ========== -->
 <section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
   <h2>Next Week</h2>
-  <p style="font-size:1.3em;">Who gets hurt?</p>
-  <p style="color:#9ca3af; margin-top:0.5em;">When the model treats people differently,<br>it matters.</p>
+  <p style="font-size:1.2em; color:#fbbf24;">Training on everything solved the domain problem.</p>
+  <p class="fragment" style="font-size:1.2em; margin-top:0.5em; color:#f472b6;">But it created a new one.</p>
+  <p class="fragment" style="color:#9ca3af; margin-top:1em;">When you train on the entire internet, you train on<br>every bias, stereotype, and inequality in human history.<br><br><strong style="color:#fbbf24;">Session 7: Who Gets Hurt?</strong></p>
 </section>
 
 </div>
