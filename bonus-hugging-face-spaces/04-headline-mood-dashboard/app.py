@@ -25,7 +25,7 @@ EMOTIONS = {
 def analyze(text):
     lines = [l.strip() for l in text.strip().split("\n") if l.strip()]
     if len(lines) < 2:
-        return {"status": "empty"}
+        return {"is_done": False}
 
     all_results = []
     for headline in lines[:10]:
@@ -59,7 +59,7 @@ def analyze(text):
               for e in EMOTIONS]
 
     return {
-        "status": "done",
+        "is_done": True,
         "legend": legend,
         "aggregate": agg_segments,
         "headlines": all_results,
@@ -72,9 +72,9 @@ with gr.Blocks(title="Headline Mood Dashboard") as demo:
                             placeholder="Breaking: Major policy change announced\nLocal team wins championship\nStock market drops amid uncertainty")
 
     result = gr.HTML(
-        value={"status": "empty"},
+        value={"is_done": False},
         html_template="""
-            {{#if (eq value.status "done")}}
+            {{#if value.is_done}}
                 <div class="legend">
                     {{#each value.legend}}
                         <span class="legend-item">

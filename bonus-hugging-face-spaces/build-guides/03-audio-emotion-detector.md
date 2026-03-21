@@ -17,7 +17,7 @@ Same complexity as the Emoji Translator (one model, one input), but introduces a
 ## requirements.txt
 
 ```
-gradio==6.8.0
+gradio==6.9.0
 transformers==4.48.0
 torch==2.5.0
 librosa==0.10.2

@@ -1,0 +1,6 @@
+gradio>=4.0
+transformers
+torch
+Pillow
+numpy
+scikit-learn

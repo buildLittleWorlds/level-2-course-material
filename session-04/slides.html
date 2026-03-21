@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Session 4: Sentiment Showdown</title>
+<title>Session 4: What If AI Could Create?</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/night.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/monokai.min.css">
@@ -41,8 +41,6 @@
     font-weight: bold;
   }
 
-  .emoji-label { font-size: 1.4em; margin-right: 0.3em; }
-
   .two-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -61,6 +59,7 @@
   .highlight-blue { color: #60a5fa; }
   .highlight-green { color: #34d399; }
   .highlight-pink { color: #f472b6; }
+  .highlight-orange { color: #fb923c; }
 
   .small { font-size: 0.7em; color: #9ca3af; }
 
@@ -69,12 +68,6 @@
     padding: 0.1em 0.4em;
     border-radius: 4px;
     font-size: 0.9em;
-  }
-  .reveal pre code {
-    max-height: 500px;
-    font-size: 0.65em;
-    line-height: 1.5;
-    padding: 1em;
   }
 
   .observation-card {
@@ -101,6 +94,30 @@
     border-radius: 0 8px 8px 0;
   }
 
+  .fork-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0.4em;
+    font-size: 0.85em;
+  }
+  .fork-table th {
+    background: rgba(251,191,36,0.2);
+    padding: 0.5em 0.8em;
+    border-radius: 6px;
+    text-align: center;
+    color: #fbbf24;
+  }
+  .fork-table td {
+    background: rgba(255,255,255,0.05);
+    padding: 0.5em 0.8em;
+    border-radius: 6px;
+  }
+  .fork-table td:first-child {
+    color: #9ca3af;
+    font-weight: bold;
+    font-size: 0.9em;
+  }
+
   .fragment.current-visible.visible:not(.current-fragment) {
     display: none;
   }
@@ -112,7 +129,7 @@
 
 <!-- ========== TITLE ========== -->
 <section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
-  <h1 style="font-size:2.5em;">Sentiment Showdown</h1>
+  <h1 style="font-size:2.2em;">What If AI Could Create?</h1>
   <h3 style="color:#fbbf24;">Session 4</h3>
   <p style="margin-top:1.5em; color:#94a3b8;">Roots &middot; Iterative Space Building</p>
 </section>
@@ -121,226 +138,83 @@
 <section>
   <h2>Tonight's Goal</h2>
   <p style="font-size:1.2em; text-align:center; margin:1em 0;">
-    Three models read the same text.<br>
-    Which one is <span class="highlight-yellow">right</span>?
+    What if a model didn't <span class="highlight-blue">choose a label</span>&hellip;<br>
+    but <span class="highlight-yellow">wrote something new</span>?
   </p>
   <div class="concept-box">
-    Sentiment Showdown
+    Classification vs. Generation
   </div>
-  <p style="text-align:center; color:#9ca3af;">One input &rarr; three models &rarr; three answers &rarr; who wins?</p>
+  <p style="text-align:center; color:#9ca3af;">The fork in the road that led to generative AI.</p>
 </section>
 
 <!-- ========== SHOW AND TELL ========== -->
 <section>
   <h2>Show-and-Tell</h2>
   <div class="observation-card" style="font-size:1.1em;">
-    Did anyone find an input that broke a model in a surprising way?
+    Last week we broke four models three different ways.<br>
+    Did anyone try the adversarial stories on their own?
   </div>
   <div style="margin-top:1em;">
-    <div class="card">What was the failure?</div>
-    <div class="card">Was it a noise problem or a meaning problem?</div>
-    <div class="card">Did cleaning the input help?</div>
+    <div class="card">Which failure mode was it?</div>
+    <div class="card">Tone deafness? Emotional flattening? Anthropomorphic projection?</div>
   </div>
 </section>
 
 <!-- ========== SPACECRAFT ========== -->
 <section>
   <h2>SpaceCraft Check-In</h2>
-  <p style="color:#9ca3af;">The instructor's own curation project &mdash; rating HF Spaces on craft, innovation, and delight.</p>
   <div class="observation-card" style="margin-top:1em;">
-    <strong>This week:</strong> I found two Spaces that do the same task &mdash; but one is clearly better.<br>
-    Which one is better? How would you decide? That's <span class="highlight-yellow">model evaluation</span>.
+    <strong>This week:</strong> A Space that doesn't sort your input into a category &mdash; it <span class="highlight-yellow">writes something new</span>.
   </div>
-  <p class="fragment small" style="margin-top:0.8em;">Same question we're about to ask with sentiment models: when two tools disagree, how do you judge?</p>
+  <p class="fragment small" style="margin-top:0.8em;">Notice the difference. Every Space we've looked at so far classifies. This one creates.</p>
 </section>
 
-<!-- ========== BIG QUESTION ========== -->
+<!-- ========== THE STORY SO FAR ========== -->
 <section>
   <section>
-    <h2>The Big Question</h2>
-    <div class="big-question" style="font-size:1.2em; margin-top:1em;">
-      When models disagree, who's right?
+    <h2>The Story So Far</h2>
+    <div class="card" style="margin-top:0.8em;">
+      <strong class="highlight-blue">Session 1:</strong> A model reads a sentence and says "positive" or "negative." <span class="small">That's classification.</span>
     </div>
-  </section>
-
-  <section>
-    <h2>Same Words, Different Feeling</h2>
-    <div class="card" style="font-size:1.2em; text-align:center; padding:1em;">
-      "Thanks for getting back to me."
+    <div class="card">
+      <strong class="highlight-green">Session 2:</strong> Different models sort differently because they learned from different data.
     </div>
-    <p class="fragment" style="margin-top:1em;">
-      Read it <span class="highlight-green">sincerely</span> &mdash; warm, grateful.<br>
-      Read it <span class="highlight-pink">passive-aggressively</span> &mdash; clipped, icy.
-    </p>
-    <p class="fragment" style="color:#9ca3af; margin-top:0.8em;">
-      Same words. Completely different feeling. Which is the real meaning?
+    <div class="card">
+      <strong class="highlight-pink">Session 3:</strong> We broke four models three different ways. They don't understand &mdash; they pattern-match.
+    </div>
+    <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
+      Small models. Narrow tasks. Enormous human work. And still &mdash; the models don't understand.
     </p>
   </section>
 
-  <section>
-    <h2>The Deeper Point</h2>
-    <div class="observation-card" style="font-size:1.05em;">
-      If two smart humans can disagree about the feeling behind a sentence, what does it mean for a model to be "wrong"?
-    </div>
-    <p class="fragment" style="margin-top:1em;">
-      This isn't just about feelings. Any time AI classifies something &mdash; spam, images, sentiment &mdash; there are borderline cases where reasonable people disagree.
+  <section class="center-slide">
+    <h2>The Wall</h2>
+    <p style="font-size:1.2em; margin-top:1em;">
+      Classification models choose from a <span class="highlight-yellow">fixed menu</span>.
     </p>
-    <p class="fragment" style="color:#9ca3af; margin-top:0.8em;">
-      When we put three models side by side today, their disagreement isn't a bug &mdash; it's <span class="highlight-yellow">information</span>.
+    <div class="card" style="text-align:center; margin:1em auto; max-width:80%;">
+      3 labels&hellip; 7 labels&hellip; 28 labels&hellip;<br>
+      <span class="fragment" style="color:#f472b6;">More labels &ne; more understanding.</span>
+    </div>
+    <p class="fragment" style="color:#9ca3af;">
+      It's still just picking from a list someone else created.
     </p>
   </section>
 </section>
 
-<!-- ========== DEMO: WATCH THEM DISAGREE ========== -->
-<section>
-  <section>
-    <h2>Watch Models Disagree</h2>
-    <p>Let's try the finished Sentiment Showdown Space.</p>
-    <div class="try-it" style="margin-top:1em;">
-      <strong>Try this input:</strong><br>
-      <em>"The service was slow but the food was amazing."</em>
-    </div>
-    <div class="fragment" style="margin-top:0.8em;">
-      <div class="card"><strong class="highlight-yellow">Movie Review Model:</strong> ???</div>
-      <div class="card"><strong class="highlight-blue">Twitter Model:</strong> ???</div>
-      <div class="card"><strong class="highlight-green">Product Review Model:</strong> ???</div>
-    </div>
-    <p class="fragment" style="color:#f472b6; margin-top:0.5em;">Which model is "right"?</p>
-  </section>
-
-  <section>
-    <h2>More Inputs to Try</h2>
-    <div class="card" style="font-size:0.9em;">
-      <em>"lol this is SO bad it's actually good"</em>
-      <span class="small">&mdash; sarcasm breaks everything</span>
-    </div>
-    <div class="card" style="font-size:0.9em;">
-      <em>"The movie was fine. Nothing special but not bad either."</em>
-      <span class="small">&mdash; the movie model has no "neutral" label!</span>
-    </div>
-    <div class="card" style="font-size:0.9em;">
-      <em>"I can't believe how terrible this is. Just kidding, it's great!"</em>
-      <span class="small">&mdash; negation + reversal</span>
-    </div>
-    <div class="card" style="font-size:0.9em;">
-      <em>"10/10 would not recommend"</em>
-      <span class="small">&mdash; internet sarcasm</span>
-    </div>
-    <p class="fragment" style="margin-top:0.5em;">
-      <span class="highlight-yellow">Your turn:</span> suggest an input. Chase the disagreements.
-    </p>
-  </section>
-</section>
-
-<!-- ========== BUILD IT ========== -->
-<section>
-  <section>
-    <h2>Let's Build It</h2>
-    <p>This is the most complex build so far: <span class="highlight-yellow">three models</span> in one Space.</p>
-    <div class="card">
-      <strong>1.</strong> Create a new Space &mdash; <code>sentiment-showdown</code>
-    </div>
-    <div class="card">
-      <strong>2.</strong> SDK: <span class="highlight-blue">Gradio</span> &bull; Hardware: <span class="highlight-green">Free CPU</span>
-    </div>
-    <div class="card">
-      <strong>3.</strong> Add <code>requirements.txt</code>: <code>transformers</code>, <code>torch</code>, <code>gradio</code>
-    </div>
-    <div class="card">
-      <strong>4.</strong> Build <code>app.py</code> step by step
-    </div>
-  </section>
-
-  <section>
-    <h2>The Code: Load Three Models</h2>
-    <pre><code class="language-python">from transformers import pipeline
-import gradio as gr
-
-# Load all 3 sentiment models at startup
-print("Loading Movie Review model...")
-model_movie = pipeline(
-    "sentiment-analysis",
-    model="distilbert-base-uncased-finetuned-sst-2-english",
-)
-
-print("Loading Twitter model...")
-model_twitter = pipeline(
-    "sentiment-analysis",
-    model="cardiffnlp/twitter-roberta-base-sentiment-latest",
-)
-
-print("Loading Product Review model...")
-model_product = pipeline(
-    "sentiment-analysis",
-    model="nlptown/bert-base-multilingual-uncased-sentiment",
-)</code></pre>
-  </section>
-
-  <section>
-    <h2>The Code: Compare Function</h2>
-    <pre><code class="language-python">def format_result(result):
-    """Format a single model result."""
-    label = result["label"]
-    score = result["score"]
-    return f"{label} ({score:.0%} confidence)"
-
-
-def compare_sentiment(text):
-    if not text or not text.strip():
-        return ("Enter some text first!",
-                "Enter some text first!",
-                "Enter some text first!")
-
-    text = text[:512]  # Truncate to model limits
-
-    r1 = model_movie(text)[0]
-    r2 = model_twitter(text)[0]
-    r3 = model_product(text)[0]
-
-    return (format_result(r1),
-            format_result(r2),
-            format_result(r3))</code></pre>
-  </section>
-
-  <section>
-    <h2>The Code: Three Output Boxes</h2>
-    <pre><code class="language-python">demo = gr.Interface(
-    fn=compare_sentiment,
-    inputs=gr.Textbox(
-        lines=5,
-        placeholder="Type or paste text to analyze...",
-        label="Text to Analyze",
-    ),
-    outputs=[
-        gr.Textbox(label="Movie Review Model"),
-        gr.Textbox(label="Twitter Model"),
-        gr.Textbox(label="Product Review Model"),
-    ],
-    title="Sentiment Showdown",
-    description="Three AI models read the same text. "
-                "Do they agree?",
-)
-demo.launch()</code></pre>
-    <p style="margin-top:0.5em;">
-      <span class="highlight-yellow">Key difference:</span> <code>outputs</code> is a <strong>list</strong> of three boxes, and the function returns <strong>three values</strong>.
-    </p>
-  </section>
-</section>
-
-<!-- ========== SPAM DETECTOR THOUGHT EXPERIMENT ========== -->
+<!-- ========== SPAM DETECTOR ========== -->
 <section>
   <section>
     <h2>Thought Experiment: Spam Detector</h2>
-    <p>Imagine you built a spam detector for email.</p>
+    <p>You build a spam detector. You test it on <strong>1,000 emails</strong>.</p>
     <div class="card" style="margin-top:0.8em;">
-      You test it on <strong>1,000 emails</strong>.<br>
       <span class="highlight-blue">950</span> are real mail. <span class="highlight-pink">50</span> are spam.
     </div>
     <div class="card">
-      Your model predicts <strong>"NOT SPAM"</strong> for <em>every single email</em> &mdash; all 1,000.
+      The model predicts <strong>"NOT SPAM"</strong> for every single email &mdash; all 1,000.
     </div>
     <div class="observation-card fragment" style="font-size:1.1em; margin-top:0.8em;">
-      <strong>Question 1:</strong> What's the accuracy?
+      <strong>What's the accuracy?</strong>
     </div>
   </section>
 
@@ -350,14 +224,12 @@ demo.launch()</code></pre>
       95% accurate!
     </div>
     <p style="text-align:center; margin-top:0.8em;">It got 950 out of 1,000 correct.</p>
-    <div class="observation-card fragment" style="margin-top:1em;">
-      <strong>Question 2:</strong> Is this a good spam detector?
-    </div>
     <p class="fragment" style="color:#f472b6; font-size:1.1em; text-align:center; margin-top:0.5em;">
-      No! It never catches any spam.
+      But it never catches any spam.
     </p>
     <p class="fragment" style="color:#9ca3af; text-align:center;">
-      Accuracy alone can be misleading.
+      This is a <span class="highlight-yellow">classification</span> model. It sorts into two buckets.<br>
+      And even at 95% accuracy, it's useless. <strong>That's the wall.</strong>
     </p>
   </section>
 
@@ -375,46 +247,193 @@ demo.launch()</code></pre>
         <div class="card" style="border-left:3px solid #60a5fa;">
           <strong class="highlight-blue">False Negative</strong><br>
           Spam that gets through<br>
-          <span class="small">Also bad &mdash; spam fills your inbox</span>
+          <span class="small">Could be dangerous &mdash; phishing, fraud</span>
         </div>
       </div>
     </div>
     <div class="observation-card fragment" style="margin-top:1em;">
-      Which is worse? <strong>It depends on the task.</strong><br>
-      A missed spam email is annoying.<br>
-      A missed fraud alert is dangerous.
+      Which is worse? <strong>It depends on the task.</strong>
     </div>
+  </section>
+</section>
+
+<!-- ========== THE QUESTION ========== -->
+<section class="center-slide">
+  <h2>The Question</h2>
+  <p style="font-size:1.1em; margin-top:1em;">
+    What if we stopped sorting into buckets?
+  </p>
+  <p class="fragment" style="font-size:1.1em; margin-top:0.8em;">
+    What if instead of choosing a <span class="highlight-blue">label</span>&hellip;<br>
+    a model could <span class="highlight-yellow">write something new</span>?
+  </p>
+  <div class="big-question fragment" style="margin-top:1em; font-size:1.1em;">
+    What if a spam detector didn't just say "spam" &mdash; but could <em>explain</em> why the email is suspicious?
+  </div>
+</section>
+
+<!-- ========== DEMO: WATCH A MODEL WRITE ========== -->
+<section>
+  <section class="center-slide">
+    <h2>Watch a Model Write</h2>
+    <p style="font-size:1.1em; margin-top:1em;">
+      Meet <span class="highlight-yellow">distilgpt2</span> &mdash; a small text generation model.
+    </p>
+    <p style="color:#9ca3af; margin-top:0.5em;">82 million parameters. Not great. But doing something<br>fundamentally different.</p>
+  </section>
+
+  <section>
+    <h2>Test 1: The Sarcastic Narrator</h2>
+    <div class="try-it" style="font-size:0.95em;">
+      <em>"Monday morning arrived like a gift from the universe &mdash; truly, what better way to start the week than"</em>
+    </div>
+    <p class="fragment" style="margin-top:1em;">
+      Last week, classification models tried to <span class="highlight-blue">label</span> this story.<br>
+      This model tries to <span class="highlight-yellow">continue</span> it.
+    </p>
+    <p class="fragment" style="color:#9ca3af; margin-top:0.5em;">
+      It doesn't choose from a menu. It writes the next word.
+    </p>
+  </section>
+
+  <section>
+    <h2>Test 2: The Mixed-Emotion Story</h2>
+    <div class="try-it" style="font-size:0.95em;">
+      <em>"The acceptance letter sat on the kitchen table, and she couldn't stop reading it."</em>
+    </div>
+    <p class="fragment" style="margin-top:1em;">
+      Last week, classification models <span class="highlight-pink">flattened</span> this into one emotion.<br>
+      What does the generator do?
+    </p>
+  </section>
+
+  <section>
+    <h2>Test 3: Your Prompts</h2>
+    <div class="card" style="font-size:0.95em;">
+      <em>"Once upon a time, in a city made entirely of glass,"</em>
+    </div>
+    <div class="card" style="font-size:0.95em;">
+      <em>"The capital of France is"</em>
+    </div>
+    <div class="card" style="font-size:0.95em;">
+      <em>Your idea here &mdash; what do you want the model to write?</em>
+    </div>
+    <div class="observation-card fragment" style="margin-top:0.8em;">
+      Is the output <em>good</em>? Probably not. But it's doing something classification <strong>can't do at all</strong>.
+    </div>
+  </section>
+
+  <section class="center-slide">
+    <h2>What Just Happened</h2>
+    <p style="margin-top:1em;">
+      Every model in Sessions 1&ndash;3 <span class="highlight-blue">chose from a menu</span>.
+    </p>
+    <p style="margin-top:0.5em;">
+      This model <span class="highlight-yellow">writes the next word</span>. And the next. And the next.
+    </p>
+    <p class="fragment" style="margin-top:1em; color:#9ca3af;">
+      Its possibility space isn't 3 labels or 28 labels.<br>
+      It's the <strong>entire vocabulary</strong> of the English language.
+    </p>
+  </section>
+</section>
+
+<!-- ========== THE FORK ========== -->
+<section>
+  <section>
+    <h2>The Fork in the Road</h2>
+    <table class="fork-table">
+      <tr>
+        <th></th>
+        <th>Classification</th>
+        <th>Generation</th>
+      </tr>
+      <tr>
+        <td>What it does</td>
+        <td>Sorts input into categories</td>
+        <td>Creates new content</td>
+      </tr>
+      <tr>
+        <td>Output</td>
+        <td>One label from a fixed menu</td>
+        <td>A sequence of new words</td>
+      </tr>
+      <tr>
+        <td>Example</td>
+        <td>"great movie" &rarr; POSITIVE</td>
+        <td>"Once upon a time" &rarr; "there was&hellip;"</td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>The Training Data Difference</h2>
+    <div class="two-col">
+      <div>
+        <div class="card" style="border-left:3px solid #60a5fa;">
+          <strong class="highlight-blue">Classification</strong><br><br>
+          Needs <strong>labeled data</strong>.<br>
+          A human decided every label.<br>
+          "This tweet is positive."<br>
+          "This email is spam."<br><br>
+          <span class="small">124 million tweets, each labeled by a human.</span>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="border-left:3px solid #fbbf24;">
+          <strong class="highlight-yellow">Generation</strong><br><br>
+          Needs <strong>just text</strong>.<br>
+          No labels. No human decisions.<br>
+          The model reads and predicts<br>
+          the next word.<br><br>
+          <span class="small">8 million web pages. No labeling required.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="center-slide">
+    <h2>The Insight That Changed Everything</h2>
+    <p style="font-size:1.1em; margin-top:1em;">
+      Labels are <span class="highlight-pink">expensive</span>.<br>
+      <span class="small">Someone must decide each one.</span>
+    </p>
+    <p class="fragment" style="font-size:1.1em; margin-top:0.8em;">
+      Text is <span class="highlight-green">everywhere</span>.<br>
+      <span class="small">The entire internet is training data.</span>
+    </p>
+    <div class="concept-box fragment" style="margin-top:1em; font-size:1.1em;">
+      When you don't need labels, you can train on <span class="highlight-yellow">everything</span>.
+    </div>
+    <p class="fragment small" style="margin-top:0.5em;">
+      That's exactly what happened. And that's how we got ChatGPT, Claude, and every generative AI tool.
+    </p>
   </section>
 </section>
 
 <!-- ========== MODEL CARDS ========== -->
 <section>
   <h2>Model Card Comparison</h2>
-  <p>Why do these three models disagree? Check their model cards.</p>
+  <p>Same platform. Same format. Completely different AI.</p>
   <div class="two-col" style="margin-top:0.8em;">
     <div>
-      <div class="card">
-        <strong class="highlight-yellow">Movie Review Model</strong><br>
-        Trained on: movie reviews<br>
-        Labels: POSITIVE / NEGATIVE<br>
-        <span class="small">No "neutral" option!</span>
-      </div>
-      <div class="card">
-        <strong class="highlight-blue">Twitter Model</strong><br>
-        Trained on: 124M tweets<br>
-        Labels: positive / neutral / negative<br>
-        <span class="small">Understands internet language</span>
+      <div class="card" style="border-left:3px solid #60a5fa;">
+        <strong class="highlight-blue">Classification Model</strong><br>
+        twitter-roberta-base-sentiment<br><br>
+        Task: text-classification<br>
+        Data: 124M labeled tweets<br>
+        Output: positive / neutral / negative<br>
+        <span class="small">Someone labeled every tweet.</span>
       </div>
     </div>
     <div>
-      <div class="card">
-        <strong class="highlight-green">Product Review Model</strong><br>
-        Trained on: product reviews<br>
-        Labels: 1 star to 5 stars<br>
-        <span class="small">More granular &mdash; five levels</span>
-      </div>
-      <div class="observation-card">
-        They disagree because they learned language from <strong>different worlds</strong>.
+      <div class="card" style="border-left:3px solid #fbbf24;">
+        <strong class="highlight-yellow">Generation Model</strong><br>
+        distilgpt2<br><br>
+        Task: text-generation<br>
+        Data: 8M web pages (no labels)<br>
+        Output: new text, word by word<br>
+        <span class="small">No human labeling needed.</span>
       </div>
     </div>
   </div>
@@ -423,38 +442,32 @@ demo.launch()</code></pre>
 <!-- ========== NAME THE CONCEPT ========== -->
 <section class="center-slide">
   <h2>Name the Concept</h2>
-  <h3 style="color:#fbbf24; font-size:1.3em;">MODEL EVALUATION</h3>
-  <div class="concept-box" style="font-size:1.2em;">
-    same <span class="highlight-blue">INPUT</span>
-    <span class="arrow"> &rarr; </span>
-    <span class="highlight-yellow">MODEL A</span> vs
-    <span class="highlight-green">MODEL B</span> vs
-    <span class="highlight-pink">MODEL C</span><br>
-    <span style="font-size:0.8em; margin-top:0.5em; display:inline-block;">
-      which is "right" depends on the <span class="highlight-yellow">TASK</span>
-    </span>
+  <h3 style="color:#fbbf24; font-size:1.3em;">CLASSIFICATION VS. GENERATION</h3>
+  <div class="concept-box" style="font-size:1.1em;">
+    <span class="highlight-blue">Classification</span>: sort into buckets &rarr; fixed menu &rarr; needs labels<br>
+    <span class="highlight-yellow">Generation</span>: create new content &rarr; next-word prediction &rarr; needs just text
   </div>
   <p class="fragment" style="margin-top:1em;">
-    Evaluation isn't just "is it right?"<br>
-    It's "right <span class="highlight-yellow">for what</span>? For <span class="highlight-blue">whom</span>? Measured <span class="highlight-green">how</span>?"
+    Everything in Sessions 1&ndash;3 was classification.<br>
+    Everything from here forward traces what happened<br>
+    when people chose <span class="highlight-yellow">generation</span>.
   </p>
 </section>
 
-<!-- ========== RESEARCH LENS ========== -->
+<!-- ========== THE ROAD AHEAD ========== -->
 <section>
-  <h2>Research Lens</h2>
-  <div class="observation-card" style="font-size:1.05em;">
-    We ran a <strong class="highlight-yellow">model evaluation</strong> &mdash; same inputs, three judges. This is a <strong class="highlight-blue">baseline comparison</strong>.
+  <h2>The Road Ahead</h2>
+  <div class="card" style="margin-top:0.8em;">
+    <strong class="highlight-yellow">Act I (Sessions 1&ndash;3):</strong> The Old Way &mdash; small models, narrow tasks, enormous human work, fundamental limits.
   </div>
-  <p class="fragment" style="margin-top:1em;">
-    In research, when you want to know if a tool works, you don't just test it alone &mdash; you compare it against other tools on the same data.
-  </p>
-  <div class="fragment card" style="margin-top:0.8em;">
-    <strong>Research question:</strong> <em>Which sentiment model is most accurate across diverse inputs?</em>
+  <div class="card">
+    <strong class="highlight-green">Act II (Sessions 4&ndash;8):</strong> The Breakthrough &mdash; generation, controls, scale, bias, and pipelines.
+  </div>
+  <div class="card">
+    <strong class="highlight-blue">Act III (Sessions 9&ndash;12):</strong> Building &mdash; you design, build, and present something real.
   </div>
   <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
-    In class we applied <span class="highlight-yellow">model evaluation</span> to sentiment.<br>
-    For homework, apply the same method to <span class="highlight-green">your own topic</span>.
+    You just crossed the fork. Welcome to Act II.
   </p>
 </section>
 
@@ -462,19 +475,19 @@ demo.launch()</code></pre>
 <section>
   <h2>Vocabulary</h2>
   <div class="card">
-    <span class="vocab-term">Accuracy</span> &mdash; percentage of correct predictions (but can be misleading!)
+    <span class="vocab-term">Classification</span> &mdash; AI that sorts inputs into categories from a fixed menu
   </div>
   <div class="card">
-    <span class="vocab-term">False positive</span> &mdash; model says YES when the answer is actually NO
+    <span class="vocab-term">Generation</span> &mdash; AI that creates new content by predicting the next word
   </div>
   <div class="card">
-    <span class="vocab-term">False negative</span> &mdash; model says NO when the answer is actually YES
+    <span class="vocab-term">Labeled data</span> &mdash; training data where a human decided the correct answer for each example
   </div>
   <div class="card">
-    <span class="vocab-term">Context-dependent</span> &mdash; whether a model is "good" depends on what you're using it for
+    <span class="vocab-term">Next-word prediction</span> &mdash; how generation models learn: read, predict, check, adjust
   </div>
   <div class="card">
-    <span class="vocab-term">Model evaluation</span> &mdash; the process of measuring how well a model performs on a specific task
+    <span class="vocab-term">Parameters</span> &mdash; internal numbers a model adjusts during training (distilgpt2: 82M, GPT-4: 1T+)
   </div>
 </section>
 
@@ -486,11 +499,11 @@ demo.launch()</code></pre>
     <strong>Link in the Zoom chat!</strong>
   </div>
   <div class="card" style="margin-top:0.8em;">
-    <strong>1.</strong> Click the link → it opens in Google Colab<br>
-    <strong>2.</strong> Hit the <span class="highlight-yellow">play button ▶</span> on the first cell<br>
-    <strong>3.</strong> Run the setup cell, then try the experiments
+    <strong>1.</strong> Run the setup cell (installs transformers)<br>
+    <strong>2.</strong> Load distilgpt2<br>
+    <strong>3.</strong> Try your own prompts &mdash; notice how the same prompt can give different outputs each time
   </div>
-  <p class="small" style="margin-top:0.8em;">Finish the experiments on your own before next week</p>
+  <p class="small" style="margin-top:0.8em;">That randomness? Next week we learn to control it.</p>
 </section>
 
 <!-- ========== BETWEEN SESSIONS ========== -->
@@ -499,36 +512,27 @@ demo.launch()</code></pre>
     <h2>Between Sessions</h2>
     <p>Three parts this week. Plan for <span class="highlight-yellow">1&ndash;2 hours</span>.</p>
     <div class="card" style="margin-top:0.8em;">
-      <strong class="highlight-green">Part 1: Hub Challenge</strong> &mdash; Compare models side by side on your own topic<br>
+      <strong class="highlight-green">Part 1: Explore Both Sides</strong> &mdash; Find a classification model AND a generation model. Test them on the same input.<br>
       <strong class="highlight-blue">Part 2: Research Journal</strong> &mdash; Week 4 entry in <code>research-journal.md</code><br>
       <strong class="highlight-pink">Part 3: Collection + GitHub</strong> &mdash; Grow your Collection, upload notebook
     </div>
   </section>
 
   <section>
-    <h2>Part 1: Compare Models</h2>
+    <h2>Part 1: Explore Both Sides of the Fork</h2>
     <div class="two-col">
       <div class="card">
-        <strong class="highlight-yellow">Option A: Sentiment</strong><br>
-        Pick 2+ sentiment models from your Collection. Test them on the same 5 inputs. Which one do you trust most?
+        <strong class="highlight-blue">Find a classifier</strong><br>
+        A model that sorts input into categories. Test it on 3&ndash;5 inputs. What labels does it give?
       </div>
       <div class="card">
-        <strong class="highlight-green">Option B: Your Topic</strong><br>
-        Find 2+ models/Spaces that do similar things. Test them on the same inputs. Which gives better answers?
+        <strong class="highlight-yellow">Find a generator</strong><br>
+        A model that creates new text. Give it the same inputs as prompts. What does it write?
       </div>
     </div>
     <div class="observation-card fragment" style="margin-top:0.8em;">
-      The key idea: <strong>when multiple models tackle the same task, their disagreement reveals something.</strong>
-    </div>
-  </section>
-
-  <section>
-    <h2>Parts 2 &amp; 3</h2>
-    <div class="card">
-      <strong class="highlight-blue">Research Journal (Week 4):</strong> Add your entry to <code>research-journal.md</code>. Write 300&ndash;500 words: what you compared, which model you trusted more, and why.
-    </div>
-    <div class="card" style="margin-top:0.5em;">
-      <strong class="highlight-pink">Collection + GitHub:</strong> At least <span class="highlight-yellow">6 models</span> and <span class="highlight-yellow">4 Spaces</span> by Session 5. Upload tonight's notebook. Add Week 4 journal entry.
+      Same input, two completely different kinds of output.<br>
+      What does each one tell you? What does each one miss?
     </div>
   </section>
 </section>
@@ -537,7 +541,8 @@ demo.launch()</code></pre>
 <section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
   <h2>Next Week</h2>
   <p style="font-size:1.3em;">We add controls.</p>
-  <p style="color:#9ca3af; margin-top:0.5em;">Same model, same prompt &mdash; different output.<br>What happens when you give the user knobs to turn?</p>
+  <p style="color:#9ca3af; margin-top:0.5em;">Same model, same prompt &mdash; different output.<br>Turn up the <span class="highlight-yellow">temperature</span> and see what happens.</p>
+  <p class="fragment" style="color:#f472b6; margin-top:0.8em;">Is creativity just controlled randomness?</p>
 </section>
 
 </div>

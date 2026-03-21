@@ -17,7 +17,7 @@ Same single model as earlier Spaces, but now you're processing **multiple inputs
 ## requirements.txt
 
 ```
-gradio==6.8.0
+gradio==6.9.0
 transformers==4.48.0
 torch==2.5.0
 ```
@@ -312,7 +312,7 @@ with gr.Blocks(title="Headline Mood Dashboard") as demo:
     result = gr.HTML(
         value={"status": "empty"},
         html_template="""
-            {{#if (eq value.status "done")}}
+            {{#if value.is_done}}
                 <div class="legend">
                     {{#each value.legend}}
                         <span class="legend-item">

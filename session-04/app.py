@@ -1,67 +1,59 @@
 from transformers import pipeline
 import gradio as gr
- 
-# Load all 3 sentiment models at startup (sequential to manage memory)
-print("Loading Movie Review model...")
-model_movie = pipeline(
-    "sentiment-analysis",
-    model="distilbert-base-uncased-finetuned-sst-2-english",
+
+# Load distilgpt2 — a small text generation model (82M parameters)
+print("Loading text generation model (distilgpt2)...")
+generator = pipeline(
+    "text-generation",
+    model="distilbert/distilgpt2",
 )
- 
-print("Loading Twitter model...")
-model_twitter = pipeline(
-    "sentiment-analysis",
-    model="cardiffnlp/twitter-roberta-base-sentiment-latest",
-)
- 
-print("Loading Product Review model...")
-model_product = pipeline(
-    "sentiment-analysis",
-    model="nlptown/bert-base-multilingual-uncased-sentiment",
-)
- 
-print("All models loaded!")
- 
-def format_result(result):
-    """Format a single model result as 'LABEL (XX% confidence)'."""
-    label = result["label"]
-    score = result["score"]
-    return f"{label} ({score:.0%} confidence)"
- 
-def compare_sentiment(text):
-    if not text or not text.strip():
-        return "Enter some text first!", "Enter some text first!", "Enter some text first!"
- 
-    # Truncate to 512 chars (model token limits)
-    text = text[:512]
- 
-    r1 = model_movie(text)[0]
-    r2 = model_twitter(text)[0]
-    r3 = model_product(text)[0]
- 
-    return format_result(r1), format_result(r2), format_result(r3)
- 
+print("Model loaded!")
+
+
+def generate_text(prompt):
+    """Generate a continuation of the input text."""
+    if not prompt or not prompt.strip():
+        return "Type a sentence or two and watch the model try to continue it."
+
+    # Generate with default settings — no temperature control yet
+    # (that's Session 5!)
+    result = generator(
+        prompt,
+        max_new_tokens=80,
+        num_return_sequences=1,
+        do_sample=True,
+        truncation=True,
+    )
+
+    return result[0]["generated_text"]
+
+
 demo = gr.Interface(
-    fn=compare_sentiment,
+    fn=generate_text,
     inputs=gr.Textbox(
-        lines=5,
-        placeholder="Type or paste text to analyze...",
-        label="Text to Analyze",
+        lines=4,
+        placeholder="Type a sentence or the beginning of a story...",
+        label="Your Prompt",
     ),
-    outputs=[
-        gr.Textbox(label="Movie Review Model (distilbert-sst2)"),
-        gr.Textbox(label="Twitter Model (cardiffnlp)"),
-        gr.Textbox(label="Product Review Model (nlptown, 1-5 stars)"),
-    ],
-    title="Sentiment Showdown",
-    description="Three AI models read the same text. Do they agree? Each was trained on different data — movie reviews, tweets, and product reviews — so they see the world differently.",
+    outputs=gr.Textbox(
+        label="What the Model Wrote",
+        lines=8,
+    ),
+    title="Text Generator",
+    description=(
+        "This model doesn't classify — it creates. "
+        "Type a sentence and watch it try to write what comes next. "
+        "It's a small model (82M parameters), so the results won't be "
+        "perfect — but it's doing something fundamentally different from "
+        "the classification models we've used so far."
+    ),
     examples=[
-        ["The service was slow but the food was amazing."],
-        ["I can't believe how terrible this is. Just kidding, it's great!"],
-        ["The movie was fine. Nothing special but not bad either."],
-        ["lol this is SO bad it's actually good"],
-        ["The product arrived on time and works as described."],
+        ["Monday morning arrived like a gift from the universe — truly, what better way to start the week than"],
+        ["The acceptance letter sat on the kitchen table, and she couldn't stop reading it."],
+        ["The volcano had been dormant for three hundred years. When it finally erupted,"],
+        ["Once upon a time, in a city made entirely of glass,"],
+        ["The capital of France is"],
     ],
 )
- 
+
 demo.launch()

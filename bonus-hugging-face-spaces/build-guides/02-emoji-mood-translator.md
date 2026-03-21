@@ -17,7 +17,7 @@ This is your first Space with an ML model. One model, one text input, emoji outp
 ## requirements.txt
 
 ```
-gradio==6.8.0
+gradio==6.9.0
 transformers==4.48.0
 torch
 ```

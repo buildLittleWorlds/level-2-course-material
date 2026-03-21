@@ -25,7 +25,7 @@ EMOTION_STYLE = {
 
 def analyze(audio_path):
     if audio_path is None:
-        return {"status": "empty"}
+        return {"is_done": False}
 
     results = get_classifier()(audio_path)
     top = max(results, key=lambda x: x["score"])
@@ -44,7 +44,7 @@ def analyze(audio_path):
         })
 
     return {
-        "status": "done",
+        "is_done": True,
         "top_emoji": top_style["emoji"],
         "top_label": top_label,
         "top_color": top_style["color"],
@@ -58,9 +58,9 @@ with gr.Blocks(title="Audio Emotion Detector") as demo:
                            label="Record or upload audio")
 
     result = gr.HTML(
-        value={"status": "empty"},
+        value={"is_done": False},
         html_template="""
-            {{#if (eq value.status "done")}}
+            {{#if value.is_done}}
                 <div class="hero">
                     <span class="hero-emoji">{{value.top_emoji}}</span>
                     <div class="hero-label" style="color:{{value.top_color}}">{{value.top_label}}</div>

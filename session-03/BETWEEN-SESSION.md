@@ -6,9 +6,9 @@ This week's homework has three parts: a challenge using models from your Collect
 
 ## Part 1: Hub Challenge — Break a Model on Purpose
 
-In class we tested adversarial inputs on a sentiment model and performed data preprocessing — cleaning noise to see if it improved results. That's a research method called **adversarial testing** with a **controlled before/after comparison**.
+In class we tested adversarial inputs on a sentiment model, built a `clean_text()` function to fix noise problems, and then ran three adversarial stories through four different emotion models. We found three failure modes: tone deafness (missing meaning that's there), emotional flattening (oversimplifying complex feelings), and anthropomorphic projection (inventing meaning that isn't there). That's **adversarial testing** — deliberately breaking models to find their limits.
 
-Now apply that same method to **your own interest**. (See `GUIDE-adversarial-testing.md` for a portable reference on this method, the noise vs. meaning distinction, and the CLEAR framework.)
+Now apply that same method to **your own interest**. (See `GUIDE-adversarial-testing.md` for a portable reference on this method, the three failure modes, noise vs. meaning, and the CLEAR framework.)
 
 ### Option A: Stay with Sentiment / Emotion
 
@@ -26,17 +26,18 @@ Now apply that same method to **your own interest**. (See `GUIDE-adversarial-tes
 4. If it's a noise problem, try cleaning or simplifying the input and re-test
 5. **Update your Collection** — add a tasting note describing the failure and what you learned
 
-The key idea is the same either way: **some failures can be fixed with preprocessing, and some can't**. You saw it with sarcasm tonight. Now see if the same pattern holds for whatever topic you're exploring.
+The key idea is the same either way: **some failures can be fixed with preprocessing, and some can't**. You saw it in class across three very different stories. Now see if the same pattern holds for whatever topic you're exploring.
 
 ### What to Notice
 
 - Are the failures mostly noise problems or meaning problems?
 - Does cleaning the input actually change the model's answer?
+- Can you match any failure to one of the three failure modes — tone deafness, emotional flattening, or anthropomorphic projection? Or is it a different kind of failure entirely?
 - What would the model need to "know" to get these right? (Context? Tone? Cultural knowledge? Domain expertise?)
 
 ### Bring It Back
 
-Next session, be ready to share: what input broke your model, and was it a noise problem or a meaning problem?
+Next session we cross a big line — from models that **classify** (sort things into categories) to models that **generate** (create something new). Bring your broken model examples, and start thinking about this question: could a model that creates text handle the problems that a model that classifies text can't?
 
 ---
 

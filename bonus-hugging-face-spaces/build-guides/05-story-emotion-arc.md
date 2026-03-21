@@ -18,7 +18,7 @@ Same model as the Headline Dashboard, but the data transformation is more comple
 
 For the matplotlib version (Phases 1-3):
 ```
-gradio==6.8.0
+gradio==6.9.0
 transformers==4.48.0
 torch==2.5.0
 matplotlib==3.10.0
@@ -27,7 +27,7 @@ numpy==2.2.3
 
 For the pure HTML/SVG version (Phase 4):
 ```
-gradio==6.8.0
+gradio==6.9.0
 transformers==4.48.0
 torch==2.5.0
 ```
@@ -402,7 +402,7 @@ with gr.Blocks(title="Story Emotion Arc") as demo:
     result = gr.HTML(
         value={"status": "empty"},
         html_template="""
-            {{#if (eq value.status "done")}}
+            {{#if value.is_done}}
                 <div class="legend">
                     {{#each value.legend}}
                         <span class="legend-item" data-emotion="{{this.emotion}}">
@@ -424,10 +424,12 @@ with gr.Blocks(title="Story Emotion Arc") as demo:
                     {{/each}}
                 </div>
 
-            {{else if (eq value.status "error")}}
-                <p class="msg">{{value.msg}}</p>
             {{else}}
-                <p class="msg">Paste a multi-paragraph text and click Analyze Arc.</p>
+                {{#if value.is_error}}
+                    <p class="msg">{{value.msg}}</p>
+                {{else}}
+                    <p class="msg">Paste a multi-paragraph text and click Analyze Arc.</p>
+                {{/if}}
             {{/if}}
         """,
         css_template="""

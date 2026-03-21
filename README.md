@@ -32,6 +32,11 @@ Explorer notebooks let students apply each week's research method to models from
 | 04 | Baseline Comparison | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-04/explorer.ipynb) |
 | 05 | Parameter Sweep | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-05/explorer.ipynb) |
 
+## Bonus Modules
+
+- [bonus-fine-tuning/README.md](bonus-fine-tuning/README.md) — standalone fine-tuning example using a nostalgia dataset
+- [bonus-bert-content-moderation/README.md](bonus-bert-content-moderation/README.md) — optional supplement on how BERT was trained, what data it learned from, and why BERT-style models were useful for content moderation
+
 ## Research Methods by Session
 
 | Session | ML Concept | Research Method |

@@ -76,9 +76,21 @@ You don't have to label each section when you write your prompt — once you get
 - **Noise** — Formatting junk in the input that confuses the model (emoji, extra spaces, weird characters).
 - **Tone** — The way something is said, as opposed to what is said. Meaning that lives between the words, not in them.
 
+## Three Failure Modes
+
+When we tested adversarial stories across four different emotion models (3-sentiment, 6-emotion, 7-Ekman, 28-GoEmotions), three distinct failure modes emerged. These go beyond the noise vs. meaning distinction — they describe three different ways classification models get meaning wrong.
+
+**Tone deafness** — the model misses meaning that IS there. The sarcastic narrator story sounds positive on the surface, but every sentence is dripping with misery. All four models read it as positive because they read words, not tone. Sarcasm, irony, and passive aggression all produce this failure: the meaning is present in the text, but the model can't access it.
+
+**Emotional flattening** — the model oversimplifies meaning that's complex. The mixed-emotion story describes getting into a dream college while having to leave home. Every paragraph contains at least two genuine emotions at the same time. But the models force each paragraph into a single dominant label — they can't hold two feelings at once. Even the 28-emotion model, which has labels for grief AND joy AND relief, still picks a winner instead of showing the mixture.
+
+**Anthropomorphic projection** — the model invents meaning that ISN'T there. The nature story describes a volcanic eruption and ecological regrowth with zero human characters. Nobody is feeling anything. But the models draw dramatic emotional arcs anyway — fear for the eruption, sadness for the dead zone, joy for the wildflowers. The models project human emotions onto rocks and weather because words like "erupted" and "destroyed" co-occur with emotional language in the training data.
+
+These three failures all point to the same underlying limit: classification models match patterns in words. They don't understand what the words mean.
+
 ## This Week's Shared Example
 
-In class, we fed sarcastic and adversarial inputs to a sentiment model and watched it fail. We categorized the failures as noise problems or meaning problems, then built a `clean_text()` function to preprocess the input. The before/after comparison showed that cleaning fixes noise but not meaning — the model still can't detect sarcasm, even with perfectly formatted input.
+In class, we first fed sarcastic and adversarial inputs to a single sentiment model and categorized failures as noise problems or meaning problems. We built a `clean_text()` function and showed that cleaning fixes noise but not meaning. Then we went bigger: we pasted three adversarial stories into four different emotion models and watched all four fail in three different ways — tone deafness, emotional flattening, and anthropomorphic projection. The most important finding: having more emotion categories (28 vs. 3) didn't fix any of the failures. More labels isn't more understanding.
 
 ## Apply It to Your Own Topic
 
@@ -102,4 +114,4 @@ The gap between what's in the training data and what you're testing with — tha
 
 ---
 
-AI + Research Level 2 • Session 3: When Sarcasm Breaks Everything
+AI + Research Level 2 • Session 3: What Models Can't Do

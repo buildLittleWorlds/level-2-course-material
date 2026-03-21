@@ -1,85 +1,72 @@
-# Session 3: When Sarcasm Breaks Everything
+# Session 3: What Models Can't Do
 
-**Concept:** DATA CLEANING AND FEATURE ENGINEERING
-**Space:** Sarcasm Breaker
-**Model:** `distilbert-base-uncased-finetuned-sst-2-english` (same as Session 1)
-**Pre-built fallback:** Have a version with cleaning deployed under profplate/ before class.
+**Concept:** ADVERSARIAL TESTING AND THE LIMITS OF CLASSIFICATION
+**Space:** Sarcasm Breaker (Session 1 Mood Meter + cleaning)
+**Story Arc Spaces:** 3-Sentiment, 6-Emotion, 7-Ekman, 28-GoEmotions
+**Pre-built fallback:** Have both the Sarcasm Breaker and all four Story Arc Spaces loaded and tested before class.
+
+**Narrative role:** This session closes Act I — "The Old Way." By the end, students have three sessions of evidence that classical ML models can sort text into buckets but don't understand what they're reading. The session ends with a named summary of what Sessions 1-3 have shown and a forward bridge to Session 4's big shift from classification to generation.
 
 ---
 
 ## Time Breakdown (2 hours)
 
-### 0:00–0:10 — Show-and-Tell
+### 0:00–0:10 — Show-and-Tell + SpaceCraft
 
-Ask: "Last week you tried finding a model that recognizes feelings our three models couldn't see. Did anyone try one? What feelings could it detect?"
+Ask: "Last week you compared three emotion models on the same text. Did anyone try a model on their own that gave a surprising result?"
 
-If yes: share it. What model did they find? Did it work? What emotions did it recognize?
+If yes: share it. What did the model get wrong? Why do they think it happened?
 
-If no: quickly show a model you tried between sessions. Keep it to 2 minutes.
+If no: quickly show a model you tested between sessions. Keep it to 2 minutes.
 
 **SpaceCraft check-in (2-3 min):**
-Pull up SpaceCraft briefly. Show a Space you added this week and try to break it with an adversarial input — something it wasn't designed for, or an edge case that confuses it. For example, give an OCR Space a blurry photo, or give an image generator a contradictory prompt. Say: "I tried to break this one too. That's what we're about to do with our Mood Meter — adversarial testing."
+Pull up SpaceCraft. Show a Space you tried to break with an adversarial input — something it wasn't designed for, or an edge case that confuses it. For example, give an OCR Space a blurry photo, or give an image generator a contradictory prompt. Say: "I tried to break this one. That's what we're about to do with our Mood Meter — and then with something much bigger."
 
-**Transition:** "Today we're going back to our original Mood Meter from Session 1. But instead of comparing different models, we're going to break it — on purpose. We're going to feed it the kind of text that starts fights in your group chat."
+**Transition:** "For two weeks we've been feeding text to models and watching what they say. Today we find out what they can't do. And it's a lot."
 
-### 0:10–0:35 — Break It
+### 0:10–0:25 — Break the Mood Meter
 
 Open the Session 1 Space (original Mood Meter, no cleaning). Start typing adversarial inputs. Have students suggest inputs too.
 
-**Pre-prepared adversarial inputs (all tone/sarcasm focused):**
+**Pre-prepared adversarial inputs (6 inputs, not 10 — move quickly):**
 
 | Input | Category | What happens |
 |-------|----------|-------------|
-| `Oh GREAT, another Monday. Just what I needed.` | Sarcasm | Model reads "GREAT" literally — probably says POSITIVE |
-| `I suppose getting into Harvard is okay.` | Understatement | Model may miss the irony entirely |
+| `Oh GREAT, another Monday. Just what I needed.` | Sarcasm | Model reads "GREAT" literally — probably POSITIVE |
 | `Per my last email, as I mentioned before...` | Passive aggression | Model probably says NEUTRAL/POSITIVE — misses the venom |
 | `no literally I'm deceased this is the funniest thing 💀💀💀` | Gen-Z irony | Model doesn't know "deceased" means "laughing so hard" |
 | `I'm fine. Everything is fine. This is fine.` | Mixed signals | Words are positive, tone is everything-is-on-fire |
 | `Worst day ever 😂🎉💀` | Emoji contradictions | Words say worst, emoji say party |
-| `Yeah, I totally LOVE getting up at 5am. It's my FAVORITE thing.` | ALL CAPS sarcasm | Model may read LOVE and FAVORITE literally |
-| `Thanks for getting back to me :)` | Ambiguous politeness | Sincere or seething? |
-| `I will always love you` | Context-dependent | Sounds positive — but it's from a breakup song |
-| `lolllll sure thing bestie whatever you say 😊` | Passive agreement | The "lol" and "whatever" tell a different story than the emoji |
+| `Yeah, I totally LOVE getting up at 5am. It's my FAVORITE thing.` | ALL CAPS sarcasm | Model reads LOVE and FAVORITE literally |
 
 **For each input, ask students:**
-1. What did you expect the model to say?
-2. What did it actually say?
-3. How would YOU read this tone if a friend texted it to you?
+1. What did you expect?
+2. What did the model say?
+3. How would YOU read this if a friend texted it?
 
-Write the failure categories on the shared screen as they emerge:
-- **Sarcasm** — the words say one thing, the meaning is the opposite
-- **Understatement** — downplaying something huge
-- **Passive aggression** — polite words, hostile intent
-- **Emoji contradictions** — text and emoji tell different stories
-- **Gen-Z irony** — "deceased" means laughing, "literally can't" means delighted
-- **Context collapse** — the words make sense, but only if you know the backstory
+**Quick two-column exercise (on screen, 3 minutes max):**
 
-### 0:35–0:50 — Name the Failures
-
-Go through the list of failures on screen. Give each category a name.
-
-**Talking points:**
-- "These aren't bugs in our code. The code works fine. The *tone* is the problem."
-- "The model reads words. You read tone. That's a fundamentally different kind of reading."
-- "Some of these we can fix with code. Some we can't fix at all — because the meaning isn't in the words."
-
-Draw two columns:
-| We CAN fix | We CAN'T fix |
-|------------|-------------|
+| We CAN fix (noise) | We CAN'T fix (meaning) |
+|---------------------|----------------------|
 | Extra spaces | Sarcasm |
 | Repeated characters ("sooooo") | Irony |
 | Emoji (strip them) | Understatement |
 | ALL CAPS (normalize) | Passive aggression |
 | | Context / backstory |
-| | Cultural tone differences |
 
-**Say:** "The left column is noise — formatting junk the model can't parse. The right column is tone — meaning that lives between the words, not in them. We can clean noise. We can't clean meaning."
+**Say:** "Some problems are noise — formatting junk. Some are meaning — the real intention behind the words. We can clean noise. We can't clean meaning. Let me show you what cleaning looks like."
 
-**Multimodal aside (30 seconds):** "Here's the thing — most of the 'Can't Fix' column? Sarcasm, irony, passive aggression — you CAN detect those if you hear the voice. Say 'Oh GREAT' out loud like you mean it. Now say it like your Monday just got ruined. Completely different, right? The model loses everything your ears would catch. Later in this course, we'll build something that actually listens."
+### 0:25–0:45 — Fix It: Build the Sarcasm Breaker Space (Live Build)
 
-### 0:50–1:15 — Fix It: Add clean_text()
+> **What we're building and why:** This segment is a live Hugging Face Space build. You'll take the Session 1 Mood Meter Space (`app.py` + `requirements.txt`) and add a `clean_text()` function to it, creating the "Sarcasm Breaker" — a Space that shows the model's reading before and after cleaning. Students see the code, see the deploy, and see the result. The purpose is twofold: (1) they practice the Space-building pattern they'll use all course, and (2) the Space itself demonstrates the lesson — cleaning fixes noise but can't fix meaning. The completed code is in `session-03/app.py`.
+>
+> **The Space-building pattern:** Every Space on Hugging Face is built from two files: `app.py` (the code) and `requirements.txt` (the libraries). Students have seen this pattern in Sessions 1 and 2. Tonight they watch you modify the code live, commit, and rebuild. This is the same workflow they'll use when they build their own Spaces later in the course.
 
-Open `app.py` in the Files tab. Add the `clean_text()` function above `check_mood()`.
+**Framing (this is new):** "What I'm about to show you isn't just a fix for our little app. For decades, this is what AI researchers spent most of their time doing. Before the AI systems you use today existed — before ChatGPT, before Claude, before any of that — people had to manually clean every input, build every feature, strip every emoji, normalize every piece of text. By hand. For every new task. Every new language. Every new domain. This function we're about to write represents years of human labor across the entire field."
+
+**Open the Space on Hugging Face.** Go to the Files tab. Open `app.py`. Students should see the code from Session 1 — load model, check mood, Gradio interface. Say: "This is the same code from Session 1. Two files make a Space: `app.py` is the code, `requirements.txt` lists the libraries. We're going to add a cleaning function to the code and rebuild the Space."
+
+Click **Edit** on `app.py`. Add `import re` at the top, then add the `clean_text()` function above `check_mood()`.
 
 Build it step by step, explaining each piece:
 
@@ -111,57 +98,114 @@ text = re.sub(
     ' ', text
 )
 ```
-"The model doesn't know what 💀 means. Strip it out so it can focus on the words. But here's the thing — when you text '💀💀💀', that IS the meaning. Removing it doesn't help the model understand; it removes information the model never had."
+"The model doesn't know what a skull emoji means. Strip it out so it can focus on the words."
 
 **Step 5: Normalize ALL CAPS**
 ```python
 if caps_count > 3:
     text = text.title()
 ```
-"ALL CAPS might change the model's reading. But think about this: when someone texts 'I LOVE THIS,' the caps ARE the tone. Normalizing them makes the input cleaner but also flatter."
+"ALL CAPS might change the model's reading. Normalizing makes it cleaner but also flatter."
 
-Then show the before/after comparison — run the same text through the model with and without cleaning.
+**Quick test:** Run 2-3 adversarial inputs through the before/after comparison. Show that cleaning helps with noise (emoji, caps) and doesn't help with meaning (sarcasm, irony).
 
-Commit and rebuild.
+**Land the point:** "We just spent 20 minutes writing code to fix formatting problems. The model still can't detect sarcasm. Imagine doing this for every kind of text, in every language, for every new domain. That was the old way of doing AI. It worked — sort of — but it was slow, it was manual, and it always hit the same wall: you can clean the noise, but you can't teach the model to understand what the words actually mean."
 
-### 1:15–1:30 — Test the Fix
+**Deploy the Space:** Click **Commit changes** at the bottom of the editor. The Space will rebuild (30–60 seconds). While it rebuilds, say: "We just changed the code and redeployed. That's the cycle: edit the code, commit, rebuild, test. Every Space on Hugging Face works this way. When you build your own Space later in this course, this is exactly the workflow."
 
-Run the same adversarial inputs from earlier. Compare results.
+Once the Space is live, test it with 1–2 sarcastic inputs to confirm the before/after comparison works. Then move on — the Story Arc demo is the centerpiece, not this build.
 
-**Questions for students:**
-- Which inputs work better now?
-- Which ones are still broken?
-- What's in the "can't fix" column that no amount of cleaning will help with?
+### 0:45–1:15 — Story Arc Adversarial Demo (The Centerpiece)
 
-**Key insight:** "Data cleaning is a real job. Data scientists spend a huge amount of time cleaning data before models ever see it. But here's the catch: tone is information that gets lost when you strip text down to words. Sarcasm lives in the gap between what you say and what you mean. No amount of cleaning can close that gap."
+**Transition:** "So far we've been testing one model on single sentences. Now I want to show you something bigger. We're going to test four different models on the same stories — and we're going to break all of them."
 
-**Test the sarcasm flag:** Show that the app detects common sarcasm markers ("Oh great," "Just what I needed") — but all it can do is flag them, not understand them. "The model can see the pattern, but it can't feel the eye-roll."
+**Setup:** Open all four Story Arc Spaces in browser tabs:
+- Story Arc — 3-Class Sentiment (positive / negative / neutral)
+- Story Arc — 6 Emotions (sadness, joy, love, anger, fear, surprise)
+- Story Arc — 7 Ekman Emotions (anger, disgust, fear, joy, neutral, sadness, surprise)
+- Story Arc — 28 GoEmotions (admiration, amusement, anger, ... 28 categories)
 
-### 1:30–1:40 — Big Question: How Do YOU Detect Sarcasm in a Text Message?
+**Explain briefly:** "These four apps do the same thing — you paste a story, and they chart the emotions across each paragraph. But each one uses a different model with a different number of emotion categories. Three emotions. Six emotions. Seven emotions. Twenty-eight emotions. Same story, four different lenses."
 
-**Set it up:** "We just spent an hour watching the model fail at sarcasm. But here's my question: how do YOU know when someone is being sarcastic in a text?"
+#### Test 1: The Sarcastic Narrator (~8 min)
 
-**Let students respond.** They'll talk about:
-- Who sent it (your best friend vs. your teacher)
-- What happened before (context from the conversation)
-- How they usually talk (their voice, their patterns)
-- Punctuation and emoji clues ("." at the end of "fine." means not fine)
+**Say:** "Our first test story is about a student having the worst Monday of their life. But every sentence sounds positive. See if you can hear the sarcasm."
 
-**Push further:**
-- "How many fights have started because someone misread the tone of a text?"
-- "You've probably done it — sent something you meant as a joke, and the other person got angry. Or received something you thought was mean, and the person said 'I was kidding.'"
-- "The model has the same problem you do — it just doesn't know it. You at least know you might be misreading the tone. The model gives you 97% confidence and moves on."
+Read the first paragraph aloud so students hear the tone. Then paste the full story into all four Spaces.
 
-**The deeper point:**
-- "Is tone in the words, or between the words?"
-- "The model only has the words. You have everything else — the relationship, the context, the history, the vibe. That's why you can detect sarcasm and the model can't."
-- "Can a machine ever read between the lines? We'll keep coming back to this."
+**While results load, ask:** "This person had a terrible day. The words all sound positive. What do you think the models will say?"
 
-**Don't resolve this.** Let them sit with the tension: the model is confidently wrong about tone, and humans are sometimes wrong about tone too. The difference is that humans know they might be wrong.
+**After results:** Look at the arc charts together.
 
-### 1:40–1:50 — CLEAR Framework + Name the Concept
+**Discussion:** "According to these four models, did this person have a good day? Every model says yes — because every model reads the words, not the tone. The 3-class model says positive. The 28-class model spreads it across joy and admiration and approval. More categories didn't help. Twenty-eight labels isn't smarter than three — it's just more specific about being wrong."
 
-#### CLEAR Framework (5 min)
+**Name it:** "This failure is **tone deafness** — the model hears the notes but misses the music."
+
+#### Test 2: The Mixed-Emotion Story (~8 min)
+
+**Say:** "This story is about getting into your dream college. But getting in means leaving home. Every paragraph has at least two real emotions at the same time."
+
+Paste into all four Spaces.
+
+**After results:** "Look at each paragraph. The narrator is feeling pride and grief and excitement and fear — all at once. What does the model show?"
+
+Most paragraphs will collapse to a single dominant emotion. The 28-emotion model might scatter scores across several labels, but look at the confidence: is the top score 18% with five others at 12%? That's not detecting complexity — that's confusion.
+
+**Ask:** "Is there a single paragraph in this story where the narrator is feeling only one thing?" (No.) "Does any model show two strong emotions in the same paragraph?" (Probably not.)
+
+**Name it:** "This failure is **emotional flattening** — the model forces complex feelings into a single label. It's like being asked 'are you happy or sad?' when the real answer is both."
+
+#### Test 3: The Earth Doesn't Feel Anything (~8 min)
+
+**Say:** "This last story is about a volcanic eruption and what happens to the land afterward. Pay attention to who's in this story."
+
+Paste into all four Spaces.
+
+**After results:** "The models drew dramatic emotional arcs. Fear for the eruption. Sadness for the dead zone. Joy for the regrowth. But here's my question: who is feeling these emotions? Point to the character in this story who is afraid."
+
+Let them realize: there are no characters. No people. No one is feeling anything. The mountain doesn't have emotions. The wildflowers aren't happy.
+
+**Push further:** "The models are reading 'erupted' and 'destroyed' and 'consumed' and seeing anger and fear — because those words appear alongside anger and fear in the training data. But the volcano isn't angry. The fire isn't hostile. The models are projecting human emotions onto rocks and weather."
+
+**Name it:** "This failure is **anthropomorphic projection** — the model assumes everything that sounds emotional is emotional. It finds feelings where there are none."
+
+#### Wrap the demo (3 min)
+
+Put all three failure modes on screen:
+
+| Test | Failure Mode | What Happens |
+|------|-------------|-------------|
+| Sarcastic Narrator | **Tone deafness** | The model misses meaning that IS there |
+| Mixed Emotions | **Emotional flattening** | The model oversimplifies meaning that's complex |
+| Nature Story | **Anthropomorphic projection** | The model invents meaning that ISN'T there |
+
+**Say:** "Three stories. Three different ways the models fail. And the most important thing: having more categories didn't fix any of them. The 28-emotion model failed just as badly as the 3-sentiment model. More labels isn't more understanding."
+
+### 1:15–1:30 — Sum Up The Old Way
+
+**This segment is new. It does not exist in the current session. It's the Act I closer.**
+
+**Say:** "Let me step back and tell you what we've been doing for three weeks. Because it's not just three random lessons — it's a story.
+
+Session 1: we saw that a model can read a sentence and say 'positive' or 'negative.' That's called classification — sorting things into buckets. The model looks at an input, and it picks a label from a menu.
+
+Session 2: we saw that different models have different menus. One model has two buckets: positive and negative. Another has seven. Another has twenty-eight. And they disagree with each other — because each model learned from different data. What it sees depends on what it studied.
+
+Session 3 — tonight — we tried to break those models. And we broke them three ways. They missed sarcasm. They flattened complex emotions into single labels. They projected feelings onto a volcano. And we tried to fix the problem by cleaning the input — stripping emoji, normalizing caps, collapsing repeated characters — and it helped a little, but it didn't solve the real problem.
+
+Here's the thing: what we just experienced tonight is what AI looked like for most of its history. For decades, this was the cycle. Build a small model for a narrow task. Spend enormous effort cleaning the data and engineering the features. Test it. Watch it fail on anything it wasn't specifically trained for. Try to fix the failures by cleaning harder. Hit the same wall: the model reads words, but it doesn't understand what they mean.
+
+Every model we've seen — the Mood Meter, the Emotion Spectrum, all four Story Arc models — does the same thing. It classifies. It sorts text into buckets. It picks a label. And that's genuinely useful for some tasks. But it has a ceiling. It can't detect sarcasm because sarcasm lives between the words. It can't hold two emotions at once because it has to pick one label. It can't tell the difference between a person feeling fear and a volcano erupting because it doesn't know what feelings are — it just knows which words tend to appear near which labels.
+
+So here's my question for next week."
+
+**Pause. Let this land.**
+
+"What if we stopped asking models to sort things into buckets? What if instead of giving a model a sentence and asking it to pick a label — positive, negative, angry, sad — we asked it to do something completely different? What if we asked it to create something new? To write, instead of read?
+
+That's what we're doing next week. And it changes everything."
+
+### 1:30–1:40 — CLEAR Framework
 
 Introduce the CLEAR Framework for prompting AI coding assistants:
 
@@ -175,40 +219,22 @@ Introduce the CLEAR Framework for prompting AI coding assistants:
 
 **Live demo:** Open Claude or ChatGPT. Paste the Space code. Write a CLEAR prompt asking it to add input cleaning. Show students the response.
 
-**Example CLEAR prompt:**
-> **Context:** I have a Hugging Face Space that uses a sentiment analysis model to read the mood of text.
->
-> **Language:** Python, using gradio, transformers, and re.
->
-> **Explain:** When users paste sarcastic or messy text (emoji, ALL CAPS, repeated characters like "sooooo", mixed signals), the model misreads the tone.
->
-> **Ask:** Add a `clean_text()` function that preprocesses the input before the model sees it.
->
-> **Requirements:** Strip whitespace, collapse repeated characters, remove emoji, normalize ALL CAPS. Show the user the before and after versions.
+**Say:** "This is how you talk to an AI coding assistant. You'll use this throughout the rest of the course — especially when you build your own Space."
 
-**Say:** "This is how you talk to an AI coding assistant. You'll use this a lot in upcoming sessions."
+### 1:40–1:50 — Student Topic Elicitation
 
-#### Name the Concept: DATA CLEANING AND FEATURE ENGINEERING (5 min)
+**Say:** "For the rest of this course, you're going to be developing your own research question. It can be about anything — not just sentiment, not just text. We've seen models that read emotions. Next week you'll see models that write text. There are models that recognize images, translate languages, generate music, detect objects, read handwriting — anything.
 
-Draw this on screen:
+So right now, I want to hear from each of you: what are you curious about? What topic would you want AI to help with? Don't worry about whether it's realistic or whether a model exists for it. Just tell me what interests you."
 
-```
-MESSY INPUT → clean_text() → CLEANER INPUT → MODEL → OUTPUT
-```
+**Go around the group. Take notes.** Write each student's topic/interest on the shared screen. These become the seeds for research plans.
 
-**Talking points:**
-- "The model didn't get smarter. We just gave it better input to work with."
-- "But here's what we learned tonight: cleaning helps with noise — but tone is not noise. Tone is meaning."
-- "Sarcasm, irony, understatement — these aren't formatting problems. They're human problems. And the model has the same problem you do when you misread a text."
-- "In data science, this is called DATA CLEANING — preparing input so the model can do its best work. And FEATURE ENGINEERING — transforming raw input into something the model can actually use."
+**If students are stuck, prompt with:**
+- "What do you wish a computer could do?"
+- "What's a problem you've seen where AI might help — or might make things worse?"
+- "Is there a subject you care about where you wonder how AI would handle it?"
 
-#### Research Lens (5 min)
-
-**Say:** "Let me name what we just did in research terms. We tested **adversarial inputs** and performed **data preprocessing** — cleaning noise vs. signal. In research, adversarial testing means deliberately trying to break a system to find its limits. And preprocessing means transforming data before the model sees it — exactly what `clean_text()` does."
-
-**Frame the shared research question:** "Here's the research question we were investigating tonight: *What types of text input cause sentiment models to fail, and can preprocessing fix them?* We ran a controlled before/after comparison — same inputs, with and without cleaning — and found that cleaning fixes noise but not meaning."
-
-**Bridge to their own work:** "In class, we applied adversarial testing and preprocessing to sentiment. For your homework, you'll apply the same method to your own topic — find an input that breaks a model in your Collection, figure out whether it's a noise problem or a meaning problem, and try to fix it. Same method, your question."
+**Don't evaluate or narrow their ideas yet.** Just collect them. You'll come back to these in later sessions.
 
 ### 1:50–2:00 — Notebook Time
 
@@ -216,11 +242,11 @@ Share the Colab link in the Zoom chat.
 
 **Walk through together:**
 1. Run the setup cell and load the model
-2. Run the "before cleaning" cell together — see the sarcastic input results
+2. Run the "before cleaning" cell — see the sarcastic input results
 3. Run the `clean_text()` definition cell
-4. Run the "after cleaning" cell — compare the difference
+4. Run the "after cleaning" cell — compare
 
-**Say:** "The notebook has the same `clean_text()` function we built. Try the experiments — test your own sarcastic texts and see what cleaning can and can't fix."
+**Say:** "The notebook has the same `clean_text()` function we built. Try the experiments — test your own texts and see what cleaning can and can't fix."
 
 **Notebook skill being introduced:** Editing code in a cell (changing the text variable) and re-running
 
@@ -230,7 +256,7 @@ Share the Colab link in the Zoom chat.
 
 Share the between-session challenge. Encourage them to use CLEAR to ask Claude/ChatGPT for help.
 
-**Say:** "Next week we're putting three models head-to-head on the same text. When three judges disagree about how something feels, who's right? Spoiler: maybe nobody."
+**Say:** "Next week we cross a line. Everything we've done so far has been classification — models that sort things into categories. Next week, we see what happens when a model creates something instead of labeling it. It's a completely different kind of AI. And it's the idea behind every chatbot, every image generator, and every AI tool you've ever used."
 
 ---
 
@@ -238,22 +264,48 @@ Share the between-session challenge. Encourage them to use CLEAR to ask Claude/C
 
 | Problem | Fix |
 |---------|-----|
-| Editing `app.py` in HF browser editor is fiddly | Have the complete code ready to paste. Show students how to select all → paste. |
-| Regex is confusing for students | Don't explain regex syntax in detail. Just say "this pattern finds repeated characters" and move on. The point is what it does, not how. |
-| Students want to fix sarcasm detection | Great instinct! Explain that sarcasm is an active research problem. "Even humans disagree on sarcasm. There are whole PhD theses about this." |
-| CLEAR demo produces different code than yours | That's fine and even useful. "AI assistants give different answers each time. That's why you need to understand what the code does." |
+| Story Arc Spaces need HF token or hit rate limits | Have an HF token ready. If API fails, Spaces fall back to demo data — usable but less impactful. Test all four before class. |
+| Story Arc Spaces are slow (model cold starts) | Open all four tabs 10 min before class. Run the example texts to wake the models. |
+| Students fixate on one failure mode and want to discuss it at length | Great energy — but manage time. Say "We're going to see two more failure modes that are just as interesting. Hold that thought." |
+| Editing `app.py` in HF browser editor is fiddly | Have the complete code ready to paste. Show students how to select all, paste. |
+| Regex is confusing for students | Don't explain regex syntax. Just say "this pattern finds repeated characters" and move on. The point is what it does, not how. |
+| Students want to fix sarcasm detection | Great instinct! "Even humans disagree on sarcasm. There are whole PhD theses about this. But here's the interesting question: what if there were a completely different approach — not fixing classification, but doing something else entirely? That's next week." |
+| CLEAR demo produces different code than yours | Fine and useful. "AI assistants give different answers each time. That's why you need to understand what the code does." |
 | Space rebuild fails after editing | Check for syntax errors. Most common: missing closing parenthesis, indentation errors. |
-| Big Question discussion gets personal (misread texts causing real fights) | That's okay — this is the kind of real connection that makes the session land. Just keep it respectful and don't let anyone share specific names or screenshots. |
-| Students insist the model should be able to detect sarcasm | Acknowledge it: "You're right that it should. But think about what it would need — context, history, relationship, cultural knowledge. All it has is the words in front of it." |
+| Students don't have topic ideas during elicitation | Don't force it. Say "Think about it this week. You can message me or bring ideas next session." |
+| The "Sum Up The Old Way" monologue runs long | Practice it. It should be 5-7 minutes of talking, not 15. The power is in the clarity and the pause before the forward bridge, not in length. |
 
 ---
 
 ## Key Vocabulary (introduce casually)
 
-- **Data cleaning** — preprocessing text to remove noise before the model sees it
-- **Noise** — stuff in the input that confuses the model (emoji, extra spaces, weird formatting)
 - **Adversarial input** — text deliberately designed to confuse or break a model
-- **Feature engineering** — transforming raw input into something a model can work with better
-- **Preprocessing** — any transformation applied to data before the model processes it
-- **Tone** — the way something is said (vs. what is said) — meaning that lives between the words
-- **CLEAR Framework** — a structure for writing good prompts to AI coding assistants
+- **Data cleaning / preprocessing** — transforming text to remove noise before the model sees it
+- **Noise** — formatting junk that confuses the model (emoji, extra spaces, ALL CAPS)
+- **Meaning** — the real intention behind the words — what noise removal can't fix
+- **Classification** — a model that sorts inputs into predefined categories (positive/negative, angry/sad)
+- **Tone deafness** — when a model misses meaning that IS there (sarcasm, irony)
+- **Emotional flattening** — when a model oversimplifies meaning that's complex (mixed feelings forced into one label)
+- **Anthropomorphic projection** — when a model invents meaning that ISN'T there (reading emotion in text about rocks)
+- **CLEAR Framework** — a structure for writing good prompts to AI coding assistants (Context, Language, Explain, Ask, Requirements)
+
+---
+
+## Materials Checklist
+
+- [ ] Session 1 Mood Meter Space loaded and working (no cleaning version)
+- [ ] Sarcasm Breaker Space deployed with `clean_text()` — OR have complete `app.py` ready to paste
+- [ ] All four Story Arc Spaces loaded in browser tabs and tested with example texts
+- [ ] Three adversarial stories ready to paste (see `bonus-hugging-face-spaces/ADVERSARIAL-STORIES.md`)
+- [ ] CLEAR Framework slide or screen-share ready
+- [ ] Notebook Colab link ready to share in Zoom chat
+- [ ] Paper/doc for taking notes on student topic ideas
+
+---
+
+## Concept Connections
+
+- **Session 1:** Students learned INPUT → MODEL → OUTPUT. The model classifies text.
+- **Session 2:** Students learned that training data shapes what the model can see. Different data = different classification.
+- **Session 3 (this session):** Students learn that classification has fundamental limits — no amount of data cleaning fixes the meaning problem. This is "The Old Way."
+- **Session 4 (next):** The turn. Classification vs. Generation. "What if the model could create, not just sort?"

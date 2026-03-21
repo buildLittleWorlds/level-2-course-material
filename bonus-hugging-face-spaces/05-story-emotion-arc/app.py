@@ -24,11 +24,15 @@ def split_paragraphs(text):
 
 def analyze(text):
     if not text.strip():
-        return {"status": "empty"}
+        return {"is_done": False, "is_error": False}
 
     paras = split_paragraphs(text)
     if len(paras) < 2:
-        return {"status": "error", "msg": "Need at least 2 paragraphs separated by blank lines."}
+        return {
+            "is_done": False,
+            "is_error": True,
+            "msg": "Need at least 2 paragraphs separated by blank lines.",
+        }
 
     paragraphs = []
     for i, para in enumerate(paras[:15]):
@@ -89,7 +93,8 @@ def analyze(text):
     legend = [{"emotion": e, "color": COLORS[e]} for e in EMOTIONS]
 
     return {
-        "status": "done",
+        "is_done": True,
+        "is_error": False,
         "svg": svg,
         "legend": legend,
         "paragraphs": paragraphs,
@@ -103,9 +108,9 @@ with gr.Blocks(title="Story Emotion Arc") as demo:
     btn = gr.Button("Analyze Arc")
 
     result = gr.HTML(
-        value={"status": "empty"},
+        value={"is_done": False, "is_error": False},
         html_template="""
-            {{#if (eq value.status "done")}}
+            {{#if value.is_done}}
                 <div class="legend">
                     {{#each value.legend}}
                         <span class="legend-item" data-emotion="{{this.emotion}}">
@@ -127,10 +132,12 @@ with gr.Blocks(title="Story Emotion Arc") as demo:
                     {{/each}}
                 </div>
 
-            {{else if (eq value.status "error")}}
-                <p class="msg">{{value.msg}}</p>
             {{else}}
-                <p class="msg">Paste a multi-paragraph text and click Analyze Arc.</p>
+                {{#if value.is_error}}
+                    <p class="msg">{{value.msg}}</p>
+                {{else}}
+                    <p class="msg">Paste a multi-paragraph text and click Analyze Arc.</p>
+                {{/if}}
             {{/if}}
         """,
         css_template="""
