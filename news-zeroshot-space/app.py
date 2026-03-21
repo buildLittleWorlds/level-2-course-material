@@ -136,16 +136,29 @@ with gr.Blocks(title="Zero-Shot News Analyzer") as demo:
         "Do the labels match your reading? Where does the model get it wrong?"
     )
 
+    topic_choices = ["Breaking News", "Business", "Technology", "Science",
+                      "Health", "Sports", "Entertainment", "World", "Nation"]
+    preset_choices = [
+        "Good news vs. Bad news",
+        "Neutral reporting vs. Editorial opinion vs. Clickbait",
+        "Fear-inducing vs. Reassuring vs. Informational",
+        "Hopeful vs. Worrying vs. Mixed signals",
+        "Celebrating vs. Mourning vs. Warning vs. Explaining",
+        "Custom (edit the box below)",
+    ]
+
     with gr.Row():
         topic = gr.Dropdown(
-            choices=list(TOPICS.keys()),
+            choices=topic_choices,
             label="News topic",
             value="Breaking News",
+            allow_custom_value=False,
         )
         preset = gr.Dropdown(
-            choices=list(PRESETS.keys()),
+            choices=preset_choices,
             label="Category preset",
             value="Good news vs. Bad news",
+            allow_custom_value=False,
         )
 
     custom = gr.Textbox(
