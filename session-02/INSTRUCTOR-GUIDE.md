@@ -228,7 +228,7 @@ Share the Colab link in the Zoom chat.
 
 Share the between-session challenge (see BETWEEN-SESSION.md).
 
-**Say:** "Before next week: find a model on the Hub that sees feelings the current ones miss. Add it to your Model Collection with a tasting note. Your Collection should have at least 4 models and 2 Spaces by Session 3. Next week, we're going to find out what happens when the model reads text that means the opposite of what it says — sarcasm, irony, passive aggression."
+**Say:** "Before next week: find a model on the Hub that sees feelings the current ones miss. Add it to your Model Collection with a tasting note. Your Collection should have at least 4 models and 2 Spaces by Session 3. Next week, we're going to put these models on real news headlines and try to break them on purpose. We'll find out what happens when you give a sentiment model a headline about a disaster written in calm, professional language — or a market report full of words like 'panic' and 'soar.' It's called adversarial testing, and it changes everything."
 
 ---
 
