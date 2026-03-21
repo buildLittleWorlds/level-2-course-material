@@ -2,7 +2,7 @@
 
 **Created:** March 20, 2026
 **Last updated:** March 21, 2026
-**Status:** Sessions 3–11 revised. Session 12 pending.
+**Status:** Sessions 3–12 revised.
 **Context:** This is the first time through the Level 2 course (Spring 2026, Saturday evenings). It will be taught two more times over the summer. The goal is to get the narrative right now so the summer sections benefit from a coherent story arc.
 
 ---
@@ -233,10 +233,24 @@ Students take what they've learned and build. Session 9 is prompt engineering �
 - What Could Go Wrong table, Key Vocabulary
 - Demo Day 5-part presentation format (structure unchanged; narrative prompt added to guide)
 
-### Session 12: Demo Day — PENDING
-**What needs to happen:**
-- Add narrative framing to presentation and reflection session
-- Ensure the narrative prompt ("How does your project connect to the bigger story?") is reflected in the session materials
+### Session 12: Demo Day — REVISED ✅
+**Concept:** REFLECTION AND PORTFOLIO
+**Narrative role:** The payoff. Students present their research journeys and compile portfolios. This is the culmination of the entire three-act arc — the last thing students do in the course.
+
+**All files revised:**
+- ✅ `INSTRUCTOR-GUIDE.md` — Narrative framing additions (not a structural rewrite). Added Narrative Role to header. Added "Story So Far" segment at 0:00–0:03 — the definitive final telling of the three-act arc. Shifted all subsequent times by +3 min. Fixed 11 Concepts table: Session 3 corrected from "Data Cleaning" to "Adversarial Testing & the Limits of Classification," Session 4 corrected from "Model Evaluation" to "Classification vs. Generation," Session 11 row added (The Experimentation Loop). Updated "10 weeks" references to "eleven weeks." Replaced generic wrap-up with scripted Course Closer: full arc monologue ending with "You traced the path that got us here — and you built something along the way."
+- ✅ `slides.html` — Matching narrative updates. Updated subtitle to "Act III · Building and Reflecting." Added "Story So Far" slide with three-act visual summary. Fixed 11 Concepts table slides (same Session 3/4 corrections, added Session 11 row). Updated "10 weeks" to "eleven weeks." Added Course Closer slide before final "These are yours" slide. Updated closing slide language to match arc framing.
+- ✅ `notebook.ipynb` — Updated title cell with Act III subtitle and narrative connection to the full arc. Changed "12 weeks" to "eleven weeks." Replaced entire cell-8: all 10 stale session names (Your First Space, Swap the Engine, Break It on Purpose, Sentiment Showdown, Domain Safari, etc.) replaced with revised session titles. Session 3/4 concepts corrected. Session 11 row added. Heading updated to "11 Concepts We Covered."
+- ✅ `portfolio-template.md` — Fixed Spaces Built table: Silly Phrase Finder → Mood Meter, Emotion Detector → Emotion Spectrum, Silly Phrase Finder (with cleaning) → Sarcasm Breaker, Sentiment Showdown → Text Generator. Added Session 9 row (Restaurant Review Analyzer). Fixed ML Concepts table: Session 3/4 concepts corrected, Session 11 row added. Added narrative connection prompt to Student Reflection: "How does your project connect to the bigger story we've been telling?"
+- ✅ `README.md` — Rewritten to match Sessions 5–11 pattern: Narrative Role section, Connections section (builds on Session 11, completes the three-act arc).
+- ⏳ Google Classroom — Page failed to load during revision session. **Manual update needed:** Check topic name is "Session 12: Demo Day" (probably already correct). Check material titles match.
+
+**Unchanged (already strong):**
+- Presentation format (5-part structure), peer testing after each presentation
+- Reflection questions, portfolio consolidation workflow
+- Research Methods table (9 methods — already correct)
+- Pre-session checklist, What Could Go Wrong table
+- No app.py (correct — no new build this session)
 
 ---
 
@@ -323,6 +337,7 @@ Three adversarial test stories (sarcastic narrator, mixed emotions, nature with 
 10. ~~Revise Session 9~~ ✅ Complete. Act III opener framing added: "Story So Far" three-act bridge, real-world connection ("most accessible skill in AI"), Bridge Forward to Session 10. Google Classroom updated to match local files.
 11. ~~Revise Session 10~~ ✅ Complete. Synthesis framing added: "Story So Far" three-act bridge, updated recap table with correct Space names, real-world connection ("every AI product started like this"), Bridge Forward to Session 11 (experimentation loop). Google Classroom needs manual update (page failed to load during revision).
 12. ~~Revise Session 11~~ ✅ Complete. Narrative framing added: "Story So Far" three-act bridge with Session 3 callback, real-world connection (iteration in shipping products), Bridge Forward to Session 12 (narrative prompt: "How does your project connect to the bigger story?"). Concept Review table added (Sessions 1–11). Presentation guide and peer feedback form updated with narrative prompts. Google Classroom already correct.
-13. **Revise Session 12** — Add narrative framing to Demo Day. Ensure the narrative prompt is reflected in session materials.
+13. ~~Revise Session 12~~ ✅ Complete. Final arc framing added: "Story So Far" definitive telling, 11 Concepts table corrected across all files (stale session names, stale concepts for Sessions 3–4, Session 11 row added), Course Closer scripted monologue, portfolio template Space names corrected, narrative connection prompt added. Google Classroom needs manual update (page failed to load during revision).
 14. **Update Google Classroom for Session 10** — Rename topic to "Session 10: Build Your Own from Scratch." Update material titles to match.
-15. **Rewrite COURSE-STRUCTURE.md** after the first 4–5 sessions are tested live.
+15. **Update Google Classroom for Session 12** — Verify topic name is "Session 12: Demo Day." Verify material titles match.
+16. **Rewrite COURSE-STRUCTURE.md** after the first 4–5 sessions are tested live.
