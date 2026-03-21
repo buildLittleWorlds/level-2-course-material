@@ -49,6 +49,10 @@ What topic has this person been exploring? Can you tell from their Space?
 
 >
 
+Can you spot any course concepts in this Space? (Think: classification vs. generation, hyperparameters, domain shift, bias, pipelines, prompt engineering, task design.)
+
+>
+
 ## 7. One Word
 
 Describe this Space in one word: _______________

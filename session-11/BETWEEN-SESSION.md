@@ -52,9 +52,13 @@ You'll have 5-7 minutes. Practice out loud — to yourself, a parent, a sibling,
 - [ ] Practiced the full 5-part presentation out loud at least once
 - [ ] Collection and journal ready to show
 
+### Looking Ahead
+
+Next session is Demo Day — our final session. You're presenting a research journey, not just a Space. Think about this as you practice: how does your project connect to the bigger story we've been telling all semester? Which concepts from the course — adversarial testing, the fork, hyperparameters, domain shift, bias, pipelines, prompt engineering, task design, the experimentation loop — showed up in your work? That connection is what turns a demo into a research presentation.
+
 ### Bring It Back
 
-Next session: your Space, your Collection, your journal, your story. You built something real. You followed a question for 10 weeks. Show it off.
+Next session: your Space, your Collection, your journal, your story. You built something real. You followed a question for eleven weeks, documented what you found, and built a tool around it. Now tell that story.
 
 ---
 

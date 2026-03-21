@@ -94,6 +94,7 @@ Before demo day, make sure you have these ready:
 - **Honesty about surprises.** The moments where your expectations were wrong are the most interesting moments.
 - **Connection between the parts.** The question led to the journal entries, which led to the Collection, which led to the Space. If the audience can follow that thread, you've told a research story.
 - **Talking about limitations.** Every investigation has boundaries. Naming yours shows sophistication, not weakness.
+- **Connection to the course story.** How does your project connect to the bigger story we've been telling — from models that sort text into buckets to models that write essays and generate images? Which concepts — adversarial testing, the fork, hyperparameters, domain shift, bias, pipelines, prompt engineering, task design, the experimentation loop — showed up in your work? Naming those connections shows you understand not just your project but the ideas behind it.
 
 ---
 

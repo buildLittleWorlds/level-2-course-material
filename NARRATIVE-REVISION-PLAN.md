@@ -2,7 +2,7 @@
 
 **Created:** March 20, 2026
 **Last updated:** March 21, 2026
-**Status:** Sessions 3–10 revised. Sessions 11–12 pending.
+**Status:** Sessions 3–11 revised. Session 12 pending.
 **Context:** This is the first time through the Level 2 course (Spring 2026, Saturday evenings). It will be taught two more times over the summer. The goal is to get the narrative right now so the summer sections benefit from a coherent story arc.
 
 ---
@@ -212,9 +212,31 @@ Students take what they've learned and build. Session 9 is prompt engineering �
 - All code (app.py, templates/, requirements.txt)
 - Pre-session prep, instructor tips, Hub browsing tips
 
-### Sessions 11-12: Iterate, Polish, Present — PENDING
+### Session 11: Iterate and Polish — REVISED ✅
+**Concept:** THE EXPERIMENTATION LOOP
+**Narrative role:** The refinement. Students take their Session 10 builds and make them better through peer feedback and systematic testing. The Session 3 adversarial testing mindset returns — but now directed at improving each other's work rather than exposing model limits.
+
+**All files revised:**
+- ✅ `INSTRUCTOR-GUIDE.md` — Narrative framing additions (not a structural rewrite). Added Narrative Role to header. Added "Story So Far" narrative bridge at 0:03–0:06 connecting the full three-act arc to tonight's experimentation loop, including Session 3 callback ("Back in Session 3, you broke models to find their limits. Tonight you break each other's Spaces — to make them better") and real-world connection ("OpenAI didn't ship ChatGPT and walk away — they tested it, got feedback, iterated"). Shifted all subsequent times by +3 min. Added narrative note to Quick Demos encouraging instructor to name course concepts during feedback. Replaced generic between-session preview with scripted Bridge Forward to Session 12 (eleven-session arc summary, narrative prompt: "How does your project connect to the bigger story?"). Added Concept Review table (Sessions 1–11).
+- ✅ `slides.html` — Matching narrative updates. Updated subtitle to "Act III · Building and Reflecting." Added "Story So Far" slide with three-act recap and Session 3 callback. Replaced "Next Week" slide with two-slide Bridge Forward sequence: eleven-session arc summary + narrative prompt for Demo Day presentations.
+- ✅ `notebook.ipynb` — Updated title cell to "Iterate and Polish" with Act III subtitle and narrative connection to Session 10. Updated Challenge cell with arc framing and bridge to Session 12 ("Which concepts from this course showed up in your work?").
+- ✅ `BETWEEN-SESSION.md` — Added "Looking Ahead" section bridging to Session 12's Demo Day with narrative prompt (which course concepts showed up in your work?). Updated "Bring It Back" with stronger narrative framing.
+- ✅ `README.md` — Rewritten with "Iterate and Polish" title, narrative role section, connections section (builds on Session 10, calls back to Session 3, bridges to Session 12).
+- ✅ `GUIDE-research-presentation.md` — Added fifth bullet to "What DOES Make a Presentation Good": connection to the course story (which concepts showed up in your work?). Footer already correct.
+- ✅ `peer-feedback-form.md` — Added second prompt to Research Connection section: "Can you spot any course concepts in this Space?" with concept list.
+- ✅ Google Classroom — Already correct. Topic name "Session 11: Iterate and Polish", material titles "Session 11 Slides: Iterate and Polish" and "Session 11 Notebook: Iterate and Polish" — no changes needed.
+
+**Unchanged (already strong):**
+- SpaceCraft Check-In, Quick Demos, Research Journey Review, 1-on-1 Feedback rotation
+- Peer Testing workflow, Notebook Time debug challenges, Prep for Demo Day format
+- All code (notebook debug challenges, improvement checklist)
+- What Could Go Wrong table, Key Vocabulary
+- Demo Day 5-part presentation format (structure unchanged; narrative prompt added to guide)
+
+### Session 12: Demo Day — PENDING
 **What needs to happen:**
-- Add one prompt to the presentation format: "How does your project connect to the bigger story we've been telling? Which of the concepts from this course showed up in your work?"
+- Add narrative framing to presentation and reflection session
+- Ensure the narrative prompt ("How does your project connect to the bigger story?") is reflected in the session materials
 
 ---
 
@@ -300,6 +322,7 @@ Three adversarial test stories (sarcastic narrator, mixed emotions, nature with 
 9. ~~Revise Session 8~~ ✅ Complete. Narrative framing added: "Story So Far" bridge from Session 7, real-world product connection (ChatGPT content filter, Midjourney safety classifier), Act II closer ("You now know what's inside the machine"). Google Classroom updated to match local files.
 10. ~~Revise Session 9~~ ✅ Complete. Act III opener framing added: "Story So Far" three-act bridge, real-world connection ("most accessible skill in AI"), Bridge Forward to Session 10. Google Classroom updated to match local files.
 11. ~~Revise Session 10~~ ✅ Complete. Synthesis framing added: "Story So Far" three-act bridge, updated recap table with correct Space names, real-world connection ("every AI product started like this"), Bridge Forward to Session 11 (experimentation loop). Google Classroom needs manual update (page failed to load during revision).
-12. **Revise Sessions 11–12** — Add narrative framing to iteration and presentation sessions. Add one prompt to presentation format: "How does your project connect to the bigger story?"
-13. **Update Google Classroom for Session 10** — Rename topic to "Session 10: Build Your Own from Scratch." Update material titles to match.
-14. **Rewrite COURSE-STRUCTURE.md** after the first 4–5 sessions are tested live.
+12. ~~Revise Session 11~~ ✅ Complete. Narrative framing added: "Story So Far" three-act bridge with Session 3 callback, real-world connection (iteration in shipping products), Bridge Forward to Session 12 (narrative prompt: "How does your project connect to the bigger story?"). Concept Review table added (Sessions 1–11). Presentation guide and peer feedback form updated with narrative prompts. Google Classroom already correct.
+13. **Revise Session 12** — Add narrative framing to Demo Day. Ensure the narrative prompt is reflected in session materials.
+14. **Update Google Classroom for Session 10** — Rename topic to "Session 10: Build Your Own from Scratch." Update material titles to match.
+15. **Rewrite COURSE-STRUCTURE.md** after the first 4–5 sessions are tested live.
