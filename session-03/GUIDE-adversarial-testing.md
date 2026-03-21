@@ -1,117 +1,103 @@
 # Adversarial Testing
-
-Session 3 Research Method
+**Session 3 Research Method**
 
 ## What It Is
 
-Adversarial testing means deliberately trying to break a system to find its limits. Instead of asking "does this work?" you ask "how can I make this fail?" The failures tell you more than the successes — they reveal what the model actually understands and what it only appears to understand.
+Adversarial testing means deliberately trying to break a system to find its limits. Instead of asking "does this work?" you ask "how can I make this fail?" It's a way to find out what a model actually does—not what you think it does.
 
 ## When Researchers Use It
 
-- A security researcher tries to trick a bank's fraud detection system by making small, unusual transactions. The failures reveal which patterns the system watches for — and which ones slip through.
-- A linguist feeds translation software sentences full of slang, idioms, and double meanings to find out what the model translates literally vs. what it actually understands.
-- A game tester doesn't just play a game normally — they walk into walls, try to leave the map, and enter impossible inputs. They're looking for the cracks the designers didn't anticipate.
+- **Security researchers** test encryption by trying to crack it. They deliberately look for weak points.
+- **Linguists** test translation models by feeding them idioms, sarcasm, and cultural references—things that trip up word-by-word translation.
+- **Game testers** play badly on purpose: they jump where you can't jump, they stack objects in weird ways, they try to break the game world.
+
+When stakes are high (security, medical AI, moderation systems), adversarial testing isn't optional—it's required.
 
 ## How to Apply It
 
-1. **Start with a working example.** Give the model an input where you already know the right answer. Confirm it works.
-2. **Craft an adversarial input.** Change something about the input that you think might confuse the model — add sarcasm, mix signals, use slang, switch languages, remove context, add noise.
-3. **Record what happens.** What did the model say? What should it have said? Is the failure a noise problem (fixable with preprocessing) or a meaning problem (a fundamental limitation)?
+**Step 1: Start with a working example.**
+Pick something the model handles well. If you're testing a sentiment model on news, start with a headline it clearly gets right: "Olympic athlete wins gold medal" → positive.
+
+**Step 2: Craft an adversarial input.**
+Change one thing. What if the headline is "Olympic athlete wins gold medal for country amid food crisis"? What if it's all caps? What if it's "GOLD MEDAL SHOCKER"? What if it has emoji?
+
+**Step 3: Record what happens.**
+Did the model fail? If so: is this a noise problem or a meaning problem?
 
 ## Noise vs. Meaning
 
-This is the most important distinction you'll learn this session.
+This distinction matters.
 
-When a model fails on an input, the failure falls into one of two categories:
+**Noise** is fixable. It's:
+- Clickbait formatting ("This One Weird Trick...")
+- ALL CAPS HEADLINES
+- Sensationalist punctuation ("Markets PLUNGE!!!")
+- Emoji in social media news
+- Extra whitespace or bad formatting
 
-**Noise problems** are about formatting — junk in the input that the model can't parse. Extra spaces, repeated characters ("sooooo"), emoji, ALL CAPS. These are fixable. You can write a `clean_text()` function that strips them out before the model ever sees the input. After cleaning, the model often does better.
+Models can learn to ignore noise. You can preprocess it away. It's a technical problem.
 
-**Meaning problems** are about understanding — the model doesn't grasp what the input actually means. Sarcasm, irony, understatement, passive aggression, cultural references, context that isn't in the text. These are NOT fixable with preprocessing. No amount of cleaning will teach the model that "Oh great, another Monday" is not a celebration.
+**Meaning** is not fixable at the classification level. It's:
+- Editorial framing (what the writer chose to emphasize)
+- Implied context (what you need to know to understand why this matters)
+- Metaphorical language ("markets panic"—but markets aren't people)
+- The story behind the headline
+- Complex situations that are both good AND bad
+- Cultural or political context
 
-| Noise (fixable) | Meaning (not fixable) |
-|---|---|
-| Extra spaces | Sarcasm |
-| Repeated characters ("sooooo") | Irony |
-| Emoji | Understatement |
-| ALL CAPS | Passive aggression |
-| Weird formatting | Context / backstory |
-| | Cultural tone differences |
+When you hit a meaning problem, you're not finding a bug—you're finding a limit.
 
-When you test a model and it fails, always ask: **is this a noise problem or a meaning problem?** That question is the heart of adversarial testing.
+The key question: **Is this a noise problem or a meaning problem?**
 
 ## The CLEAR Framework
 
-Session 3 also introduces a tool you'll use for the rest of the course: the CLEAR Framework for prompting AI coding assistants.
+Use this to set up your own adversarial test:
 
-When you ask Claude, ChatGPT, or another AI assistant to help you write or fix code, a structured prompt gets much better results than "fix my code." CLEAR gives you the structure:
+**C:** I have a Hugging Face Space that fetches news headlines from an API and displays them on a dashboard.
 
-| Letter | Meaning | What to Write |
-|---|---|---|
-| **C** | Context | What are you building? What does it do? |
-| **L** | Language | What programming language and libraries are you using? |
-| **E** | Explain | What's going wrong? What's the current behavior? |
-| **A** | Ask | What specific change do you want? |
-| **R** | Requirements | What constraints or details should the solution include? |
+**L:** Python, using gradio, requests, and transformers libraries.
 
-### Example CLEAR Prompt
+**E:** I want to add sentiment analysis to each headline so users can see whether the model reads the news the same way a person would.
 
-> **Context:** I have a Hugging Face Space that uses a sentiment analysis model to read the mood of text.
->
-> **Language:** Python, using gradio, transformers, and re.
->
-> **Explain:** When users paste sarcastic or messy text (emoji, ALL CAPS, repeated characters like "sooooo", mixed signals), the model misreads the tone.
->
-> **Ask:** Add a `clean_text()` function that preprocesses the input before the model sees it.
->
-> **Requirements:** Strip whitespace, collapse repeated characters, remove emoji, normalize ALL CAPS. Show the user the before and after versions.
+**A:** Can you add a function that runs each headline through a sentiment model and shows a colored badge next to it?
 
-You don't have to label each section when you write your prompt — once you get comfortable, you can fold them into a natural paragraph. But when you're stuck on how to ask for help, CLEAR gives you a starting point.
+**R:** Use distilbert-base-uncased-finetuned-sst-2-english. Show green for positive, red for negative, gray for neutral. Display the confidence score (0-1).
 
-## Key Vocabulary
+## Three Failure Modes in News
 
-- **Adversarial testing** — Deliberately trying to break a system to find its limits.
-- **Adversarial input** — An input specifically designed to confuse or break a model.
-- **Data cleaning / preprocessing** — Transforming raw input to remove noise before the model processes it.
-- **Feature engineering** — Transforming raw input into something a model can work with better.
-- **Noise** — Formatting junk in the input that confuses the model (emoji, extra spaces, weird characters).
-- **Tone** — The way something is said, as opposed to what is said. Meaning that lives between the words, not in them.
+When you test a sentiment or classification model on news, you'll likely see these three patterns:
 
-## Three Failure Modes
+**Tone deafness:** The model misses meaning that IS there.
+- "Rescue crews locate survivors in flood zone" → Model reads "survivors" and scores positive, completely missing that this is disaster coverage. Journalism about terrible events uses measured, calm language, but that doesn't make it positive.
 
-When we tested adversarial stories across four different emotion models (3-sentiment, 6-emotion, 7-Ekman, 28-GoEmotions), three distinct failure modes emerged. These go beyond the noise vs. meaning distinction — they describe three different ways classification models get meaning wrong.
+**Emotional flattening:** The model oversimplifies complex meaning.
+- "Peace deal signed amid ongoing border tensions" → This is genuinely hopeful AND worrying at the same time. The model picks one. It can't hold both truths.
 
-**Tone deafness** — the model misses meaning that IS there. The sarcastic narrator story sounds positive on the surface, but every sentence is dripping with misery. All four models read it as positive because they read words, not tone. Sarcasm, irony, and passive aggression all produce this failure: the meaning is present in the text, but the model can't access it.
+**Anthropomorphic projection:** The model inverts meaning that isn't there.
+- "Markets panic as trade talks stall" → The model reads "panic" and scores negative. But markets don't panic—they're numbers. This is journalistic metaphor, not literal emotion.
 
-**Emotional flattening** — the model oversimplifies meaning that's complex. The mixed-emotion story describes getting into a dream college while having to leave home. Every paragraph contains at least two genuine emotions at the same time. But the models force each paragraph into a single dominant label — they can't hold two feelings at once. Even the 28-emotion model, which has labels for grief AND joy AND relief, still picks a winner instead of showing the mixture.
-
-**Anthropomorphic projection** — the model invents meaning that ISN'T there. The nature story describes a volcanic eruption and ecological regrowth with zero human characters. Nobody is feeling anything. But the models draw dramatic emotional arcs anyway — fear for the eruption, sadness for the dead zone, joy for the wildflowers. The models project human emotions onto rocks and weather because words like "erupted" and "destroyed" co-occur with emotional language in the training data.
-
-These three failures all point to the same underlying limit: classification models match patterns in words. They don't understand what the words mean.
+All three failures point to the same limit: **classification models match patterns in words, not meaning.**
 
 ## This Week's Shared Example
 
-In class, we first fed sarcastic and adversarial inputs to a single sentiment model and categorized failures as noise problems or meaning problems. We built a `clean_text()` function and showed that cleaning fixes noise but not meaning. Then we went bigger: we pasted three adversarial stories into four different emotion models and watched all four fail in three different ways — tone deafness, emotional flattening, and anthropomorphic projection. The most important finding: having more emotion categories (28 vs. 3) didn't fix any of the failures. More labels isn't more understanding.
+We tested a sentiment model on live news headlines and watched it misread disaster coverage, flatten complex geopolitical stories, and project human emotion onto market metaphors. Then we tried a zero-shot classification model and let users define their own labels. Same wall. Even when we got rid of predefined sentiment classes, the model still couldn't separate the noise from the meaning.
 
 ## Apply It to Your Own Topic
 
-- Pick a model or Space from your Collection — any topic, not just sentiment.
-- Try to find 3 inputs that break it. Think about what might confuse it: edge cases, ambiguity, mixed signals, domain mismatches, unusual formatting.
-- For each failure, ask: is this a noise problem or a meaning problem?
-- If it's a noise problem, try cleaning the input by hand (simplify, remove junk, reformat) and re-test. Did the result change?
-- If it's a meaning problem, ask: what would the model need to "know" to get this right? Where would that knowledge come from?
-- Use the CLEAR framework to ask an AI coding assistant for help if you want to automate any of your preprocessing.
-
-See `GUIDE-research-journal.md` for how to structure your observations as a journal entry.
+1. Pick a sentiment or classification model from your Collection (or find one on Hugging Face).
+2. Find 3 news headlines that break it. Write them down.
+3. For each failure, ask: noise or meaning?
+4. What does this tell you about how the model "reads"?
 
 ## Explore the Training Data
 
-Understanding why a model fails at sarcasm is easier when you can see what it was trained on. You can browse these datasets directly on Hugging Face — no code required.
+Where was your model trained?
 
-- **[cardiffnlp/tweet_eval](https://hf.co/datasets/cardiffnlp/tweet_eval)** — This dataset includes an **irony subset**: thousands of tweets labeled as ironic or not ironic. Someone built an entire labeled dataset just to teach models about sarcasm — and it's still one of the hardest problems in NLP. Browse the irony examples and see if you agree with the labels.
-- **[stanfordnlp/sst2](https://hf.co/datasets/stanfordnlp/sst2)** — The binary sentiment model's training data. Scroll through it and look for sarcasm. You won't find much — movie review sentences tend to be direct. That's why the model trained on this data doesn't understand indirect language.
+- **cardiffnlp/tweet_eval (irony subset):** Trained on tweets. Notice that irony is hard—the model probably fails on headlines that are technically sad but meant to be funny.
+- **distilbert-base-uncased-finetuned-sst-2-english (SST-2):** Trained on movie reviews, not news. Movie reviews are subjective and emotional. News is factual and complex. What differences would you expect?
 
-The gap between what's in the training data and what you're testing with — that's exactly the gap adversarial testing is designed to find.
+Think about this: What would be different if the model had been trained on news headlines instead of movie reviews?
 
 ---
 
-AI + Research Level 2 • Session 3: What Models Can't Do
+**AI + Research Level 2 • Session 3: What Models Can't Do**

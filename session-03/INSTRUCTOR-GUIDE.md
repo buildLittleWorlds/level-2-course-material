@@ -1,9 +1,8 @@
 # Session 3: What Models Can't Do
 
 **Concept:** ADVERSARIAL TESTING AND THE LIMITS OF CLASSIFICATION
-**Space:** Sarcasm Breaker (Session 1 Mood Meter + cleaning)
-**Story Arc Spaces:** 3-Sentiment, 6-Emotion, 7-Ekman, 28-GoEmotions
-**Pre-built fallback:** Have both the Sarcasm Breaker and all four Story Arc Spaces loaded and tested before class.
+**Spaces:** World Headlines (live build), News Sentiment Analyzer (pre-built), Zero-Shot News Analyzer (pre-built)
+**Pre-built fallback:** Have all three Spaces loaded and tested before class. Have your GNews API key working.
 
 **Narrative role:** This session closes Act I — "The Old Way." By the end, students have three sessions of evidence that classical ML models can sort text into buckets but don't understand what they're reading. The session ends with a named summary of what Sessions 1-3 have shown and a forward bridge to Session 4's big shift from classification to generation.
 
@@ -20,154 +19,177 @@ If yes: share it. What did the model get wrong? Why do they think it happened?
 If no: quickly show a model you tested between sessions. Keep it to 2 minutes.
 
 **SpaceCraft check-in (2-3 min):**
-Pull up SpaceCraft. Show a Space you tried to break with an adversarial input — something it wasn't designed for, or an edge case that confuses it. For example, give an OCR Space a blurry photo, or give an image generator a contradictory prompt. Say: "I tried to break this one. That's what we're about to do with our Mood Meter — and then with something much bigger."
+Pull up SpaceCraft. Show a Space you tried to break with an adversarial input — something it wasn't designed for, or an edge case that confuses it. Say: "I tried to break this one. That's what we're about to do — but with real news."
 
-**Transition:** "For two weeks we've been feeding text to models and watching what they say. Today we find out what they can't do. And it's a lot."
+**Transition:** "For two weeks we've been feeding text to models and watching what they say. Today we find out what they can't do. And we're going to use real news headlines to do it."
 
-### 0:10–0:25 — Break the Mood Meter
+### 0:10–0:25 — Break the News Sentiment Analyzer
 
-Open the Session 1 Space (original Mood Meter, no cleaning). Start typing adversarial inputs. Have students suggest inputs too.
+Open the News Sentiment Analyzer Space (pre-built, uses GNews API + distilbert sentiment). Pull headlines from a few different categories: Breaking News, Business, Science, Sports.
 
-**Pre-prepared adversarial inputs (6 inputs, not 10 — move quickly):**
+**What to look for (have these categories ready):**
 
-| Input | Category | What happens |
-|-------|----------|-------------|
-| `Oh GREAT, another Monday. Just what I needed.` | Sarcasm | Model reads "GREAT" literally — probably POSITIVE |
-| `Per my last email, as I mentioned before...` | Passive aggression | Model probably says NEUTRAL/POSITIVE — misses the venom |
-| `no literally I'm deceased this is the funniest thing 💀💀💀` | Gen-Z irony | Model doesn't know "deceased" means "laughing so hard" |
-| `I'm fine. Everything is fine. This is fine.` | Mixed signals | Words are positive, tone is everything-is-on-fire |
-| `Worst day ever 😂🎉💀` | Emoji contradictions | Words say worst, emoji say party |
-| `Yeah, I totally LOVE getting up at 5am. It's my FAVORITE thing.` | ALL CAPS sarcasm | Model reads LOVE and FAVORITE literally |
+| Category | What to watch for |
+|----------|-------------------|
+| Breaking News | Disaster coverage in measured tone — model says "Good news" because language is calm |
+| Business | "Markets soar as thousands lose jobs" — model reads "soar" as positive |
+| World | Complex geopolitical stories — model forced to pick one sentiment |
+| Science | Nature/weather/climate stories — model projects emotion onto non-human subjects |
 
-**For each input, ask students:**
-1. What did you expect?
-2. What did the model say?
-3. How would YOU read this if a friend texted it?
+**For each batch of headlines, ask students:**
+1. Does the "Good news / Bad news" label match YOUR reading?
+2. Which headlines did the model get wrong?
+3. WHY did it get them wrong — is it the words, or the meaning behind the words?
 
 **Quick two-column exercise (on screen, 3 minutes max):**
 
 | We CAN fix (noise) | We CAN'T fix (meaning) |
 |---------------------|----------------------|
-| Extra spaces | Sarcasm |
-| Repeated characters ("sooooo") | Irony |
-| Emoji (strip them) | Understatement |
-| ALL CAPS (normalize) | Passive aggression |
-| | Context / backstory |
+| Clickbait formatting | Editorial framing |
+| ALL CAPS headlines | Implied context |
+| Sensationalist punctuation | Metaphor ("markets panic") |
+| Emoji in social media news | Story behind the headline |
+| | Multi-faceted situations |
 
-**Say:** "Some problems are noise — formatting junk. Some are meaning — the real intention behind the words. We can clean noise. We can't clean meaning. Let me show you what cleaning looks like."
+**Say:** "Some problems are noise — formatting junk. Some are meaning — the real situation behind the words. The model reads words. You read the story. That gap is what we're exploring tonight."
 
-### 0:25–0:45 — Fix It: Build the Sarcasm Breaker Space (Live Build)
+### 0:25–0:45 — Build the World Headlines Space (Live Build)
 
-> **What we're building and why:** This segment is a live Hugging Face Space build. You'll take the Session 1 Mood Meter Space (`app.py` + `requirements.txt`) and add a `clean_text()` function to it, creating the "Sarcasm Breaker" — a Space that shows the model's reading before and after cleaning. Students see the code, see the deploy, and see the result. The purpose is twofold: (1) they practice the Space-building pattern they'll use all course, and (2) the Space itself demonstrates the lesson — cleaning fixes noise but can't fix meaning. The completed code is in `session-03/app.py`.
+> **What we're building and why:** This segment is a live Hugging Face Space build. You'll create a Space from scratch that calls an external news API and displays headlines from 10 different countries. Students see the two-file Space pattern (app.py + requirements.txt), and they learn something new: how to connect a Space to real-world data through an API. The completed code is in `session-03/app.py`.
 >
-> **The Space-building pattern:** Every Space on Hugging Face is built from two files: `app.py` (the code) and `requirements.txt` (the libraries). Students have seen this pattern in Sessions 1 and 2. Tonight they watch you modify the code live, commit, and rebuild. This is the same workflow they'll use when they build their own Spaces later in the course.
+> **The Space-building pattern:** Every Space on Hugging Face is built from two files: `app.py` (the code) and `requirements.txt` (the libraries). Students have seen this pattern in Sessions 1 and 2. Tonight they watch you build a Space that reaches *outside* Hugging Face to fetch live data.
 
-**Framing (this is new):** "What I'm about to show you isn't just a fix for our little app. For decades, this is what AI researchers spent most of their time doing. Before the AI systems you use today existed — before ChatGPT, before Claude, before any of that — people had to manually clean every input, build every feature, strip every emoji, normalize every piece of text. By hand. For every new task. Every new language. Every new domain. This function we're about to write represents years of human labor across the entire field."
+**Framing:** "Everything we've built so far has been self-contained — the model and the input all live inside Hugging Face. But real AI tools need to connect to the outside world. The news apps I showed you at the start do exactly that — they reach out to a news service, pull back headlines, and then run a model on them. Let me show you how that works. It's simpler than you think."
 
-**Open the Space on Hugging Face.** Go to the Files tab. Open `app.py`. Students should see the code from Session 1 — load model, check mood, Gradio interface. Say: "This is the same code from Session 1. Two files make a Space: `app.py` is the code, `requirements.txt` lists the libraries. We're going to add a cleaning function to the code and rebuild the Space."
+**Open a new Space on Hugging Face.** Name it something like `world-headlines`. Select Gradio as the SDK.
 
-Click **Edit** on `app.py`. Add `import re` at the top, then add the `clean_text()` function above `check_mood()`.
-
-Build it step by step, explaining each piece:
-
-**Step 1: Strip whitespace**
-```python
-text = text.strip()
+**Build `requirements.txt` first (30 seconds):**
 ```
-"The simplest fix. Remove junk from the beginning and end."
-
-**Step 2: Collapse multiple spaces**
-```python
-text = re.sub(r' {2,}', ' ', text)
+gradio>=5.0.0
+requests
 ```
-"Turn five spaces into one space."
 
-**Step 3: Limit repeated characters**
+"Two libraries. Gradio builds the interface. Requests talks to the internet."
+
+**Build `app.py` step by step:**
+
+**Step 1: Import and configure**
 ```python
-text = re.sub(r'(.)\1{2,}', r'\1\1', text)
-```
-"Turn 'sooooo' into 'soo.' The model might understand 'soo' but definitely not 'sooooooo.'"
+import os
+import gradio as gr
+import requests
 
-**Step 4: Remove emoji**
+GNEWS_API_KEY = os.environ.get("GNEWS_API_KEY")
+```
+"We're reading the API key from a secret — it never appears in the code. I set this up in the Space's Settings tab."
+
+**Step 2: Define the countries**
 ```python
-text = re.sub(
-    r'[\U0001F600-\U0001F64F'
-    r'\U0001F300-\U0001F5FF'
-    r'\U0001F680-\U0001F6FF'
-    r'\U00002600-\U000026FF]+',
-    ' ', text
-)
+COUNTRIES = {
+    "United States": "us",
+    "United Kingdom": "gb",
+    "Canada": "ca",
+    "Australia": "au",
+    "India": "in",
+    "Germany": "de",
+    "France": "fr",
+    "Nigeria": "ng",
+    "Brazil": "br",
+    "China": "cn",
+}
 ```
-"The model doesn't know what a skull emoji means. Strip it out so it can focus on the words."
+"A dictionary that maps country names to codes. The API uses two-letter codes."
 
-**Step 5: Normalize ALL CAPS**
+**Step 3: The API call**
 ```python
-if caps_count > 3:
-    text = text.title()
+def fetch_headlines(country_name):
+    country_code = COUNTRIES[country_name]
+    params = {
+        "token": GNEWS_API_KEY,
+        "country": country_code,
+        "max": 10,
+        "lang": "en",
+    }
+    resp = requests.get(
+        "https://gnews.io/api/v4/top-headlines",
+        params=params, timeout=15
+    )
+    data = resp.json()
 ```
-"ALL CAPS might change the model's reading. Normalizing makes it cleaner but also flatter."
+"Three lines do the real work. We build a dictionary of parameters, make the request, and parse the response as JSON. That's the whole API pattern — you'll see it everywhere."
 
-**Quick test:** Run 2-3 adversarial inputs through the before/after comparison. Show that cleaning helps with noise (emoji, caps) and doesn't help with meaning (sarcasm, irony).
+**Step 4: Format the output**
+```python
+    articles = data.get("articles", [])
+    lines = []
+    for i, article in enumerate(articles, 1):
+        title = article.get("title", "No title")
+        source = article.get("source", {}).get("name", "Unknown")
+        url = article.get("url", "")
+        lines.append(f"### {i}. {title}\n**Source:** {source}\n[Read article]({url})\n")
+    return "\n".join(lines)
+```
 
-**Land the point:** "We just spent 20 minutes writing code to fix formatting problems. The model still can't detect sarcasm. Imagine doing this for every kind of text, in every language, for every new domain. That was the old way of doing AI. It worked — sort of — but it was slow, it was manual, and it always hit the same wall: you can clean the noise, but you can't teach the model to understand what the words actually mean."
+**Step 5: Gradio interface**
+```python
+with gr.Blocks(title="World Headlines") as demo:
+    gr.Markdown("# World Headlines")
+    country = gr.Dropdown(choices=list(COUNTRIES.keys()), value="United States")
+    btn = gr.Button("Get Headlines", variant="primary")
+    output = gr.Markdown()
+    btn.click(fn=fetch_headlines, inputs=country, outputs=output)
+demo.launch()
+```
 
-**Deploy the Space:** Click **Commit changes** at the bottom of the editor. The Space will rebuild (30–60 seconds). While it rebuilds, say: "We just changed the code and redeployed. That's the cycle: edit the code, commit, rebuild, test. Every Space on Hugging Face works this way. When you build your own Space later in this course, this is exactly the workflow."
+**Quick test:** Select a country, click the button, see live headlines appear. Students see the full cycle: code → API → live data → display.
 
-Once the Space is live, test it with 1–2 sarcastic inputs to confirm the before/after comparison works. Then move on — the Story Arc demo is the centerpiece, not this build.
+**Land the point:** "We just built a Space that reaches out to the real world and brings data back. That's the pattern behind every AI tool that connects to external data — weather apps, stock trackers, news aggregators. Two files. One API call. Now let's go back to the question that matters: what can models actually understand about this data?"
 
-### 0:45–1:15 — Story Arc Adversarial Demo (The Centerpiece)
+**Deploy the Space:** Commit the files. While it rebuilds, say: "Same cycle as always: edit code, commit, rebuild, test. Now let me show you what happens when we put a sentiment model on top of real headlines."
 
-**Transition:** "So far we've been testing one model on single sentences. Now I want to show you something bigger. We're going to test four different models on the same stories — and we're going to break all of them."
+### 0:45–1:15 — Zero-Shot News Analyzer Demo (The Centerpiece)
 
-**Setup:** Open all four Story Arc Spaces in browser tabs:
-- Story Arc — 3-Class Sentiment (positive / negative / neutral)
-- Story Arc — 6 Emotions (sadness, joy, love, anger, fear, surprise)
-- Story Arc — 7 Ekman Emotions (anger, disgust, fear, joy, neutral, sadness, surprise)
-- Story Arc — 28 GoEmotions (admiration, amusement, anger, ... 28 categories)
+**Transition:** "The News Sentiment Analyzer we tested earlier uses a fixed model — it can only say 'good news' or 'bad news.' But what if you could choose your own categories? What if you could ask the model to sort headlines into whatever buckets YOU define — without retraining anything?"
 
-**Explain briefly:** "These four apps do the same thing — you paste a story, and they chart the emotions across each paragraph. But each one uses a different model with a different number of emotion categories. Three emotions. Six emotions. Seven emotions. Twenty-eight emotions. Same story, four different lenses."
+**Setup:** Open the Zero-Shot News Analyzer Space. Explain briefly: "This Space uses a different kind of model — a zero-shot classifier. You type in whatever categories you want, and the model figures out which one fits best. It's never been trained on your specific labels. It uses its understanding of language to make a judgment."
 
-#### Test 1: The Sarcastic Narrator (~8 min)
+#### Test 1: Good News vs. Bad News on Breaking Headlines (~8 min)
 
-**Say:** "Our first test story is about a student having the worst Monday of their life. But every sentence sounds positive. See if you can hear the sarcasm."
+Start with the simple preset: "Good news vs. Bad news." Fetch Breaking News headlines.
 
-Read the first paragraph aloud so students hear the tone. Then paste the full story into all four Spaces.
+**Look for tone deafness examples.** Headlines about serious events written in neutral journalistic tone: "Rescue crews locate survivors in flood zone" — the model might say "good news" because of "survivors," but the context is a disaster. Or business headlines where positive-sounding words describe negative outcomes: "Efficiency gains lead to workforce reduction across tech sector."
 
-**While results load, ask:** "This person had a terrible day. The words all sound positive. What do you think the models will say?"
+**Ask:** "The model says 'good news.' Do you agree? What does the model see that makes it say that? What does it miss?"
 
-**After results:** Look at the arc charts together.
+**Name it:** "This failure is **tone deafness** — the model reads the words but misses the meaning behind them. Same as sarcasm: the surface doesn't match the reality."
 
-**Discussion:** "According to these four models, did this person have a good day? Every model says yes — because every model reads the words, not the tone. The 3-class model says positive. The 28-class model spreads it across joy and admiration and approval. More categories didn't help. Twenty-eight labels isn't smarter than three — it's just more specific about being wrong."
+#### Test 2: Custom Categories — Hopeful, Worrying, Mixed (~8 min)
 
-**Name it:** "This failure is **tone deafness** — the model hears the notes but misses the music."
+Switch to the preset "Hopeful vs. Worrying vs. Mixed signals." Fetch World or Business headlines.
 
-#### Test 2: The Mixed-Emotion Story (~8 min)
+**Look for emotional flattening examples.** Complex headlines where the story genuinely has multiple dimensions: climate policy stories (progress AND insufficient), economic stories (growth AND inequality), peace negotiations (hope AND ongoing conflict). The model has to pick its top category even when the story is genuinely all three.
 
-**Say:** "This story is about getting into your dream college. But getting in means leaving home. Every paragraph has at least two real emotions at the same time."
+**Ask:** "Look at the confidence scores. When the model says 'hopeful' at 42% and 'worrying' at 38% — what's it telling you? Is it confident, or confused? Is the headline actually one thing, or is it genuinely mixed?"
 
-Paste into all four Spaces.
+**Name it:** "This failure is **emotional flattening** — the model is forced to rank one label on top, even when the real answer is 'it's complicated.' Classification demands a winner. Reality doesn't."
 
-**After results:** "Look at each paragraph. The narrator is feeling pride and grief and excitement and fear — all at once. What does the model show?"
+#### Test 3: Neutral Reporting vs. Editorial vs. Clickbait (~8 min)
 
-Most paragraphs will collapse to a single dominant emotion. The 28-emotion model might scatter scores across several labels, but look at the confidence: is the top score 18% with five others at 12%? That's not detecting complexity — that's confusion.
+Switch to "Neutral reporting vs. Editorial opinion vs. Clickbait." Fetch the same headlines again.
 
-**Ask:** "Is there a single paragraph in this story where the narrator is feeling only one thing?" (No.) "Does any model show two strong emotions in the same paragraph?" (Probably not.)
+**Look for anthropomorphic projection examples.** Headlines about markets ("Markets rally," "Stocks tumble in early trading"), weather ("Storm batters coastline"), or the economy ("Economy shows signs of strain"). The model reads emotional weight in these metaphors — "batters" sounds aggressive, "tumble" sounds fearful, "rally" sounds joyful — but these are standard journalistic metaphors, not descriptions of anyone's feelings.
 
-**Name it:** "This failure is **emotional flattening** — the model forces complex feelings into a single label. It's like being asked 'are you happy or sad?' when the real answer is both."
+**Push further:** "Who is feeling the fear in 'Stocks tumble'? Who is celebrating in 'Markets rally'? The model reads these like someone describing a person — but they're describing numbers on a screen."
 
-#### Test 3: The Earth Doesn't Feel Anything (~8 min)
+**Name it:** "This failure is **anthropomorphic projection** — the model reads human emotion into language about non-human things. Markets don't panic. Storms don't rage with anger. But the words sound emotional, so the model treats them that way."
 
-**Say:** "This last story is about a volcanic eruption and what happens to the land afterward. Pay attention to who's in this story."
+#### Now change the categories (~6 min)
 
-Paste into all four Spaces.
+This is the key pedagogical move. **Have students suggest new categories.** Type them in live. Try something completely different: "urgent vs. routine vs. human interest" or "local impact vs. global impact vs. celebrity."
 
-**After results:** "The models drew dramatic emotional arcs. Fear for the eruption. Sadness for the dead zone. Joy for the regrowth. But here's my question: who is feeling these emotions? Point to the character in this story who is afraid."
+**The discovery:** Even when students control the categories — even when they design the perfect set of labels — the model still hits the same wall. It's still picking one label. It still can't hold complexity. It still reads words, not meaning.
 
-Let them realize: there are no characters. No people. No one is feeling anything. The mountain doesn't have emotions. The wildflowers aren't happy.
-
-**Push further:** "The models are reading 'erupted' and 'destroyed' and 'consumed' and seeing anger and fear — because those words appear alongside anger and fear in the training data. But the volcano isn't angry. The fire isn't hostile. The models are projecting human emotions onto rocks and weather."
-
-**Name it:** "This failure is **anthropomorphic projection** — the model assumes everything that sounds emotional is emotional. It finds feelings where there are none."
+**Say:** "You just designed your own classification system. Custom categories. No retraining. And the model still made the same kinds of mistakes. That's because the problem isn't the categories — it's the structure of classification itself. One input, one label. That's the ceiling."
 
 #### Wrap the demo (3 min)
 
@@ -175,15 +197,15 @@ Put all three failure modes on screen:
 
 | Test | Failure Mode | What Happens |
 |------|-------------|-------------|
-| Sarcastic Narrator | **Tone deafness** | The model misses meaning that IS there |
-| Mixed Emotions | **Emotional flattening** | The model oversimplifies meaning that's complex |
-| Nature Story | **Anthropomorphic projection** | The model invents meaning that ISN'T there |
+| Good/Bad on disaster coverage | **Tone deafness** | The model misses meaning that IS there |
+| Hopeful/Worrying on complex stories | **Emotional flattening** | The model oversimplifies meaning that's complex |
+| Neutral/Editorial on market metaphors | **Anthropomorphic projection** | The model invents meaning that ISN'T there |
 
-**Say:** "Three stories. Three different ways the models fail. And the most important thing: having more categories didn't fix any of them. The 28-emotion model failed just as badly as the 3-sentiment model. More labels isn't more understanding."
+**Say:** "Three tests. Three different ways the models fail. And the most important thing: even defining your own categories didn't fix any of them. Better labels isn't better understanding."
 
 ### 1:15–1:30 — Sum Up The Old Way
 
-**This segment is new. It does not exist in the current session. It's the Act I closer.**
+**This segment is the Act I closer.**
 
 **Say:** "Let me step back and tell you what we've been doing for three weeks. Because it's not just three random lessons — it's a story.
 
@@ -191,17 +213,17 @@ Session 1: we saw that a model can read a sentence and say 'positive' or 'negati
 
 Session 2: we saw that different models have different menus. One model has two buckets: positive and negative. Another has seven. Another has twenty-eight. And they disagree with each other — because each model learned from different data. What it sees depends on what it studied.
 
-Session 3 — tonight — we tried to break those models. And we broke them three ways. They missed sarcasm. They flattened complex emotions into single labels. They projected feelings onto a volcano. And we tried to fix the problem by cleaning the input — stripping emoji, normalizing caps, collapsing repeated characters — and it helped a little, but it didn't solve the real problem.
+Session 3 — tonight — we put models on real news and broke them three ways. They missed the meaning behind neutral-sounding headlines. They flattened complex stories into single labels. They projected emotions onto markets and weather. And we even tried letting you define your own categories — a model that had never been trained on your labels — and it still hit the same wall.
 
-Here's the thing: what we just experienced tonight is what AI looked like for most of its history. For decades, this was the cycle. Build a small model for a narrow task. Spend enormous effort cleaning the data and engineering the features. Test it. Watch it fail on anything it wasn't specifically trained for. Try to fix the failures by cleaning harder. Hit the same wall: the model reads words, but it doesn't understand what they mean.
+Here's the thing: what we just experienced tonight is what AI looked like for most of its history. For decades, this was the cycle. Build a small model for a narrow task. Clean the data. Choose your categories. Test it. Watch it fail on anything that requires real understanding. Try better categories. Hit the same wall: the model reads words, but it doesn't understand what they mean.
 
-Every model we've seen — the Mood Meter, the Emotion Spectrum, all four Story Arc models — does the same thing. It classifies. It sorts text into buckets. It picks a label. And that's genuinely useful for some tasks. But it has a ceiling. It can't detect sarcasm because sarcasm lives between the words. It can't hold two emotions at once because it has to pick one label. It can't tell the difference between a person feeling fear and a volcano erupting because it doesn't know what feelings are — it just knows which words tend to appear near which labels.
+Every model we've seen — the Mood Meter, the Emotion Spectrum, the News Sentiment Analyzer, even the zero-shot model with your custom labels — does the same thing. It classifies. It sorts text into buckets. It picks a label. And that's genuinely useful for some tasks. But it has a ceiling. It can't read between the lines of a headline because meaning lives in context, not in words. It can't hold two truths at once because it has to pick one label. It can't tell the difference between a reporter describing a disaster and a person experiencing one.
 
 So here's my question for next week."
 
 **Pause. Let this land.**
 
-"What if we stopped asking models to sort things into buckets? What if instead of giving a model a sentence and asking it to pick a label — positive, negative, angry, sad — we asked it to do something completely different? What if we asked it to create something new? To write, instead of read?
+"What if we stopped asking models to sort things into buckets? What if instead of giving a model a sentence and asking it to pick a label — positive, negative, hopeful, worrying — we asked it to do something completely different? What if we asked it to create something new? To write, instead of read?
 
 That's what we're doing next week. And it changes everything."
 
@@ -211,19 +233,19 @@ Introduce the CLEAR Framework for prompting AI coding assistants:
 
 | Letter | Meaning | Example |
 |--------|---------|---------|
-| **C** | Context | "I have a Gradio app that uses a sentiment analysis model..." |
-| **L** | Language | "The code is in Python, using the transformers library..." |
-| **E** | Explain | "When I paste sarcastic text, the model reads it as positive..." |
-| **A** | Ask | "Can you add a text cleaning function that..." |
-| **R** | Requirements | "It should handle emoji, repeated characters, and ALL CAPS." |
+| **C** | Context | "I have a Gradio app that fetches news headlines from an API..." |
+| **L** | Language | "The code is in Python, using gradio, requests, and transformers..." |
+| **E** | Explain | "I want to add sentiment analysis to each headline so users can see..." |
+| **A** | Ask | "Can you add a function that runs each headline through a sentiment model..." |
+| **R** | Requirements | "Use distilbert sentiment. Show a colored badge next to each headline — green for positive, red for negative." |
 
-**Live demo:** Open Claude or ChatGPT. Paste the Space code. Write a CLEAR prompt asking it to add input cleaning. Show students the response.
+**Live demo:** Open Claude or ChatGPT. Paste the World Headlines Space code. Write a CLEAR prompt asking it to add sentiment analysis to the headlines. Show students the response.
 
-**Say:** "This is how you talk to an AI coding assistant. You'll use this throughout the rest of the course — especially when you build your own Space."
+**Say:** "This is how you talk to an AI coding assistant. You'll use this throughout the rest of the course — especially when you build your own Space. Notice how specific the prompt is — it doesn't just say 'make it better.' It says exactly what to add and how it should look."
 
 ### 1:40–1:50 — Student Topic Elicitation
 
-**Say:** "For the rest of this course, you're going to be developing your own research question. It can be about anything — not just sentiment, not just text. We've seen models that read emotions. Next week you'll see models that write text. There are models that recognize images, translate languages, generate music, detect objects, read handwriting — anything.
+**Say:** "For the rest of this course, you're going to be developing your own research question. It can be about anything — not just sentiment, not just text. We've seen models that read emotions, models that analyze news headlines, models that classify text into any categories you define. Next week you'll see models that write text. There are models that recognize images, translate languages, generate music, detect objects, read handwriting — anything.
 
 So right now, I want to hear from each of you: what are you curious about? What topic would you want AI to help with? Don't worry about whether it's realistic or whether a model exists for it. Just tell me what interests you."
 
@@ -241,14 +263,14 @@ So right now, I want to hear from each of you: what are you curious about? What 
 Share the Colab link in the Zoom chat.
 
 **Walk through together:**
-1. Run the setup cell and load the model
-2. Run the "before cleaning" cell — see the sarcastic input results
-3. Run the `clean_text()` definition cell
-4. Run the "after cleaning" cell — compare
+1. Run the setup cell and load the models (sentiment + zero-shot)
+2. Run the tone deafness test on pre-selected news headlines
+3. Run the zero-shot cell with different category sets
+4. Compare: did custom categories help?
 
-**Say:** "The notebook has the same `clean_text()` function we built. Try the experiments — test your own texts and see what cleaning can and can't fix."
+**Say:** "The notebook has pre-selected news headlines so you can experiment even without an API key. Try changing the categories in the zero-shot cells — invent your own and see what happens."
 
-**Notebook skill being introduced:** Editing code in a cell (changing the text variable) and re-running
+**Notebook skill being introduced:** Editing code in a cell (changing category labels) and re-running
 
 **GitHub skill being introduced:** "Upload this notebook to your `my-ai-portfolio` repo."
 
@@ -264,14 +286,15 @@ Share the between-session challenge. Encourage them to use CLEAR to ask Claude/C
 
 | Problem | Fix |
 |---------|-----|
-| Story Arc Spaces need HF token or hit rate limits | Have an HF token ready. If API fails, Spaces fall back to demo data — usable but less impactful. Test all four before class. |
-| Story Arc Spaces are slow (model cold starts) | Open all four tabs 10 min before class. Run the example texts to wake the models. |
+| GNews API key not working or rate limited | Free tier is 100 requests/day. Use the pre-fetched headlines in the notebook as fallback. Test before class. |
+| News Sentiment or Zero-Shot Spaces are slow (model cold starts) | Open all Spaces 10 min before class. Run a test query to wake the models. |
+| Headlines are boring or don't show clear failures | Have 3-4 specific headlines ready that you know demonstrate each failure mode. You can type them directly into the Spaces. |
 | Students fixate on one failure mode and want to discuss it at length | Great energy — but manage time. Say "We're going to see two more failure modes that are just as interesting. Hold that thought." |
-| Editing `app.py` in HF browser editor is fiddly | Have the complete code ready to paste. Show students how to select all, paste. |
-| Regex is confusing for students | Don't explain regex syntax. Just say "this pattern finds repeated characters" and move on. The point is what it does, not how. |
-| Students want to fix sarcasm detection | Great instinct! "Even humans disagree on sarcasm. There are whole PhD theses about this. But here's the interesting question: what if there were a completely different approach — not fixing classification, but doing something else entirely? That's next week." |
+| API call in live build returns an error | Have the complete `app.py` ready to paste. Most common issue: missing API key secret. |
+| Zero-shot model is slow on free CPU | It takes 5-10 seconds per batch. Warn students: "This model is bigger than the sentiment model — it needs more time to think." |
+| Students want to add their own countries to the headlines Space | Great instinct! "That's exactly the kind of modification you can make with CLEAR. Try it this week." |
 | CLEAR demo produces different code than yours | Fine and useful. "AI assistants give different answers each time. That's why you need to understand what the code does." |
-| Space rebuild fails after editing | Check for syntax errors. Most common: missing closing parenthesis, indentation errors. |
+| Space rebuild fails after editing | Check for syntax errors. Most common: missing closing parenthesis, indentation errors, missing import. |
 | Students don't have topic ideas during elicitation | Don't force it. Say "Think about it this week. You can message me or bring ideas next session." |
 | The "Sum Up The Old Way" monologue runs long | Practice it. It should be 5-7 minutes of talking, not 15. The power is in the clarity and the pause before the forward bridge, not in length. |
 
@@ -279,24 +302,26 @@ Share the between-session challenge. Encourage them to use CLEAR to ask Claude/C
 
 ## Key Vocabulary (introduce casually)
 
-- **Adversarial input** — text deliberately designed to confuse or break a model
-- **Data cleaning / preprocessing** — transforming text to remove noise before the model sees it
-- **Noise** — formatting junk that confuses the model (emoji, extra spaces, ALL CAPS)
-- **Meaning** — the real intention behind the words — what noise removal can't fix
-- **Classification** — a model that sorts inputs into predefined categories (positive/negative, angry/sad)
-- **Tone deafness** — when a model misses meaning that IS there (sarcasm, irony)
-- **Emotional flattening** — when a model oversimplifies meaning that's complex (mixed feelings forced into one label)
-- **Anthropomorphic projection** — when a model invents meaning that ISN'T there (reading emotion in text about rocks)
+- **Adversarial input** — text or data deliberately chosen to confuse or break a model
+- **API (Application Programming Interface)** — a way for one program to request data from another; the World Headlines Space calls the GNews API to fetch live news
+- **Noise** — formatting junk that confuses the model (clickbait formatting, ALL CAPS, emoji)
+- **Meaning** — the real situation behind the words — what noise removal can't fix
+- **Classification** — a model that sorts inputs into predefined categories (positive/negative, good news/bad news)
+- **Zero-shot classification** — classification where the model uses categories it was never trained on; you define the labels at runtime
+- **Tone deafness** — when a model misses meaning that IS there (measured language about a disaster, positive words about negative outcomes)
+- **Emotional flattening** — when a model oversimplifies meaning that's complex (multi-faceted stories forced into one label)
+- **Anthropomorphic projection** — when a model invents meaning that ISN'T there (reading emotion into "markets panic" or "storm rages")
 - **CLEAR Framework** — a structure for writing good prompts to AI coding assistants (Context, Language, Explain, Ask, Requirements)
 
 ---
 
 ## Materials Checklist
 
-- [ ] Session 1 Mood Meter Space loaded and working (no cleaning version)
-- [ ] Sarcasm Breaker Space deployed with `clean_text()` — OR have complete `app.py` ready to paste
-- [ ] All four Story Arc Spaces loaded in browser tabs and tested with example texts
-- [ ] Three adversarial stories ready to paste (see `bonus-hugging-face-spaces/ADVERSARIAL-STORIES.md`)
+- [ ] GNews API key working and set as a Secret on all three Spaces
+- [ ] World Headlines Space code ready (complete `app.py` in case live build has issues)
+- [ ] News Sentiment Analyzer Space loaded and tested with multiple categories
+- [ ] Zero-Shot News Analyzer Space loaded and tested with multiple preset categories
+- [ ] 3-4 specific headlines noted that clearly demonstrate each failure mode (fallback if live headlines are bland)
 - [ ] CLEAR Framework slide or screen-share ready
 - [ ] Notebook Colab link ready to share in Zoom chat
 - [ ] Paper/doc for taking notes on student topic ideas
@@ -307,5 +332,17 @@ Share the between-session challenge. Encourage them to use CLEAR to ask Claude/C
 
 - **Session 1:** Students learned INPUT → MODEL → OUTPUT. The model classifies text.
 - **Session 2:** Students learned that training data shapes what the model can see. Different data = different classification.
-- **Session 3 (this session):** Students learn that classification has fundamental limits — no amount of data cleaning fixes the meaning problem. This is "The Old Way."
+- **Session 3 (this session):** Students learn that classification has fundamental limits — even with custom categories on real-world data, models read words, not meaning. This is "The Old Way." They also learn to connect Spaces to external APIs.
 - **Session 4 (next):** The turn. Classification vs. Generation. "What if the model could create, not just sort?"
+
+---
+
+## Spaces Reference
+
+| Space | What It Does | API Key Needed | Model |
+|-------|-------------|----------------|-------|
+| World Headlines | Fetches top headlines from 10 countries | GNEWS_API_KEY | None (data display only) |
+| News Sentiment Analyzer | Fetches headlines by topic, labels each good/bad | GNEWS_API_KEY | distilbert-base-uncased-finetuned-sst-2-english |
+| Zero-Shot News Analyzer | Fetches headlines, classifies with user-defined categories | GNEWS_API_KEY | facebook/bart-large-mnli |
+
+All three Spaces use the same GNews API key. Students only need to sign up at [gnews.io](https://gnews.io) if they want to build their own.

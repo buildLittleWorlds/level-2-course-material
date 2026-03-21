@@ -1,612 +1,663 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Session 3: What Models Can't Do</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/night.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/monokai.min.css">
-<style>
-  :root {
-    --r-heading-font: 'Georgia', serif;
-    --r-main-font: 'Segoe UI', 'Helvetica Neue', sans-serif;
-    --r-heading-color: #fbbf24;
-    --r-link-color: #60a5fa;
-    --r-link-color-hover: #93c5fd;
-  }
-  .reveal { font-size: 32px; }
-  .reveal h1, .reveal h2, .reveal h3 { text-transform: none; }
-  .reveal h1 { font-size: 2.2em; }
-  .reveal h2 { font-size: 1.5em; color: #fbbf24; }
-  .reveal h3 { font-size: 1.1em; color: #9ca3af; }
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Session 3: What Models Can't Do | AI + Research Level 2</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/night.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/monokai.min.css">
+	<style>
+		:root {
+			--r-heading-font: 'Georgia', serif;
+			--r-main-font: 'Segoe UI', 'Helvetica Neue', sans-serif;
+			--r-heading-color: #fbbf24;
+			--r-link-color: #60a5fa;
+			--r-link-color-hover: #93c5fd;
+		}
 
-  .reveal .slides section { text-align: left; }
-  .reveal .slides section.center-slide { text-align: center; }
+		.reveal {
+			font-size: 32px;
+		}
 
-  .concept-box {
-    background: linear-gradient(135deg, #1e3a5f, #1a1a2e);
-    border: 2px solid #fbbf24;
-    border-radius: 12px;
-    padding: 1em 1.5em;
-    margin: 0.8em 0;
-    text-align: center;
-    font-size: 1.3em;
-    letter-spacing: 0.05em;
-  }
-  .concept-box .arrow { color: #fbbf24; font-weight: bold; }
+		.reveal h1, .reveal h2, .reveal h3 {
+			text-transform: none;
+		}
 
-  .vocab-term {
-    color: #fbbf24;
-    font-weight: bold;
-  }
+		.reveal h1 {
+			font-size: 2.2em;
+		}
 
-  .emoji-label { font-size: 1.4em; margin-right: 0.3em; }
+		.reveal h2 {
+			font-size: 1.5em;
+			color: #fbbf24;
+		}
 
-  .two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5em;
-    align-items: start;
-  }
+		.reveal h3 {
+			font-size: 1.1em;
+			color: #9ca3af;
+		}
 
-  .three-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1em;
-    align-items: start;
-  }
+		.reveal .slides section {
+			text-align: left;
+		}
 
-  .card {
-    background: rgba(255,255,255,0.06);
-    border-radius: 10px;
-    padding: 0.8em 1em;
-    margin: 0.4em 0;
-  }
+		.reveal .slides section.center-slide {
+			text-align: center;
+		}
 
-  .highlight-yellow { color: #fbbf24; }
-  .highlight-blue { color: #60a5fa; }
-  .highlight-green { color: #34d399; }
-  .highlight-pink { color: #f472b6; }
-  .highlight-orange { color: #fb923c; }
+		.concept-box {
+			background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+			border: 3px solid #fbbf24;
+			border-radius: 8px;
+			padding: 30px;
+			margin: 20px 0;
+			text-align: center;
+		}
 
-  .small { font-size: 0.7em; color: #9ca3af; }
+		.vocab-term {
+			color: #fbbf24;
+			font-weight: bold;
+		}
 
-  code {
-    background: rgba(255,255,255,0.1);
-    padding: 0.1em 0.4em;
-    border-radius: 4px;
-    font-size: 0.9em;
-  }
-  .reveal pre code {
-    max-height: 500px;
-    font-size: 0.65em;
-    line-height: 1.5;
-    padding: 1em;
-  }
+		.emoji-label {
+			font-size: 1.4em;
+			margin-right: 10px;
+		}
 
-  .observation-card {
-    background: rgba(251,191,36,0.1);
-    border-left: 4px solid #fbbf24;
-    padding: 0.6em 1em;
-    margin: 0.5em 0;
-    border-radius: 0 8px 8px 0;
-  }
+		.two-col {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 30px;
+			margin: 20px 0;
+		}
 
-  .try-it {
-    background: rgba(52,211,153,0.1);
-    border-left: 4px solid #34d399;
-    padding: 0.6em 1em;
-    margin: 0.5em 0;
-    border-radius: 0 8px 8px 0;
-  }
+		.three-col {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			gap: 20px;
+			margin: 20px 0;
+		}
 
-  .big-question {
-    background: rgba(244,114,182,0.1);
-    border-left: 4px solid #f472b6;
-    padding: 0.6em 1em;
-    margin: 0.5em 0;
-    border-radius: 0 8px 8px 0;
-  }
+		.card {
+			background: rgba(255, 255, 255, 0.06);
+			border-radius: 8px;
+			padding: 20px;
+			margin: 10px 0;
+		}
 
-  .fragment.current-visible.visible:not(.current-fragment) {
-    display: none;
-  }
-</style>
+		.highlight-yellow {
+			color: #fbbf24;
+		}
+
+		.highlight-blue {
+			color: #60a5fa;
+		}
+
+		.highlight-green {
+			color: #34d399;
+		}
+
+		.highlight-pink {
+			color: #f472b6;
+		}
+
+		.highlight-orange {
+			color: #fb923c;
+		}
+
+		.small {
+			font-size: 0.7em;
+			color: #9ca3af;
+		}
+
+		.observation-card {
+			background: rgba(251, 191, 36, 0.1);
+			border-left: 4px solid #fbbf24;
+			border-radius: 4px;
+			padding: 15px 20px;
+			margin: 15px 0;
+		}
+
+		.try-it {
+			background: rgba(52, 211, 153, 0.1);
+			border-left: 4px solid #34d399;
+			border-radius: 4px;
+			padding: 15px 20px;
+			margin: 15px 0;
+		}
+
+		.big-question {
+			background: rgba(244, 114, 182, 0.1);
+			border-left: 4px solid #f472b6;
+			border-radius: 4px;
+			padding: 15px 20px;
+			margin: 15px 0;
+		}
+
+		.reveal pre {
+			width: 100%;
+			font-size: 0.55em;
+			line-height: 1.4;
+		}
+
+		.reveal code {
+			padding: 2px 6px;
+			background: rgba(0, 0, 0, 0.3);
+			border-radius: 3px;
+		}
+
+		.reveal .slides section ul, .reveal .slides section ol {
+			width: 100%;
+		}
+
+		.reveal .slides section li {
+			margin-bottom: 12px;
+		}
+
+		.fragment {
+			opacity: 0;
+		}
+
+		.fragment.visible {
+			opacity: 1;
+		}
+
+		.column-left {
+			flex: 1;
+		}
+
+		.column-right {
+			flex: 1;
+		}
+
+		.failure-mode-card {
+			border-radius: 8px;
+			padding: 20px;
+			text-align: center;
+		}
+
+		.failure-mode-card h3 {
+			margin-top: 0;
+		}
+
+		.tone-deafness {
+			background: rgba(244, 114, 182, 0.15);
+			border: 2px solid #f472b6;
+		}
+
+		.emotional-flattening {
+			background: rgba(96, 165, 250, 0.15);
+			border: 2px solid #60a5fa;
+		}
+
+		.anthropomorphic {
+			background: rgba(251, 146, 60, 0.15);
+			border: 2px solid #fb923c;
+		}
+
+		.dark-bg {
+			background: rgba(0, 0, 0, 0.8) !important;
+		}
+
+		.subtitle {
+			font-size: 0.9em;
+			color: #9ca3af;
+			margin-top: 10px;
+		}
+	</style>
 </head>
 <body>
-<div class="reveal">
-<div class="slides">
+	<div class="reveal">
+		<div class="slides">
 
-<!-- ========== TITLE ========== -->
-<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
-  <h1 style="font-size:2.5em;">What Models<br>Can't Do</h1>
-  <h3 style="color:#fbbf24;">Session 3</h3>
-  <p style="margin-top:1.5em; color:#94a3b8;">AI + Research Level 2</p>
-</section>
+			<!-- SLIDE 1: Title Slide -->
+			<section class="center-slide">
+				<h1>What Models Can't Do</h1>
+				<h2 style="margin-top: 40px; font-size: 1.8em;">Session 3</h2>
+				<p style="margin-top: 40px; font-size: 1.2em; color: #9ca3af;">AI + Research Level 2</p>
+				<p style="margin-top: 20px; font-size: 0.9em; color: #6b7280;">Saturday Evening</p>
+			</section>
 
-<!-- ========== TONIGHT'S GOAL ========== -->
-<section>
-  <h2>Tonight's Goal</h2>
-  <p style="font-size:1.1em; margin:1em 0;">
-    Break models on purpose. Find out what <span class="highlight-pink">no amount of fixing can solve</span>.
-  </p>
-  <div class="concept-box">
-    Adversarial Testing &amp; The Limits of Classification
-  </div>
-  <p style="text-align:center; color:#9ca3af;">Tonight we close Act I: three weeks of "The Old Way."</p>
-</section>
+			<!-- SLIDE 2: Tonight's Goal -->
+			<section class="center-slide">
+				<h2>Tonight's Goal</h2>
+				<div class="concept-box" style="margin-top: 40px;">
+					<p style="font-size: 1.1em; margin: 0;">Break models on purpose using <span class="highlight-yellow">real news</span></p>
+				</div>
+				<div style="margin-top: 40px;">
+					<p><strong>Adversarial Testing</strong></p>
+					<p style="color: #9ca3af; font-size: 0.95em; margin-top: 20px;">& The Limits of Classification</p>
+				</div>
+				<div class="observation-card" style="margin-top: 40px; font-size: 0.95em;">
+					<p style="margin: 0;"><strong>Tonight we close Act I.</strong></p>
+				</div>
+			</section>
 
-<!-- ========== SHOW AND TELL ========== -->
-<section>
-  <h2>Show-and-Tell</h2>
-  <div class="observation-card" style="font-size:1.1em;">
-    Did anyone try a model on their own that gave a surprising result?
-  </div>
-  <div style="margin-top:1em;">
-    <div class="card">What model did you test?</div>
-    <div class="card">What did it get wrong?</div>
-    <div class="card">Why do you think it happened?</div>
-  </div>
-</section>
+			<!-- SLIDE 3: Show-and-Tell -->
+			<section>
+				<h2>Show-and-Tell</h2>
+				<div class="big-question" style="margin-top: 40px;">
+					<p style="margin: 0; font-size: 1.05em;"><strong>Did anyone find a surprising model result?</strong></p>
+				</div>
+				<ul style="margin-top: 60px;">
+					<li>What were you expecting the model to do?</li>
+					<li class="fragment" style="opacity: 1; margin-top: 30px;">What did it actually do?</li>
+					<li class="fragment" style="opacity: 1; margin-top: 30px;">Why do you think it surprised you?</li>
+				</ul>
+			</section>
 
-<!-- ========== SPACECRAFT ========== -->
-<section>
-  <h2>SpaceCraft Check-In</h2>
-  <div class="observation-card" style="margin-top:1em;">
-    <strong>This week:</strong> I tried to break a Space with an input it wasn't designed for.<br>
-    That's <span class="highlight-yellow">adversarial testing</span> &mdash; and we're about to do it on a much bigger scale.
-  </div>
-</section>
+			<!-- SLIDE 4: SpaceCraft Check-In -->
+			<section>
+				<h2>SpaceCraft Check-In</h2>
+				<div class="observation-card" style="margin-top: 40px;">
+					<p style="margin: 0; font-size: 1.05em;"><strong>You tried to break a Space.</strong></p>
+				</div>
+				<p style="margin-top: 40px; font-size: 1.05em;">Feed it weird input. See what breaks. Feed it the same input 100 times. See if it changes.</p>
+				<div class="big-question" style="margin-top: 50px;">
+					<p style="margin: 0;"><strong>That's adversarial testing.</strong></p>
+					<p style="margin-top: 10px; color: #d1d5db;">And we're about to do it with real news.</p>
+				</div>
+			</section>
 
-<!-- ========== BREAK THE MOOD METER ========== -->
-<section>
-  <h2>Break the Mood Meter</h2>
-  <p>Open the Mood Meter. Feed it the <span class="highlight-pink">most confusing tone you can think of</span>.</p>
-  <div class="card" style="font-size:0.85em;">
-    <span class="emoji-label">😏</span>
-    <code>Oh GREAT, another Monday. Just what I needed.</code>
-  </div>
-  <div class="card" style="font-size:0.85em;">
-    <span class="emoji-label">📧</span>
-    <code>Per my last email, as I mentioned before...</code>
-  </div>
-  <div class="card" style="font-size:0.85em;">
-    <span class="emoji-label">💀</span>
-    <code>no literally I'm deceased this is the funniest thing 💀💀💀</code>
-  </div>
-  <div class="card" style="font-size:0.85em;">
-    <span class="emoji-label">🔥</span>
-    <code>I'm fine. Everything is fine. This is fine.</code>
-  </div>
-  <p class="fragment" style="margin-top:0.5em; color:#f472b6;">How would <em>you</em> read the tone? What did the <em>model</em> say?</p>
-</section>
+			<!-- SLIDE 5: Break the News Sentiment Analyzer -->
+			<section>
+				<h2>Break the News Sentiment Analyzer</h2>
+				<div class="try-it" style="margin-top: 30px;">
+					<p style="margin: 0;"><strong>Open the News Sentiment Space</strong></p>
+				</div>
+				<ul style="margin-top: 40px;">
+					<li>Feed it different news categories</li>
+					<li class="fragment" style="opacity: 1; margin-top: 20px;">Does "Good news / Bad news" match <em>your</em> reading?</li>
+					<li class="fragment" style="opacity: 1; margin-top: 20px;">Which headlines did the model get wrong?</li>
+					<li class="fragment" style="opacity: 1; margin-top: 20px;">Why?</li>
+				</ul>
+			</section>
 
-<!-- ========== NOISE vs MEANING ========== -->
-<section>
-  <h2>What Can We Fix?</h2>
-  <div class="two-col">
-    <div>
-      <h3 style="color:#34d399;">We CAN fix (noise)</h3>
-      <div class="card">Extra spaces</div>
-      <div class="card">Repeated characters</div>
-      <div class="card">Emoji (strip them)</div>
-      <div class="card">ALL CAPS</div>
-    </div>
-    <div>
-      <h3 style="color:#f472b6;">We CAN'T fix (meaning)</h3>
-      <div class="card">Sarcasm</div>
-      <div class="card">Irony</div>
-      <div class="card">Passive aggression</div>
-      <div class="card">Context / backstory</div>
-    </div>
-  </div>
-  <p class="fragment small" style="text-align:center; margin-top:0.5em;">The left column is <span class="highlight-yellow">noise</span>. The right column is <span class="highlight-pink">meaning</span>. Let's clean the noise and see if it helps.</p>
-</section>
+			<!-- SLIDE 6: Noise vs. Meaning (Two-Column) -->
+			<section>
+				<h2>Noise vs. Meaning</h2>
+				<div class="two-col" style="margin-top: 40px;">
+					<div>
+						<h3 style="color: #34d399;">CAN Fix (Noise)</h3>
+						<ul style="font-size: 0.95em;">
+							<li>Clickbait formatting</li>
+							<li>ALL CAPS headlines</li>
+							<li>Sensationalist punctuation</li>
+							<li>Emoji in social media news</li>
+						</ul>
+					</div>
+					<div>
+						<h3 style="color: #f472b6;">CAN'T Fix (Meaning)</h3>
+						<ul style="font-size: 0.95em;">
+							<li>Editorial framing</li>
+							<li>Implied context</li>
+							<li>Metaphor ("markets panic")</li>
+							<li>Story behind the headline</li>
+						</ul>
+					</div>
+				</div>
+				<div class="observation-card" style="margin-top: 50px; font-size: 0.95em;">
+					<p style="margin: 0;"><em>The left column is noise. The right is meaning.</em></p>
+				</div>
+			</section>
 
-<!-- ========== BUILD: CLEAN_TEXT ========== -->
-<section>
-  <section>
-    <h2>The Old Way: <code>clean_text()</code></h2>
-    <div class="observation-card" style="margin-bottom:0.8em;">
-      For decades, AI researchers spent most of their time doing exactly this &mdash; manually cleaning input so narrow models could function.
-    </div>
-    <pre><code class="language-python">def clean_text(text):
-    # 1. Strip leading/trailing whitespace
-    text = text.strip()
+			<!-- SLIDE 7a: Build World Headlines Space - Connecting to Real World -->
+			<section>
+				<h2>Build: World Headlines Space</h2>
+				<h3 style="margin-top: 40px;">Connecting to the Real World</h3>
+				<p style="margin-top: 30px; font-size: 0.95em;">AI tools need external data. Real-time headlines are one example.</p>
+				<div class="observation-card" style="margin-top: 30px;">
+					<p style="margin: 0; font-size: 0.9em;"><strong>The Pattern:</strong></p>
+					<ul style="font-size: 0.85em; margin-top: 10px;">
+						<li>Import requests</li>
+						<li>Build API parameters</li>
+						<li>Make the call</li>
+						<li>Parse JSON</li>
+					</ul>
+				</div>
+			</section>
 
-    # 2. Collapse multiple spaces into one
-    text = re.sub(r' {2,}', ' ', text)
+			<!-- SLIDE 7b: Build World Headlines Space - Show the Code -->
+			<section>
+				<h2>The fetch_headlines Function</h2>
+				<pre style="margin-top: 30px;"><code class="language-python">def fetch_headlines(api_key, country, max_articles=10):
+	url = "https://gnews.io/api/v4/top-headlines"
+	params = {
+		"country": country,
+		"token": api_key,
+		"max": max_articles
+	}
+	response = requests.get(url, params=params)
+	if response.status_code == 200:
+		return response.json()
+	else:
+		return None
 
-    # 3. Limit repeated characters ("sooooo" → "soo")
-    text = re.sub(r'(.)\1{2,}', r'\1\1', text)</code></pre>
-    <p style="margin-top:0.5em;">Each step fixes <span class="highlight-yellow">one specific kind of noise</span>.</p>
-  </section>
+# Call it for multiple countries
+countries = ["us", "gb", "de", "fr", "jp", "br", "in", "mx", "ke", "au"]
+all_headlines = {}
+for country in countries:
+	all_headlines[country] = fetch_headlines(API_KEY, country)</code></pre>
+			</section>
 
-  <section>
-    <h2>The Code: Emoji + ALL CAPS</h2>
-    <pre><code class="language-python">    # 4. Remove emoji
-    text = re.sub(
-        r'[\U0001F600-\U0001F64F'
-        r'\U0001F300-\U0001F5FF'
-        r'\U0001F680-\U0001F6FF'
-        r'\U00002600-\U000026FF]+',
-        ' ', text
-    )
+			<!-- SLIDE 7c: Build World Headlines Space - Closing -->
+			<section>
+				<h2>We Just Built a Space That Reaches Outside</h2>
+				<div class="observation-card" style="margin-top: 40px;">
+					<p style="margin: 0; font-size: 1.05em;"><strong>Two files. One API call.</strong></p>
+				</div>
+				<p style="margin-top: 40px; font-size: 1.05em;">Now:</p>
+				<div class="big-question" style="margin-top: 20px;">
+					<p style="margin: 0;"><strong>What can models actually understand about this data?</strong></p>
+				</div>
+			</section>
 
-    # 5. Normalize ALL CAPS to Title Case
-    words = text.split()
-    caps_count = sum(1 for w in words
-                     if w.isupper() and len(w) > 1)
-    if caps_count > 3:
-        text = text.title()</code></pre>
-  </section>
+			<!-- SLIDE 8: Now: Something Bigger -->
+			<section class="center-slide">
+				<h2>Now: Something Bigger</h2>
+				<div style="margin-top: 60px;">
+					<p style="font-size: 1.1em;">What if you could choose your own categories?</p>
+				</div>
+				<div class="concept-box" style="margin-top: 60px;">
+					<p style="font-size: 1.05em; margin: 0;">Zero-Shot Classification</p>
+				</div>
+				<p style="margin-top: 40px; font-size: 0.95em; color: #9ca3af;">Don't settle for "Good" and "Bad".<br>Teach the model <em>your</em> categories.</p>
+			</section>
 
-  <section>
-    <h2>Before vs. After</h2>
-    <p>Run the <span class="highlight-yellow">same text</span> through the model &mdash; with and without cleaning.</p>
-    <div class="card fragment">Did cleaning change the model's mind?</div>
-    <div class="card fragment">Or is the problem <span class="highlight-pink">deeper than formatting</span>?</div>
-    <div class="observation-card fragment" style="margin-top:0.8em;">
-      We spent 20 minutes writing code to fix formatting. The model <em>still</em> can't detect sarcasm.<br>
-      Imagine doing this for every kind of text, every language, every domain.<br>
-      <span class="highlight-yellow">That was the old way.</span>
-    </div>
-  </section>
-</section>
+			<!-- SLIDE 9a: Test 1 - Tone Deafness (Headlines) -->
+			<section>
+				<h2>Test 1: Tone Deafness</h2>
+				<h3 style="margin-top: 30px; color: #9ca3af;">Good news vs. Bad news on breaking headlines</h3>
+				<div style="margin-top: 40px;">
+					<ul style="font-size: 0.95em;">
+						<li><strong>Example headlines:</strong></li>
+						<li class="fragment" style="opacity: 1; margin-top: 15px;"><em>"Markets soar as thousands lose jobs"</em></li>
+						<li class="fragment" style="opacity: 1; margin-top: 15px;"><em>"Record unemployment claims, stock rally"</em></li>
+						<li class="fragment" style="opacity: 1; margin-top: 15px;"><em>"Disaster brings economic boost"</em></li>
+					</ul>
+				</div>
+				<p style="margin-top: 40px; color: #9ca3af; font-size: 0.95em;">Notice: measured language about disasters. But which emotion does the model pick?</p>
+			</section>
 
-<!-- ========== STORY ARC DEMO INTRO ========== -->
-<section>
-  <h2>Now: Something Bigger</h2>
-  <p style="font-size:1.1em;">We just tested one model on single sentences.<br>
-  Now we test <span class="highlight-yellow">four models</span> on <span class="highlight-pink">whole stories</span>.</p>
-  <div class="card" style="margin-top:0.8em;">
-    <strong>Story Arc &mdash; 3-Sentiment:</strong> positive / negative / neutral
-  </div>
-  <div class="card">
-    <strong>Story Arc &mdash; 6 Emotions:</strong> sadness, joy, love, anger, fear, surprise
-  </div>
-  <div class="card">
-    <strong>Story Arc &mdash; 7 Ekman:</strong> anger, disgust, fear, joy, neutral, sadness, surprise
-  </div>
-  <div class="card">
-    <strong>Story Arc &mdash; 28 GoEmotions:</strong> admiration, amusement, anger ... 28 categories
-  </div>
-  <p class="fragment" style="margin-top:0.5em; color:#9ca3af;">Same story. Four lenses. Let's see what breaks.</p>
-</section>
+			<!-- SLIDE 9b: Test 1 - Tone Deafness (Failure Mode) -->
+			<section>
+				<h2>Failure Mode #1: Tone Deafness</h2>
+				<div class="observation-card" style="margin-top: 40px;">
+					<p style="margin: 0; font-size: 1.05em;"><strong>The model misses meaning that IS there.</strong></p>
+				</div>
+				<p style="margin-top: 40px; font-size: 1.05em;">It reads the <span class="highlight-yellow">words</span></p>
+				<p style="margin-top: 15px; color: #9ca3af;">but misses the <span class="highlight-yellow">story</span>.</p>
+				<div class="big-question" style="margin-top: 50px;">
+					<p style="margin: 0; font-size: 0.95em;">What words is it weighting? Why doesn't it see the conflict?</p>
+				</div>
+			</section>
 
-<!-- ========== TEST 1: SARCASM ========== -->
-<section>
-  <section>
-    <h2>Test 1: The Sarcastic Narrator</h2>
-    <div class="big-question" style="font-size:1.05em;">
-      A student describes the worst Monday of their life.<br>
-      Every sentence sounds <span class="highlight-green">positive</span>.
-    </div>
-    <p class="fragment" style="margin-top:1em;">
-      Paste the story into all four Spaces.<br>
-      According to these models, did this person have a good day?
-    </p>
-  </section>
+			<!-- SLIDE 10a: Test 2 - Emotional Flattening (Headlines) -->
+			<section>
+				<h2>Test 2: Emotional Flattening</h2>
+				<h3 style="margin-top: 30px; color: #9ca3af;">Hopeful vs. Worrying vs. Mixed</h3>
+				<div style="margin-top: 40px;">
+					<ul style="font-size: 0.95em;">
+						<li><strong>Complex stories:</strong></li>
+						<li class="fragment" style="opacity: 1; margin-top: 15px;"><em>"New climate agreement signed, but targets still too weak"</em></li>
+						<li class="fragment" style="opacity: 1; margin-top: 15px;"><em>"Peace deal reached despite ongoing violence"</em></li>
+						<li class="fragment" style="opacity: 1; margin-top: 15px;"><em>"Economy grows while inequality widens"</em></li>
+					</ul>
+				</div>
+				<p style="margin-top: 40px; color: #9ca3af; font-size: 0.95em;">Real news is rarely one thing.</p>
+			</section>
 
-  <section class="center-slide">
-    <h2>Failure Mode #1</h2>
-    <h3 style="color:#f472b6; font-size:1.4em;">Tone Deafness</h3>
-    <p style="margin-top:1em; font-size:1.1em;">
-      The model <span class="highlight-pink">misses meaning that IS there</span>.
-    </p>
-    <p style="color:#9ca3af; margin-top:0.8em;">
-      It hears the notes but misses the music.
-    </p>
-  </section>
-</section>
+			<!-- SLIDE 10b: Test 2 - Emotional Flattening (Failure Mode) -->
+			<section>
+				<h2>Failure Mode #2: Emotional Flattening</h2>
+				<div class="observation-card" style="margin-top: 40px;">
+					<p style="margin: 0; font-size: 1.05em;"><strong>The model oversimplifies meaning that's complex.</strong></p>
+				</div>
+				<p style="margin-top: 40px; font-size: 1.05em;">It's forced to pick a winner</p>
+				<p style="margin-top: 15px; color: #9ca3af;">when the real answer is <span class="highlight-yellow">"it's complicated."</span></p>
+				<div class="big-question" style="margin-top: 50px;">
+					<p style="margin: 0; font-size: 0.95em;">Can a classification model handle "both/and"? Or is it always "either/or"?</p>
+				</div>
+			</section>
 
-<!-- ========== TEST 2: MIXED EMOTIONS ========== -->
-<section>
-  <section>
-    <h2>Test 2: The Mixed-Emotion Story</h2>
-    <div class="big-question" style="font-size:1.05em;">
-      Getting into your dream college means leaving home.<br>
-      Every paragraph has <span class="highlight-blue">two real emotions</span> at the same time.
-    </div>
-    <p class="fragment" style="margin-top:1em;">
-      Is there a single paragraph where the narrator feels only one thing?
-    </p>
-  </section>
+			<!-- SLIDE 11a: Test 3 - Anthropomorphic Projection (Headlines) -->
+			<section>
+				<h2>Test 3: Anthropomorphic Projection</h2>
+				<h3 style="margin-top: 30px; color: #9ca3af;">Neutral vs. Editorial vs. Clickbait</h3>
+				<div style="margin-top: 40px;">
+					<ul style="font-size: 0.95em;">
+						<li><strong>Market & weather metaphors:</strong></li>
+						<li class="fragment" style="opacity: 1; margin-top: 15px;"><em>"Markets panic over rate hike"</em></li>
+						<li class="fragment" style="opacity: 1; margin-top: 15px;"><em>"Storm rages across region"</em></li>
+						<li class="fragment" style="opacity: 1; margin-top: 15px;"><em>"Dollar crashes in afternoon trading"</em></li>
+					</ul>
+				</div>
+				<p style="margin-top: 40px; color: #9ca3af; font-size: 0.95em;">Who is feeling these emotions?</p>
+			</section>
 
-  <section class="center-slide">
-    <h2>Failure Mode #2</h2>
-    <h3 style="color:#60a5fa; font-size:1.4em;">Emotional Flattening</h3>
-    <p style="margin-top:1em; font-size:1.1em;">
-      The model <span class="highlight-blue">oversimplifies meaning that's complex</span>.
-    </p>
-    <p style="color:#9ca3af; margin-top:0.8em;">
-      It's like being asked "are you happy or sad?" when the answer is both.
-    </p>
-  </section>
-</section>
+			<!-- SLIDE 11b: Test 3 - Anthropomorphic Projection (Failure Mode) -->
+			<section>
+				<h2>Failure Mode #3: Anthropomorphic Projection</h2>
+				<div class="observation-card" style="margin-top: 40px;">
+					<p style="margin: 0; font-size: 1.05em;"><strong>The model invents meaning that ISN'T there.</strong></p>
+				</div>
+				<p style="margin-top: 40px; font-size: 1.05em;">Markets don't <span class="highlight-pink">panic</span>.</p>
+				<p style="margin-top: 15px;">Storms don't <span class="highlight-pink">rage with anger</span>.</p>
+				<div class="big-question" style="margin-top: 50px;">
+					<p style="margin: 0; font-size: 0.95em;">Is the model reading metaphor? Or just pattern-matching emotions?</p>
+				</div>
+			</section>
 
-<!-- ========== TEST 3: NATURE ========== -->
-<section>
-  <section>
-    <h2>Test 3: The Earth Doesn't Feel Anything</h2>
-    <div class="big-question" style="font-size:1.05em;">
-      A volcanic eruption. Destruction. Regrowth.<br>
-      <span class="highlight-orange">Zero human characters.</span>
-    </div>
-    <p class="fragment" style="margin-top:1em;">
-      The models draw emotional arcs. But who is feeling these emotions?<br>
-      <span class="highlight-pink">Point to the character who is afraid.</span>
-    </p>
-  </section>
+			<!-- SLIDE 12: Three Failure Modes Summary -->
+			<section>
+				<h2>Three Failure Modes</h2>
+				<div class="three-col" style="margin-top: 40px;">
+					<div class="failure-mode-card tone-deafness">
+						<h3 style="color: #f472b6; margin-bottom: 15px;">Tone Deafness</h3>
+						<p style="font-size: 0.9em;">Misses meaning that <strong>IS</strong> there</p>
+					</div>
+					<div class="failure-mode-card emotional-flattening">
+						<h3 style="color: #60a5fa; margin-bottom: 15px;">Emotional Flattening</h3>
+						<p style="font-size: 0.9em;">Oversimplifies meaning that's <strong>complex</strong></p>
+					</div>
+					<div class="failure-mode-card anthropomorphic">
+						<h3 style="color: #fb923c; margin-bottom: 15px;">Anthropomorphic Projection</h3>
+						<p style="font-size: 0.9em;">Invents meaning that <strong>ISN'T</strong> there</p>
+					</div>
+				</div>
+				<div class="observation-card" style="margin-top: 50px; font-size: 0.95em;">
+					<p style="margin: 0;"><em>Even custom categories didn't fix any of these.</em></p>
+					<p style="margin-top: 10px;"><em>Better labels isn't better understanding.</em></p>
+				</div>
+			</section>
 
-  <section class="center-slide">
-    <h2>Failure Mode #3</h2>
-    <h3 style="color:#fb923c; font-size:1.4em;">Anthropomorphic Projection</h3>
-    <p style="margin-top:1em; font-size:1.1em;">
-      The model <span class="highlight-orange">invents meaning that ISN'T there</span>.
-    </p>
-    <p style="color:#9ca3af; margin-top:0.8em;">
-      It finds feelings where there are none &mdash; because the <em>words</em> sound emotional.
-    </p>
-  </section>
-</section>
+			<!-- SLIDE 13a: The Old Way - Three Sessions, One Story -->
+			<section>
+				<h2>The Old Way</h2>
+				<h3 style="margin-top: 40px; color: #9ca3af;">Three Sessions, One Story</h3>
+				<ul style="margin-top: 40px; font-size: 0.95em;">
+					<li><strong>Session 1:</strong> Classification basics</li>
+					<li class="fragment" style="opacity: 1; margin-top: 15px;"><strong>Session 2:</strong> Different data = different answers</li>
+					<li class="fragment" style="opacity: 1; margin-top: 15px;"><strong>Session 3:</strong> Broke models three ways. Even custom categories hit the wall.</li>
+				</ul>
+			</section>
 
-<!-- ========== THREE FAILURE MODES ========== -->
-<section>
-  <h2>Three Failure Modes</h2>
-  <div class="three-col">
-    <div class="card" style="border-top: 3px solid #f472b6;">
-      <strong class="highlight-pink">Tone Deafness</strong><br>
-      <span style="font-size:0.85em;">Misses meaning that IS there</span><br>
-      <span class="small">(sarcasm, irony)</span>
-    </div>
-    <div class="card" style="border-top: 3px solid #60a5fa;">
-      <strong class="highlight-blue">Emotional Flattening</strong><br>
-      <span style="font-size:0.85em;">Oversimplifies complex meaning</span><br>
-      <span class="small">(mixed feelings &rarr; one label)</span>
-    </div>
-    <div class="card" style="border-top: 3px solid #fb923c;">
-      <strong class="highlight-orange">Anthropomorphic Projection</strong><br>
-      <span style="font-size:0.85em;">Invents meaning that ISN'T there</span><br>
-      <span class="small">(emotions in rocks)</span>
-    </div>
-  </div>
-  <div class="observation-card fragment" style="margin-top:0.8em; text-align:center;">
-    28 emotion categories didn't fix any of these.<br>
-    <span class="highlight-yellow">More labels isn't more understanding.</span>
-  </div>
-</section>
+			<!-- SLIDE 13b: The Old Way - The Wall -->
+			<section>
+				<h2>The Wall</h2>
+				<p style="margin-top: 40px; font-size: 1.05em;">Decades of AI was this cycle:</p>
+				<div class="observation-card" style="margin-top: 40px;">
+					<p style="margin: 0; font-size: 1.05em;"><strong>The model reads words.</strong></p>
+					<p style="margin-top: 10px;"><strong>You read meaning.</strong></p>
+				</div>
+				<p style="margin-top: 40px; font-size: 1.05em; color: #9ca3af;">No amount of better labels closes that gap.</p>
+			</section>
 
-<!-- ========== EKMAN CROSS-CULTURAL CRITIQUE ========== -->
-<section>
-  <section>
-    <h2>It Goes Deeper Than English</h2>
-    <p>Remember Ekman's 6 basic emotions from last week? Some researchers say he got it wrong.</p>
-    <p class="fragment" style="margin-top:0.8em;">Some feelings don't have English words:</p>
-    <div class="fragment">
-      <div class="card"><span class="highlight-yellow">Schadenfreude</span> (German) &mdash; pleasure at someone else's misfortune</div>
-      <div class="card"><span class="highlight-blue">Amae</span> (Japanese) &mdash; the sweetness of depending on someone who loves you</div>
-      <div class="card"><span class="highlight-green">Saudade</span> (Portuguese) &mdash; deep longing for something absent</div>
-      <div class="card"><span class="highlight-pink">Gigil</span> (Filipino) &mdash; the urge to squeeze something unbearably cute</div>
-    </div>
-  </section>
+			<!-- SLIDE 13c: The Old Way - What If -->
+			<section class="center-slide dark-bg" style="background: rgba(0, 0, 0, 0.9);">
+				<div style="margin-top: 40px;">
+					<p style="font-size: 1.1em;">What if we stopped sorting into buckets?</p>
+				</div>
+				<div class="concept-box" style="margin-top: 60px;">
+					<p style="font-size: 1.05em; margin: 0;">↓</p>
+				</div>
+				<div style="margin-top: 40px;">
+					<p style="font-size: 1.1em;">What if we asked a model to <span class="highlight-yellow">create</span> something new?</p>
+				</div>
+				<div class="concept-box" style="margin-top: 60px;">
+					<p style="font-size: 1.05em; margin: 0;">↓</p>
+				</div>
+				<div style="margin-top: 40px;">
+					<p style="font-size: 1.1em;">To <span class="highlight-yellow">write</span>, instead of <span class="highlight-yellow">read</span>?</p>
+				</div>
+			</section>
 
-  <section>
-    <h2>The Deeper Problem</h2>
-    <div class="big-question" style="font-size:1.05em;">
-      If emotion itself is shaped by culture and language, then the problem isn't just "not enough labels."<br><br>
-      No set of English labels can capture what every human feels.
-    </div>
-    <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
-      This is the wall. More categories can't fix it. The whole approach has a ceiling.
-    </p>
-  </section>
-</section>
+			<!-- SLIDE 14a: CLEAR Framework - Introduction -->
+			<section>
+				<h2>CLEAR Framework</h2>
+				<h3 style="margin-top: 30px; color: #9ca3af;">A Prompt Engineering Pattern</h3>
+				<div style="margin-top: 40px;">
+					<p style="margin: 5px 0;"><span class="vocab-term">C</span> — <strong>Context:</strong> What's the situation?</p>
+					<p style="margin: 15px 0;"><span class="vocab-term">L</span> — <strong>Language:</strong> What tools/languages?</p>
+					<p style="margin: 15px 0;"><span class="vocab-term">E</span> — <strong>Expectation:</strong> What's the goal?</p>
+					<p style="margin: 15px 0;"><span class="vocab-term">A</span> — <strong>Action:</strong> What should the model do?</p>
+					<p style="margin: 15px 0;"><span class="vocab-term">R</span> — <strong>Result:</strong> How should it look?</p>
+				</div>
+			</section>
 
-<!-- ========== NAME THE METHOD ========== -->
-<section>
-  <h2>Name What You Did</h2>
-  <div class="observation-card" style="font-size:1.05em;">
-    Over the last two weeks, you tested the same question with different tools and compared the results.<br><br>
-    Researchers call that a <strong class="highlight-yellow">comparative analysis</strong>.
-  </div>
-  <p class="fragment" style="margin-top:1em;">
-    You used different <strong class="highlight-blue">operationalizations</strong> of emotion &mdash; binary, 7 categories, 28, your own labels &mdash; and watched how each one shaped what the model could see.
-  </p>
-  <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
-    You already did the method before you knew the name. That's how research usually works.
-  </p>
-</section>
+			<!-- SLIDE 14b: CLEAR Framework - News Example -->
+			<section>
+				<h2>CLEAR With News Headlines</h2>
+				<div style="margin-top: 30px;">
+					<p style="margin: 10px 0;"><span class="vocab-term">C</span> — "I have a Gradio app that fetches news headlines from an API every hour."</p>
+					<p style="margin: 15px 0;"><span class="vocab-term">L</span> — "Python, using gradio, requests, and transformers."</p>
+					<p style="margin: 15px 0;"><span class="vocab-term">E</span> — "I want to add sentiment analysis to each headline."</p>
+					<p style="margin: 15px 0;"><span class="vocab-term">A</span> — "Can you add a function that runs each headline through a sentiment model?"</p>
+					<p style="margin: 15px 0;"><span class="vocab-term">R</span> — "Use distilbert sentiment. Show colored badges — green for positive, red for negative."</p>
+				</div>
+			</section>
 
-<!-- ========== SUM UP THE OLD WAY ========== -->
-<section>
-  <section class="center-slide">
-    <h2>The Old Way</h2>
-    <h3 style="color:#9ca3af;">What we've learned in three weeks</h3>
-  </section>
+			<!-- SLIDE 14c: CLEAR Framework - Try It Live -->
+			<section>
+				<h2>Let's Try It Live</h2>
+				<div class="try-it" style="margin-top: 40px;">
+					<p style="margin: 0; font-size: 1.05em;"><strong>With Claude or ChatGPT</strong></p>
+				</div>
+				<ul style="margin-top: 40px; font-size: 0.95em;">
+					<li>Paste the World Headlines code</li>
+					<li class="fragment" style="opacity: 1; margin-top: 20px;">Use CLEAR to ask for sentiment</li>
+					<li class="fragment" style="opacity: 1; margin-top: 20px;">Copy the generated code</li>
+					<li class="fragment" style="opacity: 1; margin-top: 20px;">Test it on the headlines</li>
+				</ul>
+			</section>
 
-  <section>
-    <h2>Three Sessions, One Story</h2>
-    <div class="card">
-      <strong class="highlight-yellow">Session 1:</strong> A model reads a sentence and says "positive" or "negative."<br>
-      That's <strong>classification</strong> &mdash; sorting things into buckets.
-    </div>
-    <div class="card fragment">
-      <strong class="highlight-blue">Session 2:</strong> Different models have different buckets &mdash; because they learned from different data.<br>
-      What it sees depends on <strong>what it studied</strong>.
-    </div>
-    <div class="card fragment">
-      <strong class="highlight-pink">Session 3:</strong> We broke the models three different ways.<br>
-      We tried to fix them with code. It helped a little. <strong>Not enough.</strong>
-    </div>
-  </section>
+			<!-- SLIDE 15: What Are You Curious About -->
+			<section>
+				<h2>What Are You Curious About?</h2>
+				<div class="big-question" style="margin-top: 50px;">
+					<p style="margin: 0; font-size: 1.1em;"><strong>Your own research question.</strong></p>
+					<p style="margin-top: 15px; color: #d1d5db;">About anything.</p>
+				</div>
+				<ul style="margin-top: 60px; font-size: 0.95em;">
+					<li>What models confused you today?</li>
+					<li class="fragment" style="opacity: 1; margin-top: 20px;">What do you want to break next?</li>
+					<li class="fragment" style="opacity: 1; margin-top: 20px;">What question would a model help you answer?</li>
+				</ul>
+			</section>
 
-  <section>
-    <h2>The Wall</h2>
-    <div class="observation-card" style="font-size:1.05em;">
-      For decades, this was AI:<br>
-      Build a small model. Clean the data by hand. Test it. Watch it fail on anything new. Clean harder. Hit the same wall.
-    </div>
-    <p class="fragment" style="margin-top:1em;">
-      The model reads <strong>words</strong>.<br>
-      You read <strong>meaning</strong>.<br>
-      No amount of cleaning closes that gap.
-    </p>
-  </section>
+			<!-- SLIDE 16: Vocabulary -->
+			<section>
+				<h2>Vocabulary</h2>
+				<div style="margin-top: 30px;">
+					<p style="margin: 8px 0;"><span class="vocab-term">Classification</span> — Sorting input into categories</p>
+					<p style="margin: 8px 0;"><span class="vocab-term">Adversarial input</span> — Tricky examples designed to break a model</p>
+					<p style="margin: 8px 0;"><span class="vocab-term">API</span> — Interface that lets one program call another (like GNews)</p>
+					<p style="margin: 8px 0;"><span class="vocab-term">Zero-shot classification</span> — Classify using categories you define, not from training data</p>
+					<p style="margin: 8px 0;"><span class="vocab-term">Tone deafness</span> — Model misses emotional meaning that IS there</p>
+					<p style="margin: 8px 0;"><span class="vocab-term">Emotional flattening</span> — Model oversimplifies nuanced / complex meaning</p>
+					<p style="margin: 8px 0;"><span class="vocab-term">Anthropomorphic projection</span> — Model invents human emotion where there isn't any</p>
+					<p style="margin: 8px 0;"><span class="vocab-term">CLEAR Framework</span> — Prompt structure: Context, Language, Expectation, Action, Result</p>
+				</div>
+			</section>
 
-  <section class="center-slide" data-background-gradient="linear-gradient(135deg, #1e3a5f, #1a1a2e)">
-    <h2 style="font-size:1.4em;">So here's my question for next week:</h2>
-    <p class="fragment" style="font-size:1.3em; margin-top:1em;">
-      What if we stopped sorting things into buckets?
-    </p>
-    <p class="fragment" style="font-size:1.3em; margin-top:0.5em;">
-      What if we asked a model to <span class="highlight-yellow">create something new</span>?
-    </p>
-    <p class="fragment" style="font-size:1.3em; margin-top:0.5em; color:#f472b6;">
-      To <em>write</em>, instead of read?
-    </p>
-  </section>
-</section>
+			<!-- SLIDE 17: Notebook Time -->
+			<section class="center-slide">
+				<h2>Notebook Time</h2>
+				<div style="margin-top: 60px;">
+					<p style="font-size: 1.1em;">Open your notebook.</p>
+					<p style="margin-top: 20px; color: #9ca3af;">Run the cells.</p>
+					<p style="margin-top: 20px;">Try the experiments.</p>
+				</div>
+				<div class="try-it" style="margin-top: 80px; font-size: 0.95em;">
+					<p style="margin: 0;"><strong>Ask questions. Experiment. Break things.</strong></p>
+				</div>
+			</section>
 
-<!-- ========== CLEAR FRAMEWORK ========== -->
-<section>
-  <section>
-    <h2>CLEAR Framework</h2>
-    <p>A structure for writing good prompts to AI coding assistants.</p>
-    <div style="margin-top:0.8em;">
-      <div class="card"><strong class="highlight-yellow">C</strong> &mdash; <strong>Context</strong> &mdash; "I have a Gradio app that uses a sentiment model..."</div>
-      <div class="card"><strong class="highlight-blue">L</strong> &mdash; <strong>Language</strong> &mdash; "The code is in Python, using the transformers library..."</div>
-      <div class="card"><strong class="highlight-green">E</strong> &mdash; <strong>Explain</strong> &mdash; "When I paste sarcastic text, the model misreads the tone..."</div>
-      <div class="card"><strong class="highlight-pink">A</strong> &mdash; <strong>Ask</strong> &mdash; "Can you add a text cleaning function that..."</div>
-      <div class="card"><strong class="highlight-yellow">R</strong> &mdash; <strong>Requirements</strong> &mdash; "It should handle emoji, repeated characters, and ALL CAPS."</div>
-    </div>
-  </section>
+			<!-- SLIDE 18a: Between Sessions - Overview -->
+			<section>
+				<h2>Between Sessions</h2>
+				<h3 style="margin-top: 30px; color: #9ca3af;">Three ways to keep going</h3>
+				<ul style="margin-top: 40px; font-size: 0.95em;">
+					<li><strong>Hub Challenge:</strong> Experiment with Spaces on the Hub</li>
+					<li style="margin-top: 15px;"><strong>Research Journal:</strong> Document what you find</li>
+					<li style="margin-top: 15px;"><strong>Collection/GitHub:</strong> Save your work</li>
+				</ul>
+			</section>
 
-  <section>
-    <h2>CLEAR in Action</h2>
-    <p>Let's try it live with Claude or ChatGPT:</p>
-    <div class="card" style="font-size:0.8em; line-height:1.6;">
-      <strong class="highlight-yellow">Context:</strong> I have a Hugging Face Space that uses a sentiment model to read the mood of text.<br><br>
-      <strong class="highlight-blue">Language:</strong> Python, using gradio, transformers, and re.<br><br>
-      <strong class="highlight-green">Explain:</strong> When users paste sarcastic or messy text (emoji, ALL CAPS, mixed signals), the model misreads the tone.<br><br>
-      <strong class="highlight-pink">Ask:</strong> Add a <code>clean_text()</code> function that preprocesses the input.<br><br>
-      <strong class="highlight-yellow">Requirements:</strong> Strip whitespace, collapse repeated characters, remove emoji, normalize ALL CAPS. Show before and after.
-    </div>
-  </section>
-</section>
+			<!-- SLIDE 18b: Between Sessions - Hub Challenge -->
+			<section>
+				<h2>Hub Challenge Details</h2>
+				<h3 style="margin-top: 30px; color: #9ca3af;">Option A: Test Sentiment & Zero-Shot</h3>
+				<div class="observation-card" style="margin-top: 30px;">
+					<p style="margin: 0; font-size: 0.95em;">Run the News Sentiment and Zero-Shot News Analyzer Spaces with adversarial headlines.</p>
+					<p style="margin-top: 10px; font-size: 0.9em;">Find 5 headlines where the model's classification doesn't match your reading.</p>
+					<p style="margin-top: 10px; font-size: 0.9em;">Categorize each by failure mode: tone deafness, emotional flattening, or anthropomorphic projection.</p>
+				</div>
+				<h3 style="margin-top: 40px; color: #9ca3af;">Option B: Break Another Model</h3>
+				<div class="try-it" style="margin-top: 20px;">
+					<p style="margin: 0; font-size: 0.95em;">Pick a model from your Collection and test it with tricky inputs.</p>
+					<p style="margin-top: 10px; font-size: 0.9em;">What makes it fail?</p>
+				</div>
+			</section>
 
-<!-- ========== TOPIC ELICITATION ========== -->
-<section>
-  <h2>What Are You Curious About?</h2>
-  <div class="big-question" style="font-size:1.1em;">
-    For the rest of this course, you'll develop your own research question.<br>
-    It can be about <em>anything</em>.
-  </div>
-  <div style="margin-top:1em;">
-    <div class="card fragment">What do you wish a computer could do?</div>
-    <div class="card fragment">What's a problem where AI might help &mdash; or make things worse?</div>
-    <div class="card fragment">What topic do you keep coming back to?</div>
-  </div>
-</section>
+			<!-- SLIDE 18c: Between Sessions - Fragment -->
+			<section>
+				<h2>One Big Question</h2>
+				<div class="big-question" style="margin-top: 60px;">
+					<p style="margin: 0; font-size: 1.05em;"><strong>Could a model that <span class="highlight-yellow">creates</span> text handle problems</strong></p>
+					<p style="margin-top: 10px;"><strong>that a model that <span class="highlight-yellow">classifies</span> text can't?</strong></p>
+				</div>
+				<p style="margin-top: 80px; color: #9ca3af; font-size: 0.95em;">Next week, we find out.</p>
+			</section>
 
-<!-- ========== VOCABULARY ========== -->
-<section>
-  <h2>Vocabulary</h2>
-  <div class="card">
-    <span class="vocab-term">Classification</span> &mdash; a model that sorts inputs into predefined categories
-  </div>
-  <div class="card">
-    <span class="vocab-term">Adversarial input</span> &mdash; input deliberately designed to confuse or break a model
-  </div>
-  <div class="card">
-    <span class="vocab-term">Tone deafness</span> &mdash; the model misses meaning that IS there
-  </div>
-  <div class="card">
-    <span class="vocab-term">Emotional flattening</span> &mdash; the model oversimplifies complex meaning into one label
-  </div>
-  <div class="card">
-    <span class="vocab-term">Anthropomorphic projection</span> &mdash; the model invents meaning that ISN'T there
-  </div>
-  <div class="card">
-    <span class="vocab-term">Comparative analysis</span> &mdash; testing the same question with different tools and comparing results
-  </div>
-  <div class="card">
-    <span class="vocab-term">Operationalization</span> &mdash; the specific way you define and measure a concept (e.g., "emotion" as 2 labels vs. 7 vs. 28)
-  </div>
-  <div class="card">
-    <span class="vocab-term">CLEAR Framework</span> &mdash; a structure for prompting AI coding assistants
-  </div>
-</section>
+			<!-- SLIDE 19: Next Week -->
+			<section class="center-slide dark-bg" style="background: rgba(0, 0, 0, 0.9);">
+				<h2 style="margin-top: 40px;">What if AI could create?</h2>
+				<p style="margin-top: 60px; font-size: 1.05em;">Everything so far has been <span class="highlight-yellow">classification.</span></p>
+				<p style="margin-top: 30px; font-size: 1.05em;">Next week, we see what happens when a model</p>
+				<p style="margin-top: 15px; font-size: 1.05em;"><span class="highlight-yellow">creates</span> something instead of labeling it.</p>
+				<div class="concept-box" style="margin-top: 80px;">
+					<p style="font-size: 1.1em; margin: 0; color: #fbbf24;"><strong>It changes everything.</strong></p>
+				</div>
+			</section>
 
-<!-- ========== NOTEBOOK TIME ========== -->
-<section>
-  <h2>Notebook Time</h2>
-  <p>Open today's notebook and run the first few cells together.</p>
-  <div class="try-it" style="margin-top:1em;">
-    <strong>Link in the Zoom chat!</strong>
-  </div>
-  <div class="card" style="margin-top:0.8em;">
-    <strong>1.</strong> Click the link &rarr; it opens in Google Colab<br>
-    <strong>2.</strong> Hit the <span class="highlight-yellow">play button &#9654;</span> on the first cell<br>
-    <strong>3.</strong> Run the setup cell, then try the experiments
-  </div>
-</section>
+		</div>
+	</div>
 
-<!-- ========== BETWEEN SESSIONS ========== -->
-<section>
-  <section>
-    <h2>Between Sessions</h2>
-    <p>Three parts this week. Plan for <span class="highlight-yellow">1&ndash;2 hours</span>.</p>
-    <div class="card" style="margin-top:0.8em;">
-      <strong class="highlight-green">Part 1: Hub Challenge</strong> &mdash; Break a model on purpose<br>
-      <strong class="highlight-blue">Part 2: Research Journal</strong> &mdash; Week 3 entry in <code>research-journal.md</code><br>
-      <strong class="highlight-pink">Part 3: Collection + GitHub</strong> &mdash; Grow your Collection, upload notebook
-    </div>
-  </section>
-
-  <section>
-    <h2>Part 1: Break a Model</h2>
-    <div class="two-col">
-      <div class="card">
-        <strong class="highlight-yellow">Option A: Sentiment</strong><br>
-        Pick a sentiment/emotion model from your Collection. Find 3 inputs that break it. Can you match the failures to our three failure modes?
-      </div>
-      <div class="card">
-        <strong class="highlight-green">Option B: Your Topic</strong><br>
-        Pick any model/Space from your Collection. Find 3 inputs that break it. Are the failures about noise or meaning?
-      </div>
-    </div>
-    <div class="observation-card fragment" style="margin-top:0.8em;">
-      Start thinking: could a model that <em>creates</em> text handle problems that a model that <em>classifies</em> text can't?
-    </div>
-  </section>
-</section>
-
-<!-- ========== NEXT WEEK ========== -->
-<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
-  <h2>Next Week</h2>
-  <p style="font-size:1.3em;">What if AI could <span class="highlight-yellow">create</span>?</p>
-  <p style="color:#9ca3af; margin-top:0.5em;">Everything so far has been classification &mdash; sorting into categories.<br>
-  Next week, we see what happens when a model<br>creates something instead of labeling it.</p>
-  <p class="fragment" style="color:#f472b6; margin-top:1em;">It changes everything.</p>
-</section>
-
-</div>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/highlight.min.js"></script>
-<script>
-Reveal.initialize({
-  hash: true,
-  slideNumber: true,
-  transition: 'slide',
-  plugins: [RevealHighlight],
-  width: 1280,
-  height: 720,
-  margin: 0.08
-});
-</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/notes/notes.min.js"></script>
+	<script>
+		Reveal.initialize({
+			hash: true,
+			slideNumber: true,
+			transition: 'slide',
+			width: 1280,
+			height: 720,
+			margin: 0.08,
+			plugins: [RevealHighlight, RevealNotes]
+		});
+	</script>
 </body>
 </html>
