@@ -6,9 +6,9 @@ Session 4 Core Concept
 
 There are two fundamentally different things AI can do with input:
 
-**Classification** sorts the input into a category. You give it text, it picks a label from a fixed menu. "Positive." "Spam." "Angry." The menu was decided before the model ever saw your input. No matter how smart the model is, it can only choose from the options it was given.
+**Classification** sorts the input into a category. You give it text (or an image, or audio), and it picks a label from a fixed menu. "Positive." "Spam." "Angry." "Cat." The menu was decided before the model ever saw your input. No matter how smart the model is, it can only choose from the options it was given.
 
-**Generation** creates new content. You give it text, it writes more text — word by word, each word chosen from the entire vocabulary. There's no menu. There's no fixed set of answers. The model produces something that didn't exist before.
+**Generation** creates new content. You give it text (or an image, or audio), and it produces something new — text word by word, an image pixel by pixel, audio sample by sample. There's no menu. There's no fixed set of answers. The model produces something that didn't exist before.
 
 Every AI tool you've ever used falls on one side of this fork, or combines both.
 
@@ -20,13 +20,13 @@ The difference between classification and generation isn't just what they output
 
 To train a classification model, you need pairs: an input and the correct label for that input. "This tweet is positive." "This email is spam." "This review is 3 stars." A human being decided every one of those labels. That's expensive, slow, and limited. The Twitter sentiment model we used in Sessions 2 and 3 was trained on 124 million tweets — and someone labeled every single one.
 
-### Generation needs just text
+### Generation needs just raw data
 
-To train a generation model, you need text. That's it. No labels. No human decisions. The model reads a sentence, tries to predict the next word, checks whether it was right, and adjusts. Read. Predict. Check. Adjust. Billions of times.
+To train a generation model, you need raw, unlabeled data — text, images, audio. No labels. No human decisions. A text generator reads a sentence and tries to predict the next word. An image generator looks at millions of images and learns to produce new ones. Read. Predict. Check. Adjust. Billions of times.
 
 ### Why this matters
 
-When you need labels, you're limited to however many labels humans can create. When you need just text, your training data is... the internet. Every book, every article, every Reddit post, every Wikipedia entry. That's the insight that led to generative AI: remove the need for labels, and suddenly you can train on everything.
+When you need labels, you're limited to however many labels humans can create. When you need just raw data, your training data is... the internet. Every book, every article, every Reddit post, every Wikipedia entry, every photo, every video, every podcast. That's the insight that led to generative AI: remove the need for labels, and suddenly you can train on everything.
 
 ## When Researchers Use Each One
 
@@ -62,7 +62,7 @@ Classification models can be graded: the model said "positive," the correct answ
 - **Classification** — AI that sorts inputs into categories from a fixed menu.
 - **Generation** — AI that creates new content by predicting the next word (or pixel, or token).
 - **Labeled data** — Training data where a human decided the correct answer for each example. Required for classification.
-- **Next-word prediction** — How generation models learn: read a sequence, predict what comes next, check, adjust.
+- **Next-token prediction** — How generation models learn: read a sequence (of words, pixels, or audio samples), predict what comes next, check, adjust.
 - **Parameters** — The internal numbers a model adjusts during training. More parameters = more capacity. distilgpt2 has 82 million; GPT-4 has over 1 trillion.
 - **False positive** — A false alarm. The model says yes when the answer is no.
 - **False negative** — A missed detection. The model says no when the answer is yes.
@@ -72,7 +72,7 @@ Classification models can be graded: the model said "positive," the correct answ
 
 In class, we replayed the story of Sessions 1–3: classification models that sort text into buckets, hit a wall, and can't truly understand what they're reading. Then we met distilgpt2 — a tiny text generation model. We fed it the same adversarial stories from Session 3 and watched it try to *continue* the stories instead of *labeling* them. It wasn't great — 82 million parameters doesn't buy you much — but it was doing something classification can't do at all: creating new text, word by word, from the entire vocabulary.
 
-The key insight: classification needs labeled data (expensive and limited). Generation needs just text (the entire internet). That difference in training data requirements is what made scale possible — and scale is what led to ChatGPT, Claude, and every generative AI tool.
+The key insight: classification needs labeled data (expensive and limited). Generation needs just raw, unlabeled data — and the internet has essentially unlimited amounts of text, images, and audio. That difference in training data requirements is what made scale possible — and scale is what led to ChatGPT, Claude, DALL-E, and every generative AI tool.
 
 ## Apply It to Your Own Topic
 
