@@ -51,4 +51,26 @@ Same word, different world. That's domain shift in three datasets.
 
 ---
 
+## Apply It to Your Project — Personal Starter Prompts
+
+The "Apply It to Your Own Topic" section above gives the general method. Here's a more specific starting point based on the work you've been doing so far. Find your name and use the prompt as a jumping-off point.
+
+**Annabelle** — Your spaces produce playful, creative text (dino facts, silly phrases). That content is its own domain — informal, quirky, humorous. Test what happens when you feed that kind of text to a model trained on formal writing, or when you give a formal model a creative task. Where does the mismatch show up? Your collection annotations already track what works and what doesn't — this week, try to explain *why* something doesn't work by tracing it back to training data.
+
+**Bobby** — Game writing is a domain most NLP models have never seen. Your Brackeys Game Jam project and "One Last Bird" concept give you authentic test material. Run game dialogue through the Sentiment Showdown, then check the model cards to trace why each model responds the way it does. Can you predict which model will handle game text best before you test it?
+
+**Chengry** — Medical text is the most consequential domain shift example in this class. "Patient tested negative for infection" is good news that a sentiment model reads as bad. Run clinical text through the Sentiment Showdown and document exactly where and why the models fail. Then connect it to DxAI: if your tool receives a symptom description, how does domain shift affect the diagnostic output? Is the Claude API better at handling medical domain shift than the fine-tuned sentiment models? Why might that be?
+
+**Emily** — Your curated tools are domain-specific: news recommendation works on news, summarization works on articles. Pick one and test it outside its domain. Give a news tool poetry, or give a summarizer a text message conversation. The gap between "works on news" and "works on everything" is the external validity question — and it's directly relevant to whether information management tools are useful in practice.
+
+**George** — Medical language is full of words that mean different things in different domains. "Positive" in medicine means something was detected (often bad); "positive" in a review means something is good. "Critical" in medicine means life-threatening; "critical" in a review means disapproving. Test these double-meaning words in the Sentiment Showdown and write about what you find. This is the core challenge facing any medical AI tool.
+
+**Henry** — You have interests in two domains: computer vision and NLP. That's an advantage this week. Test the News Sentiment Analysis space on non-news text (poetry, lyrics, code comments). Then think about the visual equivalent: what happens when the camera angles LoRA gets an image from outside its training domain? Even if you can't test the image model directly, reasoning about where it would fail is valuable practice in thinking about external validity.
+
+**Sevilla** — You've already found domain shift: BLIP models failing on cartoonish images, emotion detectors missing sarcasm. This week, name those findings using the vocabulary from class (overfitting, domain shift, external validity). Your Week 2 entry documented *what* happened; this week's entry can explain *why* using the conceptual framework from tonight. Try testing your emotion tools on text from very different emotional registers — a legal contract, a children's book, a medical report — and compare results.
+
+**Shawn** — Your comparative methodology already tests across models. This week, test across *domains* within a single model. Pick one image generator from your collection, identify its training data from the model card, then give it prompts from increasingly distant domains. Realistic photo → illustration → abstract concept → something totally outside visual language (like "the feeling of forgetting something important"). Where does the model's world end? That boundary is what domain shift looks like in image generation.
+
+---
+
 AI + Research Level 2 • Session 6: Same Space, Different Worlds

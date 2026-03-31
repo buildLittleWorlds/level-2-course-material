@@ -51,4 +51,26 @@ Browse the rows and compare them to the binary SST-2 labels from Session 2. A se
 
 ---
 
+## Apply It to Your Project — Personal Starter Prompts
+
+The "Apply It to Your Own Topic" section above gives the general method. Here's a more specific starting point based on the work you've been doing so far. Find your name and use the prompt as a jumping-off point — you don't have to follow it exactly.
+
+**Annabelle** — You've been evaluating models by testing them and writing tasting notes ("works but I don't think it's very useful for me"). That's the instinct behind a parameter sweep — you're already comparing outputs. This week, try making those comparisons more controlled: same prompt, one setting changed at a time. Your music generation tools (DiffRhythm, Tencent's tools) likely have adjustable parameters. Can you find them?
+
+**Bobby** — Your game development tools (Qwen3-Coder-WebDev, HunYuan-Motion1.0) are full of parameters you can sweep. Guidance scale on 3D generators, style settings on web builders, resolution controls on image tools. Pick one and document the sweep the way you documented your Qwen3-Coder evaluation — structured, with specific observations at each setting.
+
+**Chengry** — The Claude API behind your DxAI tool has explicit hyperparameters: temperature, max_tokens, top_p, system prompt wording. Think of your parameter sweep as a safety audit: what temperature produces the most medically responsible output? Is there a setting that balances thoroughness with reliability? Your SHIFT framework analysis shows you already think about how presentation affects usefulness — apply that lens here.
+
+**Emily** — Start with the Text Playground from class. Swap in prompts related to your interests — news headlines, research summaries, information filtering. Sweep the temperature from 0.1 to 1.5 on the same news-style prompt and notice where the output shifts from "useful summary" to "creative fiction." That boundary is where parameter control matters most for information tools.
+
+**George** — Medical AI needs low randomness — you don't want a diagnostic tool improvising. Sweep the temperature on medical-style prompts ("The patient presents with headache and fever") and find the setting where the output feels reliable versus where it starts hallucinating. Even if distilgpt2 isn't a medical model, the principle of "right settings for the task" transfers directly.
+
+**Henry** — LoRA adapters are parameter control applied to image generation. The Qwen Camera Angles model in your collection adjusts a small set of parameters to change how images are rendered. See if the space exposes any user-facing controls (guidance scale, number of inference steps). If it does, you have your sweep. If not, write about what you think those controls would change — that's still valuable reasoning about parameters.
+
+**Sevilla** — Your emotion detection models likely have confidence thresholds or sensitivity settings. If you can find those controls, sweep them: at what threshold does the model start labeling neutral text as emotional? At what point does it miss genuine emotion? That boundary is the emotion-detection equivalent of the "sweet spot" we found with temperature in text generation.
+
+**Shawn** — Image generation models expose some of the richest parameter sets on the Hub: guidance scale, inference steps, CFG scale, sampler type, seed. Pick one model from your collection of 12 and sweep one parameter while keeping the prompt and all other settings locked. Your comparative journal methodology is already strong — this week, apply it within a single model instead of across models.
+
+---
+
 AI + Research Level 2 • Session 5: Add Controls
