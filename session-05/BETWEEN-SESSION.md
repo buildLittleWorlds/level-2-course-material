@@ -71,7 +71,11 @@ You build fast — that's a real strength. This week, pick ONE of your Spaces (D
 Your game development background is perfect for the text generator. Change the example prompts to game narrative — character dialogue, item descriptions, quest introductions. Experiment with temperature: what setting produces the best game writing? Write up your "settings recipe" in your journal.
 
 ### Chengry
-Your DxAI project is ambitious and important. This week, focus on getting it running — the runtime error is likely a missing dependency in `requirements.txt`. If you get stuck, bring the error message to next session. Also try the summarizer with medical text — paste in a clinical case description and see what the summary captures vs. what it misses. That's directly relevant to your project.
+Your DxAI project is ambitious — calling the Claude API directly is something most people in this class haven't attempted. The runtime error you're hitting is a platform issue (Python 3.13 broke a library that Gradio depends on), not a problem with your code. Don't spend your time debugging it this week.
+
+Instead, try something different. Go to [huggingface.co/d4data/biomedical-ner-all](https://huggingface.co/d4data/biomedical-ner-all) and read the model card. This is a 66-million-parameter model trained specifically on biomedical text. It doesn't generate text or have a conversation — it reads a sentence and labels every disease, drug, symptom, and body part it finds. That's called Named Entity Recognition (NER), and it's one of the most useful tools in medical AI.
+
+Build a Space with it using the same process you've been learning: ask an AI assistant to write you a Gradio Space that uses `pipeline("token-classification", model="d4data/biomedical-ner-all")` to highlight medical entities in text. Deploy it on Hugging Face — no API key needed this time. If you get it working, bring it to Session 6. We're going to use it.
 
 ### Emily
 Tonight was your launchpad. If you duplicated the summarizer, customize it: change the title to something related to news or research, swap the examples for news articles that interest you. Getting this Space running and personalized is your main goal this week. Then create your GitHub repo and write your first journal entry about what you built.

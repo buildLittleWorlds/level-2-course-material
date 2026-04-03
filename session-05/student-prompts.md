@@ -132,6 +132,36 @@ The function should use do_sample=True and num_return_sequences=1. Clamp tempera
 Give me the complete app.py and requirements.txt files ready to paste into a Hugging Face Space (Gradio SDK, free CPU).
 ```
 
+### Bonus: Medical Entity Extractor
+
+If you finished the text generator above and want to try something more advanced, use this prompt to build a completely different kind of medical AI tool — one that reads text and identifies every disease, drug, symptom, and body part it finds.
+
+```
+Write me a Hugging Face Space using Gradio and the Hugging Face transformers library. It should use the model "d4data/biomedical-ner-all" loaded with pipeline("token-classification", model="d4data/biomedical-ner-all", aggregation_strategy="simple").
+
+The Space should be called "Medical Entity Extractor" and be designed for identifying medical terms in clinical text — diseases, drugs, symptoms, body parts, and procedures.
+
+It needs:
+- A text input box (at least 6 lines) where users paste medical text
+- A gr.HighlightedText output that shows the original text with each medical entity highlighted and labeled by type (e.g., Disease, Chemical, Sign_symptom, Body_part)
+- A gr.Dataframe output below that lists each entity found, its label, and its confidence score (rounded to 2 decimal places)
+- A color map for the HighlightedText that assigns different colors to different entity types
+
+The function should:
+1. Run the NER pipeline on the input text
+2. Walk through the results and build a list of (text, label) tuples for HighlightedText — include the plain text between entities with None as the label
+3. Also build a list of dictionaries with "Entity", "Label", and "Score" keys for the Dataframe
+
+Include these example texts:
+- "Patient presents with acute onset of substernal chest pain radiating to the left arm. Started on aspirin and heparin drip."
+- "The patient has a headache, fever, and sore throat. She was prescribed ibuprofen and amoxicillin."
+- "The warrior stepped into the dungeon and drew his sword."
+
+Add a note at the bottom: "This model identifies biomedical terms in text. It does not provide medical advice."
+
+Give me the complete app.py and requirements.txt files ready to paste into a Hugging Face Space (Gradio SDK, free CPU).
+```
+
 ---
 
 ## George

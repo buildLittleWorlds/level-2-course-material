@@ -301,6 +301,45 @@
   </div>
 </section>
 
+<!-- ========== 12B. THE OTHER ANSWER ========== -->
+<section class="center-slide">
+  <h2>The Other Answer</h2>
+  <p style="font-size:1.15em; margin-top:1em;">
+    General models fail on specialized text.<br>
+    One solution: train on everything (BERT, ChatGPT).
+  </p>
+  <p class="fragment" style="margin-top:1em; color:#fbbf24; font-size:1.2em;">
+    But there's another path:<br>
+    <em>Train a small model specifically on your domain.</em>
+  </p>
+</section>
+
+<!-- ========== 12C. BIOMEDICAL NER ========== -->
+<section>
+  <h2>Biomedical NER: A Specialist Model</h2>
+  <div class="two-col">
+    <div class="card">
+      <strong class="highlight-yellow">Input</strong><br>
+      <span style="font-size:0.9em;">"Patient presents with acute <span class="highlight-pink">chest pain</span> radiating to the <span class="highlight-green">left arm</span>. Started on <span class="highlight-blue">aspirin</span> and <span class="highlight-blue">heparin</span> drip."</span>
+    </div>
+    <div class="card">
+      <strong class="highlight-yellow">Output</strong><br>
+      <span style="font-size:0.9em;">
+        <span class="highlight-pink">chest pain</span> &rarr; Sign_symptom<br>
+        <span class="highlight-green">left arm</span> &rarr; Body_part<br>
+        <span class="highlight-blue">aspirin</span> &rarr; Medication<br>
+        <span class="highlight-blue">heparin</span> &rarr; Medication
+      </span>
+    </div>
+  </div>
+  <div class="observation-card" style="margin-top:0.8em; font-size:0.95em;">
+    <code>d4data/biomedical-ner-all</code> &mdash; 66M parameters &mdash; free CPU &mdash; no API key
+  </div>
+  <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
+    Same size as distilgpt2. Trained on biomedical text.<br>One thing, one domain, precisely.
+  </p>
+</section>
+
 <!-- ========== 13. YOUR TURN — WORK TIME 2 ========== -->
 <section>
   <h2>Your Turn &mdash; Work Time 2</h2>
@@ -364,14 +403,23 @@
   </section>
 
   <section class="center-slide">
-    <h2>The Breakthrough</h2>
-    <div class="concept-box" style="margin-top:1em;">
-      <strong>BERT (2018)</strong><br>
-      Pretrain on books, Wikipedia, forums, the whole internet.<br>
-      <span class="highlight-green">Learn LANGUAGE</span>, then fine-tune.
+    <h2>Two Paths Through the Wall</h2>
+    <div class="two-col" style="margin-top:1em;">
+      <div class="card" style="text-align:center;">
+        <strong class="highlight-green">Path A: The Specialist</strong><br>
+        Fine-tune a small model on your domain.<br>
+        <span style="color:#9ca3af;">Small. Fast. Free. Precise.</span><br>
+        <code style="font-size:0.8em;">d4data/biomedical-ner-all</code>
+      </div>
+      <div class="card" style="text-align:center;">
+        <strong class="highlight-yellow">Path B: The Generalist</strong><br>
+        Pretrain on everything, then fine-tune.<br>
+        <span style="color:#9ca3af;">Massive. Expensive. Versatile.</span><br>
+        <span style="font-size:0.85em;">BERT &rarr; GPT &rarr; ChatGPT / Claude</span>
+      </div>
     </div>
-    <p class="fragment" style="margin-top:1em; color:#9ca3af;">
-      That's the idea behind ChatGPT, Claude, Gemini &mdash; all of them.
+    <p class="fragment" style="margin-top:1em; color:#fbbf24; font-size:1.1em;">
+      Both broke through the domain wall. Both are used today.
     </p>
   </section>
 </section>
@@ -407,6 +455,12 @@
   </div>
   <div class="card">
     <span class="vocab-term">Pretraining</span> &mdash; training a model on a massive general dataset before fine-tuning for a specific task
+  </div>
+  <div class="card">
+    <span class="vocab-term">Fine-tuning</span> &mdash; retraining a general model on specialized data for a specific task or domain
+  </div>
+  <div class="card">
+    <span class="vocab-term">Named Entity Recognition (NER)</span> &mdash; identifying and labeling specific entities (diseases, drugs, people, places) in text
   </div>
   <div class="card">
     <span class="vocab-term">Distribution</span> &mdash; the range and patterns of data a model was trained on
