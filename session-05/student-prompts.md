@@ -209,3 +209,69 @@ The function should use do_sample=True and num_return_sequences=1. Clamp tempera
 
 Give me the complete app.py and requirements.txt files ready to paste into a Hugging Face Space (Gradio SDK, free CPU).
 ```
+
+---
+
+## Why Does the Output Sound So... Bad?
+
+You probably noticed: the text your Space generates isn't great. It's choppy, repetitive, sometimes nonsensical. If you've used ChatGPT, Claude, or Gemini, you know AI can write much better than this. So what's going on?
+
+### The model we're using is tiny
+
+Our model, `distilgpt2`, has **82 million parameters** (the numbers the model learned during training). That sounds like a lot, but compare it to what you're used to:
+
+| Model | Parameters | How it writes |
+|-------|-----------|---------------|
+| **distilgpt2** (what we're running) | 82 million | Choppy, repetitive, often doesn't make sense |
+| GPT-2 (the full version) | 1.5 billion | Better, but still clearly robotic |
+| Llama 3 (Meta's open model) | 8–70 billion | Good quality, sounds natural |
+| ChatGPT (GPT-4o) | Estimated hundreds of billions | Very good — what you're used to |
+| Claude (Opus 4.6) | Not publicly disclosed | Very good — comparable to ChatGPT |
+
+The models you use every day are roughly **1,000 to 10,000 times larger** than what we're running. That's the difference.
+
+### Why can't we just run a bigger model?
+
+Our Spaces run on Hugging Face's **free CPU tier** — a regular computer processor with 16 GB of memory. That's enough for distilgpt2 (82M parameters), but a model like Llama 3 8B needs a **GPU** (a specialized chip designed for AI math) with much more memory.
+
+Here's what it costs to run bigger models on Hugging Face:
+
+| Hardware | Cost | What it can run |
+|----------|------|-----------------|
+| **Free CPU** (what we use) | $0/hour | distilgpt2, GPT-2, small classifiers |
+| **Nvidia T4 GPU** | ~$0.50/hour | Medium models (up to ~7B parameters) |
+| **Nvidia A10G GPU** | ~$1.00/hour | Large models (up to ~13B parameters) |
+| **Nvidia A100 GPU** | ~$4.00/hour | Very large models (70B+ parameters) |
+
+So running a model that writes as well as ChatGPT would cost **$1–4 per hour** just for the hardware. That's per Space — if all 8 of us ran one, that's $8–32/hour for the class.
+
+### What about calling a model through an API?
+
+There's another option: instead of running the model yourself, you can **call someone else's model** over the internet (an API). This is how ChatGPT and Claude actually work — the model runs on their servers, and you just send text back and forth.
+
+Here's what the major APIs charge per million tokens (a token is roughly 3/4 of a word):
+
+| API | Model | Input cost (per 1M tokens) | Output cost (per 1M tokens) |
+|-----|-------|---------------------------|----------------------------|
+| **OpenAI** | GPT-4o | ~$2.50 | ~$10.00 |
+| **OpenAI** | GPT-5 mini | $0.25 | $2.00 |
+| **Anthropic** | Claude Sonnet 4.6 | $3.00 | $15.00 |
+| **Anthropic** | Claude Haiku 4.5 | $1.00 | $5.00 |
+| **Hugging Face** | Mistral Medium 3 | $0.40 | $2.00 |
+
+A million tokens is a lot of text — roughly 750,000 words, or about 10 novels. For what we do in class (maybe 50–100 short generations per student), the cost would be **a few cents per session**. That's cheap! But it adds up if you're building a product that thousands of people use.
+
+### The real cost of ChatGPT
+
+When you use ChatGPT for free, OpenAI is paying for the compute. Estimates suggest each conversation costs them **$0.01–0.10** depending on length. Multiply that by hundreds of millions of users, and OpenAI spends **billions of dollars per year** on compute — mostly renting massive GPU clusters.
+
+That's why:
+- ChatGPT Plus costs $20/month (they're trying to cover costs)
+- Free tiers have usage limits (they can't afford unlimited compute for everyone)
+- AI companies raise billions in funding (much of it goes to buying GPUs)
+
+### So what's the point of our tiny model?
+
+The point of Session 5 isn't to compete with ChatGPT. It's to **understand what's under the hood**. When you move the temperature slider on your Space, you're doing the exact same thing that happens inside ChatGPT — just on a model you can see, control, and run yourself. The sliders work the same way whether the model has 82 million parameters or 82 billion.
+
+You're learning the universal controls. The model will get bigger later. The understanding stays.
