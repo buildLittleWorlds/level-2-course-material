@@ -42,4 +42,4 @@ See `GUIDE-research-journal.md` for how to structure your pipeline experiment as
 
 ---
 
-AI + Research Level 2 • Session 8: Chain Two Models Together
+AI + Research Level 2 • Session 8: From Single Models to Systems

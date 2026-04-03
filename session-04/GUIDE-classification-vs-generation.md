@@ -84,4 +84,4 @@ The key insight: classification needs labeled data (expensive and limited). Gene
 
 ---
 
-AI + Research Level 2 · Session 4: What If AI Could Create?
+AI + Research Level 2 · Session 4: Introduction to Supervised Learning

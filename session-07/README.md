@@ -1,4 +1,5 @@
-# Session 7: Who Gets Hurt?
+# Session 7: Bias, Variance, and Uncertainty
+*"Who Gets Hurt?"*
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-07/notebook.ipynb)
 

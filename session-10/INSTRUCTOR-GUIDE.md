@@ -1,4 +1,5 @@
-# Session 10 — Build Your Own from Scratch
+# Session 10: System Integration — Independent Build
+*Student-Facing Title: "Build Your Own from Scratch"*
 
 ## Concept: SUPERVISED LEARNING AND TASK DESIGN
 
@@ -17,15 +18,15 @@ Then recap every Space built so far:
 
 | Session | Title | Space | Concept |
 |---------|-------|-------|---------|
-| 1 | Can a Computer Tell How You Feel? | Mood Meter | Input → Model → Output |
-| 2 | Not All Feelings Are the Same | Emotion Spectrum | Training data and representation |
-| 3 | What Models Can't Do | Sarcasm Breaker | Adversarial testing / limits of classification |
-| 4 | What If AI Could Create? | Text Generator | Classification vs. generation |
-| 5 | Add Controls | Text Playground | Hyperparameters |
-| 6 | Same Space, Different Worlds | *(no Space — Domain Safari)* | Overfitting and domain shift |
-| 7 | Who Gets Hurt? | Bias Tester | Bias in AI |
-| 8 | Chain Two Models Together | Image Story Pipeline | Multi-model systems and error cascades |
-| 9 | Make It Actually Useful | Restaurant Review Analyzer | Prompt engineering and human-AI interaction |
+| 1 | From Rules to Models | Mood Meter | Input → Model → Output |
+| 2 | Data Collection and Representation | Emotion Spectrum | Training data and representation |
+| 3 | Data Cleaning and Feature Engineering | Sarcasm Breaker | Adversarial testing / limits of classification |
+| 4 | Introduction to Supervised Learning | Text Generator | Classification vs. generation |
+| 5 | Model Training and Parameters | Text Playground | Hyperparameters |
+| 6 | Model Evaluation and Generalization | *(no Space — Domain Safari)* | Overfitting and domain shift |
+| 7 | Bias, Variance, and Uncertainty | Bias Tester | Bias in AI |
+| 8 | From Single Models to Systems | Image Story Pipeline | Multi-model systems and error cascades |
+| 9 | Prompt Logic and Human-AI Interaction | Restaurant Review Analyzer | Prompt engineering and human-AI interaction |
 
 > "Eight Spaces. Nine concepts. Every one used a model someone else trained, with labels someone else chose, on data someone else collected. Today you make those choices yourself."
 
@@ -249,13 +250,13 @@ Share the Colab notebook link in the Zoom chat. Students open it and start exper
 
 | # | Session | Concept |
 |---|---------|---------|
-| 1 | Can a Computer Tell How You Feel? | Input → Model → Output |
-| 2 | Not All Feelings Are the Same | Training Data and Representation |
-| 3 | What Models Can't Do | Adversarial Testing and the Limits of Classification |
-| 4 | What If AI Could Create? | Classification vs. Generation |
-| 5 | Add Controls | Hyperparameters |
-| 6 | Same Space, Different Worlds | Overfitting and Domain Shift |
-| 7 | Who Gets Hurt? | Bias in AI |
-| 8 | Chain Two Models Together | Multi-Model Systems and Error Cascades |
-| 9 | Make It Actually Useful | Prompt Engineering and Human-AI Interaction |
+| 1 | From Rules to Models | Input → Model → Output |
+| 2 | Data Collection and Representation | Training Data and Representation |
+| 3 | Data Cleaning and Feature Engineering | Adversarial Testing and the Limits of Classification |
+| 4 | Introduction to Supervised Learning | Classification vs. Generation |
+| 5 | Model Training and Parameters | Hyperparameters |
+| 6 | Model Evaluation and Generalization | Overfitting and Domain Shift |
+| 7 | Bias, Variance, and Uncertainty | Bias in AI |
+| 8 | From Single Models to Systems | Multi-Model Systems and Error Cascades |
+| 9 | Prompt Logic and Human-AI Interaction | Prompt Engineering and Human-AI Interaction |
 | 10 | Build Your Own from Scratch | Supervised Learning and Task Design |

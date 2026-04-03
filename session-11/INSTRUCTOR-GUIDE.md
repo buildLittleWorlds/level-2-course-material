@@ -1,4 +1,5 @@
-# Session 11: Iterate and Polish
+# Session 11: Iteration, Testing, and Refinement
+*Student-Facing Title: "Iterate and Polish"*
 
 **Concept reinforcement:** THE EXPERIMENTATION LOOP
 **Narrative Role:** The refinement. Students take their Session 10 builds and make them better through peer feedback and systematic testing. Session 10 ended with: "Next week is about making it better. You'll swap Spaces with someone else. They'll try to break yours — the way we broke models back in Session 3. You'll get feedback you didn't expect. And then you'll iterate. Build, test, improve. That's the experimentation loop — and it's the difference between a prototype and a product." This is that week.

@@ -9,12 +9,27 @@
 
 ---
 
+## Design Note: The "Build Together" Restructure (Session 6)
+
+Session 6 has no new Space to build, which makes it the ideal session to expand the Build Together time. The Domain Safari is compressed from 35 to 20 minutes (4 domains instead of 6+). The Pattern Recognition and Student Challenge sections are merged into one 12-minute block (they overlap heavily — both are "test domains and notice what breaks"). This frees up 30 minutes for portfolio work.
+
+**Session 6 Build Together focus is different from Session 5.** Last session was about getting infrastructure in place (GitHub repo, first journal entry, Collection started). This session is about:
+1. Getting every student to a working Space (debugging broken ones, duplicating the Text Playground for students who haven't built one yet)
+2. A second journal entry (the habit starts forming with repetition)
+3. Peer sharing — students see each other's work for the first time
+
+**By the end of Session 6, every student should have:** a GitHub repo with 2 journal entries, a Hugging Face Collection with 6+ items, and at least one working Space — even if it's a customized duplicate. That's the foundation Sessions 7-12 build on.
+
+---
+
 ## Time Breakdown (2 hours)
 
 ### 0:00–0:08 — Show-and-Tell + Story So Far
 
 Ask: "What settings recipes did you find? What worked best for what task?"
 Quick share of between-session experiments from the Text Playground.
+
+**Portfolio check-in (new — 2 min):** "Quick show of hands — who committed their journal entry this week? Who added to their Collection? No judgment either way — we'll have more time to work on those tonight."
 
 **Narrative bridge (2 min — don't skip this):**
 
@@ -30,9 +45,9 @@ Say: "I found this on SpaceCraft this week. It works great on what it was traine
 
 > **SpaceCraft textbook link for this session:** [Chapter 3: GPU vs CPU](https://buildlittleworlds.github.io/spaceCraft/gpu-vs-cpu.html) — the "Choose Small, Specialized Models" section explains why these models are CPU-friendly but also why they're vulnerable to domain shift.
 
-### 0:11–0:23 — Big Question: Is "Positive" the Same Thing Everywhere?
+### 0:11–0:20 — Big Question: Is "Positive" the Same Thing Everywhere?
 
-**This is the centerpiece discussion for this session. Run it before the Domain Safari, while energy is high.**
+*(Compressed from 12 to 9 min. Keep the two live demos and the core push questions. The point lands fast with this group.)*
 
 **Do this live:** Open the Session 4 Sentiment Showdown Space. Paste these two inputs one at a time:
 
@@ -46,16 +61,14 @@ Run it. The models will probably say POSITIVE again — maybe with slightly diff
 
 **Ask:** "Both got POSITIVE. Are they the same kind of positive?"
 
-**Let students respond.** They'll see the difference immediately: one is satisfaction with a purchase, the other is devotion, beauty, longing.
-
 **Push further:**
 - "The model gives both sentences the same label. But 'This phone is great' and 'Shall I compare thee to a summer's day?' are completely different kinds of positive. One is about a product. The other is about love."
-- "Language carries feeling differently in different contexts. A therapist hears 'I'm fine' differently than your friend does. Should the model?"
-- "Here's a harder question: a product review and a love poem exist in completely different domains. The word 'great' means something different in each. Is the model reading the same thing in both?"
+- "A product review and a love poem exist in completely different domains. The word 'great' means something different in each. Is the model reading the same thing in both?"
 
 **Don't resolve this.** The Domain Safari will bring the question to life with concrete examples.
 
-### 0:23–0:30 — The Hook: "Same Models, Different Worlds"
+### 0:20–0:23 — The Hook: "Same Models, Different Worlds"
+
 - Open the Session 4 Sentiment Showdown Space (or have students open their own duplicates from Session 4).
 - Say: "These three models haven't changed. Same weights, same training. But today we're going to give them text they've never seen before — from worlds they were never trained on."
 - Quick reminder of what each model was trained on:
@@ -64,7 +77,9 @@ Run it. The models will probably say POSITIVE again — maybe with slightly diff
   - Product reviews
 - Ask: "If the movie-review model has only ever read movie reviews, what happens when we give it a poem?"
 
-### 0:30–1:05 — Domain Safari (35 minutes)
+### 0:23–0:43 — Domain Safari (20 minutes)
+
+*(Compressed from 35 min. Four domains instead of 6+. Pick the four that generate the best discussion — the rest are available in the pre-prepared samples below if you want more.)*
 
 Paste pre-prepared texts from different domains (see full list below). For each one:
 
@@ -72,37 +87,38 @@ Paste pre-prepared texts from different domains (see full list below). For each 
 2. **Paste and observe:** Run the text through all three models.
 3. **After results:** "Were you right? What surprised you?"
 
-Work through at least 5-6 domains. Let students pick which to try if time is tight.
+**Recommended four domains (5 min each):**
 
-**Pacing:** Spend ~5 minutes per domain. Don't rush — the discussion after each test is where learning happens.
+1. **Song lyrics** — the upbeat-with-dark-lyrics sample is the strongest. "Dancing on the ceiling, burning down the walls, laughing at the wreckage as the empire falls." Models read surface words, miss the meaning. Students get this immediately.
 
-### 1:05–1:20 — Pattern Recognition (15 minutes)
+2. **Medical notes** — "Patient presents with acute onset of substernal chest pain." Clinical language with no sentiment. Models forced to output something. Connects to George and Chengry's interests.
 
-After testing multiple domains, step back and look for patterns:
+3. **Text messages** — "lol ok sure whatever u say 🙄" Perfect for teenagers. Sarcasm, emoji, context-dependence. The Twitter model might get closer but still miss the tone.
+
+4. **Legal text OR code comments** — pick one based on energy. Legal text shows neutral-domain failure. Code comments ("HACK: This is a terrible workaround") show that sentiment exists even in alien domains.
+
+**If time and energy allow:** Add a 5th domain chosen by students. "What domain do you want to test? Throw something at it."
+
+### 0:43–0:55 — Pattern Recognition + Student Challenge (12 minutes)
+
+*(Merged from two separate sections. Same learning outcome: students connect failures to training data.)*
+
+Step back and look for patterns:
 
 - "Which model worked best across the most domains?"
 - "Were there domains where ALL models struggled?"
 - "What makes a domain 'hard' for these models?"
 
-Pull up the model cards again (from Session 4):
+Pull up the model cards again:
 - https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english
 - https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest
 - https://huggingface.co/nlptown/bert-base-multilingual-uncased-sentiment
 
 Connect model card → training data → domain performance: "The Twitter model handles slang because it was trained on tweets. The product model handles star ratings because that's what it learned from."
 
-### 1:20–1:35 — Student Challenge: Find a Domain Where ALL Models Fail (15 minutes)
+**Quick challenge (5 min):** "Can someone suggest a type of text that would confuse ALL three models?" Let students throw ideas out. Test 1-2 suggestions live. The point: every model has a training-data boundary.
 
-Students suggest text types to test. The goal: find something that confuses every model.
-
-**Hints if they're stuck:**
-- Try mixing languages
-- Try text with heavy irony that requires cultural context
-- Try very short text (1-2 words)
-- Try text with no sentiment at all (a recipe, a math problem)
-- Try text from a domain none of the models ever saw (legal text, medical notes, code)
-
-### 1:35–1:48 — Name the Concept: OVERFITTING AND DOMAIN SHIFT (13 minutes)
+### 0:55–1:10 — Name the Concept: OVERFITTING AND DOMAIN SHIFT (15 minutes)
 
 **Overfitting:**
 - "When a model gets SO good at its training data that it can't handle anything else."
@@ -126,9 +142,7 @@ Students suggest text types to test. The goal: find something that confuses ever
 
 "In 2018, a model called BERT showed that this could work. You pretrain on massive general text, and then fine-tune on your specific task. A single model that starts with general knowledge of language and then specializes. That's the idea behind every modern AI system — ChatGPT, Claude, Gemini, all of them. The domain wall we hit tonight? That's exactly what pretraining was designed to break through."
 
-**Note:** You don't need to go deep on BERT's architecture. The point is the idea: pretrain on everything, then fine-tune. Students who want more can read the bonus-bert-content-moderation module.
-
-### 1:48–1:53 — Research Lens (5 minutes)
+### 1:10–1:15 — Research Lens (5 minutes)
 
 **Say:** "Let's name what we just did in research terms."
 
@@ -140,22 +154,97 @@ Students suggest text types to test. The goal: find something that confuses ever
 
 **The method (applies to any topic):** Cross-domain testing. Take a model trained on Domain A and test it on Domain B, C, D. Where it fails tells you about its training data. Where it succeeds tells you what it actually learned versus what it memorized.
 
-**Bridge to homework:** "In class, we applied cross-domain testing to sentiment analysis. For your homework, you'll apply the same method to your own topic. Take a model from your Collection and test it on data from a domain it wasn't designed for. Does it generalize, or does it fall apart?"
+**Bridge to Build Together:** "Alright — we've got the concept. Now let's put it to use. For the rest of tonight, we're going to work on your portfolios again. You'll write a journal entry about domain shift, and we're going to make sure everyone's Spaces are actually working."
 
-### 1:53–1:58 — Notebook Time
+### 1:15–1:54 — BUILD TOGETHER: Portfolio Work Session (39 minutes)
 
-Share the Colab link in the Zoom chat.
+**This is the second Build Together block. Session 5 got the infrastructure in place. Session 6 is about making sure it's working and building the habit of writing.**
 
-**Walk through together:**
-1. Run the setup cell (loads all 3 sentiment models — takes a moment)
-2. Run the first domain test (news article) together
-3. "Now scroll down and try pasting your own text into the experiment cells"
+**Frame it (1 min):**
 
-**Notebook skill being introduced:** Recording observations in markdown cells — double-click a markdown cell to edit it, then run it to render.
+"Last week we set up repos and wrote our first journal entries together. Tonight we're going to do that again — because the second entry is what turns 'I tried this once' into 'I have a practice.' We're also going to make sure every single person has a Space that actually runs. By the end of tonight, your portfolio should have: a repo with two entries, a Collection with real items in it, and a Space you can point someone to."
 
-**Say:** "The notebook has blank tables and observation cells for you to fill in. Double-click any green text cell to edit it. Write down what you noticed about each domain."
+#### Step 1: Space Status Check + Debugging (15 minutes) — 1:16–1:31
 
-### 1:58–2:00 — Bridge Forward + Wrap Up
+**This is the most important part of the Session 6 Build Together. Go around the room.**
+
+"Everyone open your Hugging Face profile page. Let's go around — show me your Spaces."
+
+**For each student, one of three things is true:**
+
+**A) They have a working Space.** (Bobby, Chengry probably, Sevilla, Shawn)
+- "Great. Open it, make sure it loads. While others are getting set up, try running one of tonight's domain-shift tests on your own Space. Does it handle text from a domain it wasn't built for?"
+- This keeps strong students engaged while you help others.
+
+**B) They have a Space with errors.** (Annabelle, George likely)
+- Debug it live. This is teaching. Share the student's screen so everyone can see.
+- Common fixes: missing dependency in requirements.txt, typo in app.py, model name wrong.
+- Say: "Debugging is a real skill. Let's figure this out together."
+- If it can't be fixed in 3 minutes, have them duplicate the Text Playground as a working backup and troubleshoot the broken one between sessions.
+
+**C) They haven't built a Space yet.** (Emily, Henry likely)
+- "Let's get you a Space right now. We're going to duplicate the Text Playground."
+- Walk them through: go to the Text Playground Space → click the three dots → "Duplicate this Space" → name it something related to their interest → deploy.
+- **The key move:** After duplicating, have them change the example prompts to match their topic. Emily changes the prompts to news/research topics. Henry changes them to something related to image generation or NLP. Now it's *theirs* even though the code is the same.
+- This takes about 5 minutes per student. If both Emily and Henry need this, do them simultaneously while others work on their journal entries.
+
+**Target:** Every student has at least one Space that loads without errors by 1:31.
+
+#### Step 2: Journal Writing Sprint (15 minutes) — 1:31–1:46
+
+**Same format as Session 5. Template on screen. Everyone writes.**
+
+Put the Week 6 template in the Zoom chat:
+
+```
+## Week 6 — Model Evaluation and Generalization
+
+### This Week's Method
+(Cross-domain testing — testing a model outside its training domain.)
+
+### How I Applied It
+(What model did we test? What domains did we throw at it?)
+
+### What I Expected
+(Before we tested — did you think the models would handle poetry? Medical text? Why or why not?)
+
+### What I Found
+(What actually happened? Which domains broke the models? Which didn't?)
+
+### Why I Think This Happened
+(Connect it to training data. What did the model learn, and what was missing from its world?)
+
+### What I Want to Try Next
+(Is your topic coming into focus? What domain shift would you test on YOUR topic?)
+```
+
+**Say:** "You've got 15 minutes. Write about what we just saw. The Domain Safari gave you plenty of material. If you're stuck, start with: 'When we gave the movie review model a poem, it said...' and go from there."
+
+**Circulate and check in.** Students who wrote their Session 5 entry will find this easier — the format is familiar. Students who are writing their first entry ever (despite Session 5's push) should just write *something*.
+
+**At 1:46, say:** "Commit what you have. Two entries in two weeks — you're building a journal."
+
+#### Step 3: Peer Share (8 minutes) — 1:46–1:54
+
+**This is new and important. Students see each other's work for the first time.**
+
+Pair students up. Suggested pairings based on interests and status:
+- **Chengry + George** (both medical AI — Chengry can help George)
+- **Bobby + Annabelle** (both prolific builders — Bobby's more polished, Annabelle can learn debugging approaches)
+- **Sevilla + Shawn** (both strong analysts — different topics, can cross-pollinate)
+- **Emily + Henry** (both earlier stage — solidarity and mutual encouragement)
+
+**Instructions:** "Share your screen with your partner. Show them three things: your Collection, your journal, and your Space. Two minutes each. Tell them what you're interested in and what you're building toward."
+
+**Why this matters:**
+- Makes the portfolio feel real — someone else has seen it.
+- Creates gentle accountability — next session, your partner might ask how it's going.
+- Stronger students naturally help weaker ones when they see what's missing.
+- Students often discover shared interests they didn't know about.
+
+**After pairs:** Quick full-group debrief (2 min). "Did anyone see something interesting in their partner's work? Anything surprise you?"
+
+### 1:54–2:00 — Bridge Forward + Wrap Up
 
 **Bridge to Session 7 (scripted — say something like this):**
 
@@ -163,9 +252,17 @@ Share the Colab link in the Zoom chat.
 
 "But training on everything solved one problem and created another. When you train on the entire internet, you train on every bias, stereotype, and inequality in human history. Every pattern in the data gets amplified — including the harmful ones. The bigger the model, the bigger the bias problem. That's next week."
 
+**Homework framing (lighter, because the heavy lifting happened in session):**
+
+"Your between-session work: finish polishing your journal entry — you already wrote the draft. Try testing one more domain on your own. And bring your Collection to at least 8 items. Next session, we're diving into bias — so start thinking about this: when a model learns from the entire internet, whose voices are loudest in that training data, and whose are missing?"
+
 Share the between-session challenge (see BETWEEN-SESSION.md).
 
-**Optional supplementary reading:** For students who want to go deeper on the BERT breakthrough, point them to the `bonus-bert-content-moderation` module. It explains how BERT was trained, why pretraining + fine-tuning was powerful, and how Twitter used BERT-style models for content moderation. It bridges naturally into Session 7's bias discussion.
+**Optional supplementary reading:** For students who want to go deeper on the BERT breakthrough, point them to the `bonus-bert-content-moderation` module.
+
+**End-of-session status check (say this with energy):**
+
+"Quick check — raise your hand if you now have: a GitHub repo? A journal entry from tonight? A working Space? A Collection with items in it? Look around. Two weeks ago some of you had none of that. You're building something real."
 
 ---
 
@@ -334,7 +431,23 @@ Share the between-session challenge (see BETWEEN-SESSION.md).
 
 - **Sessions 1–3 (Act I):** Classification — sorting into buckets. Students experienced the limits of narrow models.
 - **Session 4:** The fork. Classification vs. generation. Introduced model comparison — "which model is best?"
-- **Session 5:** The controls on generation. Temperature and top-p. Closed with the domain shift teaser.
-- **Session 6 (this session):** The answer to "which model is best?" is "best FOR WHAT DOMAIN?" Models are products of their training data. The breakthrough: pretraining on everything. BERT (2018) showed it could work.
+- **Session 5:** The controls on generation. Temperature and top-p. **Build Together #1: GitHub repos, first journal entries, Collection check.**
+- **Session 6 (this session):** The answer to "which model is best?" is "best FOR WHAT DOMAIN?" Models are products of their training data. The breakthrough: pretraining on everything. **Build Together #2: Space debugging, second journal entry, peer sharing.**
 - **Session 7 (next):** The cost of scale. Training on everything means training on every bias in human history.
 - **Bonus module:** `bonus-bert-content-moderation` — optional deeper dive on how BERT works and how Twitter used BERT-style models for content moderation. Fits naturally as supplementary reading between Sessions 6 and 7.
+
+---
+
+## Portfolio Status After Session 6
+
+By the end of tonight, every student should have:
+
+| Artifact | Minimum Status | Notes |
+|----------|---------------|-------|
+| GitHub repo (`my-ai-portfolio`) | Exists, has files | Created in Session 5 Build Together if not before |
+| Research journal | 2 entries (Weeks 5 & 6) | Written in-session; can be polished between sessions |
+| Hugging Face Collection | 6+ items with tasting notes | Checked in Session 5 round-robin; should grow naturally |
+| Working Space | At least 1 that loads | Debugged or duplicated in Session 6 Build Together |
+| Notebooks | Uploaded from Sessions 1-5 | Some students may be behind; not critical yet |
+
+**If a student is missing any of the above after Session 6, flag it in their sp-26 profile and address it directly in the personalized Session 7 email.**

@@ -87,15 +87,15 @@ What question was this student investigating by the end of the course?
 
 Which methods from the course did this student apply in their own investigation? Check all that apply:
 
-- [ ] Comparative Analysis (Session 2) — compared multiple models on same inputs
-- [ ] Adversarial Testing (Session 3) — found inputs that break models
-- [ ] Baseline Comparison (Session 4) — evaluated models side by side with ground truth
-- [ ] Parameter Sweep (Session 5) — systematically changed one variable at a time
-- [ ] Generalization Testing (Session 6) — tested models outside their training domain
-- [ ] Fairness Audit (Session 7) — designed paired tests for algorithmic bias
-- [ ] Error Propagation (Session 8) — measured how errors cascade in multi-model systems
-- [ ] User-Centered Design (Session 9) — shifted from "does it work?" to "can someone use it?"
-- [ ] End-to-End System Design (Session 10) — chose a question, a method, and built a research prototype
+- [ ] Comparative Analysis (Session 2: Data Collection and Representation) — compared multiple models on same inputs
+- [ ] Adversarial Testing (Session 3: Data Cleaning and Feature Engineering) — found inputs that break models
+- [ ] Baseline Comparison (Session 4: Introduction to Supervised Learning) — evaluated models side by side with ground truth
+- [ ] Parameter Sweep (Session 5: Model Training and Parameters) — systematically changed one variable at a time
+- [ ] Generalization Testing (Session 6: Model Evaluation and Generalization) — tested models outside their training domain
+- [ ] Fairness Audit (Session 7: Bias, Variance, and Uncertainty) — designed paired tests for algorithmic bias
+- [ ] Error Propagation (Session 8: From Single Models to Systems) — measured how errors cascade in multi-model systems
+- [ ] User-Centered Design (Session 9: Prompt Logic and Human-AI Interaction) — shifted from "does it work?" to "can someone use it?"
+- [ ] End-to-End System Design (Session 10: Build Your Own from Scratch) — chose a question, a method, and built a research prototype
 
 ---
 

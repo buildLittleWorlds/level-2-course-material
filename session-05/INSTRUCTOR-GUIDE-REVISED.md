@@ -8,24 +8,21 @@
 
 ---
 
+## Design Note: The "Build Together" Restructure
+
+This revised guide compresses the discussion and experimentation portions to carve out a 30-minute **Build Together** block at the end. The conceptual content is the same — hyperparameters, parameter sweeps, experimental design. What changes is that students leave this session having actually done portfolio work (GitHub repo, journal entry, Collection update) in real time, with the instructor available to troubleshoot.
+
+**Why:** After 4 sessions, roughly half the class has not created GitHub repos, started research journals, or built working Spaces. The between-session homework assumes students can do this independently. Some can; some can't. This session catches everyone up while still teaching the material.
+
+**What's cut:** The "Best Settings for the Job" challenge (1:45–1:52 in the original) is removed — it's the same activity as systematic experimentation. The systematic experimentation section is shortened from 25 to 15 minutes (3 key experiments instead of 6+ data points). Notebook Time is absorbed into the Build Together block.
+
+**What's kept:** The Big Question discussion, the narrative bridge, the live build, the concept naming, the research lens. All conceptual content is preserved.
+
+---
+
 ## Time Breakdown (2 hours)
 
-### 0:00–0:05 — Dictionary Space Checkpoint
-
-Before anything else, make sure every student has a working Space on Hugging Face. The dictionary Space from Session 4 is the test case — it's minimal (no model, no API key, just `gradio` + `requests` + a free API call), so if this doesn't work, nothing more complicated will either.
-
-**Pull up the reference code:** [spaceCraft build guide, Path B](https://buildlittleworlds.github.io/spaceCraft/build.html) — the "API Tool" section has the exact `app.py` and `requirements.txt`. Your working copy is at `profplate/dictionary`.
-
-**Quick check (ask students to open their dictionary Space):**
-- If it's RUNNING or SLEEPING and loads: great, move on.
-- If it shows RUNTIME_ERROR or won't load: have them compare their `app.py` and `requirements.txt` against the spaceCraft reference. Common issues are a missing `requests` in `requirements.txt`, a copy-paste artifact in `app.py`, or a stray character in the file name.
-- If a student doesn't have one at all: have them create a new Space right now and paste in the reference code. It takes under two minutes.
-
-**The point to make:** "If you can get this working, you can get anything working. Every Space we build from here on out follows the same pattern — an `app.py`, a `requirements.txt`, and Gradio wiring things together. This is your proof that the pattern works."
-
-Don't spend more than 5 minutes here. Anyone with a stubborn error can debug during the build section while others are coding.
-
-### 0:05–0:15 — Show-and-Tell + Story So Far
+### 0:00–0:10 — Show-and-Tell + Story So Far
 
 Ask: "Last week's homework asked you to find a classifier AND a generator and test them on the same input. Did anyone do that? What happened when you compared them?"
 
@@ -46,7 +43,7 @@ Pull up SpaceCraft briefly. Show a CPU-only Space with adjustable parameters —
 
 "Here's why this matters beyond our classroom: right now, somewhere, a developer is setting `temperature` to 0.7 on an API call to Claude. A product team at a startup is arguing about whether their chatbot's `top_p` should be 0.9 or 0.95. These are the same sliders we're about to build. The controls on our little distilgpt2 model are the same controls on the most powerful AI systems in the world. The only difference is scale."
 
-### 0:13–0:25 — Big Question: Can a Machine Write Something That Makes You Feel?
+### 0:08–0:20 — Big Question: Can a Machine Write Something That Makes You Feel?
 
 **This is the centerpiece discussion for this session. Run it before the build, while energy is high.**
 
@@ -73,14 +70,17 @@ Same prompt. Generate at **temperature 1.2** — read this output aloud. It will
 
 **Don't resolve this.** The build will keep the question alive as they watch the sliders change the output.
 
-### 0:25–0:35 — The Hook: Same Prompt, Different Settings
+### 0:20–0:25 — The Hook: Same Prompt, Different Settings
+
+*(Compressed from 10 min to 5 — the Big Question already demonstrated this with "The letter she never sent." One more quick demo is enough.)*
+
 - Open the finished Text Playground Space.
 - Type: **"Once upon a time in a school where robots"**
 - Generate with **temperature = 0.1** — predictable, safe output.
 - Same prompt, **temperature = 1.5** — wild, chaotic output.
-- Ask: "Same model, same prompt. What changed?"
+- Ask: "Same model, same prompt. What changed? That's what we're building."
 
-### 0:35–1:10 — Live Build: Add Controls to the Text Generator (35 minutes)
+### 0:25–1:00 — Live Build: Add Controls to the Text Generator (35 minutes)
 
 **The narrative frame:** Last week we built a text generator Space with no controls — just a prompt and whatever the model decided to write. This week we're taking that same Space and adding sliders. The code progression IS the lesson: Session 4 built the generator, Session 5 adds controls. Students should feel this as a natural next step, not a separate project.
 
@@ -101,28 +101,30 @@ Same prompt. Generate at **temperature 1.2** — read this output aloud. It will
 
 **Teaching moment when adding sliders:** "Every slider we add is a hyperparameter. The model's weights are fixed — we're not changing what it knows, we're changing how it behaves. Same model, same prompt, different settings — different output."
 
-### 1:10–1:35 — Systematic Experimentation (25 minutes)
+### 1:00–1:15 — Systematic Experimentation (15 minutes)
+
+*(Compressed from 25 min. Three quick experiments, one per parameter. The point lands with 3 data points per sweep — you don't need 6.)*
 
 Guide students through controlled experiments. Use the same prompt each time and change ONE slider:
 
 **Experiment 1: Temperature**
 - Prompt: "The secret ingredient in the recipe was"
-- Temperature: 0.1, 0.5, 0.7, 1.0, 1.5, 2.0
-- Observation: Low = repetitive/predictable. High = creative/chaotic. Very high = gibberish.
+- Temperature: 0.2, 0.7, 1.5
+- Observation: Low = repetitive/predictable. Medium = balanced. High = creative/chaotic.
 
 **Experiment 2: Top-p**
 - Same prompt, temperature fixed at 0.7
-- Top-p: 0.1, 0.5, 0.9, 1.0
+- Top-p: 0.1, 0.9, 1.0
 - Observation: Low top-p = only the most likely words. High top-p = more variety.
 
 **Experiment 3: Max Length**
 - Same prompt, same temperature/top-p
-- Max length: 20, 50, 100, 200
+- Max length: 20, 100, 200
 - Observation: Longer isn't always better. Models can lose coherence.
 
 **Key question:** "If you change two sliders at once, can you tell which one caused the change?" (No — this is why scientists change one variable at a time.)
 
-### 1:35–1:50 — Name the Concept + Research Lens
+### 1:15–1:28 — Name the Concept + Research Lens (13 minutes)
 
 #### Name the Concept: HYPERPARAMETERS (8 min)
 
@@ -137,49 +139,108 @@ Guide students through controlled experiments. Use the same prompt each time and
 
 **Analogy:** "A guitar has fixed properties — the wood, the strings, the shape. Those are like the model's weights. But you control how hard you strum, where you pick, whether you use a capo. Those are hyperparameters."
 
+**Frame distilgpt2's low quality as a feature:** "This is a tiny model — about 80MB. GPT-4 is estimated to be 1,000x bigger. But the same controls work on both. You're learning the universal remote, not just one TV."
+
 #### Research Lens (5 min)
 
 **Say:** "Let me name what we just did in research terms. We did a **parameter sweep** — systematically changing one variable while holding others constant. That's **experimental design**. In real research, you never change everything at once because you can't tell what caused the change."
 
 **Frame the shared research question:** "Here's the research question we were investigating tonight: *How does temperature affect text generation quality for different writing tasks?* We ran a controlled experiment — same prompt, same model, one slider at a time. That's how you isolate variables."
 
-**Bridge to their own work:** "In class, we applied experimental design to text generation. For your homework, you'll apply the same method to your own topic — if your models have adjustable settings, experiment with them. Change one thing at a time and document what happens. Same method, your question."
+**Bridge to Build Together:** "Now — I want to make sure the work you're doing in this course is actually building into something. So we're going to spend the rest of tonight working on your portfolios together. Same method applies: you'll write about what you just saw."
 
-### 1:50–1:55 — Challenge: Best Settings for the Job (5 minutes)
+### 1:28–2:00 — BUILD TOGETHER: Portfolio Work Session (32 minutes)
 
-Students find optimal settings for different tasks:
+**This is the catch-up block. The goal: every student leaves tonight with a GitHub repo, a journal entry in progress, and an updated Collection. You are available the entire time to troubleshoot.**
 
-| Task | Goal |
-|------|------|
-| Scary story opening | High creativity, medium length |
-| Formal email to a teacher | Low creativity, controlled length |
-| Funny random story | High creativity, longer length |
-| News headline continuation | Low creativity, short length |
+**Frame it (1 min):**
 
-"There's no single 'best' setting — it depends on what you're trying to do."
+"Here's the thing. This course builds toward a real portfolio — a Hugging Face Collection, a research journal, Spaces you've built. Some of you have been doing great work between sessions. Some of you have stuff you've been meaning to set up. Either way, we're going to do it together right now, so nobody's stuck."
 
-**Frame distilgpt2's low quality as a feature:** "This is a tiny model — about 80MB. GPT-4 is estimated to be 1,000x bigger. But the same controls work on both. You're learning the universal remote, not just one TV."
+#### Step 1: GitHub Checkpoint (8 minutes) — 1:29–1:37
 
-### 1:55–2:00 — Notebook Time
+**Everyone does this simultaneously. Share your screen and walk through each step.**
 
-Share the Colab link in the Zoom chat.
+"Open github.com. If you already have a `my-ai-portfolio` repo, open it. If you don't, we're making one right now."
 
-**Walk through together:**
-1. Run the setup cell (installs transformers, loads distilgpt2)
-2. Run the first generation cell — everyone sees the same prompt, different output
-3. "Now try changing the temperature value in your notebook"
+1. Click "New repository"
+2. Name it `my-ai-portfolio`
+3. Check "Add a README file"
+4. Click "Create repository"
+5. Click "Add file" → "Create new file"
+6. Name it `research-journal.md`
+7. Paste the Week 5 header (put this in the Zoom chat):
 
-**Notebook skill being introduced:** Using sliders/widgets in the code — changing parameter values and re-running cells to see different outputs.
+```
+# My AI Research Journal
 
-**Say:** "The experiments in the notebook let you try all the combinations we didn't have time for. Find the best settings for a scary story — bring your recipe to next session."
+## Week 5 — Parameter Sweeps and Experimental Design
 
-### 2:00 — Bridge Forward + Wrap Up
+### This Week's Method
+(What research method did we learn?)
+
+### How I Applied It
+(What did you experiment with? What settings did you try?)
+
+### What I Expected
+(Before testing — what did you think would happen?)
+
+### What I Found
+(What actually happened? Anything surprising?)
+
+### Why I Think This Happened
+(Your explanation.)
+
+### What I Want to Try Next
+(What question keeps pulling you back?)
+```
+
+8. Commit the file.
+
+**For students who already have repos and earlier entries:** "Great — scroll to the bottom of your journal and add the Week 5 header. You're ahead."
+
+**For students who are behind on earlier weeks:** "Don't worry about Weeks 2-4 right now. Start with Week 5. You can backfill earlier entries anytime. What matters is getting something down tonight."
+
+#### Step 2: Journal Writing Sprint (12 minutes) — 1:37–1:49
+
+**Everyone writes. You are available for questions.**
+
+"You've got 12 minutes. Write about what we just did — the parameter experiments. You don't need to be fancy. Answer the questions in the template. If you get stuck, start with: 'We changed the temperature on a text generator and I noticed that...'"
+
+**Circulate (on Zoom, this means checking in):** Ask 2-3 students to share their screen briefly so you can see if they're stuck. Common sticking points:
+- "I don't know what to write" → "What happened when we turned temperature to 1.5? Start there."
+- "How long does it need to be?" → "Aim for a solid paragraph per section. Maybe 300 words total."
+- "Can I write about my own topic instead?" → "Yes! Use the same format but write about whatever model/Space you've been exploring."
+
+**At 1:49, say:** "Commit what you have. It doesn't need to be perfect. You can polish it this week."
+
+#### Step 3: Collection Round-Robin (8 minutes) — 1:49–1:57
+
+**Quick share + live building.**
+
+"Everyone open your Hugging Face Collection. We're going around the room — show us what you've got and add something new while we watch."
+
+Go around (about 1 minute per student):
+- Student shares screen, shows Collection
+- You (or another student) notice something: "Oh, that's interesting — why did you pick that model?"
+- Student adds one new item (the Text Playground Space from tonight is an easy add)
+- Quick tasting note: "Built this in Session 5. Temperature and top-p sliders control output creativity."
+
+**For students with empty or near-empty Collections:** This is the moment to help. "Search for a model related to your interest — what are you curious about?" Help them find one, add it, write a quick note.
+
+**Target:** Every student should have at least 5 items in their Collection by the end of this block.
+
+### 1:57–2:00 — Bridge Forward + Wrap Up
 
 **Bridge to Session 6 (scripted — say something like this):**
 
 "So now we have a text generator with controls. Temperature, top-p, max length — you can dial in exactly the kind of writing you want. But here's the thing: this model was trained on web text. Reddit posts, news articles, Wikipedia entries. It's seen a lot of the internet."
 
 "What happens when you ask it about something it's never seen? What if you feed medical text to a model trained on Reddit? What if you ask it about legal contracts when it's only read blog posts? That's the wall the field hit next — and the breakthrough that solved it is what made ChatGPT and Claude possible. That's next week."
+
+**Homework framing (important — the homework is now lighter because they did the hard parts in session):**
+
+"Your between-session work this week: finish polishing the journal entry you started tonight — you've already got a draft, so this is just cleanup. Try a few more slider experiments on your own if you want. And add 2 more items to your Collection. That's it. The heavy lifting is done."
 
 Share the between-session challenge (see BETWEEN-SESSION.md).
 
@@ -237,5 +298,5 @@ Share the between-session challenge (see BETWEEN-SESSION.md).
 
 - **Sessions 1–3 (Act I):** Classification — sorting into buckets. Students experienced the limits.
 - **Session 4:** The fork. Classification vs. generation. Students built a bare text generator with no controls.
-- **Session 5 (this session):** The controls on generation. Students add temperature/top-p sliders to the Session 4 generator. The real-world connection: these are the same controls on ChatGPT and Claude.
+- **Session 5 (this session):** The controls on generation. Students add temperature/top-p sliders to the Session 4 generator. The real-world connection: these are the same controls on ChatGPT and Claude. **New: Build Together block ensures every student has a GitHub repo, a journal entry, and an active Collection.**
 - **Session 6 (next):** Domain shift — what happens when a model leaves its training world. The breakthrough: "train on everything."

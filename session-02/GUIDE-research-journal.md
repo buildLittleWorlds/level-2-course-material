@@ -186,4 +186,4 @@ When you write "Why I Think This Happened" in your journal, these datasets give 
 
 ---
 
-AI + Research Level 2 • Session 2: Not All Feelings Are the Same
+AI + Research Level 2 • Session 2: Data Collection and Representation

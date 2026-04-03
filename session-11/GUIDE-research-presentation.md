@@ -98,4 +98,4 @@ Before demo day, make sure you have these ready:
 
 ---
 
-AI + Research Level 2 • Session 11: Iterate and Polish
+AI + Research Level 2 • Session 11: Iteration, Testing, and Refinement

@@ -146,4 +146,4 @@ The best way to learn Markdown is to write in it. Your research journal gives yo
 
 ---
 
-AI + Research Level 2 • Session 2: Not All Feelings Are the Same
+AI + Research Level 2 • Session 2: Data Collection and Representation

@@ -1,4 +1,5 @@
-# Session 10: Build Your Own from Scratch
+# Session 10: System Integration — Independent Build
+*"Build Your Own from Scratch"*
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-10/notebook.ipynb)
 

@@ -1,6 +1,6 @@
 # Between Sessions 6 & 7
 
-This week's homework has three parts: a challenge using your Collection, a research journal entry, and GitHub uploads. Plan for about 1-2 hours total.
+**You already started this work in class tonight.** You wrote a journal entry about domain shift, confirmed your Space is running, and shared your portfolio with a partner. This week's homework is about finishing what you started and going deeper on your own. Plan for about 1 hour total — less if you got a lot done during the session.
 
 ---
 
@@ -49,12 +49,12 @@ Next session, be ready to share: what domain did you test, and what did the mode
 
 ## Part 2: Research Journal Entry
 
-Add your Week 6 entry to `research-journal.md` in your GitHub repo. Same format as last week — 300-500 words.
+You started your Week 6 entry in class tonight. Open `research-journal.md` in your GitHub repo and finish it — polish what you wrote, fill in any sections you skipped, and aim for 300-500 words total.
 
 ### Week 6 Entry
 
 ```markdown
-## Week 6 — Same Space, Different Worlds
+## Week 6 — Model Evaluation and Generalization
 
 ### This Week's Method
 (What research method did we learn? Hint: cross-domain testing — taking a model out of its training domain to see if it generalizes.)
@@ -180,4 +180,4 @@ Your finding that "all models struggled with highly conceptual/complicated promp
 
 ---
 
-AI + Research Level 2 • Session 6: Same Space, Different Worlds
+AI + Research Level 2 • Session 6: Model Evaluation and Generalization

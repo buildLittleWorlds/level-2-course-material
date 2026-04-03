@@ -49,4 +49,4 @@ Browse a few rows from each. The differences between these datasets are the reas
 
 ---
 
-AI + Research Level 2 • Session 2: Not All Feelings Are the Same
+AI + Research Level 2 • Session 2: Data Collection and Representation

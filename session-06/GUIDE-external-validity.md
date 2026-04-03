@@ -73,4 +73,4 @@ The "Apply It to Your Own Topic" section above gives the general method. Here's 
 
 ---
 
-AI + Research Level 2 • Session 6: Same Space, Different Worlds
+AI + Research Level 2 • Session 6: Model Evaluation and Generalization

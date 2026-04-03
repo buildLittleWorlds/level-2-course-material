@@ -69,4 +69,4 @@ How do you build a dataset for detecting bias? Someone had to read every example
 
 ---
 
-AI + Research Level 2 • Session 7: Who Gets Hurt?
+AI + Research Level 2 • Session 7: Bias, Variance, and Uncertainty

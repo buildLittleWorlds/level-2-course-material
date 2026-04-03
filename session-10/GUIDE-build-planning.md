@@ -98,4 +98,4 @@ Notice: the question came from the journal, the model came from the Collection, 
 
 ---
 
-AI + Research Level 2 • Session 10: Build Your Own from Scratch
+AI + Research Level 2 • Session 10: System Integration — Independent Build

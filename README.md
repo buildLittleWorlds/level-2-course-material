@@ -1,6 +1,6 @@
-# Roots: Iterative Space Building
+# AI + Research Level 2: Applied Machine Learning Concepts
 
-A 12-session course where students build, break, and redesign AI tools on Hugging Face Spaces. Each session introduces a new ML concept through hands-on building, and a research method students apply to their own investigations between sessions.
+A 12-session applied ML course for grades 7–11. Students learn machine learning concepts — from rules vs. models and data representation through supervised learning, model evaluation, bias detection, and multi-model systems — by building, testing, and iterating AI tools on Hugging Face Spaces. Each session pairs a core ML concept with a formal research method students apply to their own investigations between sessions.
 
 Students maintain a **HF Collection** (curated models and Spaces), a **Research Journal** (weekly entries documenting their investigations), and a **GitHub portfolio** of notebooks and code.
 
@@ -8,18 +8,18 @@ Students maintain a **HF Collection** (curated models and Spaces), a **Research 
 
 | # | Session | Notebook |
 |---|---------|----------|
-| 01 | Can a Computer Tell How You Feel? | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-01/notebook.ipynb) |
-| 02 | Not All Feelings Are the Same | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-02/notebook.ipynb) |
-| 03 | When Sarcasm Breaks Everything | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-03/notebook.ipynb) |
-| 04 | Sentiment Showdown | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-04/notebook.ipynb) |
-| 05 | Text Playground | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-05/notebook.ipynb) |
-| 06 | Domain Safari | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-06/notebook.ipynb) |
-| 07 | Who Gets Hurt? | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-07/notebook.ipynb) |
-| 08 | Chain Two Models Together | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-08/notebook.ipynb) |
-| 09 | Make It Actually Useful | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-09/notebook.ipynb) |
-| 10 | Build Your Own from Scratch | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-10/notebook.ipynb) |
-| 11 | Iterate and Polish | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-11/notebook.ipynb) |
-| 12 | Demo Day | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-12/notebook.ipynb) |
+| 01 | From Rules to Models | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-01/notebook.ipynb) |
+| 02 | Data Collection and Representation | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-02/notebook.ipynb) |
+| 03 | Data Cleaning and Feature Engineering | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-03/notebook.ipynb) |
+| 04 | Introduction to Supervised Learning | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-04/notebook.ipynb) |
+| 05 | Model Training and Parameters | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-05/notebook.ipynb) |
+| 06 | Model Evaluation and Generalization | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-06/notebook.ipynb) |
+| 07 | Bias, Variance, and Uncertainty | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-07/notebook.ipynb) |
+| 08 | From Single Models to Systems | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-08/notebook.ipynb) |
+| 09 | Prompt Logic and Human-AI Interaction | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-09/notebook.ipynb) |
+| 10 | System Integration — Independent Build | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-10/notebook.ipynb) |
+| 11 | Iteration, Testing, and Refinement | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-11/notebook.ipynb) |
+| 12 | Methodological Reflection and Portfolio Presentation | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-12/notebook.ipynb) |
 
 ## Explorer Notebooks (Optional Between-Session)
 

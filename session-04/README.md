@@ -1,4 +1,5 @@
-# Session 4: What If AI Could Create?
+# Session 4: Introduction to Supervised Learning — Classification vs. Generation
+*"What If AI Could Create?"*
 
 [![Open Notebook in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-04/notebook.ipynb)
 [![Open Explorer in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-04/explorer.ipynb)

@@ -1,4 +1,5 @@
-# Session 5: Add Controls
+# Session 5: Model Training and Parameters
+*"Add Controls"*
 
 [![Open Notebook in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-05/notebook.ipynb)
 [![Open Explorer in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-05/explorer.ipynb)

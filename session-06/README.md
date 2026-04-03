@@ -1,4 +1,5 @@
-# Session 6: Same Space, Different Worlds
+# Session 6: Model Evaluation and Generalization
+*"Same Space, Different Worlds"*
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-06/notebook.ipynb)
 

@@ -73,4 +73,4 @@ The "Apply It to Your Own Topic" section above gives the general method. Here's 
 
 ---
 
-AI + Research Level 2 • Session 5: Add Controls
+AI + Research Level 2 • Session 5: Model Training and Parameters

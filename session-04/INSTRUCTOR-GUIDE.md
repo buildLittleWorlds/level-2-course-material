@@ -1,4 +1,5 @@
-# Session 4: What If AI Could Create? — Instructor Guide
+# Session 4: Introduction to Supervised Learning — Classification vs. Generation
+*Student-Facing Title: "What If AI Could Create?"*
 
 ## Concept: CLASSIFICATION VS. GENERATION
 

@@ -1,6 +1,6 @@
 # Between Sessions 11 & 12
 
-This week's homework has three parts: final polish, a research journal entry, and portfolio prep. Plan for about 1-2 hours total. This is the last between-session — Demo Day is next.
+This week's homework has three parts: final polish, a research journal entry, and portfolio prep. Plan for about 1-2 hours total. This is the last between-session — our Methodological Reflection and Portfolio Presentation session (Demo Day) is next.
 
 ---
 
@@ -54,7 +54,7 @@ You'll have 5-7 minutes. Practice out loud — to yourself, a parent, a sibling,
 
 ### Looking Ahead
 
-Next session is Demo Day — our final session. You're presenting a research journey, not just a Space. Think about this as you practice: how does your project connect to the bigger story we've been telling all semester? Which concepts from the course — adversarial testing, the fork, hyperparameters, domain shift, bias, pipelines, prompt engineering, task design, the experimentation loop — showed up in your work? That connection is what turns a demo into a research presentation.
+Next session is Demo Day — our Methodological Reflection and Portfolio Presentation session — our final session. You're presenting a research journey, not just a Space. Think about this as you practice: how does your project connect to the bigger story we've been telling all semester? Which concepts from the course — adversarial testing, the fork, hyperparameters, domain shift, bias, pipelines, prompt engineering, task design, the experimentation loop — showed up in your work? That connection is what turns a demo into a research presentation.
 
 ### Bring It Back
 

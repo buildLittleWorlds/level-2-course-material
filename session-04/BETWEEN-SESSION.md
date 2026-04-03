@@ -108,4 +108,4 @@ Want to compare classification and generation in code? Open the Explorer noteboo
 
 ---
 
-AI + Research Level 2 · Session 4: What If AI Could Create?
+AI + Research Level 2 · Session 4: Introduction to Supervised Learning

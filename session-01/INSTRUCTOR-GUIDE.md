@@ -1,4 +1,5 @@
-# Session 1: Can a Computer Tell How You Feel?
+# Session 1: From Rules to Models
+*Student-Facing Title: "Can a Computer Tell How You Feel?"*
 
 **Concept:** INPUT → MODEL → OUTPUT
 **Space:** Mood Meter (pre-built demo)

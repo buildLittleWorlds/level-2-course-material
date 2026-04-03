@@ -100,4 +100,4 @@ Think about this: What would be different if the model had been trained on news 
 
 ---
 
-**AI + Research Level 2 • Session 3: What Models Can't Do**
+**AI + Research Level 2 • Session 3: Data Cleaning and Feature Engineering**

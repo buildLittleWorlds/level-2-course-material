@@ -1,4 +1,5 @@
-# Session 3: What Models Can't Do
+# Session 3: Data Cleaning and Feature Engineering
+*Student-Facing Title: "What Models Can't Do"*
 
 **Concept:** ADVERSARIAL TESTING AND THE LIMITS OF CLASSIFICATION
 **Spaces:** World Headlines (live build), News Sentiment Analyzer (pre-built), Zero-Shot News Analyzer (pre-built)

@@ -1,4 +1,5 @@
-# Session 12: Demo Day
+# Session 12: Methodological Reflection and Portfolio Presentation
+*Student-Facing Title: "Demo Day"*
 
 **Concept:** REFLECTION AND PORTFOLIO
 **Narrative role:** The payoff. Students present their research journeys and compile portfolios. This is the culmination of the entire three-act arc — the last thing students do in the course.

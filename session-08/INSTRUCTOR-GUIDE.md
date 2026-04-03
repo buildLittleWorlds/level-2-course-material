@@ -1,4 +1,5 @@
-# Session 8: Chain Two Models Together
+# Session 8: From Single Models to Systems
+*Student-Facing Title: "Chain Two Models Together"*
 
 **Concept:** MULTI-MODEL SYSTEMS AND ERROR CASCADES
 **Space:** Image Story Pipeline

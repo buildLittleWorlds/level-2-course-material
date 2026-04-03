@@ -1,6 +1,6 @@
 # Between Sessions 5 & 6
 
-This week's homework has three parts: a challenge using your Collection, a research journal entry, and GitHub uploads. Plan for about 1-2 hours total.
+**You already started this work in class tonight.** You set up your GitHub repo (or confirmed it exists), began a journal entry, and checked your Collection. This week's homework is about finishing what you started and pushing a little further. Plan for about 1 hour total — less if you got a lot done during the session.
 
 ---
 
@@ -44,7 +44,7 @@ Next session, be ready to share: what setting did you experiment with, and what 
 
 ## Part 2: Research Journal Entry
 
-Add your Week 5 entry to `research-journal.md` in your GitHub repo. Same format as last week — 300-500 words.
+You started your Week 5 entry in class tonight. Open `research-journal.md` in your GitHub repo and finish it — polish what you wrote, fill in any sections you skipped, and aim for 300-500 words total.
 
 ### Week 5 Entry
 
@@ -181,4 +181,4 @@ Your comparative analysis of Stable Diffusion v1.5, DALL-E Mini, and SDXL is alr
 
 ---
 
-AI + Research Level 2 • Session 5: Add Controls
+AI + Research Level 2 • Session 5: Model Training and Parameters

@@ -1,4 +1,5 @@
-# Session 2: Not All Feelings Are the Same
+# Session 2: Data Collection and Representation
+*Student-Facing Title: "Not All Feelings Are the Same"*
 
 **Concept:** TRAINING DATA AND REPRESENTATION
 **Spaces used this session:** Emoji Mood Translator (28 emotions) and Headline Mood Dashboard (7 emotions) for live comparison; Emotion Spectrum (session notebook) for 3-model side-by-side

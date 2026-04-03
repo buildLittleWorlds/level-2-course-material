@@ -110,4 +110,4 @@ These are the models we're using in class. For your own Collection, search the H
 
 ---
 
-AI + Research Level 2 • Session 2: Not All Feelings Are the Same
+AI + Research Level 2 • Session 2: Data Collection and Representation

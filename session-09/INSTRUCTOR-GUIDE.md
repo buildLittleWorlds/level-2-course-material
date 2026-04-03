@@ -1,4 +1,5 @@
-# Session 9 — Make It Actually Useful
+# Session 9: Prompt Logic and Human-AI Interaction
+*Student-Facing Title: "Make It Actually Useful"*
 
 ## Concept: PROMPT ENGINEERING AND HUMAN-AI INTERACTION
 

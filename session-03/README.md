@@ -1,4 +1,5 @@
-# Session 3: What Models Can't Do
+# Session 3: Data Cleaning and Feature Engineering
+*"What Models Can't Do"*
 
 [![Open Notebook in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-03/notebook.ipynb)
 [![Open Explorer in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-03/explorer.ipynb)

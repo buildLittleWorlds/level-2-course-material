@@ -50,4 +50,4 @@ This is the real data your tool would process. If the training data looks nothin
 
 ---
 
-AI + Research Level 2 • Session 9: Make It Actually Useful
+AI + Research Level 2 • Session 9: Prompt Logic and Human-AI Interaction

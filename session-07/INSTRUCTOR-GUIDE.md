@@ -1,4 +1,5 @@
-# Session 7: Who Gets Hurt? — Instructor Guide
+# Session 7: Bias, Variance, and Uncertainty
+*Student-Facing Title: "Who Gets Hurt?"*
 
 ## Concept: BIAS IN AI
 
