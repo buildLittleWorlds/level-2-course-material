@@ -221,12 +221,12 @@ You probably noticed: the text your Space generates isn't great. It's choppy, re
 Our model, `distilgpt2`, has **82 million parameters** (the numbers the model learned during training). That sounds like a lot, but compare it to what you're used to:
 
 | Model | Parameters | How it writes |
-|-------|-----------|---------------|
+| :--- | :--- | :--- |
 | **distilgpt2** (what we're running) | 82 million | Choppy, repetitive, often doesn't make sense |
 | GPT-2 (the full version) | 1.5 billion | Better, but still clearly robotic |
 | Llama 3 (Meta's open model) | 8–70 billion | Good quality, sounds natural |
-| ChatGPT (GPT-4o) | Estimated hundreds of billions | Very good — what you're used to |
-| Claude (Opus 4.6) | Not publicly disclosed | Very good — comparable to ChatGPT |
+| GPT-5.4 (OpenAI's current flagship) | Not disclosed | Very good — what you're used to |
+| Claude Opus 4.6 (Anthropic) | Not disclosed | Very good — comparable to ChatGPT |
 
 The models you use every day are roughly **1,000 to 10,000 times larger** than what we're running. That's the difference.
 
@@ -234,41 +234,53 @@ The models you use every day are roughly **1,000 to 10,000 times larger** than w
 
 Our Spaces run on Hugging Face's **free CPU tier** — a regular computer processor with 16 GB of memory. That's enough for distilgpt2 (82M parameters), but a model like Llama 3 8B needs a **GPU** (a specialized chip designed for AI math) with much more memory.
 
-Here's what it costs to run bigger models on Hugging Face:
+### The Real Cost of Compute (April 2026)
+
+> The AI landscape moves fast. While the temperature and top-p sliders we're learning today work the same on every model, the "market rate" for running these models has real costs behind it.
+
+#### Option 1: Run the model yourself (GPU rental on Hugging Face Spaces)
+
+If we moved beyond the Free CPU tier to run larger models directly in a Space, we'd pay by the minute for GPU hardware:
 
 | Hardware | Cost | What it can run |
-|----------|------|-----------------|
+| :--- | :--- | :--- |
 | **Free CPU** (what we use) | $0/hour | distilgpt2, GPT-2, small classifiers |
-| **Nvidia T4 GPU** | ~$0.50/hour | Medium models (up to ~7B parameters) |
+| **Nvidia T4 GPU** | $0.40–0.60/hour | Medium models (up to ~7B parameters) |
+| **Nvidia L4 GPU** | $0.80–3.80/hour | The current sweet spot for speed and memory |
 | **Nvidia A10G GPU** | ~$1.00/hour | Large models (up to ~13B parameters) |
-| **Nvidia A100 GPU** | ~$4.00/hour | Very large models (70B+ parameters) |
+| **Nvidia A100 GPU** | $10–20/hour | Very large models, multi-GPU (70B+ parameters) |
 
-So running a model that writes as well as ChatGPT would cost **$1–4 per hour** just for the hardware. That's per Space — if all 8 of us ran one, that's $8–32/hour for the class.
+If all 8 of us ran a decent model on an L4 GPU, that's roughly **$6–30/hour for the class**. And you're paying every minute the Space is running, even when nobody is using it.
 
-### What about calling a model through an API?
+#### Option 2: Call someone else's model (API pricing)
 
-There's another option: instead of running the model yourself, you can **call someone else's model** over the internet (an API). This is how ChatGPT and Claude actually work — the model runs on their servers, and you just send text back and forth.
+Instead of renting hardware, you can **call a model over the internet** — send text in, get text back. This is how ChatGPT and Claude actually work. You pay per token (a token is roughly 3/4 of a word).
 
-Here's what the major APIs charge per million tokens (a token is roughly 3/4 of a word):
+Here's what the major APIs charge per million tokens as of April 2026:
 
-| API | Model | Input cost (per 1M tokens) | Output cost (per 1M tokens) |
-|-----|-------|---------------------------|----------------------------|
-| **OpenAI** | GPT-4o | ~$2.50 | ~$10.00 |
-| **OpenAI** | GPT-5 mini | $0.25 | $2.00 |
-| **Anthropic** | Claude Sonnet 4.6 | $3.00 | $15.00 |
-| **Anthropic** | Claude Haiku 4.5 | $1.00 | $5.00 |
-| **Hugging Face** | Mistral Medium 3 | $0.40 | $2.00 |
+| Tier | Model | Input (per 1M tokens) | Output (per 1M tokens) |
+| :--- | :--- | :--- | :--- |
+| **Flagship** | [GPT-5.4](https://openai.com/api/pricing/) (OpenAI) | $2.50 | $15.00 |
+| **Flagship** | [Claude Opus 4.6](https://platform.claude.com/docs/en/about-claude/pricing) (Anthropic) | $5.00 | $25.00 |
+| **Workhorse** | [Claude Sonnet 4.6](https://platform.claude.com/docs/en/about-claude/pricing) (Anthropic) | $3.00 | $15.00 |
+| **Workhorse** | [Mistral Large 3](https://docs.mistral.ai/deployment/ai-studio/pricing) | $2.00 | $6.00 |
+| **High Efficiency** | [GPT-4o mini](https://openai.com/api/pricing/) (OpenAI) | $0.15 | $0.60 |
+| **High Efficiency** | [Mistral Small 3.1](https://docs.mistral.ai/deployment/ai-studio/pricing) | $0.20 | $0.60 |
+| **Budget** | [Claude Haiku 4.5](https://platform.claude.com/docs/en/about-claude/pricing) (Anthropic) | $1.00 | $5.00 |
+| **Budget** | [GPT-5 mini](https://openai.com/api/pricing/) (OpenAI) | $0.25 | $2.00 |
 
-A million tokens is a lot of text — roughly 750,000 words, or about 10 novels. For what we do in class (maybe 50–100 short generations per student), the cost would be **a few cents per session**. That's cheap! But it adds up if you're building a product that thousands of people use.
+A million tokens is roughly 750,000 words — about 10 novels. For what we do in class (maybe 50–100 short generations per student), the cost would be **a few cents per session**. That's cheap! But it adds up fast when you're building a product that thousands of people use.
 
-### The real cost of ChatGPT
+#### The bottom line: why AI companies raise billions
 
 When you use ChatGPT for free, OpenAI is paying for the compute. Estimates suggest each conversation costs them **$0.01–0.10** depending on length. Multiply that by hundreds of millions of users, and OpenAI spends **billions of dollars per year** on compute — mostly renting massive GPU clusters.
 
 That's why:
 - ChatGPT Plus costs $20/month (they're trying to cover costs)
 - Free tiers have usage limits (they can't afford unlimited compute for everyone)
-- AI companies raise billions in funding (much of it goes to buying GPUs)
+- AI companies raise billions in funding (much of it goes straight to buying GPUs)
+
+The **compute paradox**: running a dedicated GPU instance for your own "private" model (like our Spaces) is still expensive — you're paying for hardware whether anyone is using it or not. The shared "pay-as-you-go" API model is cheaper per query because the provider spreads the hardware cost across millions of users. That's the business model behind every AI company.
 
 ### So what's the point of our tiny model?
 
