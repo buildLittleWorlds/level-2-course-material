@@ -1,184 +1,93 @@
 # Between Sessions 5 & 6
 
-**You already started this work in class tonight.** You set up your GitHub repo (or confirmed it exists), began a journal entry, and checked your Collection. This week's homework is about finishing what you started and pushing a little further. Plan for about 1 hour total — less if you got a lot done during the session.
+**You built something tonight.** Whether it's the text generator, the summarizer, or a duplicate you customized — you have a working Space on Hugging Face. This week's homework is about making it yours and getting ready for next session, where we'll test what happens when models leave their comfort zone. Plan for about 1 hour total.
 
 ---
 
-## Part 1: Hub Challenge — Experiment with Settings
+## Part 1: Get Your Space Working (20 min)
 
-In class we did a **parameter sweep** — systematically changing one variable while holding others constant. That's **experimental design** — the foundation of any controlled experiment.
+**Priority one: you need a running Space.** If you deployed one in class and it's working, great — skip to customizing it. If it's erroring out or you didn't finish, do this now:
 
-Now apply that same method to **your own interest**.
+1. Go to huggingface.co and sign in
+2. Open the Space you started in class (or duplicate `profplate/text-playground` or `profplate/quick-summarizer`)
+3. Check `app.py` and `requirements.txt` — compare with the working code in the session materials
+4. Fix any errors and commit
+5. Wait for it to build. If it says RUNNING, you're good.
 
-### Option A: Stay with Text Generation
+**Then customize it:**
+- Change the title and description to match your interest
+- Change the example prompts to topics you care about
+- If it's the text generator, try different default temperature/top-p settings
+- If it's the summarizer, try different max/min length defaults
+- Commit your changes
 
-1. Duplicate the Text Playground Space to your own Hugging Face profile
-2. Pick **2 or 3 different writing tasks** (scary story, formal email, poem, news report — or invent your own)
-3. For each task, experiment with the sliders. Change **one slider at a time** and note what happens
-4. Write down your "settings recipe card" for each task: what temperature, top-p, and max length worked best?
-5. **Add the Space to your Collection** with a tasting note describing what settings work for what tasks
+## Part 2: Test It on Something Unexpected (15 min)
 
-### Option B: Explore Your Own Topic
+This is a preview of next session's concept. Try feeding your Space text from a domain it wasn't designed for:
 
-1. Find a model or Space from your Collection that has **adjustable settings** — sliders, dropdowns, parameter controls of any kind
-2. If your topic doesn't have obvious sliders, look for models on the Hub that do (image generators have guidance scale, translation models have beam width, etc.)
-3. Pick one setting and **sweep it** — try low, medium, and high values on the same input
-4. Document what changes: does higher always mean better? Where's the sweet spot?
-5. **Update your Collection** — add a tasting note describing the parameter and what it controls
+- If you have the **text generator**: try prompts from different worlds — medical text, legal language, poetry, game dialogue, recipe instructions. Does the quality change depending on the domain?
+- If you have the **summarizer**: paste in a poem, a legal paragraph, song lyrics, or a recipe. Does the summary make sense, or does it fall apart?
 
-The key idea is the same either way: **changing one variable at a time while holding everything else constant is how you learn what each control actually does.** You saw it with temperature tonight. Now try it with whatever settings your topic offers.
+**Write down one example that surprised you.** Bring it to next session — we'll use it.
 
-### What to Notice
+## Part 3: Research Journal Entry (15 min)
 
-- Does the same setting work for all tasks, or do different tasks need different settings?
-- Is there a "sweet spot" where the output is both creative and coherent?
-- What happens at the extremes (very low or very high)?
+Open `research-journal.md` in your GitHub repo and add your Week 5 entry. If you don't have a GitHub repo yet, create one now — go to github.com, click New Repository, name it `my-ai-portfolio`, and create a file called `research-journal.md`.
 
-### Bring It Back
-
-Next session, be ready to share: what setting did you experiment with, and what did you learn?
-
-**Looking ahead:** We've seen what generation can do — and now we know how to control it. But our model was trained on web text. What happens when you feed it something from a world it's never seen? Next session, we'll discover what happens when a model leaves its comfort zone — and why that wall led to the biggest breakthrough in AI.
-
----
-
-## Part 2: Research Journal Entry
-
-You started your Week 5 entry in class tonight. Open `research-journal.md` in your GitHub repo and finish it — polish what you wrote, fill in any sections you skipped, and aim for 300-500 words total.
-
-### Week 5 Entry
+### Week 5 Entry Template
 
 ```markdown
-## Week 5 — Parameter Sweeps and Experimental Design
+## Week 5 — Add Controls
 
-### This Week's Method
-(What research method did we learn? Hint: parameter sweep — changing one variable at a time while holding others constant.)
+### What I Built
+(Which Space did you build or customize? What does it do?)
 
-### How I Applied It
-(What model or Space did you experiment with? What setting did you sweep? What values did you try?)
+### The Controls
+(What hyperparameters does your Space have? What do they change about the output?)
 
-### What I Expected
-(Before testing — what did you think would happen as you changed the setting?)
+### What I Tried
+(What settings did you experiment with? What happened at the extremes?)
 
-### What I Found
-(What actually happened? Was there a sweet spot? What happened at the extremes?)
-
-### Why I Think This Happened
-(Your explanation. Connect it to how the model works, what the parameter controls, etc.)
-
-### Limitations
-(What couldn't you test? Would a different model respond differently to the same parameter changes?)
+### What Surprised Me
+(Was there a moment where the output changed in a way you didn't expect?)
 
 ### What I Want to Try Next
-(Are you circling a topic? What question keeps coming up in your explorations?)
+(What would make your Space more useful? What question is forming in your mind?)
 ```
 
-If you're not sure what to write, start with: describe what you changed, what stayed the same, and what surprised you. That's the core of experimental design.
+## Part 4: Collection + GitHub (10 min)
 
----
-
-## Part 3: Grow Your Collection + GitHub
-
-### Collection
-
-Your Collection should have at least **7 models and 5 Spaces** by Session 6. For new items, include tasting notes — especially note any adjustable settings you discovered.
-
-### Notebook
-
-Finish the experiments in the Session 5 notebook:
-- Fill in the "settings recipe cards" table with your best settings for each task
-- Try Experiment 2 (same settings, different prompts) and Experiment 3 (extreme settings)
-- Write down any surprising results
-
-### SpaceCraft Resource
-
-This week you learned **Parameter Sweep** — changing one setting at a time while holding everything else constant. SpaceCraft has a dedicated page for this method with steps, examples on TTS Spaces, and an exercise: [Parameter Sweep method card](https://buildlittleworlds.github.io/spaceCraft/methods/parameter-sweep.html)
-
-### GitHub
-
-Upload this week's notebook to your `my-ai-portfolio` repo:
-
-1. Go to your repo on github.com
-2. Click **Add file** → **Upload files**
-3. Drag the `.ipynb` file and click **Commit changes**
-4. Open `research-journal.md`, click the pencil icon to edit, add your Week 5 entry below the Week 4 entry, and commit
-
-### Explorer Notebook (Optional)
-
-Want to apply this week's method in code? Open the Explorer notebook — it lets you sweep temperature and top-p on a text generation model (or swap in your own), recording how output changes as you isolate one variable at a time. Your results can feed directly into your Research Journal entry.
-
-[![Open Explorer in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-05/explorer.ipynb)
+- **Collection:** Add your new Space to your Hugging Face Collection. Include a tasting note describing what it does and what controls it has. Target: 7 models and 5 Spaces by Session 6.
+- **GitHub:** Upload the Session 5 notebook to your `my-ai-portfolio` repo and commit your journal entry.
 
 ---
 
 ## Your Personal Challenge
 
-The homework above applies to everyone. Below is a challenge tailored to **your** specific project and interests — a way to connect this week's method (parameter sweep / experimental design) to the work you're already building.
-
----
-
 ### Annabelle
-
-Your annotations in your Model Collection — "works but I don't think it's very useful for me" vs. "very useful! basically on par with ChatGPT" — are already an informal parameter sweep. You evaluated models by changing one variable (the model) and comparing outputs. This week, make that process more deliberate.
-
-**Your challenge:** Pick one of your broken spaces (Silly Phrase Finder or Dictionary). Before you debug it, open the Text Playground and try running prompts similar to what your space is supposed to generate — silly phrases, dictionary-style definitions — at different temperature and top-p settings. Write down which settings produce the kind of output your space is going for. Understanding the controls might help you see what went wrong in the build, and it gives you something concrete to write about in your journal. Your collection annotations already show you have the instincts for this kind of evaluative writing — now apply them to a controlled experiment.
-
----
+You build fast — that's a real strength. This week, pick ONE of your Spaces (Dino Fact Explorers, Silly Phrase Finder, or the text generator from tonight) and make it fully yours. Change the title, the description, the examples. Write a journal entry about what you changed and why. One polished Space is worth more than four half-finished ones.
 
 ### Bobby
-
-Your journal entry testing Qwen3-Coder-WebDev already uses structured evaluation — you checked buttons, links, and dynamic content and rated it "Multi-Functional." That's a parameter sweep in spirit. This week, formalize it: one variable at a time, everything else held constant.
-
-**Your challenge:** Go back to one of your generative AI tools — image generation, 3D models, or website generation — and see if it exposes parameter controls (guidance scale, inference steps, style strength, etc.). If it does, run a systematic sweep: same prompt, one setting changed at a time. Document it in your journal the way you documented the Qwen3-Coder testing. You noticed that HunYuan reinterpreted your "monster chicken" prompt into something else — that's partly about how the model's generation parameters handled an unusual input. These are the same kind of controls we explored tonight.
-
----
+Your game development background is perfect for the text generator. Change the example prompts to game narrative — character dialogue, item descriptions, quest introductions. Experiment with temperature: what setting produces the best game writing? Write up your "settings recipe" in your journal.
 
 ### Chengry
-
-Your DxAI project uses the Claude API, which has its own set of parameters — temperature, max tokens, system prompts. Tonight's session makes those choices explicit. Every API call you've been making has these controls built in, whether you've been tuning them or not.
-
-**Your challenge:** Once you get DxAI back online (debugging those dependencies is still priority one), experiment with the Claude API's temperature setting for diagnostic outputs. How do different temperature values change the quality and safety of medical AI responses? A low-temperature response might be more reliable but miss edge cases; a high-temperature response might surface more possibilities but include noise. Write a journal entry about that tradeoff. The intersection of parameter control and medical ethics is something most people in AI don't think about carefully enough — you're in a great position to.
-
----
+Your DxAI project is ambitious and important. This week, focus on getting it running — the runtime error is likely a missing dependency in `requirements.txt`. If you get stuck, bring the error message to next session. Also try the summarizer with medical text — paste in a clinical case description and see what the summary captures vs. what it misses. That's directly relevant to your project.
 
 ### Emily
-
-The spaces in your collection — news recommendation, summarization, deadline tracking — all have parameters under the hood that control how they filter and present information. Tonight's session gives you hands-on experience with those kinds of controls.
-
-**Your challenge:** Duplicate the Text Playground on Hugging Face. Change the example prompts to topics you care about — news summaries, research descriptions, anything from the information management space you've been exploring. Even just swapping the prompts and experimenting with the sliders would give you something concrete to write about in your first journal entry. The Text Playground is simple — three sliders and a text box — but it shows you how small changes in settings completely change what a model produces. That's the same principle behind the recommendation and summarization tools in your collection.
-
----
+Tonight was your launchpad. If you duplicated the summarizer, customize it: change the title to something related to news or research, swap the examples for news articles that interest you. Getting this Space running and personalized is your main goal this week. Then create your GitHub repo and write your first journal entry about what you built.
 
 ### George
-
-You jumped into building spaces fast — Trial and Dictionary both went up the same day, which shows great initiative. Tonight's session is about understanding the controls inside those tools.
-
-**Your challenge:** Think about your medical AI interests. If you were building an injury prediction tool (like the one in your collection), would you want high temperature or low temperature? Write a short paragraph about why — consider that medical tools need to be reliable, not randomly creative. That paragraph could be the start of your GitHub journal, and it connects your interests directly to what we learned tonight. Then, if you have time, try the Text Playground with medical-style prompts ("The patient presents with...") and see how different temperature settings change the output. Is there a setting that feels right for medical text?
-
----
+Same as Emily — your main goal is a running, customized Space. If you went with the summarizer, try it on health articles. Write your first GitHub journal entry about what the summarizer did well and where it struggled with medical text. That observation connects directly to next session.
 
 ### Henry
-
-The LoRA adapter you collected — Qwen Image Edit with multiple camera angles — is one of the most interesting technical choices in the class. LoRA adapters are literally about controlling parameters: they adjust a small set of weights to customize a large model's behavior without changing the model itself.
-
-**Your challenge:** Go back to the Qwen Camera Angles space in your collection and see if it exposes any parameter controls (like guidance scale or inference steps). If it does, try a systematic sweep: same prompt, one setting changed. If it doesn't, write a short paragraph about what you think would change if you could control the "temperature" of an image generation model — would higher temperature give you wilder camera angles, or just noisier images? Either way, that's content for your GitHub repo. The connection between tonight's text generation controls and the LoRA adapter in your collection is direct: both are about adjusting how a model behaves without changing what it knows.
-
----
+You've been a thoughtful curator — your collection shows good taste. This week, become a builder. Make sure you have a running Space (duplicate one from class if needed). Try the text generator with news-style prompts at different temperature settings. Start your journal entry about what controls you discovered.
 
 ### Sevilla
-
-Your comparative testing of emotion detection models — finding that BLIP-based models struggle with cartoonish images while color-based models are more reliable — is exactly the kind of systematic evaluation we formalized tonight. You isolated a variable (image style) and observed how different models responded. That's a parameter sweep.
-
-**Your challenge:** Take one of the emotion detection tools from your Spaces on Emotions collection and see if it exposes any adjustable parameters — a sensitivity threshold, a confidence cutoff, a classification boundary. If it does, sweep it: same input, one parameter changed. If it doesn't, try the Text Playground with emotionally charged prompts at different temperatures. Does a high-temperature model produce more emotionally varied text? Does low temperature flatten emotional nuance? Write about it in your journal, building on your strong Week 2 entry. You already have the methodology — this week adds the formal vocabulary.
-
----
+Your emotion detection work and the text generator are natural partners. Try feeding emotionally charged prompts into the generator at different temperatures. Does high temperature produce more emotionally varied text? Does low temperature flatten the emotional range? That's a parameter sweep applied to your specific interest — perfect journal material.
 
 ### Shawn
-
-Your comparative analysis of Stable Diffusion v1.5, DALL-E Mini, and SDXL is already a parameter sweep in structure — you held the prompt constant and changed the model, then observed how outputs differed. Tonight we did the same thing but with finer-grained controls: keeping the model constant and changing its settings.
-
-**Your challenge:** Go back to your collection of 12 image generation models and see which ones expose adjustable parameters (guidance scale, inference steps, CFG scale, sampler type). Pick one model and try a systematic sweep: same prompt, one setting changed at a time. Compare the results the way you compared SD, DALL-E Mini, and SDXL in your journal — but this time the variable is the setting, not the model. You mentioned wanting to explore prompt engineering optimization; hyperparameters are the other half of that equation. The same prompt with different settings produces very different outputs, and understanding that interaction is where prompt engineering gets interesting.
+Your systematic comparison methodology is ideal for parameter sweeps. Pick one of tonight's Spaces and run a proper comparison: same prompt, one slider changed at a time, results documented in a table. This is what you already do with image generation models — same method, different medium. Write it up in your journal.
 
 ---
 
-AI + Research Level 2 • Session 5: Model Training and Parameters
+AI + Research Level 2 • Session 5: Add Controls

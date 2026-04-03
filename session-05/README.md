@@ -6,19 +6,20 @@
 
 ## What This Session Covers
 
-Session 4 built a text generator with no controls. Session 5 adds the controls: temperature, top-p, and max-length sliders. Students learn what hyperparameters are by systematically experimenting — cranking temperature to maximum, locking top-p to narrow ranges, and observing how each setting changes the output. The concept: Hyperparameters. The narrative connection: these are the same controls behind ChatGPT, Claude, and every generative AI tool. The Big Question: is creativity just controlled randomness?
+Session 4 built a text generator with no controls. Session 5 adds the controls — and builds a second generative Space. Students build a text generator with temperature, top-p, and max-length sliders, then build a summarizer with length controls. Two kinds of generation (creating from scratch vs. condensing), both with hyperparameters. Students duplicate, customize, and deploy their own Spaces. The concept: Hyperparameters — controls on model behavior at runtime. The narrative connection: these are the same controls behind ChatGPT, Claude, and every generative AI tool.
 
 ## Narrative Role
 
-This is the second session in Act II (The Breakthrough). Session 4 introduced the classification-to-generation fork. Session 5 puts students' hands on the controls. Session 6 will show what happens when a model leaves its training domain.
+This is the second session in Act II (The Breakthrough). Session 4 introduced the classification-to-generation fork. Session 5 puts students' hands on the controls and gets them building. Session 6 will show what happens when a model leaves its training domain.
 
 ## Session Resources
 
 - **slides.html** — presentation slides
 - **INSTRUCTOR-GUIDE.md** — full lesson plan with time breakdown
 - **app.py** — Text Playground Space (Gradio app with temperature/top-p/max-length sliders)
+- **summarizer.py** — Quick Summarizer Space (Gradio app with max/min-length sliders)
 - **requirements.txt** — Space dependencies
-- **notebook.ipynb** — Google Colab notebook for hands-on hyperparameter experiments
-- **explorer.ipynb** — extended Colab notebook for deeper exploration
+- **notebook.ipynb** — Google Colab notebook for hands-on hyperparameter experiments (optional)
+- **explorer.ipynb** — extended Colab notebook for deeper exploration (optional)
 - **GUIDE-parameter-sweep.md** — research method card: Parameter Sweep / Experimental Design
 - **BETWEEN-SESSION.md** — challenge and homework for between sessions

@@ -119,166 +119,111 @@
 </section>
 
 <!-- ========== TONIGHT'S GOAL ========== -->
+<section class="center-slide">
+  <h2>Tonight&rsquo;s Goal</h2>
+  <div class="concept-box" style="font-size:1.1em;">
+    Build <span class="highlight-yellow">two</span> generative Spaces with controls.<br>
+    Leave with your own running Space.
+  </div>
+  <p style="margin-top:1em; color:#9ca3af;">Text Generator + Summarizer &mdash; both with sliders you control.</p>
+</section>
+
+<!-- ========== CHECK-IN ========== -->
 <section>
-  <h2>Tonight's Goal</h2>
-  <p style="font-size:1.2em; text-align:center; margin:1em 0;">
-    Same model, same prompt &mdash; <span class="highlight-yellow">different output</span>.<br>
-    Control the chaos with sliders.
+  <h2>Check-In</h2>
+  <div class="observation-card" style="font-size:1.1em;">
+    Who has a working Space on Hugging Face?<br>
+    Who got stuck?
+  </div>
+  <p class="fragment" style="margin-top:1em; color:#9ca3af;">
+    No judgment &mdash; we fix things tonight.
   </p>
-  <div class="concept-box">
-    Text Playground
-  </div>
-  <p style="text-align:center; color:#9ca3af;">Type a prompt &rarr; adjust sliders &rarr; watch the AI write differently every time</p>
-</section>
-
-<!-- ========== SHOW AND TELL ========== -->
-<section>
-  <h2>Show-and-Tell</h2>
-  <div class="observation-card">
-    Last week's homework: find a classifier AND a generator, test them on the same input. What happened?
-  </div>
-  <div style="margin-top:1em;">
-    <div class="card">What did the <span class="highlight-blue">classifier</span> do?</div>
-    <div class="card">What did the <span class="highlight-pink">generator</span> do?</div>
-    <div class="card">Which was more useful &mdash; and for what?</div>
-  </div>
-</section>
-
-<!-- ========== SPACECRAFT ========== -->
-<section>
-  <h2>SpaceCraft Check-In</h2>
-  <p style="color:#9ca3af;">A leaderboard of the most impressive CPU-only HF Spaces &mdash; rated on resourcefulness, usefulness, and craft.</p>
-  <div class="observation-card" style="margin-top:1em;">
-    <strong>This week:</strong> I found a Space with adjustable parameters &mdash; a slider that changes everything.<br>
-    Watch what happens when I change this setting. That's a <span class="highlight-yellow">parameter sweep</span>.
-  </div>
-  <p class="fragment small" style="margin-top:0.8em;">Same model, same input, different settings &mdash; that's what we're about to build.</p>
 </section>
 
 <!-- ========== STORY SO FAR ========== -->
 <section>
   <h2>The Story So Far</h2>
   <div class="card" style="margin-bottom:0.5em;">
-    <span class="highlight-blue">Sessions 1&ndash;3:</span> Classification &mdash; sorting text into buckets. We hit the wall.
+    <span class="highlight-blue">Sessions 1&ndash;3:</span> Classification &mdash; sorting text into buckets.
   </div>
   <div class="card" style="margin-bottom:0.5em;">
-    <span class="highlight-green">Session 4:</span> The fork &mdash; we built a text <strong>generator</strong>. No controls.
+    <span class="highlight-green">Session 4:</span> The fork &mdash; we built a text <strong>generator</strong>. The model wrote whatever it wanted.
   </div>
   <div class="card" style="margin-bottom:0.5em;">
     <span class="highlight-yellow">Session 5 (tonight):</span> We add the controls.
   </div>
   <p class="fragment" style="margin-top:1em; font-size:1.05em;">
-    Right now, somewhere, a developer is setting <code>temperature=0.7</code> on an API call to Claude.<br>
-    <span class="highlight-yellow">That's this slider.</span>
+    Last week the model wrote whatever it wanted.<br>
+    <span class="highlight-yellow">Today we add controls.</span>
   </p>
 </section>
 
-<!-- ========== BIG QUESTION ========== -->
+<!-- ========== SPACECRAFT CHECK-IN ========== -->
 <section>
-  <section>
-    <h2>The Big Question</h2>
-    <div class="big-question" style="font-size:1.2em; margin-top:1em;">
-      Can a machine write something that makes you <em>feel</em>?
-    </div>
-  </section>
-
-  <section>
-    <h2>The Experiment</h2>
-    <div class="try-it">
-      <strong>Prompt:</strong> "The letter she never sent said"
-    </div>
-    <div class="two-col" style="margin-top:1em;">
-      <div class="card">
-        <strong class="highlight-blue">Temperature = 0.3</strong><br>
-        Flat, predictable, emotionally muted
-      </div>
-      <div class="card">
-        <strong class="highlight-pink">Temperature = 1.2</strong><br>
-        Chaotic, surprising, maybe accidentally moving
-      </div>
-    </div>
-    <p class="fragment" style="margin-top:0.8em; color:#f472b6;">
-      Did either one make you feel anything? Even a little?
-    </p>
-  </section>
-
-  <section>
-    <h2>Where Does Meaning Live?</h2>
-    <div class="observation-card" style="font-size:1.05em;">
-      If AI-generated text makes you feel something, does the machine deserve credit?
-    </div>
-    <p class="fragment" style="margin-top:1em;">
-      The machine doesn't feel anything. But <em>you</em> did.<br>
-      Does meaning live in the writer &mdash; or the reader?
-    </p>
-    <p class="fragment" style="color:#9ca3af; margin-top:0.8em;">
-      When you turn up temperature, you're literally adding randomness.<br>
-      Is creativity just <span class="highlight-yellow">controlled randomness</span>?
-    </p>
-  </section>
+  <h2>SpaceCraft Check-In</h2>
+  <p style="color:#9ca3af;">A CPU-only Space with adjustable controls &mdash; watch what happens when I change a setting.</p>
+  <div class="observation-card" style="margin-top:1em;">
+    <strong>This week:</strong> A Space with sliders that change everything.<br>
+    Same model, same input, different settings &mdash; different output.
+  </div>
+  <div class="try-it" style="margin-top:0.8em;">
+    <strong>SpaceCraft textbook:</strong> Chapter 5 &mdash; Build Your First Space
+  </div>
 </section>
 
 <!-- ========== THE HOOK ========== -->
 <section>
-  <section>
-    <h2>The Hook</h2>
-    <p>Same prompt. Same model. Watch.</p>
-    <div class="try-it" style="margin-top:1em;">
-      <strong>Prompt:</strong> "Once upon a time in a school where robots"
+  <h2>The Hook</h2>
+  <p>Same prompt. Same model. Watch.</p>
+  <div class="try-it" style="margin-top:1em;">
+    <strong>Prompt:</strong> "Once upon a time in a school where robots"
+  </div>
+  <div class="two-col" style="margin-top:1em;">
+    <div class="card">
+      <strong class="highlight-blue">Temperature = 0.1</strong><br>
+      Safe, predictable, boring
     </div>
-    <div class="two-col" style="margin-top:1em;">
-      <div class="card">
-        <strong class="highlight-blue">Temperature = 0.1</strong><br>
-        Safe, predictable, boring
-      </div>
-      <div class="card">
-        <strong class="highlight-pink">Temperature = 1.5</strong><br>
-        Wild, chaotic, surprising
-      </div>
+    <div class="card">
+      <strong class="highlight-pink">Temperature = 1.5</strong><br>
+      Wild, chaotic, surprising
     </div>
-    <p class="fragment" style="margin-top:1em; color:#fbbf24; font-size:1.1em;">
-      Nothing changed except one slider. Why is the output so different?
-    </p>
-  </section>
+  </div>
+  <p class="fragment" style="margin-top:1em; color:#fbbf24; font-size:1.1em;">
+    Same model. Same words. Different setting. Different world.
+  </p>
 </section>
 
-<!-- ========== BUILD: SETUP ========== -->
-<section>
-  <h2>Let's Add Controls</h2>
-  <p>Last week we built a text generator. Today we add sliders.</p>
-  <div class="card">
-    <strong>1.</strong> Create a new Space: <code>text-playground</code> (or duplicate last week's)
+<!-- ========== DEMO BUILD 1: TEXT GENERATOR ========== -->
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
+  <h2>Demo Build 1</h2>
+  <div class="concept-box">
+    Text Generator with Controls
   </div>
-  <div class="card">
-    <strong>2.</strong> Start from Session 4's code &mdash; the bare generator
-  </div>
-  <div class="card">
-    <strong>3.</strong> Add <span class="highlight-yellow">temperature</span>, <span class="highlight-pink">top-p</span>, and <span class="highlight-green">max-length</span> sliders
-  </div>
-  <div class="card">
-    <strong>4.</strong> Same model, same prompt &mdash; now <strong>you</strong> control the output
-  </div>
+  <p style="color:#9ca3af; margin-top:0.8em;">Follow along &mdash; we build this together.</p>
 </section>
 
-<!-- ========== BUILD: CODE ========== -->
+<!-- ========== CODE: LOAD THE MODEL ========== -->
 <section>
-  <section>
-    <h2>The Code: Load the Model</h2>
-    <pre><code class="language-python">from transformers import pipeline
+  <h2>Code Walkthrough: Load the Model</h2>
+  <pre><code class="language-python">from transformers import pipeline
 import gradio as gr
 
 print("Loading distilgpt2...")
-generator = pipeline("text-generation", model="distilgpt2")
+generator = pipeline(
+    "text-generation",
+    model="distilbert/distilgpt2"
+)
 print("Model loaded!")</code></pre>
-    <p style="margin-top:0.8em;">
-      <code class="highlight-yellow">distilgpt2</code> is a text generation model &mdash; ~80MB, fast on free CPU.<br>
-      <span class="small">It's tiny compared to ChatGPT, but the same controls work on both.</span>
-    </p>
-  </section>
+  <p style="margin-top:0.8em;">
+    <code class="highlight-yellow">distilgpt2</code> &mdash; ~80MB, fast on free CPU.<br>
+    <span class="small">Tiny compared to ChatGPT, but the same controls work on both.</span>
+  </p>
+</section>
 
-  <section>
-    <h2>The Code: Generate Function</h2>
-    <pre><code class="language-python">def generate_text(prompt, temperature, top_p, max_length):
+<!-- ========== CODE: ADD THE FUNCTION ========== -->
+<section>
+  <h2>Code Walkthrough: Add the Function</h2>
+  <pre><code class="language-python">def generate_text(prompt, temperature, top_p, max_length):
     if not prompt or not prompt.strip():
         return "Type a prompt above first!"
 
@@ -291,12 +236,16 @@ print("Model loaded!")</code></pre>
         num_return_sequences=1,
     )
     return result[0]["generated_text"]</code></pre>
-    <p>Three sliders feed into one function. Each one changes how the AI writes.</p>
-  </section>
+  <p style="margin-top:0.8em;">
+    Three sliders feed into one function.<br>
+    Each one changes <span class="highlight-yellow">how</span> the AI writes.
+  </p>
+</section>
 
-  <section>
-    <h2>The Code: Sliders</h2>
-    <pre><code class="language-python">demo = gr.Interface(
+<!-- ========== CODE: ADD THE SLIDERS ========== -->
+<section>
+  <h2>Code Walkthrough: Add the Sliders</h2>
+  <pre><code class="language-python">demo = gr.Interface(
     fn=generate_text,
     inputs=[
         gr.Textbox(lines=3, placeholder="Start your text here...",
@@ -310,116 +259,212 @@ print("Model loaded!")</code></pre>
     ],
     outputs=gr.Textbox(label="Generated Text", lines=10),
     title="Text Playground",
-)</code></pre>
-    <p><code>gr.Slider</code> &mdash; each one is a knob we hand to the user.</p>
-  </section>
+)
 
-  <section>
-    <h2>requirements.txt</h2>
-    <pre><code>transformers
-torch
-gradio</code></pre>
-    <p>Same three packages. Commit both files and watch it build.</p>
-  </section>
+demo.launch()</code></pre>
+  <p><code>gr.Slider</code> &mdash; each one is a knob we hand to the user.</p>
 </section>
 
-<!-- ========== SYSTEMATIC EXPERIMENTS ========== -->
+<!-- ========== CODE: REQUIREMENTS ========== -->
+<section>
+  <h2>Code Walkthrough: Requirements</h2>
+  <pre><code>transformers
+torch
+gradio</code></pre>
+  <p style="margin-top:1em;">
+    Three packages. Two files total: <code>app.py</code> + <code>requirements.txt</code>.
+  </p>
+  <p style="color:#9ca3af; margin-top:0.8em;">
+    Same setup as last week &mdash; nothing new to install.
+  </p>
+</section>
+
+<!-- ========== DEPLOY AND TEST ========== -->
+<section>
+  <h2>Deploy and Test</h2>
+  <div class="card">
+    <strong>1.</strong> Commit both files to your Space
+  </div>
+  <div class="card">
+    <strong>2.</strong> Wait for it to build <span class="small">(1&ndash;2 minutes on CPU)</span>
+  </div>
+  <div class="card">
+    <strong>3.</strong> Experiment with the sliders
+  </div>
+  <div class="observation-card" style="margin-top:1em;">
+    <strong>Rule:</strong> Change <span class="highlight-yellow">ONE</span> slider at a time.<br>
+    If you change two at once, you can&rsquo;t tell which one caused the change.
+  </div>
+</section>
+
+<!-- ========== YOUR TURN: WORK TIME 1 ========== -->
+<section>
+  <h2>YOUR TURN &mdash; Work Time 1</h2>
+  <div class="try-it" style="font-size:1.1em;">
+    Duplicate the Space. Make it yours.
+  </div>
+  <div style="margin-top:0.8em;">
+    <div class="card"><span class="highlight-blue">Bobby:</span> Game narrative prompts &mdash; "The warrior entered the dungeon and"</div>
+    <div class="card"><span class="highlight-pink">Annabelle:</span> Creative writing &mdash; "She opened the letter and read"</div>
+    <div class="card"><span class="highlight-green">Shawn:</span> Systematic comparison &mdash; try the same prompt at 5 different temperatures</div>
+    <div class="card"><span class="highlight-yellow">Emily:</span> News prompts &mdash; "Breaking news: scientists discovered"</div>
+    <div class="card"><span class="highlight-blue">Chengry / George:</span> Medical prompts &mdash; "The patient presented with"</div>
+  </div>
+</section>
+
+<!-- ========== DEMO BUILD 2: SUMMARIZER ========== -->
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
+  <h2>Demo Build 2</h2>
+  <div class="concept-box">
+    Summarizer
+  </div>
+  <p style="color:#9ca3af; margin-top:0.8em;">A different kind of generation.<br>This model doesn&rsquo;t create from scratch &mdash; it <span class="highlight-green">condenses</span>.</p>
+</section>
+
+<!-- ========== WHY THIS IS GENERATION ========== -->
+<section>
+  <h2>Why This Is Generation</h2>
+  <div class="two-col">
+    <div>
+      <div class="card">
+        <strong class="highlight-blue">Classification</strong><br>
+        Sorts into buckets
+      </div>
+      <div class="card">
+        <strong class="highlight-pink">Text Generator</strong><br>
+        Creates new text
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <strong class="highlight-green">Summarizer</strong><br>
+        Reads everything, writes shorter
+      </div>
+    </div>
+  </div>
+  <p class="fragment" style="margin-top:1em;">
+    All three are different &mdash; but the summarizer is <span class="highlight-green">generative</span>, not classification.<br>
+    <span class="small">It produces new text. It doesn&rsquo;t just pick a label.</span>
+  </p>
+</section>
+
+<!-- ========== CODE: SUMMARIZER ========== -->
 <section>
   <section>
-    <h2>Experiment Rules</h2>
-    <p style="font-size:1.1em;">Change <span class="highlight-yellow">ONE</span> slider at a time.</p>
-    <div class="observation-card">
-      "If you change two sliders at once, can you tell which one caused the change?"
-    </div>
-    <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
-      No &mdash; this is why scientists change one variable at a time.
+    <h2>Code Walkthrough: Summarizer</h2>
+    <pre><code class="language-python">from transformers import pipeline
+import gradio as gr
+
+print("Loading summarizer...")
+summarizer = pipeline(
+    "summarization",
+    model="sshleifer/distilbart-cnn-12-6"
+)
+print("Model loaded!")</code></pre>
+    <p style="margin-top:0.8em;">
+      <code class="highlight-green">distilbart-cnn-12-6</code> &mdash; trained on news articles.<br>
+      <span class="small">Fast enough for free CPU.</span>
     </p>
   </section>
 
   <section>
-    <h2>Experiment 1: Temperature</h2>
-    <div class="try-it">
-      <strong>Prompt:</strong> "The secret ingredient in the recipe was"
-    </div>
-    <div class="two-col" style="margin-top:0.8em;">
-      <div>
-        <div class="card"><strong>0.1</strong> &mdash; repetitive, safe</div>
-        <div class="card"><strong>0.5</strong> &mdash; sensible, focused</div>
-        <div class="card"><strong>0.7</strong> &mdash; balanced</div>
-      </div>
-      <div>
-        <div class="card"><strong>1.0</strong> &mdash; creative</div>
-        <div class="card"><strong>1.5</strong> &mdash; chaotic</div>
-        <div class="card"><strong>2.0</strong> &mdash; gibberish?</div>
-      </div>
-    </div>
+    <h2>Code: Summarizer Function + Interface</h2>
+    <pre><code class="language-python">def summarize(text, max_length, min_length):
+    if not text or not text.strip():
+        return "Paste some text above first!"
+
+    result = summarizer(
+        text,
+        max_length=int(max_length),
+        min_length=int(min_length),
+        do_sample=False,
+    )
+    return result[0]["summary_text"]
+
+demo = gr.Interface(
+    fn=summarize,
+    inputs=[
+        gr.Textbox(lines=10, placeholder="Paste a paragraph or article...",
+                   label="Text to Summarize"),
+        gr.Slider(minimum=30, maximum=200, value=130,
+                  step=10, label="Max Length"),
+        gr.Slider(minimum=10, maximum=100, value=30,
+                  step=10, label="Min Length"),
+    ],
+    outputs=gr.Textbox(label="Summary", lines=5),
+    title="Text Summarizer",
+)
+
+demo.launch()</code></pre>
   </section>
 
   <section>
-    <h2>Experiment 2: Top-p</h2>
-    <div class="try-it">
-      <strong>Same prompt, temperature fixed at 0.7</strong>
-    </div>
-    <div class="card" style="margin-top:0.8em;"><strong>Top-p = 0.1</strong> &mdash; only the top 1&ndash;3 most likely words considered</div>
-    <div class="card"><strong>Top-p = 0.5</strong> &mdash; moderate vocabulary</div>
-    <div class="card"><strong>Top-p = 0.9</strong> &mdash; most words in play</div>
-    <div class="card"><strong>Top-p = 1.0</strong> &mdash; everything is possible</div>
-  </section>
-
-  <section>
-    <h2>Experiment 3: Max Length</h2>
-    <div class="try-it">
-      <strong>Same prompt, same settings &mdash; change only length</strong>
-    </div>
-    <div class="card" style="margin-top:0.8em;"><strong>20 tokens</strong> &mdash; barely a sentence</div>
-    <div class="card"><strong>50 tokens</strong> &mdash; a short paragraph</div>
-    <div class="card"><strong>100 tokens</strong> &mdash; getting longer</div>
-    <div class="card"><strong>200 tokens</strong> &mdash; does it stay coherent?</div>
-    <p class="fragment" style="margin-top:0.5em; color:#f472b6;">Longer isn't always better. Models can lose the thread.</p>
+    <h2>Requirements</h2>
+    <pre><code>transformers
+torch
+gradio</code></pre>
+    <p style="margin-top:0.8em;">Same three packages. Same deploy process.</p>
   </section>
 </section>
 
-<!-- ========== THE GUITAR ANALOGY ========== -->
+<!-- ========== DEPLOY AND TEST SUMMARIZER ========== -->
 <section>
-  <h2>The Guitar Analogy</h2>
-  <div class="two-col">
+  <h2>Deploy and Test</h2>
+  <p>Try it on different kinds of text:</p>
+  <div class="card"><span class="highlight-green">News article</span> &mdash; this is what the model was trained on. Should work well.</div>
+  <div class="card"><span class="highlight-blue">Medical text</span> &mdash; different domain. What changes?</div>
+  <div class="card"><span class="highlight-pink">Game lore / fiction</span> &mdash; interesting. Does it preserve the story?</div>
+  <p class="fragment" style="margin-top:1em; color:#fbbf24;">
+    Same model, different input &mdash; notice what it handles well and what it doesn&rsquo;t.
+  </p>
+</section>
+
+<!-- ========== YOUR TURN: WORK TIME 2 ========== -->
+<section>
+  <h2>YOUR TURN &mdash; Work Time 2</h2>
+  <div class="try-it" style="font-size:1.1em;">
+    Keep building. Get help.<br>
+    Everyone should have a running Space by the end of tonight.
+  </div>
+  <div class="observation-card" style="margin-top:1em;">
+    <strong>Priority:</strong> <span class="highlight-yellow">Emily</span> and <span class="highlight-yellow">George</span> get their first Space deployed.<br>
+    Everyone else &mdash; customize, experiment, break things.
+  </div>
+  <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
+    Pick the Text Generator or the Summarizer &mdash; whichever interests you more.<br>
+    Bonus: deploy both.
+  </p>
+</section>
+
+<!-- ========== NAME THE CONCEPT: HYPERPARAMETERS ========== -->
+<section class="center-slide">
+  <h2>Name the Concept</h2>
+  <div class="concept-box" style="font-size:1.2em;">
+    <span class="highlight-yellow">HYPERPARAMETERS</span>
+  </div>
+  <p style="margin-top:1em; font-size:0.95em;">
+    <strong>Hyper</strong> = above. These sit <em>above</em> the model&rsquo;s learned weights.<br>
+    You control them at runtime.
+  </p>
+  <div class="two-col" style="margin-top:1em;">
     <div class="card" style="text-align:center;">
       <p style="font-size:1.8em;">🎸</p>
       <strong class="highlight-blue">The Guitar</strong><br>
       Wood, strings, shape<br>
-      <span class="small">= the model's weights (fixed)</span>
+      <span class="small">= the model&rsquo;s weights (fixed)</span>
     </div>
     <div class="card" style="text-align:center;">
       <p style="font-size:1.8em;">🎛</p>
-      <strong class="highlight-yellow">How You Play</strong><br>
-      How hard you strum, where you pick, capo position<br>
+      <strong class="highlight-yellow">The Amp Settings</strong><br>
+      Volume, gain, tone<br>
       <span class="small">= hyperparameters (you control these)</span>
     </div>
   </div>
-  <p class="fragment" style="margin-top:1em; text-align:center; color:#9ca3af;">
-    Same guitar, different sound &mdash; depending on how you play it.
-  </p>
 </section>
 
-<!-- ========== NAME THE CONCEPT ========== -->
-<section class="center-slide">
-  <h2>Name the Concept</h2>
-  <div class="concept-box" style="font-size:1.3em;">
-    same <span class="highlight-blue">MODEL</span>
-    + same <span class="highlight-green">PROMPT</span>
-    + different <span class="highlight-yellow">HYPERPARAMETERS</span><br>
-    <span class="arrow">&rarr;</span> different <span class="highlight-pink">OUTPUT</span>
-  </div>
-  <p class="fragment" style="margin-top:1em; font-size:0.95em;">
-    "Hyper" = above/beyond. These are parameters that sit <em>above</em> the model's learned weights.<br>
-    The model has millions of internal parameters we can't change.<br>
-    <span class="highlight-yellow">Hyperparameters</span> are the knobs <strong>we</strong> control.
-  </p>
-</section>
-
-<!-- ========== REAL-WORLD CONNECTION ========== -->
+<!-- ========== THE REAL-WORLD CONNECTION ========== -->
 <section>
-  <h2>Behind the Curtain</h2>
+  <h2>The Real-World Connection</h2>
   <div class="observation-card" style="font-size:1.05em;">
     Every AI tool you&rsquo;ve ever used has these same controls.
   </div>
@@ -433,39 +478,23 @@ gradio</code></pre>
     <strong>Image generators</strong> &mdash; guidance scale is the same idea
   </div>
   <p class="fragment" style="margin-top:1em; color:#fbbf24;">
-    Most products <em>hide</em> the sliders. Today you saw what&rsquo;s behind the curtain.
+    Most products <em>hide</em> the sliders. You just saw what&rsquo;s behind the curtain.
   </p>
 </section>
 
 <!-- ========== RESEARCH LENS ========== -->
 <section>
-  <h2>Research Lens</h2>
+  <h2>Research Lens: Parameter Sweep</h2>
   <div class="observation-card" style="font-size:1.05em;">
-    We did a <strong class="highlight-yellow">parameter sweep</strong> &mdash; systematically changing one variable while holding others constant. That's <strong class="highlight-blue">experimental design</strong>.
+    Changing one variable at a time &mdash; that&rsquo;s <span class="highlight-blue">experimental design</span>.
   </div>
-  <p class="fragment" style="margin-top:1em;">
-    In real research, you never change everything at once &mdash; because you can't tell what caused the change.
+  <p style="margin-top:1em;">
+    Same method scientists use. Hold everything constant, change one thing, observe the result.
   </p>
   <div class="fragment card" style="margin-top:0.8em;">
-    <strong>Research question:</strong> <em>How does temperature affect text generation quality for different writing tasks?</em>
+    <strong>You did this tonight:</strong> same prompt, same model, different temperature &rarr; different output.<br>
+    That&rsquo;s a <span class="highlight-yellow">parameter sweep</span>.
   </div>
-  <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
-    In class we applied <span class="highlight-yellow">experimental design</span> to text generation.<br>
-    For homework, apply the same method to <span class="highlight-green">your own topic</span>.
-  </p>
-</section>
-
-<!-- ========== BEST SETTINGS FOR THE JOB ========== -->
-<section>
-  <h2>Best Settings for the Job</h2>
-  <p>There's no single "best" setting. It depends on the task.</p>
-  <div class="card"><strong>Scary story opening</strong> &mdash; <span class="highlight-pink">high creativity</span>, medium length</div>
-  <div class="card"><strong>Formal email to a teacher</strong> &mdash; <span class="highlight-blue">low creativity</span>, controlled length</div>
-  <div class="card"><strong>Funny random story</strong> &mdash; <span class="highlight-pink">high creativity</span>, longer length</div>
-  <div class="card"><strong>News headline continuation</strong> &mdash; <span class="highlight-blue">low creativity</span>, short length</div>
-  <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
-    You're learning the <strong>universal remote</strong>, not just one TV.
-  </p>
 </section>
 
 <!-- ========== VOCABULARY ========== -->
@@ -478,83 +507,48 @@ gradio</code></pre>
     <span class="vocab-term">Top-p (nucleus sampling)</span> &mdash; limits which words the model considers; low = only top picks
   </div>
   <div class="card">
-    <span class="vocab-term">Max tokens</span> &mdash; how much text the model generates (tokens &asymp; words, roughly)
-  </div>
-  <div class="card">
-    <span class="vocab-term">Sampling</span> &mdash; the process of randomly picking the next word from a probability distribution
+    <span class="vocab-term">Max Length</span> &mdash; how much text the model generates (tokens &asymp; words, roughly)
   </div>
   <div class="card">
     <span class="vocab-term">Hyperparameter</span> &mdash; a setting we control at runtime (not learned during training)
   </div>
-</section>
-
-<!-- ========== NOTEBOOK TIME ========== -->
-<section>
-  <h2>Notebook Time</h2>
-  <p>Open today's notebook and run the first few cells together.</p>
-  <div class="try-it" style="margin-top:1em;">
-    <strong>Link in the Zoom chat!</strong>
+  <div class="card">
+    <span class="vocab-term">Parameter</span> &mdash; a value the model learned during training (we can&rsquo;t change these)
   </div>
-  <div class="card" style="margin-top:0.8em;">
-    <strong>1.</strong> Click the link &rarr; it opens in Google Colab<br>
-    <strong>2.</strong> Hit the <span class="highlight-yellow">play button &#9654;</span> on the first cell<br>
-    <strong>3.</strong> Run the setup cell, then try the experiments
+  <div class="card">
+    <span class="vocab-term">Summarization</span> &mdash; generating a shorter version of a longer text
   </div>
-  <div class="card" style="margin-top:0.5em;">
-    <strong>New skill:</strong> Change the slider values in the code and see different outputs!
-  </div>
-  <p class="small" style="margin-top:0.8em;">Finish the experiments on your own before next week</p>
-</section>
-
-<!-- ========== BETWEEN SESSIONS ========== -->
-<section>
-  <section>
-    <h2>Between Sessions</h2>
-    <p>Three parts this week. Plan for <span class="highlight-yellow">1&ndash;2 hours</span>.</p>
-    <div class="card" style="margin-top:0.8em;">
-      <strong class="highlight-green">Part 1: Hub Challenge</strong> &mdash; Experiment with settings on your own topic<br>
-      <strong class="highlight-blue">Part 2: Research Journal</strong> &mdash; Week 5 entry in <code>research-journal.md</code><br>
-      <strong class="highlight-pink">Part 3: Collection + GitHub</strong> &mdash; Grow your Collection, upload notebook
-    </div>
-  </section>
-
-  <section>
-    <h2>Part 1: Parameter Sweep</h2>
-    <div class="two-col">
-      <div class="card">
-        <strong class="highlight-yellow">Option A: Text Generation</strong><br>
-        Duplicate the Text Playground. Pick 2&ndash;3 writing tasks. Find the best settings for each. Write recipe cards.
-      </div>
-      <div class="card">
-        <strong class="highlight-green">Option B: Your Topic</strong><br>
-        Find a model/Space with adjustable settings. Sweep one parameter &mdash; try low, medium, high. Document what changes.
-      </div>
-    </div>
-    <div class="observation-card fragment" style="margin-top:0.8em;">
-      The key idea: <strong>change one variable at a time.</strong><br>
-      That's how you learn what each control actually does.
-    </div>
-  </section>
-
-  <section>
-    <h2>Parts 2 &amp; 3</h2>
-    <div class="card">
-      <strong class="highlight-blue">Research Journal (Week 5):</strong> Add your entry to <code>research-journal.md</code>. Write 300&ndash;500 words: what setting you experimented with, what happened, and what surprised you.
-    </div>
-    <div class="card" style="margin-top:0.5em;">
-      <strong class="highlight-pink">Collection + GitHub:</strong> At least <span class="highlight-yellow">7 models</span> and <span class="highlight-yellow">5 Spaces</span> by Session 6. Upload tonight's notebook. Add Week 5 journal entry.
-    </div>
-  </section>
 </section>
 
 <!-- ========== NEXT WEEK ========== -->
 <section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
   <h2>Next Week</h2>
-  <p style="font-size:1.2em;">We&rsquo;ve seen what generation can do.</p>
-  <p style="color:#9ca3af; margin-top:0.5em;">But this model was trained on web text.<br>What happens when you feed it something it&rsquo;s never seen?</p>
-  <p class="fragment" style="margin-top:1em; color:#fbbf24;">
-    That&rsquo;s the wall the field hit next &mdash;<br>and the breakthrough that followed.
+  <p style="font-size:1.1em;">
+    You built a generator that works on web text.<br>
+    What happens when you feed it <span class="highlight-pink">medical text</span>?<br>
+    Or <span class="highlight-green">poetry</span>? Or <span class="highlight-blue">legal language</span>?
   </p>
+  <p class="fragment" style="margin-top:1.2em; color:#fbbf24; font-size:1.15em;">
+    Next week: Same Space, Different Worlds.
+  </p>
+</section>
+
+<!-- ========== BETWEEN SESSIONS ========== -->
+<section>
+  <h2>Between Sessions</h2>
+  <p>Three parts. Plan for <span class="highlight-yellow">~1 hour</span>.</p>
+  <div class="card" style="margin-top:0.8em;">
+    <strong class="highlight-green">Part 1: Get Your Space Working</strong><br>
+    If it&rsquo;s not deployed yet, finish tonight. Customize the prompts for your interests.
+  </div>
+  <div class="card">
+    <strong class="highlight-blue">Part 2: Test on Unexpected Input</strong><br>
+    Feed your generator something weird &mdash; song lyrics, a recipe, a news headline. What happens?
+  </div>
+  <div class="card">
+    <strong class="highlight-pink">Part 3: Journal + Collection</strong><br>
+    Week 5 entry in <code>research-journal.md</code>. Grow your HF Collection.
+  </div>
 </section>
 
 </div>
