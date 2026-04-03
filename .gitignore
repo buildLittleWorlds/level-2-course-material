@@ -2,6 +2,12 @@
 __pycache__/
 .claude/
 
+# Instructor-only files (not student-facing)
+INSTRUCTOR-GUIDE.md
+AUDIT-PROMPT.md
+bonus-hugging-face-spaces/CHANGE-LOG.md
+bonus-hugging-face-spaces/ADVERSARIAL-STORIES.md
+
 # Planning and reference files (not part of the course materials)
 GC-AUDIT.md
 GOOGLE-CLASSROOM-STATUS.md
