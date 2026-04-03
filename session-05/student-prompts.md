@@ -61,19 +61,19 @@ Give me the complete app.py and requirements.txt files ready to paste into a Hug
 ```
 Write me a Hugging Face Space using Gradio and the Hugging Face transformers library. It should be a text generator that uses the model "distilgpt2" loaded with pipeline("text-generation").
 
-The Space should be called "Prompt Comparison Lab" and be designed for systematically testing how different settings change the output. The description should say something like: "Type one prompt, then change the sliders to see how temperature and top-p change what the AI writes."
+The Space should be called "Anime Scene Writer" and be designed for writing anime-style scene descriptions, character introductions, and episode summaries.
 
 It needs three sliders:
-- Temperature (0.1 to 2.0, default 0.7) — controls how creative/wild the writing is
+- Temperature (0.1 to 2.0, default 0.8) — controls how creative/wild the writing is
 - Top-p (0.1 to 1.0, default 0.9) — controls word diversity
-- Max Length (20 to 200, default 100) — controls how much text it generates
+- Max Length (20 to 200, default 120) — controls how much text it generates
 
 Include these example prompts:
-- "The best image generation model is"
-- "A photograph of a sunset should look"
-- "The difference between AI art and human art is"
-- "When you compare two images side by side, you notice"
-- "The most realistic AI-generated image I've seen"
+- "The hero drew their sword as the wind swept across the battlefield and"
+- "Episode 1: A transfer student arrives at the academy and discovers"
+- "The villain revealed their true form, and the sky turned"
+- "In a quiet moment between battles, the two characters sat together and"
+- "The opening sequence begins with cherry blossoms falling over"
 
 The function should use do_sample=True and num_return_sequences=1. Clamp temperature to at least 0.01 to avoid division by zero.
 
