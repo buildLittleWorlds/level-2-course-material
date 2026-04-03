@@ -191,8 +191,8 @@
       A smile might mean happy. Or polite. Or performing. Or masking something else entirely.
     </div>
     <p style="margin-top:0.8em;">A photograph is <span class="highlight-pink">one frozen instant</span> out of a life.</p>
-    <p class="fragment" style="margin-top:0.5em;">If we chain a captioning model to a sentiment model, the caption becomes the <em>only thing</em> the sentiment model knows about the image.</p>
-    <p class="fragment" style="margin-top:0.5em; color:#9ca3af;">If the caption says "a person smiling," the sentiment model says POSITIVE. But is a smile always positive?</p>
+    <p class="fragment" style="margin-top:0.5em;">If we chain a captioning model to an emotion model, the caption becomes the <em>only thing</em> the emotion model knows about the image.</p>
+    <p class="fragment" style="margin-top:0.5em; color:#9ca3af;">If the caption says "a person smiling," the emotion model says JOY. But is a smile always joy?</p>
   </section>
 </section>
 
@@ -218,7 +218,7 @@
       <strong>Upload 2:</strong> Something ambiguous &mdash; abstract art, a blurry photo, a meme
     </div>
     <p class="fragment" style="margin-top:0.8em;">
-      The caption is off. And the sentiment is analyzing<br>
+      The caption is off. And the emotion model is analyzing<br>
       <span class="highlight-pink">a wrong description</span>.
     </p>
     <p class="fragment" style="color:#fbbf24; font-size:1.1em; margin-top:0.5em;">
@@ -239,7 +239,7 @@
     <span class="arrow"> &rarr; </span>
     <span class="highlight-yellow">DistilBERT</span>
     <span class="arrow"> &rarr; </span>
-    <span class="highlight-pink">SENTIMENT</span>
+    <span class="highlight-pink">EMOTION</span>
   </div>
   <p class="fragment" style="margin-top:1em; font-size:0.95em;">
     What could go wrong at <em>each</em> arrow?
@@ -267,11 +267,12 @@ from PIL import Image</code></pre>
 caption_model = BlipForConditionalGeneration.from_pretrained(
     "Salesforce/blip-image-captioning-base")
 
-sentiment = pipeline("sentiment-analysis",
-    model="distilbert-base-uncased-finetuned-sst-2-english")</code></pre>
+emotion = pipeline("text-classification",
+    model="j-hartmann/emotion-english-distilroberta-base",
+    top_k=1)</code></pre>
     <p style="margin-top:0.8em;">
       <span class="highlight-yellow">BLIP</span> is ~1GB &mdash; that's why this Space takes a while to start.<br>
-      <span class="highlight-blue">DistilBERT</span> is the same sentiment model from Session 4.
+      <span class="highlight-blue">Emotion detector</span> classifies text into 7 emotions (anger, joy, surprise&hellip;).
     </p>
   </section>
 
@@ -293,20 +294,20 @@ sentiment = pipeline("sentiment-analysis",
   </section>
 
   <section>
-    <h2>The Code: Step 2 &mdash; Sentiment</h2>
-    <pre><code class="language-python">    # Step 2: Analyze caption sentiment
-    result = sentiment(caption)[0]
-    sentiment_text = f"{result['label']} ({result['score']:.1%} confidence)"
+    <h2>The Code: Step 2 &mdash; Emotion</h2>
+    <pre><code class="language-python">    # Step 2: Analyze caption emotion
+    result = emotion(caption)[0][0]
+    emotion_text = f"{result['label']} ({result['score']:.1%} confidence)"
 
     # Step 3: Show the pipeline
     pipeline_view = (
         f"IMAGE\n"
         f"  -> Model 1 (BLIP captioner): \"{caption}\"\n"
-        f"  -> Model 2 (sentiment): {result['label']} ({result['score']:.1%})"
+        f"  -> Model 2 (emotion): {result['label']} ({result['score']:.1%})"
     )
-    return caption, sentiment_text, pipeline_view</code></pre>
+    return caption, emotion_text, pipeline_view</code></pre>
     <p style="margin-top:0.8em;">
-      The caption &mdash; a string of text &mdash; goes into the sentiment model.<br>
+      The caption &mdash; a string of text &mdash; goes into the emotion model.<br>
       <span class="highlight-yellow">Output of Model 1 becomes input of Model 2.</span>
     </p>
   </section>
@@ -321,11 +322,11 @@ sentiment = pipeline("sentiment-analysis",
             btn = gr.Button("Analyze", variant="primary")
         with gr.Column():
             caption_output = gr.Textbox(label="Step 1: Caption (BLIP)")
-            sentiment_output = gr.Textbox(label="Step 2: Sentiment of Caption")
+            emotion_output = gr.Textbox(label="Step 2: Emotion of Caption")
             pipeline_output = gr.Textbox(label="Full Pipeline View", lines=4)
 
     btn.click(fn=analyze_image, inputs=image_input,
-              outputs=[caption_output, sentiment_output, pipeline_output])</code></pre>
+              outputs=[caption_output, emotion_output, pipeline_output])</code></pre>
     <p><code>gr.Image(type="pil")</code> gives BLIP the image format it expects.</p>
   </section>
 
@@ -349,7 +350,7 @@ Pillow</code></pre>
   <div class="card"><span class="emoji-label">&#x1F3A8;</span> <strong>Abstract art</strong> &mdash; BLIP wasn't trained on this <span class="small">(outside its world)</span></div>
   <div class="card"><span class="emoji-label">&#x1F4AC;</span> <strong>Image with text</strong> &mdash; meme, sign <span class="small">(BLIP may ignore text)</span></div>
   <div class="observation-card fragment">
-    For each: Is the caption accurate? Does the sentiment make sense <em>given that caption</em>?
+    For each: Is the caption accurate? Does the emotion make sense <em>given that caption</em>?
   </div>
 </section>
 
@@ -365,10 +366,10 @@ Pillow</code></pre>
       <strong>2.</strong> What did BLIP <em>say</em>? Is that right?
     </div>
     <div class="observation-card fragment">
-      <strong>3.</strong> The sentiment model says POSITIVE. But is the image positive?
+      <strong>3.</strong> The emotion model says JOY. But is the image joyful?
     </div>
     <p class="fragment" style="margin-top:0.8em; color:#f472b6; font-size:1.1em;">
-      The sentiment model <strong>never saw the image</strong>.<br>It only read the caption.
+      The emotion model <strong>never saw the image</strong>.<br>It only read the caption.
     </p>
   </section>
 
@@ -377,14 +378,14 @@ Pillow</code></pre>
     <div class="concept-box" style="font-size:1.1em; text-align:left; padding:1.2em 1.5em;">
       <span class="highlight-blue">Wrong image description</span>
       <span class="arrow"> &rarr; </span>
-      <span class="highlight-pink">Wrong sentiment</span><br><br>
+      <span class="highlight-pink">Wrong emotion</span><br><br>
       <span class="small" style="font-size:0.65em;">
         &uarr; Error starts here &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &uarr; Error cascades here
       </span>
     </div>
     <p class="fragment" style="margin-top:1em;">
-      The sentiment model <span class="highlight-green">did its job perfectly</span>.<br>
+      The emotion model <span class="highlight-green">did its job perfectly</span>.<br>
       The error started <span class="highlight-yellow">upstream</span>.
     </p>
   </section>
@@ -514,8 +515,8 @@ Pillow</code></pre>
     <h2>Part 1: Chain Two Models</h2>
     <div class="two-col">
       <div class="card">
-        <strong class="highlight-yellow">Option A: Sentiment</strong><br>
-        Upload 5 different images to the pipeline. Find the best error cascade &mdash; where the caption is wrong AND leads to wrong sentiment. Can you find a case where the caption is wrong but sentiment is accidentally right?
+        <strong class="highlight-yellow">Option A: Image Pipeline</strong><br>
+        Upload 5 different images to the pipeline. Find the best error cascade &mdash; where the caption is wrong AND leads to a wrong emotion. Can you find a case where the caption is wrong but the emotion is accidentally right?
       </div>
       <div class="card">
         <strong class="highlight-green">Option B: Your Topic</strong><br>

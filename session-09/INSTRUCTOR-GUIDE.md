@@ -12,7 +12,7 @@
 
 ### 0:00–0:05 — Show-and-Tell: Demos vs. Tools
 
-Open the Sentiment Showdown from Session 4. Run a restaurant review through it.
+Open one of the demo Spaces from earlier sessions — any Space that shows raw model output. Run a restaurant review through it.
 
 > "Every Space we've built so far is a demo. It says 'POSITIVE 0.97' and... so what? Today we turn a demo into something someone would actually *use*."
 
@@ -228,7 +228,7 @@ Share the between-session challenge (see BETWEEN-SESSION.md).
 ## Pre-Session Prep
 
 - [ ] Have the Restaurant Review Analyzer deployed and running
-- [ ] Have the Sentiment Showdown (Session 4) URL ready for comparison
+- [ ] Have a raw demo Space from earlier sessions ready for comparison
 - [ ] Print or screen-share the four template options
 - [ ] Test all example inputs to make sure they produce reasonable outputs
 - [ ] Have the four template `.py` snippets ready to paste for students who want them

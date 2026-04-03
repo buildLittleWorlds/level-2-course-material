@@ -5,7 +5,7 @@
 **Space:** Image Story Pipeline
 **Models:**
 - `Salesforce/blip-image-captioning-base` (~1GB, image → caption)
-- `distilbert-base-uncased-finetuned-sst-2-english` (caption → sentiment)
+- `j-hartmann/emotion-english-distilroberta-base` (caption → emotion)
 **Pre-built fallback:** Deploy at profplate/image-story-pipeline on HF before session
 **Narrative Role:** The final piece of Act II. How modern AI products actually work — not one model, but a pipeline. This is the culmination: students now know classification, generation, controls, domain shift, bias, and pipelines. That's the full stack of ideas that make generative AI work.
 
@@ -35,9 +35,9 @@ Anyone try the between-session challenge? What bias pairs did you find? Quick sh
 
 ### 0:08–0:11 — SpaceCraft Check-In
 
-Pull up SpaceCraft briefly. Demonstrate the concept of chaining by showing how a CPU Space could combine a free API call with a local model — for example, fetch news headlines from GNews (like we built in Session 3), then run sentiment analysis on each headline. Two steps in a pipeline, both on free CPU.
+Pull up SpaceCraft briefly. Demonstrate the concept of chaining by showing how a CPU Space could combine a free API call with a local model — for example, fetch news headlines from GNews (like we built in Session 3), then run emotion detection on each headline. Two steps in a pipeline, both on free CPU.
 
-**Say:** "Remember the news Space we built in Session 3? Imagine chaining that with a sentiment model: fetch headlines, then classify each one. If the API returns garbage, the classifier reads garbage. That's error propagation — and that's what we're building tonight, but with images."
+**Say:** "Remember the news Space we built in Session 3? Imagine chaining that with an emotion model: fetch headlines, then classify each one. If the API returns garbage, the classifier reads garbage. That's error propagation — and that's what we're building tonight, but with images."
 
 > **SpaceCraft textbook link for this session:** [Chapter 4: Free APIs — Combining APIs](https://buildlittleworlds.github.io/spaceCraft/free-apis.html) shows how to chain an API call with a local model in a single Space. The "Combining APIs" section has examples of multi-step pipelines running entirely on free CPU.
 
@@ -56,7 +56,7 @@ They'll say happy. Obviously.
 **Let that sit.** Then:
 - "A smile might mean happy. Or it might mean polite. Or performing. Or nervous. Or masking something else entirely."
 - "When you see a face in a photograph, you're seeing a frozen instant — one frame out of a life. How much can you actually know about someone's feelings from one frozen expression?"
-- "Now here's the question for tonight: if we chain a captioning model to a sentiment model, the caption becomes the only thing the sentiment model knows about the image. If the caption says 'a person smiling,' the sentiment model says POSITIVE. But is a smile always positive?"
+- "Now here's the question for tonight: if we chain a captioning model to an emotion model, the caption becomes the only thing the emotion model knows about the image. If the caption says 'a person smiling,' the emotion model says JOY. But is a smile always joy?"
 
 **Don't resolve this.** The build and error cascade experiments will bring it to life.
 
@@ -66,13 +66,13 @@ Open the pre-built Space. Upload a clear, easy photo (a dog in a park, a sunset,
 
 **Demo flow:**
 1. Upload image. Wait for results.
-2. Read aloud: "Caption: 'a dog sitting on the grass in a park.' Sentiment: POSITIVE."
-3. "Two models just worked together. Model 1 looked at the picture and wrote a sentence. Model 2 read that sentence and told us the mood. Neither model knows the other exists."
+2. Read aloud: "Caption: 'a dog sitting on the grass in a park.' Emotion: JOY."
+3. "Two models just worked together. Model 1 looked at the picture and wrote a sentence. Model 2 read that sentence and detected an emotion. Neither model knows the other exists."
 
 Upload a second image — something more ambiguous (abstract art, a blurry photo).
 
 4. The caption will likely be wrong or vague. Read it aloud.
-5. "The caption is off. And look at the sentiment — it's analyzing a wrong description. That's the problem with chaining models: if the first one is wrong, everything after it is wrong too."
+5. "The caption is off. And look at the emotion — it's analyzing a wrong description. That's the problem with chaining models: if the first one is wrong, everything after it is wrong too."
 
 **Landing line:** "Today we're going to build this pipeline and then try to break it."
 
@@ -97,10 +97,11 @@ from PIL import Image
 processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
 caption_model = BlipForConditionalGeneration.from_pretrained(
     "Salesforce/blip-image-captioning-base")
-sentiment = pipeline("sentiment-analysis",
-    model="distilbert-base-uncased-finetuned-sst-2-english")
+emotion = pipeline("text-classification",
+    model="j-hartmann/emotion-english-distilroberta-base",
+    top_k=1)
 ```
-**Say:** "Two models loading. The captioning model is about 1GB — that's why this Space takes a while to start. The sentiment model is the same one we've used before."
+**Say:** "Two models loading. The captioning model is about 1GB — that's why this Space takes a while to start. The emotion model detects seven emotions — anger, disgust, fear, joy, neutral, sadness, surprise."
 
 **Warn:** "This is going to take a while to build on free CPU. We'll keep coding while it loads."
 
@@ -121,20 +122,20 @@ def analyze_image(image):
 **Say:** "Step 1: the image goes into BLIP. The processor converts the image into numbers the model understands. The model generates a caption. The processor converts the numbers back into words. Three lines, but a lot happening."
 
 ```python
-    # Step 2: Analyze caption sentiment
-    result = sentiment(caption)[0]
-    sentiment_text = f"{result['label']} ({result['score']:.1%} confidence)"
+    # Step 2: Analyze caption emotion
+    result = emotion(caption)[0][0]
+    emotion_text = f"{result['label']} ({result['score']:.1%} confidence)"
 ```
-**Say:** "Step 2: the caption — a string of text — goes into the sentiment model. Same pipeline call we've been doing since Session 4. The output of Model 1 becomes the input of Model 2."
+**Say:** "Step 2: the caption — a string of text — goes into the emotion model. Same pipeline call we've been doing since Session 4. The output of Model 1 becomes the input of Model 2."
 
 ```python
     # Step 3: Show the pipeline
     pipeline_view = (
         f"IMAGE\n"
         f"  -> Model 1 (BLIP captioner): \"{caption}\"\n"
-        f"  -> Model 2 (sentiment): {result['label']} ({result['score']:.1%})"
+        f"  -> Model 2 (emotion): {result['label']} ({result['score']:.1%})"
     )
-    return caption, sentiment_text, pipeline_view
+    return caption, emotion_text, pipeline_view
 ```
 **Say:** "Step 3 is just for us — a view of the whole chain so we can see what happened at each step."
 
@@ -148,14 +149,14 @@ with gr.Blocks(title="Image Story Pipeline") as demo:
             btn = gr.Button("Analyze", variant="primary")
         with gr.Column():
             caption_output = gr.Textbox(label="Step 1: Caption (BLIP)")
-            sentiment_output = gr.Textbox(label="Step 2: Sentiment of Caption")
+            emotion_output = gr.Textbox(label="Step 2: Emotion of Caption")
             pipeline_output = gr.Textbox(label="Full Pipeline View", lines=4)
 ```
 **Say:** "Blocks layout again — we used this last session. Image upload on the left, results stacked on the right. And `gr.Image(type='pil')` tells Gradio to give us a PIL image object, which is what BLIP expects."
 
 ```python
     btn.click(fn=analyze_image, inputs=image_input,
-              outputs=[caption_output, sentiment_output, pipeline_output])
+              outputs=[caption_output, emotion_output, pipeline_output])
 ```
 
 6. Create `requirements.txt`: transformers, torch, gradio, Pillow.
@@ -166,7 +167,7 @@ with gr.Blocks(title="Image Story Pipeline") as demo:
 
 **While the Space builds (~3–5 min):** Draw the pipeline on screen or describe it verbally:
 ```
-IMAGE → [BLIP: image→text] → CAPTION → [DistilBERT: text→sentiment] → LABEL
+IMAGE → [BLIP: image→text] → CAPTION → [Emotion detector: text→emotion] → LABEL
 ```
 Ask: "What could go wrong at each arrow?"
 
@@ -178,16 +179,16 @@ Once the Space is live, test with different image types. Have students suggest i
 
 | Image type | Why it's interesting | Where to find |
 |-----------|---------------------|---------------|
-| Happy scene (dog, birthday party) | Clear positive caption → positive sentiment. Establishes baseline. | Any stock photo site |
-| Somber scene (rain, empty room) | Negative or neutral caption → how does sentiment respond? | Search "moody photography" |
-| Ambiguous scene (person with neutral expression) | Caption might guess wrong emotion → sentiment follows the guess | Search "candid portrait" |
+| Happy scene (dog, birthday party) | Clear positive caption → joy emotion. Establishes baseline. | Any stock photo site |
+| Somber scene (rain, empty room) | Negative or neutral caption → how does the emotion model respond? | Search "moody photography" |
+| Ambiguous scene (person with neutral expression) | Caption might guess wrong → emotion follows the guess | Search "candid portrait" |
 | Abstract art | BLIP wasn't trained on abstract art — caption will be off | Search "abstract painting" |
 | Image with text (meme, sign) | BLIP may ignore text in image — caption misses the point | Any meme |
 
 **For each image, ask:**
 - "What did the captioner say? Is that accurate?"
-- "Given that caption, does the sentiment make sense?"
-- "Would the sentiment be different if the caption were more accurate?"
+- "Given that caption, does the emotion make sense?"
+- "Would the emotion be different if the caption were more accurate?"
 
 ### 1:20–1:35 — Error Cascade Demo
 
@@ -198,13 +199,13 @@ Now deliberately break the pipeline. This is the core learning moment.
 1. "What does this image actually show?" (Ask students)
 2. "What did BLIP say?" (Read the caption)
 3. "Is that caption right?" (No)
-4. "Now look at the sentiment. It says POSITIVE. But is the image positive?" (Doesn't matter — the sentiment model never saw the image. It only read the caption.)
+4. "Now look at the emotion. It says JOY. But is the image joyful?" (Doesn't matter — the emotion model never saw the image. It only read the caption.)
 
-**Key teaching moment:** "The sentiment model did its job perfectly. It analyzed the text it was given. The problem is that text was wrong. The error started in Step 1 and cascaded to Step 2."
+**Key teaching moment:** "The emotion model did its job perfectly. It analyzed the text it was given. The problem is that text was wrong. The error started in Step 1 and cascaded to Step 2."
 
 **Draw it:**
 ```
-Wrong image description → Wrong sentiment
+Wrong image description → Wrong emotion
      ↑                         ↑
   Error starts here     Error cascades here
 ```
@@ -241,24 +242,24 @@ Show the BLIP model card:
 
 "We built a **pipeline** and studied **error propagation** — when one component fails, does the whole system fail? We deliberately injected bad inputs at stage 1 and measured the impact at stage 2. That's a standard technique in **systems testing** — understanding how errors travel through connected components."
 
-**Research question (shared, sentiment):** "How do errors cascade in a multi-model system? If the captioner gets an image wrong, does the sentiment model have any chance of getting it right?"
+**Research question (shared):** "How do errors cascade in a multi-model system? If the captioner gets an image wrong, does the emotion model have any chance of getting it right?"
 
 **The method (applies to any topic):** Build a chain, then break it on purpose. Feed bad input into step 1 and trace the error forward. Where does it amplify? Where (if ever) does a later step accidentally fix it?
 
-**Bridge to homework:** "In class, we applied error propagation analysis to our image-caption-sentiment pipeline. For your homework, think about chaining — can you connect two models from your Collection? What happens when the first one is wrong?"
+**Bridge to homework:** "In class, we applied error propagation analysis to our image-caption-emotion pipeline. For your homework, think about chaining — can you connect two models from your Collection? What happens when the first one is wrong?"
 
 ### 1:50–2:00 — Notebook Time + Wrap Up
 
 Share the Colab link in the Zoom chat.
 
 **Walk through together:**
-1. Run the setup cell (loads BLIP and sentiment model — this takes a minute, be patient)
+1. Run the setup cell (loads BLIP and emotion model — this takes a minute, be patient)
 2. Run the image upload cell together — show them the file picker
 3. "Click Choose Files, pick a photo, and watch the pipeline run"
 
 **Notebook skill being introduced:** Working with images in Colab — uploading files, displaying them, and feeding them to models.
 
-**Say:** "The notebook lets you upload your own images and test the pipeline. Try to find an image that breaks it — is the caption wrong, or the sentiment, or both? Fill in the table in the notebook."
+**Say:** "The notebook lets you upload your own images and test the pipeline. Try to find an image that breaks it — is the caption wrong, or the emotion, or both? Fill in the table in the notebook."
 
 Share the between-session challenge (see BETWEEN-SESSION.md).
 
@@ -270,7 +271,7 @@ Share the between-session challenge (see BETWEEN-SESSION.md).
 
 "That's the full stack. Classification, generation, controls, domain shift, pretraining, bias, and pipelines. Those are the ideas that got us from 'a computer can sort email' to 'a computer can write a novel and generate an image.' You now know what's inside the machine."
 
-"Next week: what's outside it. You've been studying the models. Session 9, you design for the humans. Same sentiment model — but you'll redesign it into a tool that a restaurant owner, or a teacher, or a therapist would actually use. The models don't change. The interface does. That's Act III."
+"Next week: what's outside it. You've been studying the models. Session 9, you design for the humans. You'll take a model you know and redesign it into a tool that a restaurant owner, or a teacher, or a therapist would actually use. The models don't change. The interface does. That's Act III."
 
 ---
 
@@ -278,8 +279,8 @@ Share the between-session challenge (see BETWEEN-SESSION.md).
 
 **Model sizes (approximate):**
 - BLIP captioning: ~1GB (weights) + ~500MB (processor)
-- DistilBERT sentiment: ~250MB
-- Total: ~1.75GB — fits within free CPU tier (16GB RAM) with room to spare
+- Emotion detector: ~330MB
+- Total: ~1.83GB — fits within free CPU tier (16GB RAM) with room to spare
 
 **Cold start time:** First load after Space sleeps takes 30–60 seconds. Pre-warm by visiting the Space URL before session.
 
@@ -304,10 +305,10 @@ Share the between-session challenge (see BETWEEN-SESSION.md).
 | Space takes 5+ minutes to build | BLIP is large. Fill time with pipeline diagrams and discussion. "While we wait, let's think about what could go wrong." |
 | Space crashes on load (OOM) | Check that only two models are loaded. If still crashing, use Inference API fallback (see Memory Notes). |
 | Image upload doesn't work | Check `Pillow` is in requirements.txt. Try a different image format (JPG usually safest). |
-| Caption is wrong | That's a feature! "The captioner made an error. Now watch what happens to the sentiment." |
+| Caption is wrong | That's a feature! "The captioner made an error. Now watch what happens to the emotion." |
 | Caption is always the same generic text | Model might be receiving a thumbnail/placeholder. Make sure `type="pil"` is set on gr.Image. |
 | Students can't find good test images | Have 4–5 images ready on your desktop. Stock photo sites, memes, abstract art. |
-| Sentiment is always POSITIVE | The captioner tends to generate neutral-to-positive descriptions. Try images with dark, dramatic, or sad content. |
+| Emotion is always NEUTRAL or JOY | The captioner tends to generate neutral-to-positive descriptions. Try images with dark, dramatic, or sad content. |
 
 ---
 

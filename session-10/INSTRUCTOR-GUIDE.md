@@ -164,15 +164,7 @@ Share the Colab notebook link in the Zoom chat. Students open it and start exper
 
 ## Pre-Screened Models for Free CPU
 
-### Text Classification
-| Model | Task | Labels | Size |
-|-------|------|--------|------|
-| `distilbert-base-uncased-finetuned-sst-2-english` | Sentiment | POSITIVE / NEGATIVE | 260 MB |
-| `j-hartmann/emotion-english-distilroberta-base` | Emotion | anger, disgust, fear, joy, neutral, sadness, surprise | 330 MB |
-| `cardiffnlp/twitter-roberta-base-sentiment-latest` | Sentiment | negative, neutral, positive | 500 MB |
-| `SamLowe/roberta-base-go_emotions` | Emotion | 28 emotions | 500 MB |
-
-### Zero-Shot Classification
+### Zero-Shot Classification (most flexible — students pick their own labels)
 | Model | Notes | Size |
 |-------|-------|------|
 | `valhalla/distilbart-mnli-12-3` | Fast, good quality | 890 MB |
@@ -192,6 +184,14 @@ Share the Colab notebook link in the Zoom chat. Students open it and start exper
 | Model | Entities | Size |
 |-------|----------|------|
 | `dslim/bert-base-NER` | Person, Org, Location, Misc | 430 MB |
+
+### Text Classification
+| Model | Task | Labels | Size |
+|-------|------|--------|------|
+| `j-hartmann/emotion-english-distilroberta-base` | Emotion | anger, disgust, fear, joy, neutral, sadness, surprise | 330 MB |
+| `SamLowe/roberta-base-go_emotions` | Emotion | 28 emotions | 500 MB |
+| `distilbert-base-uncased-finetuned-sst-2-english` | Sentiment | POSITIVE / NEGATIVE | 260 MB |
+| `cardiffnlp/twitter-roberta-base-sentiment-latest` | Sentiment | negative, neutral, positive | 500 MB |
 
 ### Translation
 | Model | Direction | Size |

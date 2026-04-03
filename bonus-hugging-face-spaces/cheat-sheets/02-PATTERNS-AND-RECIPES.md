@@ -26,7 +26,7 @@ gr.HTML(
 )
 ```
 
-**Why this matters for our Spaces:** Every sentiment result can be visualized as colored bars, radar charts, or gauges without importing matplotlib or plotly.
+**Why this matters for our Spaces:** Every classification result can be visualized as colored bars, radar charts, or gauges without importing matplotlib or plotly.
 
 ## Pattern 2: Color-Coding Text by Sentiment
 

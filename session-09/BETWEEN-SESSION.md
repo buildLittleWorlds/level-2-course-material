@@ -10,14 +10,14 @@ In class we did **user-centered design** — taking the same model and redesigni
 
 Now apply the same thinking to **your own interest**.
 
-### Option A: Stay with Sentiment
+### Option A: Use a Template
 
 1. Pick one of the four templates we saw in class (or invent your own):
-   - Restaurant Review Analyzer
-   - Email Tone Checker
-   - Journal Mood Tracker
-   - Social Media Vibe Check
-2. Fork the Sentiment Showdown (or start fresh) and redesign it for your chosen audience
+   - Restaurant Review Analyzer (sentiment → advice for restaurant owners)
+   - Email Tone Checker (tone detection → revision tips for professionals)
+   - Journal Mood Tracker (emotion detection → reflection prompts for journalers)
+   - Social Media Vibe Check (tone detection → posting advice for social media users)
+2. Fork one of your existing Spaces (or start fresh) and redesign it for your chosen audience
 3. For your redesign, answer the three questions:
    - **Who is this for?** (a specific person, not "everyone")
    - **What problem does it solve?** (one sentence)
@@ -26,9 +26,9 @@ Now apply the same thinking to **your own interest**.
 5. **Bonus:** Have someone outside the class try your Space. Don't explain it — just share the URL. What confused them?
 6. **Update your Collection** with any interesting Spaces you discover
 
-### Option B: Explore Your Own Topic
+### Option B: Redesign from Your Collection
 
-1. Pick a model or Space from your Collection that you've been exploring
+1. Pick a model or Space from your Collection that you've been exploring — any task type (generation, classification, summarization, image models, anything)
 2. Imagine a **specific person** who would use this — not "everyone," but someone real (a teacher, a musician, a younger sibling, a store owner)
 3. Answer the three questions:
    - **Who is this for?**

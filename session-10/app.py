@@ -13,12 +13,12 @@ from transformers import pipeline
  
 # CHANGE THIS: Pick your model from https://huggingface.co/models
 # Examples:
-#   "distilbert-base-uncased-finetuned-sst-2-english"  -> sentiment (positive/negative)
 #   "j-hartmann/emotion-english-distilroberta-base"     -> emotions (anger, joy, surprise...)
 #   "facebook/bart-large-mnli"                          -> zero-shot (you pick the labels)
 #   "distilgpt2"                                        -> text generation
 #   "sshleifer/distilbart-cnn-12-6"                     -> summarization
-model = pipeline("sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english")
+#   "distilbert-base-uncased-finetuned-sst-2-english"  -> sentiment (positive/negative)
+model = pipeline("text-classification", model="j-hartmann/emotion-english-distilroberta-base")
  
 # CHANGE THIS: Your analysis function
 def analyze(text):

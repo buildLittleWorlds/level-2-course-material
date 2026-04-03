@@ -111,11 +111,11 @@ Students build a tool that runs paired sentences through sentiment models — ch
 
 *Multi-model pipelines, component dependencies, and how errors propagate through chained systems.*
 
-Students chain an image captioning model (BLIP) with a sentiment analysis model and discover error cascades: when the captioner generates an incorrect description, the sentiment model confidently analyzes the wrong text. This is the most complex build in the course — two models, image input, multi-step processing. Students diagram pipeline dependencies and identify failure points.
+Students chain an image captioning model (BLIP) with an emotion detection model and discover error cascades: when the captioner generates an incorrect description, the emotion model confidently analyzes the wrong text. This is the most complex build in the course — two models, image input, multi-step processing. Students diagram pipeline dependencies and identify failure points.
 
 **ML Concepts:** Multi-model pipelines, system dependencies, error propagation, failure points, modular architecture
 **Research Method:** Error Propagation / Systems Testing
-**Hands-On:** Live-build an image-to-sentiment pipeline Space (BLIP + sentiment), deliberate pipeline breaking with abstract/ambiguous images, Colab systems analysis notebook
+**Hands-On:** Live-build an image-to-emotion pipeline Space (BLIP + emotion detector), deliberate pipeline breaking with abstract/ambiguous images, Colab systems analysis notebook
 
 ---
 

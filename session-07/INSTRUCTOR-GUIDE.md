@@ -8,6 +8,8 @@
 **Pre-built fallback:** Deploy at profplate/bias-tester on HF before session
 **Narrative Role:** The cost of scale. Training on everything means training on all of humanity's biases. This is the darker side of the breakthrough from Session 6.
 
+> **Why sentiment here:** We use a sentiment model for bias testing because positive/negative labels make bias immediately visible — change a name and watch the score flip. This is the clearest possible demonstration for students. The fairness auditing *method* (paired-sentence testing) applies to any classifier: emotion detection, toxicity, zero-shot, etc. Encourage students who want to test bias in their own model type to do so.
+
 ---
 
 ## Time Breakdown (2 hours)
