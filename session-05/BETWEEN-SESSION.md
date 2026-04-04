@@ -21,6 +21,21 @@
 - If it's the summarizer, try different max/min length defaults
 - Commit your changes
 
+## Part 1.5: Add the Repetition Penalty Slider (Optional, 15 min)
+
+In class we fixed the repetition loop by hardcoding `repetition_penalty=1.2` into the generator call. Want to go further? Turn it into a **slider** so users can control it themselves.
+
+Ask your AI assistant (ChatGPT, Claude, Gemini) to update your `app.py`:
+
+> "Update my Hugging Face Space to add a fourth slider for Repetition Penalty (1.0 to 2.0, default 1.2). Pass it to the generator call as `repetition_penalty`. Also add `no_repeat_ngram_size=2` as a fixed parameter."
+
+This gives you four controls: temperature, top-p, max length, and repetition penalty. Try these experiments:
+- Set repetition penalty to **1.0** (no penalty) and watch the loops come back
+- Set it to **1.5** or **2.0** — does the text get better, or does it start sounding weird?
+- Find the sweet spot for your specific Space and prompts
+
+If you get it working, note the best setting in your journal entry.
+
 ## Part 2: Test It on Something Unexpected (15 min)
 
 This is a preview of next session's concept. Try feeding your Space text from a domain it wasn't designed for:

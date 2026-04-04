@@ -321,6 +321,69 @@ gradio</code></pre>
   </div>
 </section>
 
+<!-- ========== THE MISSING CONTROL ========== -->
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #1a0f2e, #2e1a3b)">
+  <h2>Wait &mdash; What Went Wrong?</h2>
+  <div class="big-question" style="font-size:1.1em; text-align:center;">
+    Who noticed their Space getting stuck in a loop?<br>
+    Repeating the same words over and over?
+  </div>
+  <p class="fragment" style="margin-top:1em;">
+    Your prompt asked for <span class="highlight-yellow">three</span> sliders.<br>
+    None of you asked for a <span class="highlight-pink">fourth</span> control.
+  </p>
+  <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
+    Without a <strong>repetition penalty</strong>, the model has no reason NOT to repeat itself.<br>
+    The math says: &ldquo;I just wrote <em>sword</em>. What&rsquo;s the most likely next word? <em>Sword</em> again.&rdquo;
+  </p>
+</section>
+
+<section>
+  <h2>The Missing Control</h2>
+  <p>Two lines fix it:</p>
+  <pre><code class="language-python">    result = generator(
+        prompt,
+        max_length=int(max_length),
+        temperature=temperature,
+        top_p=float(top_p),
+        do_sample=True,
+        num_return_sequences=1,
+        repetition_penalty=1.2,   # taxes reused words
+        no_repeat_ngram_size=2,   # bans repeated 2-word phrases
+        truncation=True
+    )</code></pre>
+  <div class="two-col" style="margin-top:0.8em;">
+    <div class="card">
+      <span class="vocab-term">repetition_penalty = 1.2</span><br>
+      Every word you already said is <span class="highlight-yellow">20% less likely</span> to be picked again
+    </div>
+    <div class="card">
+      <span class="vocab-term">no_repeat_ngram_size = 2</span><br>
+      No two-word phrase can appear <span class="highlight-pink">twice</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Hidden Defaults</h2>
+  <div class="observation-card" style="font-size:1.05em;">
+    The controls you <span class="highlight-pink">don&rsquo;t</span> set matter as much as the ones you do.
+  </div>
+  <div class="card" style="margin-top:0.8em;">
+    <strong>ChatGPT</strong> doesn&rsquo;t repeat itself &mdash; because OpenAI already set a repetition penalty for you
+  </div>
+  <div class="card">
+    <strong>Claude</strong> writes long answers without looping &mdash; there&rsquo;s a setting behind the scenes
+  </div>
+  <div class="card">
+    <strong>Your Space</strong> looped &mdash; because nobody told it not to
+  </div>
+  <p class="fragment" style="margin-top:1em; color:#fbbf24; font-size:1.1em;">
+    You found a missing setting, diagnosed the problem, and fixed it.<br>
+    That&rsquo;s what AI engineers do.
+  </p>
+</section>
+
 <!-- ========== DEMO BUILD 2: SUMMARIZER ========== -->
 <section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
   <h2>Demo Build 2</h2>
@@ -517,6 +580,12 @@ gradio</code></pre>
   </div>
   <div class="card">
     <span class="vocab-term">Max Length</span> &mdash; how much text the model generates (tokens &asymp; words, roughly)
+  </div>
+  <div class="card">
+    <span class="vocab-term">Repetition Penalty</span> &mdash; taxes reused words; 1.2 = each used word is 20% less likely to appear again
+  </div>
+  <div class="card">
+    <span class="vocab-term">N-gram</span> &mdash; a sequence of N words; <code>no_repeat_ngram_size=2</code> bans repeated two-word phrases
   </div>
   <div class="card">
     <span class="vocab-term">Hyperparameter</span> &mdash; a setting we control at runtime (not learned during training)

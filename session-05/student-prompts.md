@@ -312,6 +312,23 @@ That's why:
 
 The **compute paradox**: running a dedicated GPU instance for your own "private" model (like our Spaces) is still expensive — you're paying for hardware whether anyone is using it or not. The shared "pay-as-you-go" API model is cheaper per query because the provider spreads the hardware cost across millions of users. That's the business model behind every AI company.
 
+### But why does it repeat itself?
+
+You probably noticed something specific: the model doesn't just write badly — it gets **stuck in loops**. The same words or phrases repeat over and over. "The sword the sword the sword..." or a sentence that echoes itself endlessly.
+
+This happens because of a **missing hyperparameter**. Your prompts asked for three sliders: temperature, top-p, and max length. None of them asked for a **repetition penalty**. Without it, the model has no mathematical reason to avoid words it just used. In fact, the opposite happens — words it just generated are the "freshest" in its memory, so they score highest, so it picks them again, and the loop spirals.
+
+The fix is two lines of code:
+
+```python
+repetition_penalty=1.2,        # each used word is 20% less likely to be picked again
+no_repeat_ngram_size=2,        # no two-word phrase can appear twice
+```
+
+Adding these to your `generator()` call won't make distilgpt2 as good as ChatGPT — the model is still tiny. But it breaks the loops and forces the model to actually progress the story instead of echoing itself. We'll do this fix together in class.
+
+The bigger lesson: **the controls you don't set matter as much as the ones you do.** Every AI tool you use has hidden settings like this. When ChatGPT doesn't repeat itself, it's because someone already set a repetition penalty for you.
+
 ### So what's the point of our tiny model?
 
 The point of Session 5 isn't to compete with ChatGPT. It's to **understand what's under the hood**. When you move the temperature slider on your Space, you're doing the exact same thing that happens inside ChatGPT — just on a model you can see, control, and run yourself. The sliders work the same way whether the model has 82 million parameters or 82 billion.

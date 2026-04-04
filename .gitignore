@@ -5,6 +5,7 @@ __pycache__/
 # Instructor-only files (not student-facing)
 INSTRUCTOR-GUIDE.md
 AUDIT-PROMPT.md
+experiments-with-student-prompts.md
 bonus-hugging-face-spaces/CHANGE-LOG.md
 bonus-hugging-face-spaces/ADVERSARIAL-STORIES.md
 

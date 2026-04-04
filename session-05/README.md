@@ -6,7 +6,7 @@
 
 ## What This Session Covers
 
-Session 4 built a text generator with no controls. Session 5 adds the controls — and builds a second generative Space. Students build a text generator with temperature, top-p, and max-length sliders, then build a summarizer with length controls. Two kinds of generation (creating from scratch vs. condensing), both with hyperparameters. Students duplicate, customize, and deploy their own Spaces. The concept: Hyperparameters — controls on model behavior at runtime. The narrative connection: these are the same controls behind ChatGPT, Claude, and every generative AI tool.
+Session 4 built a text generator with no controls. Session 5 adds the controls — and builds a second generative Space. Students build a text generator with temperature, top-p, and max-length sliders, then discover a missing control (repetition penalty) that explains why their small model gets stuck in loops. They fix it live, then build a summarizer with length controls. Two kinds of generation (creating from scratch vs. condensing), both with hyperparameters. Students duplicate, customize, and deploy their own Spaces. The concept: Hyperparameters — controls on model behavior at runtime, including the ones you don't see. The narrative connection: these are the same controls behind ChatGPT, Claude, and every generative AI tool.
 
 ## Narrative Role
 
