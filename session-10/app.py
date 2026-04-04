@@ -16,7 +16,7 @@ from transformers import pipeline
 #   "j-hartmann/emotion-english-distilroberta-base"     -> emotions (anger, joy, surprise...)
 #   "facebook/bart-large-mnli"                          -> zero-shot (you pick the labels)
 #   "distilgpt2"                                        -> text generation
-#   "sshleifer/distilbart-cnn-12-6"                     -> summarization
+#   "sshleifer/distilbart-cnn-6-6"                     -> summarization
 #   "distilbert-base-uncased-finetuned-sst-2-english"  -> sentiment (positive/negative)
 model = pipeline("text-classification", model="j-hartmann/emotion-english-distilroberta-base")
  

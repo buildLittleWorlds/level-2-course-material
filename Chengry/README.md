@@ -15,7 +15,7 @@ Build your "Medical Text Generator" first, then turn it into a small experiment 
 ### For Medical/Health Summaries
 
 - `Falconsai/text_summarization` — good modern small summarization option for free CPU.
-- `sshleifer/distilbart-cnn-12-6` — the class baseline summarizer, useful for comparison.
+- `sshleifer/distilbart-cnn-6-6` — the class baseline summarizer, useful for comparison.
 
 ## Quick Rules For Picking Models
 
@@ -32,7 +32,7 @@ Build your "Medical Text Generator" first, then turn it into a small experiment 
 - `distilgpt2`: <https://huggingface.co/distilbert/distilgpt2>
 - `HuggingFaceTB/SmolLM2-360M-Instruct`: <https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct>
 - `Qwen/Qwen2.5-0.5B-Instruct`: <https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct>
-- `sshleifer/distilbart-cnn-12-6`: <https://huggingface.co/sshleifer/distilbart-cnn-12-6>
+- `sshleifer/distilbart-cnn-6-6`: <https://huggingface.co/sshleifer/distilbart-cnn-6-6>
 - `Falconsai/text_summarization`: <https://huggingface.co/Falconsai/text_summarization>
 - Hugging Face Spaces hardware docs: <https://huggingface.co/docs/hub/spaces-gpus>
 

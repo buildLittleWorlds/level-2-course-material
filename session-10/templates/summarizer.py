@@ -17,7 +17,7 @@ from transformers import pipeline
 # Distilled summarization model — works on free CPU
 summarizer = pipeline(
     "summarization",
-    model="sshleifer/distilbart-cnn-12-6",
+    model="sshleifer/distilbart-cnn-6-6",
 )
 
 

@@ -18,7 +18,7 @@ Build your Session 5 news-style Space first, then experiment in two directions:
 ### For Summarization
 
 - `Falconsai/text_summarization` — good modern small summarization option for free CPU.
-- `sshleifer/distilbart-cnn-12-6` — the class baseline summarizer, useful for comparison.
+- `sshleifer/distilbart-cnn-6-6` — the class baseline summarizer, useful for comparison.
 
 ## Quick Rules For Picking Models
 
@@ -33,7 +33,7 @@ Build your Session 5 news-style Space first, then experiment in two directions:
 - `distilgpt2`: <https://huggingface.co/distilbert/distilgpt2>
 - `HuggingFaceTB/SmolLM2-360M-Instruct`: <https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct>
 - `Qwen/Qwen2.5-0.5B-Instruct`: <https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct>
-- `sshleifer/distilbart-cnn-12-6`: <https://huggingface.co/sshleifer/distilbart-cnn-12-6>
+- `sshleifer/distilbart-cnn-6-6`: <https://huggingface.co/sshleifer/distilbart-cnn-6-6>
 - `Falconsai/text_summarization`: <https://huggingface.co/Falconsai/text_summarization>
 - Hugging Face Spaces hardware docs: <https://huggingface.co/docs/hub/spaces-gpus>
 
@@ -148,7 +148,7 @@ Write me a Hugging Face Space using Gradio and transformers that compares two su
 The Space should be called "Summarizer Comparison Lab".
 
 I want a dropdown that lets me choose between:
-- sshleifer/distilbart-cnn-12-6
+- sshleifer/distilbart-cnn-6-6
 - Falconsai/text_summarization
 
 Requirements:
