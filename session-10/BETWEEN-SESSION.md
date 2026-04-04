@@ -2,6 +2,8 @@
 
 This week's homework has three parts: getting your Space working, a research journal entry, and GitHub uploads. Plan for about 1-2 hours total. This is the most important between-session work of the whole course.
 
+Riley's Week 10 journal entry in [`example-student/research-journal.md`](../example-student/research-journal.md) shows what end-to-end testing looks like: five different inputs (clean recording, windy recording, two birds at once, short clip, long clip), honest documentation of what worked and what didn't, and a user test with Riley's grandmother. Notice how Riley connects the failures back to concepts from earlier sessions — domain shift, training data limitations. That's the kind of thinking your Week 10 entry should capture.
+
 ---
 
 ## Part 1: Hub Challenge — Get Your Space Working
@@ -106,6 +108,8 @@ Add your Week 10 entry to `research-journal.md` in your GitHub repo. This is you
 ```
 
 If you're not sure what to write, start with: why did you choose this model, and does it actually do what you need? That's the core of research methodology — justifying your methods.
+
+**Need a model for what this entry looks like?** Read Riley's Week 10 entry in [`example-student/research-journal.md`](../example-student/research-journal.md). It follows the exact template above — method, application, expectations, findings, explanation, limitations, next steps. Notice how Riley is honest about what doesn't work (background noise, non-bird audio, limited species) while still showing that the architecture is sound.
 
 ---
 

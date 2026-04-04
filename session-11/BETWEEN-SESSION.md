@@ -2,6 +2,8 @@
 
 This week's homework has three parts: final polish, a research journal entry, and portfolio prep. Plan for about 1-2 hours total. This is the last between-session — our Methodological Reflection and Portfolio Presentation session (Demo Day) is next.
 
+Before you start, read Riley's Week 11 journal entry ("The Thread") in [`example-student/research-journal.md`](../example-student/research-journal.md). It's the model for what you're about to write — a reflection that traces the connecting thread across the whole course. Riley started by testing sentiment models on bird sentences (wrong approach), pivoted to audio classification (right approach), and built three Spaces that got progressively closer to a real birding tool. Your thread will be different, but the act of naming it — looking back and seeing the pattern — is the same.
+
 ---
 
 ## Part 1: Hub Challenge — Final Polish + Practice Your Presentation
@@ -91,6 +93,8 @@ Add your Week 11 entry to `research-journal.md` in your GitHub repo. This is you
 ```
 
 This entry is different from the others — it's not about a single method. It's about the arc. Read your old entries, see the pattern, name it.
+
+**Read Riley's Week 11 entry first.** It's in [`example-student/research-journal.md`](../example-student/research-journal.md). Notice how Riley names the thread ("text models don't know anything about birds → audio classification is what birding needs"), lists every research method used across the course, and connects the Collection, the Spaces, and the journal into one story. That's what your entry should do — but for your project, your methods, your arc. Also look at Riley's portfolio page in [`example-student/README.md`](../example-student/README.md) to see how the journal narrative translates into a polished portfolio.
 
 ---
 

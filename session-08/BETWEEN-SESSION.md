@@ -2,6 +2,8 @@
 
 **Tonight you chained models together** and saw how errors cascade — when the first model gets something wrong, the second model just works with the wrong answer. That's useful to know if you ever build something with multiple steps. But your main job this week is the same as last week: keep building.
 
+Riley's Week 8 was about exactly this — improving Space 2 and planning Space 3. Riley added a confidence threshold to the bird song classifier (so it says "not confident" instead of guessing wildly), listed all 50 known species in the description, and formatted the output as a table. Small improvements, big difference in usability. Then Riley sketched the plan for Space 3: a multi-feature birding assistant that chains audio classification with species lookup. Read Riley's Week 8 journal entry in [`example-student/research-journal.md`](../example-student/research-journal.md) to see how improvement and planning work together.
+
 This week: improve Space 2 and start thinking about Space 3. Plan for about 1 hour.
 
 ---
@@ -42,6 +44,8 @@ Open `research-journal.md` and add your Week 8 entry:
 (What's your ambitious Space going to be? What will it do? Who is it for? What makes it different from Space 2?)
 ```
 
+**Not sure what to write?** Read Riley's Week 8 journal entry in [`example-student/research-journal.md`](../example-student/research-journal.md). Riley documents specific improvements to Space 2 (confidence threshold, species list, formatted output), connects to the class topic (error propagation in pipelines), and lays out a concrete plan for Space 3. Your entry should follow the same arc: what you improved, what you learned, and where you're headed.
+
 ---
 
 ## Portfolio Check
@@ -52,6 +56,8 @@ By Session 9, you should have:
 - 4 journal entries in `research-journal.md`
 - A plan for Space 3
 - A Hugging Face Collection with 8+ items
+
+**Reference:** Riley's three-Space arc is mapped in [`example-student/README.md`](../example-student/README.md). By Week 8, Riley had a working text generator (Space 1), an improved bird song classifier (Space 2), and a plan for a multi-feature birding assistant (Space 3). Your arc will look different, but the shape — baseline, domain-specific, ambitious — should be similar.
 
 ---
 

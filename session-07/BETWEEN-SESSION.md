@@ -2,6 +2,8 @@
 
 **Tonight you found bias** — you designed paired tests, changed one variable, and watched the model treat different groups differently. That's baked into the training data, and it's worth knowing about for any model you use. Keep it in your back pocket. If it's relevant to what you're building, use it. If not, that's fine — what matters most this week is building.
 
+Riley built Space 2 this week too — a bird song classifier that identifies species from audio recordings. It was a completely different kind of model from Space 1 (audio classification instead of text generation). Riley's Week 7 journal entry in [`example-student/research-journal.md`](../example-student/research-journal.md) documents the build process and a big surprise: the model only knows tropical birds, not backyard birds. The architecture worked perfectly — but the training data didn't match Riley's needs. Your Space 2 will have its own version of that discovery.
+
 This week: start building Space 2. Plan for about 1 hour.
 
 ---
@@ -40,6 +42,8 @@ Open `research-journal.md` and add your Week 7 entry:
 (Did you get it deployed? What worked? What broke? What do you still need to figure out?)
 ```
 
+**Not sure what to write?** Read Riley's Week 7 journal entry in [`example-student/research-journal.md`](../example-student/research-journal.md). Riley describes choosing a bird audio classification model, modifying the prompt from the student folder, and discovering a major training data limitation. Your entry should capture the same things: what you're building, why, and what you're learning as you build.
+
 ---
 
 ## Portfolio Check
@@ -49,6 +53,8 @@ By Session 8, you should have:
 - Space 2 deployed (even if rough)
 - 3 journal entries in `research-journal.md`
 - A Hugging Face Collection with 7+ items
+
+**Reference:** Riley's Space 2 (the bird song classifier) is described in [`example-student/README.md`](../example-student/README.md). Notice how it's a completely different model type from Space 1 — that jump is the point. Your Space 2 should represent a real step forward from your baseline.
 
 ---
 
