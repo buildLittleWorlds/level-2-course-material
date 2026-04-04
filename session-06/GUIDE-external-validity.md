@@ -39,16 +39,6 @@ In class, we took the generative models from Session 5 — the text generator an
 
 See `GUIDE-research-journal.md` for how to structure your domain-testing experiment as a journal entry.
 
-## Explore the Training Data
-
-The reason models fail on unfamiliar text is that they've only ever seen one "world." Browsing domain-specific datasets makes this concrete — you can see how differently the same word ("positive," "strong," "growth") is used in finance vs. poetry vs. product reviews. No code required — open the dataset page and click the viewer.
-
-- **[takala/financial_phrasebank](https://hf.co/datasets/takala/financial_phrasebank)** — Nearly 5,000 financial news sentences labeled positive, negative, or neutral by finance experts. "Revenue increased 5%" is positive here — but a movie-review model has no idea what revenue means. Browse the rows and notice how different "positive" sounds when money is involved.
-- **[google-research-datasets/poem_sentiment](https://hf.co/datasets/google-research-datasets/poem_sentiment)** — Sentiment labels on poem verses from Project Gutenberg. "Shall I compare thee to a summer's day?" gets a label here — but is a sentiment label really the right tool for understanding a poem? Browse the dataset and see if you agree with the labels.
-- **[zeroshot/twitter-financial-news-sentiment](https://hf.co/datasets/zeroshot/twitter-financial-news-sentiment)** — Finance tweets labeled for sentiment. This dataset lives in two domains at once: social media language AND financial jargon. A model trained on movie reviews would struggle with both layers.
-
-Same word, different world. That's domain shift in three datasets.
-
 ---
 
 ## Apply It to Your Project — Personal Starter Prompts

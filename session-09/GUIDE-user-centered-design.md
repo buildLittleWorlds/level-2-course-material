@@ -39,15 +39,6 @@ In class, we took the same sentiment model from Session 4 and redesigned it as a
 
 See `GUIDE-research-journal.md` for how to structure your redesign experiment as a journal entry.
 
-## Explore the Training Data
-
-When you redesign a sentiment tool for a specific audience, the training data question flips: instead of "what did the model learn from?" you ask "does the training data look like what my user will actually type?" Browsing real-world review datasets shows you the gap between training data and real use. No code required — open the dataset page and click the viewer.
-
-- **[Yelp/yelp_review_full](https://hf.co/datasets/Yelp/yelp_review_full)** — Yelp reviews with 1-5 star ratings. This is the kind of data a restaurant review analyzer would actually process in the real world. Browse the 1-star and 5-star reviews — notice how different they sound from the movie review sentences in SST-2. A tool designed for restaurant owners needs to handle this kind of language, not film criticism.
-- **[fancyzhx/amazon_polarity](https://hf.co/datasets/fancyzhx/amazon_polarity)** — 35 million Amazon reviews with binary polarity. Product reviews have their own style — short, practical, full of specific complaints and praise. If your redesign targets product reviewers, this is the world your user lives in. Scroll through and notice what "positive" and "negative" mean when money and expectations are involved.
-
-This is the real data your tool would process. If the training data looks nothing like it, your redesign has a domain shift problem on top of a design problem.
-
 ---
 
 AI + Research Level 2 • Session 9: Prompt Logic and Human-AI Interaction

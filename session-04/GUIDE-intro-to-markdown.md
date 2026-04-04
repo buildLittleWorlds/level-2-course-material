@@ -103,7 +103,7 @@ You can also specify a language after the opening backticks for syntax highlight
 ````markdown
 ```python
 from transformers import pipeline
-classifier = pipeline("sentiment-analysis")
+generator = pipeline("text-generation")
 ```
 ````
 

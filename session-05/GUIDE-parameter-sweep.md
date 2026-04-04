@@ -41,14 +41,6 @@ In class, we built a Text Playground Space with temperature, top-p, and max-leng
 
 See `GUIDE-research-journal.md` for how to structure your experiment as a journal entry.
 
-## Explore the Training Data
-
-The text generation model we used in class (distilgpt2) is a language model, not a classifier — so its "training data" is a different kind of thing than the labeled datasets from earlier sessions. But the SST dataset has a version that connects to this week's theme. No code required — open the dataset page and click the viewer.
-
-- **[SetFit/sst5](https://hf.co/datasets/SetFit/sst5)** — The 5-label version of the Stanford Sentiment Treebank: very negative, negative, neutral, positive, very positive. Same movie review sentences as SST-2, but graded on a 5-point scale instead of a binary split. What if sentiment were a number on a dial, not a label? That's the same question we're asking about temperature — what happens when you turn a dial instead of flipping a switch?
-
-Browse the rows and compare them to the binary SST-2 labels from Session 2. A sentence labeled "POSITIVE" in SST-2 might be "neutral" or only "slightly positive" in SST-5. The finer the scale, the more you see — just like the finer you set your sweep intervals, the more you learn about what a parameter actually does.
-
 ---
 
 ## Apply It to Your Project — Personal Starter Prompts

@@ -59,14 +59,6 @@ In class, we built a Bias Tester Space and ran paired sentences through a sentim
 
 See `GUIDE-research-journal.md` for how to structure your fairness audit as a journal entry.
 
-## Explore the Training Data
-
-Bias detection datasets exist because someone decided this problem was worth measuring — and someone had to label every example by hand. Browsing them shows you what goes into building a fairness benchmark. No code required — open the dataset page and click the viewer.
-
-- **[cardiffnlp/tweet_eval](https://hf.co/datasets/cardiffnlp/tweet_eval)** — The **hate speech** and **offensive language** subsets. Thousands of tweets labeled as hateful, offensive, or neither. Browse the rows and think about who had to read and label these. Notice the edge cases — tweets where reasonable people would disagree on the label. Building a bias detection dataset forces you to define exactly where the line is, and that definition is itself a human judgment.
-
-How do you build a dataset for detecting bias? Someone had to read every example and make a call. The labels in these datasets aren't objective facts — they're human judgments about language, and those judgments carry their own assumptions.
-
 ---
 
 AI + Research Level 2 • Session 7: Bias, Variance, and Uncertainty
