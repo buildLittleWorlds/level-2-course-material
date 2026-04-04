@@ -1,123 +1,86 @@
 # Between Sessions 8 & 9
 
-This week's homework has three parts: a challenge using your Collection, a research journal entry, and GitHub uploads. Plan for about 1-2 hours total.
+**Tonight you chained models together** and saw how errors cascade — when the first model gets something wrong, the second model just works with the wrong answer. That's useful to know if you ever build something with multiple steps. But your main job this week is the same as last week: keep building.
+
+This week: improve Space 2 and start thinking about Space 3. Plan for about 1 hour.
 
 ---
 
-## Part 1: Hub Challenge — Chain Two Models
+## Build Step: Improve Space 2, Plan Space 3 (30 min)
 
-In class we built a **multi-model pipeline** — connecting the output of one model to the input of another. We saw how **errors cascade**: when the captioner gets the image wrong, the sentiment model analyzes a wrong description.
+Your Space 2 should be deployed by now. This week, make it better:
 
-Now think about chaining in **your own interest**.
+- **Fix what's broken.** If there are errors, bugs, or ugly outputs, paste the issue into a coding AI and get a fix.
+- **Customize it.** Change the title, description, and example inputs so it looks like *your* tool, not a template.
+- **Test it seriously.** Try 5-10 inputs that a real user in your domain would actually type. Note where it works and where it doesn't.
 
-### Option A: Stay with Sentiment
+**Then think about Space 3.** This is your ambitious Space — the one that shows what you can do. It might be a bigger model, a multi-step pipeline, a more polished interface, or a completely different approach to your domain. You don't have to build it yet, but you should be able to describe it by Session 9.
 
-1. Open the Image Story Pipeline Space (your copy or the class version)
-2. Upload **5 different kinds of images** and run the pipeline on each:
-   - A photo of something obvious (baseline)
-   - A photo with ambiguous emotion (person with unclear expression)
-   - An image with text (meme, sign, screenshot)
-   - Abstract art or a pattern
-   - A very dark, blurry, or unusual photo
-3. For each image, track:
-   - What the image actually shows
-   - What the caption said
-   - What the sentiment said
-   - Which step went wrong (if either did)
-4. **Bonus:** Find the most interesting error cascade — where the caption is wrong AND the wrong caption leads to a wrong sentiment. Can you find a case where the caption is wrong but the sentiment accidentally gets it right?
-5. **Update your Collection** with any interesting models you discover
-
-### Option B: Explore Your Own Topic
-
-1. Think about two models from your Collection that could be chained together. For example:
-   - Image classifier → text generator (describe what the classifier found)
-   - Translation model → sentiment model (translate then analyze mood)
-   - Text generator → text classifier (generate then evaluate)
-   - Any model whose output could become another model's input
-2. You don't have to build this — just **think through the chain on paper**:
-   - What would Model 1 output?
-   - What would Model 2 do with that output?
-   - What could go wrong at each step?
-3. If you want to try it: use the Hub to find both models, test them separately, then manually feed Model 1's output into Model 2
-4. **Update your Collection** — add a tasting note about any chaining possibilities you see
-
-The key idea is the same either way: **when models are connected, errors don't just happen — they travel.** You saw it with our image-caption-sentiment pipeline tonight. Now think about where errors could travel in your own topic.
-
-### What to Notice
-
-- How often does the captioner get it right?
-- When it's wrong, is it completely wrong or just slightly off?
-- Does a wrong caption always lead to a wrong sentiment? Or can the sentiment model still get it right by accident?
-
-### Bring It Back
-
-Next session, be ready to share either your best broken pipeline result or your idea for chaining two models from your Collection.
-
-### Looking Ahead
-
-Tonight was the last piece of Act II. You've now seen the full set of ideas behind modern AI: classification, generation, controls, domain shift, pretraining, bias, and pipelines.
-
-Next session, we shift from what's inside the machine to what's outside it. You'll take a sentiment analysis demo — something like what we've been building all course — and redesign it into a tool for a real audience. A restaurant owner reading reviews. A teacher analyzing student feedback. A therapist monitoring journal entries. The model stays the same. The design around it changes everything. That's Session 9: prompt engineering and human-AI interaction.
+Ideas for Space 3:
+- Chain two models together (if that fits your project — tonight's session showed you how)
+- Use a larger or more specialized model
+- Add features your domain audience would actually need
+- Build a comparison tool that lets users see the difference between models
+- Create something that solves a real problem for a specific person
 
 ---
 
-## Part 2: Research Journal Entry
+## Journal Entry (15 min)
 
-Add your Week 8 entry to `research-journal.md` in your GitHub repo. Same format as last week — 300-500 words.
-
-### Week 8 Entry
+Open `research-journal.md` and add your Week 8 entry:
 
 ```markdown
-## Week 8 — Multi-Model Pipelines and Error Cascades
+## Week 8 — Improving and Planning
 
-### This Week's Method
-(What research method did we learn? Hint: error propagation analysis — tracing how mistakes travel through a multi-model system.)
+### What I Improved in Space 2
+(What did you fix, change, or add? How does it work now compared to the first version?)
 
-### How I Applied It
-(What pipeline did you test? What images or inputs did you use? Did you think about chaining models from your own Collection?)
+### What I Learned from Class
+(Quick note on pipelines and error cascades — anything useful for your project? If not, what else stuck with you this week?)
 
-### What I Expected
-(Before testing — did you think errors would always cascade? Or did you expect the second model to sometimes fix things?)
-
-### What I Found
-(What actually happened? Where did errors start? Where did they end up? Any surprising results?)
-
-### Why I Think This Happened
-(Your explanation. Connect it to the models' training data and how they process information differently.)
-
-### Limitations
-(What kinds of pipelines couldn't you test? What would you need to build a real chained system for your topic?)
-
-### What I Want to Try Next
-(Your topic should be coming into focus by now. What would you build if you had two models working together?)
+### My Plan for Space 3
+(What's your ambitious Space going to be? What will it do? Who is it for? What makes it different from Space 2?)
 ```
-
-If you're not sure what to write, start with: what image broke the pipeline, what did the caption say, and why did the error cascade? That's the core of error propagation analysis.
 
 ---
 
-## Part 3: Grow Your Collection + GitHub
+## Portfolio Check
 
-### Collection
+By Session 9, you should have:
+- Space 1 running (your baseline)
+- Space 2 polished and working well
+- 4 journal entries in `research-journal.md`
+- A plan for Space 3
+- A Hugging Face Collection with 8+ items
 
-Your Collection should have at least **10 models and 6 Spaces** by Session 9. For new items, include tasting notes — especially note any models that could be chained together or whose outputs could feed into another model.
+---
 
-### Notebook
+## Your Personal Challenge
 
-Finish the experiments in the Session 8 notebook:
-- Upload at least 3 different images and run the pipeline on each
-- Fill in the error tracking table in Experiment 3
-- Try the "corrected caption" test — does fixing the caption change the sentiment?
+### Annabelle
+Your Space 2 should be deployed. This week, make it yours — customize the examples, fix any rough edges, and test it with content that matches your style. For Space 3, think about what would make someone say "this is really cool." What's the most ambitious thing you could build with what you know?
 
-### SpaceCraft Resource
+### Bobby
+Polish your model comparison lab. Make the game writing prompts specific and interesting — the kind of thing you'd actually want to test. For Space 3, think bigger: could you build a game dialogue generator that lets you pick a genre, a character type, and a tone?
 
-This week you learned **Error Propagation** — tracing how mistakes cascade through multi-model pipelines. SpaceCraft has a dedicated page for this method with steps, pipeline diagrams, and an exercise: [Error Propagation method card](https://buildlittleworlds.github.io/spaceCraft/methods/error-propagation.html)
+### Chengry
+Your medical NER or upgraded text generator should be working. Refine it — test with real medical text and note where it succeeds and fails. For Space 3, think about your DxAI vision. What's the most impressive version of a medical AI tool you could build on free CPU?
 
-### GitHub
+### Emily
+Polish whichever Space 2 you built — the comparison lab or the better summarizer. Test it on real news articles. For Space 3, think about what a journalism tool should actually do. What would a reporter or editor want from an AI assistant?
 
-Upload this week's notebook to your `my-ai-portfolio` repo:
+### George
+Refine your health-focused Space. Test it with real health content and note what works. For Space 3, think about audience: who would use a health AI tool? A patient? A student? A caregiver? Design for that person.
 
-1. Go to your repo on github.com
-2. Click **Add file** → **Upload files**
-3. Drag the `.ipynb` file and click **Commit changes**
-4. Open `research-journal.md`, click the pencil icon to edit, add your Week 8 entry below the Week 7 entry, and commit
+### Henry
+Polish your scene description Space or whichever direction you went. For Space 3, think about combining your visual and text interests — that could be a really distinctive project.
+
+### Sevilla
+Refine your emotion or image Space. For Space 3, lean into what makes your project different from everyone else's. You have strong instincts about what AI gets wrong emotionally — build something that shows that.
+
+### Shawn
+Your comparison lab should be working well. Polish the interface and test systematically. For Space 3, think about scale: could you compare more models, or add a new dimension to the comparison? Your methodical approach is your strength — push it further.
+
+---
+
+AI + Research Level 2 • Session 8: Improving and Planning

@@ -1,116 +1,83 @@
 # Between Sessions 7 & 8
 
-This week's homework has three parts: a challenge using your Collection, a research journal entry, and GitHub uploads. Plan for about 1-2 hours total.
+**Tonight you found bias** — you designed paired tests, changed one variable, and watched the model treat different groups differently. That's baked into the training data, and it's worth knowing about for any model you use. Keep it in your back pocket. If it's relevant to what you're building, use it. If not, that's fine — what matters most this week is building.
+
+This week: start building Space 2. Plan for about 1 hour.
 
 ---
 
-## Part 1: Hub Challenge — Test for Bias
+## Build Step: Start Your Domain Space (30 min)
 
-In class we did **fairness auditing** — designing paired tests where we changed only one variable (a name, a pronoun, a job title) and measured whether the model's output changed. That's how you test for **algorithmic bias** — does the model treat different groups equally?
+It's time to build something better than Space 1. Your Space 2 should do something different — a different model, a different pipeline type, or a domain-specific feature. It should connect to the interest you've been developing since Session 5.
 
-Now apply that same method to **your own interest**.
+**How to build it:**
 
-### Option A: Stay with Sentiment
+1. Open your student folder on the course repo. Pick the prompt that matches what you want to build.
+2. Paste that prompt into a coding AI (ChatGPT, Claude, Gemini). It will give you `app.py` and `requirements.txt`.
+3. Create a new Space on Hugging Face. Upload the files. Wait for the build.
+4. If it works: customize the title, description, and examples. If it doesn't: paste the error back into the coding AI and ask it to fix the code.
 
-1. Open the Bias Tester Space (your copy or the class version)
-2. Design **5 new paired-sentence tests** we didn't try in class. Try different categories:
-   - Names from different cultural backgrounds
-   - Age references (young/old, teenager/elderly)
-   - Regional or dialect differences ("y'all" vs. "you all")
-   - Emotional expression styles ("I'm upset" vs. "This is unacceptable")
-3. For each pair, note: same result or different? Which direction? Who got the more positive score?
-4. **Bonus:** Search https://huggingface.co/models for a sentiment model that claims to be "fair" or "debiased." Test it with your pairs. Does it do better?
-5. **Update your Collection** with any new models you found
+Get Space 2 deployed this week, even if it's rough. You'll improve it after Session 8.
 
-### Option B: Explore Your Own Topic
-
-1. Pick a model or Space from your Collection
-2. Design a **paired test** — two inputs that are identical except for one demographic detail:
-   - Image classifier: same object, different skin tones in the background or hands holding it
-   - Translation model: same sentence with different names or cultural references
-   - Text generator: same prompt with different character names or genders
-   - Any model: test with inputs from different cultural contexts
-3. Run both inputs and compare the results
-4. Document what happens: does the model treat them equally, or differently?
-5. **Update your Collection** — add a tasting note about any bias you found (or didn't find)
-
-The key idea is the same either way: **models learn patterns from data, and data reflects a world that isn't always fair.** You tested it with sentiment tonight. Now test it with whatever topic you're exploring.
-
-### What to Notice
-
-- Did any results surprise you?
-- Can you find a pattern in which swaps cause the biggest differences?
-- Were there pairs where you expected bias but didn't find it? That's data too.
-
-### Bring It Back
-
-Next session, be ready to share your most surprising finding — either a bias you found or one you expected but didn't see.
-
-### Looking Ahead
-
-Next session, we chain two models together — an image captioning model feeds into a sentiment model. If the first model describes people differently based on who they are, the second model just scores what it's given. Bias doesn't stay contained in one model — it cascades through the pipeline. That's Session 8: error cascades.
-
-If you want a preview, find a multi-model Space on Hugging Face — one where the output of one model feeds into another — and think about what happens when the first model gets something wrong.
+**If you're not sure what to build:** Use one of the upgrade prompts from your student folder. The simplest version is to take your Space 1 and swap in a better model (SmolLM2-360M-Instruct or Qwen2.5-0.5B-Instruct). That alone will show you how much model choice matters.
 
 ---
 
-## Part 2: Research Journal Entry
+## Journal Entry (15 min)
 
-Add your Week 7 entry to `research-journal.md` in your GitHub repo. Same format as last week — 300-500 words.
-
-### Week 7 Entry
+Open `research-journal.md` and add your Week 7 entry:
 
 ```markdown
-## Week 7 — Fairness Auditing and Bias Testing
+## Week 7 — Building Space 2
 
-### This Week's Method
-(What research method did we learn? Hint: fairness auditing — designing paired tests to check whether a model treats different groups equally.)
+### What We Talked About in Class
+(Quick note on the bias testing we did — what stuck with you? Will it be relevant to your project?)
 
-### How I Applied It
-(What model or Space did you test? What pairs did you design? What variable did you change — name, gender, role, age, something else?)
+### What I'm Building for Space 2
+(What's your Space 2? What model or pipeline are you using? How is it different from Space 1? Why did you choose this direction?)
 
-### What I Expected
-(Before testing — did you think the model would show bias? In which direction?)
-
-### What I Found
-(What actually happened? Were there differences? How big? Was there a pattern?)
-
-### Why I Think This Happened
-(Your explanation. Connect it to the training data — what patterns might the model have learned? From what kind of text?)
-
-### Limitations
-(What kinds of bias couldn't you test with this model? What groups or categories did you not cover?)
-
-### What I Want to Try Next
-(Is your topic coming into focus? What question keeps pulling you back?)
+### How It's Going
+(Did you get it deployed? What worked? What broke? What do you still need to figure out?)
 ```
-
-If you're not sure what to write, start with: what pairs did I test, what did I expect, and what surprised me? That's the core of a fairness audit.
 
 ---
 
-## Part 3: Grow Your Collection + GitHub
+## Portfolio Check
 
-### Collection
+By Session 8, you should have:
+- Space 1 running on Hugging Face
+- Space 2 deployed (even if rough)
+- 3 journal entries in `research-journal.md`
+- A Hugging Face Collection with 7+ items
 
-Your Collection should have at least **9 models and 6 Spaces** by Session 8. For new items, include tasting notes — especially note anything you've observed about fairness or who the model works best for.
+---
 
-### Notebook
+## Your Personal Challenge
 
-Finish the experiments in the Session 7 notebook:
-- Fill in all 5 of your own test pairs in Experiment 1
-- Run Experiment 2 (find the biggest bias gap)
-- Try at least one new category of swap in Experiment 3
+### Annabelle
+You build fast. Use that speed on Space 2 — pick one prompt from your folder, build it, and get it deployed. Then write about the difference between Space 1 and Space 2 in your journal. What changed? What's better?
 
-### SpaceCraft Resource
+### Bobby
+Your folder has a model comparison lab prompt. That's a natural Space 2 — same game writing prompts, but now you can switch between distilgpt2, SmolLM2, and Qwen. Build it this week and write about what you notice when you compare the outputs.
 
-This week you learned **Fairness Auditing** — designing paired inputs to check whether a model treats different groups equally. SpaceCraft has a dedicated page for this method with steps, paired-input examples, and an exercise: [Fairness Audit method card](https://buildlittleworlds.github.io/spaceCraft/methods/fairness-audit.html)
+### Chengry
+If the biomedical NER Space is working, that's your Space 2. If not, try the simpler upgrade: take your text generator and swap to a better model. Focus on getting something deployed — you can refine it after Session 8.
 
-### GitHub
+### Emily
+Your folder has a news model comparison lab and a better summarizer. Pick one for Space 2. Either direction works well — go with whichever one excites you more, and get it deployed this week.
 
-Upload this week's notebook to your `my-ai-portfolio` repo:
+### George
+Build Space 2 around health text. Your simplest path: upgrade the model in your text generator and test it on medical content. Get it deployed and write about what the better model does differently.
 
-1. Go to your repo on github.com
-2. Click **Add file** → **Upload files**
-3. Drag the `.ipynb` file and click **Commit changes**
-4. Open `research-journal.md`, click the pencil icon to edit, add your Week 7 entry below the Week 6 entry, and commit
+### Henry
+Your folder has a scene description Space prompt. That's a great Space 2 direction — it connects your visual interests to text generation. Build it this week and see what it can do.
+
+### Sevilla
+You've been exploring emotion and image models. Pick a direction for Space 2 that goes deeper into one of those interests. Your folder has prompts to help — pick the one that feels most like *your* project and build it.
+
+### Shawn
+A model comparison lab is your ideal Space 2. Build the comparison version from your folder — your systematic methodology will shine when you can compare models side by side. Get it deployed and start testing.
+
+---
+
+AI + Research Level 2 • Session 7: Building Space 2
