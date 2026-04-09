@@ -1,10 +1,12 @@
 # Between Sessions 7 & 8
 
-**Tonight you found bias** — you designed paired tests, changed one variable, and watched the model treat different groups differently. That's baked into the training data, and it's worth knowing about for any model you use. Keep it in your back pocket. If it's relevant to what you're building, use it. If not, that's fine — what matters most this week is building.
+> **Heads-up:** This is also the week the course turns toward research work. Your main research work between sessions 7 and 8 is in [`WEEK-7-RESEARCH-WORK.md`](./WEEK-7-RESEARCH-WORK.md). Read that first. The build and journal steps below support that research work.
 
-Riley built Space 2 this week too — a bird song classifier that identifies species from audio recordings. It was a completely different kind of model from Space 1 (audio classification instead of text generation). Riley's Week 7 journal entry in [`example-student/research-journal.md`](../example-student/research-journal.md) documents the build process and a big surprise: the model only knows tropical birds, not backyard birds. The architecture worked perfectly — but the training data didn't match Riley's needs. Your Space 2 will have its own version of that discovery.
+**Tonight you found bias** — you designed paired tests, changed one variable, and watched the model treat different groups differently. That's baked into the training data, and it's worth knowing about for any model you use. For some of you, the bias you found tonight is directly relevant to what you're building, and this week's research work is going to make that connection load-bearing.
 
-This week: start building Space 2. Plan for about 1 hour.
+Prea's [Week 7 journal entry ("Bias, and Starting Space 2")](../example-student-prea/research-journal.md) is the clearest example in the course of a student taking a class topic and realizing it isn't a side reflection — it's a limitation her project has to name honestly. Her pipeline runs on Whisper, and Whisper is an ASR system, and ASR systems have documented performance disparities across speaker groups. Her team includes native English speakers and students for whom English is a second or third language. If Whisper transcribes non-native speakers less accurately, every downstream prosodic feature she computes is less reliable for some speakers than for others. She runs two Consensus searches, finds Koenecke et al. (2020) in PNAS and Li et al. (2024) on arXiv (the second one specifically about Whisper), and writes the honest limitations language her eventual brief needs. That's the move: *tonight's class topic is my project's limitations section.*
+
+This week: start building Space 2, and do the Week 7 research work.
 
 ---
 
@@ -42,7 +44,7 @@ Open `research-journal.md` and add your Week 7 entry:
 (Did you get it deployed? What worked? What broke? What do you still need to figure out?)
 ```
 
-**Not sure what to write?** Read Riley's Week 7 journal entry in [`example-student/research-journal.md`](../example-student/research-journal.md). Riley describes choosing a bird audio classification model, modifying the prompt from the student folder, and discovering a major training data limitation. Your entry should capture the same things: what you're building, why, and what you're learning as you build.
+**Not sure what to write?** Read [Prea's Week 7 journal entry](../example-student-prea/research-journal.md). Notice how she treats the class bias topic not as a side note but as a direct threat to her project, names the specific papers she found, and drafts the actual limitations sentence she will use in her eventual brief. Your entry should capture the same things: what you're building, what you're learning, and — if tonight's bias discussion is relevant to your project — the honest limitations language your project needs.
 
 ---
 
@@ -54,7 +56,7 @@ By Session 8, you should have:
 - 3 journal entries in `research-journal.md`
 - A Hugging Face Collection with 7+ items
 
-**Reference:** Riley's Space 2 (the bird song classifier) is described in [`example-student/README.md`](../example-student/README.md). Notice how it's a completely different model type from Space 1 — that jump is the point. Your Space 2 should represent a real step forward from your baseline.
+**Reference:** Prea's Space 2 (the Delivery Analyzer) is described in her [portfolio README](../example-student-prea/README.md). Notice how it's built on a completely different model type than her Space 1 — Whisper audio transcription instead of sentiment classification — and how the feature extraction work happens in pure Python on top of the API response. That jump is the point. Your Space 2 should represent a real step forward from your baseline.
 
 ---
 

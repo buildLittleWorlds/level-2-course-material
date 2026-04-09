@@ -1,10 +1,12 @@
 # Between Sessions 9 & 10
 
-**Tonight you redesigned an AI tool for a real audience** — same model, completely different experience depending on who it's for. That's a powerful idea, and if it fits your project, use it. But the main thing this week is building. You're in the home stretch.
+> **Heads-up:** This is also the week the course turns toward research work. Your main research work between sessions 9 and 10 is in [`WEEK-9-RESEARCH-WORK.md`](./WEEK-9-RESEARCH-WORK.md). Read that first. The build and journal steps below support that research work.
 
-Riley built Space 3 this week — The Backyard Birder, a multi-tab tool with species identification, bird information, and a sighting log. Riley's Week 9 journal entry in [`example-student/research-journal.md`](../example-student/research-journal.md) documents the build: getting Gradio tabs to work, writing accurate bird descriptions by cross-referencing field guides, and designing the interface for a specific user (Riley's grandmother). That last part — designing for someone real — made Riley's Space feel like a tool, not a homework assignment. Think about who your Space 3 is for.
+**Tonight you redesigned an AI tool for a real audience** — same model, completely different experience depending on who it's for. That's a powerful idea, and designing for a specific person is what separates a tool from a homework assignment. The Week 9 research work also asks you to do the most important piece of research hygiene in the whole course: verify every citation you plan to use, because AI hallucinates them.
 
-This week: build Space 3 and start thinking about your final portfolio. Plan for about 1-1.5 hours.
+Prea's [Week 9 journal entry ("Space 3 Design, and Asking Two Teammates What They Want")](../example-student-prea/research-journal.md) is a model of audience-centered design done in a way you can actually learn from. Instead of guessing what her WSDC teammates would want from a scoring tool, she shows two of them a mockup and asks them directly. One says *"I don't care about the number. I care about which ten seconds I should listen to again."* The other says *"I want to know what I did wrong."* Both answers were more concrete than she expected, and both turned into actual features in her three-tab Space 3 design (Score, Breakdown, and a "Coach" tab that points users to the exact timestamps that mattered). *Think about who your Space 3 is for — and if you can, ask them.*
+
+This week: build Space 3, do the Week 9 research work, and start thinking about your final portfolio.
 
 ---
 
@@ -49,7 +51,7 @@ Open `research-journal.md` and add your Week 9 entry:
 (Look back at your three Spaces. What's the arc? How did you get from Space 1 to Space 3? This is a draft of the narrative you'll write up for your portfolio.)
 ```
 
-**Not sure what to write?** Read Riley's Week 9 journal entry in [`example-student/research-journal.md`](../example-student/research-journal.md). Look especially at "The Story So Far" section — Riley maps the arc from sentiment testing to audio classification to a multi-feature birding tool. That's the kind of narrative thread you should be starting to see in your own work. Also look at Riley's portfolio page in [`example-student/README.md`](../example-student/README.md) — the "Journey" section is what your "Story So Far" will eventually become.
+**Not sure what to write?** Read [Prea's Week 9 journal entry](../example-student-prea/research-journal.md). Notice how she turns two specific quotes from two specific teammates into two specific design features. That's the kind of narrative thread you should be starting to see in your own work — not "I designed for my audience" but "Teammate A said X, so I added Y." Also look at Prea's [portfolio README](../example-student-prea/README.md) for the shape your own portfolio page will eventually take.
 
 ---
 
@@ -63,7 +65,7 @@ By Session 10, you should have:
 - A Hugging Face Collection with 9+ items
 - A rough idea of the story your portfolio will tell
 
-**Reference:** Riley's full portfolio is in [`example-student/README.md`](../example-student/README.md). By Week 9, Riley had all three Spaces built and was drafting the narrative thread. Your portfolio won't look like Riley's — different domain, different models, different question — but the structure (question, journey, three Spaces, what I learned) is the template.
+**Reference:** Prea's full portfolio is in her [portfolio README](../example-student-prea/README.md). By Week 9, Prea had all three Spaces designed and was drafting the narrative thread that ties them together. Your portfolio won't look like Prea's — different domain, different models, different question — but the structure (question, journey, three Spaces, what I learned) is the template.
 
 **You're almost there.** Sessions 10-12 are project sessions — you'll polish everything, write up your portfolio page, and present. The building phase is wrapping up. Get Space 3 deployed this week.
 

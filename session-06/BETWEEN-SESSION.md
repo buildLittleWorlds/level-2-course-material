@@ -1,10 +1,12 @@
 # Between Sessions 6 & 7
 
+> **Heads-up:** This is also the week the course turns toward research work. Your main research work between sessions 6 and 7 is in [`WEEK-6-RESEARCH-WORK.md`](./WEEK-6-RESEARCH-WORK.md). Read that first. The build and journal steps below support that research work.
+
 **Tonight you hit the wall.** You tested your Space on text from outside its world and watched it struggle — not because the model broke, but because it was never trained on that kind of text. That's domain shift, and it's the reason your project matters. A tool that works "in general" isn't a tool yet. A tool that works for *your* domain is.
 
-Riley hit this same wall. The Bird Text Generator writes beautifully about birds but fabricates everything — confident and wrong. Riley's Week 6 journal entry in [`example-student/research-journal.md`](../example-student/research-journal.md) documents exactly what happened: testing across domains, watching quality shift, and realizing that generation isn't the right tool for birding. That realization set up Riley's pivot to audio classification in Space 2.
+Prea hit a version of this wall earlier than tonight, and it is worth seeing how she describes it. In [her Week 4 journal entry ("Classification vs. Generation, and the Two-Factor Hypothesis")](../example-student-prea/research-journal.md), Prea runs a line from one of her own debate speeches through distilgpt2 and watches it produce legal filler, tautological nonsense, and a literal infinite loop. Her conclusion is not that the model is bad; it is that text generation is the wrong modality for her question. She writes: *"I do not need a model that generates better debate speeches. That would not help me. What I need is a model that scores them."* That sentence is the pivot — the moment a researcher names the mismatch between the tool and the task. Yours will look different, but the move is the same.
 
-This week: test deeper, start planning what you actually want to build, and look at the prompts in your student folder. Plan for about 1 hour.
+This week: test deeper, start planning what you actually want to build, and look at the prompts in your student folder.
 
 ---
 
@@ -41,7 +43,7 @@ Open `research-journal.md` in your GitHub repo and add your Week 6 entry:
 (Now that you've seen what your baseline can't do — what kind of tool do you want to build? What domain should it work in? Which prompt from your student folder interests you?)
 ```
 
-**Not sure what to write?** Read Riley's Week 6 journal entry in [`example-student/research-journal.md`](../example-student/research-journal.md). Notice the structure: what Riley tested, what broke, why it happened, and what Riley decided to build next. Riley's entry shows how a domain shift observation leads to a concrete next step — yours should follow the same pattern.
+**Not sure what to write?** Read [Prea's Week 4 journal entry](../example-student-prea/research-journal.md). It's the entry where she works through exactly this question — what the model can't do, why that's actually a clue, and what she wants to build next. Notice how specific she is: not "distilgpt2 is bad" but three literal example outputs, and not "I should switch modalities" but one sentence that names exactly why. Your Week 6 entry should have that same level of specificity. Pick your examples. Name your pivot.
 
 ---
 
@@ -54,7 +56,7 @@ By Session 7, you should have:
 - A Hugging Face Collection with 6+ items
 - A direction for your next Space (even if it's just an idea)
 
-**Reference:** Riley's portfolio in [`example-student/README.md`](../example-student/README.md) shows where this is headed. By Week 6, Riley had decided to pivot from text generation to audio classification — that decision came from exactly the kind of domain testing you're doing this week.
+**Reference:** [Prea's portfolio README](../example-student-prea/README.md) and the rest of [her folder](../example-student-prea/) show where this is headed. By Week 6 of the course, Prea has committed to a two-factor hypothesis, sharpened a research question, and started sketching the architecture of her tool. Your arc won't match hers exactly — different domain, different question, different tools — but Prea's portfolio is the shape of the thing to aim at.
 
 ---
 

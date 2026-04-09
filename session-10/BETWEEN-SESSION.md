@@ -1,8 +1,10 @@
 # Between Sessions 10 & 11
 
-This week's homework has three parts: getting your Space working, a research journal entry, and GitHub uploads. Plan for about 1-2 hours total. This is the most important between-session work of the whole course.
+> **Heads-up:** This is also the week the course turns toward research work — and Week 10 is where the research work becomes a draft. Your main research work between sessions 10 and 11 is in [`WEEK-10-RESEARCH-WORK.md`](./WEEK-10-RESEARCH-WORK.md). Read that first. The build, journal, and GitHub steps below support that research work.
 
-Riley's Week 10 journal entry in [`example-student/research-journal.md`](../example-student/research-journal.md) shows what end-to-end testing looks like: five different inputs (clean recording, windy recording, two birds at once, short clip, long clip), honest documentation of what worked and what didn't, and a user test with Riley's grandmother. Notice how Riley connects the failures back to concepts from earlier sessions — domain shift, training data limitations. That's the kind of thinking your Week 10 entry should capture.
+This week is the most important between-session work of the whole course. You are pulling your Space, your journal, and your sources together into something that actually makes a claim.
+
+Prea's [Week 10 journal entry ("End-to-End Testing and the Correlation Analysis")](../example-student-prea/research-journal.md) shows what serious end-to-end testing looks like when a student actually has a hypothesis to test. She builds a 20-clip test set (10 TED talks, 10 student debate speeches), rates each clip *before* running it through her tool (so her ratings are not contaminated by the tool's output), and computes Spearman rank correlations between her ratings and her tool's three scores. Her results are interesting but small (n=20, single rater, selection bias) — and what makes the entry a model is that she names all of those limitations in the entry itself, before anyone asks. She also discovers something she did not expect: on student debate, the combined score is *worse* than the prosody score alone, which tells her the content score is adding noise rather than signal on that set. That kind of "the result contradicts what I predicted" moment is the one worth chasing in your own testing this week.
 
 ---
 
@@ -109,7 +111,7 @@ Add your Week 10 entry to `research-journal.md` in your GitHub repo. This is you
 
 If you're not sure what to write, start with: why did you choose this model, and does it actually do what you need? That's the core of research methodology — justifying your methods.
 
-**Need a model for what this entry looks like?** Read Riley's Week 10 entry in [`example-student/research-journal.md`](../example-student/research-journal.md). It follows the exact template above — method, application, expectations, findings, explanation, limitations, next steps. Notice how Riley is honest about what doesn't work (background noise, non-bird audio, limited species) while still showing that the architecture is sound.
+**Need a model for what this entry looks like?** Read [Prea's Week 10 entry](../example-student-prea/research-journal.md). It follows the same arc — method, application, expectations, findings, explanation, limitations, next steps. Notice how she is honest about what doesn't work (n=20 is a pilot, single rater, rater contamination risk, ASR bias on non-native speakers, small-model content scoring) while still showing that the pipeline is sound and the result is interesting. The limitations section is what makes the findings credible, not what undermines them.
 
 ---
 

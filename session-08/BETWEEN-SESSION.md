@@ -1,10 +1,12 @@
 # Between Sessions 8 & 9
 
-**Tonight you chained models together** and saw how errors cascade — when the first model gets something wrong, the second model just works with the wrong answer. That's useful to know if you ever build something with multiple steps. But your main job this week is the same as last week: keep building.
+> **Heads-up:** This is also the week the course turns toward research work. Your main research work between sessions 8 and 9 is in [`WEEK-8-RESEARCH-WORK.md`](./WEEK-8-RESEARCH-WORK.md). Read that first. The build and journal steps below support that research work.
 
-Riley's Week 8 was about exactly this — improving Space 2 and planning Space 3. Riley added a confidence threshold to the bird song classifier (so it says "not confident" instead of guessing wildly), listed all 50 known species in the description, and formatted the output as a table. Small improvements, big difference in usability. Then Riley sketched the plan for Space 3: a multi-feature birding assistant that chains audio classification with species lookup. Read Riley's Week 8 journal entry in [`example-student/research-journal.md`](../example-student/research-journal.md) to see how improvement and planning work together.
+**Tonight you chained models together** and saw how errors cascade — when the first model gets something wrong, the second model just works with the wrong answer. That's a real concept for any student building a pipeline this term, and the Week 8 research work asks you to read one paper carefully enough that you could actually cite it.
 
-This week: improve Space 2 and start thinking about Space 3. Plan for about 1 hour.
+Prea's [Week 8 journal entry ("Space 2 Polished, and the First Real Numbers")](../example-student-prea/research-journal.md) is a good example of improvement and planning working together. She adds a confidence check that warns when a clip has too few words to compute reliable prosodic features, writes her four feature functions properly, and tests the Space on five real practice speeches from her own team. She notices a pattern between one of her features (speaking-rate variance across thirds of the speech) and her own ratings of the clips — then immediately writes, *"n = 5 is not a result."* She also connects tonight's class topic to her own pipeline: a Whisper mistranscription won't break her prosodic features, but it will feed a garbled transcript into any content-scoring stage she adds later. That's the move: *improve what works, plan what's next, and be honest about what the numbers can and can't tell you.*
+
+This week: improve Space 2, start thinking about Space 3, and do the Week 8 research work.
 
 ---
 
@@ -44,7 +46,7 @@ Open `research-journal.md` and add your Week 8 entry:
 (What's your ambitious Space going to be? What will it do? Who is it for? What makes it different from Space 2?)
 ```
 
-**Not sure what to write?** Read Riley's Week 8 journal entry in [`example-student/research-journal.md`](../example-student/research-journal.md). Riley documents specific improvements to Space 2 (confidence threshold, species list, formatted output), connects to the class topic (error propagation in pipelines), and lays out a concrete plan for Space 3. Your entry should follow the same arc: what you improved, what you learned, and where you're headed.
+**Not sure what to write?** Read [Prea's Week 8 journal entry](../example-student-prea/research-journal.md). Notice how specific her improvements are (not "I made it better" but "added a confidence check that warns below 20 words"), how honestly she handles her first small-n numbers, and how directly she maps tonight's error-propagation topic onto her own pipeline. Your entry should follow the same arc: what you improved, what you learned, and where you're headed — with specifics, not generalities.
 
 ---
 
@@ -57,7 +59,7 @@ By Session 9, you should have:
 - A plan for Space 3
 - A Hugging Face Collection with 8+ items
 
-**Reference:** Riley's three-Space arc is mapped in [`example-student/README.md`](../example-student/README.md). By Week 8, Riley had a working text generator (Space 1), an improved bird song classifier (Space 2), and a plan for a multi-feature birding assistant (Space 3). Your arc will look different, but the shape — baseline, domain-specific, ambitious — should be similar.
+**Reference:** Prea's three-Space arc is mapped in her [portfolio README](../example-student-prea/README.md). By Week 8, Prea had a working sentiment-comparison Space (Space 1), a polished Delivery Analyzer built on the Whisper API (Space 2), and the beginnings of a plan for a two-factor WSDC judge assistant (Space 3). Your arc will look different, but the shape — baseline, domain-specific, ambitious — should be similar.
 
 ---
 
