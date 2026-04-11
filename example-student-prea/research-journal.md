@@ -57,7 +57,7 @@ But the thing that really got me is what happened when I looked at two sentences
 
 **The Pattern:** The model reads debate rhetoric as if it were ordinary emotional speech. It either mis-labels the performative layer as literal emotion (Anger, Joy) or it ignores it entirely (Neutral). In neither case does it detect that the speaker is doing something *with* the words beyond their dictionary meaning.
 
-**The Consensus Detour:** I told Dr. Plate after class that I had a hunch about prosody but no idea if anyone had written about it for public speaking or debate specifically. She showed me Consensus — a search engine that only returns peer-reviewed papers and summarizes them. I ran three searches this week and kept rough notes:
+**The Consensus Detour:** I told Dr. Plate after class that I had a hunch about prosody but no idea if anyone had written about it for public speaking or debate specifically. He showed me Consensus — a search engine that only returns peer-reviewed papers and summarizes them. I ran three searches this week and kept rough notes:
 
 - *"prosodic features persuasive speech"* returned a systematic review by Gomes et al. (2023) in a Brazilian journal called DELTA. The review found that across the literature, faster speech rate and higher intensity are the two features most consistently linked to persuasive impressions. That matches my intuition from my own debates — my best speeches have felt fast.
 - *"pauses speech rate persuasiveness political discourse"* returned a paper by Pejčić, Trajković, and Janković (2015) that compared Serbian and English political speech and found a correlation between persuasiveness ratings and pause duration, and also that more persuasive speakers modulated their speech rate within syntactic units rather than keeping it constant. This is almost exactly the experiment I have been imagining, but on political speeches instead of student debate.
@@ -109,7 +109,7 @@ I ran the same prompt at five temperatures (0.3, 0.5, 0.7, 1.0, 1.3) and wrote t
 
 **Why I Built a Broken Space On Purpose:** This is the baseline. Its whole job in my portfolio is to be the thing whose limitations motivated the rest of the project. A generator can produce text that looks like a debate sentence, but it has no concept of whether the sentence is any good and no way to assign a score. To get to scoring I need a different kind of model.
 
-**The Blog Post:** On Wednesday I went to Dr. Plate's office hours and told her I wanted to do something with audio eventually. She pulled up a blog post from Mistral AI titled "Designing a speech-to-speech assistant — From Audio Input to Spoken Response: Building a Triggerable Assistant with Voxtral and Mistral Small." It was from April 2026, so essentially brand new. She said: "This is the architectural pattern you want. Don't worry about the specific Mistral pieces; look at the *shape* of it."
+**The Blog Post:** On Wednesday I went to Dr. Plate's office hours and told him I wanted to do something with audio eventually. He pulled up a blog post from Mistral AI titled "Designing a speech-to-speech assistant — From Audio Input to Spoken Response: Building a Triggerable Assistant with Voxtral and Mistral Small." It was from April 2026, so essentially brand new. He said: "This is the architectural pattern you want. Don't worry about the specific Mistral pieces; look at the *shape* of it."
 
 I spent most of the evening reading it. The pipeline Mistral describes has three stages:
 
