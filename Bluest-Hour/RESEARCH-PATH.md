@@ -115,6 +115,74 @@ Once the question is sharper, the next move is Prea's Week 3 move: go find out w
 
 You do not need papers on "The Bluest Hour" specifically. You need papers that touch the parts of the question:
 
+### Use Consensus For This Step
+
+Go to [Consensus](https://consensus.app/).
+
+Consensus is useful here because it is built as an academic search engine rather than a general chatbot. It searches a large database of peer-reviewed research papers, then uses AI to help synthesize the relevant findings with citations. For Session 6 purposes, that makes it a very good bridge between:
+
+- **"I have a hunch"**
+- **"I can name a research question"**
+- **"I found papers that prove this is a real research area"**
+
+### How To Use Consensus Well
+
+Think of Consensus as a **research search engine**, not as a place to ask for final answers immediately.
+
+#### A practical workflow for students
+
+1. **Start with your medium or narrow question, not your broad topic.**
+   - Bad: `blue hour`
+   - Better: `sentiment analysis reflective writing`
+   - Even better: `Does nature exposure improve mood?`
+
+2. **Try both a natural-language question and a keyword version.**
+   - Natural language often works well for finding the right conceptual neighborhood.
+   - Keyword searches can help when the first results are too broad.
+
+3. **Use yes/no style questions when they fit.**
+   - Consensus can show a Consensus Meter for questions like:
+     - `Does walking in nature improve mood?`
+     - `Does outdoor light exposure affect mood?`
+   - That is useful for quickly seeing whether the literature tends to lean one way, but students should still click into the actual papers.
+
+4. **Use Quick first, then Pro or Deep if the question is promising.**
+   - **Quick** is good for first orientation.
+   - **Pro** is better once you know the direction and want a stronger synthesis.
+   - **Deep** is useful if you are getting serious about a literature review and want the tool to break the topic into sub-questions.
+
+5. **Open and save papers that feel closest to the actual project.**
+   - The goal is not to collect a giant pile of papers.
+   - The goal is to find 3 to 5 papers that clearly connect to the question the student is actually asking.
+
+6. **Record the result in the journal immediately.**
+   - For each useful paper, write:
+     - title
+     - authors
+     - what question the paper asked
+     - one important finding
+     - how it connects to Bluest Hour
+
+### How Consensus Helps Focus The Question
+
+Consensus is not only for finding sources after the question is finished. It can also help sharpen the question itself.
+
+Use it in this order:
+
+1. **Search the broad hunch.**
+   - Example: `nature exposure mood`
+2. **Notice what the literature actually studies.**
+   - mood?
+   - calmness?
+   - circadian rhythm?
+   - wellbeing?
+   - journaling?
+3. **Rewrite the question using the language the literature uses.**
+   - Instead of: "Does this app make people feel better?"
+   - Move toward: "Do blue-hour-timed walks change self-reported mood or reflective quality?"
+
+That move matters. It is how a poetic observation becomes a researchable question.
+
 ### Search directions
 
 - **Nature exposure and mood**
@@ -130,11 +198,43 @@ You do not need papers on "The Bluest Hour" specifically. You need papers that t
   - `"digital journaling wellbeing study"`
   - `"smartphone mood tracking nature study"`
 
+### Good Consensus Searches For Bluest Hour
+
+Start with these in Consensus:
+
+- [nature exposure mood ecological momentary assessment](https://consensus.app/search/)
+- [Does walking in nature improve mood?](https://consensus.app/search/)
+- [evening light exposure mood circadian review](https://consensus.app/search/)
+- [sentiment analysis reflective writing](https://consensus.app/search/)
+- [emotion classification journal entries](https://consensus.app/search/)
+- [digital journaling wellbeing study](https://consensus.app/search/)
+
+Because Consensus search results are query-driven, students should paste the exact query into the search bar rather than expect these links to pre-fill the whole search.
+
+### A Bluest Hour-Specific Consensus Mini-Sequence
+
+If you were modeling this live for students, a clean sequence would be:
+
+1. Search: `Does walking in nature improve mood?`
+   - This shows the project lives in a real evidence base.
+2. Search: `outdoor light exposure mood study`
+   - This narrows toward evening light and timing.
+3. Search: `sentiment analysis reflective writing`
+   - This introduces the measurement problem.
+4. Search: `emotion classification journal entries`
+   - This helps test whether the model-choice question is already a research question of its own.
+
+After those four searches, the question usually gets sharper:
+
+- not "Is Bluest Hour a nice app?"
+- but "Can a generic sentiment model validly analyze reflective writing about blue-hour walks?"
+
 ### What you're looking for
 
 - papers on whether outdoor or nature exposure affects mood or calmness
 - papers on whether light timing affects mood, sleep, or circadian rhythms
 - papers on whether sentiment analysis works well on reflective or diary-like writing
+- papers that use methods students could imitate on a small scale, like self-report, journaling, or experience sampling
 
 ### What to write down
 
@@ -144,6 +244,7 @@ For each paper:
 - what question they asked
 - how that question connects to Bluest Hour
 - one finding you might cite later
+- one note on method: survey, experiment, systematic review, EMA, model comparison, etc.
 
 You are not trying to become an expert overnight. You are trying to prove that your question lives in a real research neighborhood.
 
