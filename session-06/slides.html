@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Session 6: Model Evaluation and Generalization</title>
+<title>Session 6: Finding Your Research Question</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/night.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/monokai.min.css">
@@ -34,7 +34,6 @@
     font-size: 1.3em;
     letter-spacing: 0.05em;
   }
-  .concept-box .arrow { color: #fbbf24; font-weight: bold; }
 
   .vocab-term {
     color: #fbbf24;
@@ -64,19 +63,6 @@
 
   .small { font-size: 0.7em; color: #9ca3af; }
 
-  code {
-    background: rgba(255,255,255,0.1);
-    padding: 0.1em 0.4em;
-    border-radius: 4px;
-    font-size: 0.9em;
-  }
-  .reveal pre code {
-    max-height: 500px;
-    font-size: 0.65em;
-    line-height: 1.5;
-    padding: 1em;
-  }
-
   .observation-card {
     background: rgba(251,191,36,0.1);
     border-left: 4px solid #fbbf24;
@@ -93,8 +79,19 @@
     border-radius: 0 8px 8px 0;
   }
 
-  .fragment.current-visible.visible:not(.current-fragment) {
-    display: none;
+  .prea-box {
+    background: rgba(96,165,250,0.1);
+    border-left: 4px solid #60a5fa;
+    padding: 0.6em 1em;
+    margin: 0.5em 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  code {
+    background: rgba(255,255,255,0.1);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
   }
 </style>
 </head>
@@ -104,22 +101,21 @@
 
 <!-- ========== 1. TITLE ========== -->
 <section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
-  <h1 style="font-size:2.5em;">Model Evaluation and Generalization</h1>
-  <p style="font-size:1.2em; opacity:0.8; margin-top:0.3em;"><em>"Same Space, Different Worlds"</em></p>
+  <h1 style="font-size:2.5em;">Finding Your<br>Research Question</h1>
+  <p style="font-size:1.2em; opacity:0.8; margin-top:0.3em;"><em>"What Are You Actually Investigating?"</em></p>
   <h3 style="color:#fbbf24;">Session 6</h3>
-  <p style="margin-top:1.5em; color:#94a3b8;">Act II &middot; The Breakthrough</p>
+  <p style="margin-top:1.5em; color:#94a3b8;">The Pivot</p>
 </section>
 
 <!-- ========== 2. TONIGHT'S GOAL ========== -->
 <section>
   <h2>Tonight's Goal</h2>
   <p style="font-size:1.15em; text-align:center; margin:1em 0;">
-    Test your models <span class="highlight-yellow">outside their comfort zone</span>.<br>
-    Build a domain-adapted generator.<br>
-    Discover what breaks.
+    Leave tonight with a <span class="highlight-yellow">research question</span><br>
+    you're excited about.
   </p>
   <div class="concept-box">
-    Build workshop &mdash; everyone leaves with a running Space
+    Not just building &mdash; investigating.
   </div>
 </section>
 
@@ -129,383 +125,265 @@
   <div class="observation-card">
     Who got their Space working this week?
   </div>
-  <p style="margin-top:0.8em; font-size:1.1em;">Quick show &mdash; open your Space and show us.</p>
+  <p style="margin-top:0.8em; font-size:1.1em;">Quick show &mdash; then we shift gears.</p>
 </section>
 
-<!-- ========== 4. STORY SO FAR ========== -->
+<!-- ========== 4. THE PIVOT ========== -->
 <section>
-  <h2>Story So Far</h2>
+  <h2>The Pivot</h2>
   <div class="card">
     <span class="emoji-label">&#x1F5C2;</span>
-    <strong>Sessions 1&ndash;3:</strong> Classification &mdash; sorting text into buckets. Impressive but limited.
+    <strong>Sessions 1&ndash;5:</strong> Learning what AI can do. Building, testing, playing.
   </div>
   <div class="card">
-    <span class="emoji-label">&#x1F500;</span>
-    <strong>Session 4:</strong> The fork &mdash; from classification to generation. A model that writes.
-  </div>
-  <div class="card">
-    <span class="emoji-label">&#x1F39B;</span>
-    <strong>Session 5:</strong> Controls &mdash; temperature, top-p, and prompt templates. The same knobs on ChatGPT and Claude.
+    <span class="emoji-label">&#x1F50D;</span>
+    <strong>Sessions 6&ndash;12:</strong> Finding out something <em>new</em>. Investigating a question.
   </div>
   <p class="fragment" style="margin-top:1em; color:#fbbf24; font-size:1.1em;">
-    "Every model only knows what it was trained on.<br>
-    Tonight we hit that wall."
+    A Space is a tool.<br>
+    A research question is the reason the tool exists.
   </p>
 </section>
 
-<!-- ========== 5. SPACECRAFT CHECK-IN ========== -->
+<!-- ========== 5. WHAT YOU'LL HAVE ========== -->
 <section>
-  <h2>SpaceCraft Check-In</h2>
-  <div class="observation-card">
-    I tested a Space <strong>outside its training domain</strong> this week.
-  </div>
-  <p style="margin-top:0.8em;">It works great on what it was trained on. But watch what happens when the input comes from a <span class="highlight-pink">completely different world</span>.</p>
-</section>
-
-<!-- ========== 6. THE HOOK: DOMAIN SHIFT LIVE ========== -->
-<section>
-  <section>
-    <h2>The Hook: Domain Shift Live</h2>
-    <p>Take our Session 5 text generator. Same model. Same settings.</p>
-    <div class="try-it" style="margin-top:0.8em;">
-      <strong>Prompt 1:</strong> "Once upon a time"
-    </div>
-    <p class="fragment" style="margin-top:0.5em; color:#34d399;">Works great. Sounds like a story.</p>
-  </section>
-
-  <section>
-    <h2>Now Try This</h2>
-    <div class="try-it">
-      <strong>Prompt 2:</strong> "Patient presents with acute onset of"
-    </div>
-    <p class="fragment" style="margin-top:0.8em;">Sounds wrong. <span class="highlight-pink">Writes like a blog post, not a doctor.</span></p>
-    <div class="observation-card fragment" style="margin-top:0.8em;">
-      Same model. The world changed.
-    </div>
-  </section>
-</section>
-
-<!-- ========== 7. DEMO BUILD 1: DOMAIN GENERATOR ========== -->
-<section class="center-slide">
-  <h2>Demo Build 1: Domain Generator</h2>
-  <p style="font-size:1.15em; margin-top:1em;">
-    Same model, different prompts.<br>
-    We're adding a <span class="highlight-yellow">domain dropdown</span>.
-  </p>
-</section>
-
-<!-- ========== 8. CODE WALKTHROUGH ========== -->
-<section>
-  <h2>Code Walkthrough</h2>
+  <h2>By the End of This Course</h2>
   <div class="card">
-    <span class="emoji-label">&#x1F4D6;</span>
-    <strong>Domain presets dictionary</strong> &mdash; each domain gets a prompt template and style hints
+    <span class="emoji-label">&#x1F680;</span>
+    <strong>Three Spaces</strong> &mdash; each one tests a different angle of your question
   </div>
   <div class="card">
-    <span class="emoji-label">&#x1F39B;</span>
-    <strong>Dropdown selector</strong> &mdash; user picks the domain before generating
+    <span class="emoji-label">&#x1F4D3;</span>
+    <strong>A Research Journal</strong> &mdash; the record of what you tried, what broke, and what you learned
   </div>
   <div class="card">
-    <span class="emoji-label">&#x26A1;</span>
-    <strong>Generate function</strong> &mdash; wraps user input with the domain template, then calls the model
+    <span class="emoji-label">&#x1F4DD;</span>
+    <strong>A Research Brief</strong> &mdash; a short paper: question, methods, findings, limitations
   </div>
   <div class="observation-card fragment" style="margin-top:0.8em;">
-    Key point: the <span class="highlight-yellow">prompt template</span> shapes the domain. The model stays the same.
+    Tonight we start with the hardest part: the question.
   </div>
 </section>
 
-<!-- ========== 9. TEST EACH DOMAIN ========== -->
+<!-- ========== 6. PREA'S ARC ========== -->
 <section>
-  <h2>Test Each Domain</h2>
-  <div class="two-col">
-    <div>
-      <div class="card">
-        <span class="emoji-label">&#x1F3AE;</span>
-        <strong>Game Dialogue</strong><br>
-        <span class="highlight-blue">Okay-ish</span> &mdash; some RPG flavor
-      </div>
-      <div class="card">
-        <span class="emoji-label">&#x1F3E5;</span>
-        <strong>Medical Notes</strong><br>
-        <span class="highlight-pink">Wrong</span> &mdash; too casual, no clinical voice
-      </div>
-    </div>
-    <div>
-      <div class="card">
-        <span class="emoji-label">&#x1F4F0;</span>
-        <strong>News Article</strong><br>
-        <span class="highlight-green">Decent</span> &mdash; close to training data
-      </div>
-      <div class="card">
-        <span class="emoji-label">&#x270F;</span>
-        <strong>Poetry</strong><br>
-        <span class="highlight-yellow">Weird</span> &mdash; tries but misses the music
-      </div>
-    </div>
+  <h2>How a Question Sharpens</h2>
+  <div class="prea-box" style="font-size:0.95em;">
+    <strong>Prea (example student)</strong>
+  </div>
+  <div class="card" style="margin-top:0.5em;">
+    <strong>Week 1:</strong> "Sentiment analysis misses something about debate."
+  </div>
+  <div class="card">
+    <strong>Week 2:</strong> "Two models disagree on every line &mdash; delivery is missing from the input."
+  </div>
+  <div class="card">
+    <strong>Week 3:</strong> "Three peer-reviewed papers say prosody matters for persuasion."
+  </div>
+  <div class="card">
+    <strong>Week 4:</strong> "Prosodic features + content scoring = two-factor pipeline. Testable."
   </div>
   <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
-    The model was trained on web text. Some domains are close to its world. Others aren't.
+    Hunch &rarr; observation &rarr; literature &rarr; hypothesis.<br>
+    You don't need to get to Week 4 tonight. Start at Week 1.
   </p>
 </section>
 
-<!-- ========== 10. YOUR TURN — WORK TIME 1 ========== -->
+<!-- ========== 7. YOUR FOLDER ========== -->
+<section class="center-slide">
+  <h2>Your Folder</h2>
+  <p style="font-size:1.15em; margin-top:1em;">
+    Open your folder in the course repo.<br>
+    Start with <span class="highlight-yellow">RESEARCH-PATH.md</span>.
+  </p>
+  <p style="margin-top:1em; color:#9ca3af;">
+    Three files: README (where you are), RESEARCH-PATH (your guide tonight), SPACE-PROMPTS (for building).
+  </p>
+</section>
+
+<!-- ========== 8. WORK TIME 1: INDIVIDUAL CONVERSATIONS ========== -->
 <section>
-  <h2>Your Turn &mdash; Work Time 1</h2>
+  <h2>Work Time 1: Your Research Direction</h2>
+  <div class="try-it">
+    Read RESEARCH-PATH.md, Steps 1 and 2.<br>
+    I'm going to talk to each of you.
+  </div>
+  <p style="margin-top:0.8em; font-size:1.05em;">The question I'm going to ask you:</p>
+  <div class="observation-card" style="margin-top:0.5em;">
+    "What have you noticed &mdash; from your Space work, your collection, your observations &mdash; that you want to understand better?"
+  </div>
+</section>
+
+<!-- ========== 9. DOMAIN INTERLUDE ========== -->
+<section>
+  <h2>A Word About Domain</h2>
+  <p style="font-size:1.05em;">
+    Every AI model lives in a <span class="highlight-yellow">domain</span> &mdash; the world of its training data.
+  </p>
+  <p style="margin-top:0.5em;">
+    Your research topic is also a domain.<br>
+    Music. Medicine. Politics. Visual art. Animation.
+  </p>
+  <div class="observation-card fragment" style="margin-top:0.8em;">
+    When you pick a topic, you're choosing a domain.<br>
+    When your model struggles with your topic, that's <span class="highlight-pink">domain shift</span> &mdash;<br>
+    and that's where the interesting research questions live.
+  </div>
+</section>
+
+<!-- ========== 10. WHAT MAKES A GOOD QUESTION ========== -->
+<section>
+  <h2>What Makes a Good Research Question?</h2>
+  <div class="card">
+    <span class="highlight-green">It has an answer you don't already know.</span><br>
+    <span class="small">"Can AI generate text?" &rarr; you already know. Try: "under what conditions" or "for whom."</span>
+  </div>
+  <div class="card">
+    <span class="highlight-blue">It has wrong answers you can picture.</span><br>
+    <span class="small">If there's no way to be wrong, there's no way to learn anything.</span>
+  </div>
+  <div class="card">
+    <span class="highlight-yellow">It's narrow enough to actually chase.</span><br>
+    <span class="small">You have 5 weeks. One question. Three Spaces to test it.</span>
+  </div>
+</section>
+
+<!-- ========== 11. BROAD → MEDIUM → NARROW ========== -->
+<section>
+  <h2>Sharpening: Broad &rarr; Narrow</h2>
+  <div class="card">
+    <span class="highlight-pink">Broad:</span> "Does AI work for music?"<br>
+    <span class="small">Too big. No testable answer.</span>
+  </div>
+  <div class="card">
+    <span class="highlight-yellow">Medium:</span> "Do text models distinguish opera vocabulary from jazz vocabulary?"<br>
+    <span class="small">Getting there. What would you measure?</span>
+  </div>
+  <div class="card">
+    <span class="highlight-green">Narrow:</span> "When given opera vs. jazz lyrics, does distilgpt2 produce stylistically distinct continuations, or does it flatten both into generic music text?"<br>
+    <span class="small">Testable. Specific. Could be wrong.</span>
+  </div>
+  <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
+    Your RESEARCH-PATH.md has three candidates like this for your topic.
+  </p>
+</section>
+
+<!-- ========== 12. QUESTION SHARPENING EXERCISE ========== -->
+<section>
+  <h2>Exercise: Write Your Question</h2>
   <div class="concept-box" style="font-size:1em;">
-    Test YOUR Space on text from outside its intended domain.
+    Open a new file: <code>week-06-research-question.md</code><br>
+    Write your research question. One sentence.
   </div>
-  <div class="card" style="margin-top:0.8em;">
-    <strong class="highlight-blue">Bobby:</strong> game text in your summarizer
-  </div>
-  <div class="card">
-    <strong class="highlight-pink">Emily:</strong> poetry in your summarizer
-  </div>
-  <div class="card">
-    <strong class="highlight-green">Chengry:</strong> medical text in everything
-  </div>
-  <div class="observation-card" style="margin-top:0.8em;">
-    Everyone: find <span class="highlight-yellow">one input that surprises you</span>.
-  </div>
-</section>
-
-<!-- ========== 11. DEMO 2: SUMMARIZER ACROSS DOMAINS ========== -->
-<section class="center-slide">
-  <h2>Demo 2: Summarizer Across Domains</h2>
-  <p style="font-size:1.15em; margin-top:1em;">
-    Same summarizer from last week.<br>
-    <span class="highlight-yellow">Different text.</span>
+  <p style="margin-top:0.8em;">
+    Use the candidates in your RESEARCH-PATH.md as starting points.<br>
+    Or write your own.
   </p>
-</section>
-
-<!-- ========== 12. TESTING SEQUENCE ========== -->
-<section>
-  <h2>Testing Sequence</h2>
-  <div class="card">
-    <span class="emoji-label">&#x1F4F0;</span>
-    <strong>News article</strong> &rarr; <span class="highlight-green">clean summary</span> (home domain)
-  </div>
-  <div class="card">
-    <span class="emoji-label">&#x270F;</span>
-    <strong>Poem</strong> &rarr; <span class="highlight-pink">strips the imagery</span>
-  </div>
-  <div class="card">
-    <span class="emoji-label">&#x2696;</span>
-    <strong>Legal text</strong> &rarr; <span class="highlight-pink">misses key terms</span>
-  </div>
-  <div class="card">
-    <span class="emoji-label">&#x1F3E5;</span>
-    <strong>Medical text</strong> &rarr; <span class="highlight-yellow">mixed results</span>
-  </div>
   <div class="observation-card fragment" style="margin-top:0.8em;">
-    Trained on CNN/DailyMail. Great at news. Lost on everything else.
+    The test: does it have an answer you <span class="highlight-yellow">don't already know</span>?
   </div>
 </section>
 
-<!-- ========== 12B. THE OTHER ANSWER ========== -->
+<!-- ========== 13. PAIR CONVERSATIONS ========== -->
+<section>
+  <h2>Pair Up</h2>
+  <p style="font-size:1.1em;">
+    Explain your research question to your partner.<br>
+    <span class="highlight-yellow">3 minutes each.</span>
+  </p>
+  <div class="try-it" style="margin-top:0.8em;">
+    Your partner's job: ask <em>"What would count as evidence?"</em>
+  </div>
+  <p class="fragment" style="margin-top:1em; color:#9ca3af;">
+    If you can't explain your question in 2 sentences,<br>it might need sharpening.
+  </p>
+</section>
+
+<!-- ========== 14. SHARE-OUT ========== -->
 <section class="center-slide">
-  <h2>The Other Answer</h2>
+  <h2>Share-Out</h2>
   <p style="font-size:1.15em; margin-top:1em;">
-    General models fail on specialized text.<br>
-    One solution: train on everything (BERT, ChatGPT).
-  </p>
-  <p class="fragment" style="margin-top:1em; color:#fbbf24; font-size:1.2em;">
-    But there's another path:<br>
-    <em>Train a small model specifically on your domain.</em>
+    Read your question.<br>
+    One sentence each.
   </p>
 </section>
 
-<!-- ========== 12C. BIOMEDICAL NER ========== -->
+<!-- ========== 15. DOMAIN CONNECTION ========== -->
 <section>
-  <h2>Biomedical NER: A Specialist Model</h2>
-  <div class="two-col">
-    <div class="card">
-      <strong class="highlight-yellow">Input</strong><br>
-      <span style="font-size:0.9em;">"Patient presents with acute <span class="highlight-pink">chest pain</span> radiating to the <span class="highlight-green">left arm</span>. Started on <span class="highlight-blue">aspirin</span> and <span class="highlight-blue">heparin</span> drip."</span>
-    </div>
-    <div class="card">
-      <strong class="highlight-yellow">Output</strong><br>
-      <span style="font-size:0.9em;">
-        <span class="highlight-pink">chest pain</span> &rarr; Sign_symptom<br>
-        <span class="highlight-green">left arm</span> &rarr; Body_part<br>
-        <span class="highlight-blue">aspirin</span> &rarr; Medication<br>
-        <span class="highlight-blue">heparin</span> &rarr; Medication
-      </span>
-    </div>
-  </div>
-  <div class="observation-card" style="margin-top:0.8em; font-size:0.95em;">
-    <code>d4data/biomedical-ner-all</code> &mdash; 66M parameters &mdash; free CPU &mdash; no API key
-  </div>
-  <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
-    Same size as distilgpt2. Trained on biomedical text.<br>One thing, one domain, precisely.
+  <h2>Your Question Lives in a Domain</h2>
+  <p style="font-size:1.05em;">
+    Every one of your questions lives in a specific world &mdash;<br>
+    music, medicine, politics, images, animation.
   </p>
-</section>
-
-<!-- ========== 13. YOUR TURN — WORK TIME 2 ========== -->
-<section>
-  <h2>Your Turn &mdash; Work Time 2</h2>
-  <p style="font-size:1.1em;">Keep building. Iterate. Try to <span class="highlight-green">fix a domain failure</span> by changing your prompts or settings.</p>
-  <div class="concept-box" style="font-size:1em; margin-top:0.8em;">
-    Hard goal: everyone has a <span class="highlight-yellow">running Space</span> by end of tonight.
-  </div>
-</section>
-
-<!-- ========== 14. TWO ANALOGIES ========== -->
-<section>
-  <h2>Two Analogies</h2>
-  <div class="two-col">
-    <div class="card" style="text-align:center;">
-      <p style="font-size:1.8em;">&#x1F4DD;</p>
-      <strong class="highlight-blue">Studying for Tests</strong><br>
-      You ace one teacher's test style.<br>
-      Then you bomb everyone else's exam.
-    </div>
-    <div class="card" style="text-align:center;">
-      <p style="font-size:1.8em;">&#x1F697;</p>
-      <strong class="highlight-yellow">Learning to Drive</strong><br>
-      You master your small town.<br>
-      Then someone puts you on a six-lane highway in another country.
-    </div>
-  </div>
-  <p class="fragment" style="margin-top:1em; text-align:center; color:#9ca3af;">
-    Same skill. Different world.
+  <p style="margin-top:0.5em;">
+    AI models also live in specific worlds:<br>the data they were trained on.
   </p>
+  <div class="observation-card fragment" style="margin-top:0.8em;">
+    The most interesting research questions are about what happens<br>
+    at the <span class="highlight-yellow">boundary</span> &mdash; where your world<br>
+    and the model's world don't quite match.
+  </div>
 </section>
 
-<!-- ========== 15. NAME THE CONCEPTS ========== -->
-<section class="center-slide">
-  <h2>Name the Concepts</h2>
-  <div class="concept-box" style="font-size:1.1em;">
-    <strong class="highlight-yellow">OVERFITTING</strong><br>
-    So good at training data you can't handle anything else.
-  </div>
-  <div class="concept-box" style="font-size:1.1em; margin-top:0.5em;">
-    <strong class="highlight-yellow">DOMAIN SHIFT</strong><br>
-    Real-world data differs from training data.
-  </div>
-  <p class="fragment" style="margin-top:1em; color:#fbbf24; font-size:1.1em;">
-    "The model didn't get dumber. The world changed."
-  </p>
-</section>
-
-<!-- ========== 16. THE BREAKTHROUGH ========== -->
+<!-- ========== 16. WRITING TIME ========== -->
 <section>
-  <section class="center-slide">
-    <h2>The Wall</h2>
-    <p style="font-size:1.15em; margin-top:1em;">
-      For years, every model had this problem.<br>
-      Build a specialized model for every domain.<br>
-      <span class="highlight-pink">Expensive. Slow. Never-ending.</span>
-    </p>
-    <p class="fragment" style="margin-top:1em; color:#fbbf24; font-size:1.2em;">
-      Then someone asked:<br>
-      "What if the training domain was&hellip; <em>everything?</em>"
-    </p>
-  </section>
-
-  <section class="center-slide">
-    <h2>Two Paths Through the Wall</h2>
-    <div class="two-col" style="margin-top:1em;">
-      <div class="card" style="text-align:center;">
-        <strong class="highlight-green">Path A: The Specialist</strong><br>
-        Fine-tune a small model on your domain.<br>
-        <span style="color:#9ca3af;">Small. Fast. Free. Precise.</span><br>
-        <code style="font-size:0.8em;">d4data/biomedical-ner-all</code>
-      </div>
-      <div class="card" style="text-align:center;">
-        <strong class="highlight-yellow">Path B: The Generalist</strong><br>
-        Pretrain on everything, then fine-tune.<br>
-        <span style="color:#9ca3af;">Massive. Expensive. Versatile.</span><br>
-        <span style="font-size:0.85em;">BERT &rarr; GPT &rarr; ChatGPT / Claude</span>
-      </div>
-    </div>
-    <p class="fragment" style="margin-top:1em; color:#fbbf24; font-size:1.1em;">
-      Both broke through the domain wall. Both are used today.
-    </p>
-  </section>
-</section>
-
-<!-- ========== 17. RESEARCH LENS ========== -->
-<section>
-  <h2>Research Lens: External Validity</h2>
-  <div class="observation-card" style="font-size:1.05em;">
-    Does your finding hold up <strong>outside the original test conditions</strong>?
+  <h2>Writing Time</h2>
+  <p>In order of priority:</p>
+  <div class="card">
+    <strong class="highlight-green">1.</strong> Your research question &mdash; one sentence in <code>week-06-research-question.md</code>
   </div>
-  <p class="fragment" style="margin-top:1em;">
-    We tested <span class="highlight-yellow">generalization</span> &mdash; same method researchers use.
-  </p>
-  <div class="fragment card" style="margin-top:0.8em;">
-    <strong>Our research question tonight:</strong> <em>How well do generative models work across domains?</em>
+  <div class="card">
+    <strong class="highlight-blue">2.</strong> One paragraph: what makes you want to chase this? What would success look like?
+  </div>
+  <div class="card">
+    <strong class="highlight-pink">3.</strong> Week 6 journal entry in <code>research-journal.md</code>
   </div>
 </section>
 
-<!-- ========== 18. VOCABULARY ========== -->
+<!-- ========== 17. VOCABULARY ========== -->
 <section>
   <h2>Vocabulary</h2>
   <div class="card">
-    <span class="vocab-term">Overfitting</span> &mdash; when a model is too specialized in its training data to handle new situations
+    <span class="vocab-term">Research Question</span> &mdash; a specific, testable question with an answer you don't already know
   </div>
   <div class="card">
-    <span class="vocab-term">Domain Shift</span> &mdash; when the real-world data is different from the training data
+    <span class="vocab-term">Domain</span> &mdash; the world a model was trained on; also the subject area your research lives in
   </div>
   <div class="card">
-    <span class="vocab-term">Generalization</span> &mdash; a model's ability to work well on data it hasn't seen before
+    <span class="vocab-term">Domain Shift</span> &mdash; when real-world data differs from training data; where interesting findings live
   </div>
   <div class="card">
     <span class="vocab-term">External Validity</span> &mdash; whether a finding holds up outside the specific conditions it was tested in
   </div>
-  <div class="card">
-    <span class="vocab-term">Pretraining</span> &mdash; training a model on a massive general dataset before fine-tuning for a specific task
-  </div>
-  <div class="card">
-    <span class="vocab-term">Fine-tuning</span> &mdash; retraining a general model on specialized data for a specific task or domain
-  </div>
-  <div class="card">
-    <span class="vocab-term">Named Entity Recognition (NER)</span> &mdash; identifying and labeling specific entities (diseases, drugs, people, places) in text
-  </div>
-  <div class="card">
-    <span class="vocab-term">Distribution</span> &mdash; the range and patterns of data a model was trained on
-  </div>
 </section>
 
-<!-- ========== 19. NEXT WEEK ========== -->
+<!-- ========== 18. NEXT WEEK ========== -->
 <section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
   <h2>Next Week</h2>
-  <p style="font-size:1.2em; color:#fbbf24;">Training on everything solved the domain problem.</p>
-  <p class="fragment" style="font-size:1.2em; margin-top:0.5em; color:#f472b6;">But it created a new one.</p>
-  <p class="fragment" style="color:#9ca3af; margin-top:1em;">When you train on the entire internet, you train on<br>every bias, stereotype, and inequality in human history.<br><br><strong style="color:#fbbf24;">Session 7: Who Gets Hurt?</strong></p>
+  <p style="font-size:1.2em; color:#fbbf24;">You have a question.</p>
+  <p class="fragment" style="font-size:1.2em; margin-top:0.5em; color:#f472b6;">Now: who gets hurt when AI makes mistakes in your domain?</p>
+  <p class="fragment" style="color:#9ca3af; margin-top:1em;">
+    When a model is trained on the internet, it learns every pattern<br>
+    in human language &mdash; including the harmful ones.<br><br>
+    <strong style="color:#fbbf24;">Session 7: Bias and Harm</strong>
+  </p>
 </section>
 
-<!-- ========== 20. BETWEEN SESSIONS ========== -->
+<!-- ========== 19. BETWEEN SESSIONS ========== -->
 <section>
-  <section>
-    <h2>Between Sessions</h2>
-    <p>Three parts this week. Plan for <span class="highlight-yellow">about 1 hour</span>.</p>
-    <div class="card" style="margin-top:0.8em;">
-      <strong class="highlight-green">Part 1: Test Across Domains</strong> &mdash; Run your Space on inputs from 2&ndash;3 domains it wasn't built for<br>
-      <strong class="highlight-blue">Part 2: Iterate and Fix</strong> &mdash; Try adjusting prompts or settings to improve one domain failure<br>
-      <strong class="highlight-pink">Part 3: Journal + Collection</strong> &mdash; Write your Week 6 entry in <code>research-journal.md</code>, grow your Collection
-    </div>
-  </section>
-
-  <section>
-    <h2>Part 1: Test Across Domains</h2>
-    <div class="try-it">
-      Feed your Space text from domains it wasn't designed for. Try at least 2&ndash;3 different domains. What breaks? What surprises you?
-    </div>
-    <div class="observation-card fragment" style="margin-top:0.8em;">
-      A model's training data defines its world &mdash; and the real world is bigger.
-    </div>
-  </section>
-
-  <section>
-    <h2>Parts 2 &amp; 3</h2>
-    <div class="card">
-      <strong class="highlight-blue">Iterate and Fix:</strong> Pick the worst domain failure you found. Try changing prompt templates, generation settings, or input formatting. Can you make it better?
-    </div>
-    <div class="card" style="margin-top:0.5em;">
-      <strong class="highlight-pink">Journal + Collection:</strong> Add your Week 6 entry to <code>research-journal.md</code>. Write 300&ndash;500 words: what domain you tested, what broke, why you think it happened. Keep growing your Collection.
-    </div>
-  </section>
+  <h2>Between Sessions</h2>
+  <div class="card" style="margin-top:0.8em;">
+    <strong class="highlight-green">Priority 1:</strong> Finish your research question &mdash; read <code>WEEK-6-RESEARCH-WORK.md</code>
+  </div>
+  <div class="card">
+    <strong class="highlight-blue">Priority 2:</strong> Write your Week 6 journal entry
+  </div>
+  <div class="card">
+    <strong class="highlight-pink">Priority 3:</strong> Test your Space across domains (Colab notebook has experiments)
+  </div>
+  <div class="observation-card" style="margin-top:0.8em;">
+    Bring your research question to Session 7.
+  </div>
 </section>
 
 </div>

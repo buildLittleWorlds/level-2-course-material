@@ -6,61 +6,56 @@ Session 6 Research Method
 
 External validity asks whether your results hold up outside the specific conditions you tested in. A model might ace every test you give it — but if those tests all come from the same kind of data it was trained on, you haven't learned much. Generalization means taking a tool that works in one context and seeing whether it works in another. The failures are the most informative part.
 
+For your research project, external validity is one of the most important questions you'll address: does the thing you found apply beyond the specific examples you tested? If your tool works on five inputs, will it work on fifty? If it works on text you wrote, will it work on text someone else wrote? These questions are what your limitations section will need to answer honestly.
+
 ## When Researchers Use It
 
 - A psychologist runs a study on college freshmen and finds that people make riskier decisions when they're hungry. But do the results generalize? Would the same thing happen with 60-year-olds, or with people in a different country, or outside a lab? If the finding only works with college freshmen in a university setting, it has low external validity.
 - A novelist writes dialogue that sounds natural in a contemporary New York setting. She shares the manuscript with a friend in rural Mississippi, who says, "Nobody here talks like that." The dialogue was valid for one world but doesn't generalize to another.
 - An engineer designs a bridge that handles traffic loads perfectly in computer simulations. Then winter hits — ice, wind, temperature swings. The simulation didn't include those conditions. The design had internal validity (it worked in the test) but low external validity (it failed in the real world).
 
+## How It Connects to Your Research Question
+
+Your research question lives in a domain — music, medicine, politics, images, animation, game dev. The AI models you're testing were trained on different domains. When you test whether a model works for your topic, you're testing external validity: does a model trained on web text generalize to opera lyrics, or medical notes, or political arguments?
+
+But external validity also applies to your own findings. If you test your Space on 5 inputs and it works well, that doesn't mean it works well in general. It means it works well on those 5 inputs. Your research brief should name the limits of your testing — what you tested, what you didn't, and why that matters.
+
+Prea does this explicitly in her research brief (Section 5, Limitations): "n = 20, split 10/10. This is a pilot. Nothing here is significant in any statistical sense." That kind of honesty about external validity is what makes a student project read like research.
+
 ## How to Apply It
 
 1. **Identify the training domain.** Read the model card. What kind of data was this model trained on? Movie reviews? Tweets? Product listings? Medical records? That's the model's "home turf."
-2. **Pick a different domain.** Choose text (or images, or audio — whatever your model processes) from a completely different context. If the model was trained on tweets, test it on poetry. If it was trained on English, test it on Spanish. If it was trained on product reviews, test it on legal documents.
+2. **Pick a different domain.** Choose text (or images, or audio — whatever your model processes) from a completely different context. If the model was trained on tweets, test it on poetry. If it was trained on product reviews, test it on legal documents.
 3. **Compare home vs. away.** Run the same model on home-domain data and away-domain data. Where does performance drop? What specific kinds of inputs cause the biggest failures? The gap between home and away performance is the domain shift.
+4. **Name the limits of your own testing.** How many examples did you test? How diverse were they? Would someone from a different background get the same results? These questions go in your research brief's limitations section.
 
 ## Key Vocabulary
 
 - **External validity** — Whether results hold up outside the original test conditions. A finding with high external validity generalizes broadly; one with low external validity only works in specific circumstances.
 - **Generalization** — A model's ability to perform well on data it wasn't trained on. The opposite of memorization.
 - **Domain shift** — What happens when the data a model encounters in the real world is different from its training data. The model didn't get dumber — the world changed around it.
-- **Overfitting** — When a model gets so good at its training data that it can't handle anything else. Like studying only one teacher's tests — you ace theirs and bomb everyone else's.
+- **Overfitting** — When a model gets so good at its training data that it can't handle anything else.
 
-## This Week's Shared Example
+## Apply It to Your Project
 
-In class, we took the generative models from Session 5 — the text generator and the summarizer — and tested them outside their training domains. We built a domain-adapted text generator with prompt presets for game dialogue, medical notes, news articles, and poetry. The same model (distilgpt2, trained on web text) produced decent game-style text but struggled with clinical language and poetry. We also tested the summarizer (trained on CNN/DailyMail news) on poetry, legal text, and medical notes — it worked well on news but lost meaning on everything else. Same models, same weights — different worlds, different results.
+The general method: test your model on its home domain (where it was trained), then test it on your domain (your research topic). Document where it succeeds and where it fails. The gap tells you something about the model — and it may sharpen your research question.
 
-## Apply It to Your Own Topic
+**Annabelle** — Your models were trained on general web text. Your domain is music — opera and jazz specifically. Test a text generator on music prompts vs. general prompts. Does it handle music vocabulary, or does it flatten opera and jazz into generic text? That flattening, if you find it, is domain shift — and it could be part of your research question.
 
-- Pick a model from your Collection and identify its training domain (check the model card).
-- Now find data from a domain the model has never seen. If your model does translation, try feeding it slang or poetry instead of textbook sentences. If your model classifies images, try drawings or memes instead of photos. If it summarizes text, try giving it dialogue or song lyrics.
-- Run the model on its home domain first — confirm it works as expected. Then run it on the away domain. How much does performance drop?
-- Can you predict which away domains will be hardest based on how different they are from the training data?
-- Is the failure total (the model is useless outside its domain) or partial (it gets the gist but misses nuance)? That distinction matters for deciding whether the model is safe to use in a new context.
+**Bobby** — Game writing is a domain most NLP models haven't seen much of. Your test: give a model game-specific prompts (quest dialogue, loading screen tips, achievement descriptions) and compare the quality to its output on news or general text. Where does the model's world end and game writing begin?
 
-See `GUIDE-research-journal.md` for how to structure your domain-testing experiment as a journal entry.
+**Chengry** — Medical text is the highest-stakes domain shift example. "Patient tested negative for infection" is good news, but a general model reads "negative" as bad. Test the gap between what a general model produces and what a medical specialist model produces on the same input. That gap is the core tension in medical AI — and your research question may live there.
 
----
+**Emily** — Political text has a specific challenge: it's emotionally loaded but factually dense. Test whether a summarizer or sentiment model handles political content differently from neutral content. Does it strip the political framing? Does it add bias? The way AI handles political text is an external validity question with real-world stakes.
 
-## Apply It to Your Project — Personal Starter Prompts
+**George** — Medical language is full of words that mean different things in different domains. "Positive" in medicine means something was detected (often bad); "positive" in everyday language means good. Test a model on health text aimed at different audiences — a clinical note vs. a patient brochure vs. a Wikipedia article. Does it handle all three equally?
 
-The "Apply It to Your Own Topic" section above gives the general method. Here's a more specific starting point based on the work you've been doing so far. Find your name and use the prompt as a jumping-off point.
+**Henry** — External validity for your project means: does the model produce genuinely different perspectives, or just surface variation? If you ask for a bird's-eye view and a close-up of the same scene, how different are the outputs really? Testing whether the model generalizes across viewpoint instructions IS your external validity check.
 
-**Annabelle** — Your spaces produce playful, creative text (dino facts, silly phrases). That content is its own domain — informal, quirky, humorous. Test what happens when you feed that kind of text to a model trained on formal writing, or when you give a formal model a creative task. Where does the mismatch show up? Your collection annotations already track what works and what doesn't — this week, try to explain *why* something doesn't work by tracing it back to training data.
+**Sevilla** — You've already found domain shift: BLIP failing on cartoonish images, emotion detectors missing sarcasm. This week, name those findings using the vocabulary from class. Your prior observations are external validity evidence — you just didn't have the term yet.
 
-**Bobby** — Game writing is a domain most NLP models have never seen. Your Brackeys Game Jam project and "One Last Bird" concept give you authentic test material. Try the text generator with game dialogue prompts and see where it sounds natural vs. where it falls apart. Then check the model card — what was distilgpt2 actually trained on? Can you trace the failures back to missing training data?
-
-**Chengry** — Medical text is the most consequential domain shift example in this class. "Patient tested negative for infection" is good news, but a model trained on web text reads "negative" as bad. Test the text generator and summarizer on clinical text and document exactly where and why they fail. You also now have `d4data/biomedical-ner-all` as a specialist model. Test its external validity: does it extract entities correctly from patient-facing health text (simpler language) as well as it does from clinical notes? Does it find false entities in non-medical text? That boundary — where the specialist stops being reliable — is external validity for a domain-specific model. Then connect it to DxAI: your Claude API approach (Path B, the generalist) handles domain shift differently than the NER model (Path A, the specialist). How do their failure modes differ?
-
-**Emily** — Your curated tools are domain-specific: news recommendation works on news, summarization works on articles. Pick one and test it outside its domain. Give a news tool poetry, or give a summarizer a text message conversation. The gap between "works on news" and "works on everything" is the external validity question — and it's directly relevant to whether information management tools are useful in practice.
-
-**George** — Medical language is full of words that mean different things in different domains. "Positive" in medicine means something was detected (often bad); "positive" in everyday language means something is good. "Critical" in medicine means life-threatening; "critical" in a review means disapproving. Test the text generator and summarizer on medical text with these double-meaning words and write about what you find. This is the core challenge facing any medical AI tool.
-
-**Henry** — You have interests in two domains: computer vision and NLP. That's an advantage this week. Test the News Sentiment Analysis space on non-news text (poetry, lyrics, code comments). Then think about the visual equivalent: what happens when the camera angles LoRA gets an image from outside its training domain? Even if you can't test the image model directly, reasoning about where it would fail is valuable practice in thinking about external validity.
-
-**Sevilla** — You've already found domain shift: BLIP models failing on cartoonish images, emotion detectors missing sarcasm. This week, name those findings using the vocabulary from class (overfitting, domain shift, external validity). Your Week 2 entry documented *what* happened; this week's entry can explain *why* using the conceptual framework from tonight. Try testing your emotion tools on text from very different emotional registers — a legal contract, a children's book, a medical report — and compare results.
-
-**Shawn** — Your comparative methodology already tests across models. This week, test across *domains* within a single model. Pick one image generator from your collection, identify its training data from the model card, then give it prompts from increasingly distant domains. Realistic photo → illustration → abstract concept → something totally outside visual language (like "the feeling of forgetting something important"). Where does the model's world end? That boundary is what domain shift looks like in image generation.
+**Shawn** — Your comparative methodology is already external validity testing. When you test the same model on different art styles, you're asking: does this model generalize across styles, or is it really only good at one? Now apply the same method to your research question.
 
 ---
 
-AI + Research Level 2 • Session 6: Model Evaluation and Generalization
+AI + Research Level 2 • Session 6: Research Methods

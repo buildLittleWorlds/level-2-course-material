@@ -1,49 +1,55 @@
 # Between Sessions 6 & 7
 
-> **Heads-up:** This is also the week the course turns toward research work. Your main research work between sessions 6 and 7 is in [`WEEK-6-RESEARCH-WORK.md`](./WEEK-6-RESEARCH-WORK.md). Read that first. The build and journal steps below support that research work.
+**Your main work this week is your research question.** If you didn't finish it in class, read [`WEEK-6-RESEARCH-WORK.md`](./WEEK-6-RESEARCH-WORK.md) and follow the steps. Bring your question to Session 7.
 
-**Tonight you hit the wall.** You tested your Space on text from outside its world and watched it struggle — not because the model broke, but because it was never trained on that kind of text. That's domain shift, and it's the reason your project matters. A tool that works "in general" isn't a tool yet. A tool that works for *your* domain is.
+Tonight we shifted from building to investigating. You've spent five sessions learning what AI can do — now the question is what YOU want to find out. A Space is a tool. A research question is the reason the tool exists.
 
-Prea hit a version of this wall earlier than tonight, and it is worth seeing how she describes it. In [her Week 4 journal entry ("Classification vs. Generation, and the Two-Factor Hypothesis")](../example-student-prea/research-journal.md), Prea runs a line from one of her own debate speeches through distilgpt2 and watches it produce legal filler, tautological nonsense, and a literal infinite loop. Her conclusion is not that the model is bad; it is that text generation is the wrong modality for her question. She writes: *"I do not need a model that generates better debate speeches. That would not help me. What I need is a model that scores them."* That sentence is the pivot — the moment a researcher names the mismatch between the tool and the task. Yours will look different, but the move is the same.
-
-This week: test deeper, start planning what you actually want to build, and look at the prompts in your student folder.
+Prea's example is worth looking at here. In [her Week 1–4 journal entries](../example-student-prea/research-journal.md), she starts with a vague hunch ("sentiment analysis misses something about debate") and by Week 4 she has a single-sentence testable hypothesis. That sharpening process is what you're starting now. Your version will look different — different topic, different question, different tools — but the move is the same: observation → question → something you can test.
 
 ---
 
-## Build Step: Test Your Space and Pick a Direction (30 min)
+## Priority 1: Finish Your Research Question (30 min)
 
-**Test your Space 1 on at least 3 inputs from different domains.** At least one should be far from what you designed it for. For each test, write down: did the quality drop? Was the failure obvious or subtle?
+If you wrote your research question in class, revise it. Make it sharper. If you didn't get there, follow the steps in [`WEEK-6-RESEARCH-WORK.md`](./WEEK-6-RESEARCH-WORK.md):
 
-- **Text generator:** Try a medical case note, a poem's opening line, a legal clause, a recipe step, game dialogue. Where does it sound natural? Where does it sound wrong?
-- **Summarizer:** Paste in a poem, a legal paragraph, game lore, a medical report, song lyrics. Does the summary capture what matters, or does it flatten everything?
+1. Pick one observation from your Space work or class that feels interesting.
+2. Run a question-sharpening conversation with Claude or ChatGPT (the prompt is in WEEK-6-RESEARCH-WORK.md).
+3. Save the conversation to `week-06-research-question.md` in your portfolio repo.
+4. Pick the most promising candidate and write one paragraph: what makes you want to chase it, and what would success look like?
 
-Save your best example of domain shift — the one where the failure is most visible. Bring it to Session 7.
-
-**Then open your student folder on the course repo and read through the README.** The prompts there are designed for your interests — better models, more ambitious Spaces, comparison tools. Pick one direction that interests you. You don't have to build it yet, but by next session you should be able to say: *"Here's what I want my next Space to do."*
+**Your research question should live in your domain.** Music, medicine, politics, images, animation, game dev — whatever your topic is, that's your domain. The question should be about something specific within that domain, not about AI in general.
 
 ---
 
-## Journal Entry (15 min)
+## Priority 2: Journal Entry (15 min)
 
 Open `research-journal.md` in your GitHub repo and add your Week 6 entry:
 
 ```markdown
-## Week 6 — The Domain Wall
+## Week 6 — Finding My Research Question
 
-### What I Tested
-(Which Space did you test? What domains did you try?)
+### Where I Started
+(What was I interested in coming into tonight? What had I noticed from my Space work?)
 
-### What Broke
-(Which domain produced bad output? What specifically went wrong?)
+### What Happened in Class
+(What did we talk about? What did my partner say about my question?)
 
-### Why I Think This Happened
-(Connect it to training data. What did the model learn? What was missing?)
+### My Research Question (Current Version)
+(Write it here, even if it's rough.)
 
 ### What I Want to Build Next
-(Now that you've seen what your baseline can't do — what kind of tool do you want to build? What domain should it work in? Which prompt from your student folder interests you?)
+(How does this question connect to my Spaces? What should Space 2 test?)
 ```
 
-**Not sure what to write?** Read [Prea's Week 4 journal entry](../example-student-prea/research-journal.md). It's the entry where she works through exactly this question — what the model can't do, why that's actually a clue, and what she wants to build next. Notice how specific she is: not "distilgpt2 is bad" but three literal example outputs, and not "I should switch modalities" but one sentence that names exactly why. Your Week 6 entry should have that same level of specificity. Pick your examples. Name your pivot.
+**Not sure what to write?** Read [Prea's Week 3 and Week 4 journal entries](../example-student-prea/research-journal.md). Notice how she moves from observation to question — and how specific she is at every step.
+
+---
+
+## Priority 3: Test Your Space Across Domains (30 min, optional)
+
+If you have time after finishing your research question, test your Space on text from outside its intended domain. The Colab notebook has guided experiments for this, and [GUIDE-external-validity.md](./GUIDE-external-validity.md) explains the research method behind it.
+
+This is optional but useful: seeing where your model fails outside your domain can help you sharpen your research question further. The failures reveal what the model actually learned versus what it memorized.
 
 ---
 
@@ -54,44 +60,38 @@ By Session 7, you should have:
 - At least 2 journal entries (Week 5 + Week 6)
 - A running Space 1 on Hugging Face
 - A Hugging Face Collection with 6+ items
-- A direction for your next Space (even if it's just an idea)
+- A research question in `week-06-research-question.md` (even if it's rough)
 
-**Reference:** [Prea's portfolio README](../example-student-prea/README.md) and the rest of [her folder](../example-student-prea/) show where this is headed. By Week 6 of the course, Prea has committed to a two-factor hypothesis, sharpened a research question, and started sketching the architecture of her tool. Your arc won't match hers exactly — different domain, different question, different tools — but Prea's portfolio is the shape of the thing to aim at.
-
----
-
-## Your Folder
-
-Your student folder has prompts that go beyond Space 1. **Read through the README this week.** The prompts are designed so you can paste them into a coding AI (ChatGPT, Claude, Gemini) and get back working code for a more ambitious Space. You don't need to build it all this week — but reading the prompts will help you figure out what you want to aim for.
+**Reference:** [Prea's portfolio](../example-student-prea/) shows where this is headed. Her folder has a research journal, a research brief, three Spaces, and a portfolio README. Your arc won't match hers exactly, but Prea's portfolio is the shape of the thing to aim at.
 
 ---
 
 ## Your Personal Challenge
 
 ### Annabelle
-Your playful, quirky content lives in a domain most models weren't trained on. Try creative and whimsical prompts through your text generator — where does the model sound playful vs. where does it fall flat? Then look at your folder prompts and pick one direction for your next Space. One polished observation in your journal is worth more than ten quick tests.
+You have more Spaces than anyone in the cohort. Now the question is: what are they evidence of? Pick the Space that's closest to your music/opera/jazz interest. What does it do well? What does it miss? That gap — between what the model can do and what your domain needs — is where your research question lives. Write about it.
 
 ### Bobby
-Game dialogue is a fascinating domain for this test. Prompt your Space with game-specific openings — "The quest giver leaned against the tavern wall and said:", "LOADING SCREEN TIP:", "Achievement Unlocked:". Does the model know what game writing sounds like? Your folder has a prompt for a better model version — try building it this week if you have time. That becomes your Space 2.
+If you're re-engaging: welcome back. Your one job this week is to pick a direction and write a research question. Read RESEARCH-PATH.md in your folder — there are two paths mapped out based on your game dev and creative AI background. Pick one. Write one sentence. That's enough.
 
 ### Chengry
-You have two paths: the specialist (biomedical NER) and the generalist (API). This week, push the specialist. Test the NER model on different medical text types — clinical notes, patient-facing advice, drug labels, research abstracts. Where does it extract entities well? Where does it miss? Document the edge cases. Then think about your project architecture: could you combine both paths? That's a real design used in production medical AI.
+You've built medical Spaces that work. The research question isn't "can AI do medical stuff" — you already know it can. The question is about where it's good and where it's dangerous. When does a medical AI give a useful answer vs. a harmful one? What makes the difference? Your expertise is deep enough for a sharp question. Write one.
 
 ### Emily
-Test your summarizer on news from different beats — politics, science, entertainment, sports. Is the quality consistent, or does it handle some topics better than others? That's domain shift within a single genre. Your folder has prompts for a news model comparison lab and a better summarizer — read through them and decide which direction you want to go.
+Your domain — politics, IR, ethics — is one of the most interesting research areas in this class, because AI handles politically sensitive content differently from neutral content. That difference is your research question waiting to happen. Think about what you've noticed when AI processes political text vs. other text. What's different? What's concerning?
 
 ### George
-Try your Space on health text written for different audiences — a Wikipedia article, a journal abstract, and a patient instruction sheet. Same topic, different register. Does the model handle them equally? That's a subtle form of domain shift. Write about what you find, then look at your folder for next steps.
+You made a real shift from music to medical/health AI. That shift itself is worth documenting in your journal. Now: My_Health_Explainer is running. What would you want to know about how it works? Who understands its output and who doesn't? That's a research question about health communication and AI literacy.
 
 ### Henry
-Think about domain shift in both vision and text — the camera angles LoRA was trained on specific image types, and any text model was trained on specific text types. Pick one and test it outside its comfort zone. Your folder has prompts for a scene description Space that connects to your visual interests. Read through them this week.
+Camera angles and visual perspectives. You've been testing how models interpret viewpoint instructions. Your research question should be about whether the model actually changes its output in meaningful ways — or just makes surface-level adjustments. What would "meaningful change" look like? Define it, and you have your question.
 
 ### Sevilla
-You already found domain shift before we named it — BLIP models failing on cartoonish images, emotion detectors missing sarcasm. This week, test your Space on emotionally complex text (a breakup text, a graduation speech, a eulogy). Does the model handle emotional register, or does it flatten everything? That connects directly to what you could build next.
+You use five AI tools for animation work. You've already noticed they give different results. The research question isn't "do they differ" — you know they do. It's "how do they differ, and what does that mean for the quality of the output?" Pick one specific comparison (same prompt, two tools) and sharpen the question around what you observe.
 
 ### Shawn
-Your systematic comparison methodology is perfect here. Pick one Space and run the same test across 4-5 domains. Build a comparison table. Your folder has prompts for a model comparison lab — that's a natural Space 2 for you. Read through the prompts and start thinking about what models you'd compare.
+Your systematic comparison approach is already a research method. You have 12 models and you know how to test them side by side. The research question is: when you change the art style instruction, does the model change the whole image or just add surface decoration? That's testable. Pick two styles and two models and plan the comparison.
 
 ---
 
-AI + Research Level 2 • Session 6: The Domain Wall
+AI + Research Level 2 • Session 6: Finding Your Research Question
