@@ -2,6 +2,11 @@
 
 This guide is the Session 6 bridge from "I built a thoughtful app" to "I have a research question I can actually test." The project already has the ingredients. The work now is to turn those ingredients into an investigation.
 
+Before you start, open the two live versions side by side:
+
+- **GitHub Pages:** [buildlittleworlds.github.io/bluest-hour](https://buildlittleworlds.github.io/bluest-hour/)
+- **Hugging Face Space:** [hf.co/spaces/profplate/bluest-hour](https://hf.co/spaces/profplate/bluest-hour)
+
 ---
 
 ## Step 1: Upgrade Your Observations
@@ -11,6 +16,8 @@ Right now the Bluest Hour project invites a kind of response that sounds like:
 > "I like the feeling of the app. It makes the blue hour feel special. I think the journaling feature is cool."
 
 That is a real response, but it is not research writing yet.
+
+Use the live app while you do this step. Click through the prediction flow, type a couple of journal entries, and notice whether the GitHub Pages version and Hugging Face version feel the same or different.
 
 What you need to do is extract the **hidden question** from what you already built. Use the same four prompts the Session 6 slide conversation is built around:
 
@@ -158,6 +165,9 @@ What it does:
 Why it matters:
 - this is the clean baseline
 - it proves the place-based and astronomical core of the project
+- it can point back to the live versions you already have:
+  - [GitHub Pages](https://buildlittleworlds.github.io/bluest-hour/)
+  - [Hugging Face Space](https://hf.co/spaces/profplate/bluest-hour)
 
 ### Space 2 — The Experiment
 

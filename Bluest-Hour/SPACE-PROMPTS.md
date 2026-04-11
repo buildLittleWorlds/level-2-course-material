@@ -4,6 +4,13 @@
 
 Turn Bluest Hour from a single contemplative app into a three-Space research story about evening light, journaling, and whether small AI models can validly analyze reflective writing.
 
+## Current Live App
+
+- **GitHub Pages version:** [buildlittleworlds.github.io/bluest-hour](https://buildlittleworlds.github.io/bluest-hour/)
+- **Hugging Face Space:** [hf.co/spaces/profplate/bluest-hour](https://hf.co/spaces/profplate/bluest-hour)
+
+Use these as the baseline reference before you build Space 2 or Space 3 variants.
+
 ## Best Models To Try
 
 ### For Journal Mood / Emotion Analysis

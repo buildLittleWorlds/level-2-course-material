@@ -17,6 +17,11 @@ You are farther along than a student who only has an idea. The app exists in two
 
 That is enough to begin research.
 
+## Live Versions
+
+- **GitHub Pages version:** [buildlittleworlds.github.io/bluest-hour](https://buildlittleworlds.github.io/bluest-hour/)
+- **Hugging Face Space:** [hf.co/spaces/profplate/bluest-hour](https://hf.co/spaces/profplate/bluest-hour)
+
 **But here is the honest feedback:** right now the project is still mostly at the *beautiful observation* stage. You can describe why the app feels meaningful. You can point to the Joan Didion quote, the local calibration, the contemplative design. What you have not done yet is ask: **what am I actually investigating?**
 
 The gap is not technical. The gap is analytical. This is exactly the turn Session 6 is designed to help with.
@@ -37,7 +42,7 @@ Three deliverables:
 ## This Week's Priority
 
 1. Read **RESEARCH-PATH.md**, especially Steps 1 and 2.
-2. Write down three things you've already noticed from the app.
+2. Click through both live versions and write down three things you've already noticed from the app.
 3. Pick one question from the broad → medium → narrow progression and write it into `week-06-research-question.md`.
 
 The goal is not to solve the whole project tonight. The goal is to stop saying "I made a nice app" and start saying "I want to find out whether..."
