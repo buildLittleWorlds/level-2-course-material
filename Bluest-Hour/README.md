@@ -32,7 +32,7 @@ Three deliverables:
 
 1. **A research question** — something narrow enough to test. Not "is this beautiful?" but "what can I find out with this tool that I don't already know?"
 2. **Three Spaces that tell a research story** — not just one app duplicated in different places, but a baseline, an experiment, and a fuller version.
-3. **A research brief** — a short write-up, like Prea's, that says: here's the question, here's the method, here's what I found, and here's what still feels uncertain.
+3. **A research brief** — a short write-up that says: here's the question, here's the method, here's what I found, and here's what still feels uncertain.
 
 ## What's In This Folder
 

@@ -111,7 +111,7 @@ That is a very teachable research turn.
 
 ## Step 3: Connect to Published Research
 
-Once the question is sharper, the next move is Prea's Week 3 move: go find out who else has studied something nearby.
+Once the question is sharper, the next move is to go find out who else has studied something nearby.
 
 You do not need papers on "The Bluest Hour" specifically. You need papers that touch the parts of the question:
 
@@ -327,25 +327,22 @@ This is the exact Session 6 concept in miniature.
 
 ---
 
-## Step 6: What Prea Did That You Should Notice
+## Step 6: What The Research Turn Looks Like Here
 
-Prea did not begin with a polished question. She began with a hunch:
-
-> the model sees what I said but not how I said it
-
-For Bluest Hour, the parallel hunch could be:
+You do not need to begin with a polished question. You can begin with a hunch:
 
 > the model sees positive/negative words but not the kind of reflection this app is trying to create
 
-That is a Session 6-quality starting point.
+That is already a strong Session 6 starting point.
 
-The parts of Prea's path that matter here:
+The research turn in this folder looks like this:
 
-- **Week 1:** she noticed a gap in what the tool could see
-- **Week 3:** she used Consensus to find the literature around that gap
-- **Week 4:** she turned the gap into a testable sentence
+- **Observation:** the app creates a reflective kind of writing
+- **Gap:** a generic sentiment model may not measure that writing very well
+- **Literature search:** use Consensus to find how researchers study mood, nature exposure, and reflective writing
+- **Question:** turn the gap into one sentence that could actually be tested
 
-You do not need to get all the way to Week 4 tonight. You do need to leave with a question that starts with:
+You do not need to finish the whole research project tonight. You do need to leave with a question that starts with:
 
 **"I want to find out whether..."**
 
