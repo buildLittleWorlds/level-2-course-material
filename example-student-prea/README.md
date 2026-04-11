@@ -22,9 +22,9 @@ Weeks 8–10 were the experiment. I recorded five of my own and my teammates' WS
 
 | Space | What It Does | What I Learned |
 |-------|--------------|----------------|
-| [**Debate Content Scorer (Baseline)**](space1-content-scorer/) | distilgpt2 text playground framed as a "continue this debate speech" generator | Text generators are not evaluators. This Space's job in my portfolio is to be the *wrong* approach that motivated the audio pivot. |
-| [**Delivery Analyzer**](space2-delivery-analyzer/) | Thin-client Space: audio → Whisper-small (via HF Inference API) → prosodic features in pure Python | The Mistral Voxtral architectural pattern works perfectly well with free HF components. No local model loading means no compute wall. |
-| [**WSDC Speech Judge Assistant**](space3-speech-judge-assistant/) | Full two-factor pipeline: delivery score + content score from SmolLM2-1.7B-Instruct, with Score / Breakdown / Coach tabs | Combined two-factor scoring (prosody + content) correlated with my persuasiveness ratings better than either modality alone (Spearman ρ = 0.63 on n=20). |
+| [**Debate Content Scorer (Baseline)**](https://huggingface.co/spaces/profplate/space1-content-scorer) | distilgpt2 text playground framed as a "continue this debate speech" generator | Text generators are not evaluators. This Space's job in my portfolio is to be the *wrong* approach that motivated the audio pivot. |
+| [**Delivery Analyzer**](https://huggingface.co/spaces/profplate/space2-delivery-analyzer) | Thin-client Space: audio → Whisper-small (via HF Inference API) → prosodic features in pure Python | The Mistral Voxtral architectural pattern works perfectly well with free HF components. No local model loading means no compute wall. |
+| [**WSDC Speech Judge Assistant**](https://huggingface.co/spaces/profplate/space3-speech-judge-assistant) | Full two-factor pipeline: delivery score + content score from SmolLM2-1.7B-Instruct, with Score / Breakdown / Coach tabs | Combined two-factor scoring (prosody + content) correlated with my persuasiveness ratings better than either modality alone (Spearman ρ = 0.63 on n=20). |
 
 ## Results (Week 10, n=20)
 

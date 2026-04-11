@@ -13,6 +13,8 @@ pinned: true
 
 *Part of Prea Callahan's AI + Research Level 2 portfolio. See the full [research journal](../research-journal.md) and the [research brief](../research-brief.md) for context.*
 
+**Live Space:** [https://huggingface.co/spaces/profplate/space3-speech-judge-assistant](https://huggingface.co/spaces/profplate/space3-speech-judge-assistant)
+
 ## What this Space does
 
 This is the full two-factor pipeline. You upload a short WSDC-style speech clip (10 seconds to about 4 minutes) and the Space returns three scores plus two kinds of feedback:

@@ -114,4 +114,4 @@ Pejčić, A., Trajković, G., & Janković, D. (2015). Acoustic-prosodic features
 
 ---
 
-*Brief prepared as the capstone written artifact for AI + Research Level 2, Youth Horizons Learning, Spring 2026. All code is available in the sibling `space1-content-scorer/`, `space2-delivery-analyzer/`, and `space3-speech-judge-assistant/` folders. Portfolio: [README.md](README.md). Full research journal: [research-journal.md](research-journal.md).*
+*Brief prepared as the capstone written artifact for AI + Research Level 2, Youth Horizons Learning, Spring 2026. All code is available in the sibling `space1-content-scorer/`, `space2-delivery-analyzer/`, and `space3-speech-judge-assistant/` folders — and the live Spaces are at [Space 1](https://huggingface.co/spaces/profplate/space1-content-scorer), [Space 2](https://huggingface.co/spaces/profplate/space2-delivery-analyzer), and [Space 3](https://huggingface.co/spaces/profplate/space3-speech-judge-assistant). Portfolio: [README.md](README.md). Full research journal: [research-journal.md](research-journal.md).*

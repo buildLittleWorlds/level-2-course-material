@@ -13,6 +13,8 @@ pinned: false
 
 *Part of Prea Callahan's AI + Research Level 2 portfolio. See the full [research journal](../research-journal.md) for context.*
 
+**Live Space:** [https://huggingface.co/spaces/profplate/space1-content-scorer](https://huggingface.co/spaces/profplate/space1-content-scorer)
+
 ## What this Space is
 
 This is the **intentionally bad baseline** for my research project on automated feedback for debate speeches. It uses **distilgpt2**, a small generic text-generation model, to "continue" the opening of a debate speech. My original plan in Week 5 was to use a text generator as a kind of content scorer — if the model's continuation matched what I would say next, I reasoned, the opening was probably strong. Within about twenty minutes of testing this on real WSDC openings I knew it was the wrong idea.
@@ -40,8 +42,8 @@ Try the examples. Notice:
 
 ## What comes next
 
-- **Space 2** ([`../space2-delivery-analyzer/`](../space2-delivery-analyzer/)) — the pivot. Uses the Hugging Face Inference API to transcribe audio with Whisper-small, then computes prosodic features in pure Python.
-- **Space 3** ([`../space3-speech-judge-assistant/`](../space3-speech-judge-assistant/)) — the full two-factor WSDC Speech Judge Assistant, which combines prosody with LLM-based content scoring.
+- **Space 2** ([Delivery Analyzer](https://huggingface.co/spaces/profplate/space2-delivery-analyzer)) — the pivot. Uses the Hugging Face Inference API to transcribe audio with Whisper-small, then computes prosodic features in pure Python.
+- **Space 3** ([WSDC Speech Judge Assistant](https://huggingface.co/spaces/profplate/space3-speech-judge-assistant)) — the full two-factor WSDC Speech Judge Assistant, which combines prosody with LLM-based content scoring.
 
 ## Files
 

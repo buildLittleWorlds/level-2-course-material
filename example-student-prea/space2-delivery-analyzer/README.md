@@ -24,7 +24,9 @@ You upload a short speech clip (10 seconds to about 4 minutes) and this Space re
    - **Pause-duration variance** (how uneven those pauses are)
    - **Speaking-rate variance across thirds** (whether the speaker changes pace between the opening, middle, and closing of the speech)
 
-Those four numbers are the "delivery" half of the two-factor scoring pipeline in Space 3.
+Those four numbers are the "delivery" half of the two-factor scoring pipeline in [Space 3](https://huggingface.co/spaces/profplate/space3-speech-judge-assistant).
+
+**Live Space:** [https://huggingface.co/spaces/profplate/space2-delivery-analyzer](https://huggingface.co/spaces/profplate/space2-delivery-analyzer)
 
 ## The architecture, and why it looks this way
 
@@ -35,7 +37,7 @@ So this Space is a **free-tools translation of the Mistral pattern**:
 | Mistral pipeline     | My free-tools pipeline                                       |
 |----------------------|--------------------------------------------------------------|
 | Voxtral-small (STT)  | `openai/whisper-small` via Hugging Face Inference API        |
-| Mistral LLM          | `HuggingFaceTB/SmolLM2-1.7B-Instruct` via Inference API (Space 3) |
+| Mistral LLM          | `HuggingFaceTB/SmolLM2-1.7B-Instruct` via Inference API ([Space 3](https://huggingface.co/spaces/profplate/space3-speech-judge-assistant)) |
 | Mistral TTS          | Not needed for my project — I only need feedback, not a voice reply |
 
 The Space itself holds no model weights. It boots in under five seconds on free-tier CPU and the heavy lifting happens on Hugging Face's servers. This is what "thin client over API" means in practice.
