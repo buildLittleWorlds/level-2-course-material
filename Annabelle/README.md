@@ -1,172 +1,38 @@
-# Annabelle
+# Annabelle — AI + Research Level 2 Portfolio
 
-## Goal
+## Your Topic
 
-Build your "Creative Story Starter" first, then turn it into a small model lab where you can compare which models actually sound playful, imaginative, musical, or weird in a good way.
+Music, specifically opera and jazz. These are two genres with wildly different traditions, vocabularies, and performance cultures, and you have genuine expertise in both. Opera is formal, historically grounded, written for the human voice. Jazz is improvisational, soloistic, built on harmonic language that classical musicians have to learn. Your question is whether AI can *distinguish* between them, and whether small instruction-tuned language models actually understand what makes music-writing genre-specific or whether they just regurgitate generic "music words."
 
-## Best Models To Try
+## Where You Are Now
 
-- `HuggingFaceTB/SmolLM2-360M-Instruct` — best first upgrade; newer than `distilgpt2`, usually better at following a creative direction.
-- `HuggingFaceTB/SmolLM2-135M-Instruct` — fastest lightweight option; good for quick experiments and lots of prompt testing.
-- `Qwen/Qwen2.5-0.5B-Instruct` — stronger stretch option; often better output, but slower on free CPU.
-- `distilgpt2` — keep this as your baseline so you can compare old vs. newer behavior.
+You are the strongest student in the cohort technically and in terms of output volume. You have built seven Spaces — more than any other student — and they show a clear trajectory toward music. Your nyssma-trainer Space is particularly impressive: you debugged a BUILD_ERROR and had it running within 24 hours, without any prompting. You have a research journal with five real sections: Spaces reviews, models reviews, creating Spaces write-ups, and two deeper entries on Classification vs. Generation and Add Controls in the Music Starter context.
 
-## Quick Rules For Picking Models
+**But here is the honest feedback:** Even your writing is still at the *impressionistic observations* stage. Your journal entries are descriptive — you built this, it did that, I noticed this about the output — but they do not yet investigate a question. You have not formulated a research hypothesis. You have not collected evidence to test it. You have not looked at your own experiments and asked "What did I expect? What actually happened? Why? What question does this raise?"
 
-- Stay with public, non-gated `text-generation` models.
-- Prefer `transformers` models with Apache-2.0 or MIT licenses.
-- On Hugging Face free CPU Basic, stay around 135M to 500M parameters when possible.
-- Avoid models that need special inference servers, gated access, or GPU-only workflows.
-- For your project, instruction-following matters a lot because you want the model to follow playful style directions.
+Your strongest work is in building and debugging. You can get things to run. Your next move is to learn to ask hard questions about what you built, and to write about what you actually know rather than what you think sounds interesting.
 
-## Reference Links
+You are closest to being ready for the ambitious track. The gap is not in capability — it is in writing rigor.
 
-- `distilgpt2`: <https://huggingface.co/distilbert/distilgpt2>
-- `HuggingFaceTB/SmolLM2-135M-Instruct`: <https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct>
-- `HuggingFaceTB/SmolLM2-360M-Instruct`: <https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct>
-- `Qwen/Qwen2.5-0.5B-Instruct`: <https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct>
-- Hugging Face Spaces hardware docs: <https://huggingface.co/docs/hub/spaces-gpus>
+## Where You're Headed
 
-## Prompt 1: Build A Better First Version
+Three deliverables:
 
-Paste this into ChatGPT, Claude, Gemini, or another coding AI:
+1. **A research journal** — levels up from what you have now. You already have entries; the task is re-reading them and adding the analytical layer. For each experiment, what did you expect? What happened? Why? What question does that observation raise?
 
-```text
-Write me a Hugging Face Space using Gradio and the Hugging Face transformers library.
+2. **A research question** — bridge from "I like music and AI" to something you can actually test. This is the most important thing. A real research question is specific enough that you could *fail* to answer it. "Can I build AI tools for music?" is not a research question. "When a small instruction-tuned model is asked to write in opera style vs. jazz style, does the output use genre-specific vocabulary and structure, or does it produce generic music words?" is.
 
-I want a text-generation Space for creative writing called "Creative Story Starter".
+3. **Three Spaces that tell a research story** — You have seven Spaces now. Not all of them go in the portfolio. The goal is to pick three that show your investigation progressing from a baseline through an experiment to a fuller version. That is a different task than just building more Spaces.
 
-Use the model "HuggingFaceTB/SmolLM2-360M-Instruct" as the default model. Load it with AutoTokenizer, AutoModelForCausalLM, and pipeline("text-generation"). Make it run on CPU for a free Hugging Face Space.
+## What's In This Folder
 
-Keep the app simple and beginner-friendly. I want:
-- a prompt textbox
-- a Temperature slider from 0.1 to 2.0, default 0.9
-- a Top-p slider from 0.1 to 1.0, default 0.9
-- a Max New Tokens slider from 20 to 200, default 120
+- **RESEARCH-PATH.md** — Your step-by-step guide to leveling up. Read this next.
+- **SPACE-PROMPTS.md** — (Already here) A collection of prompts you have been testing across your Spaces.
 
-Add these example prompts:
-- "She opened the letter and read"
-- "The dinosaur walked into the concert hall and picked up a guitar"
-- "The song started with a single note that"
-- "In a world where animals could talk, the cat said"
-- "The most unexpected ingredient in the recipe was"
+## This Week's Priority
 
-Important implementation details:
-- keep MODEL_ID as a constant near the top so I can swap models later
-- use do_sample=True and num_return_sequences=1
-- clamp temperature to at least 0.01
-- set device=-1 so it stays on CPU
-- use return_full_text=False
-- add a short hidden instruction prefix so the model writes in a playful, imaginative, slightly whimsical style
-- keep the code easy for a student to read
-- include a short note in the UI explaining that newer instruct models often follow style directions better than distilgpt2
+You're doing two things in parallel: **building your third Space** (the most ambitious one — see SPACE-PROMPTS.md) and **leveling up the writing** (see RESEARCH-PATH.md). You've been strong on the building side. Now the writing needs to match — not replace the building, but run alongside it. Read RESEARCH-PATH.md to see how to upgrade your journal entries from descriptive to analytical, and how to formulate a research question that ties your three best Spaces into a coherent story.
 
-Give me the complete app.py and requirements.txt files ready for a Hugging Face Space using Gradio SDK on free CPU.
-```
+---
 
-## Prompt 2: Build A Creative Model Tasting Lab
-
-Use this after your first version works:
-
-```text
-Write me a Hugging Face Space using Gradio and transformers that compares multiple small text-generation models on the same creative-writing prompt.
-
-The Space should be called "Creative Model Tasting Lab".
-
-I want a dropdown that lets me choose between:
-- distilgpt2
-- HuggingFaceTB/SmolLM2-135M-Instruct
-- HuggingFaceTB/SmolLM2-360M-Instruct
-- Qwen/Qwen2.5-0.5B-Instruct
-
-Requirements:
-- load models lazily and cache them so the app does not reload everything on every click
-- use CPU only for a free Hugging Face Space
-- keep the same controls for prompt, temperature, top-p, and max_new_tokens
-- add a second dropdown called "Creative Mode" with these options: whimsical story, music idea, silly scene, surreal image prompt, playful dialogue
-- use the creative mode to change a short hidden instruction prefix before generation
-- if the selected model is distilgpt2, use the raw prompt without chat formatting
-- if the selected model is an instruct model, prepend a short instruction string before the user prompt
-- keep the code beginner-friendly and well organized
-- show a short model note in the UI explaining the tradeoff between speed and quality
-- use Gradio only
-
-Include these example prompts:
-- "She opened the letter and read"
-- "The dinosaur walked into the concert hall and picked up a guitar"
-- "The song started with a single note that"
-- "In a world where animals could talk, the cat said"
-- "The most unexpected ingredient in the recipe was"
-
-Give me the complete app.py and requirements.txt files.
-```
-
-## Prompt 3: Ask AI To Help You Search For Better Models
-
-Use this when you want to go beyond the recommended ones:
-
-```text
-Help me search Hugging Face for a better small text-generation model for a playful creative-writing Space that must run on free CPU.
-
-Constraints:
-- public and non-gated
-- text-generation task
-- works with transformers
-- preferably Apache-2.0 or MIT license
-- ideally under about 500M parameters
-- good at instruction following, playful writing, or imaginative text
-- realistic for a Hugging Face Space on free CPU Basic
-
-Give me:
-1. A shortlist of 5 model IDs.
-2. One sentence on why each model might fit playful creative writing.
-3. One sentence on the tradeoff or risk for each model.
-4. Your best recommendation for my Space.
-5. A revised AI prompt I can paste into a coding assistant to swap that model into my Gradio app.
-```
-
-## Prompt 4: Turn One Space Into Several Mini Projects
-
-Use this to help an AI coding assistant redesign the app without doing all the thinking for you:
-
-```text
-Rewrite my Hugging Face Space prompt so the same creative-writing app can switch between different output modes:
-- story starter
-- silly phrase generator
-- music idea generator
-- talking animal dialogue
-- weird recipe idea
-
-Keep it beginner-friendly and still based on a small CPU-friendly Hugging Face model.
-Add one dropdown for output mode and update the hidden instruction prefix so each mode creates a different kind of effect.
-Give me the full prompt I should paste into a coding AI so it writes the code for me.
-```
-
-## Prompt 5: Ask AI To Help You Do A Fair Comparison
-
-This one matches the "tasting note" style you already use:
-
-```text
-Help me design a simple fair test for comparing small Hugging Face text-generation models in a creative-writing Space.
-
-I want to compare them on:
-- playfulness
-- originality
-- usefulness
-- how well they follow the prompt
-- speed
-
-Give me:
-1. A tiny rubric I can use while testing.
-2. Three prompts that are good for comparing creative models.
-3. A simple table format I can paste into my GitHub journal.
-4. Advice on how to keep the comparison fair by changing only one variable at a time.
-```
-
-## What To Notice While Testing
-
-- Which model sounds the most playful without turning into nonsense?
-- Which model responds best when you give it a style direction?
-- Does the faster model help you experiment more, even if the output is weaker?
-- At what temperature does the writing become more fun, and at what point does it just get messy?
-- Which creative mode feels the most like something you would actually keep building?
+*Built during AI + Research Level 2 at Youth Horizons Learning, Spring 2026.*

@@ -1,180 +1,46 @@
-# Shawn
+# Shawn — AI + Research Level 2 Portfolio
 
-## Goal
+I'm interested in image generation and art styles. My goal is to build a tool where someone types a text prompt and can adjust the visual style — anime, surrealist, watercolor, photorealistic, and others — to see how the same idea looks across different artistic approaches.
 
-Build your "Anime Scene Writer" first, then turn it into a comparison lab where you can test the same prompt across several small models and document what actually changes.
+## Your Topic
 
-## Best Models To Try
+**Image generation with art style controls.** You want to build Spaces that let users generate images from text prompts and then see how those images change when you adjust the style instruction. This is a rich territory for testing how text-to-image models respond to style modifiers, and it's a natural hook for comparing different models (general-purpose SDXL vs. specialized models like Animagine, which you already have in your curated collection).
 
-- `HuggingFaceTB/SmolLM2-360M-Instruct` — best first upgrade; newer and usually better at following anime-style scene directions than `distilgpt2`.
-- `Qwen/Qwen2.5-0.5B-Instruct` — stronger stretch option; often better quality, but slower on free CPU.
-- `TinyLlama/TinyLlama-1.1B-Chat-v1.0` — optional big stretch test; more powerful, but noticeably slower and heavier.
-- `distilgpt2` — keep this as your baseline so you can compare old vs. newer behavior.
+## Where You Are Now
 
-## Quick Rules For Picking Models
+**Strengths:**
+- You have a systematic testing approach. Your collection of 12 image generation models shows real curation — you've already identified what models exist and what each one is good at.
+- You've built two Spaces already and know the basic Gradio and Inference API workflow.
+- You have clear examples to learn from in SPACE-PROMPTS.md.
 
-- Stay with public, non-gated `text-generation` models.
-- Prefer `transformers` models with Apache-2.0 or MIT licenses.
-- On Hugging Face free CPU Basic, models around 135M to 500M are the safest everyday choice.
-- You can test a 1.1B model like TinyLlama on free CPU, but treat it as a slower experiment, not your default classroom recommendation.
-- For your project, the best model is not just the strongest one. It is the one that gives the clearest improvement when everything else stays the same.
+**Gaps:**
+- **AnimeSceneWriter is runtime-erroring** (6 days). This is your priority this week: either debug it or rebuild it using one of the prompts in SPACE-PROMPTS.md, which will take 30 minutes with a coding AI.
+- **Your Test Space is sleeping.** It's still useful to keep around (it's a baseline), but wake it up or document what it was testing.
+- You haven't yet written a research journal. This is also a priority: Weeks 1–5 entries should cover what you've learned so far, what broke, and what your testing approach actually is.
 
-## Reference Links
+## Where You're Headed
 
-- `distilgpt2`: <https://huggingface.co/distilbert/distilgpt2>
-- `HuggingFaceTB/SmolLM2-360M-Instruct`: <https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct>
-- `Qwen/Qwen2.5-0.5B-Instruct`: <https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct>
-- `TinyLlama/TinyLlama-1.1B-Chat-v1.0`: <https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0>
-- Hugging Face Spaces hardware docs: <https://huggingface.co/docs/hub/spaces-gpus>
+Three deliverables:
 
-## Prompt 1: Build A Better First Version
+1. **Research journal** (research-journal.md) — Weeks 1–5, tracking your builds, what you've tested, and the research question you're settling on.
+2. **Three working Spaces** — Your best image generation tool (one of the prompts in SPACE-PROMPTS.md is a good start), a style comparison lab or prompt rewriter, and something closer to the full vision: a single Space where you input text, pick a style, pick a model, and see the result side-by-side or compared.
+3. **Research brief** (research-brief.md) — A short ~4-page write-up on what you learned about how image models respond to art style instructions. Similar structure to Prea's: hypothesis, methods, results, limitations, what's next.
 
-Paste this into ChatGPT, Claude, Gemini, or another coding AI:
+## What's In This Folder
 
-```text
-Write me a Hugging Face Space using Gradio and the Hugging Face transformers library.
+- **SPACE-PROMPTS.md** — Reference guide for building Spaces and detailed prompts you can paste directly into Claude, ChatGPT, or Gemini to scaffold three different approaches (basic image generator, style comparison lab, prompt rewriter).
+- **README.md** — This file. Your portfolio overview.
+- **RESEARCH-PATH.md** — Step-by-step guidance on fixing your journal structure, refining your research question, and understanding what the three Spaces should teach you.
+- **research-journal.md** — You'll create this, Week 1 through Week 11.
+- **research-brief.md** — You'll create this, a short research paper-like writeup of your findings on art styles in image generation.
+- **Three Space folders** — space1-*, space2-*, space3-* containing app.py, requirements.txt, and a README for each.
 
-I want a text-generation Space for anime-style writing called "Anime Scene Writer".
+## This Week's Priority
 
-Use the model "HuggingFaceTB/SmolLM2-360M-Instruct" as the default model. Load it with AutoTokenizer, AutoModelForCausalLM, and pipeline("text-generation"). Make it run on CPU for a free Hugging Face Space.
+1. **Read RESEARCH-PATH.md** — It walks you through the next steps in order.
+2. **Fix AnimeSceneWriter or replace it** — Take one of the prompts in SPACE-PROMPTS.md, paste it into Claude, and scaffold a new working Space in 30 minutes. Or debug the current one if you can identify the error quickly.
+3. **Start your research journal** — Write Weeks 1–5 as a single research-journal.md file (not scattered in README + separate files). Focus on: what you built, what you tested, what broke, and what you learned about the models in your collection.
 
-Keep the app simple and beginner-friendly. I want:
-- a prompt textbox
-- a Temperature slider from 0.1 to 2.0, default 0.8
-- a Top-p slider from 0.1 to 1.0, default 0.9
-- a Max New Tokens slider from 20 to 200, default 120
+---
 
-Add these example prompts:
-- "The hero drew their sword as the wind swept across the battlefield and"
-- "Episode 1: A transfer student arrives at the academy and discovers"
-- "The villain revealed their true form, and the sky turned"
-- "In a quiet moment between battles, the two characters sat together and"
-- "The opening sequence begins with cherry blossoms falling over"
-
-Important implementation details:
-- keep MODEL_ID as a constant near the top so I can swap models later
-- use do_sample=True and num_return_sequences=1
-- clamp temperature to at least 0.01
-- set device=-1 so it stays on CPU
-- use return_full_text=False
-- add a short hidden instruction prefix so the model writes in an anime episode or scene-description style
-- keep the code easy for a student to read
-- include a short note in the UI explaining that newer instruct models usually follow style directions better than distilgpt2
-
-Give me the complete app.py and requirements.txt files ready for a Hugging Face Space using Gradio SDK on free CPU.
-```
-
-## Prompt 2: Build A Model Comparison Lab
-
-Use this after your first version works:
-
-```text
-Write me a Hugging Face Space using Gradio and transformers that compares multiple small text-generation models on the same anime-writing prompt.
-
-The Space should be called "Anime Scene Model Lab".
-
-I want a dropdown that lets me choose between:
-- distilgpt2
-- HuggingFaceTB/SmolLM2-360M-Instruct
-- Qwen/Qwen2.5-0.5B-Instruct
-- TinyLlama/TinyLlama-1.1B-Chat-v1.0
-
-Requirements:
-- load models lazily and cache them so the app does not reload everything on every click
-- use CPU only for a free Hugging Face Space
-- keep the same controls for prompt, temperature, top-p, and max_new_tokens
-- add a second dropdown called "Scene Mode" with these options: battle scene, school intro, villain reveal, quiet character moment, episode summary
-- use the scene mode to change a short hidden instruction prefix before generation
-- if the selected model is distilgpt2, use the raw prompt without chat formatting
-- if the selected model is an instruct or chat model, prepend a short instruction string before the user prompt
-- keep the code beginner-friendly and well organized
-- show a short model note in the UI explaining that distilgpt2 is the baseline, SmolLM2 is the recommended upgrade, Qwen is the stronger small model, and TinyLlama is the slow stretch comparison
-- use Gradio only
-
-Include these example prompts:
-- "The hero drew their sword as the wind swept across the battlefield and"
-- "Episode 1: A transfer student arrives at the academy and discovers"
-- "The villain revealed their true form, and the sky turned"
-- "In a quiet moment between battles, the two characters sat together and"
-- "The opening sequence begins with cherry blossoms falling over"
-
-Give me the complete app.py and requirements.txt files.
-```
-
-## Prompt 3: Build A Side-By-Side Testing Version
-
-Use this if you want the comparison to feel more like a real experiment:
-
-```text
-Write me a Hugging Face Space using Gradio and transformers that runs the same anime prompt through two selected models side by side.
-
-I want:
-- Model A dropdown
-- Model B dropdown
-- one shared prompt input
-- shared temperature, top-p, and max_new_tokens controls
-- two output boxes shown next to each other
-- a short note reminding users to change only one variable at a time
-
-Use only small CPU-friendly models:
-- distilgpt2
-- HuggingFaceTB/SmolLM2-360M-Instruct
-- Qwen/Qwen2.5-0.5B-Instruct
-
-Keep the code simple enough for a student to understand and edit later.
-Give me the complete app.py and requirements.txt files.
-```
-
-## Prompt 4: Ask AI To Help You Search For Better Models
-
-Use this when you want to go beyond the recommended ones:
-
-```text
-Help me search Hugging Face for a better small text-generation model for an anime scene writing Space that must run on free CPU.
-
-Constraints:
-- public and non-gated
-- text-generation task
-- works with transformers
-- preferably Apache-2.0 or MIT license
-- ideally under about 500M parameters, but I am open to one slower stretch option
-- good at instruction following, storytelling, scene writing, or dialogue
-- realistic for a Hugging Face Space on free CPU Basic
-
-Give me:
-1. A shortlist of 5 model IDs.
-2. One sentence on why each model might fit anime-style scene writing.
-3. One sentence on the tradeoff or risk for each model.
-4. Your best recommendation for my Space.
-5. A revised AI prompt I can paste into a coding assistant to swap that model into my Gradio app.
-```
-
-## Prompt 5: Ask AI To Help You Design A Fair Comparison
-
-This one fits the method you already use:
-
-```text
-Help me design a fair comparison for small Hugging Face text-generation models in an anime-writing Space.
-
-I want to compare them on:
-- style
-- prompt-following
-- coherence
-- originality
-- speed
-
-Give me:
-1. A tiny rubric I can use while testing.
-2. Three anime-style prompts that are good for comparing models.
-3. A simple results table I can paste into my GitHub journal.
-4. Advice on how to keep the comparison fair by changing only one variable at a time.
-5. One example of a good conclusion paragraph based on fake sample results.
-```
-
-## What To Notice While Testing
-
-- Which model best captures anime-style pacing or tone?
-- Which one follows the exact scene type you asked for instead of drifting?
-- Does the stronger model improve coherence enough to justify slower speed?
-- What changes more: the output when you swap the model, or the output when you change temperature?
-- Which conclusion can you actually defend with evidence from repeated tests?
+*Built during AI + Research Level 2 at Youth Horizons Learning, Spring 2026. This is a student portfolio for the course.*

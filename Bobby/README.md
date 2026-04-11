@@ -1,144 +1,55 @@
-# Bobby
+# Bobby — AI + Research Level 2 Portfolio
 
-## Goal
+You've been quiet since March 22, but the work you did before that was genuinely strong. Time to figure out where you want to go next.
 
-Build your "Game Narrative Generator" first, then rebuild it with a newer model so you can compare how model choice changes the writing.
+## Your Topic — Currently Uncertain
 
-## Best Models To Try
+In your first three weeks, you were one of the most active students in the cohort. You built 5 Hugging Face collections with 12 items, kept a detailed research journal with multiple entries, and showed real expertise in game development (Brackeys Game Jam 2025.2, GameMaker "Chickens-nightmare" project). Your collections and journal show you were exploring generative AI across multiple modalities — code generation, 3D models, image generation, website building — and you had a gift for connecting those tools to creative projects. Your "One Last Bird" game website concept specifically blended narrative and game dev in a way that most students in your cohort don't naturally see.
 
-- `HuggingFaceTB/SmolLM2-360M-Instruct` — best first upgrade; newer, stronger, and still realistic for free CPU.
-- `Qwen/Qwen2.5-0.5B-Instruct` — stronger stretch option; usually better output, but slower.
-- `distilgpt2` — keep this as your baseline so you can compare old vs. newer models.
+**But you went quiet.** And we don't know what direction you actually want to pursue for your research project. Here are three honest possibilities:
 
-## Quick Rules For Picking Models
+1. **You pivoted away from generative AI entirely.** That's okay. Tell us what you're thinking instead.
+2. **You're still interested but got stuck.** Happens all the time. Read RESEARCH-PATH.md — it maps two concrete directions that fit your history.
+3. **Life happened.** School, other commitments, burnout. That's also normal. If you want to keep going, we're here.
 
-- Stay with public, non-gated `text-generation` models.
-- Prefer `transformers` models with Apache-2.0 or MIT licenses.
-- On Hugging Face free CPU Basic, stay around 135M to 500M parameters when possible.
-- Avoid models that require GPU-only features, special inference servers, or gated access.
+The goal of THIS week is to pick a direction. Not to have it perfect — just to know which road you want to walk down.
 
-## Reference Links
+## Where You Are Now
 
-- `distilgpt2`: <https://huggingface.co/distilbert/distilgpt2>
-- `HuggingFaceTB/SmolLM2-360M-Instruct`: <https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct>
-- `Qwen/Qwen2.5-0.5B-Instruct`: <https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct>
-- Hugging Face Spaces hardware docs: <https://huggingface.co/docs/hub/spaces-gpus>
+Honestly: you were one of the most engaged students in the first three weeks. Five collections, a working journal, a portfolio that showed real curiosity. Then you disappeared for 20 days.
 
-## Prompt 1: Build A Better First Version
+That gap is the only thing that matters right now. Not because you're "behind" (you're not — we're only at week 8 of 12), but because we need to know if you're still in. If you are, we need to restart together.
 
-Paste this into ChatGPT, Claude, Gemini, or another coding AI:
+The three deliverables for this course are the same for everyone: **3 Hugging Face Spaces, a research journal, and a research brief.** You have 1 Space (deepsite-project). You need 2 more, and they need to connect to a coherent research question.
 
-```text
-Write me a Hugging Face Space using Gradio and the Hugging Face transformers library.
+## Where You're Headed
 
-I want a text-generation Space for game writing called "Game Narrative Generator".
+By the end of Session 12 (late May), you'll have:
 
-Use the model "HuggingFaceTB/SmolLM2-360M-Instruct" as the default model. Load it with AutoTokenizer, AutoModelForCausalLM, and pipeline("text-generation"). Make it run on CPU for a free Hugging Face Space.
+1. **Three public Hugging Face Spaces** that demonstrate your research question in action. Each Space shows a different angle or test of the same core idea. They don't need to be perfect — they need to be yours and they need to work.
 
-Keep the app simple and similar to a beginner class project. I want:
-- a prompt textbox
-- a Temperature slider from 0.1 to 2.0, default 0.7
-- a Top-p slider from 0.1 to 1.0, default 0.9
-- a Max New Tokens slider from 20 to 200, default 120
+2. **A research journal** documenting the entire journey: what you tested, what failed, what surprised you, how your thinking changed. You've already started this. The next entry just says "I came back."
 
-Add these example prompts:
-- "The warrior entered the dungeon and"
-- "You found a legendary sword. Its description reads:"
-- "The village elder whispered the secret of the forest:"
-- "QUEST LOG: Your mission is to"
-- "The final boss appeared, and it was"
+3. **A research brief** — a short 3–5 page document in the format of a research paper (abstract, hypothesis, related work, methods, results, limitations). The format matters less than the thinking: you asked a question, you tested something, you learned something. Write it up.
 
-Important implementation details:
-- keep MODEL_ID as a constant near the top so I can swap models later
-- use do_sample=True and num_return_sequences=1
-- clamp temperature to at least 0.01
-- set device=-1 so it stays on CPU
-- use return_full_text=False
-- add a short hidden prompt prefix or instruction in the generation function so the model writes like a fantasy game writer
-- keep the code easy for a student to read
-- include a short note in the UI that newer instruct models usually follow style directions better than distilgpt2
+## What's In This Folder
 
-Give me the complete app.py and requirements.txt files ready for a Hugging Face Space using Gradio SDK on free CPU.
-```
+- **README.md** (you're reading it) — Overview of where you are, where you're going, and what you need to decide this week.
+- **RESEARCH-PATH.md** — Two different research directions mapped out in detail, with concrete research questions at three levels (broad, medium, narrow) for each path, plus a guide to published research that backs each direction.
+- **SPACE-PROMPTS.md** — AI prompts you can use to build your Spaces. Start there if you want to code.
 
-## Prompt 2: Build A Model Comparison Version
+## This Week's Priority
 
-Use this after your first version works:
+You need to do three things:
 
-```text
-Write me a Hugging Face Space using Gradio and transformers that compares multiple small text-generation models on the same game-writing prompt.
+1. **Write a "re-entry" journal entry.** Don't apologize. Just document where you've been and what you're thinking now. The best research journals include pauses — the important thing is that you say what you're coming back to. Read RESEARCH-PATH.md and write 300–500 words about which direction calls to you. (Hint: it doesn't have to be certain — even "I'm torn between X and Y" is enough to move forward.)
 
-The Space should be called "Game Narrative Model Lab".
+2. **Pick a research path.** Read the two paths in RESEARCH-PATH.md. One of them should resonate more than the other. If neither does, ask. But you need to choose.
 
-I want a dropdown that lets me choose between:
-- distilgpt2
-- HuggingFaceTB/SmolLM2-360M-Instruct
-- Qwen/Qwen2.5-0.5B-Instruct
+3. **Sharpen your research question.** By the end of this week, you should have a narrow version of your question — something testable in 4–5 weeks. That question becomes the spine of your three Spaces and your research brief.
 
-Requirements:
-- load models lazily and cache them so the app does not reload everything on every click
-- use CPU only for a free Hugging Face Space
-- keep the same controls for prompt, temperature, top-p, and max_new_tokens
-- keep the code beginner-friendly and well organized
-- show a short model note in the UI explaining that distilgpt2 is the old baseline, SmolLM2 is the recommended upgrade, and Qwen2.5-0.5B-Instruct is the more powerful but slower option
-- if the selected model is an instruct model, add a simple instruction prefix before generation
-- if the selected model is distilgpt2, use the raw prompt without chat formatting
-- use Gradio only, not Streamlit
+Once you've done those three things, the Spaces become a lot clearer to build.
 
-Include the same game-writing examples:
-- "The warrior entered the dungeon and"
-- "You found a legendary sword. Its description reads:"
-- "The village elder whispered the secret of the forest:"
-- "QUEST LOG: Your mission is to"
-- "The final boss appeared, and it was"
+---
 
-Give me the complete app.py and requirements.txt files.
-```
-
-## Prompt 3: Ask AI To Help You Search For Better Models
-
-Use this when you want a new candidate beyond the two recommended ones:
-
-```text
-Help me search Hugging Face for a better small text-generation model for a game-writing Space that must run on free CPU.
-
-Constraints:
-- public and non-gated
-- text-generation task
-- works with transformers
-- preferably Apache-2.0 or MIT license
-- ideally under about 500M parameters
-- good for instruction following or creative writing
-- realistic for a Hugging Face Space on free CPU Basic
-
-Give me:
-1. A shortlist of 5 model IDs.
-2. One sentence on why each model might fit game-writing.
-3. One sentence on the tradeoff or risk for each model.
-4. Your best recommendation for my Space.
-5. A revised AI prompt I can paste into a coding assistant to swap that model into my Gradio app.
-```
-
-## Prompt 4: Push The Idea In Different Directions
-
-Use this to make the Space feel more like your project:
-
-```text
-Rewrite my Hugging Face Space prompt so the same game-writing app can switch between different output modes:
-- NPC dialogue
-- quest log
-- item lore
-- boss introduction
-- scene description
-
-Keep it beginner-friendly and still based on a small CPU-friendly Hugging Face model.
-Add one dropdown for output mode and update the hidden instruction prefix so each mode produces a different style.
-Give me the full prompt I should paste into a coding AI so it writes the code for me.
-```
-
-## What To Notice While Testing
-
-- Which model follows the game theme best without drifting off-topic?
-- Which model writes the cleanest quest text or item lore?
-- At what temperature does the writing stop feeling useful?
-- Does the stronger model improve quality enough to be worth the slower speed?
+*Built during AI + Research Level 2 at Youth Horizons Learning, Spring 2026.*
