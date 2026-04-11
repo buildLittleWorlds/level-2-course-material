@@ -82,7 +82,7 @@ You don't have to start from scratch. Your existing Spaces might become Space 1 
 
 ## Step 5: Your Unique Angle — Multi-AI Comparison
 
-Here's something no other student in this cohort can do as well as you: you use five different AI tools regularly. That habit could become a real research contribution. If you document how Claude, Gemini, ChatGPT, Deepseek, and Copilot handle the same animation prompt differently, you have a comparison study that's genuinely interesting. Think about whether your research question could leverage this — "how do different AI assistants compare as tools for generating animation scene descriptions?" is a question that plays directly to your working style.
+You use five different AI tools regularly (Claude, Gemini, ChatGPT, Deepseek, Copilot). That habit could become a real research contribution. If you document how each one handles the same animation prompt differently, you have a comparison study that's genuinely interesting. Think about whether your research question could leverage this — "how do different AI assistants compare as tools for generating animation scene descriptions?" is a question that plays directly to your working style.
 
 ---
 

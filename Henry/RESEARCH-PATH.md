@@ -141,7 +141,7 @@ This mirrors what Prea did in her portfolio: two separate ideas (text-side and i
 
 ## Step 5: Your Unique Angle
 
-You have something special: **the best experimental methodology in the cohort.**
+You have something special: **strong experimental methodology.**
 
 Your Week 5 slider experiments aren't just "I tested some things." You tested at extremes. You documented what breaks. You noticed when a model gives up (token limit), when it gets confused (temperature too high), when it gets boring (top-p too low). That is real experimental design.
 

@@ -6,13 +6,11 @@ Music, specifically opera and jazz. These are two genres with wildly different t
 
 ## Where You Are Now
 
-You are the strongest student in the cohort technically and in terms of output volume. You have built seven Spaces — more than any other student — and they show a clear trajectory toward music. Your nyssma-trainer Space is particularly impressive: you debugged a BUILD_ERROR and had it running within 24 hours, without any prompting. You have a research journal with five real sections: Spaces reviews, models reviews, creating Spaces write-ups, and two deeper entries on Classification vs. Generation and Add Controls in the Music Starter context.
+You've built seven Spaces, and they show a clear trajectory toward music. Your nyssma-trainer Space is particularly impressive: you debugged a BUILD_ERROR and had it running within 24 hours, without any prompting. You have a research journal with five real sections: Spaces reviews, models reviews, creating Spaces write-ups, and two deeper entries on Classification vs. Generation and Add Controls in the Music Starter context.
 
 **But here is the honest feedback:** Even your writing is still at the *impressionistic observations* stage. Your journal entries are descriptive — you built this, it did that, I noticed this about the output — but they do not yet investigate a question. You have not formulated a research hypothesis. You have not collected evidence to test it. You have not looked at your own experiments and asked "What did I expect? What actually happened? Why? What question does this raise?"
 
-Your strongest work is in building and debugging. You can get things to run. Your next move is to learn to ask hard questions about what you built, and to write about what you actually know rather than what you think sounds interesting.
-
-You are closest to being ready for the ambitious track. The gap is not in capability — it is in writing rigor.
+Your building and debugging skills are strong. You can get things to run. Your next move is to learn to ask hard questions about what you built, and to write about what you actually know rather than what you think sounds interesting. The gap is not in capability — it is in writing rigor.
 
 ## Where You're Headed
 

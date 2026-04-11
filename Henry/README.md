@@ -35,7 +35,7 @@ Three things, in order:
 2. **Read RESEARCH-PATH.md** — It walks you through sharpening a research question from the experiments you've already done.
 3. **Start asking the research question explicitly.** Write it down in your journal. Make it testable.
 
-Your experimental methodology is already the best in the cohort. You think like a researcher. You just need to write like one—to state the question clearly and show how your experiments answer it.
+Your experimental methodology is strong. You think like a researcher. You just need to write like one — to state the question clearly and show how your experiments answer it.
 
 ---
 
