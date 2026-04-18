@@ -1,144 +1,139 @@
 # From Journal to Paper
 
-How to turn a Space, a few journal entries, and a real question into a short paper someone else can understand.
+How to go from Space + journal notes + rough question to a usable `PAPER.md` draft tonight.
 
 ---
 
-## 1. Start with the journal, not the blank page
+## 1. The new rule
 
-The paper phase is easier when you stop thinking of it as "write a paper" and start thinking of it as **organize what I already found**.
+You do **not** need to hand-write the first version of the paper section by section.
 
-If you have even one decent journal entry, you probably already have the core pieces:
+The workflow now is:
 
-- a project or Space
-- a question you keep circling
-- a test or comparison you actually ran
-- one thing you learned
-- one thing that still feels limited, biased, or unfinished
+1. gather your materials
+2. paste the master prompt from `PAPER-TEMPLATE.md` into your AI
+3. paste your own notes underneath it
+4. generate a rough draft
+5. check what sounds real, what sounds generic, and what still needs your evidence
 
-That is most of a short paper already.
+The goal is not pristine authenticity on the first pass. The goal is to get from blank page to a draft you can think with.
 
-## 2. The four things to pull out of your journal
+## 2. What to gather before you prompt
 
-Before you open the template, review 2–3 journal entries or notes and pull out these four items:
+Have these ready:
+
+- 1–3 journal entries or rough notes
+- your current research question, even if rough
+- your `paper-starter.md`
+- optional Space links, repo links, screenshots, copied outputs, or model names
+
+If your notes are thin, that is okay. The AI can still generate a rough draft, but you should expect parts of it to be provisional.
+
+## 3. The four things that matter most
+
+Before you run the prompt, identify these:
 
 1. **Your question**
    What are you actually trying to find out?
 
-2. **Your best test**
-   What experiment, comparison, or example gives the clearest evidence?
+2. **Your best example**
+   What is the clearest test, comparison, or output you can point to?
 
-3. **Your strongest finding**
-   What did you learn that you did not know before?
+3. **Your strongest learning**
+   What changed in how you understand the project?
 
 4. **Your biggest limitation**
-   Where does the project break, flatten, or fail for someone?
+   Where does the project break, flatten, overclaim, or still feel unfinished?
 
-If you can name those four things, you can draft the paper.
+If you can name those four things, you have enough to generate a real draft.
 
-## 3. Turn the journal into sections
+## 4. How the Bluest Hour example works
 
-Use this mapping:
+The Bluest Hour chain is still the best model:
 
-| Paper section | Where it usually comes from |
-|---|---|
-| **What I built** | journal weeks where you built or revised the Space |
-| **My research question** | the week you sharpened the question |
-| **Why this matters to me** | your README, journal motivation, domain interest |
-| **What I tried** | your clearest test, comparison, or example |
-| **What I learned** | the expectation → result gap in your journal |
-| **What still needs work / who it might fail for** | your limitations section |
-| **Sources to add or cite** | your Week 7 research-work search |
+1. [Bluest Hour research journal](https://github.com/buildLittleWorlds/bluest-hour/blob/main/research-journal.md)
+2. [Bluest Hour simple paper](https://github.com/buildLittleWorlds/bluest-hour/blob/main/PAPER.md)
+3. [Bluest Hour almanac paper](https://github.com/buildLittleWorlds/bluest-hour-almanac/blob/main/PAPER.md) as an advanced continuation
 
-You do not need a grand theory. You need a clear path from journal evidence to claim.
+The important lesson is not the voice. It is the structure:
 
-## 4. The Bluest Hour example
+- **What I built** came from the build weeks
+- **My research question** came from the question-sharpening week
+- **What I tried** came from the strongest example or test
+- **What I learned** came from the expectation → result gap
+- **What still needs work** came from the limitation audit
 
-The Bluest Hour is now the main exemplar chain for this phase:
+That is the move you are copying.
 
-1. `bluest-hour/research-journal.md`
-2. `bluest-hour/PAPER.md`
-3. `bluest-hour-almanac/PAPER.md` only as an advanced continuation
+## 5. How to use AI well in this phase
 
-The important move is that the simple paper is built directly from the journal:
+AI is allowed to do a lot of the first-pass writing work.
 
-- **What I built** ← Weeks 2–3
-- **My research question** ← Week 6
-- **What I tried** ← Weeks 4–5
-- **What I learned** ← Weeks 5–7
-- **What still needs work / who it might fail for** ← Week 7
+It can:
 
-That is the move you should copy.
+- generate connective prose
+- organize rough notes
+- sharpen a question
+- turn bullets into readable paragraphs
+- give you a draft that would have been hard to write from scratch under time pressure
 
-## 5. A good drafting order
+Your job is to stop it from giving you a fake project.
 
-Do not write top to bottom. Write in this order:
+That means:
 
-1. **What I built**
-2. **My research question**
-3. **What I tried**
-4. **What I learned**
-5. **What still needs work / who it might fail for**
-6. **Why this matters to me**
-7. **Sources to add or cite**
+- do not let it invent fake citations
+- do not let it invent exact test results you never got
+- do not let it pretend your project is more finished than it is
+- do let it produce a rough draft anyway
 
-That order works because it moves from facts to meaning. It also prevents the common problem where students try to sound profound before they have described what they actually did.
+## 6. What to do after the AI responds
 
-## 6. How to use AI without letting it invent your project
+Do not ask, "Is this perfect?"
 
-AI can help with:
+Ask:
 
-- organizing notes
-- turning bullets into paragraphs
-- tightening wording
-- making the paper easier to read
+1. Does this sound like my project?
+2. Is there one real test or example in it?
+3. Which parts sound generic?
+4. What did the AI overstate?
+5. Is the limitation section honest enough?
 
-AI should **not** invent:
-
-- tests you did not run
-- model names you did not use
-- findings you did not observe
-- sources you did not actually look up
-
-When you use AI, paste in:
-
-- 2–3 journal entries or notes
-- your current research question
-- your paper starter
-- the shared template
-
-Then tell the AI to organize and clarify what is already there.
+That review step is the real work of the session.
 
 ## 7. Common mistakes
 
-### Mistake 1: Starting from the template instead of from evidence
+### Mistake 1: Treating the first draft like the final paper
 
-If you open the template first, it can feel like empty schoolwork. If you open your journal first, the template becomes a sorting tool.
+The draft is a tool for thinking. It is supposed to be revised.
 
-### Mistake 2: Listing everything you ever built
+### Mistake 2: Giving the AI no evidence
 
-A paper is not a portfolio dump. Pick the one Space, pair of Spaces, or one clean comparison that best carries the question.
+If you paste only a topic and no notes, the draft will sound generic. Even rough notes make the result much better.
 
-### Mistake 3: Letting the AI sound more certain than your journal
+### Mistake 3: Letting the AI overclaim
 
-If your journal says "I think," your paper should not suddenly say "This proves." Keep the scale honest.
+If your notes are early, the draft should sound early. Do not let the AI turn a possible build into a finished result.
 
-### Mistake 4: Treating limitations like embarrassment
+### Mistake 4: Hiding the limitation section
 
-The limitation section is often the most interesting part. It is where bias, domain mismatch, uneven performance, and unfinished work become visible.
+The limitation section is often the most intellectually honest part of the paper. Do not rush through it.
 
-## 8. A short self-check before you stop
+## 8. What a good draft looks like tonight
 
-Before you call the draft done, ask:
+A good draft:
 
-1. Can a reader tell what I built after the first section?
-2. Can a reader state my research question in one sentence?
-3. Did I describe one real test or example instead of speaking generally?
-4. Did I say what I learned, not just what I made?
-5. Did I name one honest limitation or fit problem?
+- gives a reader a clear sense of the project
+- states one real question
+- includes one concrete example
+- names one learning point
+- names one honest limitation
 
-If the answer is yes to all five, the paper is doing its job.
+It does **not** need to be polished.
+
+It does **not** need to sound like a literary essay.
+
+It does need to sound like it came from your project.
 
 ---
 
-The goal of this phase is not to sound academic. The goal is to make your research path visible.
+The goal of this phase is to generate a draft that makes your research path visible, then tighten it until it really sounds like your work.

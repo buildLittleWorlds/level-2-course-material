@@ -1,92 +1,50 @@
 # Bobby — Paper Starter
 
-Use this with the shared `PAPER-TEMPLATE.md` and `GUIDE-FROM-SPACE-TO-PAPER.md`.
+Use this with the shared `PAPER-TEMPLATE.md`.
 
-For you, the honest target may still be a **question + outline** instead of a full paper. That is okay.
+Your goal tonight is still a rough `PAPER.md`, but it can be clearly early-stage. The AI is allowed to help you generate a draft from partial material.
 
-## Start here first
+## Main question
 
-Before you try to draft a full paper, write one short re-entry note answering:
+Do realistic project-based tests show more about AI tool quality than generic benchmark-style claims do?
 
-1. What were you building when you stopped?
-2. What still feels interesting?
-3. What one Space or tool test could you realistically return to this week?
-
-That note can become the base for your outline.
-
-## Two real directions
-
-**Path A — game development + generative AI**
+## Backup question
 
 Can small AI tools help with the edges of game development, like concept art, website copy, or early worldbuilding, without replacing the center of the design work?
 
-**Path B — testing generative tools honestly**
+## Best artifact to anchor the paper
 
-Do realistic project-based tests show more about AI tool quality than generic benchmarks do?
-
-## What to write about
-
-If you are ready, pick **one** of these:
+If possible, anchor to one of these:
 
 - `deepsite-project-o48jz`
-- one game-website build
+- one game website build
 - one focused comparison across tools you already tested
 
-If you are **not** ready, do not fake a full paper. Build a question-first outline around the re-entry note and one project you still care about.
+## What to paste into the master prompt
 
-## Pull these things from your notes
-
-- one project you remember clearly
+- a short re-entry note about what you were building when you stopped
+- one project you still care about
 - one tool that helped
 - one tool that disappointed you
-- one reason realistic project tests matter more than benchmark-style claims
-- one next step you could honestly take
+- one reason realistic project tests matter more than vague benchmark claims
+- one honest next step
 
-## Suggested outcome for this week
+## What kind of draft you should expect
 
-### Best case
+Your draft may still sound provisional, and that is okay.
 
-A short paper about one concrete tool test.
+It can describe:
 
-### Honest fallback
+- what you were building or trying to build
+- what question now feels worth chasing
+- one example of how you judged a tool
+- what still needs to happen before the project is fully developed
 
-A strong outline with:
+## If the AI makes the project sound more finished than it is
 
-- What I built or was trying to build
-- My research question
-- Why this matters to me
-- What I tried
-- What I learned so far
-- What still needs work
+Edit it back toward:
 
-## Prompt to build the re-entry note
-
-```text
-Help me write a short re-entry note for my AI research journal.
-
-I need to answer:
-1. what I was building when I stopped
-2. what still feels interesting
-3. what one project I could realistically pick back up
-
-Keep it honest, direct, and student-friendly. Do not make me sound more certain than I am.
-```
-
-## Prompt to build an outline instead of a fake paper
-
-```text
-I do not have enough material for a full paper yet.
-
-Help me create a question + outline from my re-entry note and my past project notes.
-
-Use this structure:
-- What I built
-- My research question
-- Why this matters to me
-- What I tried
-- What I learned so far
-- What still needs work / who it might fail for
-- Sources to add or cite
-
-Do not invent tests or results.
-```
+- “early-stage”
+- “planned next build”
+- “based on my earlier tests”
+- “needs more evidence”

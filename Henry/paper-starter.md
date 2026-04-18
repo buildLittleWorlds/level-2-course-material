@@ -1,104 +1,49 @@
 # Henry — Paper Starter
 
-Use this with the shared `PAPER-TEMPLATE.md` and `GUIDE-FROM-SPACE-TO-PAPER.md`.
+Use this with the shared `PAPER-TEMPLATE.md`.
 
-Your journal already has real evidence. The paper is mainly about organizing it cleanly.
+You already have enough evidence for a strong rough draft. The main job is to make the argument visible.
 
-## Best direction
-
-**Recommended research question**
+## Main question
 
 When language and image tools are asked to change perspective, do they actually change the scene in a spatial way, or do they mostly swap in perspective-coded words and visuals?
 
-**Good backup question**
+## Backup question
 
 Is a two-modality probe better than a single tool when you want to test perspective reasoning honestly?
 
-## Best artifact to write about
+## Best artifact to anchor the paper
 
-Write about the **pair**:
+Use the pair:
 
 - `Scene_describer`
 - `Camera_angle_model_lab`
 
-That pairing is your strength. Most students have one tool. You have two tools testing the same idea from different sides.
+That pairing is the strength of the paper.
 
-## Pull these things from your journal or notes
+## What to paste into the master prompt
 
 - one slider-extreme test that taught you something real
 - the exact perspective labels or prompts you used
-- one example where the output sounded perspective-aware but was really surface-level
-- why the text and image pair helped you see the problem more clearly
-- one limit: small models, small test set, or still-unclear evaluation
+- one example where the output sounded perspective-aware but was really shallow
+- why the text/image pair helped you see the problem
+- one honest limitation such as small test set or unclear evaluation
 
-## Suggested paper map
+## What kind of draft you should expect
 
-### 1. What I built
+You should be able to get a strong rough draft tonight.
 
-I built two related tools that test perspective from two modalities instead of one.
+It should:
 
-### 2. My research question
+- treat the two Spaces as one research artifact
+- include one clear example
+- make one claim about shallow vs. genuine perspective change
+- name one limitation honestly
 
-Your question should come from the gap between "this sounds like a new perspective" and "this actually represents a new perspective."
+## If the AI drifts into vagueness
 
-### 3. Why This Matters to Me
+Push it back toward:
 
-Use this section to explain why perspective, camera angle, and viewpoint keep pulling you back as a topic.
-
-### 4. What I Tried
-
-Use one clean example:
-
-- same scene
-- multiple perspective prompts
-- what changed
-- what did not change
-
-### 5. What I Learned
-
-Your strongest likely finding is that many outputs look perspective-aware while staying shallow underneath.
-
-### 6. What Still Needs Work / Who It Might Fail For
-
-Possible limits:
-
-- perspective is hard to score cleanly
-- smaller models may only swap surface vocabulary
-- your tests still need expansion across more prompts or images
-
-### 7. Sources to add or cite
-
-- spatial reasoning in language models
-- multi-modal probing
-- novel view / perspective control in image generation
-
-## Prompt to sharpen the question
-
-```text
-I have two related Spaces that test perspective from both text and image sides.
-
-My main observation is that many outputs look perspective-aware on the surface, but may only be swapping words or shallow visual cues.
-
-Help me turn that into one strong research question and one backup question.
-
-Do not invent tests or results.
-```
-
-## Prompt to draft from your notes
-
-```text
-Help me draft a short student paper from my own journal notes about perspective and my two Spaces.
-
-Use only the notes I give you. Do not invent prompts, models, or findings.
-
-Follow this structure:
-- What I built
-- My research question
-- Why this matters to me
-- What I tried
-- What I learned
-- What still needs work / who it might fail for
-- Sources to add or cite
-
-Keep the writing clear and direct.
-```
+- the exact pair of Spaces
+- one actual prompt or comparison
+- the language of your own experiments

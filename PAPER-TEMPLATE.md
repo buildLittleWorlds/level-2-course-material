@@ -1,134 +1,143 @@
-# Your Project Title
+# Prompt-First Paper Template
 
-Short subtitle if you want one.
+Copy everything in this file into Claude, ChatGPT, Gemini, or another AI writing assistant.
+
+Then paste your own materials underneath it.
+
+The goal is to get a **rough `PAPER.md` draft** tonight from the work you already have:
+
+- a Space or project
+- journal entries or rough notes
+- a research question or half-formed question
+- your `paper-starter.md`
+
+This is not a fill-in-the-blank worksheet. It is the main prompt students should use to move from project materials to a draft they can revise.
 
 ---
+
+## Paste this whole block into your AI
+
+```text
+You are helping me draft a short student research paper from the work I already have.
+
+I am giving you:
+- 1-3 journal entries or rough notes
+- my current research question (or a rough version of it)
+- my paper starter
+- optional Space links, repo links, screenshots, copied outputs, or model names
+
+Your job is to turn that material into a rough `PAPER.md` draft that I can revise after class.
+
+Important rules:
+- You are allowed to generate connective prose and rough draft language aggressively. A first draft is the goal.
+- Use my pasted material as the base.
+- If my project is still early, still write a rough draft anyway, but make unfinished parts explicit.
+- Do not invent fake citations.
+- Do not invent exact model outputs, test results, or detailed experiments unless I gave them to you.
+- If my evidence is thin, write cautiously and make the draft sound early-stage rather than pretending it is finished.
+- The paper should sound like a student explaining a real project clearly, not like a generic academic essay.
+
+Output the paper using exactly this structure:
+
+# [Project Title]
 
 ## 1. What I Built
 
-Write 1 short paragraph answering:
-
-- What is the name of the project or Space?
-- What does the user put in?
-- What comes out?
-- What is one important design choice you made?
-
-Starter:
-
-> I built ______, a project that helps the user ______. The main input is ______ and the output is ______. One design choice that matters is ______.
-
----
+- Explain what the project or Space is.
+- Say what the user puts in and what comes out.
+- Name one design choice that matters.
+- If the project is still early, describe the current version honestly instead of pretending it is complete.
 
 ## 2. My Research Question
 
-Write 2–4 sentences answering:
-
-- What am I trying to find out?
-- Where did this question come from in my journal?
-- Why is this question narrow enough to test?
-
-Starter:
-
-> My research question is: ______. This question came out of my journal when I noticed ______. I think it is a good question because ______.
-
----
+- State the main question clearly.
+- Explain what note, observation, or journal entry led to it.
+- If I only have a rough question, sharpen it and present the strongest version.
 
 ## 3. Why This Matters to Me
 
-Write 1 short paragraph answering:
-
-- Why did I choose this topic?
-- What personal interest, class topic, or domain knowledge connects to it?
-- Why should a reader care?
-
-Starter:
-
-> This matters to me because ______. I came to this project through ______, and the reason I kept working on it is ______.
-
----
+- Explain why I care about this topic.
+- Use my real interests, personal background, domain knowledge, or class experience.
+- Keep it grounded and specific.
 
 ## 4. What I Tried
 
-Describe your clearest test, comparison, or example.
-
-You can use:
-
-- a short paragraph
-- a bullet list
-- a small table
-
-Answer:
-
-- What did I test?
-- What did I expect?
-- What happened?
-
-Starter:
-
-> The clearest test I ran was ______. I expected ______, but instead I found ______.
-
-Optional table:
-
-| Input or test | What I expected | What happened |
-|---|---|---|
-| ______ | ______ | ______ |
-| ______ | ______ | ______ |
-
----
+- Describe the clearest test, comparison, build move, or example in my notes.
+- If useful, include a short bullet list or a small table.
+- Name what I expected and what happened.
+- If my notes are still thin, build this section from the strongest real example I gave you and make the limits visible.
 
 ## 5. What I Learned
 
-Write 1 short paragraph answering:
-
-- What is the strongest thing I learned?
-- What changed in how I understand the project?
-
-Starter:
-
-> The biggest thing I learned is ______. Before this test, I thought ______. Now I think ______.
-
----
+- State the strongest learning point or shift in understanding.
+- Show how my thinking changed.
+- Prefer one clear takeaway over many vague ones.
 
 ## 6. What Still Needs Work / Who It Might Fail For
 
-Write 1 short paragraph or 3 bullets answering:
-
-- What is still unfinished?
-- Where does the project fail or flatten?
-- Who might get worse results than I did?
-
-Starter:
-
-> This project still has limits. The biggest one is ______. It may also work less well for ______ because ______.
-
----
+- Write an honest limitation section.
+- Name what is unfinished, where the project flattens or fails, or who might get worse results than I did.
+- If bias, domain mismatch, or uneven performance are relevant, say so plainly.
 
 ## 7. Sources to Add or Cite
 
-List 3 source directions, papers, model cards, or books you want to connect to the paper.
+- List 3-5 source directions, likely papers, model cards, books, or research areas I should connect to this paper.
+- Do not fabricate citations.
+- If you name a source direction instead of a specific paper, make that explicit.
 
-Use this format:
+After the draft, add:
 
-- **Source or search area:** why it matters
-- **Source or search area:** why it matters
-- **Source or search area:** why it matters
+## Revision Notes
 
-Starter:
+In that section, list:
+- what parts of the draft are strongest
+- what parts still need more evidence from me
+- what sounds too generic and should be rewritten in my own words
 
-- **A paper on ______:** this would help me explain ______.
-- **A source on ______:** this would help me support ______.
-- **The model card for ______:** this would help me describe ______.
+Now here are my materials:
+
+### My Research Question or Rough Question
+[PASTE HERE]
+
+### My Journal Entries or Notes
+[PASTE HERE]
+
+### My Paper Starter
+[PASTE HERE]
+
+### Optional Links or Outputs
+[PASTE HERE]
+```
 
 ---
 
-## Quick Reminder
+## What to paste underneath the prompt
 
-This paper should come from your journal.
+Paste these in this order:
 
-- **What I built** ← build weeks
-- **My research question** ← question-sharpening week
-- **What I tried** ← your clearest test
-- **What I learned** ← your best finding
-- **What still needs work** ← your limitations
+1. your current research question, even if rough
+2. 1–3 journal entries or rough notes
+3. your `paper-starter.md`
+4. optional links or outputs
 
-Do not ask AI to invent research you did not do. Use it to organize, clarify, and tighten what is already in your notes.
+## What a good result looks like
+
+A good first draft:
+
+- gives you a real `PAPER.md`
+- sounds like your project, not anyone's project
+- includes one real test or example
+- names one honest limitation
+- gives you something to revise instead of a blank page
+
+## What to check after the AI responds
+
+Ask:
+
+1. Did it use my actual material?
+2. Did it invent fake evidence?
+3. Is there one real test or example in the draft?
+4. Is the limitation section honest?
+5. Which paragraphs sound generic and need to be rewritten?
+
+The first draft is supposed to be imperfect. The point is to get from blank page to something you can think with.

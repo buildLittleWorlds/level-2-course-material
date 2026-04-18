@@ -1,101 +1,45 @@
 # George — Paper Starter
 
-Use this with the shared `PAPER-TEMPLATE.md` and `GUIDE-FROM-SPACE-TO-PAPER.md`.
+Use this with the shared `PAPER-TEMPLATE.md`.
 
-You have enough for a real draft if you anchor it to one Space and one piece of writing.
+You have enough for a real rough draft if you anchor it to one Space and one real example.
 
-## Best direction
-
-**Recommended research question**
+## Main question
 
 When a health explainer changes its reading level, is it actually changing the explanation, or mostly swapping vocabulary and sentence length?
 
-**Good backup question**
+## Backup question
 
 Can AI health explainers really adapt to different audiences, or do they mostly pretend to?
 
-## Best artifact to write about
+## Best artifact to anchor the paper
 
-Write about **My_Health_Explainer**.
+Use **My_Health_Explainer** as the main project.
 
-If you have not written the pivot-from-music journal entry yet, write that first. It will feed Section 3 of the paper.
-
-## Pull these things from your journal or notes
+## What to paste into the master prompt
 
 - the story of why you shifted from music to health
 - the exact reading levels or audiences you chose
 - one example topic you ran through the explainer
 - what changed between versions of the explanation
-- one honest limit: maybe the explanation only got simpler at the vocabulary level
+- one honest limitation, such as the explanation getting simpler only at the vocabulary level
 
-## Suggested paper map
+## What kind of draft you should expect
 
-### 1. What I built
+You should be able to get a real rough `PAPER.md` tonight.
 
-I built a health explainer that tries to rewrite the same topic for different audiences or reading levels.
+It should:
 
-### 2. My research question
+- describe the Space clearly
+- explain the pivot story
+- include one concrete reading-level comparison
+- make one claim about audience adaptation
+- include one honest limitation
 
-Your question should come from noticing that "simpler" language may not mean a truly different explanation.
+## If the AI invents more than you actually tested
 
-### 3. Why This Matters to Me
+Edit it back toward:
 
-This is where the pivot story belongs. Explain why health communication grabbed you more than your earlier direction.
-
-### 4. What I Tried
-
-Use one concrete test:
-
-- same medical topic
-- two or three reading levels
-- what you expected
-- what changed and what stayed the same
-
-### 5. What I Learned
-
-Your strongest likely finding is that audience adaptation may be more lexical than conceptual.
-
-### 6. What Still Needs Work / Who It Might Fail For
-
-Possible limits:
-
-- the explainer may simplify wording without improving real understanding
-- medical topics vary in difficulty
-- some audiences need more than shorter sentences
-
-### 7. Sources to add or cite
-
-- health literacy
-- readability metrics and their limits
-- consumer health communication
-
-## Prompt to sharpen the question
-
-```text
-I built a health explainer that tries to change reading level for different audiences.
-
-My main observation is that the outputs may be simpler in wording without becoming truly different explanations.
-
-Help me turn that into one clear research question and one backup question.
-
-Do not invent tests or results.
-```
-
-## Prompt to draft from your notes
-
-```text
-Help me draft a short student paper from my own notes about My_Health_Explainer.
-
-Use only the notes I give you. Do not invent medical topics, model names, or sources.
-
-Follow this structure:
-- What I built
-- My research question
-- Why this matters to me
-- What I tried
-- What I learned
-- What still needs work / who it might fail for
-- Sources to add or cite
-
-Make the writing plain and direct.
-```
+- one real medical topic
+- one real comparison
+- one real uncertainty

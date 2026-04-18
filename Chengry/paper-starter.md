@@ -1,101 +1,44 @@
 # Chengry — Paper Starter
 
-Use this with the shared `PAPER-TEMPLATE.md` and `GUIDE-FROM-SPACE-TO-PAPER.md`.
+Use this with the shared `PAPER-TEMPLATE.md`.
 
-Your paper should come from the actual design choices in DxAI, not from sounding formal.
+Your AI draft should come from the actual design choices in DxAI, not from a generic “AI in medicine” summary.
 
-## Best direction
-
-**Recommended research question**
+## Main question
 
 When a medical AI tool is built for ordinary users, does a ranked-and-cautious interface communicate uncertainty better than a single-answer style interface?
 
-**Good backup question**
+## Backup question
 
 Is responsible medical AI mostly a model problem, or is it also an interface-design problem?
 
-## Best artifact to write about
+## Best artifact to anchor the paper
 
-Write about **DxAI / Disease Identification** first.
+Use **DxAI / Disease Identification** as the main project, even if parts of it are still unstable.
 
-If the runtime error is still live, say so honestly in the limitation section. Do not wait for perfection before drafting.
-
-## Pull these things from your journal or notes
+## What to paste into the master prompt
 
 - the disclaimer language you chose
 - why the output is ranked possibilities instead of one answer
-- one test case you ran
-- why you used Claude or the model you chose
-- one honest limit: runtime issues, safety limits, medical uncertainty, or overconfidence risk
+- one symptom or diagnosis test case you tried
+- why you used the model or API you used
+- one honest limitation such as runtime issues, medical uncertainty, or overconfidence risk
 
-## Suggested paper map
+## What kind of draft you should expect
 
-### 1. What I built
+You should be able to get a real rough `PAPER.md` tonight.
 
-I built a medical AI Space that takes symptoms and returns possible conditions with caution and disclaimers.
+It should:
 
-### 2. My research question
+- describe DxAI clearly
+- make one argument about uncertainty or interface honesty
+- include one concrete example
+- name one strong limitation directly
 
-Your question should come from the design choice to show uncertainty instead of pretending the tool knows one answer.
+## If the AI makes the project sound too polished
 
-### 3. Why This Matters to Me
+Edit it back toward:
 
-This is where you explain why medical AI feels important to you and why honesty matters more than sounding certain.
-
-### 4. What I Tried
-
-Use one concrete input or comparison:
-
-- a symptom test case
-- what you expected
-- what the output actually looked like
-
-### 5. What I Learned
-
-Your strongest likely finding is that the interface matters as much as the model when the domain is high-stakes.
-
-### 6. What Still Needs Work / Who It Might Fail For
-
-Possible limits:
-
-- the tool is not a doctor
-- runtime instability or missing dependencies
-- medical input ambiguity
-- risk of false confidence
-
-### 7. Sources to add or cite
-
-- medical AI safety
-- communicating uncertainty to patients
-- model card / API documentation for your deployed model
-
-## Prompt to sharpen the question
-
-```text
-I am writing a short paper about my medical AI Space.
-
-My main observation is that the design feels more honest when it returns ranked possibilities and strong disclaimers instead of pretending to diagnose perfectly.
-
-Help me turn that into one clear research question and one backup question.
-
-Do not invent tests or results.
-```
-
-## Prompt to draft from your notes
-
-```text
-Help me draft a short student paper from my own notes about DxAI.
-
-Use only the notes I give you. Do not invent symptoms, outputs, or sources.
-
-Follow this structure:
-- What I built
-- My research question
-- Why this matters to me
-- What I tried
-- What I learned
-- What still needs work / who it might fail for
-- Sources to add or cite
-
-Keep the writing plain and honest.
-```
+- “current version”
+- “still unstable in places”
+- “this is why the limitation matters”

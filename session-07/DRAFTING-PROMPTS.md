@@ -1,131 +1,100 @@
 # Drafting Prompts — Session 7
 
-Use these prompts to turn journal material into a short paper or, if needed, a strong outline.
+Start with [`PAPER-TEMPLATE.md`](../PAPER-TEMPLATE.md).
 
-The AI should help you **organize and clarify** what is already in your notes. It should not invent research you did not do.
+That file is now the **main prompt**. Paste it into your AI first, then paste your own notes underneath it.
+
+Use the prompts below only if you get stuck.
 
 ---
 
 ## Before you start
 
-Have these open:
+Have these ready:
 
-1. **2–3 journal entries or notes**
-2. **your current research question** (even if rough)
-3. **your paper-starter.md**
-4. **the shared `PAPER-TEMPLATE.md`**
-5. **the Bluest Hour journal and paper** as the worked example
+1. 1–3 journal entries or rough notes
+2. your current research question, even if rough
+3. your `paper-starter.md`
+4. optional Space links, repo links, or copied outputs
+5. the Bluest Hour journal and paper as the worked example
 
-If you do not yet have enough material for a full draft, use Prompt 3 instead of Prompt 2.
-
-## Prompt 1 — Sharpen my question from my notes
+## Prompt 1 — Sharpen my question
 
 ```text
-I am trying to turn my journal notes into a research question for a short paper.
+I am trying to turn my notes into a stronger research question for a rough paper draft.
 
-Use only the notes I give you. Do not invent tests, findings, or sources.
+Use only the notes I give you as the base, but you are allowed to help me phrase the question more clearly.
 
-Your job:
-1. identify the question I am already circling
-2. suggest one sharper version of that question
-3. explain which note or observation supports that question
-4. give me one sentence I can use in the "My research question" section
-
-Keep the answer concrete and student-friendly.
+Please give me:
+1. the question I seem to be circling already
+2. one sharper version of that question
+3. one backup version
+4. one sentence explaining which observation in my notes makes this a real question
 
 Here are my notes:
-
-[PASTE 1-2 JOURNAL ENTRIES OR BULLETS]
+[PASTE NOTES]
 ```
 
-## Prompt 2 — Draft the paper from my journal
+## Prompt 2 — Short fallback draft prompt
 
 ```text
-You are helping me draft a short student paper from my own journal evidence.
+Help me generate a rough `PAPER.md` draft from the project evidence I already have.
 
-I will give you:
-- 2-3 journal entries or notes
-- my current research question
-- my paper starter
-- the shared paper template
+Use my notes, my starter, and my question as the base.
+You are allowed to generate draft prose and connective language so I can leave class with a real draft.
 
-Rules:
-- Use only the evidence I give you.
-- Do not invent tests, model names, results, or sources.
-- If something is missing, write [FILL IN] instead of making it up.
-- Keep the structure of the template exactly.
-- Make the writing plain, direct, and easy to understand.
-- This should sound like a student explaining their project clearly, not like a literary essay.
+Do not invent fake citations or exact results I did not give you.
+If parts of the project are still early, make that explicit instead of pretending they are finished.
 
-Here is my research question:
+Use this structure exactly:
+1. What I Built
+2. My Research Question
+3. Why This Matters to Me
+4. What I Tried
+5. What I Learned
+6. What Still Needs Work / Who It Might Fail For
+7. Sources to Add or Cite
+8. Revision Notes
+
+Here is my question:
 [PASTE QUESTION]
 
-Here are my journal entries or notes:
-[PASTE NOTES]
-
-Here is my paper starter:
-[PASTE STARTER]
-
-Here is the template:
-[PASTE PAPER-TEMPLATE.md]
-```
-
-## Prompt 3 — I am not ready for a full paper yet
-
-```text
-I do not have enough material for a full paper yet, but I need a strong outline that is honest.
-
-Use only the notes I give you.
-
-Please produce:
-1. a one-sentence research question
-2. a recommended project/Space to write about
-3. a section-by-section outline using this structure:
-   - What I built
-   - My research question
-   - Why this matters to me
-   - What I tried
-   - What I learned
-   - What still needs work / who it might fail for
-   - Sources to add or cite
-4. a short note saying which sections I can draft now and which sections need more evidence
-
-Do not pretend I already did more than I actually did.
-
 Here are my notes:
 [PASTE NOTES]
 
-Here is my paper starter:
+Here is my starter:
 [PASTE STARTER]
 ```
 
-## Prompt 4 — Strengthen the limitation section
+## Prompt 3 — Make the draft more specific
 
 ```text
-I am revising the section called "What still needs work / who it might fail for."
+I already have a rough draft, but parts of it sound generic.
 
-Use my notes to help me write an honest limitation section.
+Use my draft and my original notes to do three things:
+1. mark the 2-4 sentences that sound too generic
+2. suggest where I should add one concrete example, test, or output
+3. rewrite the limitation section so it sounds more honest and specific
 
-Please:
-1. list the 2-4 strongest limitations already visible in my notes
-2. say which kinds of users, data, or situations might be hardest for my project
-3. draft one short paragraph in plain language
+Do not make up fake evidence. If I need to add something myself, say so clearly.
 
-Do not invent technical issues that are not in my notes.
+Here is my draft:
+[PASTE DRAFT]
 
-Here are my notes:
+Here are my original notes:
 [PASTE NOTES]
 ```
 
-## After the AI responds
+---
 
-Check four things:
+## Reminder
 
-1. **Did it use your real evidence?**
-2. **Did it invent anything?**
-3. **Does the paper clearly describe one test or example?**
-4. **Does the limitation section sound honest?**
+The AI is allowed to help you get from materials to draft.
 
-If the AI made something up, replace it or mark `[FILL IN]`.
+Your job is to check:
 
-The goal is not polished perfection. The goal is a draft that is clearly connected to your journal.
+- does this sound like my project?
+- where is it too generic?
+- what still needs my real evidence?
+
+That revision step is the real work.
