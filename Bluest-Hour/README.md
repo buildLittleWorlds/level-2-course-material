@@ -12,7 +12,8 @@ Open these in order:
 
 1. [Bluest Hour research journal](https://github.com/buildLittleWorlds/bluest-hour/blob/main/research-journal.md)
 2. [Bluest Hour simple paper](https://github.com/buildLittleWorlds/bluest-hour/blob/main/PAPER.md)
-3. [Bluest Hour almanac paper](https://github.com/buildLittleWorlds/bluest-hour-almanac/blob/main/PAPER.md) only as an advanced continuation
+3. [Bluest Hour source sheet](https://github.com/buildLittleWorlds/bluest-hour/blob/main/SOURCE-SHEET.md)
+4. [Bluest Hour almanac paper](https://github.com/buildLittleWorlds/bluest-hour-almanac/blob/main/PAPER.md) only as an advanced continuation
 
 The point of this folder is no longer "copy the fancy paper voice." The point is to show how a project becomes research:
 
