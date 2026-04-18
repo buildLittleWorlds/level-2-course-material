@@ -1,91 +1,151 @@
 # Between Sessions 7 & 8
 
-> **Heads-up:** This is also the week the course turns toward research work. Your main research work between sessions 7 and 8 is in [`WEEK-7-RESEARCH-WORK.md`](./WEEK-7-RESEARCH-WORK.md). Read that first. The build and journal steps below support that research work.
+> **Heads-up:** This week's between-session work is editing. You drafted a first-pass `PAPER.md` in class with AI assistance. This week, you write the parts an AI cannot write for you — and you fill in the citations from your Consensus search.
 
-**Tonight you found bias** — you designed paired tests, changed one variable, and watched the model treat different groups differently. That's baked into the training data, and it's worth knowing about for any model you use. For some of you, the bias you found tonight is directly relevant to what you're building, and this week's research work is going to make that connection load-bearing.
+**Tonight you drafted a paper.** Every one of you committed (or will commit) a `PAPER.md` to your research repo — a short working paper that comments on your Hugging Face Space. The AI helped you draft §§ I, III, V, VI, X, XI and the colophon. It refused to write §§ IV and IX for you, because those are the sections where the paper becomes yours.
 
-Prea's [Week 7 journal entry ("Bias, and Starting Space 2")](../example-student-prea/research-journal.md) is the clearest example in the course of a student taking a class topic and realizing it isn't a side reflection — it's a limitation her project has to name honestly. Her pipeline runs on Whisper, and Whisper is an ASR system, and ASR systems have documented performance disparities across speaker groups. Her team includes native English speakers and students for whom English is a second or third language. If Whisper transcribes non-native speakers less accurately, every downstream prosodic feature she computes is less reliable for some speakers than for others. She runs two Consensus searches, finds Koenecke et al. (2020) in PNAS and Li et al. (2024) on arXiv (the second one specifically about Whisper), and writes the honest limitations language her eventual brief needs. That's the move: *tonight's class topic is my project's limitations section.*
-
-This week: start building Space 2, and do the Week 7 research work.
+This is the week those sections get written.
 
 ---
 
-## Build Step: Start Your Domain Space (30 min)
+## The three required tasks (in order)
 
-It's time to build something better than Space 1. Your Space 2 should do something different — a different model, a different pipeline type, or a domain-specific feature. It should connect to the interest you've been developing since Session 5.
+### 1. Write §IV — your Δ (1–2 paragraphs)
 
-**How to build it:**
+Your paper-starter named two or three candidate Δ's — the one *tunable* in your work that encodes your personal judgment, not the math. The number of models you chose, the prompt wording you settled on, the exact list of five art styles, the three genres, the ranked-with-uncertainty output format, the reading levels you targeted — whichever one you pick, §IV is where you *commit* to it and *defend* it.
 
-1. Open your student folder on the course repo. Pick the prompt that matches what you want to build.
-2. Paste that prompt into a coding AI (ChatGPT, Claude, Gemini). It will give you `app.py` and `requirements.txt`.
-3. Create a new Space on Hugging Face. Upload the files. Wait for the build.
-4. If it works: customize the title, description, and examples. If it doesn't: paste the error back into the coding AI and ask it to fix the code.
+Open the Bluest Hour paper, §IV ("The local offset Δ"):
+<https://github.com/buildLittleWorlds/bluest-hour-almanac/blob/main/PAPER.md>
 
-Get Space 2 deployed this week, even if it's rough. You'll improve it after Session 8.
+Notice the moves:
+1. State the Δ, in a `<kbd>` tag, as a specific concrete value.
+2. Admit it is not a ___ — "It is not an astronomical constant; it is the author's estimate."
+3. Name why it is what it is — one paragraph explaining the reasoning.
+4. Include a `> [!TIP]` alert block explaining how the Δ could, in principle, be learned or calibrated — but isn't, because ___.
 
-**If you're not sure what to build:** Use one of the upgrade prompts from your student folder. The simplest version is to take your Space 1 and swap in a better model (SmolLM2-360M-Instruct or Qwen2.5-0.5B-Instruct). That alone will show you how much model choice matters.
+Your §IV follows the same pattern. Replace "astronomical constant" with whatever *would* be the impersonal version of your choice. Replace the reasoning paragraph with yours.
 
----
+**This section is one paragraph plus one alert block. That's all.** Don't over-write it. The power of §IV is that it is the one place in the paper where the author is personally present; too many words dilute that.
 
-## Journal Entry (15 min)
+### 2. Write §IX — your category (1 paragraph + 1 numbered list)
 
-Open `research-journal.md` and add your Week 7 entry:
+Your paper-starter named two candidate categories. Pick one. §IX names it, defines it, and reads your artifact as an instance.
+
+Structure (from the Bluest Hour paper):
 
 ```markdown
-## Week 7 — Building Space 2
+## <sub>§ IX.</sub> &nbsp; Toward [your small category]
 
-### What We Talked About in Class
-(Quick note on the bias testing we did — what stuck with you? Will it be relevant to your project?)
+I'd like to propose a small category.
 
-### What I'm Building for Space 2
-(What's your Space 2? What model or pipeline are you using? How is it different from Space 1? Why did you choose this direction?)
+> **Your category here** &nbsp;*n.* &nbsp; A piece of software whose primary function is
+> to ______. Its success is measured in ______.
 
-### How It's Going
-(Did you get it deployed? What worked? What broke? What do you still need to figure out?)
+The [artifact] is an instance. Its figure of merit is ______. Every design choice
+in the artifact is legible once you take this framing seriously:
+
+1. **No ___** — because ___.
+2. **Has ___** — because ___.
+3. **Returns ___** — because ___.
 ```
 
-**Not sure what to write?** Read [Prea's Week 7 journal entry](../example-student-prea/research-journal.md). Notice how she treats the class bias topic not as a side note but as a direct threat to her project, names the specific papers she found, and drafts the actual limitations sentence she will use in her eventual brief. Your entry should capture the same things: what you're building, what you're learning, and — if tonight's bias discussion is relevant to your project — the honest limitations language your project needs.
+Keep the definition to **one sentence**. Keep the list to **3 or 4 items**. Small, defensible, slightly surprising. Not grand. Not a paradigm. A category a reader could argue with.
+
+### 3. Fill the footnotes (from [`WEEK-7-RESEARCH-WORK.md`](WEEK-7-RESEARCH-WORK.md))
+
+Your first draft has `[PLACEHOLDER]` footnote markers where real citations should go. Run the Consensus searches listed in your paper-starter (and walked through in `WEEK-7-RESEARCH-WORK.md`), pick the three strongest, and write each footnote in this form:
+
+```markdown
+[^one]: Author, *Title* (Year). One sentence on why this matters to your argument.
+```
+
+Three footnotes minimum. Five maximum. Any more and the paper starts feeling like a lit review; any fewer and it floats unmoored from prior work.
 
 ---
 
-## Portfolio Check
+## Optional but encouraged
 
-By Session 8, you should have:
-- Space 1 running on Hugging Face
-- Space 2 deployed (even if rough)
-- 3 journal entries in `research-journal.md`
-- A Hugging Face Collection with 7+ items
+**Edit your Abstract.** Your AI wrote one; read it now and ask: does it actually summarize what the paper ended up saying, or does it summarize the paper the AI *thought* you were going to write? Rewrite in your voice. Five sentences.
 
-**Reference:** Prea's Space 2 (the Delivery Analyzer) is described in her [portfolio README](../example-student-prea/README.md). Notice how it's built on a completely different model type than her Space 1 — Whisper audio transcription instead of sentiment classification — and how the feature extraction work happens in pure Python on top of the API response. That jump is the point. Your Space 2 should represent a real step forward from your baseline.
+**Pick your epigraph.** Your paper-starter suggested domains (books, memoirs, critics). Pick a line from a real book you actually like. Replace the `[CHOOSE ONE]` placeholders the AI left at the top of the paper.
+
+**Clean up `[FILL IN]` markers in §I.** If the AI wrote `[FILL IN: line count]` or `[FILL IN: model ID]`, go look it up and fill it in. §I is the factual inventory; it should contain no placeholders by Session 8.
 
 ---
 
-## Your Personal Challenge
+## What the paper does not need this week
+
+- §§ II, VII, VIII — you can edit these next week or the week after. The AI draft is enough for now.
+- The Colophon — facts-only; leave the AI's draft as-is unless it's wrong.
+- §§ V, X, XI — the AI draft is probably good enough. Light edit if you have time; don't stall on them.
+
+**Only §IV, §IX, and the footnotes are required this week.** Don't let perfect be the enemy of committed.
+
+---
+
+## One coding task (light)
+
+If your Space 2 is not yet built or your Space 1 is broken (SLEEPING is fine, RUNTIME_ERROR is not), spend 30 minutes this week fixing the code. This is not this week's research work; it is maintenance. A paper whose §I points at a broken Space will need to be rewritten in two weeks when the Space is down.
+
+**Priority fixes (based on the current tracker):**
+- **Chengry:** `disease_detectives` RUNTIME_ERROR. Missing Python deps for audio. Remove audio code or add the dep to `requirements.txt`.
+- **Shawn:** `AnimeSceneWriter` RUNTIME_ERROR. Debug or rebuild minimally.
+- **George:** `My_Health_Explainer` SLEEPING. Open it once to wake it; confirm it still works.
+- **Everyone else:** check that your flagship Space is reachable; if not, fix it.
+
+---
+
+## Prea's Week 7 journal entry — reread it
+
+Prea's [Week 7 entry](../example-student-prea/research-journal.md) is still the strongest example in the course of taking a class topic (bias) and realizing it is not a side note but a *limitations section* the project has to write honestly. Whisper's documented performance disparities across speaker groups became her §X.
+
+Your §X should do the same thing. What did your Space *not* do well? Who did it fail for? What's in the training data that biases your outputs? Name it in the paper.
+
+---
+
+## Portfolio check (by Session 8)
+
+- [ ] `PAPER.md` committed to your research repo — first draft present, §IV written, §IX written, 3+ footnotes filled in
+- [ ] Space 1 reachable (not RUNTIME_ERROR; SLEEPING is acceptable)
+- [ ] `research-journal.md` has a Week 7 entry — even a short one — reflecting on the drafting session
+- [ ] Your paper-starter is still in place at `level-2-course-material/<YourName>/paper-starter.md` — you'll reference it next week
+
+---
+
+## Your personal focus this week
 
 ### Annabelle
-You build fast. Use that speed on Space 2 — pick one prompt from your folder, build it, and get it deployed. Then write about the difference between Space 1 and Space 2 in your journal. What changed? What's better?
+Your draft probably has the three angles from your paper-starter still floating. Pick the pedagogy angle (or whichever you chose) and commit in §II. Your §IV is NYSSMA — write it. Your §IX is "pattern engines, not genre teachers" (or the quantization alternative); pick and defend.
 
 ### Bobby
-Your folder has a model comparison lab prompt. That's a natural Space 2 — same game writing prompts, but now you can switch between distilgpt2, SmolLM2, and Qwen. Build it this week and write about what you notice when you compare the outputs.
+If you wrote the re-entry journal entry in or before the session, great — now pick between Path A (game dev + genAI) and Path B (systematic tool evaluation). If you didn't yet, write the re-entry entry this week and pick a path. No paper pressure until re-entry.
 
 ### Chengry
-If the biomedical NER Space is working, that's your Space 2. If not, try the simpler upgrade: take your text generator and swap to a better model. Focus on getting something deployed — you can refine it after Session 8.
+Debug DxAI first. Then write §IV on the ranked-with-uncertainty output format — that's your Δ. Your §IX is "staged safety"; make the claim concrete.
 
 ### Emily
-Your folder has a news model comparison lab and a better summarizer. Pick one for Space 2. Either direction works well — go with whichever one excites you more, and get it deployed this week.
+Ship your first Space this week. The simplest version: a Gradio app with a headline input and a persona dropdown (neutral, foreign-ministry briefing, regional newspaper). Even a 40-line `app.py` is fine. Once it's deployed, your paper has something to point at, and §IV and §IX become writable.
 
 ### George
-Build Space 2 around health text. Your simplest path: upgrade the model in your text generator and test it on medical content. Get it deployed and write about what the better model does differently.
+Create the GitHub repo. Commit your pivot-from-music journal entry as Week 1. If you drafted a paper during class, commit that too. Your §IV is the set of reading levels you target; §IX is "lexical adaptation" or "audience-visible caution" — pick and defend.
 
 ### Henry
-Your folder has a scene description Space prompt. That's a great Space 2 direction — it connects your visual interests to text generation. Build it this week and see what it can do.
+Consolidate your per-week repos into one `AI-Research-Level-2` repo and move `PAPER.md` there. Write §IV on the slider-extremes methodology. §IX is "lexical perspective" — name it explicitly.
 
 ### Sevilla
-You've been exploring emotion and image models. Pick a direction for Space 2 that goes deeper into one of those interests. Your folder has prompts to help — pick the one that feels most like *your* project and build it.
+Write one analytical animation journal entry this week. Then edit your draft's §I to match the Space you chose, and write §IV on the motion-primitive test set. §IX is "motion continuity as evaluation axis."
 
 ### Shawn
-A model comparison lab is your ideal Space 2. Build the comparison version from your folder — your systematic methodology will shine when you can compare models side by side. Get it deployed and start testing.
+Debug `AnimeSceneWriter`. Run the 10-prompt × 5-style comparison grid. That becomes §III. Write §IV on the three-model triad (the choice of SDXL, Animagine-XL, Playground v2.5). §IX is "specialization debt" — defend it with evidence.
 
 ---
 
-AI + Research Level 2 • Session 7: Building Space 2
+## What Session 8 does with this
+
+Session 8 returns to technical progression — we'll look at error cascades, pipelines, and what happens when models chain together. But you'll look at it with a paper in your hand. When the session raises a new limitation or capability, you'll ask: *does this change §III of my paper? Does it create a new §X limitation? Does it strengthen my §IX category?*
+
+The technical content doesn't stop. It gets a frame.
+
+---
+
+AI + Research Level 2 • Session 7: Drafting Your First Paper
