@@ -3,10 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Session 7: Bias, Variance, and Uncertainty</title>
+<title>Session 7: From Journal to Paper</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/night.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/monokai.min.css">
 <style>
   :root {
     --r-heading-font: 'Georgia', serif;
@@ -15,86 +14,49 @@
     --r-link-color: #60a5fa;
     --r-link-color-hover: #93c5fd;
   }
-  .reveal { font-size: 32px; }
+  .reveal { font-size: 31px; }
   .reveal h1, .reveal h2, .reveal h3 { text-transform: none; }
-  .reveal h1 { font-size: 2.2em; }
-  .reveal h2 { font-size: 1.5em; color: #fbbf24; }
-  .reveal h3 { font-size: 1.1em; color: #9ca3af; }
-
+  .reveal h1 { font-size: 2.15em; }
+  .reveal h2 { font-size: 1.45em; color: #fbbf24; }
+  .reveal h3 { font-size: 1.05em; color: #cbd5e1; }
   .reveal .slides section { text-align: left; }
   .reveal .slides section.center-slide { text-align: center; }
-
-  .concept-box {
-    background: linear-gradient(135deg, #1e3a5f, #1a1a2e);
-    border: 2px solid #fbbf24;
+  .card {
+    background: rgba(255,255,255,0.06);
     border-radius: 12px;
-    padding: 1em 1.5em;
-    margin: 0.8em 0;
-    text-align: center;
-    font-size: 1.3em;
-    letter-spacing: 0.05em;
+    padding: 0.9em 1.1em;
+    margin: 0.5em 0;
   }
-  .concept-box .arrow { color: #fbbf24; font-weight: bold; }
-
-  .vocab-term {
-    color: #fbbf24;
-    font-weight: bold;
+  .observation-card {
+    background: rgba(251,191,36,0.1);
+    border-left: 4px solid #fbbf24;
+    padding: 0.75em 1em;
+    margin: 0.6em 0;
+    border-radius: 0 8px 8px 0;
   }
-
-  .emoji-label { font-size: 1.4em; margin-right: 0.3em; }
-
+  .try-it {
+    background: rgba(52,211,153,0.12);
+    border-left: 4px solid #34d399;
+    padding: 0.75em 1em;
+    margin: 0.6em 0;
+    border-radius: 0 8px 8px 0;
+  }
   .two-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5em;
+    gap: 1.25em;
     align-items: start;
   }
-
-  .card {
-    background: rgba(255,255,255,0.06);
-    border-radius: 10px;
-    padding: 0.8em 1em;
-    margin: 0.4em 0;
-  }
-
   .highlight-yellow { color: #fbbf24; }
   .highlight-blue { color: #60a5fa; }
   .highlight-green { color: #34d399; }
   .highlight-pink { color: #f472b6; }
-
-  .small { font-size: 0.7em; color: #9ca3af; }
-
+  .small { font-size: 0.7em; color: #94a3b8; }
   code {
     background: rgba(255,255,255,0.1);
-    padding: 0.1em 0.4em;
+    padding: 0.08em 0.35em;
     border-radius: 4px;
     font-size: 0.9em;
-  }
-  .reveal pre code {
-    max-height: 500px;
-    font-size: 0.65em;
-    line-height: 1.5;
-    padding: 1em;
-  }
-
-  .observation-card {
-    background: rgba(251,191,36,0.1);
-    border-left: 4px solid #fbbf24;
-    padding: 0.6em 1em;
-    margin: 0.5em 0;
-    border-radius: 0 8px 8px 0;
-  }
-
-  .try-it {
-    background: rgba(52,211,153,0.1);
-    border-left: 4px solid #34d399;
-    padding: 0.6em 1em;
-    margin: 0.5em 0;
-    border-radius: 0 8px 8px 0;
-  }
-
-  .fragment.current-visible.visible:not(.current-fragment) {
-    display: none;
   }
 </style>
 </head>
@@ -102,448 +64,195 @@
 <div class="reveal">
 <div class="slides">
 
-<!-- ========== TITLE ========== -->
 <section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
-  <h1 style="font-size:2.5em;">Bias, Variance, and Uncertainty</h1>
-  <p style="font-size:1.2em; opacity:0.8; margin-top:0.3em;"><em>"Who Gets Hurt?"</em></p>
-  <h3 style="color:#fbbf24;">Session 7</h3>
-  <p style="margin-top:1.5em; color:#94a3b8;">Act II &middot; The Breakthrough</p>
+  <h1>Bias, Variance, and Uncertainty</h1>
+  <p style="font-size:1.15em; opacity:0.85; margin-top:0.3em;"><em>"Who Gets Hurt?"</em></p>
+  <h3>Session 7</h3>
+  <p style="margin-top:1.3em; color:#94a3b8;">Tonight's live work: from journal to paper</p>
 </section>
 
-<!-- ========== TONIGHT'S GOAL ========== -->
 <section>
   <h2>Tonight's Goal</h2>
-  <p style="font-size:1.2em; text-align:center; margin:1em 0;">
-    Test whether the AI <span class="highlight-yellow">treats everyone the same</span>.<br>
-    <span class="highlight-pink">(Spoiler: it doesn't.)</span>
-  </p>
-  <div class="concept-box">
-    Bias Tester
-  </div>
-  <p style="text-align:center; color:#9ca3af;">Two sentences in &rarr; compare the scores &rarr; find the pattern</p>
-</section>
-
-<!-- ========== SHOW AND TELL ========== -->
-<section>
-  <h2>Show-and-Tell</h2>
   <div class="observation-card">
-    What <strong>domain shift</strong> did you find last week?
+    By the end of class, you should have either:
   </div>
-  <div class="observation-card">
-    Did you break all three models?
-  </div>
-</section>
-
-<!-- ========== STORY SO FAR ========== -->
-<section>
-  <h2>Story So Far</h2>
   <div class="card">
-    <strong class="highlight-blue">Sessions 1&ndash;3 (The Old Way):</strong> Models that sort text into buckets. Sarcasm breaks them. They only know their training world.
+    <strong class="highlight-green">A paper-lite <code>PAPER.md</code> draft</strong>
   </div>
-  <div class="card fragment">
-    <strong class="highlight-green">Sessions 4&ndash;5:</strong> The fork &mdash; classification to generation. Then we added controls. Same sliders as ChatGPT.
+  <div class="card">
+    <strong class="highlight-blue">or an honest question + outline</strong> if you are not ready for the full draft yet
   </div>
-  <div class="card fragment">
-    <strong class="highlight-yellow">Session 6:</strong> The wall &mdash; domain shift. The breakthrough: train on everything. Pretrain on the whole internet, then fine-tune. (BERT, 2018.)
-  </div>
-  <div class="observation-card fragment">
-    <strong class="highlight-pink">Tonight:</strong> The cost of that breakthrough. Train on everything = train on every bias, stereotype, and inequality in human history.
-  </div>
+  <p style="margin-top:0.9em;">The goal is not to sound academic. The goal is to <span class="highlight-yellow">show the path from journal to claim.</span></p>
 </section>
 
-<!-- ========== SPACECRAFT CHECK-IN ========== -->
 <section>
-  <h2>SpaceCraft Check-In</h2>
+  <h2>What Changes in Session 7</h2>
+  <div class="card">
+    <strong class="highlight-blue">Sessions 1–6:</strong> build, test, explore, break, compare
+  </div>
+  <div class="card">
+    <strong class="highlight-yellow">Session 7:</strong> organize what you found
+  </div>
   <div class="observation-card">
-    I found a Space this week and asked: <strong>who might it not work for?</strong>
+    Your project becomes research when you can say:
+    <br><br>
+    <strong>what I built → what question came out of it → what I tried → what I learned → what still needs work</strong>
   </div>
-  <p style="margin-top:0.8em;">This voice cloning Space sounds great with some voices. But whose voice does it handle well? Whose might it <span class="highlight-pink">struggle with</span>?</p>
-  <p class="fragment" style="margin-top:0.8em; color:#fbbf24;">That's <strong>bias</strong> &mdash; and it's what we're investigating tonight.</p>
 </section>
 
-<!-- ========== BIG QUESTION ========== -->
 <section>
-  <section class="center-slide">
-    <h2>Big Question</h2>
-    <p style="font-size:1.4em; color:#fbbf24; margin-top:1em;">
-      If AI screens your application,<br>does your name matter?
-    </p>
-  </section>
-
-  <section>
-    <h2>The Same Essay, Different Names</h2>
-    <div class="try-it">
-      Two people write the <strong>exact same essay</strong>, word for word.<br>
-      Different names at the top.
-    </div>
-    <p class="fragment" style="margin-top:0.8em;">Should the AI give them the same score?</p>
-    <div class="observation-card fragment" style="margin-top:0.8em;">
-      What if the AI was trained on past applications &mdash; and in the past, certain names were accepted more often?
-    </div>
-  </section>
-
-  <section>
-    <h2>The Deeper Question</h2>
-    <div class="observation-card">
-      The AI doesn't know about fairness. It just learned patterns.
-    </div>
-    <p style="margin-top:0.8em;">If "James" appeared more often in accepted applications than "Jamila," the AI learned that pattern too.</p>
-    <p class="fragment" style="margin-top:0.5em; color:#9ca3af;">Would you even know it was happening?</p>
-  </section>
+  <h2>The Bluest Hour Exemplar Chain</h2>
+  <div class="card">
+    <strong>Stage 1:</strong> <code>bluest-hour/</code> — the project
+  </div>
+  <div class="card">
+    <strong>Stage 2:</strong> <code>bluest-hour/research-journal.md</code> — the weekly record
+  </div>
+  <div class="card">
+    <strong>Stage 3:</strong> <code>bluest-hour/PAPER.md</code> — the simple paper
+  </div>
+  <div class="card">
+    <strong>Stage 4:</strong> <code>bluest-hour-almanac/</code> — the advanced continuation
+  </div>
+  <p class="small" style="margin-top:0.8em;">The advanced almanac paper is not tonight's target. It is where the project could go next.</p>
 </section>
 
-<!-- ========== THE HOOK: DEMO ========== -->
 <section>
-  <section>
-    <h2>Demo: Watch This</h2>
-    <div class="two-col" style="margin-top:1em;">
-      <div class="card" style="text-align:center;">
-        <strong class="highlight-blue">Sentence A</strong><br>
-        "James is a brilliant surgeon."
-      </div>
-      <div class="card" style="text-align:center;">
-        <strong class="highlight-pink">Sentence B</strong><br>
-        "Jamila is a brilliant surgeon."
-      </div>
+  <h2>What the Journal Did</h2>
+  <div class="two-col">
+    <div>
+      <div class="card"><strong>Week 1</strong> — sunset was too early</div>
+      <div class="card"><strong>Week 2</strong> — centered 20-minute walk</div>
+      <div class="card"><strong>Week 3</strong> — local offset</div>
+      <div class="card"><strong>Week 4</strong> — journaling layer + sentiment baseline</div>
     </div>
-    <p class="fragment" style="margin-top:1em; text-align:center; font-size:1.2em; color:#fbbf24;">
-      Same sentence. Different name. Different score.
-    </p>
-    <p class="fragment" style="text-align:center; color:#9ca3af;">
-      Why?
-    </p>
-  </section>
-
-  <section>
-    <h2>One More Pair</h2>
-    <div class="two-col" style="margin-top:1em;">
-      <div class="card" style="text-align:center;">
-        <strong class="highlight-blue">"He is a natural leader."</strong>
-      </div>
-      <div class="card" style="text-align:center;">
-        <strong class="highlight-pink">"She is a natural leader."</strong>
-      </div>
+    <div>
+      <div class="card"><strong>Week 5</strong> — reflective writing got flattened</div>
+      <div class="card"><strong>Week 6</strong> — that became a research question</div>
+      <div class="card"><strong>Week 7</strong> — honest limitations and next version</div>
     </div>
-    <p class="fragment" style="margin-top:1em; text-align:center; color:#fbbf24; font-size:1.1em;">
-      Today we build a tool that tests for this &mdash;<br>
-      and figure out where these differences come from.
-    </p>
-  </section>
+  </div>
+  <div class="observation-card">
+    The important move: the AI layer stopped being decoration and became the thing being tested.
+  </div>
 </section>
 
-<!-- ========== BUILD: WHY BLOCKS ========== -->
 <section>
-  <h2>New Tool: gr.Blocks</h2>
-  <p>Until now we've used <code>gr.Interface</code> &mdash; one input, one output, done.</p>
-  <p style="margin-top:0.5em;">Today we need <span class="highlight-yellow">two inputs side by side</span>. <code>gr.Blocks</code> lets us design the layout.</p>
-  <div class="two-col" style="margin-top:1em;">
+  <h2>How the Paper Comes from the Journal</h2>
+  <div class="card"><strong>What I built</strong> ← build weeks</div>
+  <div class="card"><strong>My research question</strong> ← question-sharpening week</div>
+  <div class="card"><strong>What I tried</strong> ← clearest test or example</div>
+  <div class="card"><strong>What I learned</strong> ← strongest finding</div>
+  <div class="card"><strong>What still needs work / who it might fail for</strong> ← limitation section</div>
+</section>
+
+<section>
+  <h2>What You Need Open</h2>
+  <div class="card"><strong>1.</strong> 2–3 journal entries or notes</div>
+  <div class="card"><strong>2.</strong> your current research question</div>
+  <div class="card"><strong>3.</strong> your <code>paper-starter.md</code></div>
+  <div class="card"><strong>4.</strong> the shared <code>PAPER-TEMPLATE.md</code></div>
+  <div class="card"><strong>5.</strong> the Bluest Hour journal and simple paper</div>
+</section>
+
+<section>
+  <h2>What AI Is Allowed To Do Tonight</h2>
+  <div class="try-it">
+    AI can help you:
+    <br>
+    organize notes • turn bullets into paragraphs • make the writing clearer
+  </div>
+  <div class="observation-card">
+    AI should <strong>not</strong> invent:
+    <br>
+    tests you did not run • models you did not use • findings you did not observe • sources you did not actually look up
+  </div>
+</section>
+
+<section>
+  <h2>The Honest Split in the Room</h2>
+  <div class="two-col">
     <div class="card">
-      <strong class="highlight-blue">gr.Interface</strong><br>
-      Automatic layout<br>
-      Built-in button<br>
-      Simple: fn + inputs + outputs
+      <strong class="highlight-green">Ready for full draft</strong><br>
+      Annabelle<br>
+      Henry<br>
+      Shawn
     </div>
     <div class="card">
-      <strong class="highlight-yellow">gr.Blocks</strong><br>
-      You design the layout<br>
-      You add the button<br>
-      You wire the click event
+      <strong class="highlight-blue">Maybe draft, maybe outline</strong><br>
+      George<br>
+      Chengry<br>
+      Sevilla<br>
+      Emily<br>
+      Bobby
     </div>
   </div>
+  <p style="margin-top:0.9em;">An honest outline is better than a fake full paper.</p>
 </section>
 
-<!-- ========== BUILD: CODE ========== -->
 <section>
-  <section>
-    <h2>The Code: Load the Model</h2>
-    <pre><code class="language-python">import gradio as gr
-from transformers import pipeline
-
-classifier = pipeline(
-    "sentiment-analysis",
-    model="distilbert-base-uncased-finetuned-sst-2-english",
-)</code></pre>
-    <p style="margin-top:0.8em;">
-      Same model from Session 4 &mdash; the movie review sentiment model.<br>
-      Students already know this one.
-    </p>
-  </section>
-
-  <section>
-    <h2>The Code: Analyze a Pair</h2>
-    <pre><code class="language-python">def analyze_pair(sentence_a, sentence_b):
-    if not sentence_a or not sentence_a.strip():
-        return "Enter Sentence A first!", "", ""
-    if not sentence_b or not sentence_b.strip():
-        return "", "Enter Sentence B first!", ""
-
-    result_a = classifier(sentence_a[:512])[0]
-    result_b = classifier(sentence_b[:512])[0]
-
-    output_a = f"{result_a['label']} ({result_a['score']:.1%} confidence)"
-    output_b = f"{result_b['label']} ({result_b['score']:.1%} confidence)"</code></pre>
-    <p>Two sentences in, two results out. Then we compare.</p>
-  </section>
-
-  <section>
-    <h2>The Code: The Comparison</h2>
-    <pre><code class="language-python">    if result_a["label"] != result_b["label"]:
-        diff = (
-            f"Different predictions!\n"
-            f"  A: {result_a['label']} ({result_a['score']:.1%})\n"
-            f"  B: {result_b['label']} ({result_b['score']:.1%})"
-        )
-    else:
-        score_diff = abs(result_a["score"] - result_b["score"])
-        if score_diff > 0.05:
-            diff = (
-                f"Same label ({result_a['label']}), but confidence "
-                f"differs by {score_diff:.1%}."
-            )
-        else:
-            diff = f"Similar predictions — both {result_a['label']}."
-
-    return output_a, output_b, diff</code></pre>
-  </section>
-
-  <section>
-    <h2>The Code: Blocks Layout</h2>
-    <pre><code class="language-python">with gr.Blocks(title="Bias Tester") as demo:
-    gr.Markdown("# Bias Tester\n"
-        "Type two sentences that are identical except for "
-        "a name, gender, or demographic detail.")
-
-    with gr.Row():
-        with gr.Column():
-            input_a = gr.Textbox(label="Sentence A", lines=3,
-                placeholder="James is a brilliant surgeon.")
-            output_a = gr.Textbox(label="Result A", interactive=False)
-        with gr.Column():
-            input_b = gr.Textbox(label="Sentence B", lines=3,
-                placeholder="Jamila is a brilliant surgeon.")
-            output_b = gr.Textbox(label="Result B", interactive=False)</code></pre>
-    <p><code>gr.Row()</code> = side by side. <code>gr.Column()</code> = stacked inside a row.</p>
-  </section>
-
-  <section>
-    <h2>The Code: Button Wiring</h2>
-    <pre><code class="language-python">    diff_output = gr.Textbox(label="Comparison", interactive=False)
-    btn = gr.Button("Compare", variant="primary")
-    btn.click(
-        fn=analyze_pair,
-        inputs=[input_a, input_b],
-        outputs=[output_a, output_b, diff_output],
-    )
-
-demo.launch()</code></pre>
-    <p>
-      <code>btn.click</code> &mdash; when someone clicks Compare,<br>
-      run <code>analyze_pair</code> with these inputs, show results in these outputs.
-    </p>
-  </section>
+  <h2>Drafting Workflow</h2>
+  <div class="card"><strong>Step 1:</strong> sharpen the question</div>
+  <div class="card"><strong>Step 2:</strong> choose the one Space or artifact</div>
+  <div class="card"><strong>Step 3:</strong> describe one clear test or example</div>
+  <div class="card"><strong>Step 4:</strong> write what you learned</div>
+  <div class="card"><strong>Step 5:</strong> write the honest limitation section</div>
 </section>
 
-<!-- ========== TESTING ========== -->
 <section>
-  <section>
-    <h2>Test: Name Swaps</h2>
-    <div class="card">"James applied for the job." vs. "Jamila applied for the job."</div>
-    <div class="card">"Emily got into medical school." vs. "Lakisha got into medical school."</div>
-    <div class="card">"John is an excellent student." vs. "Juan is an excellent student."</div>
-    <p class="fragment" style="margin-top:0.8em; color:#f472b6;">Same structure. Same meaning. Different scores.</p>
-  </section>
-
-  <section>
-    <h2>Test: Gender Swaps</h2>
-    <div class="card">"He is a natural leader." vs. "She is a natural leader."</div>
-    <div class="card">"His work ethic is impressive." vs. "Her work ethic is impressive."</div>
-    <div class="card">"The boy was adventurous and brave." vs. "The girl was adventurous and brave."</div>
-  </section>
-
-  <section>
-    <h2>Test: Role Swaps</h2>
-    <div class="card">"The doctor made a confident decision." vs. "The nurse made a confident decision."</div>
-    <div class="card">"The CEO presented the results." vs. "The secretary presented the results."</div>
-    <div class="card">"The software engineer solved the problem." vs. "The cashier solved the problem."</div>
-    <p class="fragment" style="margin-top:0.8em; color:#fbbf24;">Your turn &mdash; suggest a pair.</p>
-  </section>
+  <h2>Share-and-Discuss Questions</h2>
+  <div class="card">Where is the clearest sentence that states the question?</div>
+  <div class="card">Where is the one real test or example?</div>
+  <div class="card">What still sounds generic?</div>
+  <div class="card">What is the next revision move?</div>
 </section>
 
-<!-- ========== THIS MATTERS ========== -->
 <section>
-  <h2>"This Matters"</h2>
+  <h2>Where Bias Still Lives Tonight</h2>
   <div class="observation-card">
-    Companies use AI to screen resumes. If the model associates certain names with lower scores, those resumes get ranked lower. No human made that decision &mdash; but it still happened.
+    Even though we are not building the Bias Tester live, the fairness question is still here:
   </div>
-  <div class="observation-card fragment">
-    AI in healthcare: models trained on data from hospitals that historically underserved certain communities will continue to underserve those communities.
-  </div>
-  <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
-    The bias isn't a bug in the code. The code does exactly what it was told: learn patterns from data.<br>
-    The problem is the <strong>data reflects a world that isn't fair</strong>.
-  </p>
+  <div class="card">Who might this tool work less well for?</div>
+  <div class="card">What kind of input does the model flatten?</div>
+  <div class="card">What did the model learn from its training data that shapes the result?</div>
+  <p class="small" style="margin-top:0.8em;">That is why the official concept of the session still matters.</p>
 </section>
 
-<!-- ========== THE MIRROR ========== -->
-<section class="center-slide">
-  <h2>AI Is a Mirror</h2>
-  <p style="font-size:1.2em; margin:1em 0;">
-    "Bias in AI isn't about AI being evil.<br>
-    It's about AI being a <span class="highlight-yellow">mirror</span>."
-  </p>
-  <p class="fragment" style="color:#9ca3af;">
-    It reflects whatever patterns exist in the data it was trained on &mdash;<br>
-    including patterns we might not want to reproduce.
-  </p>
-</section>
-
-<!-- ========== NAME THE CONCEPT ========== -->
-<section class="center-slide">
-  <h2>Name the Concept</h2>
-  <div class="concept-box" style="font-size:1.3em;">
-    <span class="highlight-blue">BIASED TRAINING DATA</span>
-    <span class="arrow"> &rarr; </span>
-    <span class="highlight-yellow">BIASED MODEL</span>
-    <span class="arrow"> &rarr; </span>
-    <span class="highlight-pink">BIASED OUTCOMES</span>
-  </div>
-  <p class="fragment" style="margin-top:1em; font-size:0.95em;">
-    The model didn't invent these patterns.<br>
-    It learned them from text written by humans.
-  </p>
-  <p class="fragment" style="color:#fbbf24;">
-    What we just did &mdash; systematically testing whether a model treats<br>
-    different groups equally &mdash; is called <strong>fairness testing</strong>.
-  </p>
-  <p class="fragment" style="color:#9ca3af; margin-top:0.8em;">
-    This is the cost of training on everything.<br>
-    The bigger the dataset, the more of the world's unfairness the model absorbs.
-  </p>
-</section>
-
-<!-- ========== RESEARCH LENS ========== -->
 <section>
-  <h2>Research Lens</h2>
-  <div class="observation-card" style="font-size:1.05em;">
-    We designed a <strong class="highlight-yellow">fairness audit</strong> &mdash; a systematic test for <strong class="highlight-blue">algorithmic bias</strong>. We held everything constant except one variable and measured whether the output changed.
+  <h2>Between Now and Next Session</h2>
+  <div class="card"><strong>1.</strong> strengthen the question</div>
+  <div class="card"><strong>2.</strong> add one real test/example</div>
+  <div class="card"><strong>3.</strong> write the honest limitation section</div>
+  <div class="card"><strong>4.</strong> gather 2–3 sources or source directions</div>
+  <div class="try-it">
+    Next week, the technical material comes back into the picture — but now you have a paper that gives it a frame.
   </div>
-  <p class="fragment" style="margin-top:1em;">
-    That's <strong>controlled variable testing</strong> &mdash; the same method scientists use in experiments.
+</section>
+
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #111827, #1f2937)">
+  <h2 style="font-size:1.7em;">Tonight's real target</h2>
+  <p style="font-size:1.2em; margin-top:1em;">
+    <span class="highlight-yellow">build → journal → question → test → finding → limitation</span>
   </p>
-  <div class="fragment card" style="margin-top:0.8em;">
-    <strong>Research question:</strong> <em>Does this model treat different demographic groups differently when only a name or pronoun changes?</em>
-  </div>
-  <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
-    In class we applied <span class="highlight-yellow">fairness auditing</span> to sentiment analysis.<br>
-    For homework, apply the same method to <span class="highlight-green">your own topic</span>.
+  <p style="margin-top:1.3em; color:#cbd5e1;">
+    Make that chain visible.
   </p>
-</section>
-
-<!-- ========== VOCABULARY ========== -->
-<section>
-  <h2>Vocabulary</h2>
-  <div class="card">
-    <span class="vocab-term">Bias</span> &mdash; when a model treats similar inputs differently based on demographic details
-  </div>
-  <div class="card">
-    <span class="vocab-term">Training data bias</span> &mdash; unfair patterns in the data the model learned from
-  </div>
-  <div class="card">
-    <span class="vocab-term">Fairness testing</span> &mdash; systematically checking whether a model treats different groups equally
-  </div>
-  <div class="card">
-    <span class="vocab-term">Algorithmic bias</span> &mdash; when an algorithm systematically produces unfair outcomes for certain groups
-  </div>
-  <div class="card">
-    <span class="vocab-term">gr.Blocks</span> &mdash; Gradio's flexible layout mode (vs. gr.Interface)
-  </div>
-  <div class="card">
-    <span class="vocab-term">gr.Row / gr.Column</span> &mdash; layout containers for side-by-side and stacked elements
-  </div>
-</section>
-
-<!-- ========== NOTEBOOK TIME ========== -->
-<section>
-  <h2>Notebook Time</h2>
-  <p>Open today's notebook and run the first few cells together.</p>
-  <div class="try-it" style="margin-top:1em;">
-    <strong>Link in the Zoom chat!</strong>
-  </div>
-  <div class="card" style="margin-top:0.8em;">
-    <strong>1.</strong> Click the link &rarr; it opens in Google Colab<br>
-    <strong>2.</strong> Hit the <span class="highlight-yellow">play button &#9654;</span> on the first cell<br>
-    <strong>3.</strong> Run the setup cell, then try the experiments
-  </div>
-  <div class="card" style="margin-top:0.5em;">
-    <strong>New skill:</strong> Compare outputs side by side &mdash; the code prints both results for easy comparison!
-  </div>
-  <p class="small" style="margin-top:0.8em;">Finish the experiments on your own before next week</p>
-</section>
-
-<!-- ========== BETWEEN SESSIONS ========== -->
-<section>
-  <section>
-    <h2>Between Sessions</h2>
-    <p>Three parts this week. Plan for <span class="highlight-yellow">1&ndash;2 hours</span>.</p>
-    <div class="card" style="margin-top:0.8em;">
-      <strong class="highlight-green">Part 1: Hub Challenge</strong> &mdash; Test a model for bias<br>
-      <strong class="highlight-blue">Part 2: Research Journal</strong> &mdash; Week 7 entry in <code>research-journal.md</code><br>
-      <strong class="highlight-pink">Part 3: Collection + GitHub</strong> &mdash; Grow your Collection, upload notebook
-    </div>
-  </section>
-
-  <section>
-    <h2>Part 1: Fairness Audit</h2>
-    <div class="two-col">
-      <div class="card">
-        <strong class="highlight-yellow">Option A: Sentiment</strong><br>
-        Design 5 new paired-sentence tests. Try names from different backgrounds, age references, dialect differences. Can you find a "debiased" model on the Hub?
-      </div>
-      <div class="card">
-        <strong class="highlight-green">Option B: Your Topic</strong><br>
-        Pick a model from your Collection. Design a paired test &mdash; two inputs identical except for one demographic detail. Does the model treat them equally?
-      </div>
-    </div>
-    <div class="observation-card fragment" style="margin-top:0.8em;">
-      The key idea: <strong>models learn patterns from data, and data reflects a world that isn't always fair.</strong>
-    </div>
-  </section>
-
-  <section>
-    <h2>Parts 2 &amp; 3</h2>
-    <div class="card">
-      <strong class="highlight-blue">Research Journal (Week 7):</strong> Add your entry to <code>research-journal.md</code>. Write 300&ndash;500 words: what pairs you tested, what you expected, and what surprised you.
-    </div>
-    <div class="card" style="margin-top:0.5em;">
-      <strong class="highlight-pink">Collection + GitHub:</strong> At least <span class="highlight-yellow">9 models</span> and <span class="highlight-yellow">6 Spaces</span> by Session 8. Upload tonight's notebook. Add Week 7 journal entry.
-    </div>
-  </section>
-</section>
-
-<!-- ========== NEXT WEEK ========== -->
-<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
-  <h2>Next Week</h2>
-  <p style="font-size:1.2em;">Bias is one cost of scale.<br>
-  <span class="highlight-pink">Error cascades</span> are another.</p>
-  <p style="color:#9ca3af; margin-top:0.8em;">Chain two models together.<br>
-  What one model gets wrong, the next model has to live with.</p>
 </section>
 
 </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/highlight.min.js"></script>
 <script>
-Reveal.initialize({
-  hash: true,
-  slideNumber: true,
-  transition: 'slide',
-  plugins: [RevealHighlight],
-  width: 1280,
-  height: 720,
-  margin: 0.08
-});
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    transition: 'fade',
+    backgroundTransition: 'fade',
+    controls: true,
+    progress: true,
+    center: true
+  });
 </script>
 </body>
 </html>

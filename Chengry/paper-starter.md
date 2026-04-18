@@ -1,113 +1,101 @@
 # Chengry — Paper Starter
 
-*A first pass at §§ I–II of your `PAPER.md`. Fill in the blanks; delete what doesn't fit.*
+Use this with the shared `PAPER-TEMPLATE.md` and `GUIDE-FROM-SPACE-TO-PAPER.md`.
 
-Read [`../GUIDE-FROM-SPACE-TO-PAPER.md`](../GUIDE-FROM-SPACE-TO-PAPER.md) first. Then [the Bluest Hour paper](https://github.com/buildLittleWorlds/bluest-hour-almanac/blob/main/PAPER.md).
+Your paper should come from the actual design choices in DxAI, not from sounding formal.
 
----
+## Best direction
 
-## Before drafting: three things to ship first
+**Recommended research question**
 
-Your flagship Space (`DxAI — Disease Identification`) has a runtime error and your journal could use catch-up entries before the paper draws from it. Do these first, in order:
+When a medical AI tool is built for ordinary users, does a ranked-and-cautious interface communicate uncertainty better than a single-answer style interface?
 
-1. **Debug DxAI.** The error is missing Python dependencies for audio processing. Remove the audio code if you're not using it, or add the dep to `requirements.txt`. One session.
-2. **Write two catch-up journal entries** covering what you built in the most recent weeks (DxAI, Mood Meter, the Claude Opus 4.5 integration). Honest: *"reconstructing from memory because I did not journal at the time."*
-3. **Commit a clean `research-journal.md`** in a new or tidied repo — a fork of the course material is the wrong place for the portfolio centerpiece.
+**Good backup question**
 
-Once all three are done, the paper writes itself.
+Is responsible medical AI mostly a model problem, or is it also an interface-design problem?
 
----
+## Best artifact to write about
 
-## Your paper in one sentence (proposed)
+Write about **DxAI / Disease Identification** first.
 
-> *A disease-identification Space built on Claude Opus 4.5, with prominent medical disclaimers and a diagnostic-interface affordance pattern, is read as an intentionally over-cautious artifact — and the paper argues that over-caution is the correct design choice for consumer-facing medical AI, against the prevailing trend toward confidence-maximizing outputs.*
+If the runtime error is still live, say so honestly in the limitation section. Do not wait for perfection before drafting.
 
-Change it. That's the shape.
+## Pull these things from your journal or notes
 
----
+- the disclaimer language you chose
+- why the output is ranked possibilities instead of one answer
+- one test case you ran
+- why you used Claude or the model you chose
+- one honest limit: runtime issues, safety limits, medical uncertainty, or overconfidence risk
 
-## Pre-filled § I — The artifact
+## Suggested paper map
 
-| | |
-|---|---|
-| **Title** | DxAI — A Responsible-by-Design Disease Identification Interface |
-| **Medium** | Gradio Space (Python) with Claude Opus 4.5 API integration and multi-modal (text + image) input |
-| **Deployments** | [huggingface.co/spaces/hsienberg/DxAI](https://huggingface.co/spaces/hsienberg/DxAI) *(fix runtime error before publishing paper — missing audio deps)* |
-| **Dependencies** | Claude Opus 4.5 (Anthropic API) · Gradio · PIL · `transformers` · custom CSS (dark + green accents) |
-| **Inference topology** | User input → Claude API call → ranked conditions + symptoms + recommendations, rendered with prominent medical disclaimers |
-| **Reading time** | A long consultation |
+### 1. What I built
 
-## Three candidate research angles (pick one)
+I built a medical AI Space that takes symptoms and returns possible conditions with caution and disclaimers.
 
-1. **Medical disclaimers are UI, not legal boilerplate.** Your DxAI puts disclaimers *at the top*, styled, impossible to ignore. Most medical AI puts them in the footer or TOS. The paper reads this as a *design claim*: the disclaimer is not a liability shield; it is part of the diagnostic output. Centerpiece claim: **the disclaimer is the diagnosis's margin of error, and showing it prominently is the honest move.**
+### 2. My research question
 
-2. **Responsible AI as interface, not guardrails.** The Claude integration already has safety training; your layer adds *a second, user-facing* layer of care — the disclaimers, the "possible conditions" language (not "diagnosis"), the recommended actions. The paper reads this as a deliberate layering: safety inside the model + care inside the interface. Centerpiece claim: **responsibility in medical AI is a stacked property, not a model property** — and interface designers carry a load the model designers can't.
+Your question should come from the design choice to show uncertainty instead of pretending the tool knows one answer.
 
-3. **The World Cup metaphor, generalized.** Your Week 2 journal entry on the Smol AI WorldCup space — noting that the World Cup narrative made benchmark data legible — can be the seed of a paper on *narrative metaphors for technical information in healthcare*. DxAI's "Dr." persona, the disclaimer framing, the image upload UI all narrativize medical decision support. Centerpiece claim: **narrative metaphor is an under-discussed safety mechanism** in medical AI interfaces.
+### 3. Why This Matters to Me
 
-My guess: **#2** because it builds on the clearest evidence your Space actually offers. #1 is sharp but narrower. #3 is the most original but requires more data than you have.
+This is where you explain why medical AI feels important to you and why honesty matters more than sounding certain.
 
-## Suggested § II genre contrast
+### 4. What I Tried
 
-| form | claims to be | reader posture | what it returns |
-|---|---|---|---|
-| symptom checker / triage tool | authoritative, efficient, solution-shaped | answer-me | a conclusion |
-| responsible-by-design probe | cautious, staged, aware of its limits | read carefully | a set of *possibilities* + an explicit recommendation to consult a physician |
+Use one concrete input or comparison:
 
-## Your Δ
+- a symptom test case
+- what you expected
+- what the output actually looked like
 
-Candidate Δs:
+### 5. What I Learned
 
-- **The specific phrasing of your disclaimers.** The exact wording is your editorial hand.
-- **The choice of Claude Opus 4.5 over a cheaper/smaller model.** Why that one? Reasoning capability? Safety training? Your answer is a paper-worthy choice.
-- **The "possible conditions, ranked" output format.** Ranking with explicit uncertainty (not single-answer output) is a design decision most medical AI tools don't make.
+Your strongest likely finding is that the interface matters as much as the model when the domain is high-stakes.
 
-The **ranked-with-uncertainty output format** is the strongest candidate. It's the structure that makes the tool honest.
+### 6. What Still Needs Work / Who It Might Fail For
 
-## Suggested epigraph domain
+Possible limits:
 
-Pull from:
-- A physician-writer (Atul Gawande, *Complications* or *Being Mortal*; Oliver Sacks; Paul Kalanithi, *When Breath Becomes Air*; Siddhartha Mukherjee)
-- A medical ethicist (Jerome Groopman, *How Doctors Think*)
-- A history-of-medicine writer (Roy Porter)
+- the tool is not a doctor
+- runtime instability or missing dependencies
+- medical input ambiguity
+- risk of false confidence
 
-Gawande's *Complications* has lines on diagnostic uncertainty that could be load-bearing for your paper. Groopman on clinical reasoning is another strong choice.
+### 7. Sources to add or cite
 
-## Consensus searches to run
+- medical AI safety
+- communicating uncertainty to patients
+- model card / API documentation for your deployed model
 
-- `"large language model medical diagnosis safety"`
-- `"clinical decision support AI disclaimers"`
-- `"medical chatbot responsible AI interface"`
-- `"diagnostic uncertainty communication patients"`
-- `"multi-modal medical image text classification"`
+## Prompt to sharpen the question
 
-Keep three. Look for papers on uncertainty communication in clinical AI — that's where your angle sits.
+```text
+I am writing a short paper about my medical AI Space.
 
-## Your § IX candidate category
+My main observation is that the design feels more honest when it returns ranked possibilities and strong disclaimers instead of pretending to diagnose perfectly.
 
-1. **Staged safety.** *A design pattern in medical AI where the LLM's internal safety training is wrapped with explicit, prominent, interface-layer caution — on the premise that safety is a property of the full user-facing artifact, not of the model alone.* Claim: **staged safety is under-theorized and under-practiced, and its absence explains many consumer-facing medical AI failures.**
+Help me turn that into one clear research question and one backup question.
 
-2. **The honest rank.** *An output pattern where ranked possibilities are returned with explicit uncertainty rather than a single-answer top pick — treating the tool as a differential-diagnosis assistant rather than an answer engine.* Claim: **ranked-with-uncertainty is a strictly more honest output format than top-1**, and it is rare because it is commercially unflattering.
+Do not invent tests or results.
+```
 
-Both work. #1 is broader; #2 is sharper.
+## Prompt to draft from your notes
 
----
+```text
+Help me draft a short student paper from my own notes about DxAI.
 
-## Questions to answer before drafting §§ III–XI
+Use only the notes I give you. Do not invent symptoms, outputs, or sources.
 
-1. Which of the three angles is your angle?
-2. Do you have the disease-diagnosis test inputs you ran DxAI on? Quotable outputs = §III gold.
-3. Claude Opus 4.5 as the inference model — is that still what's deployed, or have you changed?
-4. Gawande, Groopman, or Kalanithi — have you read any of them?
-5. Can DxAI be debugged in one session?
+Follow this structure:
+- What I built
+- My research question
+- Why this matters to me
+- What I tried
+- What I learned
+- What still needs work / who it might fail for
+- Sources to add or cite
 
----
-
-## Reading list
-
-- [`../PAPER-TEMPLATE.md`](../PAPER-TEMPLATE.md)
-- [`../GUIDE-FROM-SPACE-TO-PAPER.md`](../GUIDE-FROM-SPACE-TO-PAPER.md)
-- [Bluest Hour PAPER.md](https://github.com/buildLittleWorlds/bluest-hour-almanac/blob/main/PAPER.md)
-- Your own [`RESEARCH-PATH.md`](./RESEARCH-PATH.md)
-
-Your technical stack (Claude API, multi-modal input, custom CSS, prominent disclaimers) is already mature. The paper is where the *design intent* behind that stack becomes legible.
+Keep the writing plain and honest.
+```

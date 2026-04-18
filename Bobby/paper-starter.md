@@ -1,57 +1,92 @@
 # Bobby — Paper Starter
 
-*A lighter-weight starter, because the paper may not be the right next step yet.*
+Use this with the shared `PAPER-TEMPLATE.md` and `GUIDE-FROM-SPACE-TO-PAPER.md`.
 
-Read [`../GUIDE-FROM-SPACE-TO-PAPER.md`](../GUIDE-FROM-SPACE-TO-PAPER.md) at the end — not the start — of your re-engagement.
+For you, the honest target may still be a **question + outline** instead of a full paper. That is okay.
 
----
+## Start here first
 
-## Before the paper: re-enter
+Before you try to draft a full paper, write one short re-entry note answering:
 
-If you've been away from the course for a while, the paper phase assumes a bunch of work already sitting on the ground — a chosen Space, a journal that tracks thinking, a research question you can defend. You may have that. You may also have it behind you instead of under you.
+1. What were you building when you stopped?
+2. What still feels interesting?
+3. What one Space or tool test could you realistically return to this week?
 
-**Your first move is not the paper. Your first move is a single journal entry that re-enters the conversation.** Three paragraphs, in your own voice, answering:
+That note can become the base for your outline.
 
-1. **What were you doing when you stopped?** Concretely. ("I was testing website generators for a game website about the Ivory-Billed Woodpecker. I liked where it was going. I stopped because ___.")
-2. **What's still interesting to you?** Of your 5 collections (Text Analysis, 2D Image Generator, Website Generator, 3D Model Generator, My Collection), which do you still care about? You don't have to care about all five. You probably never did.
-3. **What's one Space you could fix, ship, or extend in the next week?** One. Small. The `deepsite-project-o48jz` or `news-header-api-chickenstudio`, or a rebuild of either. Pick one.
+## Two real directions
 
-Commit that entry to your `AI-Lesson-2` repo.
+**Path A — game development + generative AI**
 
----
+Can small AI tools help with the edges of game development, like concept art, website copy, or early worldbuilding, without replacing the center of the design work?
 
-## Then, the paper question
+**Path B — testing generative tools honestly**
 
-Once the re-entry entry is written and one Space is shipped, open the template.
+Do realistic project-based tests show more about AI tool quality than generic benchmarks do?
 
-Your work, from earlier journal entries, has two plausible throughlines:
+## What to write about
 
-### Path A — Game dev + generative AI
+If you are ready, pick **one** of these:
 
-Your Brackeys Game Jam 2025.2 project (*Chickens-nightmare*) and your game-website experiments (*One Last Bird*, the Ivory-Billed Woodpecker game concept) sit at the intersection of **game design + generative AI**. There are real questions here: what parts of the game-dev pipeline do generative models currently serve well (website copy, placeholder art, concept blurbs) versus badly (character motion, level design, dialogue continuity)? Most writing on AI in game dev is either *industry booster pieces* or *doom pieces*. There's room for a careful one.
+- `deepsite-project-o48jz`
+- one game-website build
+- one focused comparison across tools you already tested
 
-**Centerpiece claim (candidate):** *Generative AI is useful in game dev at the edges (asset concepting, marketing copy) and destructive at the center (level design, dialogue, motion) — and where you draw the line has pedagogical implications for students learning game development.*
+If you are **not** ready, do not fake a full paper. Build a question-first outline around the re-entry note and one project you still care about.
 
-### Path B — Systematic generative-AI evaluation
+## Pull these things from your notes
 
-Your earlier journal entries showed a real testing discipline: you gave `Qwen3-Coder-WebDev` a concrete website-generation task and rated it "Multi-Functional"; you gave `HunYuan-Motion1.0` a 3D-model generation task and rated it "Restricted." That habit — *rating the output of each tool against a specific realistic task, not a benchmark* — is unusual and worth a paper.
+- one project you remember clearly
+- one tool that helped
+- one tool that disappointed you
+- one reason realistic project tests matter more than benchmark-style claims
+- one next step you could honestly take
 
-**Centerpiece claim (candidate):** *Consumer benchmarks over-state the practical readiness of generative tools because they test against decontextualized prompts; a small set of realistic task-specific tests ("make the website for this game I care about") reveals which tools are production-adjacent and which are still demo-only.*
+## Suggested outcome for this week
 
-Pick whichever feels more like your real interest. Neither is wrong. Both are publishable, in the Level 2 course sense.
+### Best case
 
----
+A short paper about one concrete tool test.
 
-## When you're ready: follow the guide
+### Honest fallback
 
-Once you've re-entered, shipped one Space, and picked between Path A and Path B:
+A strong outline with:
 
-- [`../PAPER-TEMPLATE.md`](../PAPER-TEMPLATE.md) — copy into your `AI-Lesson-2` repo as `PAPER.md`
-- [`../GUIDE-FROM-SPACE-TO-PAPER.md`](../GUIDE-FROM-SPACE-TO-PAPER.md) — read all of section 3
-- [Bluest Hour PAPER.md](https://github.com/buildLittleWorlds/bluest-hour-almanac/blob/main/PAPER.md) — the exemplar
+- What I built or was trying to build
+- My research question
+- Why this matters to me
+- What I tried
+- What I learned so far
+- What still needs work
 
-Your early work in this course was strong. The paper phase is where that shows up as a portfolio artifact. But only when you've re-entered first.
+## Prompt to build the re-entry note
 
----
+```text
+Help me write a short re-entry note for my AI research journal.
 
-*Start with the re-entry entry. Everything else follows.*
+I need to answer:
+1. what I was building when I stopped
+2. what still feels interesting
+3. what one project I could realistically pick back up
+
+Keep it honest, direct, and student-friendly. Do not make me sound more certain than I am.
+```
+
+## Prompt to build an outline instead of a fake paper
+
+```text
+I do not have enough material for a full paper yet.
+
+Help me create a question + outline from my re-entry note and my past project notes.
+
+Use this structure:
+- What I built
+- My research question
+- Why this matters to me
+- What I tried
+- What I learned so far
+- What still needs work / who it might fail for
+- Sources to add or cite
+
+Do not invent tests or results.
+```

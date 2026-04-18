@@ -1,189 +1,144 @@
-# From Space to Paper
+# From Journal to Paper
 
-*How to turn what you've built into a short working paper that lives in your repo.*
-
----
-
-## 1. Why a paper?
-
-You have built Spaces. You have kept a journal. You have read some published research. The missing step is the one that makes all of it *legible to someone who wasn't there* — a short paper that reads your own artifact as if you were reading someone else's.
-
-This is **not** a scholarly journal article. It's a **working paper** — a genre older than computer science, older than the internet, older than your sneakers. A short, numbered, footnoted commentary that sits inside the repo it describes. Academic in shape; personal in voice; aesthetically interesting within markdown's constraints.
-
-Think "essay in a well-designed magazine" rather than "term paper."
+How to turn a Space, a few journal entries, and a real question into a short paper someone else can understand.
 
 ---
 
-## 2. The exemplar
+## 1. Start with the journal, not the blank page
 
-Open **[bluest-hour-almanac/PAPER.md](../bluest-hour-almanac/PAPER.md)** ([rendered on GitHub](https://github.com/buildLittleWorlds/bluest-hour-almanac/blob/main/PAPER.md)) in another tab. Keep it open while you write yours.
+The paper phase is easier when you stop thinking of it as "write a paper" and start thinking of it as **organize what I already found**.
 
-Notice the moves it makes:
+If you have even one decent journal entry, you probably already have the core pieces:
 
-- **The masthead smuggles the author's one opinion in as if it were a fact.** "Δ +35m" is buried among coordinates, Julian dates, moon phase. Nobody notices it's the one non-astronomical number. That's the move.
-- **§ VI treats the classifier as "just another ephemeris."** It refuses the obvious framing (*"this is a language model and here is how it works"*) in favor of one that makes the app intelligible (*"it quantizes continuous phenomena into a vocabulary, same as the almanac does with the sky"*).
-- **§ IX proposes a small category** — "ephemeral interfaces." Not grand. Not universal. One defensible claim that, if agreed with, changes how the reader sees your kind of tool.
-- **§ X is a task list.** Things the artifact doesn't do. That's what makes it a *probe* instead of a *product*.
+- a project or Space
+- a question you keep circling
+- a test or comparison you actually ran
+- one thing you learned
+- one thing that still feels limited, biased, or unfinished
 
-Read it twice. The shape matters more than the prose.
+That is most of a short paper already.
 
----
+## 2. The four things to pull out of your journal
 
-## 3. From journal to paper in five steps
+Before you open the template, review 2–3 journal entries or notes and pull out these four items:
 
-### Step 1 — Pick the one artifact that's most yours
+1. **Your question**
+   What are you actually trying to find out?
 
-You have multiple Spaces. Most papers are about *one*. Pick the Space that:
+2. **Your best test**
+   What experiment, comparison, or example gives the clearest evidence?
 
-- You would defend against a skeptical reader in two minutes
-- Encodes a choice you made that no one else would have made
-- You can describe without apologizing for what's broken
+3. **Your strongest finding**
+   What did you learn that you did not know before?
 
-The other Spaces go in your journal as *process*. They do not belong in the paper's §I.
+4. **Your biggest limitation**
+   Where does the project break, flatten, or fail for someone?
 
-### Step 2 — Find your "Δ"
+If you can name those four things, you can draft the paper.
 
-Bluest Hour's "Δ" is 35 minutes — a number the author picked because the light looked right 35 minutes before the textbook midpoint. It's the one place in the app where the author is personally present. Everything else is computed.
+## 3. Turn the journal into sections
 
-Your Δ is the number, threshold, prompt wording, curated list, chosen baseline, or design decision that is *you*. It might be:
+Use this mapping:
 
-- The three models you chose for your comparison (and why those)
-- The temperature / top-p / max-tokens you settled on
-- The exact wording of your system prompt
-- The ten test inputs you used for your evaluation
-- The reading-level target you set for your outputs
-- The one genre / style / category you excluded from your comparison
+| Paper section | Where it usually comes from |
+|---|---|
+| **What I built** | journal weeks where you built or revised the Space |
+| **My research question** | the week you sharpened the question |
+| **Why this matters to me** | your README, journal motivation, domain interest |
+| **What I tried** | your clearest test, comparison, or example |
+| **What I learned** | the expectation → result gap in your journal |
+| **What still needs work / who it might fail for** | your limitations section |
+| **Sources to add or cite** | your Week 7 research-work search |
 
-Name it. Defend it. This is § IV of the template. If you can't name your Δ, your artifact isn't ready to write about yet.
+You do not need a grand theory. You need a clear path from journal evidence to claim.
 
-### Step 3 — Write the abstract last
+## 4. The Bluest Hour example
 
-The abstract is ~5 sentences. Skip it on your first pass. Write §§ I–XI first; then come back and write the abstract from what you actually said.
+The Bluest Hour is now the main exemplar chain for this phase:
 
-A good abstract has:
-1. What the artifact is (one sentence).
-2. The unusual choice you made (one sentence).
-3. How you're reading it — 3 levels, 4 levels, pick what's honest (one sentence).
-4. The small claim you end up proposing (one sentence).
-5. A keyword list that would make sense on a conference poster.
+1. `bluest-hour/research-journal.md`
+2. `bluest-hour/PAPER.md`
+3. `bluest-hour-almanac/PAPER.md` only as an advanced continuation
 
-### Step 4 — Find 3–5 related papers (Consensus)
+The important move is that the simple paper is built directly from the journal:
 
-You can't write a §II "why this form" or a §IX "toward a category" without knowing what's already been claimed. Open Consensus (or the [Consensus-recommended-reading-list skill](../bluest-hour-almanac/PAPER.md) — ask the instructor to run it for your topic) and search for 2–4 phrases your artifact is adjacent to.
+- **What I built** ← Weeks 2–3
+- **My research question** ← Week 6
+- **What I tried** ← Weeks 4–5
+- **What I learned** ← Weeks 5–7
+- **What still needs work / who it might fail for** ← Week 7
 
-You don't need many papers. **Three is enough.** For each one, write down:
-- Title, authors, year
-- One sentence on what they asked
-- One sentence on how their approach differs from yours
+That is the move you should copy.
 
-These become your footnotes. If you cite more than five, the paper starts feeling like a lit review; keep it tight.
+## 5. A good drafting order
 
-### Step 5 — Fill the template
+Do not write top to bottom. Write in this order:
 
-Copy [`PAPER-TEMPLATE.md`](./PAPER-TEMPLATE.md) into your repo as `PAPER.md`. Read each `<!-- instructor note: -->` comment, write your content, then delete the comment. Work in this order (NOT top to bottom):
+1. **What I built**
+2. **My research question**
+3. **What I tried**
+4. **What I learned**
+5. **What still needs work / who it might fail for**
+6. **Why this matters to me**
+7. **Sources to add or cite**
 
-1. **§ I — the artifact** (factual; easiest)
-2. **§ III — the anatomy** (your technical section)
-3. **§ VI — the model** (if you have one; otherwise the data source)
-4. **§ IV — your Δ** (the one opinionated section)
-5. **§ V — the unit** (short)
-6. **§ X — what's missing** (task list)
-7. **§ II — why this form** (needs §§ I and VI first)
-8. **§ VII — interface as argument** (optional)
-9. **§ VIII — a reading of the opening** (optional but it's the most fun one)
-10. **§ IX — toward a category** (write last; you need everything above it)
-11. **§ XI — closing** (short)
-12. **Colophon** (facts only)
-13. **Notes / footnotes** (your 3–5 Consensus papers)
-14. **Abstract** (very last)
-15. **Masthead title + epigraph** (do these on the last day; they're window-dressing that needs to reflect the finished paper)
+That order works because it moves from facts to meaning. It also prevents the common problem where students try to sound profound before they have described what they actually did.
 
----
+## 6. How to use AI without letting it invent your project
 
-## 4. Aesthetic moves inside GitHub markdown's constraints
+AI can help with:
 
-GitHub renders markdown, but it **strips most raw HTML and all CSS/JS**. The features it *does* ship are more than enough to make a paper look like a paper. Your toolbox:
+- organizing notes
+- turning bullets into paragraphs
+- tightening wording
+- making the paper easier to read
 
-| feature | example | what it's for |
-|---|---|---|
-| **Tables with alignment** | `\| col \| col \|\n\|---\|---\|` | Ephemeris-style fact rows |
-| **Blockquotes** | `> text` | Pull quotes, epigraphs, definitions |
-| **Footnotes** | `text[^1]` … `[^1]: note` | Citations and asides |
-| **Alert blocks** | `> [!NOTE]` / `[!TIP]` / `[!IMPORTANT]` / `[!WARNING]` / `[!CAUTION]` | Margin asides |
-| **`<kbd>` tag** | `<kbd>Δ = 35</kbd>` | Any value the reader might want to "press" |
-| **`<sub>` / `<sup>`** | `<sub>§ I.</sub>` | Small-caps-feeling section markers |
-| **`<details>`** | `<details><summary>…</summary>…</details>` | Fold long content (e.g. code listings) |
-| **`<picture>` with `prefers-color-scheme`** | Two-image swap for dark mode | Logos/diagrams that need light + dark versions |
-| **LaTeX math** | `$...$` inline, `$$...$$` block | Any formula |
-| **Mermaid diagrams** | ` ```mermaid\nflowchart LR\n... ``` ` | One pipeline diagram |
-| **ASCII figures in code fences** | A box drawn in unicode | Timelines, curves, distributions |
-| **Unicode typographic characters** | `—` `·` `→` `◆` `§` `†` `‡` `½` | Typographic texture |
-| **Emoji** | Use sparingly | One, maybe two, in the masthead |
-| **Horizontal rules** | `---` | Section breaks, rhythm |
-| **Centered blocks** | `<div align="center">…</div>` | Title pages and finales |
-| **Task lists** | `- [ ]` / `- [x]` | § X "what's missing" |
+AI should **not** invent:
 
-What **NOT** to use:
-- Inline `style="..."` — stripped.
-- `<script>` / `<style>` — stripped.
-- Custom fonts — no web fonts in rendered markdown.
-- Centered / colored text via HTML — mostly stripped. Use unicode and rules instead.
+- tests you did not run
+- model names you did not use
+- findings you did not observe
+- sources you did not actually look up
 
----
+When you use AI, paste in:
 
-## 5. Common failure modes
+- 2–3 journal entries or notes
+- your current research question
+- your paper starter
+- the shared template
 
-Watch for these. They're the reason first drafts of these papers feel "off."
+Then tell the AI to organize and clarify what is already there.
 
-**1. Writing a how-to instead of a reading.**
-*How-to:* "In this project I used the RoBERTa model fine-tuned on GoEmotions to classify journal entries…"
-*Reading:* "The classifier is, read generously, just another ephemeris."
-The first describes. The second argues. A paper argues.
+## 7. Common mistakes
 
-**2. Treating the paper as a lab report.**
-Lab reports have: Hypothesis, Methods, Results, Conclusion. That's not this. You already have a research brief or will have one; the paper is a **commentary** on the artifact you built, in the voice of someone who has read around the problem. Fact-heavy sections (§ I, § III, Colophon) are the inventory. Voice-heavy sections (§§ II, IV, VI, IX, XI) are what make it a paper.
+### Mistake 1: Starting from the template instead of from evidence
 
-**3. Stacking all your Spaces into §I.**
-Pick one. Reference the others in your journal. The paper is not a portfolio.
+If you open the template first, it can feel like empty schoolwork. If you open your journal first, the template becomes a sorting tool.
 
-**4. Inventing a grand category in §IX.**
-"Toward a new paradigm for human-AI collaboration" is bad. "Toward ephemeral interfaces: software whose primary function is to tell you when to stop using it" is good. Small. Defensible. Slightly surprising. One sentence of definition, three or four sentences of examples.
+### Mistake 2: Listing everything you ever built
 
-**5. Epigraph-from-the-internet.**
-Don't grab the first quote Google gives you for "music" or "medicine." Open a book you actually like in your domain and pick a line that says something. A bad epigraph is worse than none.
+A paper is not a portfolio dump. Pick the one Space, pair of Spaces, or one clean comparison that best carries the question.
 
-**6. Writing the abstract first.**
-You don't know what you're summarizing yet. Leave a placeholder. Come back.
+### Mistake 3: Letting the AI sound more certain than your journal
 
-**7. Overreaching on scope.**
-This is a 2–3 screen paper. Roughly 8–15 pages if printed, but nobody will print it. GitHub renders it as one long document. Not 30 pages. Not 2 pages. Somewhere in between, and if it's good, a reader will finish it in one sitting.
+If your journal says "I think," your paper should not suddenly say "This proves." Keep the scale honest.
+
+### Mistake 4: Treating limitations like embarrassment
+
+The limitation section is often the most interesting part. It is where bias, domain mismatch, uneven performance, and unfinished work become visible.
+
+## 8. A short self-check before you stop
+
+Before you call the draft done, ask:
+
+1. Can a reader tell what I built after the first section?
+2. Can a reader state my research question in one sentence?
+3. Did I describe one real test or example instead of speaking generally?
+4. Did I say what I learned, not just what I made?
+5. Did I name one honest limitation or fit problem?
+
+If the answer is yes to all five, the paper is doing its job.
 
 ---
 
-## 6. What "done" looks like
-
-Your paper is done when a reader who has never seen your artifact can:
-
-1. Say what the artifact is, in one sentence, after reading § I.
-2. Name your Δ (the tunable that's *you*), after reading § IV.
-3. Quote one sentence from your paper back to you without looking.
-4. Agree or disagree with your § IX category — either is fine; uncertainty is not.
-
-If a draft reader can't do those four things, go back and fix the section that corresponds to the failure.
-
----
-
-## 7. Sequencing this with your existing work
-
-You already have:
-- A **research journal** — this feeds into §§ III, IV, VI, VII, VIII as *prose you've already written*, now rewritten for a reader.
-- A **`RESEARCH-PATH.md`** — its research-question progression (broad → medium → narrow) and Consensus searches feed directly into §§ II, IX, and your footnotes.
-- **Spaces** — one of them becomes §I; the others are process.
-
-The paper doesn't replace any of those. It consolidates them into a *form* that a reader outside your course can engage with — a college admissions reader, a science-fair judge, a future you.
-
-You've already done the hard part.
-
----
-
-*One good paper is worth three half-finished ones. Pick the one artifact you most want to defend, and write about that.*
+The goal of this phase is not to sound academic. The goal is to make your research path visible.

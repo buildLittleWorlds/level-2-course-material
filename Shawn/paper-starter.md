@@ -1,114 +1,100 @@
 # Shawn — Paper Starter
 
-*A first pass at §§ I–II of your `PAPER.md`. Fill in the blanks; delete what doesn't fit.*
+Use this with the shared `PAPER-TEMPLATE.md` and `GUIDE-FROM-SPACE-TO-PAPER.md`.
 
-Read [`../GUIDE-FROM-SPACE-TO-PAPER.md`](../GUIDE-FROM-SPACE-TO-PAPER.md) first. Then [the Bluest Hour paper](https://github.com/buildLittleWorlds/bluest-hour-almanac/blob/main/PAPER.md).
+Your curation work is already research. The paper makes that visible.
 
----
+## Best direction
 
-## Your paper in one sentence (proposed)
+**Recommended research question**
 
-> *Three image-generation models (SDXL, Animagine-XL, Playground v2.5), asked to render the same ten prompts in five art styles, reveal whether "style transfer" in modern diffusion is a learned aesthetic vocabulary or a deep stylistic re-composition — with implications for how art students should (and shouldn't) use these tools as references.*
+When the same prompts are run through general-purpose and style-tuned image models, how much of "style control" is real and how much is just surface-level style vocabulary?
 
-Change it. That's the shape.
+**Good backup question**
 
----
+Does fine-tuning for one style improve style fidelity at the cost of flexibility outside that style?
 
-## Pre-filled § I — The artifact
+## Best artifact to write about
 
-Your curation is genuinely unusual — 12 image generation models selected and annotated on purpose. Most builders pick one model; you pick the ones you'd compare. Your §I should describe the Space that does the comparison.
+Write about **AnimeSceneWriter** if it is the cleanest comparison Space. If that runtime issue still matters, say so honestly and keep the paper anchored to the comparison idea itself.
 
-Of your two deployed Spaces (`Test` and `AnimeSceneWriter`), **fix any runtime errors in `AnimeSceneWriter` before publishing the paper** — it's the natural §I if it runs, and debugging is typically a short job.
+## Pull these things from your journal or notes
 
-| | |
-|---|---|
-| **Title** | AnimeSceneWriter — a Style-Specificity Probe Across General-Purpose and Fine-Tuned Diffusion Models |
-| **Medium** | Gradio Space (Python) — text-to-image with style controls |
-| **Deployments** | [huggingface.co/spaces/ffffww/AnimeSceneWriter](https://huggingface.co/spaces/ffffww/AnimeSceneWriter) |
-| **Curated model set** | FLUX.1-dev · Stable Diffusion XL · Qwen-Image · IP-Adapter-FaceID · animagine-xl · playground-v2.5 *(from your HF collection)* |
-| **Models actually compared in paper** | Pick 3: **SDXL** (general-purpose baseline) · **Animagine-XL** (anime-fine-tuned) · **Playground v2.5** (aesthetic-fine-tuned) |
-| **Reading time** | Twelve image grids |
+- the exact models you want to compare
+- the exact styles or prompt set
+- one example where a model looked impressive but did not really follow the style in a deep way
+- one example where a specialized model did better inside its lane
+- one honest limit: runtime issues, missing weeks in the journal, or still-small test grid
 
-## Three candidate research angles (pick one)
+## Suggested paper map
 
-1. **Fine-tuning trades generality for style-specificity — and the trade is measurable.** Your journal already documents that SDXL "excelled at detailed scene composition" but that specialized models do better at their genre. The paper's contribution: **measure the trade**, not just describe it. For the same 10 prompts across 5 styles, where does Animagine beat SDXL, and where does it lose? Centerpiece claim: **fine-tuning improves style fidelity within one genre at the cost of competence in all others** — and the loss is larger than practitioners usually admit.
+### 1. What I built
 
-2. **Style prompts are auxiliary training data.** When you ask SDXL to produce "in the style of Studio Ghibli," the quality depends on whether "Studio Ghibli" was a distinct cluster in the training data. You can probe this: style names that are *canon-famous* work; style names that are *technically precise but less famous* fail. Centerpiece claim: **diffusion style controls are not control — they are retrieval**, and the illusion of control comes from the volume of style-labeled training data.
+I built or curated a comparison tool for testing style-specific image generation across different models.
 
-3. **What art students should (and shouldn't) use these tools for.** Your curation discipline suggests you're thinking about this as a practitioner. The paper could argue — from your model-comparison evidence — that AI art tools are useful for *reference* and *composition sketching* but unsuitable for *style study* because they collapse stylistic nuance into prompt-keyword averages. Centerpiece claim: **AI art tools are good for what they're bad at, and bad for what they're sold as.**
+### 2. My research question
 
-My guess: **#1** — it's the most concrete, testable, and closest to your existing methodology. #2 is the sharper paper but harder to defend without more evidence. #3 is the most personal.
+Your question should come from the gap between "this looks stylish" and "this really understands style."
 
-## Suggested § II genre contrast
+### 3. Why This Matters to Me
 
-Your artifact's genre is a **comparative aesthetic probe**. The default genre of an image-gen Space is a *generator* — prompt in, art out, share. You are building something different:
+This is where you explain why image-generation curation and art-style comparison became your main thread.
 
-| form | claims to be | reader posture | what it returns |
-|---|---|---|---|
-| image generator | magical, capable, surprising | prompt-and-marvel | one image to post |
-| comparative probe | diagnostic, symmetric, disenchanting | compare three images | evidence about what "style" means in diffusion |
+### 4. What I Tried
 
-## Your Δ
+Use one concrete comparison:
 
-Candidate Δs:
+- same prompt
+- same style request
+- multiple models
+- what you expected
+- what happened
 
-- **The 12-model curation.** You chose which models to *consider*, and which to ignore. Your `Cool Image Generation Models` collection is already an editorial act.
-- **The three models you shortlisted for the comparison.** Not FLUX, not Qwen-Image, not Playground-only, not SDXL-only — the *triad* is yours.
-- **The five art styles.** "Anime, surrealist, etc." — the "etc." is not good enough; the exact list of five is your research signal. Likely candidates: anime, photorealistic, Studio Ghibli, oil painting, watercolor. Pick five you can defend.
+### 5. What I Learned
 
-The **three-model triad** is the strongest candidate for your Δ. That's where your curation turns into research.
+Your strongest likely finding is that specialization helps, but often in a narrower and more brittle way than the model cards suggest.
 
-## Suggested epigraph domain
+### 6. What Still Needs Work / Who It Might Fail For
 
-Pull from:
-- An art critic on style (Susan Sontag, *On Style*; Clement Greenberg, *Avant-Garde and Kitsch*)
-- An animator / illustrator on technique (Hayao Miyazaki interviews; Chris Ware; Lynda Barry, *What It Is*)
-- A photographer on the studio (Diane Arbus's notebooks)
-- A technical writer on image generation, carefully chosen
+Possible limits:
 
-Sontag's *On Style* is the obvious one but therefore slightly lazy. Miyazaki interviews are richer and more specific to anime/animation, if that's your primary style axis.
+- runtime/debugging issues
+- missing journal weeks
+- style is hard to score cleanly without a stronger rubric
 
-## Consensus searches to run
+### 7. Sources to add or cite
 
-- `"diffusion model style transfer evaluation"`
-- `"stable diffusion fine-tuning domain specialization"`
-- `"text-to-image style control benchmark"`
-- `"ControlNet style conditioning"`
-- `"aesthetic quality image generation evaluation"`
+- diffusion style control
+- fine-tuning and specialization
+- evaluation of text-to-image style adherence
 
-Keep three. Look for any that specifically compares fine-tuned to base models.
+## Prompt to sharpen the question
 
-## Your § IX candidate category
+```text
+I am writing a short paper about comparing image-generation models across styles.
 
-1. **Retrieval-flavored generation.** *Generative systems whose apparent "control" is better explained as retrieval from training clusters than as compositional synthesis.* Claim: **diffusion style controls are retrieval in generation's clothing, and this reframing makes their failure modes predictable.**
+My main observation is that some models look stylistically impressive without really showing deep style control, while specialized models may work well only inside a narrow lane.
 
-2. **Specialization debt.** *The phenomenon wherein a model fine-tuned for one style category loses measurably more competence outside that category than is reported in the model's card or release announcement.* Claim: **specialization debt is systematically under-reported in model release materials** — and you have evidence.
+Help me turn that into one clear research question and one backup question.
 
-Either works. #2 is more specific and more defensible if your comparison data actually shows the effect.
+Do not invent tests or results.
+```
 
----
+## Prompt to draft from your notes
 
-## Before drafting: journal audit
+```text
+Help me draft a short student paper from my own notes about comparing image-generation models.
 
-Your journal has Week 1 (README), Week 3 (separate file). This will hurt the paper because §§ III–VII draw directly on journal prose. Either reconstruct missing weeks from memory (honest: "reconstructing from memory because I did not journal on time") or consolidate what you have into a single `research-journal.md` and note the gaps. Either is fine; silently skipping them is not.
+Use only the notes I give you. Do not invent prompts, model names, or findings.
 
----
+Follow this structure:
+- What I built
+- My research question
+- Why this matters to me
+- What I tried
+- What I learned
+- What still needs work / who it might fail for
+- Sources to add or cite
 
-## Questions to answer before drafting §§ III–XI
-
-1. Which of the three angles is your angle?
-2. Can `AnimeSceneWriter` be debugged in one session, or do you rebuild as a new Space?
-3. What are the exact three models in your comparison?
-4. What are the exact five styles?
-5. Miyazaki, Sontag, or a different epigraph source entirely?
-
----
-
-## Reading list
-
-- [`../PAPER-TEMPLATE.md`](../PAPER-TEMPLATE.md) — copy into your `Research-Journal` repo (or a new repo) as `PAPER.md`
-- [`../GUIDE-FROM-SPACE-TO-PAPER.md`](../GUIDE-FROM-SPACE-TO-PAPER.md)
-- [Bluest Hour PAPER.md](https://github.com/buildLittleWorlds/bluest-hour-almanac/blob/main/PAPER.md) — the exemplar
-- Your own [`RESEARCH-PATH.md`](./RESEARCH-PATH.md)
-
-Your instinct for curation is a research instinct in disguise. The paper is where you make that instinct legible.
+Keep the writing plain and direct.
+```

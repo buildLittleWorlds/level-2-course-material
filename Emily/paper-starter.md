@@ -1,53 +1,123 @@
 # Emily — Paper Starter
 
-*A lighter-weight starter, because the paper isn't the right next step yet.*
+Use this with the shared `PAPER-TEMPLATE.md` and `GUIDE-FROM-SPACE-TO-PAPER.md`.
 
-Keep [`../GUIDE-FROM-SPACE-TO-PAPER.md`](../GUIDE-FROM-SPACE-TO-PAPER.md) bookmarked — you'll need it soon, but not this week.
+For you, the honest goal right now is probably **question + outline + first build step**, not a fake full paper.
 
----
+## Best direction
 
-## About the two exemplars in this course
+**Recommended research question**
 
-There are two finished pieces of work held up as models for your own:
+When an AI tool summarizes political news from different stated perspectives, how much does the framing actually change?
 
-- **Prea's research journal** — the model for *how to keep a journal* while you're building. Regular, analytical, expectation-vs-observation, writes the insight line in all caps when it matters. You'll see Prea referenced in [`RESEARCH-PATH.md`](./RESEARCH-PATH.md) once you have some material to journal about.
-- **The Bluest Hour paper** — the model for *how to turn that journal into a short paper* once you have one. [`PAPER.md`](https://github.com/buildLittleWorlds/bluest-hour-almanac/blob/main/PAPER.md). You'll look at this one later; it's your destination.
+**Good backup question**
 
-If you're at a pre-journal, pre-paper stage, the right thing to do is not study either exemplar yet. The right thing is **to ship something small**, so that both exemplars become useful.
+Can a simple news explainer show political perspective on purpose instead of pretending to be perfectly neutral?
 
----
+## Best first artifact
 
-## What to do before the paper
+The right first project is still a simple **news headline or article summarizer with a perspective dropdown**.
 
-You have: a thoughtful HF collection (AI Deadlines, Globe Trotter, News Recommendation, Newsify), a Model UN background, genuine interest in politics / news / international relations. The next three steps are small and sequential.
+Examples:
 
-1. **Create the GitHub repo.** Name it `AI-Research-Level-2`. Seed with a one-paragraph README: *"I'm exploring AI tools for news, politics, and international affairs. I come to this from Model UN, where I think a lot about how information is framed across national perspectives. These are the tools I'm looking at first: [link your HF collection]."* That's your Week 1 entry.
+- neutral summary
+- foreign ministry briefing
+- regional newspaper framing
+- youth / student explainer
 
-2. **Ship your first Space.** Start with the simplest version of *Newsify AI* or *News Recommendation*: a Gradio Space that takes a news headline and returns a summary *from a specific perspective*. Not "summarize this headline" — **"summarize this headline the way a foreign ministry briefing would phrase it"** or **"summarize this headline the way a regional newspaper would frame it."** That's your Model UN background doing real work. This is your hook.
+If the Space is not built yet, that is okay. Your artifact for now can be the planned first version plus one starter outline.
 
-3. **Write your first analytical journal entry.** Not "I built this Space and it works." Analytical: *"I expected the summarizer to preserve framing when I switched personas — it did for neutral outlets, but collapsed into generic news-speak for specific regional framings. Why?"* Prea's Week 3 entry is the model; go read it once you're at this step.
+## Pull these things from your notes
 
-Once those three things exist, the paper phase is genuinely useful to you.
+- your Model UN background
+- one thing you have noticed about AI flattening political perspectives
+- one example of the same story sounding different depending on viewpoint
+- one reason this matters ethically
+- one simple first build you could ship
 
----
+## Suggested outcome for this week
 
-## When you reach the paper phase
+### If the Space is not built yet
 
-Your angle has one genuinely original seed: **Model UN**. If you ship a "headline-from-six-perspectives" Space, the paper writes itself:
+Write:
 
-- §I — the artifact (the Space you shipped)
-- §II — why a "perspective-explicit summarizer" instead of a "neutral summarizer" (the Model UN move)
-- §IV — your Δ: the six perspectives you picked, and why those six
-- §IX — a small category: e.g., *"perspective-explicit summarization — a genre of NLP output where the narrative stance is foregrounded rather than suppressed."* That's a defensible, specific, slightly surprising claim.
+- a one-sentence research question
+- a 6-section outline
+- a description of the first Space you will build
 
-But only after the Space exists.
+### If you ship the first Space
 
----
+Then move into a real paper-lite draft using that Space as Section 1.
 
-## Reading list (for later)
+## Suggested paper map
 
-- [`../PAPER-TEMPLATE.md`](../PAPER-TEMPLATE.md) — you'll copy this into your repo eventually
-- [`../GUIDE-FROM-SPACE-TO-PAPER.md`](../GUIDE-FROM-SPACE-TO-PAPER.md) — read when you have a Space and a journal
-- [Bluest Hour PAPER.md](https://github.com/buildLittleWorlds/bluest-hour-almanac/blob/main/PAPER.md) — your destination exemplar
+### 1. What I built
 
-Ship one Space. The rest follows.
+If the Space exists:
+
+I built a tool that summarizes the same news item from different named perspectives.
+
+If the Space does not exist yet:
+
+Use this section as a planned build note, not a fake finished description.
+
+### 2. My research question
+
+Your question should come from the tension between "neutral summary" and "perspective-explicit summary."
+
+### 3. Why This Matters to Me
+
+This is where you should use Model UN. That is your real domain knowledge.
+
+### 4. What I Tried
+
+Possible first test:
+
+- same headline
+- multiple perspective settings
+- compare what changed
+
+### 5. What I Learned
+
+At this stage, "what I learned" may still be what you learned from planning or from a first baseline test.
+
+### 6. What Still Needs Work / Who It Might Fail For
+
+Likely limits:
+
+- no real build yet, or only a baseline build
+- political framing is subtle
+- the tool may collapse back into generic news language
+- high risk of oversimplifying sensitive topics
+
+## Prompt to sharpen the question
+
+```text
+I am interested in AI, politics, international relations, and news framing.
+
+My main observation is that AI summaries can flatten political perspective into one generic voice.
+
+Help me turn that into:
+1. one clear research question
+2. one backup question
+3. one simple first Space I could realistically build
+
+Do not invent tests or results.
+```
+
+## Prompt to build an honest outline
+
+```text
+I am not ready for a full paper yet, but I want a strong outline based on my interests and notes.
+
+Use this structure:
+- What I built or plan to build
+- My research question
+- Why this matters to me
+- What I tried or want to test first
+- What I learned so far
+- What still needs work / who it might fail for
+- Sources to add or cite
+
+Keep it honest. If I do not yet have a Space, do not pretend I do.
+```

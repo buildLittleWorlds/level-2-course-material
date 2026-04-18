@@ -1,52 +1,57 @@
 # Bluest Hour — AI + Research Level 2 Portfolio
 
-*Simulated example folder for Session 6 modeling.*
+*Simulated exemplar folder for the paper phase.*
 
 ## Your Topic
 
-Place-based AI, evening light, reflective journaling, and the question of whether a small AI tool can meaningfully capture something as subjective as "the bluest hour." The project already has a strong identity: it predicts the best moment for an evening walk, ties that prediction to a real place (Godfrey, IL), and invites a short reflection afterward. That is not a generic student app. It is already a small world with a point of view.
+Place-based AI, evening light, reflective journaling, and the question of whether a small mood model can validly read the kind of writing a blue-hour walk creates.
+
+## The new exemplar chain
+
+Open these in order:
+
+1. [Bluest Hour research journal](https://github.com/buildLittleWorlds/bluest-hour/blob/main/research-journal.md)
+2. [Bluest Hour simple paper](https://github.com/buildLittleWorlds/bluest-hour/blob/main/PAPER.md)
+3. [Bluest Hour almanac paper](https://github.com/buildLittleWorlds/bluest-hour-almanac/blob/main/PAPER.md) only as an advanced continuation
+
+The point of this folder is no longer "copy the fancy paper voice." The point is to show how a project becomes research:
+
+- build the app
+- keep a believable journal
+- pull out the question, best test, strongest finding, and limitation
+- turn those into a short paper
 
 ## Where You Are Now
 
-You are farther along than a student who only has an idea. The app exists in two forms: a Hugging Face Space and a GitHub Pages version. You already have a real hook:
+Bluest Hour already has a strong project identity:
 
-- a concrete environmental variable: the blue hour window
-- a behavioral recommendation: when to walk
-- a reflective layer: a journal entry after the walk
-- an AI layer: sentiment analysis on the journal text
+- a concrete environmental variable: the blue-hour window
+- a place-specific setting: Godfrey, Illinois
+- a behavioral recommendation: when to start the walk
+- a reflection layer: a short journal note after the walk
+- a simple AI layer: a binary sentiment baseline
 
-That is enough to begin research.
+That is enough to support both a journal and a short paper.
 
-## Live Versions
+## What To Notice
 
-- **GitHub Pages version:** [buildlittleworlds.github.io/bluest-hour](https://buildlittleworlds.github.io/bluest-hour/)
-- **Hugging Face Space:** [hf.co/spaces/profplate/bluest-hour](https://hf.co/spaces/profplate/bluest-hour)
+The journal-first chain makes the research turn visible:
 
-**But here is the honest feedback:** right now the project is still mostly at the *beautiful observation* stage. You can describe why the app feels meaningful. You can point to the Joan Didion quote, the local calibration, the contemplative design. What you have not done yet is ask: **what am I actually investigating?**
+- the first problem is timing
+- the second problem is local calibration
+- the third problem is whether the journaling model is even measuring the right thing
 
-The gap is not technical. The gap is analytical. This is exactly the turn Session 6 is designed to help with.
-
-## Where You're Headed
-
-Three deliverables:
-
-1. **A research question** — something narrow enough to test. Not "is this beautiful?" but "what can I find out with this tool that I don't already know?"
-2. **Three Spaces that tell a research story** — not just one app duplicated in different places, but a baseline, an experiment, and a fuller version.
-3. **A research brief** — a short write-up that says: here's the question, here's the method, here's what I found, and here's what still feels uncertain.
+That last move is the real research move. The AI layer stops being decoration and starts becoming the thing being tested.
 
 ## What's In This Folder
 
-- **RESEARCH-PATH.md** — the step-by-step path from a poetic app to a real research question
-- **SPACE-PROMPTS.md** — prompts for building the three-Space arc around Bluest Hour
+- `RESEARCH-PATH.md` — how the journal turns into a short paper
+- `SPACE-PROMPTS.md` — optional prompts for building follow-on Spaces
 
-## This Week's Priority
+## What This Example Should Teach Students
 
-1. Read **RESEARCH-PATH.md**, especially Steps 1 and 2.
-2. Click through both live versions and write down three things you've already noticed from the app.
-3. Pick one question from the broad → medium → narrow progression and write it into `week-06-research-question.md`.
+The student target is not "sound like the almanac paper." The student target is:
 
-The goal is not to solve the whole project tonight. The goal is to stop saying "I made a nice app" and start saying "I want to find out whether..."
+> show the path from journal to claim
 
----
-
-*Built during AI + Research Level 2 at Youth Horizons Learning, Spring 2026.*
+If students can do that, the paper phase is working.
