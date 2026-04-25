@@ -1,30 +1,71 @@
-# Session 8: From Single Models to Systems
-*"Chain Two Models Together"*
-
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-08/notebook.ipynb)
+# Session 8: Make It Public — Profile, Spaces, Paper
 
 ## What This Session Covers
 
-Students chain BLIP image captioning with sentiment analysis — upload an image, generate a caption, then analyze the caption's sentiment. They learn how multi-model systems work and discover error cascades: when the first model gets it wrong, everything downstream goes wrong too. The concept: Multi-Model Systems and Error Cascades. The Big Question: can you read emotion from a photograph?
+Tonight is where the work goes public. Up to now you've been building Spaces, taking journal notes, and drafting toward a research question in private. Tonight you start putting a public face on it: a **Hugging Face profile** with three solid Spaces and a curated Collection, and a **GitHub profile README** that links those Spaces to the paper you're writing, the research question you're investigating, and the journal you've been keeping.
 
-## Narrative Role
+In the AI world, a GitHub profile linked to a Hugging Face profile is the standard public face of someone doing research. GitHub holds the writing and the explanations; Hugging Face holds the experiments. By the end of class tonight, anyone who lands on either page should see what you're researching and how the pieces fit together.
 
-The final piece of Act II. This is the culmination: students now know classification, generation, controls, domain shift, pretraining, bias, and pipelines — the full stack of ideas that make modern AI work. The session closes Act II by connecting pipelines to real products (ChatGPT's content filter, Siri's speech chain) and bridging forward to Act III, where students design for humans rather than studying models.
+## The session in two halves
 
-## Connections
+The session has two halves, and the order matters.
 
-**Builds on:** Session 7 (bias cascading through connected models — Session 7's bridge forward explicitly sets up tonight's error cascade demo)
+**First half — public presentation.** We look at a worked-example research profile, then each of you cleans up your Hugging Face presence and starts your GitHub profile README:
 
-**Bridges to:** Session 9 (from what's inside the machine to what's outside it — prompt engineering and human-AI interaction)
+- Audit your Hugging Face profile. Identify three Spaces you can stand behind. Fix what's broken. Update titles and descriptions so each Space looks like *your* tool, not a template.
+- Curate your Collection so the models and Spaces in it are clearly related to your research topic. A Collection that tells a story about your research interest is a stronger signal than a long unfocused list.
+- Create your GitHub profile README — the special repository named identically to your GitHub username — and draft v1 with research areas, your paper-in-progress, your Spaces, your Hugging Face profile, and "what I'm building now."
 
-**Act II arc:** Session 4 (the fork) → Session 5 (controls) → Session 6 (domain shift / pretraining breakthrough) → Session 7 (bias as cost of scale) → **Session 8 (pipelines as how products actually work)**
+**Second half — match the substance to the front.** Once your profile says "I'm researching X," what people find when they click through has to actually be X. That's the paper, the research journal, the Spaces, and the curated Collection — all pointing at the same investigation:
+
+- Copy your parallel-example packet into your own GitHub account via "Use this template." This becomes your `PAPER.md` repo, linked from your profile.
+- Read your `cover-note.md` and start the **Anchor** move: open your real Space, run one real test, and swap the result into section 4 of `PAPER.md`. Replace the example outputs with your real ones.
+- Hold a brief BLIP → sentiment chained-pipeline demo as a worked example of error cascades. Use the lesson to add one sentence to your paper's limitations section: if your project chains anything, that's where errors compound silently.
+
+## The core teaching line
+
+> First decide how you want to present yourself publicly. Then make sure what people find there matches what you said.
+
+## Worked example for the profile move
+
+We'll look at <https://github.com/buildLittleWorlds> on screen as the pattern: research areas at the top, current research with linked papers, coding experiments grouped by purpose, publications, "what I'm building now," and links out. Yours will look different in content but follow the same shape.
+
+## Where the Session 8 technical concept lives tonight
+
+The original Session 8 idea is multi-model systems and error cascades — chaining one model's output into another and watching errors compound. We'll do a short BLIP → sentiment demo so you see what an error cascade looks like, and the takeaway is for your **paper's limitations section**: if your project chains anything (generation then critique, transcription then summarization, captioning then classification, retrieval then answering), name where errors could compound and what the downstream consequence would be.
+
+## A bigger frame: humans inside technical systems
+
+Tonight's two halves are two versions of the same question — *how do you make the pieces fit together so the system actually works?*
+
+1. **Models talking to models.** When BLIP captions an image and the sentiment model reads the caption, the second model can only act on what the first produced. If the first is wrong, the second confidently goes wrong. The pieces have to fit.
+2. **You inside a research infrastructure.** GitHub and Hugging Face are themselves technical systems — written in code, hosting code, managing code in repositories, deploying models from code. When you set up a profile, write a README, commit edits, and link a paper repo to a Hugging Face Collection, you are literally participating in a code-based system that is also where research identities get built and read. Your profile isn't a *metaphor* for a technical pipeline — it's a real one. The fitting between what your profile claims and what the linked repos actually contain is the same kind of fitting BLIP and sentiment have to do, just with a human author at one end.
+
+Session 9 picks up the same question at a third scale: **the technical model talking to the humans it's supposed to serve.** It's not enough for a model to produce a correct output; it has to do so in a way that fits the values, goals, and judgment of the people who will use it. (Reinforcement Learning from Human Feedback — RLHF — is the move that named this problem concretely for generative AI.)
+
+So Sessions 8 and 9 are really one argument: *humans and technical systems fit together at every scale*. Code talks to code in a pipeline. Researchers talk to the research community through code repositories. Models talk to users through interfaces. Each layer is technical, each layer is human, and the fitting question — does this piece work given what the next piece needs? — is the same question every time.
+
+That's why what you do tonight on your profile and what you do in Session 9 on your interface aren't add-ons to the technical curriculum. They're the technical curriculum, scaled up to where you actually live as a developing researcher.
 
 ## Session Resources
 
-- **slides.html** — presentation slides
-- **INSTRUCTOR-GUIDE.md** — full lesson plan with time breakdown
-- **app.py** — Image Story Pipeline Space (Gradio app)
-- **requirements.txt** — Space dependencies
-- **notebook.ipynb** — Google Colab notebook for hands-on model-chaining experiments
-- **GUIDE-error-propagation.md** — research method card: Error Propagation / Systems Testing
-- **BETWEEN-SESSION.md** — challenge and homework for between sessions
+- **[`../PAPER-TEMPLATE.md`](../PAPER-TEMPLATE.md)** — the master AI prompt for paper drafting
+- **[`../GUIDE-FROM-SPACE-TO-PAPER.md`](../GUIDE-FROM-SPACE-TO-PAPER.md)** — how the prompt-first paper workflow works
+- **`parallel-example/` folder inside your student folder** — your five-file packet (read `cover-note.md` first)
+- **[`BETWEEN-SESSION.md`](./BETWEEN-SESSION.md)** — what to revise this week and how
+- **[`GUIDE-error-propagation.md`](./GUIDE-error-propagation.md)** — research method card; supports the limitations move
+- **slides.html / app.py / notebook.ipynb** — supporting material for the chained-pipeline demo
+
+## What students should leave with
+
+- A Hugging Face profile with three Spaces you can stand behind and a Collection curated around your research topic
+- A GitHub profile README v1 — research areas, paper-in-progress, Spaces, Hugging Face link, "what I'm building now"
+- Your own GitHub copy of the parallel-example packet, linked from your profile
+- One real anchor move started in `PAPER.md` (your real Space, your real prompt, one real result in section 4)
+- A clear next step for finishing the anchor and one paragraph of voice work this week
+
+## Connections
+
+**Builds on:** Session 7 (your rough `PAPER.md` draft, your `week-07-source-search.md` shortlist, the journal you've been keeping)
+
+**Bridges to:** Session 9 — *Prompt Logic and Human-AI Interaction.* Same fitting problem, third scale. We move from "do the technical pieces fit each other" and "does your front match your substance" to "does this model fit the humans it's supposed to serve?" Continued paper revision and the start of the careful-paper-reading work travel alongside that.

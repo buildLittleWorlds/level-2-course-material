@@ -1,102 +1,119 @@
 # Between Sessions 9 & 10
 
-> **Heads-up:** This is also the week the course turns toward research work. Your main research work between sessions 9 and 10 is in [`WEEK-9-RESEARCH-WORK.md`](./WEEK-9-RESEARCH-WORK.md). Read that first. The build and journal steps below support that research work.
+> **What this week is about:** finishing the audience-fit work on one of your Spaces, completing citation verification on every source you plan to use, and continuing the public-facing iteration you started in Session 8 (profile README, Collection, paper). By Session 10, the substance behind your profile is one round more honest and one round more useful.
 
-**Tonight you redesigned an AI tool for a real audience** — same model, completely different experience depending on who it's for. That's a powerful idea, and designing for a specific person is what separates a tool from a homework assignment. The Week 9 research work also asks you to do the most important piece of research hygiene in the whole course: verify every citation you plan to use, because AI hallucinates them.
-
-Prea's [Week 9 journal entry ("Space 3 Design, and Asking Two Teammates What They Want")](../example-student-prea/research-journal.md) is a model of audience-centered design done in a way you can actually learn from. Instead of guessing what her WSDC teammates would want from a scoring tool, she shows two of them a mockup and asks them directly. One says *"I don't care about the number. I care about which ten seconds I should listen to again."* The other says *"I want to know what I did wrong."* Both answers were more concrete than she expected, and both turned into actual features in her three-tab Space 3 design (Score, Breakdown, and a "Coach" tab that points users to the exact timestamps that mattered). *Think about who your Space 3 is for — and if you can, ask them.*
-
-This week: build Space 3, do the Week 9 research work, and start thinking about your final portfolio.
+Tonight extended Session 8's argument: the same fitting problem that runs between two chained models, and between your public profile and the substance behind it, runs again between your model and the real human who will use it. We named the move and rehearsed it once on the Restaurant Review Analyzer. This week you apply it to one of your own Spaces, verify every citation in your paper, and keep iterating the public-facing system you started building last week.
 
 ---
 
-## Build Step: Build Space 3 (45 min)
+## Step 1: Space 3 — get it built and fit it to a human (60–90 min)
 
-This is your ambitious Space — the one that shows what you've learned and what you can do. It should be clearly better or more interesting than Spaces 1 and 2.
+**Goal:** Space 3, your ambitious Space, deployed and working by Session 10 — and fit to a real human user from the start.
 
-**How to build it:**
+Some of you already have Space 3 built; others are still finishing. Either way, this week is when it lands. By Session 10 it needs to be live so we can polish, integrate, and start drafting the portfolio story.
 
-1. Start from the plan you wrote in last week's journal entry.
-2. Use your student folder prompts, or write your own prompt describing what you want. Paste it into a coding AI.
-3. Create a new Space on Hugging Face. Upload the files. Debug as needed.
-4. Customize everything — title, description, examples, and output format. This Space should look like a finished tool, not a homework assignment.
+**If Space 3 isn't deployed yet — this is the priority for the week.** Don't build it as a generic demo. Tonight's framing — fit the model to a real human — applies from the start:
 
-**What makes a good Space 3:**
-- It does something *specific* for a *specific* audience or purpose
-- It works reliably on the kinds of inputs it's designed for
-- The title and description make it clear what it does and who it's for
-- The examples show it off at its best
+1. **Name your user before you write any code.** One specific person, not "everyone." A specific kind of researcher, clinician, journalist, musician, gamer — whoever your project is actually for. Write that person as one sentence at the top of your notes: *"Sarah, an opera coach preparing students for NYSSMA."*
+2. **Decide the four human-facing surfaces upfront:**
+    - **Title** — what would *Sarah* call this tool?
+    - **Description** — describe it to *Sarah*, not to a programmer.
+    - **Examples** — three inputs *Sarah* would actually type.
+    - **Output framing** — turn raw model output into something *Sarah* can read at a glance.
+3. **Build the Space.** Use the plan from your Week 8 journal entry. Use the starter prompts in your student folder, or write your own and paste into Claude or ChatGPT. Create a new Space on Hugging Face. Upload the files. Debug as needed. Wire the four surfaces in as you build, not as polish-after.
+4. **Test with one real person who didn't help build it.** Watch what they do. Their confusion is your redesign checklist.
 
-If tonight's session on audience-centered design gave you ideas, use them. If your project is more technical (better model, comparison tool, specialized pipeline), that's just as good. The point is ambition — push beyond what you've already done.
+**If Space 3 is already deployed:** apply the same audience-fit move to one of your weaker Spaces (often Space 1 or 2). Same loop — name the user, redesign the four surfaces without changing the model, test with someone real, watch what happens. Then come back and use whatever time is left to polish Space 3's user-facing surfaces too.
+
+Either path:
+
+- Update your **GitHub profile README** to point at the resulting Space with a one-line description that names the user it's for.
+- Edit Spaces directly in the Hugging Face web editor. No terminal needed.
 
 ---
 
-## Journal Entry (15 min)
+## Step 2: Citation verification (60–90 min)
 
-Open `research-journal.md` and add your Week 9 entry:
+**Goal:** Every citation in your paper passes the eyeball test.
+
+This is the most important research-hygiene work of the course, and it applies anywhere you write with AI help — not just in here. AI language models hallucinate citations: plausible authors, plausible journals, plausible-looking DOIs, and some percentage of the time the paper does not exist.
+
+Create `week-09-citations.md` in your paper repo. For each source on your Week 7 shortlist:
+
+1. **DOI check.** Paste the DOI into [doi.org](https://doi.org). Does it resolve to a paper with matching title and authors?
+2. **Title search.** Search the title in quotes on [Google Scholar](https://scholar.google.com). Confirm authors and year.
+3. **Claim check.** Open the paper. Find the specific claim you plan to cite. Paste the supporting sentences from the paper into your `week-09-citations.md` next to your citation. If you can't find the claim in the paper, the citation does not go in your paper.
+
+Format each entry like this:
 
 ```markdown
-## Week 9 — Space 3 and the Home Stretch
+**Author, A., & Author, B. (YEAR).** *Title of paper.* Journal, vol(issue), pages. https://doi.org/...
 
-### What I Built
-(What is Space 3? What does it do? How is it different from Spaces 1 and 2?)
-
-### What Was Hard
-(What technical challenges did you hit? What design decisions did you have to make?)
-
-### What I Learned from Class
-(Quick note on audience-centered design — did it change how you think about your project? If not, what else are you thinking about as you finish?)
-
-### The Story So Far
-(Look back at your three Spaces. What's the arc? How did you get from Space 1 to Space 3? This is a draft of the narrative you'll write up for your portfolio.)
+- Claim I'm citing: <one sentence in your own words>
+- Supporting passage from paper, with section/page: "<exact quote from the paper>"
 ```
 
-**Not sure what to write?** Read [Prea's Week 9 journal entry](../example-student-prea/research-journal.md). Notice how she turns two specific quotes from two specific teammates into two specific design features. That's the kind of narrative thread you should be starting to see in your own work — not "I designed for my audience" but "Teammate A said X, so I added Y." Also look at Prea's [portfolio README](../example-student-prea/README.md) for the shape your own portfolio page will eventually take.
+At the top of `week-09-citations.md`, one paragraph naming which references are peer-reviewed and which (if any) are not. At the bottom, one paragraph reflecting: how many of your Week 7 sources survived verification? Did any fall out? Did any need to be replaced?
+
+Full guide: [`WEEK-9-RESEARCH-WORK.md`](./WEEK-9-RESEARCH-WORK.md).
 
 ---
 
-## Portfolio Check
+## Step 3: Revise one paragraph of `PAPER.md` for your audience (20 min)
 
-By Session 10, you should have:
-- Space 1 (baseline)
-- Space 2 (domain-specific or upgraded)
-- Space 3 (ambitious — deployed and working)
-- 5 journal entries in `research-journal.md`
-- A Hugging Face Collection with 9+ items
-- A rough idea of the story your portfolio will tell
+**Goal:** Tonight's audience-design move applied once to your own paper.
 
-**Reference:** Prea's full portfolio is in her [portfolio README](../example-student-prea/README.md). By Week 9, Prea had all three Spaces designed and was drafting the narrative thread that ties them together. Your portfolio won't look like Prea's — different domain, different models, different question — but the structure (question, journey, three Spaces, what I learned) is the template.
+Open your `PAPER.md`. Pick the paragraph that currently sounds the most like a *generic research paper introduction* and the least like *something a real person would want to read.* Often this is the introduction or the discussion.
 
-**You're almost there.** Sessions 10-12 are project sessions — you'll polish everything, write up your portfolio page, and present. The building phase is wrapping up. Get Space 3 deployed this week.
+Then:
 
----
+1. Name the audience for your paper — not "the field," but one realistic reader. A peer in your school's AI club. A college admissions officer reading your portfolio. A specific teacher who knows your domain.
+2. Rewrite the paragraph for that reader. Use language they'd use. Cut what they don't need. Keep what they'd find specific and surprising.
+3. Commit the change to your paper repo.
 
-## Your Personal Challenge
-
-### Annabelle
-You've been building fast all course. Space 3 is where you show what that speed adds up to. Build the most creative, distinctive thing you can. In your journal, start sketching the story: "I started with a basic text generator, then I built [Space 2], and now I've built [Space 3] — here's what I learned along the way."
-
-### Bobby
-Your game writing project has a clear arc. Space 3 should be the version that makes someone say "I want to try this." Think about what a gamer or game designer would actually want from this tool. Build it and test it with game-specific inputs.
-
-### Chengry
-You've been building toward a medical AI tool all course. Space 3 is where you bring it together. Whether it's the DxAI concept, an improved NER tool, or something new — make it the most impressive medical AI demo you can build on free CPU. Your journal entry should start telling the story of why medical AI matters to you.
-
-### Emily
-Your news project has natural progression — from basic generation to comparison to something more useful. Space 3 should feel like a tool a real person in journalism or media could use. Build it and test it on real articles.
-
-### George
-Health AI for a specific audience — that's a strong Space 3 direction. Who is your user? Build for that person. Tonight's session on audience design is directly relevant to what you're doing.
-
-### Henry
-Your visual + text combination is distinctive. Space 3 should lean into that — build something that nobody else in the class would build. Your unique perspective is your strongest asset for the portfolio.
-
-### Sevilla
-You've been finding what AI gets wrong all course — sarcasm, cartoons, emotional complexity. Space 3 could be the tool that does it better, or the tool that shows exactly where and why AI fails. Either direction makes a great portfolio piece.
-
-### Shawn
-Your systematic methodology has been building all course. Space 3 should be the most comprehensive version — more models, more dimensions, more insight. A well-designed comparison tool with clear results is genuinely impressive.
+This is the same fitting move you did on your Space, just applied to text instead of an interface.
 
 ---
 
-AI + Research Level 2 • Session 9: The Home Stretch
+## Step 4: Profile and journal iteration (15 min)
+
+**Goal:** Your public-facing system stays current as the work evolves.
+
+- Update your GitHub profile README to reflect the redesigned Space and the citation work in progress. The "What I'm Building Now" bullet should mention what you're doing this week.
+- Add a Week 9 entry to your `research-journal.md` with: the user you redesigned for, what you swapped in the four surfaces, what surprised you when you tested it, how many citations survived verification, and which paragraph of `PAPER.md` you rewrote for your audience.
+
+---
+
+## Optional: Stretch
+
+If Steps 1–4 are done and you have time:
+
+- Apply the audience-redesign move to a *second* Space.
+- Run the verification loop on one source you didn't have on your Week 7 shortlist — one you found by following a citation chain from a verified source.
+
+Tier A students should aim for one stretch move; Tier B and C students should not — finishing audience-fit on one Space and verifying every citation is more valuable than rushing.
+
+---
+
+## What to bring to Session 10
+
+- **Your Space 3 URL** (paste in chat at the start of class) — deployed and working, with the four human-facing surfaces (title, description, examples, output framing) fit to a named user
+- The URL of any other Space you audience-redesigned this week
+- Your `week-09-citations.md` with verified entries
+- Your `PAPER.md` with one paragraph rewritten for your real audience
+- Your Week 9 journal entry
+- Your GitHub profile README updated to point at Space 3
+
+---
+
+## The through-line so far
+
+We started Session 8 with two models in a pipeline (technical fit) and your profile pointing at substance (public-facing fit). Session 9 added the third scale: a model fit to a real human user. The pattern has held at every scale — pieces fit, or the system fails.
+
+Sessions 10–12 stay in this pattern. Session 10 polishes your ambitious Space (Space 3), integrates the three Spaces and the paper into one coherent project, and starts drafting the portfolio narrative — every move tested against the same fitting question. Session 11 iterates through peer feedback — your work being read by real other humans. Session 12 is Demo Day, where the whole system gets shown to a real audience.
+
+The fitting question is the AI research question. You're doing it now.
+
+---
+
+AI + Research Level 2 • Session 9: Make Your Model Fit the Human
