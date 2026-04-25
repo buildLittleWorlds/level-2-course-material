@@ -23,7 +23,6 @@ Design notes (delete this comment block before committing):
 </p>
 
 <p align="center">
-  <a href="https://www.lindenwood.edu/arts-and-humanities/english-language-interdisciplinary-studies/english-ba/faculty/dan-plate/"><img src="https://img.shields.io/badge/Lindenwood-Professor%20of%20English-1F3864?style=flat-square" alt="Lindenwood faculty profile" /></a>
   <a href="https://orcid.org/0000-0002-1238-5425"><img src="https://img.shields.io/badge/ORCID-0000--0002--1238--5425-A6CE39?style=flat-square&logo=orcid&logoColor=white" alt="ORCID" /></a>
   <a href="https://github.com/buildLittleWorlds?tab=repositories"><img src="https://img.shields.io/badge/Repos-Active-2E7D32?style=flat-square&logo=github&logoColor=white" alt="Repositories" /></a>
 </p>
@@ -32,29 +31,11 @@ Design notes (delete this comment block before committing):
 
 ---
 
-I'm a Professor of English at Lindenwood University. I write about generative AI as a problem of authorship, symbolic form, pedagogy, and institutional governance — not as an external threat to the humanities, and not as a frictionless solution to anything either. My current writing develops alternatives to mandatory process disclosure, an aesthetic theory of generative output as symbolic object, AI-mediated coding as humanities literacy, and worker-side accountability frameworks for AI-mediated labor.
+I write about generative AI as a problem of authorship, symbolic form, pedagogy, and institutional governance — not as an external threat to the humanities, and not as a frictionless solution to anything either. My current writing develops alternatives to mandatory process disclosure, an aesthetic theory of generative output as symbolic object, AI-mediated coding as humanities literacy, and worker-side accountability frameworks for AI-mediated labor.
 
 The position underneath all of it is the same: **authorship is responsibility, judgment, and accountability for what is presented — not exhaustive reporting of every tool, prompt, revision, or technological intervention.**
 
 > **Now** *(updated April 2026)* — Drafting *The New Perspectiva Artificialis* (Routledge, 2026); running the Spring 2026 cohort of *AI + Research Level 2*; expanding *10 Things to Try with Hugging Face Transformers* with new sections on Spaces and API contracts.
-
-## How the Work Fits Together
-
-```mermaid
-flowchart LR
-  Pedagogy["AI &amp; composition<br/>pedagogy"]:::a
-  Coding["AI as coding<br/>literacy"]:::a
-  Symbolic["Symbolic,<br/>aesthetic,<br/>media-theoretical"]:::b
-  Governance["Governance,<br/>disclosure,<br/>labor rights"]:::b
-  Pedagogy --> Coding
-  Coding --> Symbolic
-  Symbolic --> Governance
-  Governance -->|loops back to classroom practice| Pedagogy
-  classDef a fill:#EAF1FA,stroke:#1F4E79,color:#1F3864;
-  classDef b fill:#FBF1E1,stroke:#9C6700,color:#7E5B00;
-```
-
-The four clusters answer one underlying question — *what does responsible authorship look like when AI is a normal part of the workflow?* — at four different scales: the individual writer, the classroom and the curriculum, the symbolic object the model produces, and the institution that has to set policy.
 
 ## Books
 

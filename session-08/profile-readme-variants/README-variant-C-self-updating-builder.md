@@ -25,9 +25,8 @@ Design notes (delete before committing if you adopt this variant):
 
 > **AI authorship · symbolic form · creative autonomy · AI-native pedagogy**
 >
-> Professor of English at Lindenwood University. I work on what AI changes about authorship, what it doesn't, and what kinds of pedagogy and policy follow. The work spans four clusters — composition pedagogy, AI-mediated coding as humanities literacy, symbolic-form aesthetics of generative output, and governance and labor frameworks for AI-mediated work.
+> I work on what AI changes about authorship, what it doesn't, and what kinds of pedagogy and policy follow. The work spans four clusters — composition pedagogy, AI-mediated coding as humanities literacy, symbolic-form aesthetics of generative output, and governance and labor frameworks for AI-mediated work.
 
-[![Lindenwood](https://img.shields.io/badge/Lindenwood-Professor%20of%20English-1F3864?style=flat-square)](https://www.lindenwood.edu/arts-and-humanities/english-language-interdisciplinary-studies/english-ba/faculty/dan-plate/)
 [![ORCID](https://img.shields.io/badge/ORCID-0000--0002--1238--5425-A6CE39?style=flat-square&logo=orcid&logoColor=white)](https://orcid.org/0000-0002-1238-5425)
 [![Last update](https://img.shields.io/github/last-commit/buildLittleWorlds/buildLittleWorlds?label=profile%20updated&style=flat-square)](https://github.com/buildLittleWorlds/buildLittleWorlds/actions)
 

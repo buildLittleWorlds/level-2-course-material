@@ -6,9 +6,9 @@
 
 > **AI authorship · symbolic form · creative autonomy · AI-native pedagogy**
 >
-> Professor of English at Lindenwood University. I work on what AI changes about authorship, what it doesn't, and what kinds of pedagogy and policy follow. My current writing develops alternatives to mandatory process disclosure, the aesthetics of generative output as symbolic form, AI-mediated coding as humanities literacy, and worker-side accountability frameworks for AI-mediated labor.
+> I work on what AI changes about authorship, what it doesn't, and what kinds of pedagogy and policy follow. My current writing develops alternatives to mandatory process disclosure, the aesthetics of generative output as symbolic form, AI-mediated coding as humanities literacy, and worker-side accountability frameworks for AI-mediated labor.
 
-<sub>B.A. Taylor · M.F.A. Arkansas · Ph.D. Washington University in St. Louis · [ORCID 0000-0002-1238-5425](https://orcid.org/0000-0002-1238-5425) · [Lindenwood faculty profile](https://www.lindenwood.edu/arts-and-humanities/english-language-interdisciplinary-studies/english-ba/faculty/dan-plate/)</sub>
+<sub>B.A. Taylor · M.F.A. Arkansas · Ph.D. Washington University in St. Louis · [ORCID 0000-0002-1238-5425](https://orcid.org/0000-0002-1238-5425)</sub>
 
 ---
 
@@ -69,24 +69,6 @@ These are public courses and experiments my students and collaborators use. Each
 - **[Claude Code Skills: Basics and Beyond](https://github.com/buildLittleWorlds/claude-code-skills-basics-and-beyond)** — course sequence on Claude Code, skills, hooks, subagents, and multi-step AI-assisted development.
 - **[Transformers.js Experiments](https://github.com/buildLittleWorlds/transformers-js-experiments)** — browser-based experiments with client-side transformer models, WebGPU, and ONNX Runtime.
 - **[Bluest Hour Almanac](https://github.com/buildLittleWorlds/bluest-hour-almanac)** — design and AI classification experiment built around a blue-hour walk journal.
-
-## How the Strands Connect
-
-```mermaid
-flowchart LR
-  Pedagogy[AI &amp; composition<br/>pedagogy]
-  Coding[AI as software<br/>&amp; coding literacy]
-  Symbolic[Symbolic, aesthetic,<br/>media-theoretical]
-  Governance[Governance, disclosure,<br/>labor rights]
-  Pedagogy --> Coding
-  Coding --> Symbolic
-  Symbolic --> Governance
-  Governance --> Pedagogy
-  classDef node fill:#f7f7f7,stroke:#444,stroke-width:1px,color:#222;
-  class Pedagogy,Coding,Symbolic,Governance node;
-```
-
-The same argument runs across all four: that AI participation is most defensible when treated as a tool of judgment rather than a substitute for it, and that this stance has different operational consequences in writing, in coding, in aesthetic theory, and in policy.
 
 ## Frequent Collaborators
 
