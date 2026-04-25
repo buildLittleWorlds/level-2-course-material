@@ -20,7 +20,7 @@ The session has two halves, and the order matters.
 
 - Copy your parallel-example packet into your own GitHub account via "Use this template." This becomes your `PAPER.md` repo, linked from your profile.
 - Read your `cover-note.md` and start the **Anchor** move: open your real Space, run one real test, and swap the result into section 4 of `PAPER.md`. Replace the example outputs with your real ones.
-- Hold a brief BLIP → sentiment chained-pipeline demo as a worked example of error cascades. Use the lesson to add one sentence to your paper's limitations section: if your project chains anything, that's where errors compound silently.
+- Hold a brief Gradio → Gemini API demo as a worked example of how free-tier Spaces connect to hosted models so they can do real research work — and where that connection breaks. Use the lesson to add one sentence to your paper's limitations section: when your tool talks to an upstream model (whether through your own API call or a hosted Space someone else maintains), you inherit its quirks, and the connection point is where errors propagate.
 
 ## The core teaching line
 
@@ -32,13 +32,15 @@ We'll look at <https://github.com/buildLittleWorlds> on screen as the pattern: r
 
 ## Where the Session 8 technical concept lives tonight
 
-The original Session 8 idea is multi-model systems and error cascades — chaining one model's output into another and watching errors compound. We'll do a short BLIP → sentiment demo so you see what an error cascade looks like, and the takeaway is for your **paper's limitations section**: if your project chains anything (generation then critique, transcription then summarization, captioning then classification, retrieval then answering), name where errors could compound and what the downstream consequence would be.
+The original Session 8 idea is multi-model systems and how errors propagate through them. We do that lesson tonight in the form your projects will actually take: a Gradio Space connected to Google's Gemini model via an API key stored in Hugging Face Secrets. The Space itself lives on free CPU; the heavy thinking happens upstream on Gemini's servers. This is the pattern that lets a free-tier Space do real research work — and it's the pattern several of you will need to ship the project you've been planning.
+
+The takeaway is for your **paper's limitations section**: when your tool depends on an upstream model via API (or even an already-hosted Space someone else maintains), you inherit every quirk of that model — biases in its training data, occasional hallucinations, the possibility that the contract between your code and the model breaks unexpectedly. Name where that connection sits in your project, and what would happen to your findings if the upstream piece changed.
 
 ## A bigger frame: humans inside technical systems
 
 Tonight's two halves are two versions of the same question — *how do you make the pieces fit together so the system actually works?*
 
-1. **Models talking to models.** When BLIP captions an image and the sentiment model reads the caption, the second model can only act on what the first produced. If the first is wrong, the second confidently goes wrong. The pieces have to fit.
+1. **Models talking to models.** When your Space sends a request to Gemini and asks for a JSON-shaped response, your downstream code can only act on what Gemini actually returned. If Gemini hallucinates a result, your tool reports a confident wrong answer. If Gemini returns prose instead of JSON, your parser fails and your Space goes red. The pieces have to fit, and the contract between them is where the fitting holds or breaks.
 2. **You inside a research infrastructure.** GitHub and Hugging Face are themselves technical systems — written in code, hosting code, managing code in repositories, deploying models from code. When you set up a profile, write a README, commit edits, and link a paper repo to a Hugging Face Collection, you are literally participating in a code-based system that is also where research identities get built and read. Your profile isn't a *metaphor* for a technical pipeline — it's a real one. The fitting between what your profile claims and what the linked repos actually contain is the same kind of fitting BLIP and sentiment have to do, just with a human author at one end.
 
 Session 9 picks up the same question at a third scale: **the technical model talking to the humans it's supposed to serve.** It's not enough for a model to produce a correct output; it has to do so in a way that fits the values, goals, and judgment of the people who will use it. (Reinforcement Learning from Human Feedback — RLHF — is the move that named this problem concretely for generative AI.)
@@ -53,8 +55,8 @@ That's why what you do tonight on your profile and what you do in Session 9 on y
 - **[`../GUIDE-FROM-SPACE-TO-PAPER.md`](../GUIDE-FROM-SPACE-TO-PAPER.md)** — how the prompt-first paper workflow works
 - **`parallel-example/` folder inside your student folder** — your five-file packet (read `cover-note.md` first)
 - **[`BETWEEN-SESSION.md`](./BETWEEN-SESSION.md)** — what to revise this week and how
-- **[`GUIDE-error-propagation.md`](./GUIDE-error-propagation.md)** — research method card; supports the limitations move
-- **slides.html / app.py / notebook.ipynb** — supporting material for the chained-pipeline demo
+- **[`GUIDE-error-propagation.md`](./GUIDE-error-propagation.md)** — research method card on connecting models via API; supports the limitations move
+- **slides.html / app.py / notebook.ipynb** — supporting material for the Gradio → Gemini API demo
 
 ## What students should leave with
 

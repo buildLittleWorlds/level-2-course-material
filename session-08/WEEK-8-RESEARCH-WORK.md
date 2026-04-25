@@ -6,7 +6,7 @@ Prereq: your `week-07-source-search.md` shortlist.
 
 Actually reading one paper. Not summarizing it. Not asking an AI "what does this paper say and should I cite it." Reading it yourself, with an AI as a *reading partner with guardrails* — a partner that explains terms and walks you through the methods section, but does NOT tell you what the authors concluded.
 
-If you let an AI summarize a paper before you've read it, the AI has already decided what matters. You become a reader of the AI, not a reader of the paper. Your brief will end up vague and your citations will drift. We saw error propagation in an earlier session; the same thing happens when you read a paper through a hallucinating summarizer.
+If you let an AI summarize a paper before you've read it, the AI has already decided what matters. You become a reader of the AI, not a reader of the paper. Your brief will end up vague and your citations will drift. We talked tonight about how errors propagate through API connections; the same thing happens when you read a paper through a hallucinating summarizer — the upstream error becomes your downstream understanding without your noticing.
 
 ## What to do before Session 9
 

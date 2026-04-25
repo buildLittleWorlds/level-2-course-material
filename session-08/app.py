@@ -1,80 +1,133 @@
+"""
+Session 8 demo: Bias Lens — Headline Edition.
+
+A free-tier Gradio Space that connects to Google's Gemini via an API key
+stored in Hugging Face Secrets. The user pastes a news headline; the Space
+sends it to Gemini with a structured prompt and asks for a JSON response.
+
+The point of the demo is to show two things at once:
+  1. How a free-tier Space gets real LLM power by connecting via API.
+  2. Where that connection breaks — when the upstream model returns
+     something that doesn't match the JSON contract, the parser fails
+     and the downstream fields go empty.
+
+Set GEMINI_API_KEY as a Secret in your Space's Settings tab.
+"""
+
+import json
+import os
+
+import google.generativeai as genai
 import gradio as gr
-from transformers import pipeline, BlipProcessor, BlipForConditionalGeneration
-from PIL import Image
 
-# Load BLIP captioning model (~1GB)
-print("Loading BLIP captioning model (this takes a moment)...")
-processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
-caption_model = BlipForConditionalGeneration.from_pretrained(
-    "Salesforce/blip-image-captioning-base"
-)
-print("BLIP loaded!")
-
-# Load emotion model (~330MB)
-print("Loading emotion model...")
-emotion = pipeline(
-    "text-classification",
-    model="j-hartmann/emotion-english-distilroberta-base",
-    top_k=1,
-)
-print("All models loaded!")
-
-def analyze_image(image):
-    if image is None:
-        return "Upload an image first!", "", ""
-
-    # Step 1: Generate caption
-    inputs = processor(image, return_tensors="pt")
-    out = caption_model.generate(**inputs, max_length=50)
-    caption = processor.decode(out[0], skip_special_tokens=True)
-
-    # Step 2: Analyze caption emotion
-    result = emotion(caption)[0][0]
-    emotion_text = f"{result['label']} ({result['score']:.1%} confidence)"
-
-    # Step 3: Show the full pipeline
-    pipeline_view = (
-        f"IMAGE\n"
-        f"  -> Model 1 (BLIP captioner): \"{caption}\"\n"
-        f"  -> Model 2 (emotion): {result['label']} ({result['score']:.1%})"
+api_key = os.environ.get("GEMINI_API_KEY")
+if not api_key:
+    raise RuntimeError(
+        "GEMINI_API_KEY not set. Add it as a Secret in your Space's "
+        "Settings → Variables and secrets tab."
     )
 
-    return caption, emotion_text, pipeline_view
+genai.configure(api_key=api_key)
+model = genai.GenerativeModel("gemini-1.5-flash")
 
-with gr.Blocks(title="Image Story Pipeline") as demo:
+PROMPT_TEMPLATE = """You are a media analyst. Rate the political bias of this news
+headline on a scale from -5 (strong left-leaning framing) to +5 (strong right-leaning
+framing), where 0 is neutral. Return ONLY a JSON object with these keys:
+  - "score": integer from -5 to 5
+  - "label": one of "left", "left-leaning", "neutral", "right-leaning", "right"
+  - "rationale": one sentence explaining your reasoning
+
+Headline: {headline}
+
+Return only the JSON. No prose, no markdown fences."""
+
+
+def analyze(headline):
+    if not headline or not headline.strip():
+        return "", "", "", "", "Status: waiting for input"
+
+    prompt = PROMPT_TEMPLATE.format(headline=headline.strip())
+
+    try:
+        raw = model.generate_content(prompt).text
+    except Exception as e:
+        return "", "", "", "", f"Status: API call failed — {type(e).__name__}: {e}"
+
+    try:
+        data = json.loads(raw)
+    except json.JSONDecodeError:
+        return (
+            "",
+            "",
+            "",
+            raw,
+            "Status: PARSE FAILED — the contract between models broke",
+        )
+
+    return (
+        str(data.get("score", "?")),
+        data.get("label", "?"),
+        data.get("rationale", ""),
+        raw,
+        "Status: clean JSON received",
+    )
+
+
+with gr.Blocks(title="Bias Lens — Headline Edition") as demo:
     gr.Markdown(
-        "# Image Story Pipeline\n"
-        "Upload an image. Model 1 describes it in words. Model 2 reads those "
-        "words and detects the emotion. Two models, connected — the output of the "
-        "first becomes the input of the second."
+        "# Bias Lens — Headline Edition\n"
+        "Paste a news headline. This Space sends it to Google's Gemini model "
+        "(running on Google's servers, not yours) and asks for a structured "
+        "bias score. **The Space itself runs on free CPU; the heavy thinking "
+        "happens upstream.**"
     )
 
     with gr.Row():
         with gr.Column():
-            image_input = gr.Image(type="pil", label="Upload an Image")
+            headline_input = gr.Textbox(
+                label="News headline",
+                placeholder="Paste a headline here...",
+                lines=2,
+            )
             btn = gr.Button("Analyze", variant="primary")
+            status_output = gr.Textbox(label="Status", interactive=False)
         with gr.Column():
-            caption_output = gr.Textbox(
-                label="Step 1: Caption (BLIP)", interactive=False
+            score_output = gr.Textbox(
+                label="Bias score (-5 to +5)", interactive=False
             )
-            emotion_output = gr.Textbox(
-                label="Step 2: Emotion of Caption", interactive=False
+            label_output = gr.Textbox(label="Bias label", interactive=False)
+            rationale_output = gr.Textbox(
+                label="One-sentence rationale", interactive=False, lines=2
             )
-            pipeline_output = gr.Textbox(
-                label="Full Pipeline View", lines=4, interactive=False
+            raw_output = gr.Textbox(
+                label="Raw response from Gemini",
+                interactive=False,
+                lines=5,
             )
 
     btn.click(
-        fn=analyze_image,
-        inputs=image_input,
-        outputs=[caption_output, emotion_output, pipeline_output],
+        fn=analyze,
+        inputs=headline_input,
+        outputs=[
+            score_output,
+            label_output,
+            rationale_output,
+            raw_output,
+            status_output,
+        ],
     )
 
     gr.Markdown(
-        "### How to break it\n"
-        "Try uploading images that are hard to describe — abstract art, memes, "
-        "dark photos. If Model 1 gets the caption wrong, Model 2's analysis is "
-        "meaningless. That's an **error cascade**."
+        "### How to break the contract on purpose\n"
+        "Try a headline that is sarcastic, very long, in another language, "
+        "or that asks Gemini a question. Sometimes the model returns prose "
+        "or wraps the JSON in a markdown fence. When that happens, the "
+        "score / label / rationale boxes go empty and the raw response "
+        "shows what actually came back.\n\n"
+        "That gap — where the upstream model said one thing and the "
+        "downstream code expected another — is **the contract**. When two "
+        "models connect through an API, the contract is where errors live."
     )
+
 
 demo.launch()

@@ -2,7 +2,7 @@
 
 ## What This Session Covers
 
-Session 8 had two halves: models meeting models in a technical pipeline (BLIP → sentiment), and you meeting your audience through your GitHub and Hugging Face profiles. Both halves were versions of the same question — *how do the pieces fit?*
+Session 8 had two halves: models meeting models through an API connection (Gradio → Gemini), and you meeting your audience through your GitHub and Hugging Face profiles. Both halves were versions of the same question — *how do the pieces fit?*
 
 Session 9 picks up the same question at a third scale: **how does a technical model fit the actual human who's going to use it?** The model is yours, the audience is real, and the fit is what turns a demo into a tool someone wants to use. The hands-on exercise is a redesign: take a sentiment analysis demo and rebuild the experience around one specific human — a restaurant owner reading reviews, a teacher reading student feedback, a journal-keeper tracking mood — without changing the underlying model at all. The original concept here, *Prompt Logic and Human-AI Interaction*, is exactly this work: prompt engineering and interface design are the layers between a model's raw output and a human's actual use.
 

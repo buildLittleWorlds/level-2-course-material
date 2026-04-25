@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Session 8: From Single Models to Systems</title>
+<title>Session 8: Connecting Models via API</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/night.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/monokai.min.css">
@@ -104,8 +104,8 @@
 
 <!-- ========== TITLE ========== -->
 <section class="center-slide" data-background-gradient="linear-gradient(135deg, #0f172a, #1e293b)">
-  <h1 style="font-size:2.5em;">From Single Models to Systems</h1>
-  <p style="font-size:1.2em; opacity:0.8; margin-top:0.3em;"><em>"Chain Two Models Together"</em></p>
+  <h1 style="font-size:2.5em;">Connecting Models via API</h1>
+  <p style="font-size:1.2em; opacity:0.8; margin-top:0.3em;"><em>"Your free Space borrows real power"</em></p>
   <h3 style="color:#fbbf24;">Session 8</h3>
   <p style="margin-top:1.5em; color:#94a3b8;">Act II &middot; The Breakthrough</p>
 </section>
@@ -114,13 +114,13 @@
 <section>
   <h2>Tonight's Goal</h2>
   <p style="font-size:1.2em; text-align:center; margin:1em 0;">
-    Image in, caption out, mood judged.<br>
-    <span class="highlight-yellow">Two models, one pipeline.</span>
+    Headline in, structured bias score out.<br>
+    <span class="highlight-yellow">A free Space asking a hosted model to do the thinking.</span>
   </p>
   <div class="concept-box">
-    Image Story Pipeline
+    Bias Lens &mdash; Headline Edition
   </div>
-  <p style="text-align:center; color:#9ca3af;">Upload a photo &rarr; AI describes it &rarr; AI judges the mood</p>
+  <p style="text-align:center; color:#9ca3af;">Paste a headline &rarr; your Space sends it to Gemini &rarr; Gemini returns JSON &rarr; you display it</p>
 </section>
 
 <!-- ========== SHOW AND TELL ========== -->
@@ -150,7 +150,7 @@
     <strong class="highlight-pink">Session 7:</strong> The cost &mdash; bias. Train on everything = train on every unfairness in the data.
   </div>
   <div class="observation-card fragment">
-    <strong class="highlight-yellow">Tonight:</strong> The final piece. What happens when you connect a biased model to a second model? Errors don't stay contained &mdash; they cascade.
+    <strong class="highlight-yellow">Tonight:</strong> The piece that makes a free Space useful. You can't run a serious model on free CPU &mdash; but you can <em>call</em> one. Two models, one connection, one contract that can break.
   </div>
 </section>
 
@@ -158,11 +158,11 @@
 <section>
   <h2>SpaceCraft Check-In</h2>
   <div class="observation-card">
-    I found a Space that <strong>chains multiple models</strong> together.
+    I found a Space that <strong>calls a hosted model through an API</strong>.
   </div>
-  <p style="margin-top:0.8em;">It runs detection, then tracking, then annotation. <span class="highlight-yellow">Three models in a pipeline.</span></p>
-  <p class="fragment" style="margin-top:0.8em;">If the detector misses something, the tracker can't track it, and the annotation is wrong.</p>
-  <p class="fragment" style="color:#fbbf24;">That's <strong>error propagation</strong> &mdash; and it's what we're building tonight.</p>
+  <p style="margin-top:0.8em;">It runs on free CPU but reaches out to a much larger model running on someone else's servers. <span class="highlight-yellow">Two models, one network call.</span></p>
+  <p class="fragment" style="margin-top:0.8em;">If the hosted model returns something the Space wasn't expecting, the Space breaks &mdash; even though the model itself worked fine.</p>
+  <p class="fragment" style="color:#fbbf24;">That's <strong>API connection</strong> &mdash; and it's what we're building tonight.</p>
 </section>
 
 <!-- ========== BIG QUESTION ========== -->
@@ -170,76 +170,79 @@
   <section class="center-slide">
     <h2>Big Question</h2>
     <p style="font-size:1.4em; color:#fbbf24; margin-top:1em;">
-      Can you read emotion<br>from a photograph?
+      How does a free Space<br>do real research work?
     </p>
   </section>
 
   <section>
-    <h2>What Is This Person Feeling?</h2>
+    <h2>The Compute Problem</h2>
     <div class="try-it">
-      Show a photo of someone smiling.
+      A serious LLM is dozens of gigabytes. Free Hugging Face CPU is small.
     </div>
-    <p class="fragment" style="margin-top:0.8em;">Happy. Obviously.</p>
+    <p class="fragment" style="margin-top:0.8em;">You can't fit Gemini, GPT-4, or Claude inside your Space.</p>
     <div class="observation-card fragment" style="margin-top:0.8em;">
-      But think about the last selfie you posted. Did it show how you <em>actually</em> felt?
+      But you don't have to. You can <em>call</em> one over the network.
     </div>
   </section>
 
   <section>
     <h2>The Deeper Question</h2>
     <div class="observation-card">
-      A smile might mean happy. Or polite. Or performing. Or masking something else entirely.
+      When your Space connects to a hosted model, your tool depends on a <strong>contract</strong> &mdash; what you send, what you expect back.
     </div>
-    <p style="margin-top:0.8em;">A photograph is <span class="highlight-pink">one frozen instant</span> out of a life.</p>
-    <p class="fragment" style="margin-top:0.5em;">If we chain a captioning model to an emotion model, the caption becomes the <em>only thing</em> the emotion model knows about the image.</p>
-    <p class="fragment" style="margin-top:0.5em; color:#9ca3af;">If the caption says "a person smiling," the emotion model says JOY. But is a smile always joy?</p>
+    <p style="margin-top:0.8em;">Contracts are <span class="highlight-pink">honored most of the time</span>.</p>
+    <p class="fragment" style="margin-top:0.5em;">When they break &mdash; the model returns prose instead of JSON, or hallucinates a result, or hits a rate limit &mdash; your downstream code has nowhere to hide.</p>
+    <p class="fragment" style="margin-top:0.5em; color:#9ca3af;">Tonight you'll see what that looks like.</p>
   </section>
 </section>
 
 <!-- ========== DEMO ========== -->
 <section>
   <section>
-    <h2>Demo: Image Story Pipeline</h2>
+    <h2>Demo: Bias Lens</h2>
     <p>Let's try the finished version.</p>
     <div class="try-it" style="margin-top:1em;">
-      <strong>Upload 1:</strong> A clear, easy photo &mdash; dog in a park, a plate of food
+      <strong>Try 1:</strong> A clear, easy headline &mdash; a major news story everyone has heard about
     </div>
     <p class="fragment" style="margin-top:0.8em;">
       Two models just worked together.<br>
-      <span class="highlight-blue">Model 1</span> looked at the picture and wrote a sentence.<br>
-      <span class="highlight-green">Model 2</span> read that sentence and told us the mood.<br>
-      <span class="highlight-pink">Neither model knows the other exists.</span>
+      <span class="highlight-blue">Model 1</span> (your Space) packaged the headline into a structured prompt.<br>
+      <span class="highlight-green">Model 2</span> (Gemini, on Google's servers) returned a JSON object.<br>
+      <span class="highlight-pink">Your Space parsed it and displayed the score.</span>
     </p>
   </section>
 
   <section>
     <h2>Now Break It</h2>
     <div class="try-it">
-      <strong>Upload 2:</strong> Something ambiguous &mdash; abstract art, a blurry photo, a meme
+      <strong>Try 2:</strong> Something that confuses the contract &mdash; a sarcastic headline, a question, a long compound sentence
     </div>
     <p class="fragment" style="margin-top:0.8em;">
-      The caption is off. And the emotion model is analyzing<br>
-      <span class="highlight-pink">a wrong description</span>.
+      Sometimes Gemini returns prose <em>describing</em> the JSON instead of <em>being</em> JSON.<br>
+      Sometimes it wraps the JSON in a markdown fence.<br>
+      <span class="highlight-pink">Your parser doesn't care why &mdash; it just fails.</span>
     </p>
     <p class="fragment" style="color:#fbbf24; font-size:1.1em; margin-top:0.5em;">
-      If the first model is wrong, everything after it is wrong too.
+      The model upstream did its job. The contract between you broke.
     </p>
   </section>
 </section>
 
 <!-- ========== PIPELINE DIAGRAM ========== -->
 <section class="center-slide">
-  <h2>The Pipeline</h2>
-  <div class="concept-box" style="font-size:1.2em;">
-    <span class="highlight-blue">IMAGE</span>
+  <h2>The Connection</h2>
+  <div class="concept-box" style="font-size:1.05em;">
+    <span class="highlight-blue">HEADLINE</span>
     <span class="arrow"> &rarr; </span>
-    <span class="highlight-yellow">BLIP</span>
+    <span class="highlight-yellow">YOUR SPACE</span>
     <span class="arrow"> &rarr; </span>
-    <span class="highlight-green">CAPTION</span>
+    <span class="highlight-green">API CALL</span>
     <span class="arrow"> &rarr; </span>
-    <span class="highlight-yellow">DistilBERT</span>
+    <span class="highlight-yellow">GEMINI</span>
     <span class="arrow"> &rarr; </span>
-    <span class="highlight-pink">EMOTION</span>
+    <span class="highlight-pink">JSON</span>
+    <span class="arrow"> &rarr; </span>
+    <span class="highlight-blue">DISPLAY</span>
   </div>
   <p class="fragment" style="margin-top:1em; font-size:0.95em;">
     What could go wrong at <em>each</em> arrow?
@@ -250,167 +253,178 @@
 <section>
   <section>
     <h2>The Code: Imports</h2>
-    <pre><code class="language-python">import gradio as gr
-from transformers import pipeline, BlipProcessor, BlipForConditionalGeneration
-from PIL import Image</code></pre>
+    <pre><code class="language-python">import json
+import os
+
+import google.generativeai as genai
+import gradio as gr</code></pre>
     <div class="two-col" style="margin-top:0.8em;">
-      <div class="card"><code class="highlight-yellow">BlipProcessor</code><br>Converts images to numbers the model understands</div>
-      <div class="card"><code class="highlight-blue">BlipForConditionalGeneration</code><br>The captioning model itself</div>
+      <div class="card"><code class="highlight-yellow">google.generativeai</code><br>Google's Python client for the Gemini API</div>
+      <div class="card"><code class="highlight-blue">os</code><br>Lets us read the API key from the Space's environment</div>
     </div>
-    <div class="card" style="width:fit-content;"><code class="highlight-green">PIL</code><br>Python Imaging Library &mdash; handles image files</div>
+    <div class="card" style="width:fit-content;"><code class="highlight-green">json</code><br>For parsing Gemini's structured response</div>
   </section>
 
   <section>
-    <h2>The Code: Load Two Models</h2>
-    <pre><code class="language-python">processor = BlipProcessor.from_pretrained(
-    "Salesforce/blip-image-captioning-base")
-caption_model = BlipForConditionalGeneration.from_pretrained(
-    "Salesforce/blip-image-captioning-base")
-
-emotion = pipeline("text-classification",
-    model="j-hartmann/emotion-english-distilroberta-base",
-    top_k=1)</code></pre>
-    <p style="margin-top:0.8em;">
-      <span class="highlight-yellow">BLIP</span> is ~1GB &mdash; that's why this Space takes a while to start.<br>
-      <span class="highlight-blue">Emotion detector</span> classifies text into 7 emotions (anger, joy, surprise&hellip;).
-    </p>
-  </section>
-
-  <section>
-    <h2>The Code: Step 1 &mdash; Caption</h2>
-    <pre><code class="language-python">def analyze_image(image):
-    if image is None:
-        return "Upload an image first!", "", ""
-
-    # Step 1: Generate caption
-    inputs = processor(image, return_tensors="pt")
-    out = caption_model.generate(**inputs, max_length=50)
-    caption = processor.decode(out[0], skip_special_tokens=True)</code></pre>
-    <p style="margin-top:0.8em;">
-      Image goes in as pixels.<br>
-      Processor converts to numbers. Model generates words.<br>
-      <span class="highlight-green">Three lines, but a lot happening.</span>
-    </p>
-  </section>
-
-  <section>
-    <h2>The Code: Step 2 &mdash; Emotion</h2>
-    <pre><code class="language-python">    # Step 2: Analyze caption emotion
-    result = emotion(caption)[0][0]
-    emotion_text = f"{result['label']} ({result['score']:.1%} confidence)"
-
-    # Step 3: Show the pipeline
-    pipeline_view = (
-        f"IMAGE\n"
-        f"  -> Model 1 (BLIP captioner): \"{caption}\"\n"
-        f"  -> Model 2 (emotion): {result['label']} ({result['score']:.1%})"
+    <h2>The Code: Configure with the Secret</h2>
+    <pre><code class="language-python">api_key = os.environ.get("GEMINI_API_KEY")
+if not api_key:
+    raise RuntimeError(
+        "GEMINI_API_KEY not set. Add it as a Secret in your "
+        "Space's Settings tab."
     )
-    return caption, emotion_text, pipeline_view</code></pre>
+
+genai.configure(api_key=api_key)
+model = genai.GenerativeModel("gemini-1.5-flash")</code></pre>
     <p style="margin-top:0.8em;">
-      The caption &mdash; a string of text &mdash; goes into the emotion model.<br>
-      <span class="highlight-yellow">Output of Model 1 becomes input of Model 2.</span>
+      The key lives in <span class="highlight-yellow">HF Secrets</span>, not in your code.<br>
+      Public source code &ne; public credentials.
     </p>
   </section>
 
   <section>
-    <h2>The Code: Blocks Layout</h2>
-    <pre><code class="language-python">with gr.Blocks(title="Image Story Pipeline") as demo:
-    gr.Markdown("# Image Story Pipeline\n...")
+    <h2>The Code: The Prompt Contract</h2>
+    <pre><code class="language-python">PROMPT_TEMPLATE = """You are a media analyst. Rate the political
+bias of this news headline on a scale from -5 (strong left-leaning
+framing) to +5 (strong right-leaning framing), where 0 is neutral.
+Return ONLY a JSON object with these keys:
+  - "score": integer from -5 to 5
+  - "label": one of "left", "left-leaning", "neutral",
+             "right-leaning", "right"
+  - "rationale": one sentence
+
+Headline: {headline}
+
+Return only the JSON. No prose, no markdown fences."""</code></pre>
+    <p style="margin-top:0.8em;">
+      The prompt <em>is</em> the contract.<br>
+      <span class="highlight-yellow">When the model honors it, your code works. When it doesn't, your code breaks.</span>
+    </p>
+  </section>
+
+  <section>
+    <h2>The Code: Call &amp; Parse</h2>
+    <pre><code class="language-python">def analyze(headline):
+    if not headline.strip():
+        return "", "", "", "", "Status: waiting for input"
+
+    prompt = PROMPT_TEMPLATE.format(headline=headline.strip())
+    raw = model.generate_content(prompt).text
+
+    try:
+        data = json.loads(raw)
+    except json.JSONDecodeError:
+        return ("", "", "", raw,
+                "Status: PARSE FAILED &mdash; the contract broke")
+
+    return (str(data["score"]), data["label"],
+            data["rationale"], raw, "Status: clean JSON received")</code></pre>
+    <p style="margin-top:0.8em;">
+      <span class="highlight-yellow">Output of Model 1</span> (Gemini's text) <span class="highlight-yellow">becomes input of Model 2</span> (your parser).
+    </p>
+  </section>
+
+  <section>
+    <h2>The Code: Gradio Layout</h2>
+    <pre><code class="language-python">with gr.Blocks(title="Bias Lens") as demo:
+    gr.Markdown("# Bias Lens &mdash; Headline Edition\n...")
     with gr.Row():
         with gr.Column():
-            image_input = gr.Image(type="pil", label="Upload an Image")
+            headline_input = gr.Textbox(label="News headline")
             btn = gr.Button("Analyze", variant="primary")
+            status_output = gr.Textbox(label="Status")
         with gr.Column():
-            caption_output = gr.Textbox(label="Step 1: Caption (BLIP)")
-            emotion_output = gr.Textbox(label="Step 2: Emotion of Caption")
-            pipeline_output = gr.Textbox(label="Full Pipeline View", lines=4)
+            score_output = gr.Textbox(label="Bias score")
+            label_output = gr.Textbox(label="Bias label")
+            rationale_output = gr.Textbox(label="Rationale")
+            raw_output = gr.Textbox(label="Raw response")
 
-    btn.click(fn=analyze_image, inputs=image_input,
-              outputs=[caption_output, emotion_output, pipeline_output])</code></pre>
-    <p><code>gr.Image(type="pil")</code> gives BLIP the image format it expects.</p>
+    btn.click(fn=analyze, inputs=headline_input,
+              outputs=[score_output, label_output,
+                       rationale_output, raw_output, status_output])</code></pre>
+    <p>The <code class="highlight-yellow">raw_output</code> box is on purpose &mdash; it makes the contract break visible.</p>
   </section>
 
   <section>
     <h2>requirements.txt</h2>
-    <pre><code>transformers
-torch
-gradio
-Pillow</code></pre>
-    <p>New this time: <code class="highlight-yellow">Pillow</code>.<br>
-    Without it, the Space can't read image files.</p>
+    <pre><code>gradio
+google-generativeai</code></pre>
+    <p>Two lines.<br>
+    No <code>transformers</code>, no <code>torch</code>, no model download.<br>
+    <span class="highlight-yellow">The big model lives upstream.</span></p>
   </section>
 </section>
 
 <!-- ========== TEST ========== -->
 <section>
-  <h2>Test with Different Images</h2>
-  <div class="card"><span class="emoji-label">&#x1F436;</span> <strong>Happy scene</strong> &mdash; dog, birthday party <span class="small">(baseline)</span></div>
-  <div class="card"><span class="emoji-label">&#x1F327;</span> <strong>Somber scene</strong> &mdash; rain, empty room <span class="small">(negative caption?)</span></div>
-  <div class="card"><span class="emoji-label">&#x1F611;</span> <strong>Ambiguous</strong> &mdash; person with neutral expression <span class="small">(caption guesses wrong?)</span></div>
-  <div class="card"><span class="emoji-label">&#x1F3A8;</span> <strong>Abstract art</strong> &mdash; BLIP wasn't trained on this <span class="small">(outside its world)</span></div>
-  <div class="card"><span class="emoji-label">&#x1F4AC;</span> <strong>Image with text</strong> &mdash; meme, sign <span class="small">(BLIP may ignore text)</span></div>
+  <h2>Test with Different Headlines</h2>
+  <div class="card"><span class="emoji-label">&#x1F4F0;</span> <strong>Plain news</strong> &mdash; major event everyone's heard about <span class="small">(baseline)</span></div>
+  <div class="card"><span class="emoji-label">&#x1F914;</span> <strong>Loaded language</strong> &mdash; clearly slanted phrasing <span class="small">(strong score?)</span></div>
+  <div class="card"><span class="emoji-label">&#x1F644;</span> <strong>Sarcastic</strong> &mdash; says one thing, means another <span class="small">(model misreads tone?)</span></div>
+  <div class="card"><span class="emoji-label">&#x1F30D;</span> <strong>Non-English</strong> &mdash; another language entirely <span class="small">(does the model still cooperate?)</span></div>
+  <div class="card"><span class="emoji-label">&#x1F4DD;</span> <strong>Long compound</strong> &mdash; a question, an aside, two clauses <span class="small">(JSON contract holds?)</span></div>
   <div class="observation-card fragment">
-    For each: Is the caption accurate? Does the emotion make sense <em>given that caption</em>?
+    For each: Did the JSON parse cleanly? Does the score make sense <em>given the rationale</em>?
   </div>
 </section>
 
-<!-- ========== ERROR CASCADE ========== -->
+<!-- ========== CONTRACT BREAK ========== -->
 <section>
   <section>
-    <h2>Error Cascade</h2>
-    <p>Find an image where <span class="highlight-blue">the captioner is wrong</span>.</p>
+    <h2>When the Contract Breaks</h2>
+    <p>Find a headline where <span class="highlight-blue">Gemini doesn't return clean JSON</span>.</p>
     <div class="observation-card">
-      <strong>1.</strong> What does this image <em>actually</em> show?
+      <strong>1.</strong> What did the headline ask for?
     </div>
     <div class="observation-card fragment">
-      <strong>2.</strong> What did BLIP <em>say</em>? Is that right?
+      <strong>2.</strong> What did Gemini <em>actually</em> return? (See the raw box.)
     </div>
     <div class="observation-card fragment">
-      <strong>3.</strong> The emotion model says JOY. But is the image joyful?
+      <strong>3.</strong> The score / label / rationale fields are empty. Why?
     </div>
     <p class="fragment" style="margin-top:0.8em; color:#f472b6; font-size:1.1em;">
-      The emotion model <strong>never saw the image</strong>.<br>It only read the caption.
+      The model's <strong>response was real</strong>.<br>It just didn't match the shape your code expected.
     </p>
   </section>
 
   <section class="center-slide">
-    <h2>Where the Error Starts</h2>
+    <h2>Where the Error Lives</h2>
     <div class="concept-box" style="font-size:1.1em; text-align:left; padding:1.2em 1.5em;">
-      <span class="highlight-blue">Wrong image description</span>
+      <span class="highlight-blue">Upstream model returns unexpected shape</span>
       <span class="arrow"> &rarr; </span>
-      <span class="highlight-pink">Wrong emotion</span><br><br>
+      <span class="highlight-pink">Downstream parser fails</span><br><br>
       <span class="small" style="font-size:0.65em;">
-        &uarr; Error starts here &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &uarr; Error cascades here
+        &uarr; Source of the error &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &uarr; Where it shows up
       </span>
     </div>
     <p class="fragment" style="margin-top:1em;">
-      The emotion model <span class="highlight-green">did its job perfectly</span>.<br>
-      The error started <span class="highlight-yellow">upstream</span>.
+      Your parser <span class="highlight-green">did its job perfectly</span>.<br>
+      The error came from <span class="highlight-yellow">upstream</span>.
     </p>
   </section>
 </section>
 
 <!-- ========== REAL-WORLD EXAMPLES ========== -->
 <section>
-  <h2>Pipelines in the Real World</h2>
+  <h2>API Connections in the Real World</h2>
   <div class="card">
-    <span class="emoji-label">&#x1F697;</span>
-    <strong>Self-driving cars</strong><br>
-    Detect objects &rarr; predict paths &rarr; decide to brake<br>
-    <span class="small">Where's the most dangerous place for an error?</span>
-  </div>
-  <div class="card fragment">
     <span class="emoji-label">&#x1F4AC;</span>
-    <strong>ChatGPT</strong><br>
-    Retrieve info &rarr; reason about it &rarr; generate response<br>
-    <span class="small">If it retrieves wrong info, does the reasoning fix it?</span>
+    <strong>ChatGPT plugins</strong><br>
+    Your prompt &rarr; tool API call &rarr; structured response &rarr; final answer<br>
+    <span class="small">If the tool returns garbage, the answer confidently repeats it.</span>
   </div>
   <div class="card fragment">
-    <span class="emoji-label">&#x1F3A4;</span>
-    <strong>Siri / Alexa</strong><br>
-    Speech-to-text &rarr; understand intent &rarr; generate reply<br>
-    <span class="small">Misheard words cascade through every step.</span>
+    <span class="emoji-label">&#x1F4F1;</span>
+    <strong>Apps using OpenAI / Claude / Gemini</strong><br>
+    Almost every "AI feature" you see is an API call to a hosted model<br>
+    <span class="small">The app's job is mostly prompt construction and response parsing.</span>
+  </div>
+  <div class="card fragment">
+    <span class="emoji-label">&#x1F3E5;</span>
+    <strong>Medical AI tools</strong><br>
+    Symptom input &rarr; LLM API &rarr; JSON of conditions &rarr; UI<br>
+    <span class="small">When the JSON contract breaks, downstream displays fail or mislead.</span>
   </div>
 </section>
 
@@ -418,21 +432,21 @@ Pillow</code></pre>
 <section class="center-slide">
   <h2>Name the Concept</h2>
   <div class="concept-box" style="font-size:1.1em;">
-    MULTI-MODEL SYSTEMS<br>AND ERROR CASCADES
+    CONNECTING MODELS<br>VIA API
   </div>
   <div style="margin-top:1em; text-align:left; max-width:800px; margin-left:auto; margin-right:auto;">
     <div class="card fragment">
-      <span class="highlight-yellow">MODEL 1</span> output
+      <span class="highlight-yellow">YOUR CODE</span> sends a request
       <span class="arrow"> &rarr; </span>
-      <span class="highlight-blue">MODEL 2</span> input
+      <span class="highlight-blue">HOSTED MODEL</span> returns a response
     </div>
     <div class="card fragment">
-      If Step 1 is wrong, Step 2 is wrong.<br>
-      <span class="small">Garbage in, garbage out &mdash; at every step.</span>
+      The shape of the request and response is the <strong>contract</strong>.<br>
+      <span class="small">When the contract breaks, your tool breaks &mdash; even when both models work.</span>
     </div>
     <div class="card fragment">
-      Every AI product you use is a pipeline like this.<br>
-      <span class="small">ChatGPT's content filter, Midjourney's safety classifier, Siri's speech chain &mdash; all pipelines.</span>
+      Most "AI products" are this pattern.<br>
+      <span class="small">A small app + a hosted model + a contract between them.</span>
     </div>
   </div>
 </section>
@@ -441,17 +455,16 @@ Pillow</code></pre>
 <section>
   <h2>Research Lens</h2>
   <div class="observation-card" style="font-size:1.05em;">
-    We built a <strong class="highlight-yellow">pipeline</strong> and studied <strong class="highlight-blue">error propagation</strong> &mdash; when one component fails, does the whole system fail?
+    We built an <strong class="highlight-yellow">API connection</strong> and studied <strong class="highlight-blue">contract failure</strong> &mdash; when the upstream model returns an unexpected shape, what happens downstream?
   </div>
   <p class="fragment" style="margin-top:1em;">
-    We deliberately broke stage 1 and traced the error forward. That's <strong>systems testing</strong>.
+    We deliberately broke the contract and traced the error forward. That's <strong>systems testing</strong>.
   </p>
   <div class="fragment card" style="margin-top:0.8em;">
-    <strong>Research question:</strong> <em>How do errors cascade in a multi-model system?</em>
+    <strong>Research question:</strong> <em>Where does my project depend on a model I don't control, and what happens when the contract breaks?</em>
   </div>
   <p class="fragment" style="margin-top:0.8em; color:#9ca3af;">
-    In class we applied <span class="highlight-yellow">error propagation analysis</span> to our pipeline.<br>
-    For homework, think about chaining models from <span class="highlight-green">your own Collection</span>.
+    For your <span class="highlight-yellow">paper's limitations section</span>: name the upstream model, name the contract, name what could go wrong.
   </p>
 </section>
 
@@ -459,25 +472,25 @@ Pillow</code></pre>
 <section>
   <h2>Vocabulary</h2>
   <div class="card">
-    <span class="vocab-term">Pipeline</span> &mdash; connecting models so the output of one feeds the input of the next
+    <span class="vocab-term">API</span> &mdash; a clearly-defined channel for one piece of code to ask another piece of code to do something
   </div>
   <div class="card">
-    <span class="vocab-term">Error cascade</span> &mdash; when one model's mistake causes every model after it to be wrong
+    <span class="vocab-term">Secret</span> &mdash; a credential (like an API key) stored separately from your code so it isn't visible in public source
   </div>
   <div class="card">
-    <span class="vocab-term">Error propagation</span> &mdash; how mistakes travel through connected components in a system
+    <span class="vocab-term">JSON contract</span> &mdash; the agreed shape of a structured response; when it breaks, the parser fails
   </div>
   <div class="card">
-    <span class="vocab-term">Caption</span> &mdash; a text description of an image, generated by a vision model
+    <span class="vocab-term">Rate limit</span> &mdash; the cap on how many requests you can send per minute or day
   </div>
   <div class="card">
-    <span class="vocab-term">BLIP</span> &mdash; Bootstrapping Language-Image Pre-training, the captioning model
+    <span class="vocab-term">Hallucination as upstream error</span> &mdash; a confident-sounding wrong answer your code can't detect
   </div>
   <div class="card">
-    <span class="vocab-term">Pillow</span> &mdash; Python library for working with image files
+    <span class="vocab-term">Garbage in, garbage out</span> &mdash; if any link in the chain is wrong, everything after it is wrong
   </div>
   <div class="card">
-    <span class="vocab-term">Cold start</span> &mdash; the delay when a model loads for the first time
+    <span class="vocab-term">Cold start</span> &mdash; the delay when a Space wakes up and reconnects to its API
   </div>
 </section>
 
@@ -490,11 +503,11 @@ Pillow</code></pre>
   </div>
   <div class="card" style="margin-top:0.8em;">
     <strong>1.</strong> Click the link &rarr; it opens in Google Colab<br>
-    <strong>2.</strong> Hit the <span class="highlight-yellow">play button &#9654;</span> on the first cell<br>
-    <strong>3.</strong> Run the setup cell, then try the experiments
+    <strong>2.</strong> Get a free Gemini API key from <span class="highlight-yellow">aistudio.google.com</span><br>
+    <strong>3.</strong> Paste it into the setup cell, then try the experiments
   </div>
   <div class="card" style="margin-top:0.5em;">
-    <strong>New skill:</strong> You'll upload images directly in Colab!
+    <strong>New skill:</strong> Calling a hosted model from your own code!
   </div>
   <p class="small" style="margin-top:0.8em;">Finish the experiments on your own before next week</p>
 </section>
@@ -505,36 +518,36 @@ Pillow</code></pre>
     <h2>Between Sessions</h2>
     <p>Three parts this week. Plan for <span class="highlight-yellow">1&ndash;2 hours</span>.</p>
     <div class="card" style="margin-top:0.8em;">
-      <strong class="highlight-green">Part 1: Hub Challenge</strong> &mdash; Chain two models / break the pipeline<br>
-      <strong class="highlight-blue">Part 2: Research Journal</strong> &mdash; Week 8 entry in <code>research-journal.md</code><br>
-      <strong class="highlight-pink">Part 3: Collection + GitHub</strong> &mdash; Grow your Collection, upload notebook
+      <strong class="highlight-green">Part 1: Public Presentation</strong> &mdash; Hugging Face profile, Spaces, Collection, GitHub README<br>
+      <strong class="highlight-blue">Part 2: Anchor + Voice</strong> &mdash; one real test in <code>PAPER.md</code>, one paragraph in your voice<br>
+      <strong class="highlight-pink">Part 3: Limitations + Journal</strong> &mdash; name your upstream dependencies, write Week 8
     </div>
   </section>
 
   <section>
-    <h2>Part 1: Chain Two Models</h2>
+    <h2>Part 1: Make It Public</h2>
     <div class="two-col">
       <div class="card">
-        <strong class="highlight-yellow">Option A: Image Pipeline</strong><br>
-        Upload 5 different images to the pipeline. Find the best error cascade &mdash; where the caption is wrong AND leads to a wrong emotion. Can you find a case where the caption is wrong but the emotion is accidentally right?
+        <strong class="highlight-yellow">Hugging Face side</strong><br>
+        Three Spaces you can stand behind. Titles and descriptions in your own voice. A Collection curated around your research topic. Username matched to your GitHub.
       </div>
       <div class="card">
-        <strong class="highlight-green">Option B: Your Topic</strong><br>
-        Think about two models from your Collection that could be chained. What would Model 1 output? What would Model 2 do with it? Where could errors travel?
+        <strong class="highlight-green">GitHub side</strong><br>
+        Your <code>github.com/&lt;username&gt;</code> README v1: research areas, paper-in-progress, Spaces, HF profile, &ldquo;what I'm building now.&rdquo;
       </div>
     </div>
     <div class="observation-card fragment" style="margin-top:0.8em;">
-      The key idea: <strong>when models are connected, errors don't just happen &mdash; they travel.</strong>
+      The throughline: <strong>what your profile claims and what visitors actually find should be the same thing.</strong>
     </div>
   </section>
 
   <section>
     <h2>Parts 2 &amp; 3</h2>
     <div class="card">
-      <strong class="highlight-blue">Research Journal (Week 8):</strong> Add your entry to <code>research-journal.md</code>. Write 300&ndash;500 words: what pipeline you tested, where errors started, and where they ended up.
+      <strong class="highlight-blue">Anchor + Voice:</strong> Run one real test through your Space (or comparison tool). Paste real outputs into <code>PAPER.md</code> section 4. Rewrite one paragraph from your cover note's Voice list in your own words.
     </div>
     <div class="card" style="margin-top:0.5em;">
-      <strong class="highlight-pink">Collection + GitHub:</strong> At least <span class="highlight-yellow">10 models</span> and <span class="highlight-yellow">6 Spaces</span> by Session 9. Upload tonight's notebook. Add Week 8 journal entry.
+      <strong class="highlight-pink">Limitations + Journal:</strong> If your project depends on a hosted model via API, add one sentence to <code>PAPER.md</code> section 5 naming the upstream dependency. Add a Week 8 journal entry covering what you cleaned up, what you swapped in, and one thing to fix next.
     </div>
   </section>
 </section>
@@ -549,14 +562,14 @@ Pillow</code></pre>
     <span class="highlight-pink">Domain shift</span> &rarr;
     <span class="highlight-yellow">Pretraining</span> &rarr;
     <span class="highlight-pink">Bias</span> &rarr;
-    <span class="highlight-green">Pipelines</span>
+    <span class="highlight-green">API connections</span>
   </div>
   <p class="fragment" style="font-size:1.3em; margin-top:1em; color:#fbbf24;">
-    You now know what's inside the machine.
+    You now know what's inside the machine &mdash; and how to reach what's outside it.
   </p>
   <p class="fragment" style="color:#9ca3af; margin-top:0.5em;">
-    Next week: what's outside it.<br>
-    You've been studying the models. Now you design for the humans.<br>
+    Next week: the third scale of fitting.<br>
+    You've fit code to code. Now you fit a model to a human.<br>
     <strong>That's Act III.</strong>
   </p>
 </section>

@@ -103,14 +103,13 @@ Commit the change.
 
 ## Step 5: One sentence in your limitations (10 min)
 
-Tonight's mini-demo showed how errors cascade through chained models. Look at your project: does it chain anything?
+Tonight's mini-demo showed how a free-tier Space connects to a hosted model via API — and how the contract between them is where errors live. Look at your project: does it depend on anything upstream that you don't control?
 
-- Generation followed by critique?
-- Transcription followed by summarization?
-- Captioning followed by classification?
-- Retrieval followed by answering?
+- A hosted LLM you call via API (Gemini, Claude, GPT)?
+- An already-deployed Hugging Face Space someone else maintains?
+- A second model whose output you feed into a downstream step (generation then critique, transcription then summarization, captioning then classification, retrieval then answering)?
 
-If yes, add **one sentence** to section 5 of `PAPER.md` naming where errors could compound and what the downstream consequence would be. If your project doesn't chain models, skip this step.
+If yes, add **one sentence** to section 5 of `PAPER.md` naming the upstream dependency, the contract you depend on (e.g., "Gemini returns valid JSON," "the hosted Space stays running"), and what would happen to your findings if that contract broke. If your project doesn't depend on any upstream system, skip this step.
 
 For background, see [`GUIDE-error-propagation.md`](./GUIDE-error-propagation.md).
 
@@ -149,7 +148,7 @@ Your cover note names one specific stretch move. Tier A students should aim for 
 
 Tonight's two halves were two versions of the same fitting problem.
 
-- **Models talking to models.** When the first model is wrong, the second has no way to know. The pieces have to fit.
+- **Models talking to models.** When your Space calls a hosted model via API, your downstream code can only act on what the upstream model returned. If the contract breaks — wrong shape, hallucinated content, rate-limit error — your tool fails even when both models are technically working. The pieces have to fit.
 - **You talking to your audience.** When your profile says one thing and the substance underneath says another, the pieces don't fit. The system fails as a piece of public communication.
 
 Session 9 picks up the same problem at a third scale: **the technical model talking to the humans it serves.** It's not enough for a model to produce a correct output; it has to do so in a way that fits the values, goals, and judgment of the people who will use it. This is exactly the problem RLHF named for generative AI — the move from "the model produces a fluent paragraph" to "the model produces a paragraph the person actually wanted."
