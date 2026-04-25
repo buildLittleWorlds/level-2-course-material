@@ -72,9 +72,9 @@ For Sessions 8–12, each enrolled student also receives a **parallel-example pa
 
 ## Colab notebooks as enrichment
 
-Each session folder includes a `notebook.ipynb`. These are no longer the default activity for students — the default is building Spaces, writing in their GitHub portfolio, and iterating on the paper. The notebooks are **enrichment for projects that benefit from a notebook walkthrough**: a student whose Space is a model-comparison tool, an embedding visualizer, or a fine-tuning experiment will get more out of running the notebook than a student whose Space is a writing tool or a UI iteration. Not every project needs the notebook, and students don't lose anything essential by skipping it. The instructor pulls notebook material into class on a per-student, per-need basis rather than uniformly.
+Each session folder includes a `notebook.ipynb`. The notebooks are **enrichment for projects that benefit from a notebook walkthrough** — a student whose Space is a model-comparison tool, an embedding visualizer, or a fine-tuning experiment will get more out of running the notebook than a student whose Space is a writing tool or a UI iteration. The instructor pulls notebook material into class on a per-student, per-need basis. The default activity is building Spaces, writing in the GitHub portfolio, and iterating on the paper.
 
-A handful of sessions (2–5) also include `explorer.ipynb` files that apply each week's research method (Comparative Analysis, Adversarial Testing, Baseline Comparison, Parameter Sweep) to models from a student's Collection. Same framing — useful for students whose questions land naturally inside a notebook, optional for those whose work doesn't.
+A handful of sessions (2–5) also include `explorer.ipynb` files that apply each week's research method (Comparative Analysis, Adversarial Testing, Baseline Comparison, Parameter Sweep) to models from a student's Collection — useful for students whose questions land naturally inside a notebook, optional for those whose work doesn't.
 
 ## Bonus content
 
