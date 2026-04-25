@@ -108,7 +108,7 @@ The teaching repos and the course material listed above are the working enactmen
 ### In Progress
 
 - *The New Perspectiva Artificialis: From the Mechanical Eye to the Algorithmic Symbolic Form* — Routledge, 2026.
-- *Semantic Density* — manuscript complete; applies Goodman's symbolic-form aesthetics to chain-of-density prompting and generative world-making.
+- *Symbolic Density and Phenomenological World-Making* — manuscript complete; applies Goodman's symbolic-form aesthetics to chain-of-density prompting and generative world-making.
 
 ## Anchor Articles
 

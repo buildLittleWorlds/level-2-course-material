@@ -32,7 +32,7 @@ I am not anti-accountability. I am against blanket, mandatory, process-level AI 
 ## In Progress
 
 - **The New Perspectiva Artificialis: From the Mechanical Eye to the Algorithmic Symbolic Form** — Routledge, accepted for 2026. Argues that Renaissance linear perspective and transformer architectures are structurally parallel revolutions in symbolic mediation. Combines symbolic-form theory, close reading of historical sources, mechanistic interpretability work, and reproducible notebooks.
-- **Semantic Density** — manuscript complete. Applies Nelson Goodman's symbolic-form aesthetics — syntactic density, semantic density, repleteness, exemplification — to chain-of-density prompting, generative world-making, and algorithmic criticism. Develops an aesthetic theory of LLM output as a symbolic object.
+- **Symbolic Density and Phenomenological World-Making** — manuscript complete. Applies Nelson Goodman's symbolic-form aesthetics — syntactic density, semantic density, repleteness, exemplification — to chain-of-density prompting, generative world-making, and algorithmic criticism. Develops an aesthetic theory of LLM output as a symbolic object.
 
 ## Selected Articles and Chapters
 

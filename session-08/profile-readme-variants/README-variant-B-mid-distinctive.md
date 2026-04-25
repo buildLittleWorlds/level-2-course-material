@@ -4,7 +4,7 @@ Variant B — Mid-Distinctive (recommended starting point) — REVISED April 202
 Revisions made against the full scholarship dossier:
 - Position statement broadened beyond disclosure to the four actual research clusters
 - Books section promoted to be visible above publications (three Hutson co-authored books plus co-edited Routledge volume)
-- "In Progress" section added for Perspectiva Artificialis (Routledge 2026) and Semantic Density (manuscript)
+- "In Progress" section added for Perspectiva Artificialis (Routledge 2026) and Symbolic Density and Phenomenological World-Making (manuscript)
 - Reception block added: Postdigital Science and Education review of The Case Against Disclosure; Critical Conversations podcast
 - Mermaid diagram rebuilt around the four real clusters from the dossier
 - MFA Arkansas added to the credential line
@@ -51,7 +51,7 @@ The position underneath all of it is the same: **authorship is responsibility, j
 ### In Progress
 
 - **The New Perspectiva Artificialis: From the Mechanical Eye to the Algorithmic Symbolic Form** — Routledge, accepted for 2026. Argues Renaissance linear perspective and transformer architectures are structurally parallel revolutions in symbolic mediation. Combines symbolic-form theory with mechanistic interpretability and reproducible notebooks.
-- **Semantic Density** — manuscript complete. Applies Goodman's symbolic-form aesthetics to chain-of-density prompting, generative world-making, and algorithmic criticism.
+- **Symbolic Density and Phenomenological World-Making** — manuscript complete. Applies Goodman's symbolic-form aesthetics to chain-of-density prompting, generative world-making, and algorithmic criticism.
 
 ## Selected Articles
 
