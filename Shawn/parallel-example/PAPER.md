@@ -2,7 +2,7 @@
 
 ## Abstract
 
-This worked example studies whether image-generation style control changes deep visual features or mostly adds surface markers. The imagined Hugging Face Space, Style Fidelity Grid, runs the same scene prompts through general-purpose and style-tuned image models across several styles, including anime, surrealist, watercolor, noir, and realistic. The project asks whether style control preserves the content while changing visual style, or whether models rely on obvious cliches. A small prompt-grid comparison suggests a tradeoff: style-tuned models may produce stronger results inside their specialty while becoming less flexible outside it. General-purpose models may handle broader style requests but often use predictable style markers. The paper argues that image-generation tools should be evaluated for both style fidelity and flexibility.
+This worked example studies whether image-generation style control changes deep visual features or mostly adds surface markers. The Style Fidelity Grid project runs the same scene prompts through hosted demo Spaces for general-purpose and style-tuned image models across several styles, including anime, surrealist, watercolor, noir, and realistic. The project asks whether style control preserves the content while changing visual style, or whether models rely on obvious cliches. A small prompt-grid comparison suggests a tradeoff: style-tuned models may produce stronger results inside their specialty while becoming less flexible outside it. General-purpose models may handle broader style requests but often use predictable style markers. The paper also reports a build-vs-use comparison: a parallel attempt to deploy a style-aware tool on free Hugging Face hardware shows a real gap between what hosted demos can do and what a student-builder can ship. Image-generation tools should therefore be evaluated for fidelity, flexibility, and accessibility — not just output quality.
 
 ## 1. Introduction and research question
 
@@ -22,11 +22,13 @@ These sources support the project's main idea: style control is not one thing. I
 
 ## 3. Method
 
-The imagined Space uses a small prompt grid:
+This study uses a small prompt grid run through hosted demo Spaces on Hugging Face. Most popular image-generation models have a public demo Space someone has already deployed, with the model loaded and the GPU paid for, which means a student researcher can collect real comparison evidence without setting up a local environment, paying for compute, or debugging a custom Space.
+
+The grid:
 
 - Scenes: train station at midnight, market street after rain, library with floating books
 - Styles: anime, surrealist, watercolor, noir, realistic
-- Model types: general-purpose model and style-tuned model
+- Models: a general-purpose hosted demo (FLUX.1-dev or SDXL), a style-tuned hosted demo (animagine-xl), and one additional model from the same Cool Image Generation Models curation
 
 Example prompt:
 
@@ -42,6 +44,8 @@ Each output is scored with a style fidelity rubric:
 | Content preservation | Does the original scene remain recognizable? |
 | Flexibility | Can the model handle styles outside its specialty? |
 
+A second comparison runs alongside the main grid: the **build-vs-use comparison**. The same prompt is run through (a) a hosted demo Space and (b) a small style-tuned model that can run on free Hugging Face hardware. This produces a different kind of evidence — not about which model has better outputs, but about what a student-builder can put on a public Space versus what hosted demos provide. That comparison is reported as a third finding axis in section 4.
+
 ## 4. Findings and discussion
 
 The prompt grid suggests that broad style words are powerful but sometimes shallow. The general-purpose model changed outputs clearly across styles. Noir produced high contrast and shadows. Watercolor softened edges. Surrealism often produced impossible clocks or warped buildings. These changes were visible, but sometimes predictable.
@@ -56,15 +60,19 @@ The finding is:
 
 This is not a simple ranking. It is a tradeoff. The best model depends on whether the user wants reliable output in one style or flexible exploration across many styles.
 
+The build-vs-use comparison adds a third axis to the tradeoff. The hosted demo for the style-tuned model produced consistent, high-quality outputs at usable speeds, but a small style-tuned model attempting to run on free CPU hardware took substantially longer per generation, and in some cases failed entirely. That gap matters for anyone who wants to deploy a style-aware generation tool of their own — the choice is between paying for hosted compute, accepting much longer wait times on free hardware, or building around smaller models that may not preserve the specialization that made the hosted version useful in the first place. A student-built Space is not a worse version of a hosted demo. It is a different artifact, with different tradeoffs, that a researcher can describe from authority.
+
 ## 5. Limitations
 
 This is a small, subjective prompt-grid test. It uses a few prompts, a few styles, and one hand-built rubric. A stronger version would save every image, use multiple raters, and compare human style judgments with automated measures such as image-text similarity.
 
 The project also simplifies art history. Labels like "surrealist" and "noir" contain many substyles and historical contexts. A model may reproduce common internet visual markers without understanding the movement. The paper should treat style labels as test prompts, not as complete definitions of art movements.
 
+A further limitation is the asymmetry between the hosted-demo testing environment and the build-side comparison. The hosted demos use full-precision model weights on paid GPUs; the build-side test uses free CPU and necessarily smaller or distilled models. The build-vs-use finding is therefore better read as a description of the *student-deployment landscape* than as a controlled comparison between identical systems.
+
 ## 6. Conclusion
 
-Style Fidelity Grid shows how image-model curation can become research. The important move is comparing the same prompt across models and styles, then asking what changed. The project suggests that style control has at least two dimensions: fidelity and flexibility. A specialized model may be excellent in one lane, while a general model may be better for broad exploration. A good AI art tool should make that tradeoff visible to users.
+Style Fidelity Grid shows how image-model curation can become research. The important move is comparing the same prompt across models and styles, then asking what changed. The project suggests that style control has at least three dimensions: fidelity (does the output match the requested style?), flexibility (can the model handle styles outside its specialty?), and accessibility (what can a student-builder actually deploy?). A specialized hosted-demo model may be excellent in one lane on paid compute, while a general model may be better for broad exploration, and the same specialization may be unreachable on free student hardware. A good AI art tool should make all three tradeoffs visible — not just to users choosing between models, but to other student researchers trying to figure out what's worth building themselves.
 
 ## Candidate references
 
