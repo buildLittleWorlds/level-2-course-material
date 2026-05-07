@@ -1,136 +1,235 @@
-# [Student Name] — AI Space Portfolio
+# [Student Name] - Constraint-and-Move Portfolio
 
-## Course: Level 2 — Building with AI (Spring 2026)
-## Program: Youth Horizons
+## Course
 
----
-
-### About This Student
-
-**HF Profile:** [huggingface.co/username](https://huggingface.co/username)
-
-**Sessions completed:** 12
+**AI + Research Level 2 - Spring 2026**
+**Program:** Youth Horizons
 
 ---
 
-### Research Question
+## Front Door Links
 
-What question was this student investigating by the end of the course?
+**GitHub Profile:** [link]
+
+**Hugging Face Profile:** [link]
+
+**Hugging Face Collection:** [link]
+
+**Paper Repo:** [link]
+
+**Research Journal:** [link]
+
+---
+
+## One-Sentence Project
+
+Use this pattern:
+
+```text
+I wanted to build <tool> for <specific user/task>, but the rudimentary version hit <constraint>, so I made <move>.
+```
+
+My sentence:
 
 >
 
 ---
 
-### HF Collection
+## The Space Arc
 
-**Collection URL:** [link]
+### Space 1 - First Domain Build
 
-**Item count:** ___ models, ___ Spaces
+**URL:** [link]
 
-**Focus area:** (What topic does the Collection center on? e.g., emotion detection, translation quality, image classification for animals)
+**What it did:**
 
 >
 
+**Why it mattered:**
+
+>
+
+### Space 2 - The Rudimentary Build (the Wall)
+
+**URL:** [link]
+
+**What it could do:**
+
+>
+
+**What it could not do:**
+
+>
+
+**The constraint:**
+
+>
+
+Wall sentence:
+
+```text
+This Space can <X>, but it cannot <Y> because <Z>.
+```
+
+### Space 3 - The Post-Move Build
+
+**URL:** [link]
+
+**The move:**
+
+>
+
+**What the move made possible:**
+
+>
+
+**What the move cost:**
+
+>
+
+Move sentence:
+
+```text
+The move was <decision>, which made <new thing> possible, but it cost <tradeoff>.
+```
+
 ---
 
-### Research Journal
+## End-of-Course Assignment Checklist
 
-**GitHub repo:** [link to my-ai-portfolio repo]
+Use the Google Classroom assignments as the official submission checklist.
 
-**Research journal:** [link to research-journal.md]
+| Assignment | Link | Status |
+|---|---|---|
+| Research Journal | [link] | |
+| Research Paper | [link] | |
+| Demo Day Presentation | [link] | |
+| Space 3 - Post-Move Build | [link] | |
+| Space 2 - Rudimentary Build | [link] | |
+| GitHub Profile | [link] | |
+| Space 1 - First Domain Build | [link] | |
+| Hugging Face Collection | [link] | |
+
+---
+
+## Research Journal Summary
 
 **Number of entries:** ___
 
-**Summary of the investigative thread:** (How did the student's focus evolve from Week 2 to Week 11? What question were they circling?)
+**What the journal shows about the project:**
+
+>
+
+**One entry that shows a constraint clearly:**
+
+>
+
+**One entry that shows a move clearly:**
 
 >
 
 ---
 
-### Spaces Built
+## Research Paper Summary
 
-| # | Space Name | URL | What It Does | Session Built |
-|---|-----------|-----|-------------|---------------|
-| 1 | Mood Meter | [link] | Detects mood in text using zero-shot classification | 1 |
-| 2 | Emotion Spectrum | [link] | Detects emotions in text using multiple models | 2 |
-| 3 | Sarcasm Breaker | [link] | Tests adversarial inputs against a sentiment model with preprocessing | 3 |
-| 4 | Text Generator | [link] | Generates text continuations using a language model | 4 |
-| 5 | Text Playground | [link] | Text generation with temperature/top-p/length sliders | 5 |
-| 6 | Bias Tester | [link] | Tests paired sentences for model bias | 7 |
-| 7 | Image Story Pipeline | [link] | Chains image captioning + sentiment analysis | 8 |
-| 8 | Restaurant Review Analyzer | [link] | Redesigned demo for a real audience with prompt engineering | 9 |
-| 9 | [Final Project Name] | [link] | [description] | 10-12 |
+**Paper URL:** [link]
 
-*Note: Not all students will have built every Space. Class Spaces were instructor-led. Individual Spaces start at Session 10.*
-
----
-
-### ML Concepts Covered
-
-| # | Concept | How They Learned It |
-|---|---------|-------------------|
-| 1 | Input → Model → Output | Deployed first HF Space from scratch |
-| 2 | Training Data & Representation | Swapped models, compared outputs |
-| 3 | Adversarial Testing & the Limits of Classification | Broke models with adversarial stories — sarcasm, mixed emotions, no humans |
-| 4 | Classification vs. Generation | Crossed the fork — changed one line from classification to generation |
-| 5 | Hyperparameters | Added sliders to control generation |
-| 6 | Overfitting & Domain Shift | Tested same model on different text types |
-| 7 | Bias in AI | Tested paired sentences for unfair differences |
-| 8 | Multi-Model Systems & Error Cascades | Chained captioning + sentiment models |
-| 9 | Prompt Engineering & Human-AI Interaction | Redesigned a Space for a real audience |
-| 10 | Supervised Learning & Task Design | Built a Space from scratch with a chosen model |
-| 11 | The Experimentation Loop | Iterated through peer feedback and systematic testing |
-
----
-
-### Research Methods Used
-
-Which methods from the course did this student apply in their own investigation? Check all that apply:
-
-- [ ] Comparative Analysis (Session 2: Data Collection and Representation) — compared multiple models on same inputs
-- [ ] Adversarial Testing (Session 3: Data Cleaning and Feature Engineering) — found inputs that break models
-- [ ] Baseline Comparison (Session 4: Introduction to Supervised Learning) — evaluated models side by side with ground truth
-- [ ] Parameter Sweep (Session 5: Model Training and Parameters) — systematically changed one variable at a time
-- [ ] Generalization Testing (Session 6: Model Evaluation and Generalization) — tested models outside their training domain
-- [ ] Fairness Audit (Session 7: Bias, Variance, and Uncertainty) — designed paired tests for algorithmic bias
-- [ ] Error Propagation (Session 8: From Single Models to Systems) — measured how errors cascade in multi-model systems
-- [ ] User-Centered Design (Session 9: Prompt Logic and Human-AI Interaction) — shifted from "does it work?" to "can someone use it?"
-- [ ] End-to-End System Design (Session 10: Build Your Own from Scratch) — chose a question, a method, and built a research prototype
-
----
-
-### Final Project
-
-**Space name:** ___________________________
-
-**URL:** ___________________________
-
-**What it does:** ___________________________
-
-**Model used:** ___________________________
-
-**Who it's for:** ___________________________
-
----
-
-### Student Reflection
-
-**Most surprising concept:**
+**What I wanted to build:**
 
 >
 
-**Most useful research method:**
+**The constraint I wrote about:**
 
 >
 
-**What they'd investigate next:**
+**The move I wrote about:**
 
 >
 
-**How does your project connect to the bigger story we've been telling?**
+**The tradeoff I named:**
+
+>
+
+**One source or reference that helped me frame the project:**
 
 >
 
 ---
 
-*Portfolio compiled on [date] as part of the Youth Horizons Level 2 program.*
+## Hugging Face Collection Summary
+
+**Collection URL:** [link]
+
+**What this Collection helped me figure out:**
+
+>
+
+**One model or Space I used:**
+
+>
+
+**One model or Space I considered but rejected:**
+
+>
+
+**Why that rejection mattered:**
+
+>
+
+---
+
+## Demo Day Presentation
+
+**Presentation link:** [link]
+
+Use the five-part structure:
+
+1. What I wanted to build
+2. The constraint
+3. The move
+4. What it cost
+5. What is next
+
+### My Demo Inputs
+
+| Input | Why I chose it | What I expect to show |
+|---|---|---|
+| | | |
+| | | |
+| | | |
+
+---
+
+## What Is Next
+
+If I kept going, the next constraint would be:
+
+>
+
+The next move I would try:
+
+>
+
+Why that would matter:
+
+>
+
+---
+
+## Final Reflection
+
+What did this project teach me about building with AI?
+
+>
+
+What did it teach me about constraints?
+
+>
+
+What am I proud of, even if the project is not perfect?
+
+>
+
+---
+
+*Portfolio compiled for AI + Research Level 2. The official submissions are the eight end-of-course assignments in Google Classroom.*

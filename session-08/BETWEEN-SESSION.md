@@ -107,7 +107,7 @@ Tonight's mini-demo showed how a free-tier Space connects to a hosted model via 
 
 - A hosted LLM you call via API (Gemini, Claude, GPT)?
 - An already-deployed Hugging Face Space someone else maintains?
-- A second model whose output you feed into a downstream step (generation then critique, transcription then summarization, captioning then classification, retrieval then answering)?
+- A second model whose output you feed into a downstream step (generation then critique, transcription then summarization, API call then JSON parsing, retrieval then answering)?
 
 If yes, add **one sentence** to section 5 of `PAPER.md` naming the upstream dependency, the contract you depend on (e.g., "Gemini returns valid JSON," "the hosted Space stays running"), and what would happen to your findings if that contract broke. If your project doesn't depend on any upstream system, skip this step.
 

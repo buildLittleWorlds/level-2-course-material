@@ -1,174 +1,233 @@
-# Week 10 Research Work
+# Week 10 Research Work: The Wall and the Move
 
-Prereqs: `week-06-research-question.md`, `PAPER.md`, `research-journal.md`, your GitHub profile README, a Hugging Face Space you can test, and `week-09-citations.md`.
+Prereqs: your end-of-course assignments in Google Classroom, one current Hugging Face Space, your paper repo, and your research journal.
 
-This week is not about starting a brand-new research brief from zero. You already have the spine of the project. Week 10 is where the pieces start fitting:
+This week is not about writing a formal research report. It is about making the applied project legible:
 
-- your Space produces real outputs
-- your journal explains what happened
-- your verified sources support specific claims
-- your `PAPER.md` uses both the sources and the Space results honestly
-- your GitHub profile points a reader to the current version of the work
+> I wanted to build X. The simple version hit wall Y. I made move Z. Here is what Z made possible and what it cost.
 
-## The temptation
-
-The temptation is to treat the paper, Space, journal, and profile as separate assignments. That is how the project falls apart. A reader should be able to move from your profile to your paper to your Space and feel that they are seeing one investigation from different angles.
-
-The rule for this week:
-
-> Every claim in `PAPER.md` should be backed by either your own Space evidence, a verified source, or both.
-
-## The Week 10 deliverable
-
-Revise `PAPER.md` directly. Also create a short process note called `week-10-integration-notes.md` in the same repo.
-
-Your `week-10-integration-notes.md` is not the final paper. It is the lab record for how you revised the paper this week.
-
-## Move 1 — Claim-Evidence-Source Chain
-
-Open `PAPER.md` and find the main claim your paper is trying to make. If the claim is still vague, write a sharper version at the top of `week-10-integration-notes.md`:
-
-```markdown
-## My Claim
-
-My paper argues that ...
-```
-
-Then build this chain:
-
-```markdown
-## Claim-Evidence-Source Chain
-
-**Claim:** <one sentence your paper currently makes or should make>
-
-**Space evidence:** <one result from my Space that supports, complicates, or challenges the claim>
-
-**Verified source:** <one citation from week-09-citations.md that supports or frames the claim>
-
-**Limitation:** <one reason this evidence is still not enough>
-```
-
-If you cannot fill in one of those four lines, that tells you exactly what to fix.
-
-## Move 2 — Run Three Inputs Through Your Space
-
-Choose three inputs a real user would try:
-
-1. **Baseline input** — something you expect the Space to handle well
-2. **Interesting input** — something close to your research question
-3. **Failure-case input** — something that might confuse the model
-
-Paste the inputs and outputs into `week-10-integration-notes.md`:
-
-```markdown
-## Space Evidence
-
-### Input 1 — Baseline
-Input:
-Output:
-What this shows:
-
-### Input 2 — Research Question
-Input:
-Output:
-What this shows:
-
-### Input 3 — Failure Case
-Input:
-Output:
-What this shows:
-```
-
-If your Space is broken, do not pretend it works. Make the note:
-
-```markdown
-## Space Status
-
-The Space is currently broken. The error is:
-
-<paste the error message>
-
-My next debugging step is:
-```
-
-Then revise `PAPER.md` around what you can honestly say: what you intended to test, where the build failed, and what the failure reveals about the system.
-
-## Move 3 — Revise One Paper Paragraph
-
-Pick one paragraph in `PAPER.md` that currently sounds generic. Replace it with a paragraph that uses your chain from Move 1.
-
-A strong Week 10 paragraph has this shape:
-
-```markdown
-My project investigates <question>. In my Space test, <specific input/result> showed <pattern>. This matters because <verified source> argues/shows <source claim>. However, my result is limited because <honest limitation>.
-```
-
-Do not ask AI to write the paragraph from scratch. You may use AI after you write your own rough version:
-
-> Revise this paragraph for clarity, but do not add claims, do not add citations, and do not remove the limitation. Return the revised paragraph and a one-sentence note explaining what changed.
-
-## Move 4 — Update the Limitations Section
-
-Your limitations section should now include at least one limitation from each category that applies:
-
-- **Model limitation:** what the model was trained to do, and what it was not trained to do
-- **Data limitation:** what kinds of examples you tested, and what you did not test
-- **Audience limitation:** who the Space is useful for, and who it may not serve well
-- **System limitation:** any API, hosted model, Hugging Face runtime, or multi-step pipeline dependency
-- **Evidence limitation:** why three Space outputs or a small test set are not enough to prove a broad claim
-
-Use AI as a skeptical reader if it helps:
-
-> Here is my limitations paragraph. Be a skeptical reader. What limitations am I still not admitting? Do not rewrite the paragraph. List the missing limitations.
-
-Then you decide what belongs in the paper.
-
-## Move 5 — Profile and Journal Fit Check
-
-Update your GitHub profile README so the public front door matches the current project:
-
-- research question is current
-- Space link works
-- paper repo link works
-- "What I'm Building Now" says what you are actually doing before Session 11
-
-Then add a Week 10 entry to `research-journal.md`:
-
-```markdown
-## Week 10 — Paper/Space Integration
-
-### What I Tested
-
-### What I Added or Changed in PAPER.md
-
-### Which Source I Used
-
-### What Still Does Not Fit
-
-### What I Need Peer Testers to Try in Session 11
-```
-
-## What to Bring to Session 11
-
-- Your working Space URL, or the exact error you need help debugging
-- Your updated `PAPER.md`
-- `week-10-integration-notes.md`
-- Your Week 10 journal entry
-- Your GitHub profile README with current links
-- One specific thing you want a peer tester to try
-
-## Watch Out For
-
-- A profile that links to an old Space while the paper discusses a different project
-- A `PAPER.md` that cites real sources but never mentions your actual Space results
-- A journal entry that says "I improved it" without naming the input, output, or change
-- A limitations section that only says "I need more time"
-- AI-generated prose that sounds polished but does not match your actual evidence
-
-## For an Example
-
-Prea's [research journal](../example-student-prea/research-journal.md) and [research brief](../example-student-prea/research-brief.md) show the pattern this week is aiming for: a tool, a test set, a finding, and limitations that make the finding more credible rather than weaker.
+Use this file as a workbench for the Research Paper, Research Journal, Space 2, and Space 3 assignments.
 
 ---
 
-AI + Research Level 2 • Session 10 Research Work
+## Move 1 - Name Space 2
+
+Space 2 is the rudimentary build. It is the version that works enough to expose the wall.
+
+Fill this in:
+
+```markdown
+## My Space 2
+
+Name:
+URL:
+
+What it can do:
+
+What I wanted it to do next:
+
+What it cannot do yet:
+
+Why not:
+```
+
+If the Space is broken, that can still be the wall. Write:
+
+```markdown
+The Space is currently broken. The error is:
+
+My best guess about the cause:
+
+The next fix I will try:
+```
+
+---
+
+## Move 2 - Write the Wall Sentence
+
+Write one sentence:
+
+```markdown
+This Space can <what it currently does>, but it cannot <the more interesting thing I wanted> because <constraint>.
+```
+
+This sentence belongs in three places:
+
+- Space 2 assignment submission comment
+- Week 10 journal entry
+- Paper section 3, "The constraint"
+
+Good wall sentences are specific:
+
+- "This Space can summarize a short article, but it cannot preserve competing Model UN perspectives because the small summarizer flattens disagreement into one neutral summary."
+- "This Space can produce anime scene prompts, but it cannot generate images on free CPU because SDXL-class models exceed the compute available in a free Space."
+- "This Space can give a generic health explanation, but it cannot reliably produce parent-friendly guidance because the local model ignores reading-level and safety instructions."
+
+---
+
+## Move 3 - Choose the Move
+
+Pick one move. Do not pick five.
+
+```markdown
+## My Move
+
+The move I am trying:
+
+Why this move fits the wall:
+
+What I expect it to make possible:
+
+What it might cost:
+```
+
+Common moves:
+
+- Move the heavy step to an API.
+- Use a smaller model.
+- Split the task into local and hosted steps.
+- Change deployment surface.
+- Cache or pre-compute expensive outputs.
+- Crop the task to one useful version.
+- Fix the runtime error blocking the current Space.
+- Redesign the prompt and output so a real user can use the result.
+
+Use AI as a planning assistant if helpful:
+
+```text
+I am a high school student building a Hugging Face Space. My current Space can [X], but it cannot [Y] because [Z]. Give me three possible engineering moves to get beyond this constraint. Keep them realistic for free Hugging Face Spaces. For each move, name what it would make possible and what it would cost.
+```
+
+---
+
+## Move 4 - Run a Tiny Before/After Test
+
+If you have both Space 2 and Space 3 working, test the move.
+
+Use one to three inputs:
+
+```markdown
+## Before/After Test
+
+### Input 1
+
+Input:
+
+Space 2 output:
+
+Space 3 output:
+
+What changed:
+
+Did the move help? Why or why not?
+
+What did the move cost:
+```
+
+If Space 3 is not working yet, test the debugging path instead:
+
+```markdown
+## Space 3 Status
+
+What I tried:
+
+What happened:
+
+Error message or output:
+
+What this tells me:
+
+Next move:
+```
+
+The failure is not wasted time. It is evidence of the wall.
+
+---
+
+## Move 5 - Draft the Paper from the Build Record
+
+Open `PAPER.md` and use the Research Paper assignment structure.
+
+Rough notes are fine:
+
+```markdown
+# [Title naming the user, the task, and the constraint]
+
+## 1. What I wanted to build
+
+## 2. The rudimentary baseline (Space 2)
+
+## 3. The constraint
+
+## 4. What I tried first
+
+## 5. The move that worked (Space 3)
+
+## 6. What the move cost me
+
+## 7. What I'd do next
+```
+
+Use your Week 10 notes to fill sections 2-6. This paper is not a survey of the field. It is a focused record of one wall and one move.
+
+### Where sources fit
+
+If you verified citations in Week 9, use one source to frame the problem or the move. Keep it small:
+
+```markdown
+One related source:
+
+What it helps me explain:
+
+One sentence I might use in PAPER.md:
+```
+
+The source should support your thinking, not replace your build evidence.
+
+---
+
+## Move 6 - Update the Journal
+
+Add or revise your Week 10 journal entry:
+
+```markdown
+## Week 10 - The Wall and the Move
+
+### What I wanted to build
+
+### What Space 2 can do
+
+### The wall I hit
+
+### The move I chose
+
+### What changed when I tried the move
+
+### What the move costs
+
+### What I need peer feedback on
+```
+
+---
+
+## What to Bring to Session 11
+
+- Space 2 URL
+- Space 3 URL, or a clear blocked-status note
+- wall sentence
+- move sentence
+- one before/after input if possible
+- Week 10 journal entry
+- rough Paper sections 2-6
+
+---
+
+## Watch Out For
+
+- Saying "it is better" without explaining what changed.
+- Hiding a broken Space instead of documenting the error.
+- Treating the paper as a literature review instead of a build record.
+- Choosing a huge move when a small one would make the project clearer.
+- Forgetting to name the tradeoff.
+
+The tradeoff is not a weakness. It is the part that makes the move real.

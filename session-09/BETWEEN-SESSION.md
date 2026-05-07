@@ -2,7 +2,7 @@
 
 > **What this week is about:** finishing the audience-fit work on one of your Spaces, completing citation verification on every source you plan to use, and continuing the public-facing iteration you started in Session 8 (profile README, Collection, paper). By Session 10, the substance behind your profile is one round more honest and one round more useful.
 
-Tonight extended Session 8's argument: the same fitting problem that runs between two chained models, and between your public profile and the substance behind it, runs again between your model and the real human who will use it. We named the move and rehearsed it once on the Restaurant Review Analyzer. This week you apply it to one of your own Spaces, verify every citation in your paper, and keep iterating the public-facing system you started building last week.
+Tonight extended Session 8's argument: the same fitting problem that runs when a Space calls an upstream model through an API, and between your public profile and the substance behind it, runs again between your model and the real human who will use it. We named the move and rehearsed it once on the Restaurant Review Analyzer. This week you apply it to one of your own Spaces, verify every citation in your paper, and keep iterating the public-facing system you started building last week.
 
 ---
 
@@ -108,7 +108,7 @@ Tier A students should aim for one stretch move; Tier B and C students should no
 
 ## The through-line so far
 
-We started Session 8 with two models in a pipeline (technical fit) and your profile pointing at substance (public-facing fit). Session 9 added the third scale: a model fit to a real human user. The pattern has held at every scale — pieces fit, or the system fails.
+We started Session 8 with a free Gradio Space calling Gemini through an API contract (technical fit) and your profile pointing at substance (public-facing fit). Session 9 added the third scale: a model fit to a real human user. The pattern has held at every scale — pieces fit, or the system fails.
 
 Sessions 10–12 stay in this pattern. Session 10 polishes your ambitious Space (Space 3), integrates the three Spaces and the paper into one coherent project, and starts drafting the portfolio narrative — every move tested against the same fitting question. Session 11 iterates through peer feedback — your work being read by real other humans. Session 12 is Demo Day, where the whole system gets shown to a real audience.
 

@@ -1,58 +1,104 @@
-# Peer Feedback Form
+# Peer Feedback Form: Test the Move
 
-**Space name:** ___________________________
-
-**Space URL:** ___________________________
+**Project owner:** ___________________________
 
 **Tester name:** ___________________________
 
+**Space 2 URL:** ___________________________
+
+**Space 3 URL:** ___________________________
+
 ---
 
-## 1. First Impressions
+## 1. The Wall
 
-Before trying it — just from the title and description:
+Before testing, ask the project owner to explain Space 2.
 
-- What do you think this Space does?
-- Is it clear who it's for?
-
-## 2. Testing
-
-Try at least 3 inputs:
-
-| Input you tried | What happened | Was it what you expected? |
-|----------------|---------------|--------------------------|
-| | | |
-| | | |
-| | | |
-
-## 3. What Worked Well
-
-Write one specific thing that was good:
+**What can Space 2 do?**
 
 >
 
-## 4. What Confused You
-
-Write one specific thing that was unclear or surprising:
+**What can Space 2 not do yet?**
 
 >
 
-## 5. One Suggestion
-
-If you could change one thing about this Space, what would it be?
-
->
-
-## 6. Research Connection
-
-What topic has this person been exploring? Can you tell from their Space?
+**What constraint caused the wall?**
+(free CPU, model size, generic output, runtime error, missing API key, weak prompt, task too broad, etc.)
 
 >
 
-Can you spot any course concepts in this Space? (Think: classification vs. generation, hyperparameters, domain shift, bias, pipelines, prompt engineering, task design.)
+---
+
+## 2. The Move
+
+Ask the project owner to explain the move in Space 3.
+
+**What changed from Space 2 to Space 3?**
 
 >
 
-## 7. One Word
+**What is the tradeoff or cost of the move?**
 
-Describe this Space in one word: _______________
+>
+
+---
+
+## 3. Before/After Testing
+
+Try at least 2 inputs. If both Spaces work, test both. If Space 2 or Space 3 is broken, write what happened.
+
+| Input | Space 2 result | Space 3 result | What changed? |
+|---|---|---|---|
+| | | | |
+| | | | |
+| | | | |
+
+---
+
+## 4. Did the Move Help?
+
+**What is one thing Space 3 does better than Space 2?**
+
+>
+
+**What still does not work or still feels weak?**
+
+>
+
+**Is the tradeoff worth it? Why or why not?**
+
+>
+
+---
+
+## 5. Clarity for a Reader
+
+Look at the Space title, description, README, or profile link if available.
+
+**Can you tell what wall this project hit?**
+
+>
+
+**Can you tell what move the project made?**
+
+>
+
+**What should be clearer before Demo Day?**
+
+>
+
+---
+
+## 6. One Suggestion
+
+What is the one change that would most improve the project before Demo Day?
+
+>
+
+---
+
+## 7. Sentence for the Presentation
+
+Write one sentence the project owner could use in their Demo Day presentation:
+
+> This project started with ________, hit the constraint of ________, and moved to ________ so that ________.

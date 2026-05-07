@@ -1,122 +1,153 @@
-# Session 10: Polish, Integrate, and Tell the Portfolio Story
-*"Make the Pieces Fit"*
+# Session 10: Find the Wall, Choose the Move
+*"Build beyond the constraint"*
 
 ## What This Session Covers
 
-Session 10 continues the turn that began in Session 6. Students are no longer just learning AI concepts by trying tools; they are using their Spaces, journals, sources, and GitHub profiles as evidence for a real research paper.
+Session 10 is not a new assignment and not a formal research reset. The end-of-course assignments in Google Classroom are the guide now. They already name the work correctly:
 
-By now each student should have some version of:
+- Space 1 is where you started in your domain.
+- Space 2 is the rudimentary build where the wall becomes visible.
+- Space 3 is the post-move build after you decide how to get past the wall.
+- The journal, paper, presentation, profile, and Collection all explain the same arc.
 
-- a research question from Session 6
-- a rough `PAPER.md` from Session 7
-- a public GitHub/Hugging Face research presence from Session 8
-- an audience-fit Space revision and verified citation work from Session 9
+Tonight we make that arc concrete for each student. The goal is to leave with a clear sentence:
 
-Tonight is the integration session. Students make the public system honest: the GitHub profile points to the right work, the Space actually runs, the research journal records what happened, and `PAPER.md` contains one specific claim supported by both a real source and a real result from the student's own Space.
+> My Space 2 can do X, but it cannot do Y because Z. My Space 3 move is to do W.
+
+That is the center of the rest of the course.
 
 ## The Core Teaching Line
 
-> A portfolio is not a list of links. It is a claim about what you are investigating, backed by a working Space, a journal trail, and a paper that tells the truth.
+> Research = managing a constraint. You hit a wall, name it honestly, make a move, and explain what the move made possible and what it cost.
 
 ## The Session Flow
 
-The session is deliberately less "new content" and more intervention time. The instructor circulates, diagnoses where each student's system is thin, and helps them make one visible improvement.
+This session is mostly live coaching and build time. The assignment posts already tell students what to submit; tonight helps them understand how the pieces fit.
 
-### Move 1 — Status Triage
+### Move 1 - Open the Assignment Map
 
-Students open four tabs:
+Start with the end-of-course assignments in Google Classroom. Students should see that the assignments are not separate chores. They are one story:
 
-1. GitHub profile README
-2. paper repo / `PAPER.md`
-3. research journal
-4. Hugging Face Space 3, or the strongest current Space if Space 3 is not live
+1. Space 1 - First Domain Build
+2. Space 2 - The Rudimentary Build
+3. Space 3 - The Post-Move Build
+4. Research Journal
+5. Research Paper
+6. Demo Day Presentation
+7. GitHub Profile
+8. Hugging Face Collection
 
-They mark each one:
+The rest of class is about locating where each student is in that story.
 
-- **Green:** present, public, and aligned with the research question
-- **Yellow:** present but generic, stale, broken, or disconnected
-- **Red:** missing or unusable
+### Move 2 - Identify Space 2 as the Wall
 
-This triage determines the live intervention. A student with a broken Space debugs the Space. A student with an empty paper writes the paper anchor. A student with strong artifacts but a confusing profile updates the public story.
+Students open their current strongest or most relevant Space. In many cases this is Space 2. It does not need to be impressive. It needs to reveal a constraint.
 
-### Move 2 — Space Evidence
+The guiding sentence:
 
-Every student runs the same small evidence loop:
+```markdown
+This Space can <what it currently does>, but it cannot <the more interesting thing I wanted> because <constraint>.
+```
 
-1. choose three inputs a real user would try
-2. run them through the Space
-3. save the outputs
-4. identify one pattern and one failure case
+Examples:
 
-Those outputs are not just demo material. They become evidence for `PAPER.md`: "Here is what my tool did on real inputs, and here is what that shows."
+- This Space can generate generic medical explanations, but it cannot reliably explain at a parent-friendly reading level because the small model does not follow safety and audience instructions consistently.
+- This Space can describe a scene, but it cannot make the description change meaningfully by camera angle because the prompt and model mostly swap surface words.
+- This Space can generate anime prompts, but it cannot generate images on free CPU because modern image models need more compute than the Space has.
 
-### Move 3 — Paper Integration
+This sentence becomes the submission comment for the Space 2 assignment and the seed of the paper.
 
-Students revise `PAPER.md`, not a separate throwaway draft. The minimum useful change is one paragraph that connects:
+### Move 3 - Choose the Move
 
-- the research question
-- one verified source from `week-09-citations.md`
-- one result from the student's Space test
-- one honest limitation
+Students choose one move that could get beyond the wall.
 
-The goal is not polish. The goal is fit: the paper should sound like it came from the student's actual build, not from a generic AI research template.
+Common moves:
 
-### Move 4 — Public Story
+- **API delegation:** Gradio stays on free CPU, but Gemini, Claude, OpenAI, or the HF Inference API handles the heavy step.
+- **Smaller model:** use a smaller, distilled, or quantized model that fits where the larger one did not.
+- **Hybrid pipeline:** free CPU handles the interface or light classification; an API handles generation, image, speech, or other heavy work.
+- **Different deployment surface:** move part of the project to a tool that fits the task better.
+- **Caching or pre-computing:** avoid repeating expensive work live.
+- **Task cropping:** make the task smaller so the tool can do one useful thing well.
+- **Runtime repair:** diagnose the build/runtime error and fix the dependency, secret, or model-loading problem that blocked the Space.
 
-Students update the GitHub profile README so a reader can follow the trail:
+The move does not have to be dramatic. It has to be deliberate.
 
-research question -> paper repo -> working Space -> journal
+### Move 4 - Start or Stabilize Space 3
 
-The profile does not need to be fancy. It needs to be current, specific, and honest about what the student is building now.
+Space 3 is the post-move build. It should do something Space 2 could not do, or it should make one blocked piece work.
 
-### Move 5 — Journal Record
+During class, students either:
 
-Before leaving, students add or start a Week 10 journal entry that records the integration work:
+- build the first version of Space 3,
+- repair Space 3 so it runs,
+- write the README section that explains the move,
+- or document exactly why the move is still blocked and what the next debugging step is.
 
-- what they tested in the Space
-- what changed in `PAPER.md`
-- which source or claim they used
-- what still does not fit
-- what they will improve before peer testing
+A broken Space with a clear diagnosis is better than a vague claim that everything is fine.
 
-## Where the Technical Concept Lives
+### Move 5 - Record the Decision
 
-The official concept remains **supervised learning and task design**, but it now appears inside the student's own system rather than as a standalone build exercise.
+Before leaving, students write or start a Week 10 journal entry:
 
-When students choose or revise a Space, they are also choosing:
+```markdown
+## Week 10 - The Wall and the Move
 
-- a model trained for one task rather than another
-- labels or outputs inherited from someone else's dataset
-- a user-facing frame that may or may not fit the model's actual behavior
-- evidence that may or may not support the paper's claim
+### What I wanted Space 2 to do
 
-That is task design at the portfolio scale. The technical choice is not separate from the writing choice; the model's task shapes what the student can honestly claim.
+### The wall I hit
+
+### The move I chose
+
+### What this move makes possible
+
+### What this move costs
+
+### What I need to test before Session 11
+```
+
+This is not formal research prose. It is the build record. The paper grows from this.
+
+## Where Literature and Sources Fit
+
+Sources can help students name the kind of move they are making, but Session 10 is not a literature-review session.
+
+Use literature lightly:
+
+- LoRA, distillation, quantization, caching, and small-model work are examples of making models cheaper or easier to run.
+- API delegation is a common production move when local compute is not enough.
+- Human-facing redesign can be a real move when the constraint is usability rather than compute.
+
+One verified source from `week-09-citations.md` can frame the paper, but the center is still the student's own wall and move.
 
 ## Session Resources
 
-- **[`../PAPER-TEMPLATE.md`](../PAPER-TEMPLATE.md)** — master AI prompt for paper drafting and revision
-- **[`../GUIDE-FROM-SPACE-TO-PAPER.md`](../GUIDE-FROM-SPACE-TO-PAPER.md)** — paper workflow guide
-- **[`WEEK-10-RESEARCH-WORK.md`](./WEEK-10-RESEARCH-WORK.md)** — turning verified sources and Space outputs into `PAPER.md` revisions
-- **[`BETWEEN-SESSION.md`](./BETWEEN-SESSION.md)** — what to finish before Session 11
-- **[`GUIDE-build-planning.md`](./GUIDE-build-planning.md)** — now used as the integration checklist for Space, paper, profile, and journal
-- **slides.html / app.py / templates/** — rescue materials for students whose Space still needs a working technical base
+- **Google Classroom end-of-course assignments** - the fixed guide for what students submit
+- **[`level-2-sp-26/END-OF-COURSE-ASSIGNMENTS.md`](../level-2-sp-26/END-OF-COURSE-ASSIGNMENTS.md)** - local copy of the assignment structure
+- **[`WEEK-10-RESEARCH-WORK.md`](./WEEK-10-RESEARCH-WORK.md)** - notes for naming the wall, move, cost, and next test
+- **[`BETWEEN-SESSION.md`](./BETWEEN-SESSION.md)** - what to finish before Session 11
+- **[`GUIDE-build-planning.md`](./GUIDE-build-planning.md)** - in-class checklist for Space 2, Space 3, paper, journal, profile, and Collection
+- **`app.py` / `templates/`** - rescue materials for students who need a simple working base
 
 ## What Students Should Leave With
 
-Every student should leave with at least one concrete improvement in the public system:
+Every student should leave with at least:
 
-- a working or debugged Space URL, or a precise next debugging step
-- three real Space outputs saved as paper evidence
-- one revised paragraph in `PAPER.md`
-- one profile README update that points to the current Space/paper work
+- a Space 2 candidate, or an honest note that the current Space is missing or broken
+- one sentence naming what Space 2 cannot do
+- a chosen move for Space 3
 - a Week 10 journal entry started
+- a clear next step for Space 3 before Session 11
 
-For stronger students, the target is a coherent portfolio spine: profile -> paper -> Space -> journal all tell the same research story.
+Stronger students should also leave with:
 
-For earlier students, the target is a rescue path: one working Space, one honest paragraph in `PAPER.md`, and one journal entry that explains what is still unfinished.
+- a working Space 3 URL
+- a README note explaining the move and tradeoff
+- one Paper section revised around the constraint-and-move template
+- a GitHub profile update pointing to the current project
 
 ## Connections
 
-**Builds on:** Session 6's research question, Session 7's prompt-first `PAPER.md`, Session 8's public profile system, and Session 9's audience-fit and citation-verification work.
+**Builds on:** Session 8's paper/profile work, Session 9's audience-fit and citation verification, and the end-of-course assignments now live in Google Classroom.
 
-**Bridges to:** Session 11 — *Peer Review and Iteration.* Session 11 only works if there is something real for peers to read and test. Session 10 makes that real: a Space that runs, a paper paragraph that makes a claim, and a profile that lets another person find the work.
+**Bridges to:** Session 11 - peer testing the move. Next session, classmates will test whether Space 3 actually gets beyond the wall Space 2 exposed.

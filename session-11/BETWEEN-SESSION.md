@@ -1,120 +1,197 @@
 # Between Sessions 11 & 12
 
-This week's homework has three parts: final polish, a research journal entry, and portfolio prep. Plan for about 1-2 hours total. This is the last between-session — our Methodological Reflection and Portfolio Presentation session (Demo Day) is next.
+> **What this week is about:** finish the constraint-and-move story and prepare to present it. Use the end-of-course assignments in Google Classroom as the checklist.
 
-Before you start, read Riley's Week 11 journal entry ("The Thread") in [`example-student/research-journal.md`](../example-student/research-journal.md). It's the model for what you're about to write — a reflection that traces the connecting thread across the whole course. Riley started by testing sentiment models on bird sentences (wrong approach), pivoted to audio classification (right approach), and built three Spaces that got progressively closer to a real birding tool. Your thread will be different, but the act of naming it — looking back and seeing the pattern — is the same.
+Session 11 tested the move. Your peer feedback should help you answer:
 
----
+- What could Space 2 not do?
+- What does Space 3 now do differently?
+- Did the move help?
+- What did the move cost?
+- What still needs to be honest in the paper or presentation?
 
-## Part 1: Hub Challenge — Final Polish + Practice Your Presentation
-
-In class you iterated on your Space with real feedback. Now finish the polish and practice telling your research story.
-
-### Final Polish
-
-Look at the feedback you got from your classmates. Pick the **one suggestion** that would make the biggest difference. Fix it.
-
-Common quick fixes:
-- Better title or description
-- Add 1-2 more example inputs
-- Improve how the output is displayed
-- Fix an input that causes an error
-
-Wake up your Space if you haven't visited it in a few days — free Spaces go to sleep.
-
-### Practice Your Presentation
-
-You'll have 5-7 minutes. Practice out loud — to yourself, a parent, a sibling, anyone. Cover all five parts:
-
-```
-1. MY QUESTION (30 seconds)
-   What topic did you investigate? What question were you circling?
-
-2. MY JOURNEY (1-2 minutes)
-   Show your HF Collection. Highlight 2-3 key journal entries.
-   What methods did you use? How did your question evolve?
-
-3. MY ARTIFACT (2 minutes)
-   Live demo of your Space with 2-3 inputs.
-
-4. WHAT I FOUND (1-2 minutes)
-   What did you learn? What surprised you? What are the limitations?
-
-5. WHAT'S NEXT (30 seconds)
-   If you kept going, what would you investigate?
-```
-
-**Tip:** Open your Collection and your `research-journal.md` before you practice. You'll want to show them during parts 1 and 2.
-
-### Checklist
-
-- [ ] Fixed the one thing that matters most
-- [ ] Space loads without errors
-- [ ] Demo inputs ready (no searching during the presentation)
-- [ ] Practiced the full 5-part presentation out loud at least once
-- [ ] Collection and journal ready to show
-
-### Looking Ahead
-
-Next session is Demo Day — our Methodological Reflection and Portfolio Presentation session — our final session. You're presenting a research journey, not just a Space. Think about this as you practice: how does your project connect to the bigger story we've been telling all semester? Which concepts from the course — adversarial testing, the fork, hyperparameters, domain shift, bias, pipelines, prompt engineering, task design, the experimentation loop — showed up in your work? That connection is what turns a demo into a research presentation.
-
-### Bring It Back
-
-Next session: your Space, your Collection, your journal, your story. You built something real. You followed a question for eleven weeks, documented what you found, and built a tool around it. Now tell that story.
+This is the final between-session week. Do the smallest set of fixes that makes your story clear.
 
 ---
 
-## Part 2: Research Journal Entry
+## Step 1: Reopen the Eight Assignments
 
-Add your Week 11 entry to `research-journal.md` in your GitHub repo. This is your final entry — the one that ties the whole narrative together. 300-500 words.
+The assignments in Google Classroom are the guide. Check each one:
 
-### Week 11 Entry
+- Research Journal
+- Research Paper
+- Demo Day Presentation
+- Space 3 - The Post-Move Build
+- Space 2 - The Rudimentary Build
+- GitHub Profile
+- Space 1 - First Domain Build
+- Hugging Face Collection
+
+You do not need to invent new deliverables. Update or submit the artifacts these assignments ask for.
+
+---
+
+## Step 2: Finalize Space 3 or Document the Block
+
+Open Space 3.
+
+### If it works
+
+Run your Demo Day input once. Save the output. Make sure the Space README includes:
 
 ```markdown
-## Week 11 — The Thread
+## Constraint and Move
 
-### Looking Back
-(Read through your previous journal entries — all 9 of them. What topic kept coming up? What question were you circling?)
+The earlier version hit this wall:
 
-### The Thread
-(What's the connecting thread across your entries? How did your focus narrow from broad exploration to a specific investigation?)
+The move in this Space is:
 
-### Methods I Used
-(Which research methods from the course did you actually apply in your own work? Examples: comparative analysis, adversarial testing, baseline comparison, parameter sweep, generalization testing, fairness audit, error propagation, user-centered design, end-to-end system design.)
+What it makes possible:
 
-### What My Collection Shows
-(Look at your HF Collection. How many items? What does the collection say about your interests? Which items were most important to your final project?)
-
-### What My Space Represents
-(Your Space is the artifact that came from 10 weeks of exploration. How does it connect to your journal entries and Collection? What question does it answer — or try to answer?)
-
-### If I Kept Going
-(If this course lasted another 12 weeks, where would your investigation go? What question would you ask next?)
+What it costs:
 ```
 
-This entry is different from the others — it's not about a single method. It's about the arc. Read your old entries, see the pattern, name it.
+Submit or update the **Space 3 - The Post-Move Build** assignment.
 
-**Read Riley's Week 11 entry first.** It's in [`example-student/research-journal.md`](../example-student/research-journal.md). Notice how Riley names the thread ("text models don't know anything about birds → audio classification is what birding needs"), lists every research method used across the course, and connects the Collection, the Spaces, and the journal into one story. That's what your entry should do — but for your project, your methods, your arc. Also look at Riley's portfolio page in [`example-student/README.md`](../example-student/README.md) to see how the journal narrative translates into a polished portfolio.
+### If it is still broken
+
+Do not hide it. Make the blocked state specific:
+
+```markdown
+The Space 3 move is blocked by:
+
+The exact error is:
+
+What I tried:
+
+The next move would be:
+```
+
+Use that in your journal, paper, and presentation. A documented failed move is still an honest applied research story.
 
 ---
 
-## Part 3: Collection + GitHub
+## Step 3: Revise the Paper
 
-### Collection
+Open `PAPER.md`. Use the Research Paper assignment structure.
 
-Your Collection should have at least **12 models and 7 Spaces**. This is the final count — make sure your tasting notes are clear enough that someone else could understand why you collected each item.
+At minimum, make sure these sections are not blank:
 
-### Notebook
+```markdown
+## 1. What I wanted to build
 
-Fix both debug challenges from the session 11 notebook if you haven't already. Update your Space's README.
+## 2. The rudimentary baseline (Space 2)
 
-### GitHub
+## 3. The constraint
 
-Upload this week's notebook to your `my-ai-portfolio` repo:
+## 5. The move that worked (Space 3)
 
-1. Go to your repo on github.com
-2. Click **Add file** → **Upload files**
-3. Drag the `.ipynb` file and click **Commit changes**
-4. Open `research-journal.md`, click the pencil icon to edit, add your Week 11 entry below the Week 10 entry, and commit
+## 6. What the move cost me
 
-Your GitHub repo should now have: notebooks from most sessions, a `research-journal.md` with up to 11 entries, and a clear README.
+## 7. What I'd do next
+```
+
+If you have time, strengthen section 4, "What I tried first," with one failed or partial attempt.
+
+Do not turn the paper into a broad literature review. If you use a source, use it to support one specific idea about the constraint or move.
+
+Submit or update the **Research Paper** assignment.
+
+---
+
+## Step 4: Write the Final Journal Entry
+
+Add a Week 11 entry to `research-journal.md`:
+
+```markdown
+## Week 11 - Testing the Move
+
+### What my peer tested
+
+### What changed from Space 2 to Space 3
+
+### What still did not work
+
+### What the move costs
+
+### What I changed before Demo Day
+
+### The next move I would try
+```
+
+This entry should sound like a build record, not a victory lap. The best final entries name one thing that still does not work.
+
+Submit or update the **Research Journal** assignment.
+
+---
+
+## Step 5: Build the Demo Day Presentation
+
+Use the Demo Day Presentation assignment structure:
+
+```markdown
+1. What I wanted to build
+2. The constraint
+3. The move
+4. What it cost
+5. What is next
+```
+
+You may use Google Slides, a PDF, an HTML page, or a simple set of tabs. The important thing is that you can talk for 5-7 minutes and show real evidence.
+
+Prepare:
+
+- one screenshot, error, output, or timing note for the constraint
+- Space 3 open and warmed up if it runs
+- one sentence explaining the move as architecture
+- one sentence naming the tradeoff
+- one next move
+
+Practice once out loud. If the Space is slow or sleeps, open it before your turn.
+
+Submit or update the **Demo Day Presentation** assignment.
+
+---
+
+## Step 6: Update the Front Door
+
+Your GitHub Profile should help a reader find the same story:
+
+- current project sentence
+- Space 1, Space 2, and Space 3 links if available
+- paper link
+- journal link
+- Hugging Face profile and Collection link
+- "What I'm Working On" or "Currently" section naming the wall and move
+
+Your Hugging Face Collection should include notes that explain which models or Spaces you considered, used, or rejected.
+
+Submit or update:
+
+- **GitHub Profile**
+- **Hugging Face Collection**
+- **Space 1 - First Domain Build**
+- **Space 2 - The Rudimentary Build**
+
+---
+
+## What to Bring to Session 12
+
+- Space 3 URL, or exact blocked-status note
+- Space 2 URL
+- Demo Day presentation link
+- `PAPER.md`
+- `research-journal.md`
+- GitHub profile URL
+- Hugging Face Collection URL
+- one practiced 5-7 minute walkthrough
+
+---
+
+## Demo Day Reminder
+
+You are not defending a formal research paper. You are walking us through an applied project:
+
+> I wanted to build this. The simple version hit this wall. I made this move. It made this possible. It cost this. If I kept going, the next move would be this.
+
+That is the story.

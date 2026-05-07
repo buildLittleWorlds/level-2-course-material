@@ -1,172 +1,190 @@
 # Between Sessions 10 & 11
 
-> **What this week is about:** making your public research system ready for another human to test and read. By Session 11, a classmate should be able to open your profile, click into your Space and paper, try one input, and understand what you are investigating.
+> **What this week is about:** use the end-of-course assignments as your guide, finish naming your Space 2 wall, and make your Space 3 move visible.
 
-Session 10 was not a restart. It was an integration checkpoint: Space, paper, journal, citations, and profile all have to fit. This week you finish the integration work and prepare for peer review.
+Session 10 was the constraint checkpoint. You looked at the work you have and asked a practical question:
+
+> What can my current Space do, what can it not do, and what move would get it beyond that wall?
+
+This week you do not need to start from zero or make the work sound academic. You need to make the constraint-and-move arc real enough that a classmate can test it in Session 11.
 
 ---
 
-## Step 1: Make the Space Testable (30-60 min)
+## Step 1: Check the End-of-Course Assignments
 
-**Goal:** A peer can open your Space, understand what it is for, and get a result.
+Open the eight assignment posts in Google Classroom. They are the guide for the rest of the course.
 
-Open your Space URL.
+This week, focus on these four:
 
-If it works:
+- **Space 2 - The Rudimentary Build (the wall)**
+- **Space 3 - The Post-Move Build (after the wall)**
+- **Research Journal**
+- **Research Paper**
 
-1. Run three test inputs:
-   - a baseline input that should work
-   - an input tied directly to your research question
-   - a failure-case input that might expose a limitation
-2. Save the outputs in `week-10-integration-notes.md`.
-3. Fix one human-facing surface:
-   - title
-   - description
-   - examples
-   - output framing
+If your Space 1, GitHub Profile, or Hugging Face Collection are already ready, you can submit or update those too. But the main work this week is Space 2 -> Space 3.
 
-If it is broken:
+---
+
+## Step 2: Finish the Space 2 Wall Sentence
+
+Open your Space 2 candidate. This is the rudimentary build. It should do something real, but it should also reveal a wall.
+
+Write this sentence:
+
+```markdown
+This Space can <what it currently does>, but it cannot <the more interesting thing I wanted> because <constraint>.
+```
+
+Examples of constraints:
+
+- free CPU is too slow
+- the model is too large
+- the model gives generic output
+- the model misses the domain-specific language
+- the Space crashes during import
+- an API key or secret is missing
+- the output is hard for the intended user to use
+- the task is too broad and needs to be cropped
+
+Put this sentence in:
+
+- your Space 2 assignment submission comment
+- your Week 10 journal entry
+- the draft of your Paper section 3, "The constraint"
+
+---
+
+## Step 3: Build or Stabilize Space 3
+
+Space 3 is the post-move build. It should show one deliberate move beyond Space 2.
+
+Choose one path:
+
+### If Space 3 works
+
+1. Run one input that Space 2 handled poorly.
+2. Run the same or similar input through Space 3.
+3. Save both outputs in your notes.
+4. Add a README section to Space 3:
+
+```markdown
+## Constraint and Move
+
+The earlier version of this project hit this constraint:
+
+The move in this Space is:
+
+What this makes possible:
+
+What this costs:
+```
+
+### If Space 3 is not built yet
+
+1. Start from the simplest working version.
+2. Make one move only.
+3. Do not chase every feature.
+4. Save the exact next step if you get stuck.
+
+### If Space 3 is broken
 
 1. Open the Hugging Face **Logs** tab.
 2. Copy the first real error message.
-3. Paste the error into `week-10-integration-notes.md`.
-4. Ask an AI assistant for a debugging path.
-5. Try one fix in `app.py` or `requirements.txt`.
+3. Paste it into your Week 10 journal entry.
+4. Try one fix.
+5. If the fix does not work, write the next debugging step honestly.
 
-Do not hide the failure. A broken Space with a clear error and a next step is better than a profile that pretends nothing is wrong.
-
----
-
-## Step 2: Revise `PAPER.md` Around Real Evidence (45-75 min)
-
-**Goal:** Your paper includes one paragraph that connects your research question, your Space result, one verified source, and one limitation.
-
-Use [`WEEK-10-RESEARCH-WORK.md`](./WEEK-10-RESEARCH-WORK.md) for the full workflow.
-
-Minimum required revision:
-
-1. Open `PAPER.md`.
-2. Find one generic paragraph.
-3. Replace it with a paragraph that includes:
-   - what your project investigates
-   - one actual result from your Space
-   - one verified citation from `week-09-citations.md`
-   - one honest limitation
-4. Commit the change.
-
-If your `PAPER.md` is still extremely rough, do not wait for the perfect draft. Add one honest paragraph now. The paper grows by making real claims one at a time.
+A documented blocked move still counts as useful progress.
 
 ---
 
-## Step 3: Write `week-10-integration-notes.md` (20-30 min)
-
-**Goal:** Leave a clear record of what changed this week.
-
-Create `week-10-integration-notes.md` in your paper repo:
-
-```markdown
-# Week 10 Integration Notes
-
-## Current Research Question
-
-## Space Evidence
-
-### Baseline Input
-Input:
-Output:
-What this shows:
-
-### Research-Question Input
-Input:
-Output:
-What this shows:
-
-### Failure-Case Input
-Input:
-Output:
-What this shows:
-
-## Source I Used in PAPER.md
-
-## Paragraph I Revised
-
-## What Still Does Not Fit
-```
-
-This file helps you explain your process during peer review.
-
----
-
-## Step 4: Update the GitHub Profile README (20 min)
-
-**Goal:** Your profile is a current front door, not an old snapshot.
-
-Open the special profile repo named after your GitHub username. Update:
-
-- **What I'm Researching** — current research question
-- **Spaces I've Built** — working Space links, with one-line descriptions
-- **Paper** — link to the repo containing `PAPER.md`
-- **Research Journal** — link to `research-journal.md`
-- **What I'm Building Now** — what you need feedback on in Session 11
-
-The reader should not have to guess which Space is your main project.
-
----
-
-## Step 5: Week 10 Journal Entry (20 min)
+## Step 4: Write the Week 10 Journal Entry
 
 Add this entry to `research-journal.md`:
 
 ```markdown
-## Week 10 — Paper/Space Integration
+## Week 10 - The Wall and the Move
 
-### What I Tested
+### What I wanted to build
 
-### What I Changed in PAPER.md
+### What Space 2 can do
 
-### What Source I Used
+### The wall I hit
 
-### What Still Does Not Fit
+### The move I chose for Space 3
 
-### What I Want Peer Testers to Try
+### What the move made possible
+
+### What the move cost
+
+### What I need a peer tester to try next week
 ```
 
-Specifics matter. "I tested three anime scene prompts and the model handled mood better than motion continuity" is useful. "I tested my Space" is not.
+Keep it specific. Name the Space, model, error, API, limitation, or output. "It did not work well" is too vague. "The model returned generic advice that did not use NYSSMA rubric language" is useful.
 
 ---
 
-## Optional Stretch
+## Step 5: Revise `PAPER.md` Around the Assignment Template
 
-If Steps 1-5 are done:
+Open the Research Paper assignment in Google Classroom. Use that structure.
 
-- Add a screenshot or short output table to `PAPER.md`.
-- Add one more verified source to `week-09-citations.md`.
-- Ask someone outside class to try the Space and record what confused them.
-- Update your Hugging Face Collection notes so the models in the Collection explain your model choice.
+Before Session 11, try to fill rough notes under these sections:
+
+```markdown
+## 1. What I wanted to build
+
+## 2. The rudimentary baseline (Space 2)
+
+## 3. The constraint
+
+## 4. What I tried first
+
+## 5. The move that worked (Space 3)
+
+## 6. What the move cost me
+
+## 7. What I'd do next
+```
+
+Do not wait for perfect prose. A rough honest paragraph is better than a polished paragraph that hides the wall.
+
+If you have a verified source from Week 9, use it lightly. One sentence is enough:
+
+> This source helps explain why this constraint matters because...
+
+The paper is still centered on your build.
+
+---
+
+## Step 6: Update Profile and Collection if You Can
+
+If time remains:
+
+- Update your GitHub profile so the current project points to Space 2, Space 3, the paper, and the journal.
+- Add or edit Hugging Face Collection notes for models or Spaces you considered, rejected, or used in the move.
+
+The Collection is not just cool links. It is the toolbox you considered while trying to get past the wall.
 
 ---
 
 ## What to Bring to Session 11
 
-- Your GitHub profile URL
-- Your main Space URL, or the exact error message if it is broken
-- Your updated `PAPER.md`
-- `week-10-integration-notes.md`
-- Your Week 10 journal entry
-- One specific peer-testing request: "Try this kind of input and tell me whether the output helps."
+- Space 2 URL, or the exact reason Space 2 is missing or broken
+- Space 3 URL, or the exact next step if it is not working yet
+- your one-sentence wall
+- Week 10 journal entry
+- rough Paper sections for the constraint and move
+- one input you want a classmate to try
 
 ---
 
-## What Session 11 Picks Up
+## Session 11 Preview
 
-Session 11 is peer review and iteration. Your classmates will not only test whether the Space runs; they will test whether the whole system makes sense to another person.
+Session 11 is peer testing. Your classmate will not only ask, "Does this Space work?" They will ask:
 
-The question for Session 11:
+- What could Space 2 not do?
+- What does Space 3 now do differently?
+- Did the move help?
+- What did the move cost?
 
-> When someone else reads your profile, tries your Space, and opens your paper, do they see the same investigation you think you are doing?
-
-That is the fitting problem again, now with a real reader.
-
----
-
-AI + Research Level 2 • Session 10: Polish, Integrate, and Tell the Portfolio Story
+That feedback becomes the final revision path for your paper, journal, Space 3 README, and Demo Day presentation.

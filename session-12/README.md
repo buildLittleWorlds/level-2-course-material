@@ -1,25 +1,81 @@
-# Session 12: Methodological Reflection and Portfolio Presentation
-*"Demo Day"*
-
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/buildLittleWorlds/level-2-course-material/blob/main/session-12/notebook.ipynb)
+# Session 12: Demo Day - The Constraint-and-Move Story
+*"What did you try, where did it hit a wall, and what move did you make?"*
 
 ## What This Session Covers
 
-Students present their research journeys to the group — not just a Space demo, but the full story: the question they investigated, the Collection they curated, the journal they kept, and the artifact they built. They compile their work into a portfolio that shows what they explored, what they learned, and how their thinking evolved. The concept: Reflection and Portfolio.
+Session 12 is Demo Day. Students present the same applied arc they have been documenting in the end-of-course assignments:
 
-## Narrative Role
+1. what they wanted to build
+2. the constraint they hit
+3. the move they made
+4. what the move cost
+5. what they would try next
 
-The payoff. This is the final session — the culmination of the entire three-act arc. Students present not just a Space but the story of a twelve-session investigation. The "Story So Far" segment walks the arc one last time: Act I's classical models, Act II's breakthrough from classification to generation, and Act III's building and reflecting. The Course Closer brings the full narrative home: "That's the story of how we got from models that sort text into buckets to models that write essays and generate images."
+This is not a formal research defense and not just a Space demo. It is a short, honest walkthrough of a build that ran into a real constraint.
 
-## Connections
+## The Anchor
 
-- **Builds on Session 11** (Iterate and Polish) — students arrive with polished Spaces and the narrative prompt: "How does your project connect to the bigger story we've been telling?"
-- **Completes the three-act arc** — Act I (The Old Way, Sessions 1–3), Act II (The Breakthrough, Sessions 4–8), Act III (Building and Reflecting, Sessions 9–12)
-- **Concept:** Reflection and Portfolio
+The end-of-course assignments in Google Classroom are the source of truth. By Demo Day, students should submit or update:
+
+- Research Journal
+- Research Paper
+- Demo Day Presentation
+- Space 3 - The Post-Move Build
+- Space 2 - The Rudimentary Build
+- GitHub Profile
+- Space 1 - First Domain Build
+- Hugging Face Collection
+
+The presentation does not replace those assignments. It walks the class through the same story those assignments document.
+
+## Session Flow
+
+### 1. Open the Frame
+
+Remind students:
+
+> Research = managing a constraint. You tried to build something, hit a wall, made a move, named the cost, and decided what should happen next.
+
+### 2. Student Presentations
+
+Each student gets 5-7 minutes:
+
+1. **What I wanted to build** - user, task, and more-interesting version.
+2. **The constraint** - the wall, with concrete evidence if possible.
+3. **The move** - what changed, plus Space 3 demo or blocked-status evidence.
+4. **What it cost** - tradeoff, dependency, latency, scope reduction, or another cost.
+5. **What is next** - the next wall and next move.
+
+### 3. Assignment Check
+
+After presentations, students check that their GitHub profile points to the current versions of the paper, journal, Spaces, and Collection.
+
+If something is unfinished, the student writes the next step honestly rather than leaving the artifact silent.
+
+### 4. Course Close
+
+The final message is practical:
+
+> You did not just make AI demos. You learned how to notice a constraint, make a decision, and explain the tradeoff. That is the work behind real AI systems.
 
 ## Session Resources
 
-- **slides.html** — presentation slides with Story So Far and Course Closer
-- **INSTRUCTOR-GUIDE.md** — full lesson plan with time breakdown
-- **portfolio-template.md** — template for compiling a project portfolio
-- **notebook.ipynb** — Google Colab reflection notebook
+- **Google Classroom end-of-course assignments** - final submission checklist
+- **[`portfolio-template.md`](./portfolio-template.md)** - optional template for organizing links around the eight assignments
+- **[`../level-2-sp-26/END-OF-COURSE-ASSIGNMENTS.md`](../level-2-sp-26/END-OF-COURSE-ASSIGNMENTS.md)** - local reference copy
+- **slides.html** - optional presentation support
+- **notebook.ipynb** - optional reflection support, not required for the final arc
+
+## What Students Should Leave With
+
+- Demo Day presentation completed
+- final or best-current assignment links submitted
+- GitHub profile acting as the front door to the project
+- a clear account of Space 1 -> Space 2 -> Space 3
+- one honest next move if they continued the project
+
+## Connections
+
+**Builds on:** Session 10's wall/move planning and Session 11's peer testing.
+
+**Completes:** the end-of-course assignment arc: one constraint, one move, one portfolio.
