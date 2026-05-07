@@ -1,135 +1,172 @@
 # Between Sessions 10 & 11
 
-> **Heads-up:** This is also the week the course turns toward research work — and Week 10 is where the research work becomes a draft. Your main research work between sessions 10 and 11 is in [`WEEK-10-RESEARCH-WORK.md`](./WEEK-10-RESEARCH-WORK.md). Read that first. The build, journal, and GitHub steps below support that research work.
+> **What this week is about:** making your public research system ready for another human to test and read. By Session 11, a classmate should be able to open your profile, click into your Space and paper, try one input, and understand what you are investigating.
 
-This week is the most important between-session work of the whole course. You are pulling your Space, your journal, and your sources together into something that actually makes a claim.
-
-Prea's [Week 10 journal entry ("End-to-End Testing and the Correlation Analysis")](../example-student-prea/research-journal.md) shows what serious end-to-end testing looks like when a student actually has a hypothesis to test. She builds a 20-clip test set (10 TED talks, 10 student debate speeches), rates each clip *before* running it through her tool (so her ratings are not contaminated by the tool's output), and computes Spearman rank correlations between her ratings and her tool's three scores. Her results are interesting but small (n=20, single rater, selection bias) — and what makes the entry a model is that she names all of those limitations in the entry itself, before anyone asks. She also discovers something she did not expect: on student debate, the combined score is *worse* than the prosody score alone, which tells her the content score is adding noise rather than signal on that set. That kind of "the result contradicts what I predicted" moment is the one worth chasing in your own testing this week.
+Session 10 was not a restart. It was an integration checkpoint: Space, paper, journal, citations, and profile all have to fit. This week you finish the integration work and prepare for peer review.
 
 ---
 
-## Part 1: Hub Challenge — Get Your Space Working
+## Step 1: Make the Space Testable (30-60 min)
 
-In class you did **end-to-end system design** — choosing a question, a model, and building a complete tool. Your Space is YOUR project — the thing you'll present on Demo Day (Session 12).
+**Goal:** A peer can open your Space, understand what it is for, and get a result.
 
-Now make sure it actually works, and think about **your own design choices**.
+Open your Space URL.
 
-### Option A: Stay with Sentiment
+If it works:
 
-1. Visit your Space URL. Does it load without errors?
-2. Test with **5 different inputs** — vary length, tone, and topic:
-   - A clearly positive input (baseline)
-   - A clearly negative input
-   - Something neutral or ambiguous
-   - Something very short (one word)
-   - Something very long (a full paragraph)
-3. For each input, ask yourself:
-   - Does the output make sense?
-   - Would your target audience understand it?
-   - Is the suggested action helpful?
-4. **Fix the worst result.** Can you change the code, examples, or output formatting to handle it better?
-5. **Bonus:** Have someone outside the class try it. Don't explain anything — just share the URL.
-6. **Update your Collection** with any models or Spaces that inspired your build
+1. Run three test inputs:
+   - a baseline input that should work
+   - an input tied directly to your research question
+   - a failure-case input that might expose a limitation
+2. Save the outputs in `week-10-integration-notes.md`.
+3. Fix one human-facing surface:
+   - title
+   - description
+   - examples
+   - output framing
 
-### Option B: Explore Your Own Topic
+If it is broken:
 
-1. Visit your Space URL. Does it load without errors?
-2. If it's broken, check the "Logs" tab on Hugging Face for error messages. Common fixes:
-   - Missing import → add it to `app.py`
-   - Missing package → add it to `requirements.txt`
-   - Model too large → switch to a `distil-` variant
-3. Test with **5 different inputs** that your target audience would actually use
-4. For each input:
-   - Does the model give a reasonable result?
-   - Is the output framed for your audience (not for programmers)?
-   - What would you change?
-5. **Fix one thing.** Improve the title, add a better example, or reformat the output.
-6. **Update your Collection** — add a tasting note about why you chose this model and what you learned building with it
+1. Open the Hugging Face **Logs** tab.
+2. Copy the first real error message.
+3. Paste the error into `week-10-integration-notes.md`.
+4. Ask an AI assistant for a debugging path.
+5. Try one fix in `app.py` or `requirements.txt`.
 
-The key idea is the same either way: **you chose a question, a model, and a design. Now test whether your choices work.** That's the research cycle — build, test, iterate.
-
-### Checklist
-
-- [ ] Space loads without errors
-- [ ] All example inputs produce reasonable output
-- [ ] Title is clear to someone who doesn't know AI
-- [ ] Description explains who this is for and what it does
-- [ ] Tried 5 weird inputs (emoji, gibberish, empty, very long, very short)
-
-### Bring It Back
-
-Next session, bring your working Space URL, one thing you're proud of, and one thing you want to improve.
-
-### SpaceCraft Resources
-
-Now that you're building your own Space, three parts of SpaceCraft are especially useful:
-
-- **[Build Guides](https://buildlittleworlds.github.io/spaceCraft/guides.html)** — Annotated walkthroughs of three leaderboard Spaces showing how they're built. If you're stuck on architecture decisions, study the one closest to your pattern (API wrapper, specialized model, or data dashboard).
-- **[Student Showcase](https://buildlittleworlds.github.io/spaceCraft/showcase.html)** — Where the best student Spaces from each cohort are featured. Your Space could end up here after Demo Day.
-- **[Chapter 8: Designing for Your Audience](https://buildlittleworlds.github.io/spaceCraft/design.html)** — The craft checklist at the bottom is a pre-flight check for your Space before you share it.
-
-### Looking Ahead
-
-You just did the synthesis — every concept from the course embedded in one build. But a first draft is just a first draft.
-
-Next session is about the experimentation loop. You'll swap Spaces with classmates. They'll try inputs you never thought of — the way we broke models back in Session 3 with sarcasm and ambiguity. You'll get feedback, and then you'll iterate. Build, test, improve.
-
-Before next session, ask yourself: what's the one input that breaks my Space? If you can find it before your classmates do, you're already iterating.
+Do not hide the failure. A broken Space with a clear error and a next step is better than a profile that pretends nothing is wrong.
 
 ---
 
-## Part 2: Research Journal Entry
+## Step 2: Revise `PAPER.md` Around Real Evidence (45-75 min)
 
-Add your Week 10 entry to `research-journal.md` in your GitHub repo. This is your most important entry — you're documenting the choices behind your own project. 300-500 words.
+**Goal:** Your paper includes one paragraph that connects your research question, your Space result, one verified source, and one limitation.
 
-### Week 10 Entry
+Use [`WEEK-10-RESEARCH-WORK.md`](./WEEK-10-RESEARCH-WORK.md) for the full workflow.
+
+Minimum required revision:
+
+1. Open `PAPER.md`.
+2. Find one generic paragraph.
+3. Replace it with a paragraph that includes:
+   - what your project investigates
+   - one actual result from your Space
+   - one verified citation from `week-09-citations.md`
+   - one honest limitation
+4. Commit the change.
+
+If your `PAPER.md` is still extremely rough, do not wait for the perfect draft. Add one honest paragraph now. The paper grows by making real claims one at a time.
+
+---
+
+## Step 3: Write `week-10-integration-notes.md` (20-30 min)
+
+**Goal:** Leave a clear record of what changed this week.
+
+Create `week-10-integration-notes.md` in your paper repo:
 
 ```markdown
-## Week 10 — End-to-End System Design (My Own Build)
+# Week 10 Integration Notes
 
-### This Week's Method
-(What research method did we learn? Hint: end-to-end system design — choosing a question, selecting a model, and building a research prototype.)
+## Current Research Question
 
-### How I Applied It
-(What did you build? What model did you choose and why? What task does it perform? Who is it designed for?)
+## Space Evidence
 
-### What I Expected
-(Before building — did you think this model would work well for your task? Did you expect the build to be easy or hard?)
+### Baseline Input
+Input:
+Output:
+What this shows:
 
-### What I Found
-(What actually happened? Does the model do what you expected? What inputs work well? What inputs break it?)
+### Research-Question Input
+Input:
+Output:
+What this shows:
 
-### Why I Think This Happened
-(Your explanation. Connect it to the model's training data, the task it was designed for, and the choices its creators made.)
+### Failure-Case Input
+Input:
+Output:
+What this shows:
 
-### Limitations
-(What can't your Space do? What would you need to make it better? Is the model good enough for your intended audience?)
+## Source I Used in PAPER.md
 
-### What I Want to Try Next
-(What will you improve for Demo Day? What's the one thing that would make the biggest difference?)
+## Paragraph I Revised
+
+## What Still Does Not Fit
 ```
 
-If you're not sure what to write, start with: why did you choose this model, and does it actually do what you need? That's the core of research methodology — justifying your methods.
-
-**Need a model for what this entry looks like?** Read [Prea's Week 10 entry](../example-student-prea/research-journal.md). It follows the same arc — method, application, expectations, findings, explanation, limitations, next steps. Notice how she is honest about what doesn't work (n=20 is a pilot, single rater, rater contamination risk, ASR bias on non-native speakers, small-model content scoring) while still showing that the pipeline is sound and the result is interesting. The limitations section is what makes the findings credible, not what undermines them.
+This file helps you explain your process during peer review.
 
 ---
 
-## Part 3: Grow Your Collection + GitHub
+## Step 4: Update the GitHub Profile README (20 min)
 
-### Collection
+**Goal:** Your profile is a current front door, not an old snapshot.
 
-Your Collection should have at least **12 models and 7 Spaces** by Session 11. For your newest items, include tasting notes that connect to your project — what did you learn from exploring this model that informed what you built?
+Open the special profile repo named after your GitHub username. Update:
 
-### Notebook
+- **What I'm Researching** — current research question
+- **Spaces I've Built** — working Space links, with one-line descriptions
+- **Paper** — link to the repo containing `PAPER.md`
+- **Research Journal** — link to `research-journal.md`
+- **What I'm Building Now** — what you need feedback on in Session 11
 
-Keep experimenting with your model in the Session 10 notebook. Push it to your GitHub repo when you're ready.
+The reader should not have to guess which Space is your main project.
 
-### GitHub
+---
 
-Upload this week's notebook to your `my-ai-portfolio` repo:
+## Step 5: Week 10 Journal Entry (20 min)
 
-1. Go to your repo on github.com
-2. Click **Add file** → **Upload files**
-3. Drag the `.ipynb` file and click **Commit changes**
-4. Open `research-journal.md`, click the pencil icon to edit, add your Week 10 entry below the Week 9 entry, and commit
+Add this entry to `research-journal.md`:
+
+```markdown
+## Week 10 — Paper/Space Integration
+
+### What I Tested
+
+### What I Changed in PAPER.md
+
+### What Source I Used
+
+### What Still Does Not Fit
+
+### What I Want Peer Testers to Try
+```
+
+Specifics matter. "I tested three anime scene prompts and the model handled mood better than motion continuity" is useful. "I tested my Space" is not.
+
+---
+
+## Optional Stretch
+
+If Steps 1-5 are done:
+
+- Add a screenshot or short output table to `PAPER.md`.
+- Add one more verified source to `week-09-citations.md`.
+- Ask someone outside class to try the Space and record what confused them.
+- Update your Hugging Face Collection notes so the models in the Collection explain your model choice.
+
+---
+
+## What to Bring to Session 11
+
+- Your GitHub profile URL
+- Your main Space URL, or the exact error message if it is broken
+- Your updated `PAPER.md`
+- `week-10-integration-notes.md`
+- Your Week 10 journal entry
+- One specific peer-testing request: "Try this kind of input and tell me whether the output helps."
+
+---
+
+## What Session 11 Picks Up
+
+Session 11 is peer review and iteration. Your classmates will not only test whether the Space runs; they will test whether the whole system makes sense to another person.
+
+The question for Session 11:
+
+> When someone else reads your profile, tries your Space, and opens your paper, do they see the same investigation you think you are doing?
+
+That is the fitting problem again, now with a real reader.
+
+---
+
+AI + Research Level 2 • Session 10: Polish, Integrate, and Tell the Portfolio Story

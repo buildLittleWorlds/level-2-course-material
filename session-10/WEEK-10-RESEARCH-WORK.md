@@ -1,55 +1,173 @@
 # Week 10 Research Work
 
-Prereqs: `week-06-research-question.md`, `week-07-source-search.md`, `week-08-paper-read.md`, `week-09-citations.md`.
+Prereqs: `week-06-research-question.md`, `PAPER.md`, `research-journal.md`, your GitHub profile README, a Hugging Face Space you can test, and `week-09-citations.md`.
 
-Here's where you are. You have a sharpened question (Week 6), 3–5 vetted sources (Week 7), one paper you've actually read carefully (Week 8), and a verified citation list with real DOIs and real claims (Week 9). That's more raw material than most undergraduate research papers start with. This week turns it into a draft.
+This week is not about starting a brand-new research brief from zero. You already have the spine of the project. Week 10 is where the pieces start fitting:
+
+- your Space produces real outputs
+- your journal explains what happened
+- your verified sources support specific claims
+- your `PAPER.md` uses both the sources and the Space results honestly
+- your GitHub profile points a reader to the current version of the work
 
 ## The temptation
 
-The temptation this week is enormous: open Claude or ChatGPT and say "here are my sources, write me a four-page research brief." It will do it. It will produce fluent, professional-sounding prose. And it will be garbage — not because the prose is bad, but because it won't be about *your* thinking. Some of the citations won't even support the sentences they're attached to, because the AI didn't read your sources.
+The temptation is to treat the paper, Space, journal, and profile as separate assignments. That is how the project falls apart. A reader should be able to move from your profile to your paper to your Space and feel that they are seeing one investigation from different angles.
 
-**AI helps you draft. It doesn't draft for you.** Three specific moves to practice:
+The rule for this week:
 
-### Move 1 — Outline pressure-testing
+> Every claim in `PAPER.md` should be backed by either your own Space evidence, a verified source, or both.
 
-Write the section headings and one sentence under each. Then paste into AI:
+## The Week 10 deliverable
 
-> Here is my outline for a 3-page research brief. Do NOT write the brief. Pressure-test the outline: (1) which sections are thin and need more material, (2) which are doing two jobs and should split, (3) what's the weakest logical link between my question and my conclusion, (4) what would a skeptical reader most want strengthened?
+Revise `PAPER.md` directly. Also create a short process note called `week-10-integration-notes.md` in the same repo.
 
-### Move 2 — Paragraph-level revision
+Your `week-10-integration-notes.md` is not the final paper. It is the lab record for how you revised the paper this week.
 
-After you've written a rough paragraph:
+## Move 1 — Claim-Evidence-Source Chain
 
-> Revise this paragraph for clarity and concision, but do NOT change the substance — do not add claims that aren't there, do not remove claims that are there, do not cite anything I haven't cited. Return the revision and one sentence explaining what changed and why.
+Open `PAPER.md` and find the main claim your paper is trying to make. If the claim is still vague, write a sharper version at the top of `week-10-integration-notes.md`:
 
-### Move 3 — Limitations sharpening
+```markdown
+## My Claim
 
-The most valuable move and the one students almost never think to do:
+My paper argues that ...
+```
 
-> Here is my limitations section. Be a skeptical reader. What limitations am I NOT admitting that I probably should be? Don't write the section — just list the weaknesses a harsh reviewer would flag.
+Then build this chain:
 
-## What to do before Session 11
+```markdown
+## Claim-Evidence-Source Chain
 
-Create `week-10-brief-draft.md`.
+**Claim:** <one sentence your paper currently makes or should make>
 
-1. Start from an outline. Run Move 1 on it. Log the feedback at the top as "Outline feedback." Revise your outline based on what lands.
-2. Draft the brief. Target 2–4 pages. Suggested structure: Introduction → Background/Related Work (where your Week 7–9 sources live) → Approach (what you did in your Spaces, or would do with more time) → Findings/Discussion → Limitations → Conclusion.
-3. For each paragraph you draft, you may use Move 2 for revision — but you must start from your own rough paragraph. Do not ask AI to generate paragraphs from scratch.
-4. Before finalizing Limitations, run Move 3. Let AI surface things you didn't think of. Then YOU write the revised section incorporating what lands.
-5. **Verify every citation still supports the claim you're using it for.** You did this in Week 9, but drafts drift. The eyeball test doesn't expire.
-6. At the bottom, one paragraph of reflection: where did AI help, and where didn't it? Be specific.
+**Space evidence:** <one result from my Space that supports, complicates, or challenges the claim>
 
-## Watch out for
+**Verified source:** <one citation from week-09-citations.md that supports or frames the claim>
 
-- "I asked AI to write the brief and it gave me a good one." — The most dangerous failure mode. If you can't point to a sentence where you disagreed with AI and rewrote it, the brief isn't yours.
-- AI dropping in citations you didn't give it. Forbid this explicitly in your prompt: "Do not add citations. Only use the ones already in my paragraph."
-- A draft that's one page and you don't know how to extend — usually means the sources aren't integrated. Add a Background paragraph that uses at least two of your Week 7 sources.
-- The outline pressure-test coming back "fine" — re-prompt adversarially: "Be harsh. Assume the outline has problems. Find them."
-- Limitations sections feeling like you're tearing your brief apart — that's what they're for. A strong limitations section makes readers trust the strong parts more.
+**Limitation:** <one reason this evidence is still not enough>
+```
 
-## For an example
+If you cannot fill in one of those four lines, that tells you exactly what to fix.
 
-Prea's [Week 11 journal entry ("The Thread, and Drafting the Brief")](../example-student-prea/research-journal.md) is the closest thing we have to a record of what drafting looked like in practice — including which of the three Moves she actually used, where AI helped, and where she had to push back. Her completed [research brief](../example-student-prea/research-brief.md) is what a finished version of this week's deliverable can look like.
+## Move 2 — Run Three Inputs Through Your Space
+
+Choose three inputs a real user would try:
+
+1. **Baseline input** — something you expect the Space to handle well
+2. **Interesting input** — something close to your research question
+3. **Failure-case input** — something that might confuse the model
+
+Paste the inputs and outputs into `week-10-integration-notes.md`:
+
+```markdown
+## Space Evidence
+
+### Input 1 — Baseline
+Input:
+Output:
+What this shows:
+
+### Input 2 — Research Question
+Input:
+Output:
+What this shows:
+
+### Input 3 — Failure Case
+Input:
+Output:
+What this shows:
+```
+
+If your Space is broken, do not pretend it works. Make the note:
+
+```markdown
+## Space Status
+
+The Space is currently broken. The error is:
+
+<paste the error message>
+
+My next debugging step is:
+```
+
+Then revise `PAPER.md` around what you can honestly say: what you intended to test, where the build failed, and what the failure reveals about the system.
+
+## Move 3 — Revise One Paper Paragraph
+
+Pick one paragraph in `PAPER.md` that currently sounds generic. Replace it with a paragraph that uses your chain from Move 1.
+
+A strong Week 10 paragraph has this shape:
+
+```markdown
+My project investigates <question>. In my Space test, <specific input/result> showed <pattern>. This matters because <verified source> argues/shows <source claim>. However, my result is limited because <honest limitation>.
+```
+
+Do not ask AI to write the paragraph from scratch. You may use AI after you write your own rough version:
+
+> Revise this paragraph for clarity, but do not add claims, do not add citations, and do not remove the limitation. Return the revised paragraph and a one-sentence note explaining what changed.
+
+## Move 4 — Update the Limitations Section
+
+Your limitations section should now include at least one limitation from each category that applies:
+
+- **Model limitation:** what the model was trained to do, and what it was not trained to do
+- **Data limitation:** what kinds of examples you tested, and what you did not test
+- **Audience limitation:** who the Space is useful for, and who it may not serve well
+- **System limitation:** any API, hosted model, Hugging Face runtime, or multi-step pipeline dependency
+- **Evidence limitation:** why three Space outputs or a small test set are not enough to prove a broad claim
+
+Use AI as a skeptical reader if it helps:
+
+> Here is my limitations paragraph. Be a skeptical reader. What limitations am I still not admitting? Do not rewrite the paragraph. List the missing limitations.
+
+Then you decide what belongs in the paper.
+
+## Move 5 — Profile and Journal Fit Check
+
+Update your GitHub profile README so the public front door matches the current project:
+
+- research question is current
+- Space link works
+- paper repo link works
+- "What I'm Building Now" says what you are actually doing before Session 11
+
+Then add a Week 10 entry to `research-journal.md`:
+
+```markdown
+## Week 10 — Paper/Space Integration
+
+### What I Tested
+
+### What I Added or Changed in PAPER.md
+
+### Which Source I Used
+
+### What Still Does Not Fit
+
+### What I Need Peer Testers to Try in Session 11
+```
+
+## What to Bring to Session 11
+
+- Your working Space URL, or the exact error you need help debugging
+- Your updated `PAPER.md`
+- `week-10-integration-notes.md`
+- Your Week 10 journal entry
+- Your GitHub profile README with current links
+- One specific thing you want a peer tester to try
+
+## Watch Out For
+
+- A profile that links to an old Space while the paper discusses a different project
+- A `PAPER.md` that cites real sources but never mentions your actual Space results
+- A journal entry that says "I improved it" without naming the input, output, or change
+- A limitations section that only says "I need more time"
+- AI-generated prose that sounds polished but does not match your actual evidence
+
+## For an Example
+
+Prea's [research journal](../example-student-prea/research-journal.md) and [research brief](../example-student-prea/research-brief.md) show the pattern this week is aiming for: a tool, a test set, a finding, and limitations that make the finding more credible rather than weaker.
 
 ---
 
